@@ -1,0 +1,19 @@
+Topic ID,Unit Name,Possible major concepts covered
+0,Vector and Math,trigonometry and vector algebra.
+1,1D Motion,"Instantaneous and average velocity, acceleration, speed, Graphical representation of motion"
+2,2D Motion,Projectile Motion. Motion in 2 and 3 dimensions. Circular Motion and Centripetal Acceleration
+3,Forces,"Hooke's law, Kinetic and Static Friction, Gravity, Tension, Contact Forces"
+4,Newton's Laws of Motion,"Free body diagram, statics and dynamics problems, Centripetal Motion"
+5,Kinetic Energy and Work,"Conservative and Non-Conservative Work, Kinetic Energy"
+6,Conservation of ME.,Potential Energy and Conservation of Mechanical Energy
+7,Momentum and Impulse,"Linear Momentum and Impulse, (Conservation of Linear Momentum for 2053)"
+8,Many-particle Systems,"Conservation of Linear Momentum, Elastic and Inelastic Collision, COM"
+9,Rotational Motion,"Rotational Kinematics, torque, Moment of Inertia and Rotational Dynamics, Rolling W/O slipping"
+10,Angular Momentum,"Angular Impulse, Angular momentum, Conservation of Angular momentum"
+11,Simple Harmonic Motion,"SHM, simple pendulum, damped harmonic oscillators, resonance"
+12,Waves and Oscillation,wave propagation and periodic motion
+13,Universal Gravity,"Universal Gravity, Planetary Motion, Kepler's Law"
+14,Fluids,Fluid Statics and Dynamics
+15,Thermal Physics,"Heat Transport/Thermal Conductivity. Specific heat, latent heat, Thermal expansion and Heat engines, Ideal gas law, kinetic theory of gas, 3 laws of thermodynamics"
+16,Modern Applications of Mechanics,Topics to be determined
+17,Units,Unit Conversion
