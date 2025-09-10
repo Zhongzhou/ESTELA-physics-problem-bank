@@ -1,6 +1,8 @@
 # Formatting prompt
 Copy the following prompts into chatGPT for creation of standard format. For problems with longer solution, do 2-3 problems at a time.
 
+**Note: For more problem types and more controls, refer to "./YAML_problem_types.md"**
+
 # Numerical problem formatting prompt
 Now please help me transform the first 5 problems into a YAML format, according to the example problem format below. 
 
@@ -14,15 +16,16 @@ Now please help me transform the first 5 problems into a YAML format, according 
     title: Title of Question 
     points: 3
     text: | 
-      This is example question text which contains an equation: <latex>x^2 + 2x + 1 = 0</latex>.
+      This is example question text which contains an inline equation: <latex>x^2 + 2x + 1 = 0</latex>.
       We can also write equation in new line using:
-
+      Degree ° Theta θ Delta Δ Pi π and other special characters can be inserted literally or using the character's corresponding HTML hex code.  
       <latex>
       x^2 + 2x + 1 = 0
       </latex>
 
     answer:
         value: 42.2 # The answer to the problem
+        margin_type: absolute # ... any answer within a certain absolute range will also be counted as 'correct'
         tolerance: 0.05 # The tolerance value
     feedback:
         general: The solution of the problem
