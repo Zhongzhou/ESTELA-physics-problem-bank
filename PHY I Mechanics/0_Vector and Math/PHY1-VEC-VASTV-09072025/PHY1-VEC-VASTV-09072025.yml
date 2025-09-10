@@ -1,0 +1,741 @@
+bank_info:
+    title: Vector Addition and Subtraction with Three Vectors. 
+    bank_id: PHY1-VEC-VASTV-09072025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      The problem bank asks students to calculate the vector operation of three vectors, given their magnitude and direction. One of those vectors has an angle defined with respect to the y-axis. There are three distractors each problem: Direct addition of magnitude with two randomly chosen angles, and ignoring the angle with the y-axis (swapped components of one of the vectors.)
+    date_created: 09-07-2025
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        -prompt 1: |-
+            I'm working to make Physics problems related to vectors. You're going to be making 3 vectors.
+            Do all of this in a python program, which we will later append to, so keep these steps to create a set of 3 vectors in a class.
+            Use numpy for random numbers and other uses, as well as importing pandas and matplot lib for later use.
+            Use doubles instead of floats when needed.
+            Randomly select an integer angle for the first vector from the positive x axis, avoiding 90 degree angle intervals (aligning with any x-y axis).
+            Then, create another angle that has a difference value between 30 and 330 degrees to the first. Next, create a third angle that has a difference of at least 90 degrees to the FIRST angle, and at least 30 degrees to the second.
+            Take into account that vectors 2 and 3 should also not be directly aligned with any x-y axis as well. Also make sure no angle is less than 10 degrees either way from an axis.
+            Generate random magnitudes between 5 - 16 units for each vector created, with whole numbers and a .0 decimal place after to specify accuracy.
+            List all 3 below, as well as providing the code. 
+        -prompt 2: |
+            Using these vectors as set 1, generate another 4 sets to create 5 sets total using the same method.
+            Provide the updated program as well. 
+        -prompt 3:  |
+            Generate another 5 vectors to create 10 sets total. Place all sets with each 3 vectors labeled A, B, C with their respective magnitudes and angles for each set, all in one table. 
+            Each column should provide each vector's magnitude and angle in one cell.
+            Provide updated code as well. 
+        -prompt 4:  |
+            From this table, generate a new column with a new vector R, containing a summation with vectors A, B, C. For each set, at least one of the vectors must be subtracted, and one must be added. (ie: B-C+A, A+B-C, A-B+C, etc). 
+            Display the new table and provide updated code. 
+        -prompt 5:  |
+            Next, we are going to utilize matplotlib to create figures for each of the 3 base vectors.
+            Just focus on creating a plot displaying the first set of vectors for now.
+            Keep this in it's own function to later call on plots for the other 9 sets.
+            Firstly before we plot anything, we're going to mix up 2 of the angles and how they are displayed. Make one of the relative from the positive y axis instead of the x. Make another a negative angle relative from the positive x axis.
+            For the diagram, don't include grid lines, but do include axis with basic x and y labels at the ends of the lines, with no tick marks. Do not include figure titles. Make the margins 1 on the figures, and make the max range up to 18 in either direction. 
+            Make vectors A, B and C different colors, and format the linewidth to be 8, and the same for each vector and plot. Include arrowheads. 
+            Plot each vector centered at the origin, and an arc the same color as the vector from that line to the vector to represent the angle in which it is relative to that axis. Make the arc radius a minimum of 8, and a max of the vector radius - 8, and don't make them overlap. Make linewidth for the arc 4.
+            Make sure the arc illustrates the right number of degrees, NOT 360- that angle.
+            Label the vector name and magnitude next to the tip of each vector. And the angle in degrees next to the arc. Make sure the image is large so the vectors take up the screen space used. Make the fontsize 30, and the labels the same color as their respective vectors.
+            Take extra care to make sure the labels don't overlap with any other element in the figure, including the arcs, vectors, or x / y axis. Add a light grey background behind each label for visibility. 
+        -prompt 6:  |
+            This is perfect. Please call this function again for the next 4 vectors (sets 1 - 5 in total) 
+        -prompt 7:  |
+            Update the code to call 1-10, and provide a .zip file of all figures.
+            Name the figures from q-1, q-2, all the way to q-10 
+        -prompt 8:  |
+            Perfect. For each of these sets of vectors and their operations, write student facing problems asking to find the resultant vector by doing the operations. These will later be multiple choice questions, but only do the prompt.
+            For each problem, mix up the order in which the vectors are summed together.
+            Also, don't put negative vectors first. Instead of listing -A-B+C as such, list it as C-A-B for example.
+            ie: Given vectors A, B, C (list all magnitudes and angles as well), find resultant vector R = (operation used between vectors)
+            Choose the option that has the correct magnitude and angle. 
+        -prompt 9:  |
+            For each of the problems 1-10 from before, make sure to use the angle relative from the axis used in the python code to create the figures. 
+            For example, in Question 1, A is -109 degrees from the x axis, B is 26 degrees from the y axis, and C 33 degrees from the x. Look back and update each problem according to this configuration. 
+        -prompt 10: |
+            Next, for the first 5 problems, write concise solutions targeted towards a student learning the material. Explain in the following steps:
+            1) Break each vector into its x and y components, noting which trig function to use for x or y based on which axis the angle was given from.
+            2) Add or subtract the components based on the question, the new resulting vector R.
+            3) Use arctan to get the new angle relative from the positive x axis in which R lies.
+            4) Combine the x and y components of R to get the magnitude.
+            5) Provide the final answer, giving the magnitude and the angle from the x - axis of R.   
+        -prompt 11: |
+            Do these solutions for problems 6 - 10 as well.
+        -prompt 12: |
+            I want to each of the incorrect answers a bit more challenging.
+            For each set, I want to change the incorrect answers to have 3 types:
+            1) A standard sum of the magnitudes of each vector listed. ie: if the magnitudes are A:5, B: 10, C: 7, and the operation is R = C-A+B, I would want the false answer to have a magnitude of 12. Pick a random angle from 0 to 360. In the case of a negative number, provide the absolute value instead.
+            2) An answer with the same magnitude as one of the INCORRECT answers, but with a random angle. Let the angle have at least a 20 degree difference from the copied one.
+            3) Do the correct operations for the correct answer, but for one of the components of either A, B, or C, flip the x and y components. Obtain the result doing this.
+            Make sure any incorrect answers have at least a 20 degree difference in angle from the correct answer as well. Update the .yaml file with these changes please.
+    associated data:
+    generation details: # Details of the creation process
+            model: Gemini Pro # The model used to generate the questions
+            version: 2.5 # The version of the model used
+            last updated: 09-07-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Leo Murch
+
+questions:
+  - multiple_choice:
+      id: q1
+      title: Resultant Vector from Mixed-Axis Angles 1
+      points: 1
+      text: |
+        You are given three vectors:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex> has a magnitude of 11.0 units at <b>-109° from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> has a magnitude of 15.0 units at <b>26° from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> has a magnitude of 9.0 units at <b>33° from the positive x-axis</b>.</li>
+        </ul>
+        Calculate the resultant vector <latex>\vec{R}</latex> from the operation <latex>\vec{R} = \vec{A} + \vec{C} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle.
+      figure: figure_folder/q-1.png
+      answers:
+        - answer:
+            text: Magnitude = 21.7 units, Angle = 299.1°
+            correct: true
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (11.0 + 15.0 + 9.0 = 35.0) with random angle.
+            text: Magnitude = 35.0 units, Angle = 120.0°
+            correct: false
+        - answer:
+            # Distractor Type 3: Calculation error (swapped B components: Bx=13.48, By=-6.58). Result: R_x = -9.51, R_y = 1.08 -> Mag=9.6, Angle=173.5°
+            text: Magnitude = 9.6 units, Angle = 173.5°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 3 (9.6) with different random angle.
+            text: Magnitude = 9.6 units, Angle = 45.0°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> The angle is -109°. To get the equivalent positive angle, add 360°. <br><latex>\theta_A = -109° + 360° = 251°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> The angle is 26° from the positive y-axis (90°). Add the given angle to 90°. <br><latex>\theta_B = 90° + 26° = 116°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> The angle is already in standard format. <br><latex>\theta_C = 33°</latex></li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 11.0 \cdot \cos(251°) = -3.58; A_y = 11.0 \cdot \sin(251°) = -10.40</latex></li>
+          <li><latex>\vec{B}: B_x = 15.0 \cdot \cos(116°) = -6.58; B_y = 15.0 \cdot \sin(116°) = 13.48</latex></li>
+          <li><latex>\vec{C}: C_x = 9.0 \cdot \cos(33°) = 7.55; C_y = 9.0 \cdot \sin(33°) = 4.90</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{A} + \vec{C} - \vec{B}</latex>.
+          <ul>
+          <li><latex>R_x = A_x + C_x - B_x = (-3.58) + 7.55 - (-6.58) = 10.55</latex></li>
+          <li><latex>R_y = A_y + C_y - B_y = (-10.40) + 4.90 - 13.48 = -18.98</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant IV (positive x, negative y).
+          <ul>
+          <li><latex>\theta = \arctan(\frac{-18.98}{10.55}) \approx -60.9°</latex></li>
+          <li><latex>\theta = -60.9° + 360° = 299.1°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(R_x)^2 + (R_y)^2} = \sqrt{(10.55)^2 + (-18.98)^2}</latex></li>
+          <li><latex>R = \sqrt{111.30 + 360.24} = 21.7</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>21.7 units</b> at an angle of <b>299.1°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q2
+      title: Resultant Vector from Mixed-Axis Angles 2
+      points: 1
+      text: |
+        Consider the following three vectors:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex>: Magnitude = 6.0 units, Angle = <b>-124° from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{B}</latex>: Magnitude = 10.0 units, Angle = <b>244° from the positive y-axis</b></li>
+        <li>Vector <latex>\vec{C}</latex>: Magnitude = 12.0 units, Angle = <b>128° from the positive x-axis</b></li>
+        </ul>
+        What is the resultant vector <latex>\vec{R}</latex> if <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>? Select the choice with the correct resultant magnitude and direction.
+      figure: figure_folder/q-2.png
+      answers:
+        - answer:
+            text: Magnitude = 22.9 units, Angle = 304.7°
+            correct: true
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (6.0 + 10.0 + 12.0 = 28.0) with random angle.
+            text: Magnitude = 28.0 units, Angle = 80.0°
+            correct: false
+        - answer:
+            # Distractor Type 3: Calculation error (swapped C components: Cx=9.46, Cy=-7.39). Result: R_x = -3.83, R_y = -1.96 -> Mag=4.3, Angle=207.1°
+            text: Magnitude = 4.3 units, Angle = 207.1°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 1 (28.0) with different random angle.
+            text: Magnitude = 28.0 units, Angle = 240.0°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -124° + 360° = 236°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 244° = 334°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 128°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 6.0 \cdot \cos(236°) = -3.36; A_y = 6.0 \cdot \sin(236°) = -4.97</latex></li>
+          <li><latex>\vec{B}: B_x = 10.0 \cdot \cos(334°) = 8.99; B_y = 10.0 \cdot \sin(334°) = -4.38</latex></li>
+          <li><latex>\vec{C}: C_x = 12.0 \cdot \cos(128°) = -7.39; C_y = 12.0 \cdot \sin(128°) = 9.46</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>.
+          <ul>
+          <li><latex>R_x = A_x + B_x - C_x = (-3.36) + 8.99 - (-7.39) = 13.02</latex></li>
+          <li><latex>R_y = A_y + B_y - C_y = (-4.97) + (-4.38) - 9.46 = -18.81</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant IV (positive x, negative y).
+          <ul>
+          <li><latex>\theta = \arctan(\frac{-18.81}{13.02}) \approx -55.3°</latex></li>
+          <li><latex>\theta = -55.3° + 360° = 304.7°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(13.02)^2 + (-18.81)^2} = \sqrt{169.52 + 353.82} = 22.9</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>22.9 units</b> at an angle of <b>304.7°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q3
+      title: Resultant Vector from Mixed-Axis Angles 3
+      points: 1
+      text: |
+        Three vectors are defined as follows:
+        <ul>
+        <li><latex>\vec{A}</latex>: 13.0 units at <b>-134° from the positive x-axis</b></li>
+        <li><latex>\vec{B}</latex>: 9.0 units at <b>248° from the positive y-axis</b></li>
+        <li><latex>\vec{C}</latex>: 7.0 units at <b>114° from the positive x-axis</b></li>
+        </ul>
+        Find the resultant vector <latex>\vec{R}</latex> where <latex>\vec{R} = \vec{B} + \vec{C} - \vec{A}</latex>. Choose the option that has the correct magnitude and angle.
+      figure: figure_folder/q-3.png
+      answers:
+        - answer:
+            text: Magnitude = 19.1 units, Angle = 40.5°
+            correct: true
+        - answer:
+            # Distractor Type 3: Calculation error (swapped C components: Cx=6.40, Cy=-2.85). Result: R_x = 23.78, R_y = 3.15 -> Mag=24.0, Angle=7.5°
+            text: Magnitude = 24.0 units, Angle = 7.5°
+            correct: false
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (13.0 + 9.0 + 7.0 = 29.0) with random angle.
+            text: Magnitude = 29.0 units, Angle = 300.0°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 3 (24.0) with different random angle.
+            text: Magnitude = 24.0 units, Angle = 180.0°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -134° + 360° = 226°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 248° = 338°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 114°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 13.0 \cdot \cos(226°) = -9.03; A_y = 13.0 \cdot \sin(226°) = -9.37</latex></li>
+          <li><latex>\vec{B}: B_x = 9.0 \cdot \cos(338°) = 8.35; B_y = 9.0 \cdot \sin(338°) = -3.37</latex></li>
+          <li><latex>\vec{C}: C_x = 7.0 \cdot \cos(114°) = -2.85; C_y = 7.0 \cdot \sin(114°) = 6.40</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{B} + \vec{C} - \vec{A}</latex>.
+          <ul>
+          <li><latex>R_x = B_x + C_x - A_x = 8.35 + (-2.85) - (-9.03) = 14.53</latex></li>
+          <li><latex>R_y = B_y + C_y - A_y = (-3.37) + 6.40 - (-9.37) = 12.40</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant I (positive x, positive y).
+          <ul>
+          <li><latex>\theta = \arctan(\frac{12.40}{14.53}) = 40.5°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(14.53)^2 + (12.40)^2} = \sqrt{211.12 + 153.76} = 19.1</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>19.1 units</b> at an angle of <b>40.5°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q4
+      title: Resultant Vector from Mixed-Axis Angles 4
+      points: 1
+      text: |
+        Given vectors <latex>\vec{A}</latex>, <latex>\vec{B}</latex>, and <latex>\vec{C}</latex>:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex> is 5.0 units at <b>-203° from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> is 16.0 units at <b>205° from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> is 14.0 units at <b>43° from the positive x-axis</b>.</li>
+        </ul>
+        Determine the resultant vector <latex>\vec{R}</latex> for the operation <latex>\vec{R} = \vec{A} - \vec{C} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle.
+      figure: figure_folder/q-4.png
+      answers:
+        - answer:
+            text: Magnitude = 22.7 units, Angle = 162.3°
+            correct: true
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (5.0 + 16.0 + 14.0 = 35.0) with random angle.
+            text: Magnitude = 35.0 units, Angle = 270.0°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 1 (35.0) with different random angle.
+            text: Magnitude = 35.0 units, Angle = 45.0°
+            correct: false
+        - answer:
+            # Distractor Type 3: Calculation error (swapped B components: Bx=-14.50, By=6.76). Result: R_x = -0.35, R_y = -14.36 -> Mag=14.4, Angle=268.6°
+            text: Magnitude = 14.4 units, Angle = 268.6°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -203° + 360° = 157°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 205° = 295°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 43°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 5.0 \cdot \cos(157°) = -4.61; A_y = 5.0 \cdot \sin(157°) = 1.95</latex></li>
+          <li><latex>\vec{B}: B_x = 16.0 \cdot \cos(295°) = 6.76; B_y = 16.0 \cdot \sin(295°) = -14.50</latex></li>
+          <li><latex>\vec{C}: C_x = 14.0 \cdot \cos(43°) = 10.24; C_y = 14.0 \cdot \sin(43°) = 9.55</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{A} - \vec{C} - \vec{B}</latex>.
+          <ul>
+          <li><latex>R_x = A_x - C_x - B_x = (-4.61) - 10.24 - 6.76 = -21.61</latex></li>
+          <li><latex>R_y = A_y - C_y - B_y = 1.95 - 9.55 - (-14.50) = 6.90</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant II (negative x, positive y). The `atan2(Ry, Rx)` function correctly finds the angle in this quadrant.
+          <ul>
+          <li><latex>\theta = 162.3°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(-21.61)^2 + (6.90)^2} = \sqrt{466.99 + 47.61} = 22.7</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>22.7 units</b> at an angle of <b>162.3°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q5
+      title: Resultant Vector from Mixed-Axis Angles 5
+      points: 1
+      text: |
+        You are given three vectors:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex>: 12.0 units at <b>-68° from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{B}</latex>: 8.0 units at <b>-56° from the positive y-axis</b></li>
+        <li>Vector <latex>\vec{C}</latex>: 11.0 units at <b>151° from the positive x-axis</b></li>
+        </ul>
+        Calculate the resultant vector <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>. Select the choice with the correct resultant magnitude and direction.
+      figure: figure_folder/q-5.png
+      answers:
+        - answer:
+            text: Magnitude = 24.0 units, Angle = 330.0°
+            correct: true
+        - answer:
+            # Distractor Type 3: Calculation error (swapped A components: Ax=-11.14, Ay=4.50). Result: R_x = 5.14, R_y = 3.64 -> Mag=6.3, Angle=35.3°
+            text: Magnitude = 6.3 units, Angle = 35.3°
+            correct: false
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (12.0 + 8.0 + 11.0 = 31.0) with random angle.
+            text: Magnitude = 31.0 units, Angle = 100.0°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 1 (31.0) with different random angle.
+            text: Magnitude = 31.0 units, Angle = 200.0°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -68° + 360° = 292°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + (-56°) = 34°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 151°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 12.0 \cdot \cos(292°) = 4.50; A_y = 12.0 \cdot \sin(292°) = -11.14</latex></li>
+          <li><latex>\vec{B}: B_x = 8.0 \cdot \cos(34°) = 6.63; B_y = 8.0 \cdot \sin(34°) = 4.47</latex></li>
+          <li><latex>\vec{C}: C_x = 11.0 \cdot \cos(151°) = -9.65; C_y = 11.0 \cdot \sin(151°) = 5.33</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>.
+          <ul>
+          <li><latex>R_x = A_x + B_x - C_x = 4.50 + 6.63 - (-9.65) = 20.78</latex></li>
+          <li><latex>R_y = A_y + B_y - C_y = (-11.14) + 4.47 - 5.33 = -12.00</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant IV (positive x, negative y).
+          <ul>
+          <li><latex>\theta = \arctan(\frac{-12.00}{20.78}) \approx -30.0°</latex></li>
+          <li><latex>\theta = -30.0° + 360° = 330.0°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(20.78)^2 + (-12.00)^2} = \sqrt{431.81 + 144.00} = 24.0</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>24.0 units</b> at an angle of <b>330.0°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q6
+      title: Resultant Vector from Mixed-Axis Angles 6
+      points: 1
+      text: |
+        Consider the following three vectors:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex> has a magnitude of 16.0 units at <b>-294° from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> has a magnitude of 10.0 units at <b>111° from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> has a magnitude of 5.0 units at <b>308° from the positive x-axis</b>.</li>
+        </ul>
+        Find the resultant vector <latex>\vec{R}</latex> from the operation <latex>\vec{R} = \vec{C} - \vec{A} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle for <latex>\vec{R}</latex>.
+      figure: figure_folder/q-6.png
+      answers:
+        - answer:
+            text: Magnitude = 16.1 units, Angle = 291.5°
+            correct: true
+        - answer:
+            # Distractor Type 3: Calculation error (swapped B components: Bx=-3.58, By=-9.34). Result: R_x = 0.15, R_y = -9.22 -> Mag=9.2, Angle=270.9°
+            text: Magnitude = 9.2 units, Angle = 270.9°
+            correct: false
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (16.0 + 10.0 + 5.0 = 31.0) with random angle.
+            text: Magnitude = 31.0 units, Angle = 150.0°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 3 (9.2) with different random angle.
+            text: Magnitude = 9.2 units, Angle = 45.0°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -294° + 360° = 66°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 111° = 201°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 308°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 16.0 \cdot \cos(66°) = 6.51; A_y = 16.0 \cdot \sin(66°) = 14.62</latex></li>
+          <li><latex>\vec{B}: B_x = 10.0 \cdot \cos(201°) = -9.34; B_y = 10.0 \cdot \sin(201°) = -3.58</latex></li>
+          <li><latex>\vec{C}: C_x = 5.0 \cdot \cos(308°) = 3.08; C_y = 5.0 \cdot \sin(308°) = -3.94</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{C} - \vec{A} - \vec{B}</latex>.
+          <ul>
+          <li><latex>R_x = C_x - A_x - B_x = 3.08 - 6.51 - (-9.34) = 5.91</latex></li>
+          <li><latex>R_y = C_y - A_y - B_y = -3.94 - 14.62 - (-3.58) = -14.98</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant IV (positive x, negative y).
+          <ul>
+          <li><latex>\theta = \arctan(\frac{-14.98}{5.91}) \approx -68.5°</latex></li>
+          <li><latex>\theta = -68.5° + 360° = 291.5°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(5.91)^2 + (-14.98)^2} = \sqrt{34.93 + 224.40} = 16.1</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>16.1 units</b> at an angle of <b>291.5°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q7
+      title: Resultant Vector from Mixed-Axis Angles 7
+      points: 1
+      text: |
+        Three vectors are defined as follows:
+        <ul>
+        <li><latex>\vec{A}</latex>: 7.0 units at <b>-21° from the positive x-axis</b></li>
+        <li><latex>\vec{B}</latex>: 13.0 units at <b>46° from the positive y-axis</b></li>
+        <li><latex>\vec{C}</latex>: 15.0 units at <b>241° from the positive x-axis</b></li>
+        </ul>
+        What is the resultant vector <latex>\vec{R}</latex> if <latex>\vec{R} = \vec{B} - \vec{A} - \vec{C}</latex>? Select the choice with the correct resultant magnitude and direction.
+      figure: figure_folder/q-7.png
+      answers:
+        - answer:
+            text: Magnitude = 26.2 units, Angle = 109.2°
+            correct: true
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (7.0 + 13.0 + 15.0 = 35.0) with random angle.
+            text: Magnitude = 35.0 units, Angle = 300.0°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 1 (35.0) with different random angle.
+            text: Magnitude = 35.0 units, Angle = 20.0°
+            correct: false
+        - answer:
+            # Distractor Type 3: Calculation error (swapped A components: Ax=-2.57, Ay=6.52). Result: R_x = 0.49, R_y = 15.63 -> Mag=15.6, Angle=88.2°
+            text: Magnitude = 15.6 units, Angle = 88.2°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -21° + 360° = 339°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 46° = 136°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 241°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 7.0 \cdot \cos(339°) = 6.52; A_y = 7.0 \cdot \sin(339°) = -2.57</latex></li>
+          <li><latex>\vec{B}: B_x = 13.0 \cdot \cos(136°) = -9.35; B_y = 13.0 \cdot \sin(136°) = 9.03</latex></li>
+          <li><latex>\vec{C}: C_x = 15.0 \cdot \cos(241°) = -7.27; C_y = 15.0 \cdot \sin(241°) = -13.12</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{B} - \vec{A} - \vec{C}</latex>.
+          <ul>
+          <li><latex>R_x = B_x - A_x - C_x = (-9.35) - 6.52 - (-7.27) = -8.60</latex></li>
+          <li><latex>R_y = B_y - A_y - C_y = 9.03 - (-2.57) - (-13.12) = 24.72</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant II (negative x, positive y). The `atan2(Ry, Rx)` function correctly finds the angle in this quadrant.
+          <ul>
+          <li><latex>\theta = 109.2°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(-8.60)^2 + (24.72)^2} = \sqrt{73.96 + 611.08} = 26.2</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>26.2 units</b> at an angle of <b>109.2°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q8
+      title: Resultant Vector from Mixed-Axis Angles 8
+      points: 1
+      text: |
+        Given vectors <latex>\vec{A}</latex>, <latex>\vec{B}</latex>, and <latex>\vec{C}</latex>:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex> is 14.0 units at <b>-228° from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> is 6.0 units at <b>168° from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> is 8.0 units at <b>12° from the positive x-axis</b>.</li>
+        </ul>
+        Calculate the resultant vector <latex>\vec{R}</latex> where <latex>\vec{R} = \vec{A} + \vec{C} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle.
+      figure: figure_folder/q-8.png
+      answers:
+        - answer:
+            text: Magnitude = 17.9 units, Angle = 90.9°
+            correct: true
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (14.0 + 6.0 + 8.0 = 28.0) with random angle.
+            text: Magnitude = 28.0 units, Angle = 200.0°
+            correct: false
+        - answer:
+            # Distractor Type 3: Calculation error (swapped A components: Ax=10.40, Ay=-9.37). Result: R_x = 19.48, R_y = -1.84 -> Mag=19.6, Angle=354.6°
+            text: Magnitude = 19.6 units, Angle = 354.6°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 3 (19.6) with different random angle.
+            text: Magnitude = 19.6 units, Angle = 135.0°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -228° + 360° = 132°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 168° = 258°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 12°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 14.0 \cdot \cos(132°) = -9.37; A_y = 14.0 \cdot \sin(132°) = 10.40</latex></li>
+          <li><latex>\vec{B}: B_x = 6.0 \cdot \cos(258°) = -1.25; B_y = 6.0 \cdot \sin(258°) = -5.87</latex></li>
+          <li><latex>\vec{C}: C_x = 8.0 \cdot \cos(12°) = 7.83; C_y = 8.0 \cdot \sin(12°) = 1.66</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{A} + \vec{C} - \vec{B}</latex>.
+          <ul>
+          <li><latex>R_x = A_x + C_x - B_x = (-9.37) + 7.83 - (-1.25) = -0.29</latex></li>
+          <li><latex>R_y = A_y + C_y - B_y = 10.40 + 1.66 - (-5.87) = 17.93</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant II (negative x, positive y). Note that the x-component is very close to zero.
+          <ul>
+          <li><latex>\theta = 90.9°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(-0.29)^2 + (17.93)^2} = \sqrt{0.084 + 321.48} = 17.9</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>17.9 units</b> at an angle of <b>90.9°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q9
+      title: Resultant Vector from Mixed-Axis Angles 9
+      points: 1
+      text: |
+        You are given three vectors:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex>: Magnitude = 10.0 units, Angle = <b>-314° from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{B}</latex>: Magnitude = 9.0 units, Angle = <b>63° from the positive y-axis</b></li>
+        <li>Vector <latex>\vec{C}</latex>: Magnitude = 16.0 units, Angle = <b>322° from the positive x-axis</b></li>
+        </ul>
+        Determine the resultant vector <latex>\vec{R}</latex> from the operation <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>. Select the choice with the correct resultant magnitude and direction.
+      figure: figure_folder/q-9.png
+      answers:
+        - answer:
+            text: Magnitude = 25.2 units, Angle = 122.9°
+            correct: true
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (10.0 + 9.0 + 16.0 = 35.0) with random angle.
+            text: Magnitude = 35.0 units, Angle = 330.0°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 1 (35.0) with different random angle.
+            text: Magnitude = 35.0 units, Angle = 210.0°
+            correct: false
+        - answer:
+            # Distractor Type 3: Calculation error (swapped B components: Bx=4.09, By=-8.02). Result: R_x = -1.57, R_y = 9.02 -> Mag=9.2, Angle=99.9°
+            text: Magnitude = 9.2 units, Angle = 99.9°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -314° + 360° = 46°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 63° = 153°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 322°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 10.0 \cdot \cos(46°) = 6.95; A_y = 10.0 \cdot \sin(46°) = 7.19</latex></li>
+          <li><latex>\vec{B}: B_x = 9.0 \cdot \cos(153°) = -8.02; B_y = 9.0 \cdot \sin(153°) = 4.09</latex></li>
+          <li><latex>\vec{C}: C_x = 16.0 \cdot \cos(322°) = 12.61; C_y = 16.0 \cdot \sin(322°) = -9.85</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>.
+          <ul>
+          <li><latex>R_x = A_x + B_x - C_x = 6.95 + (-8.02) - 12.61 = -13.68</latex></li>
+          <li><latex>R_y = A_y + B_y - C_y = 7.19 + 4.09 - (-9.85) = 21.13</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant II (negative x, positive y).
+          <ul>
+          <li><latex>\theta = 122.9°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(-13.68)^2 + (21.13)^2} = \sqrt{187.14 + 446.48} = 25.2</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>25.2 units</b> at an angle of <b>122.9°</b>.
+        on_correct:
+        on_incorrect:
+
+  - multiple_choice:
+      id: q10
+      title: Resultant Vector from Mixed-Axis Angles 10
+      points: 1
+      text: |
+        Consider the following three vectors:
+        <ul>
+        <li>Vector <latex>\vec{A}</latex> has a magnitude of 5.0 units at <b>-155° from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> has a magnitude of 12.0 units at <b>211° from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> has a magnitude of 15.0 units at <b>79° from the positive x-axis</b>.</li>
+        </ul>
+        Find the resultant vector <latex>\vec{R}</latex> for <latex>\vec{R} = \vec{C} + \vec{A} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle for <latex>\vec{R}</latex>.
+      figure: figure_folder/q-10.png
+      answers:
+        - answer:
+            text: Magnitude = 24.2 units, Angle = 108.9°
+            correct: true
+        - answer:
+            # Distractor Type 3: Calculation error (swapped C components: Cx=14.72, Cy=2.86). Result: R_x = 4.01, R_y = 11.04 -> Mag=11.8, Angle=70.0°
+            text: Magnitude = 11.8 units, Angle = 70.0°
+            correct: false
+        - answer:
+            # Distractor Type 2: Copied magnitude from Type 3 (11.8) with different random angle.
+            text: Magnitude = 11.8 units, Angle = 30.0°
+            correct: false
+        - answer:
+            # Distractor Type 1: Scalar sum of magnitudes (5.0 + 12.0 + 15.0 = 32.0) with random angle.
+            text: Magnitude = 32.0 units, Angle = 270.0°
+            correct: false
+      feedback:
+        general: |
+          <h4>Preliminary Step: Convert to Standard Angles</h4>
+          First, convert each vector's angle to the standard format (0° to 360°, counter-clockwise from the positive x-axis).
+          <ul>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -155° + 360° = 205°</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90° + 211° = 301°</latex></li>
+          <li><b>Vector <latex>\vec{C}</latex>:</b> <latex>\theta_C = 79°</latex> (already standard)</li>
+          </ul>
+          <h4>1. Find Vector Components</h4>
+          With standard angles, use cosine for x-components and sine for y-components.
+          <ul>
+          <li><latex>\vec{A}: A_x = 5.0 \cdot \cos(205°) = -4.53; A_y = 5.0 \cdot \sin(205°) = -2.11</latex></li>
+          <li><latex>\vec{B}: B_x = 12.0 \cdot \cos(301°) = 6.18; B_y = 12.0 \cdot \sin(301°) = -10.29</latex></li>
+          <li><latex>\vec{C}: C_x = 15.0 \cdot \cos(79°) = 2.86; C_y = 15.0 \cdot \sin(79°) = 14.72</latex></li>
+          </ul>
+          <h4>2. Sum the Components</h4>
+          Apply the operation <latex>\vec{R} = \vec{C} + \vec{A} - \vec{B}</latex>.
+          <ul>
+          <li><latex>R_x = C_x + A_x - B_x = 2.86 + (-4.53) - 6.18 = -7.85</latex></li>
+          <li><latex>R_y = C_y + A_y - B_y = 14.72 + (-2.11) - (-10.29) = 22.90</latex></li>
+          </ul>
+          <h4>3. Find the Resultant Angle</h4>
+          The resultant vector is in Quadrant II (negative x, positive y).
+          <ul>
+          <li><latex>\theta = 108.9°</latex></li>
+          </ul>
+          <h4>4. Find the Resultant Magnitude</h4>
+          Use the Pythagorean theorem.
+          <ul>
+          <li><latex>R = \sqrt{(-7.85)^2 + (22.90)^2} = \sqrt{61.62 + 524.41} = 24.2</latex> units</li>
+          </ul>
+          <h4>5. Final Answer</h4>
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>24.2 units</b> at an angle of <b>108.9°</b>.
+        on_correct:
+        on_incorrect:
