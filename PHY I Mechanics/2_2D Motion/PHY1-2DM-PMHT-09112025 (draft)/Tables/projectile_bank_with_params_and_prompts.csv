@@ -1,0 +1,21 @@
+Direction,Context,Height (m),Distance (m),v_y (m/s),v_x (m/s),v (m/s),theta (deg),Given,Ask for
+up,A student tosses a keychain up to a friend standing on a 3rd-floor balcony,9.0,6.0,13.3,4.43,14.0,71.6,"v, \theta",d
+up,A soccer player kicks a ball toward a banner hanging high on the stadium wall,12.0,15.0,15.3,9.59,18.1,58.0,"v_x, h",v
+up,A worker throws a wrench up to a colleague on scaffolding,8.0,5.0,12.5,3.92,13.1,72.6,"v_x, h",\theta
+up,A basketball player shoots the ball to hit a target mounted above the hoop,4.0,3.0,8.86,3.32,9.46,69.4,"v, \theta",d
+up,A child throws a toy airplane to a ledge above the playground,5.0,7.0,9.9,6.93,12.1,55.0,"v_x, h",v
+up,A person tosses a water bottle to a friend leaning from a window,6.0,4.0,10.8,3.62,11.4,71.6,"v_x, h",\theta
+up,A climber throws a carabiner to a partner higher on the rock wall,10.0,8.0,14.0,5.6,15.1,68.2,"v, \theta",d
+up,A festival game challenges players to toss rings onto a shelf above eye level,3.0,2.0,7.67,2.56,8.09,71.6,"v_x, h",v
+up,A tennis player lobs a ball to hit a hanging target,4.5,6.0,9.4,6.26,11.3,56.3,"v_x, h",\theta
+up,A courier tosses a small package to a colleague on a balcony,7.0,5.0,11.7,4.19,12.4,70.3,"v, \theta",d
+down,A student drops a tennis ball horizontally from the top of school bleachers,6.0,9.0,10.8,8.14,13.6,53.1,"v_x, h",v
+down,A person throws a stone horizontally off a bridge,12.0,18.0,15.3,11.5,19.2,53.1,"v_x, h",\theta
+down,A cyclist riding across a cliff edge tosses a bottle forward,20.0,25.0,19.8,12.4,23.4,58.0,"v_x, h",d
+down,An engineer drops a bolt horizontally from a crane platform,15.0,10.0,17.2,5.72,18.1,71.6,"v_x, h",v
+down,A ball is rolled off the roof of a 2-story house,8.0,6.0,12.5,4.7,13.4,69.4,"v_x, h",\theta
+down,A student launches a toy car horizontally off a laboratory bench,1.2,1.8,4.85,3.64,6.07,53.1,"v_x, h",d
+down,A hiker kicks a rock horizontally from a ledge,10.0,7.0,14.0,4.9,14.8,70.7,"v_x, h",v
+down,A ball is thrown forward off a raised theater stage,2.0,3.0,6.26,4.7,7.83,53.1,"v_x, h",\theta
+down,A skater pushes a puck off the end of a raised ramp,1.5,2.5,5.42,4.52,7.06,50.2,"v_x, h",d
+down,A geologist flicks a pebble horizontally off a cliff,25.0,20.0,22.1,8.86,23.9,68.2,"v_x, h",v

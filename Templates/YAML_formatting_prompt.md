@@ -25,8 +25,8 @@ Now please help me transform the first 5 problems into a YAML format, according 
 
     answer:
         value: 42.2 # The answer to the problem
-        margin_type: absolute # ... any answer within a certain absolute range will also be counted as 'correct'
-        tolerance: 0.05 # The tolerance value
+        margin_type: percent # ... any answer within a certain absolute range will also be counted as 'correct'
+        tolerance: 3 # The tolerance value
     feedback:
         general: The solution of the problem
         on_correct: Good job!

@@ -1,0 +1,246 @@
+bank_info:
+    title: Projectile motion involving half the trajectory
+    bank_id: PHY1-2DM-PMHT-09112025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+        This problem bank consists of projectile motion calculation problems involving a projectile that either started from a height with horizontal velocity, or launched to a target at the peak of the trajectory.
+    date created: 09-11-2025 # Today's date 
+    learning objectives: # to be added later
+        - 1DM-PD-1
+        - 1DM-VS-1
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I want to write a bank of physics problems for introductory level physics students involving projectil motion. Those problems involve projectiles either thrown horizontally from a given height and land below, or launched from the ground at an angle, and reaches a target at the peak of its trajectory. First, create a table with 20 rows and 4 columns named: Direction, Context, height, distance. The four columns need to be filled as follows:
+                Direction: The first 10 rows should be "up", and the next 10 rows should be "down"
+                Context: For "up" direction, a brief description of a problem context involving a small object being launched towards a target that is higher up. For example, throwing a key towards a friend on 3rd floor, kicking a ball at a target, etc. For "down" direction, a problem context involving a small object being thrown horizontally from somewhere high above (with a horizontal velocity), such as a bridge, a building, a cliff, or similar situations. For both situations, avoid soft objects such as ropes or animals. 
+                Height: A context appropriate number representing the height of either the target (for up) or the origin (for down).
+                Distance: A context appropriate number representing the horizontal distance the object lands away from the thrower.
+        - prompt 2: |
+            Next, add four columns to the table by computing the following values, using g = 9.81, height is h and distance is d:
+                v_y = \sqrt(2*g*h)
+                v_x = d/\sqrt(2h/g)
+                v = \sqrt(v_x^2 + v_y^2)
+                theta (absolute) = arctan(v_y/v_x)
+        - prompt 3: |
+            Now add two more columns to the table: "Given" and "Ask for". They should be semi-randomly selected from the following set, but obeying the rules in the parenthesis: Given: v_x, h, Ask for: v (Both up and down directions) Given: v_x, h, Ask for: d (only associated with "down" direction). Given: v_x, h, Ask for: \theta (both up and down directions) Given: v, \theta, ask for: d (only associate with "up" direction).
+
+        - prompt 4: | # need to use GPT-4o for better quality. Need to upload the previously generated CSV table.
+            Now try and write the problem text with the question for the first two rows of the attached table. 
+            Only the variables in the "given" column should be provided with numerical values. Explain each given valuable, for example, \theta is the angle at which the [object] is launched, measured against the horizontal direction. For all "up" problems, if v_x is given, it should explained as being the horizontal velocity at which the object hits the target. Also point out that the object hits the target at the top of its trajectory, but don't say that the vertical velocity is zero. When the unknown variable is v or \theta, ask students to find the magnitude of velocity or launch angle.
+            Replace abstract language such as "object" and "target" with in-context language specific to the problem context.
+            Math equations should be inline with the text. The question should not preceded by "Question:". Append the answer at the end in the form of "Answer:", using the value contained in the table.
+        - prompt 4.1: Please write the problem for rows 3-5 # GPT-4o
+        - prompt 5: Write a student facing, step by step solution for problem 1. Do not include detailed numerical calculation steps in the solution.
+        - prompt 5.1: Following the same style write solutions for problems 2 and 3
+        - prompt 5.2: Following the same style write solutions for problems 4 and 5
+        - prompt 6: # The md output of the first 5 problems were copied into an MD file and re-uploaded to chatGPT.
+            I have this markdown file that contains 5 problems and their corresponding solutions. I would like to translate the problems according to the following format. 
+        # the format is in the formatting prompt
+        - prompt 6.1: | # This is specific to the generation section.
+            Everything else looks right, but the solution is not the same as the solution in the uploaded file. Please use the first solution in the #Solution section on the md file.
+        - formatting prompt: "../../../Templates/YAML_formatting_prompt.md" #modify as needed.
+    associated data:
+        - Problem Parameter Table: "./Tables/projectile_bank_with_params_and_prompts.csv" 
+    generation details: # Details of the creation process
+            model: GPT-5 (OpenAI)  # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+
+questions:
+
+- numerical: # The problem type is a numerical input problem
+    id: q1
+    title: Student tossing a keychain to a balcony
+    points: 3
+    text: |
+      A student tosses a keychain up to a friend standing on a 3rd-floor balcony. 
+      The keychain reaches the balcony at the very top of its arc. 
+      It is launched with a speed of <latex>v = 14.0\ \text{m/s}</latex> at an angle <latex>\theta = 71.6^\circ</latex>, 
+      where <latex>\theta</latex> is the angle at which the keychain is launched, measured against the horizontal direction.  
+
+      How far horizontally from the student is the friend standing?  
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 6.0
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Model the motion:** The keychain reaches the balcony at the highest point of its path. Treat the motion as projectile motion with launch speed <latex>v</latex> at angle <latex>\theta</latex> above the horizontal, with negligible air resistance and constant <latex>g</latex>.
+
+          2. **Time to the top:** The time to reach the highest point is  
+          <latex>t_{\text{top}}=\frac{v\sin\theta}{g}.</latex>
+
+          3. **Horizontal speed:** The horizontal component of the launch speed is constant,  
+          <latex>v_x = v\cos\theta.</latex>
+
+          4. **Horizontal distance to the balcony:** Multiply horizontal speed by time to the top:  
+          <latex>
+          d = v_x\, t_{\text{top}} = (v\cos\theta)\left(\frac{v\sin\theta}{g}\right)
+          = \frac{v^2\sin\theta\cos\theta}{g}
+          = \frac{v^2\sin(2\theta)}{2g}.
+          </latex>
+
+          5. **Evaluate with the given values:** Using <latex>v=14.0\ \text{m/s}</latex>, <latex>\theta=71.6^\circ</latex>, and <latex>g=9.81\ \text{m/s}^2</latex>, this yields the horizontal distance from the student to the friend on the balcony.
+
+          **Answer:** <latex>6.0\ \text{m}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+- numerical: # The problem type is a numerical input problem
+    id: q2
+    title: Soccer player kicking a ball at a stadium banner
+    points: 3
+    text: |
+      A soccer player kicks a ball toward a banner hanging high on the stadium wall. 
+      The ball reaches the banner at the top of its trajectory. 
+      The banner is located at a vertical height of <latex>h = 12.0\ \text{m}</latex>, 
+      and the horizontal velocity of the ball when it strikes the banner is <latex>v_x = 9.59\ \text{m/s}</latex>.  
+
+      What is the magnitude of the ball’s launch velocity <latex>v</latex>?  
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 18.1
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Step-by-step solution for Problem 2 (soccer ball to stadium banner)**
+
+          1. **Model the motion:** The banner is reached at the top of the ball’s flight. Treat this as projectile motion with constant horizontal speed <latex>v_x</latex> and constant gravitational acceleration <latex>g</latex>.
+
+          2. **Relate height to the vertical launch component:** The vertical rise from launch to the top is <latex>h</latex>. For projectile motion, the vertical launch component satisfies  
+          <latex>
+          h=\frac{(v_y)^2}{2g}\quad\Rightarrow\quad v_y=\sqrt{2gh}.
+          </latex>
+
+          3. **Combine components to get the launch speed:** The launch speed <latex>v</latex> is found from the Pythagorean combination of horizontal and vertical components:  
+          <latex>
+          v=\sqrt{v_x^2+v_y^2}=\sqrt{v_x^2+2gh}.
+          </latex>
+
+          4. **Substitute the given values:** Use <latex>h=12.0\ \text{m}</latex>, <latex>v_x=9.59\ \text{m/s}</latex>, and <latex>g=9.81\ \text{m/s}^2</latex> to evaluate <latex>v</latex>.
+
+          **Answer:** <latex>18.1\ \text{m/s}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+- numerical: # The problem type is a numerical input problem
+    id: q3
+    title: Worker throwing a wrench up to scaffolding
+    points: 3
+    text: |
+      A construction worker throws a wrench up to a colleague standing on scaffolding. 
+      The wrench reaches the scaffolding at the very top of its trajectory. 
+      The scaffolding is located at a vertical height of <latex>h = 8.0\ \text{m}</latex>, 
+      and the horizontal velocity of the wrench when it reaches the scaffolding is <latex>v_x = 4.23\ \text{m/s}</latex>.  
+
+      What is the magnitude of the wrench’s launch velocity <latex>v</latex>?  
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 13.0
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Step-by-step solution for Problem 3 (wrench to scaffolding)**
+
+          1. **Model the motion:** The wrench reaches the scaffolding at the top of its flight. Use projectile motion with constant horizontal speed <latex>v_x</latex> and constant gravitational acceleration <latex>g</latex>.
+
+          2. **Relate height to the vertical launch component:** The scaffolding is at height <latex>h</latex>. The vertical launch component satisfies  
+          <latex>
+          h=\frac{(v_y)^2}{2g}\quad\Rightarrow\quad v_y=\sqrt{2gh}.
+          </latex>
+
+          3. **Combine components to get the launch speed:** The launch speed <latex>v</latex> is the magnitude formed by horizontal and vertical components:  
+          <latex>
+          v=\sqrt{v_x^2+v_y^2}=\sqrt{v_x^2+2gh}.
+          </latex>
+
+          4. **Substitute the given values:** Use <latex>h=8.0\ \text{m}</latex>, <latex>v_x=4.23\ \text{m/s}</latex>, and <latex>g=9.81\ \text{m/s}^2</latex> to evaluate <latex>v</latex>.
+
+          **Answer:** <latex>13.0\ \text{m/s}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical: # The problem type is a numerical input problem
+    id: q4
+    title: Basketball player shooting at a target above the hoop
+    points: 3
+    text: |
+      A basketball player takes a shot at a target mounted on the wall above the hoop. 
+      The ball reaches the target at the very top of its trajectory. 
+      It is launched with a speed of <latex>v = 9.58\ \text{m/s}</latex> at an angle <latex>\theta = 71.0^\circ</latex>, 
+      where <latex>\theta</latex> is the angle at which the basketball is launched, measured against the horizontal direction.
+
+      How far horizontally from the player is the target?  
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 3.0
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Step-by-step solution for Problem 4 (basketball to a target above the hoop)**
+
+          1. **Model the motion:** The ball reaches the wall target at the very top of its path. Treat this as projectile motion with launch speed <latex>v</latex> at angle <latex>\theta</latex> and constant acceleration <latex>g</latex>.
+
+          2. **Time to the top:** The time to reach the top is <latex>t_{\text{top}}=\dfrac{v\sin\theta}{g}</latex>.
+
+          3. **Horizontal speed:** The horizontal component of the launch speed is constant: <latex>v_x=v\cos\theta</latex>.
+
+          4. **Horizontal distance to the target:** Multiply horizontal speed by time to the top:
+          <latex>
+          d=v_x\,t_{\text{top}}=(v\cos\theta)\left(\frac{v\sin\theta}{g}\right)
+          =\frac{v^2\sin\theta\cos\theta}{g}
+          =\frac{v^2\sin(2\theta)}{2g}.
+          </latex>
+
+          5. **Evaluate with the given values:** Use <latex>v=9.58\ \text{m/s}</latex>, <latex>\theta=71.0^\circ</latex>, and <latex>g=9.81\ \text{m/s}^2</latex> to obtain the horizontal distance from the player to the target.
+
+          **Answer:** <latex>3.0\ \text{m}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+- numerical: # The problem type is a numerical input problem
+    id: q5
+    title: Child throwing a toy airplane to a playground ledge
+    points: 3
+    text: |
+      A child throws a toy airplane toward a ledge above the playground. 
+      The airplane reaches the ledge at the highest point of its flight. 
+      The ledge is at a vertical height of <latex>h = 5.0\ \text{m}</latex>, and the horizontal velocity of the airplane when it reaches the ledge is <latex>v_x = 5.57\ \text{m/s}</latex>.
+
+      What is the angle <latex>\theta</latex> at which the airplane was launched, measured against the horizontal direction?  
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 67.3
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Step-by-step solution for Problem 5 (toy airplane to a playground ledge)**
+
+          1. **Model the motion:** The airplane reaches the ledge at the top of its trajectory. The horizontal velocity at the ledge is the same as at launch and is given as <latex>v_x</latex>. Gravity is <latex>g</latex>.
+
+          2. **Find the vertical launch component:** The rise to the top equals the launch vertical energy contribution, so
+          <latex>
+          h=\frac{(v_y)^2}{2g}\quad\Rightarrow\quad v_y=\sqrt{2gh}.
+          </latex>
+
+          3. **Relate launch angle to components:** The launch angle satisfies <latex>\tan\theta=\dfrac{v_y}{v_x}</latex>. Here, for “up” problems, <latex>v_x</latex> is the horizontal velocity when the airplane reaches the ledge (which equals its horizontal launch component).
+
+          4. **Evaluate the angle:** Substitute <latex>h=5.0\ \text{m}</latex> into <latex>v_y=\sqrt{2gh}</latex>, then use <latex>\theta=\arctan\!\left(\dfrac{v_y}{v_x}\right)</latex> with <latex>v_x=5.57\ \text{m/s}</latex>.
+
+          **Answer:** <latex>67.3^\circ</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
