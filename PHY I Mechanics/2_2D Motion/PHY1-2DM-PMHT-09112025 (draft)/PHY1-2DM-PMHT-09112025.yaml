@@ -23,25 +23,29 @@ bank_info:
         - prompt 3: |
             Now add two more columns to the table: "Given" and "Ask for". They should be semi-randomly selected from the following set, but obeying the rules in the parenthesis: Given: v_x, h, Ask for: v (Both up and down directions) Given: v_x, h, Ask for: d (only associated with "down" direction). Given: v_x, h, Ask for: \theta (both up and down directions) Given: v, \theta, ask for: d (only associate with "up" direction).
 
-        - prompt 4: | # need to use GPT-4o for better quality. Need to upload the previously generated CSV table.
-            Now try and write the problem text with the question for the first two rows of the attached table. 
-            Only the variables in the "given" column should be provided with numerical values. Explain each given valuable, for example, \theta is the angle at which the [object] is launched, measured against the horizontal direction. For all "up" problems, if v_x is given, it should explained as being the horizontal velocity at which the object hits the target. Also point out that the object hits the target at the top of its trajectory, but don't say that the vertical velocity is zero. When the unknown variable is v or \theta, ask students to find the magnitude of velocity or launch angle.
-            Replace abstract language such as "object" and "target" with in-context language specific to the problem context.
+        - prompt 4: | # Used GPT-4o for better output for the first batch. Need to upload the previously generated CSV table. Gemini-2.5 Pro yields much better results.
+            I am writing quiz problems for college introductory level physics students according to parameters given in a table. Try and write the problem text with the question for rows 6 and 7 of the attached table.
+            Only the variables in the "Given" column should be provided with numerical values. Other variables in the table should strictly not be given in the problem body. Explain each given variable, for example, \theta is the angle at which the [object] is launched, measured against the horizontal direction. For all "up" problems, if v_x is given, it should explained as being the horizontal velocity at which the object hits the target. Also point out that the object hits the target at the top of its trajectory, but don't say that the vertical velocity is zero. When the unknown variable is v or \theta, ask students to find the magnitude of velocity or launch angle.
+            Replace abstract language such as "object" and "target" with in-context language specific to the problem context. 
             Math equations should be inline with the text. The question should not preceded by "Question:". Append the answer at the end in the form of "Answer:", using the value contained in the table.
-        - prompt 4.1: Please write the problem for rows 3-5 # GPT-4o
+        - prompt 4.1: Please write the problem for rows 3-5 # GPT-4o initially and Gemini-Pro later
         - prompt 5: Write a student facing, step by step solution for problem 1. Do not include detailed numerical calculation steps in the solution.
         - prompt 5.1: Following the same style write solutions for problems 2 and 3
         - prompt 5.2: Following the same style write solutions for problems 4 and 5
-        - prompt 6: # The md output of the first 5 problems were copied into an MD file and re-uploaded to chatGPT.
-            I have this markdown file that contains 5 problems and their corresponding solutions. I would like to translate the problems according to the following format. 
+        - prompt 6: | # The md output of the 5 problems were copied into an MD file and re-uploaded to chatGPT. Ask AI to generate 2 problems at a time, to prevent cutting off the solutions.
+            I have this markdown file that contains 5 problems and their corresponding solutions.
+            
+            First, at the end of the problem body add "Round your answer to 1 decimal place" (the number of decimal place should agree with the answer).
+            
+            Then translate the problems and solutions into a yaml format according to the following example 
         # the format is in the formatting prompt
-        - prompt 6.1: | # This is specific to the generation section.
+        - prompt 6.1: | # This is specific to the generation section for problems 1-5
             Everything else looks right, but the solution is not the same as the solution in the uploaded file. Please use the first solution in the #Solution section on the md file.
         - formatting prompt: "../../../Templates/YAML_formatting_prompt.md" #modify as needed.
     associated data:
         - Problem Parameter Table: "./Tables/projectile_bank_with_params_and_prompts.csv" 
     generation details: # Details of the creation process
-            model: GPT-5 (OpenAI)  # The model used to generate the questions
+            model: GPT-5 (OpenAI)/Gemini-2.5 Pro  # The model used to generate the questions
             version: 0.0.1 # The version of the model used
             last updated: 03-06-2025 # The date of the last update of the generation prompts.
     authors:
@@ -242,5 +246,173 @@ questions:
           4. **Evaluate the angle:** Substitute <latex>h=5.0\ \text{m}</latex> into <latex>v_y=\sqrt{2gh}</latex>, then use <latex>\theta=\arctan\!\left(\dfrac{v_y}{v_x}\right)</latex> with <latex>v_x=5.57\ \text{m/s}</latex>.
 
           **Answer:** <latex>67.3^\circ</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+- numerical: # The problem type is a numerical input problem
+    id: q6
+    title: Launch Angle of a Water Bottle
+    points: 3
+    text: |
+      A person tosses a water bottle to a friend leaning from a window. The water bottle reaches the top of its trajectory as it reaches the friend's window, which is at a height of <latex>h = 6.0 \text{ m}</latex> above the point of release. The horizontal component of the water bottle's velocity when it reaches the window is <latex>v_x = 3.62 \text{ m/s}</latex>. Here, <latex>h</latex> is the vertical height and <latex>v_x</latex> is the horizontal velocity at which the water bottle is caught. What is the launch angle, <latex>\theta</latex>, of the water bottle, measured with respect to the horizontal?  
+
+      Round your answer to 1 decimal place
+    answer:
+        value: 71.6
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          ### Solving for the Launch Angle 
+
+          This problem asks for the initial launch angle (<latex>\theta</latex>) of the water bottle. We can find it by determining the initial horizontal (<latex>v_{0x}</latex>) and vertical (<latex>v_{0y}</latex>) components of the velocity and using trigonometry.
+
+          **Step 1: Analyze the Motion**  
+          Break the problem into two parts: horizontal and vertical.  
+          * In the horizontal direction, velocity (<latex>v_x</latex>) is constant.  
+          * In the vertical direction, gravity acts with <latex>g = 9.8 \text{ m/s}^2</latex>.  
+
+          At the top of the trajectory, the vertical velocity is momentarily zero (<latex>v_y = 0</latex>).  
+
+          **Step 2: Find the Initial Velocity Components**  
+          * Horizontal velocity: <latex>v_{0x} = v_x = 3.62 \text{ m/s}</latex>.  
+          * Vertical velocity: Use <latex>v_y^2 = v_{0y}^2 + 2a\Delta y</latex> with <latex>v_y=0</latex>, <latex>\Delta y = h</latex>, and <latex>a=-g</latex> to find <latex>v_{0y}</latex>.  
+
+          **Step 3: Calculate the Launch Angle (<latex>\theta</latex>)**  
+          With both components, apply the tangent function:  
+          <latex>\tan(\theta) = \frac{v_{0y}}{v_{0x}}</latex>  
+
+          Finally, take the inverse tangent to solve for <latex>\theta</latex>, giving the launch angle of about **71.6°**.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical: # The problem type is a numerical input problem
+    id: q7
+    title: Horizontal Distance of a Carabiner
+    points: 3
+    text: |
+      A climber throws a carabiner to a partner higher on the rock wall. The carabiner is thrown with an initial velocity of <latex>v = 15.1 \text{ m/s}</latex> at an angle of <latex>\theta = 68.2^\circ</latex>. Here, <latex>v</latex> is the magnitude of the initial velocity and <latex>\theta</latex> is the angle at which the carabiner is launched, measured against the horizontal direction. If the carabiner is caught at the peak of its trajectory, what is the horizontal distance, <latex>d</latex>, between the two climbers?  
+
+      Round your answer to 1 decimal place
+    answer:
+        value: 8.0
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          ### Solving for the Horizontal Distance 
+
+          This problem asks for the horizontal distance (<latex>d</latex>) the carabiner travels. To find this, calculate how long it is in the air and how far it moves horizontally.  
+
+          **Step 1: Find the Initial Velocity Components**  
+          Use trigonometry:  
+          * <latex>v_{0x} = v \cos(\theta)</latex>  
+          * <latex>v_{0y} = v \sin(\theta)</latex>  
+
+          **Step 2: Find the Time of Flight to the Peak**  
+          At the peak, <latex>v_y = 0</latex>. Using <latex>v_y = v_{0y} + at</latex>, solve for time <latex>t</latex> with <latex>a = -g</latex>.  
+
+          **Step 3: Calculate the Horizontal Distance (<latex>d</latex>)**  
+          Since horizontal velocity is constant,  
+          <latex>d = v_{0x} \times t</latex>.  
+
+          Substituting values gives a horizontal distance of about **8.0 m**.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+- numerical: # The problem type is a numerical input problem
+    id: q8
+    title: Launch Velocity of a Festival Ring
+    points: 3
+    text: |
+      In a festival game, a player tosses a ring to land on a shelf. The ring reaches the top of its trajectory as it arrives at the shelf, which is at a height of <latex>h = 3.0 \text{ m}</latex> above the point of release. The horizontal velocity of the ring as it lands on the shelf is <latex>v_x = 2.56 \text{ m/s}</latex>. Here, <b><latex>h</latex> is the vertical height</b> of the shelf, and <b><latex>v_x</latex> is the horizontal velocity</b> at which the ring reaches the shelf. What is the magnitude of the ring's initial launch velocity, <latex>v</latex>?  
+
+      Round your answer to 1 decimal place
+    answer:
+        value: 8.1
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Step 1: Analyze the Goal
+          The magnitude of the initial velocity, <latex>v</latex>, is the hypotenuse of a right triangle formed by its initial horizontal (<latex>v_{0x}</latex>) and vertical (<latex>v_{0y}</latex>) components.  
+          <latex>v = \sqrt{v_{0x}^2 + v_{0y}^2}</latex>  
+
+          Step 2: Find the Initial Velocity Components
+          The ring is caught at the <b>top of its trajectory</b>, so <latex>v_y = 0</latex>.  
+          * <b>Initial Horizontal Velocity (<latex>v_{0x}</latex>):</b> constant, so <latex>v_{0x} = v_x = 2.56 \text{ m/s}</latex>.  
+          * <b>Initial Vertical Velocity (<latex>v_{0y}</latex>):</b> use <latex>v_y^2 = v_{0y}^2 + 2a\Delta y</latex> with <latex>v_y=0</latex>, <latex>\Delta y = h</latex>, and <latex>a=-g</latex>.  
+
+          Step 3: Combine the Components
+          Substitute <latex>v_{0x}</latex> and <latex>v_{0y}</latex> into the Pythagorean theorem.  
+          This yields a launch velocity of about **8.1 m/s**.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical: # The problem type is a numerical input problem
+    id: q9
+    title: Launch Angle of a Tennis Ball
+    points: 3
+    text: |
+      A tennis player lobs a ball to hit a hanging target. The ball hits the target at the top of its trajectory, which is at a height of <latex>h = 4.5 \text{ m}</latex> above the point it was struck. The horizontal velocity of the ball when it hits the target is <latex>v_x = 6.26 \text{ m/s}</latex>. In this case, <b><latex>h</latex> is the vertical height</b> of the target, and <b><latex>v_x</latex> is the horizontal velocity</b> of the ball when it reaches the target. What is the launch angle, <latex>\theta</latex>, of the tennis ball, measured with respect to the horizontal?  
+
+      Round your answer to 1 decimal place
+    answer:
+        value: 56.3
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Step 1: Analyze the Motion
+          Motion separates into horizontal (constant velocity) and vertical (constant acceleration, <latex>-g</latex>). At the <b>peak of its flight</b>, the vertical velocity is zero (<latex>v_y=0</latex>).  
+
+          Step 2: Find the Initial Velocity Components
+          * <b>Initial Horizontal Velocity (<latex>v_{0x}</latex>):</b> since no horizontal acceleration, <latex>v_{0x} = v_x = 6.26 \text{ m/s}</latex>.  
+          * <b>Initial Vertical Velocity (<latex>v_{0y}</latex>):</b> use <latex>v_y^2 = v_{0y}^2 + 2a\Delta y</latex> with <latex>v_y=0</latex>, <latex>\Delta y = h</latex>, and <latex>a=-g</latex>.  
+
+          Step 3: Calculate the Launch Angle (<latex>\theta</latex>)
+          Once <latex>v_{0x}</latex> and <latex>v_{0y}</latex> are known,  
+          <latex>\tan(\theta) = \frac{v_{0y}}{v_{0x}}</latex>.  
+          Take the inverse tangent to find the angle, which is about **56.3°**.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+- numerical: # The problem type is a numerical input problem
+    id: q10
+    title: Horizontal Distance of a Tossed Package
+    points: 3
+    text: |
+      A courier tosses a small package up to a colleague on a balcony. The package is thrown with an initial velocity of <latex>v = 12.4 \text{ m/s}</latex> at an angle of <latex>\theta = 70.3^\circ</latex>. For this scenario, <b><latex>v</latex> is the magnitude of the initial velocity</b>, and <b><latex>\theta</latex> is the angle at which the package is launched</b>, measured against the horizontal direction. If the colleague catches the package at the peak of its trajectory, what is the horizontal distance, <latex>d</latex>, between the courier and the balcony?  
+
+      Round your answer to 1 decimal place
+    answer:
+        value: 5.0
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          #### Step 1: Find the Initial Velocity Components
+          You are given <latex>v = 12.4 \text{ m/s}</latex> and <latex>\theta = 70.3^\circ</latex>.  
+          Use trigonometry:  
+          * <b>Horizontal component:</b> <latex>v_{0x} = v \cos(\theta)</latex>  
+          * <b>Vertical component:</b> <latex>v_{0y} = v \sin(\theta)</latex>  
+
+          #### Step 2: Find the Time of Flight to the Peak
+          At the <b>top of the trajectory</b>, the vertical velocity becomes zero (<latex>v_y = 0</latex>).  
+          Using <latex>v_y = v_{0y} + at</latex> with <latex>a = -g</latex>, solve for the time <latex>t</latex> to reach the peak.  
+
+          #### Step 3: Calculate the Horizontal Distance (<latex>d</latex>)
+          Since horizontal velocity is constant,  
+          <latex>d = v_{0x} \times t</latex>.  
+
+          Substituting the values gives a horizontal distance of about **5.0 m**.
+
         on_correct: Good job!
         on_incorrect: Try again!
