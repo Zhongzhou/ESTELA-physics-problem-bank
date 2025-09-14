@@ -79,11 +79,12 @@ questions:
       The worker applies a force at an angle of <latex>12.74^\circ</latex> downward with respect to the horizontal. 
       The required force exerted is <latex>465.64</latex> N. The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Find the mass of the crate in kilograms. Express your answer with two significant figures.
+      Find the mass of the crate in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 117.67
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: | 
           First, notice that since the crate is moving at a constant velocity across a flat surface, its acceleration is zero in both the horizontal and vertical directions. According to Newton’s second law, the sum of forces in both directions must be zero.
@@ -138,11 +139,12 @@ questions:
       The dog pulls the sled using a rope, which forms an angle of <latex>31.21^\circ</latex> with respect to the horizon. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Determine the force exerted by the dog in Newtons. Give your answer with two significant figures.
+      Determine the force exerted by the dog in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 50.94
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the sled is moving at a constant velocity, its acceleration is zero. By Newton’s second law, the sum of forces in both directions must add up to zero.
@@ -193,11 +195,12 @@ questions:
       The force applied by the traveler is <latex>59.81</latex> N. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Calculate the mass of the backpack in kilograms. Express your answer with two significant figures.
+      Calculate the mass of the backpack in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 10.36
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the backpack is moving at a constant velocity, Newton’s second law tells us that the forces must sum to zero in both directions.
@@ -247,11 +250,12 @@ questions:
       The child applies a force of <latex>41.93</latex> N at an angle of <latex>32.04^\circ</latex> downward with respect to the horizontal. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Determine the mass of the toy box in kilograms. Round your answer to two significant figures.
+      Determine the mass of the toy box in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 6.87
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the toy box moves at a constant velocity, its acceleration is zero, meaning forces must sum to zero in both directions.
@@ -303,11 +307,12 @@ questions:
       The plow has a mass of <latex>103.42</latex> kg. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Find the force exerted by the ox in Newtons. Express your answer with two significant figures.
+      Find the force exerted by the ox in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 533.68
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the plow moves at a constant velocity, forces must sum to zero in both directions according to Newton’s second law.
@@ -359,11 +364,12 @@ questions:
       The force exerted is <latex>312.17</latex> N. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Determine the mass of the box in kilograms. Give your answer with two significant figures.
+      Determine the mass of the box in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 76.53
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the box moves at a constant velocity, Newton’s second law states that the forces must sum to zero in both directions.
@@ -415,11 +421,12 @@ questions:
       The mass of the kayak is <latex>47.83</latex> kg. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Calculate the force exerted by the person in Newtons. Express your answer with two significant figures.
+      Calculate the force exerted by the person in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 253.41
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the kayak is moving at a steady speed, the forces must sum to zero in both the horizontal and vertical directions.
@@ -470,11 +477,12 @@ questions:
       The mass of the car is <latex>1274.53</latex> kg. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Find the force exerted by the tow truck in Newtons. Give your answer with two significant figures.
+      Find the force exerted by the tow truck in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 8731.42
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the car is moving at a constant speed, Newton’s second law states that the forces in both directions must sum to zero.
@@ -526,11 +534,12 @@ questions:
       The required force exerted is <latex>274.39</latex> N. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Determine the mass of the loaded bin in kilograms. Express your answer with two significant figures.
+      Determine the mass of the loaded bin in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 87.64
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the bin moves at a uniform speed, the total forces in both directions must add up to zero.
@@ -582,11 +591,12 @@ questions:
       The pile of dirt has a mass of <latex>2743.68</latex> kg. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Find the force exerted by the bulldozer in Newtons. Round your answer to two significant figures.
+      Find the force exerted by the bulldozer in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 20832.57
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the pile of dirt moves at a constant velocity, Newton’s second law states that the forces must sum to zero in both directions.
@@ -637,11 +647,12 @@ questions:
       The worker applies a force of <latex>980.62</latex> N at an angle of <latex>25.00^\circ</latex> downward with respect to the horizontal. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Calculate the coefficient of kinetic friction between the pallet skid and the floor. Express your answer with two significant figures.
+      Calculate the coefficient of kinetic friction between the pallet skid and the floor. Round your answers to two decimal places.
 
     answer:
         value: 0.31
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           First, notice that since the pallet skid is moving at a constant velocity across a flat surface, its acceleration is zero in both the horizontal and vertical directions. According to Newton’s second law, the sum of forces in both directions must be zero.
@@ -686,11 +697,12 @@ questions:
       The gardener pulls the tarp at an angle of <latex>35.00^\circ</latex> with respect to the horizon. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Determine the force exerted by the gardener in Newtons. Give your answer with two significant figures.
+      Determine the force exerted by the gardener in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 245.86
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the tarp is moving at a constant velocity, its acceleration is zero. By Newton’s second law, the sum of forces in both directions must add up to zero.
@@ -734,11 +746,12 @@ questions:
       The mover applies a force of <latex>450.00</latex> N at an angle of <latex>15.00^\circ</latex> downward with respect to the horizontal. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Calculate the mass of the bookshelf in kilograms. Express your answer with two significant figures.
+      Calculate the mass of the bookshelf in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 146.36
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the bookshelf is moving at a constant velocity, Newton’s second law tells us that the forces must sum to zero in both directions.
@@ -784,11 +797,12 @@ questions:
       The person pulls the handle at an angle of <latex>40.00^\circ</latex> upward with respect to the horizontal. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Determine the force the person exerts on the cooler in Newtons. Round your answer to two significant figures.
+      Determine the force the person exerts on the cooler in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 127.77
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the cooler moves at a constant velocity, its acceleration is zero, meaning forces must sum to zero in both directions.
@@ -833,11 +847,12 @@ questions:
       The force exerted by the ATV is <latex>2000.00</latex> N. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Find the mass of the log in kilograms. Express your answer with two significant figures.
+      Find the mass of the log in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 309.20
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the log moves at a constant velocity, forces must sum to zero in both directions according to Newton’s second law.
@@ -882,11 +897,12 @@ questions:
       The net propulsion force from the wheels is applied at an effective angle of <latex>18.00^\circ</latex> downward (due to the machine's geometry) to counteract friction. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Calculate the propulsion force required to maintain a steady speed in Newtons. Express your answer with two significant figures.
+      Calculate the propulsion force required to maintain a steady speed in Newtons. Round your answers to two decimal places.
 
     answer:
         value: 1951.71
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the Zamboni moves at a constant velocity, its acceleration is zero. According to Newton’s second law, the net force in both the horizontal and vertical directions must be zero.
@@ -930,11 +946,12 @@ questions:
       The person pushes at an angle of <latex>45.00^\circ</latex> downward from the horizontal with a force of <latex>150.00</latex> N. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Find the coefficient of kinetic friction between the box and the grass. Give your answer with two significant figures.
+      Find the coefficient of kinetic friction between the box and the grass. Round your answers to two decimal places.
 
     answer:
         value: 0.26
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Because the box moves at a uniform speed, the net force on it is zero in all directions, as stated by Newton's second law.
@@ -974,11 +991,12 @@ questions:
       The rescuer pulls on the tow rope with a force of <latex>350.00</latex> N. The rope makes an angle of <latex>25.00^\circ</latex> upward with the horizontal. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Calculate the total mass of the person and the sled in kilograms. Express your answer with two significant figures.
+      Calculate the total mass of the person and the sled in kilograms. Round your answers to two decimal places.
 
     answer:
         value: 162.05
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the sled is moving at a constant speed, its acceleration is zero, and the net force in both the horizontal and vertical dimensions must be zero.
@@ -1019,11 +1037,12 @@ questions:
       The child pulls on a rope attached to the box that makes an angle of <latex>50.00^\circ</latex> with the horizontal. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      What is the magnitude of the force the child exerts on the rope, in Newtons? Round your answer to two significant figures.
+      What is the magnitude of the force the child exerts on the rope, in Newtons? Round your answers to two decimal places.
 
     answer:
         value: 76.06
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           The box is moving at a steady speed, so its acceleration is zero. By Newton's second law, the sum of all forces acting on the box must be zero in both the horizontal and vertical directions.
@@ -1064,11 +1083,12 @@ questions:
       The horse pulls with a constant force of <latex>9000.00</latex> N. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
-      Calculate the coefficient of kinetic friction between the stone block and the ground. Express your answer with two significant figures.
+      Calculate the coefficient of kinetic friction between the stone block and the ground. Round your answers to two decimal places.
 
     answer:
         value: 0.69
-        tolerance: 0.05
+        margin_type: percent
+        tolerance: 3
     feedback:
         general: |
           Since the block moves at a constant speed, its acceleration is zero. Therefore, according to Newton's second law, the net force on the block is zero in both the horizontal and vertical directions.
