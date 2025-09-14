@@ -416,3 +416,288 @@ questions:
 
         on_correct: Good job!
         on_incorrect: Try again!
+
+- numerical:
+    id: q11
+    title: Tennis ball launched from bleachers
+    points: 3
+    text: |
+      A student drops a tennis ball from the top of school bleachers, which are at a height, <latex>h</latex>, of 6.0 m above the ground. 
+      The ball is launched horizontally with a constant horizontal velocity, <latex>v_x</latex>, of 8.14 m/s. 
+      
+      Calculate the magnitude of the total velocity, <latex>v</latex>, of the tennis ball just before it strikes the ground.
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 13.6
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** First, break down the tennis ball's motion into two independent parts: horizontal (x-direction) and vertical (y-direction). The horizontal velocity <latex>v_x</latex> remains constant. The vertical motion starts with <latex>v_{y,0} = 0</latex> and accelerates downwards due to gravity (<latex>a_y = -g \approx -9.8 \, \text{m/s}^2</latex>).
+
+          2. **Find the Time of Flight (t):** The time the ball is in the air is determined by its vertical motion. Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex>, where <latex>\Delta y = -h</latex>, to solve for the time, <latex>t</latex>.
+
+          3. **Find the Final Vertical Velocity (<latex>v_y</latex>):** With the time of flight, calculate the ball's final vertical velocity component using the equation <latex>v_y = v_{y,0} + a_y t</latex>.
+
+          4. **Combine the Velocity Components:** The final velocity magnitude, <latex>v</latex>, is the vector sum of its components. Since the horizontal and vertical components are perpendicular, use the Pythagorean theorem: <latex>v = \sqrt{v_x^2 + v_y^2}</latex>.
+
+          **Answer:** <latex>13.6\ \text{m/s}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q12
+    title: Stone thrown horizontally from a bridge
+    points: 3
+    text: |
+      A person throws a stone horizontally off a bridge. The height of the bridge, <latex>h</latex>, is 12.0 m above the water below. 
+      The stone's initial and constant horizontal velocity, <latex>v_x</latex>, is 11.5 m/s. 
+      
+      Find the angle, <latex>\theta</latex>, that the stone's final velocity vector makes with the horizontal at the instant it hits the water.
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 53.1
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** Separate the motion into horizontal (x) and vertical (y) components. The horizontal velocity <latex>v_x</latex> is constant. The vertical motion starts at rest (<latex>v_{y,0} = 0</latex>) and accelerates downwards due to gravity.
+
+          2. **Find the Time of Flight (t):** The time is determined by the vertical fall from height <latex>h</latex>. Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for <latex>t</latex>.
+
+          3. **Find the Final Vertical Velocity (<latex>v_y</latex>):** Use the time of flight to find the final vertical velocity component just before impact using <latex>v_y = v_{y,0} + a_y t</latex>.
+
+          4. **Use Trigonometry to Find the Angle:** The final velocity vector's components, <latex>v_x</latex> and <latex>v_y</latex>, form a right triangle. The angle <latex>\theta</latex> with the horizontal can be found using the inverse tangent function: <latex>\theta = \arctan\left(\frac{|v_y|}{v_x}\right)</latex>.
+
+          **Answer:** <latex>53.1^\circ</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q13
+    title: Bottle tossed from a cliff by a cyclist
+    points: 3
+    text: |
+      A cyclist riding along the edge of a cliff tosses a water bottle forward horizontally. 
+      The cliff's height, <latex>h</latex>, is 20.0 m above the ground below. 
+      The bottle leaves the cyclist's hand with a constant horizontal velocity, <latex>v_x</latex>, of 12.4 m/s. 
+      
+      Calculate the horizontal distance, <latex>d</latex>, the bottle travels from the edge of the cliff before it lands.
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 25.0
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** The problem can be separated into two parts: horizontal motion with constant velocity and vertical motion with constant downward acceleration.
+
+          2. **Find the Time of Flight (t):** The key is to first find how long the bottle is in the air. This time is determined solely by the vertical motion (falling from height <latex>h</latex> with <latex>v_{y,0} = 0</latex>). Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for <latex>t</latex>.
+
+          3. **Calculate the Horizontal Distance (d):** Once the time of flight is known, the horizontal distance (range) can be calculated. Since the horizontal velocity is constant, the distance is simply <latex>d = v_x \times t</latex>.
+
+          **Answer:** <latex>25.0\ \text{m}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q14
+    title: Bolt dropped from a crane platform
+    points: 3
+    text: |
+      An engineer working on a crane platform drops a bolt. The platform is at a height, <latex>h</latex>, of 15.0 m above the ground. 
+      The bolt is released with an initial horizontal velocity, <latex>v_x</latex>, of 5.72 m/s. 
+      
+      What is the magnitude of the bolt's total velocity, <latex>v</latex>, at the moment it reaches the ground?
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 18.1
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** Break the problem down into the horizontal and vertical parts of the bolt's motion. The horizontal velocity <latex>v_x</latex> is constant. The vertical motion begins with <latex>v_{y,0} = 0</latex> and accelerates downwards from height <latex>h</latex> due to gravity.
+
+          2. **Find the Time of Flight (t):** The time it takes the bolt to fall is determined by its vertical motion. Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for the time, <latex>t</latex>.
+
+          3. **Find the Final Vertical Velocity (<latex>v_y</latex>):** Use the time of flight to determine the final vertical velocity component just before impact using the equation <latex>v_y = v_{y,0} + a_y t</latex>.
+
+          4. **Combine the Velocity Components:** The final velocity magnitude <latex>v</latex> is the vector sum of its perpendicular components, <latex>v_x</latex> and <latex>v_y</latex>. Use the Pythagorean theorem to find the magnitude: <latex>v = \sqrt{v_x^2 + v_y^2}</latex>.
+
+          **Answer:** <latex>18.1\ \text{m/s}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q15
+    title: Ball rolled off a two-story house
+    points: 3
+    text: |
+      A ball is rolled off the roof of a 2-story house. The edge of the roof is at a height, <latex>h</latex>, of 8.0 m from the ground. 
+      The ball rolls off with a horizontal velocity, <latex>v_x</latex>, of 4.7 m/s. 
+      
+      Determine the angle, <latex>\theta</latex>, that the ball's final velocity vector makes with the horizontal just before it lands on the ground.
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 69.4
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** Separate the motion into its horizontal (constant velocity <latex>v_x</latex>) and vertical (initial velocity <latex>v_{y,0}=0</latex>, constant downward acceleration <latex>g</latex>) components.
+
+          2. **Find the Time of Flight (t):** First, determine how long the ball is airborne. This depends only on the vertical fall from height <latex>h</latex>. Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for <latex>t</latex>.
+
+          3. **Find the Final Vertical Velocity (<latex>v_y</latex>):** Use the time of flight to find the vertical component of the ball's velocity at the moment it reaches the ground. The relevant formula is <latex>v_y = v_{y,0} + a_y t</latex>.
+
+          4. **Use Trigonometry to Find the Angle:** The final velocity vector is composed of the components <latex>v_x</latex> and <latex>v_y</latex>. To find the angle <latex>\theta</latex> this vector makes with the horizontal, use the inverse tangent function: <latex>\theta = \arctan\left(\frac{|v_y|}{v_x}\right)</latex>.
+
+          **Answer:** <latex>69.4^\circ</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+     
+- numerical:
+    id: q16
+    title: Toy car launched from a lab bench
+    points: 3
+    text: |
+      A student launches a toy car horizontally from a laboratory bench. The bench has a height, <latex>h</latex>, of 1.2 m.
+      The toy car is launched with a constant horizontal velocity, <latex>v_x</latex>, of 3.64 m/s. 
+      
+      Calculate the horizontal distance, <latex>d</latex>, the car travels before it hits the floor.
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 1.8
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** The problem can be separated into two parts: horizontal motion with constant velocity (<latex>v_x</latex>) and vertical motion with constant downward acceleration (<latex>a_y = -g</latex>).
+
+          2. **Find the Time of Flight (t):** The time the car is in the air is determined solely by the vertical motion (falling from height <latex>h</latex> with an initial vertical velocity of zero). Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for <latex>t</latex>.
+
+          3. **Calculate the Horizontal Distance (d):** With the time of flight known, calculate the horizontal distance (range). Since the horizontal velocity is constant, the distance is simply <latex>d = v_x \times t</latex>.
+
+          **Answer:** <latex>1.8\ \text{m}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q17
+    title: Hiker kicks a rock from a ledge
+    points: 3
+    text: |
+      A hiker kicks a rock horizontally from a ledge. The ledge has a height, <latex>h</latex>, of 10.0 m above the ground. 
+      The rock is kicked with an initial horizontal velocity, <latex>v_x</latex>, of 4.9 m/s. 
+      
+      What is the magnitude of the rock's total velocity, <latex>v</latex>, at the moment it strikes the ground?
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 14.8
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** Break the problem down into the horizontal and vertical parts of the rock's motion. The horizontal velocity <latex>v_x</latex> is constant. The vertical motion begins with <latex>v_{y,0} = 0</latex> and accelerates downwards from height <latex>h</latex> due to gravity.
+
+          2. **Find the Time of Flight (t):** The time it takes the rock to fall is determined by its vertical motion. Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for the time, <latex>t</latex>.
+
+          3. **Find the Final Vertical Velocity (<latex>v_y</latex>):** Use the time of flight to determine the final vertical velocity component just before impact using the equation <latex>v_y = v_{y,0} + a_y t</latex>.
+
+          4. **Combine the Velocity Components:** The final velocity magnitude <latex>v</latex> is the vector sum of its perpendicular components, <latex>v_x</latex> and <latex>v_y</latex>. Use the Pythagorean theorem to find the magnitude: <latex>v = \sqrt{v_x^2 + v_y^2}</latex>.
+
+          **Answer:** <latex>14.8\ \text{m/s}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q18
+    title: Ball thrown from a theater stage
+    points: 3
+    text: |
+      A ball is thrown forward horizontally from a raised theater stage. The stage has a height, <latex>h</latex>, of 2.0 m.
+      The ball is thrown with a constant horizontal velocity, <latex>v_x</latex>, of 4.7 m/s. 
+      
+      Find the angle, <latex>\theta</latex>, that the ball's final velocity vector makes with the horizontal at the instant it lands.
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 53.1
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** Separate the motion into horizontal (x) and vertical (y) components. The horizontal velocity <latex>v_x</latex> is constant. The vertical motion starts at rest (<latex>v_{y,0} = 0</latex>) and accelerates downwards due to gravity.
+
+          2. **Find the Time of Flight (t):** The time is determined by the vertical fall from height <latex>h</latex>. Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for <latex>t</latex>.
+
+          3. **Find the Final Vertical Velocity (<latex>v_y</latex>):** Use the time of flight to find the final vertical velocity component just before impact using <latex>v_y = v_{y,0} + a_y t</latex>.
+
+          4. **Use Trigonometry to Find the Angle:** The final velocity vector's components, <latex>v_x</latex> and <latex>v_y</latex>, form a right triangle. The angle <latex>\theta</latex> with the horizontal can be found using the inverse tangent function: <latex>\theta = \arctan\left(\frac{|v_y|}{v_x}\right)</latex>.
+
+          **Answer:** <latex>53.1^\circ</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q19
+    title: Skater pushes a puck off a ramp
+    points: 3
+    text: |
+      A skater pushes a puck horizontally off the end of a raised ramp. The ramp's edge has a height, <latex>h</latex>, of 1.5 m. 
+      The puck is pushed with a constant horizontal velocity, <latex>v_x</latex>, of 4.52 m/s. 
+      
+      Calculate the horizontal distance, <latex>d</latex>, the puck travels before it hits the ground.
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 2.5
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** The motion can be separated into two independent parts: horizontal motion with constant velocity and vertical motion with constant downward acceleration.
+
+          2. **Find the Time of Flight (t):** To find the horizontal distance, you must first find how long the puck is in the air. This time is determined by the vertical motion (falling from height <latex>h</latex>). Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for <latex>t</latex>.
+
+          3. **Calculate the Horizontal Distance (d):** Once the time of flight is known, calculate the horizontal distance. Since the horizontal velocity is constant, the distance is <latex>d = v_x \times t</latex>.
+
+          **Answer:** <latex>2.5\ \text{m}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q20
+    title: Geologist flicks a pebble off a cliff
+    points: 3
+    text: |
+      A geologist flicks a pebble horizontally off a cliff. The cliff has a height, <latex>h</latex>, of 25.0 m.
+      The pebble is flicked with an initial horizontal velocity, <latex>v_x</latex>, of 8.86 m/s. 
+      
+      What is the magnitude of the pebble's total velocity, <latex>v</latex>, at the moment it hits the ground below?
+      Round your answer to 1 decimal place.
+
+    answer:
+        value: 23.9
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          1. **Analyze the Components of Motion:** Break the motion into its horizontal and vertical components. The horizontal velocity <latex>v_x</latex> is constant. The vertical motion starts with zero initial velocity (<latex>v_{y,0} = 0</latex>) and accelerates downwards from height <latex>h</latex>.
+
+          2. **Find the Time of Flight (t):** The time the pebble takes to fall to the ground is determined by its vertical motion. Use the kinematic equation <latex>\Delta y = v_{y,0}t + \frac{1}{2}a_y t^2</latex> to solve for the time, <latex>t</latex>.
+
+          3. **Find the Final Vertical Velocity (<latex>v_y</latex>):** Use the time of flight to determine the final vertical velocity component just before impact using the equation <latex>v_y = v_{y,0} + a_y t</latex>.
+
+          4. **Combine the Velocity Components:** The final velocity magnitude <latex>v</latex> is the vector sum of its perpendicular components, <latex>v_x</latex> and <latex>v_y</latex>. Use the Pythagorean theorem to find the magnitude: <latex>v = \sqrt{v_x^2 + v_y^2}</latex>.
+
+          **Answer:** <latex>23.9\ \text{m/s}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
