@@ -12,14 +12,18 @@ bank_info:
         - prompt 1: |
         - prompt 2: | 
         - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    updates: 
+        - update 1: (9/15/2025) Zhongzhou Chen added updates field to this yaml. 
+        - update 2: (date of update) who did what #this is an example.
     associated data:
-        - random number generation script: "./PHY1-F-OFKF-030625-script.py"
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
     generation details: # Details of the creation process
             model: GPT-4o # The model used to generate the questions
             version: 0.0.1 # The version of the model used
             last updated: 03-06-2025 # The date of the last update of the generation prompts.
     authors:
-        - Zhongzhou Chen
+        - Author 1
+        - Author 2
 
 questions:
 # The following contents should be replaced by the output of the LLM.
@@ -28,35 +32,22 @@ questions:
     title: Title of Question 
     points: 3
     text: | 
-      This is example question text which contains an equation: <latex>x^2 + 2x + 1 = 0</latex>.
+      This is example question text which contains an inline equation: <latex>x^2 + 2x + 1 = 0</latex>.
       We can also write equation in new line using:
-
+      Degree ° Theta θ Delta Δ Pi π and other special characters can be inserted literally or using the character's corresponding HTML hex code.  
       <latex>
       x^2 + 2x + 1 = 0
       </latex>
 
     answer:
         value: 42.2 # The answer to the problem
-        tolerance: 0.05 # The tolerance value
+        margin_type: percent # ... any answer within a certain absolute range will also be counted as 'correct'
+        tolerance: 3 # The tolerance value
     feedback:
         general: The solution of the problem
         on_correct: Good job!
         on_incorrect: Try again!
-- numerical: # Another numerical input problem
-    id: q2  
-    title: Another Question Title
-    points: 2
-    text: |
-      This is another example question text which contains a different equation: <latex>2x + 3 = 7</latex>.
-      We can also write this equation in new line using:
 
-      <latex>
-      2x + 3 = 7
-      </latex>
-    answer:
-        value: 2.5 # The answer to the problem
-        tolerance: 0.01 # The tolerance value
-    feedback:
-        general: The solution of the second problem
-        on_correct: Well done!
-        on_incorrect: Please review your calculations!
+
+
+
