@@ -1,0 +1,212 @@
+bank_info:
+    title: Fictious unit-conversion problems
+    bank_id: PHY1-UNITS-UC1-09152025 
+    description: |-
+     Those problems involve unit conversion to/from fictious units.
+    date_created: 09-15-2025 # Today's date 
+    LLM: chatGPT-5
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |-
+            I want to write a problem set about unit conversion. There is an example problem that I would like to create a set of similar problems 
+            in the sense of keeping the important features of the problem while varying the rest of the context. 
+            The main feature is that the conversion is from or to a fictional unit. The fictional unit can be related to any physical quantity, not just length or area. 
+            The problem involves a chain of unit conversion steps (not just one.) Here's the example I like: 
+            "Robert made up his own unit of measuring distances, which he calls the Bob (B). 
+            Each Bob is 42 meters. If 1 acre = 43,560 ft2, and 1 m = 3.281 ft, what is 2.4 Acres in B2 (squared Bobs)?" First, come up with 5 ideas.
+            
+        - prompt 2: | 
+            For each of the fictious units, come up with a plausible realistic scenario in which a person would define such unit for everyday use or a project. 
+            List the units, the corresponding scenarios, and how the units are defined. 
+            Double check that the values chosen for the defintion of each units makes sense in the given context. 
+        - prompt 3: |
+            Turn each scenario into a word problem and include the context in the problem statement. 
+            Make sure that the physical quantity being converted to the given unit is reasonable in the given context.            
+        - prompt 4: |
+            Next, generate a solution in latex for the first problem on one line: 
+            start with the physical quantity to be calculated in its given unit (e.g. "Volume = "), 
+            then multiply by conversion factors that are equal to one, and find the answer in the required units. 
+            color code the conversion factors such that terms with the same unit have the same color.
+        - prompt 5: |
+            turn to YAML - formatting prompt: "./YAML_formatting_prompt.md"
+    authors:
+        - O. Moussa
+questions:
+- numerical:
+    id: q1
+    title: Mug Conversion
+    points: 1
+    text: "Olivia tracks her coffee intake using her own unit of volume, the *Mug\
+      \ (Mg)*, where 1 Mug = 0.75 liters. \nIf a large office coffee urn holds 4.5\
+      \ gallons, and 1 gallon = 3.785 liters, how many Mugs of coffee does the urn\
+      \ contain?"
+    answer:
+      value: 22.7
+      tolerance: 1
+    feedback:
+      general: "<latex>\n\\text{Volume} \n= 4.5 \\, \\textcolor{blue}{\\text{gal}}\
+        \ \n\\times \\frac{3.785 \\, \\textcolor{red}{\\text{L}}}{1 \\, \\textcolor{blue}{\\\
+        text{gal}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Mg}}}{0.75 \\\
+        , \\textcolor{red}{\\text{L}}} \n= 22.7 \\, \\textcolor{green}{\\text{Mg}}\n\
+        </latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q2
+    title: Barrel Conversion
+    points: 1
+    text: "A craft brewer prefers to measure production in *Barrels (Bl)*, with 1\
+      \ Barrel = 159 liters. \nIf the brewery produces 500 pints of beer in a day,\
+      \ and 1 pint = 0.473 liters, how many Barrels of beer is that?"
+    answer:
+      value: 1.49
+      tolerance: 0.1
+    feedback:
+      general: "<latex>\n\\text{Volume} \n= 500 \\, \\textcolor{blue}{\\text{pints}}\
+        \ \n\\times \\frac{0.473 \\, \\textcolor{red}{\\text{L}}}{1 \\, \\textcolor{blue}{\\\
+        text{pint}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Bl}}}{159 \\\
+        , \\textcolor{red}{\\text{L}}} \n\\approx 1.49 \\, \\textcolor{green}{\\text{Bl}}\n\
+        </latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q3
+    title: Beat Conversion
+    points: 1
+    text: "A music teacher defines a *Beat (Bt)* as the interval of a slow metronome\
+      \ click, 1 Beat = 1.25 seconds. \nIf a rehearsal session lasts for 45 minutes,\
+      \ how many Beats long is the rehearsal?"
+    answer:
+      value: 2160
+      tolerance: 10
+    feedback:
+      general: "<latex>\n\\text{Time} \n= 45 \\, \\textcolor{blue}{\\text{min}} \n\
+        \\times \\frac{60 \\, \\textcolor{red}{\\text{s}}}{1 \\, \\textcolor{blue}{\\\
+        text{min}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Bt}}}{1.25 \\\
+        , \\textcolor{red}{\\text{s}}} \n= 2160 \\, \\textcolor{green}{\\text{Bt}}\n\
+        </latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q4
+    title: Bell Conversion
+    points: 1
+    text: "At a historical reenactment fair, volunteers ring a handbell every *Bell\
+      \ (Bl)*, where 1 Bell = 5 minutes. \nIf a blacksmith\u2019s demonstration lasts\
+      \ 1 hour and 15 minutes, how many Bells does it last?"
+    answer:
+      value: 15
+      tolerance: 1
+    feedback:
+      general: "<latex>\n\\text{Time} \n= 1.25 \\, \\textcolor{blue}{\\text{h}} \n\
+        \\times \\frac{60 \\, \\textcolor{red}{\\text{min}}}{1 \\, \\textcolor{blue}{\\\
+        text{h}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Bl}}}{5 \\, \\\
+        textcolor{red}{\\text{min}}} \n= 15 \\, \\textcolor{green}{\\text{Bl}}\n</latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q5
+    title: Loaf Conversion
+    points: 1
+    text: "A baker defines 1 *Loaf (Lf)* as the mass of a standard bread loaf, about\
+      \ 0.8 kilograms. \nIf a shipment of flour weighs 50 pounds, and 1 pound = 0.454\
+      \ kilograms, what is the shipment\u2019s weight in Loaves?"
+    answer:
+      value: 28.4
+      tolerance: 1
+    feedback:
+      general: "<latex>\n\\text{Mass} \n= 50 \\, \\textcolor{blue}{\\text{lb}} \n\\\
+        times \\frac{0.454 \\, \\textcolor{red}{\\text{kg}}}{1 \\, \\textcolor{blue}{\\\
+        text{lb}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Lf}}}{0.8 \\,\
+        \ \\textcolor{red}{\\text{kg}}} \n\\approx 28.4 \\, \\textcolor{green}{\\\
+        text{Lf}}\n</latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q6
+    title: Brick Conversion
+    points: 1
+    text: "On a construction site, a student defines a *Brick (Br)* as a standard\
+      \ building brick with a mass of 2.5 kilograms. \nIf a pallet of bricks weighs\
+      \ 1.2 metric tons, how many Bricks is that?"
+    answer:
+      value: 480
+      tolerance: 10
+    feedback:
+      general: "<latex>\n\\text{Mass} \n= 1.2 \\, \\textcolor{blue}{\\text{t}} \n\\\
+        times \\frac{1000 \\, \\textcolor{red}{\\text{kg}}}{1 \\, \\textcolor{blue}{\\\
+        text{t}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Br}}}{2.5 \\, \\\
+        textcolor{red}{\\text{kg}}} \n= 480 \\, \\textcolor{green}{\\text{Br}}\n</latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q7
+    title: Step Conversion
+    points: 1
+    text: "A hiker defines 1 *Step (Sp)* as 0.75 meters, the length of their stride.\
+      \ \nIf the hiker walks a trail 2.3 kilometers long, how many Steps does the\
+      \ hike take?"
+    answer:
+      value: 3067
+      tolerance: 10
+    feedback:
+      general: "<latex>\n\\text{Distance} \n= 2.3 \\, \\textcolor{blue}{\\text{km}}\
+        \ \n\\times \\frac{1000 \\, \\textcolor{red}{\\text{m}}}{1 \\, \\textcolor{blue}{\\\
+        text{km}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Sp}}}{0.75 \\\
+        , \\textcolor{red}{\\text{m}}} \n\\approx 3067 \\, \\textcolor{green}{\\text{Sp}}\n\
+        </latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q8
+    title: Lap Conversion
+    points: 1
+    text: "A track coach measures running distance in *Laps (Lp)*, where 1 Lap = 400\
+      \ meters. \nIf an athlete runs 3 miles during training, and 1 mile = 1609 meters,\
+      \ how many Laps is the run?"
+    answer:
+      value: 12.1
+      tolerance: 1
+    feedback:
+      general: "<latex>\n\\text{Distance} \n= 3 \\, \\textcolor{blue}{\\text{mi}}\
+        \ \n\\times \\frac{1609 \\, \\textcolor{red}{\\text{m}}}{1 \\, \\textcolor{blue}{\\\
+        text{mi}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Lp}}}{400 \\,\
+        \ \\textcolor{red}{\\text{m}}} \n\\approx 12.1 \\, \\textcolor{green}{\\text{Lp}}\n\
+        </latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q9
+    title: Tile Conversion
+    points: 1
+    text: "A homeowner remodeling their kitchen uses *Tiles (Tl)* to measure area,\
+      \ where each Tile = 0.25 m\xB2. \nIf the kitchen floor area is 120 ft\xB2, and\
+      \ 1 ft = 0.305 m, how many Tiles is the floor?"
+    answer:
+      value: 143
+      tolerance: 10
+    feedback:
+      general: "<latex>\n\\text{Area} \n= 120 \\, \\textcolor{blue}{\\text{ft}^2}\
+        \ \n\\times \\left(\\frac{0.305 \\, \\textcolor{red}{\\text{m}}}{1 \\, \\\
+        textcolor{blue}{\\text{ft}}}\\right)^2 \n\\times \\frac{1 \\, \\textcolor{green}{\\\
+        text{Tl}}}{0.25 \\, \\textcolor{red}{\\text{m}^2}} \n\\approx 143 \\, \\textcolor{green}{\\\
+        text{Tl}}\n</latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q10
+    title: Field Conversion
+    points: 1
+    text: "A community garden organizer defines a *Field (Fd)* as 100 m\xB2. \nIf\
+      \ the city allocates 0.15 hectares for community gardens, how many Fields is\
+      \ this?"
+    answer:
+      value: 15
+      tolerance: 1
+    feedback:
+      general: "<latex>\n\\text{Area} \n= 0.15 \\, \\textcolor{blue}{\\text{ha}} \n\
+        \\times \\frac{10000 \\, \\textcolor{red}{\\text{m}^2}}{1 \\, \\textcolor{blue}{\\\
+        text{ha}}} \n\\times \\frac{1 \\, \\textcolor{green}{\\text{Fd}}}{100 \\,\
+        \ \\textcolor{red}{\\text{m}^2}} \n= 15 \\, \\textcolor{green}{\\text{Fd}}\n\
+        </latex>"
+      on_correct: Good job!
+      on_incorrect: Try again!
