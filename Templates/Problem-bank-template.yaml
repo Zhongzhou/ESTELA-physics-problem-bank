@@ -49,5 +49,99 @@ questions:
         on_incorrect: Try again!
 
 
+- multiple_choice:
+    id: question_multiple_choice_1
+    title: Multiple Choice - Locked Answer
+    points: 1
+    text: |
+        This is a standard multiple choice question, in which only one answer is correct and all other choices grant no points.  
+        Note: the third answer option is locked into position.
+    answers:
+    - answer:
+        text: A
+        # in standard multiple choice questions, each anser option must have
+        #  a 'correct' property
+        # this property should have a value of 'false' for every answer except
+        #  the single correct one, which should have a value of 'true'
+        correct: false
+    - answer:
+        text: B
+        correct: true
+    - answer:
+        text: C
+        # set the 'lock' property to the boolean value 'true' on an answer to
+        #  keep it in that location when shuffling
+        # note that setting 'lock' to 'false' is not necessary, as omitting
+        #  the property entirely assumes a value of 'false'
+        lock: true
+        correct: false
+    - answer:
+        text: D
+        correct: false
+    - answer:
+        text: E
+        correct: false
+
+
+- multiple_choice:
+    id: question_multiple_choice_2
+    title: Multiple Choice - Variable Points
+    # when allowing a different number of points per answer, make sure the
+    #  question's 'points' property has the same value as the highest-value answer
+    points: 8
+    text: A multiple choice question in which points are awarded based on the selected answer.
+    answers:
+    - answer:
+        text: Six
+        points: 6
+    - answer:
+        text: Eight
+        points: 8
+    - answer:
+        text: Four
+        points: 4
+    - answer:
+        text: Five
+        points: 5
+
+
+- multiple_answers:
+    id: question_multiple_answer_1
+    title: Multiple Answer - Partial Credit
+    points: 5
+    text: |
+        This is a multiple answer question that awards partial credit with a penalty based on chosen answers.  
+        Partial credit is awarded for correct answers selected and a penalty is applied for incorrect answers selected.  
+        Any option may be locked, preserving that option's position if shuffling is enabled.
+
+    # to enable partial credit and penalties, set the 'partial' property of the question object to 'true'
+    # this will give partial credit if some correct answers are selected, but
+    #  will also apply score penalties if incorrect answers are selected
+    partial: true
+
+    answers:
+    - answer:
+        text: |
+            Correct. Option 1.  
+            Answer text can be HTML.
+        # if an answer is one of the correct options, the 'correct' property must be set to 'true'
+        correct: true
+        # any answer option may be optionally locked into its position by setting the value of the 'lock' property to 'true'
+        # if this value is set to 'false' or is not set at all, then the answer may be positioned differently if shuffling is enabled
+        lock: false
+    - answer:
+        text: Correct. Option 2. Answer text can also be plain text.
+        correct: true
+    - answer:
+        text: Incorrect. Option 3.
+        # incorrect answers may set this value to false or omit it entirely
+        correct: false
+    # incorrect answers may optionally leave 'correct' undefined - if it is absent, a value of 'false' is assumed
+    - answer:
+        text: Incorrect. Option 4.
+    - answer:
+        text: |
+            Incorrect.
+            <strong>Option 5.</strong>
 
 
