@@ -1,0 +1,863 @@
+bank_info:
+    title: 1D Kinematics with Non-Constant Acceleration
+    bank_id: PHY1-F-1DKINT-091525 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      A simple one-dimensional kinematics problem that involves integrating a non-constant acceleration
+      function to find the objects position and velocities at fixed reference positions and times.
+    date created: 09-12-2025 # Today's date
+    learning objectives:
+        - 1DM-A-1
+        - 1DM-A-3
+        - 1DM-KE-1
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |-
+          I'm writing physics problems involving the one-dimensional motion of an object with a varying acceleration. As a first step, please help me by generating
+          three different scenarios of an object moving in a straight line with two reference points. The object may be moving horizontally, vertically, or along a ramp
+          a constant slope, as long as it is moving in a straight line and its path does not curve. The reference objects should make sense based on the context of
+          the objects motion. For example, the objects and reference points may be:
+          An F1 racecar traveling down a straight track with references being a car that has crashed ahead or behind it, the pole position, the pit stop.
+          A rocket flying up with its rockets providing a varying acceleration, and references being the ground and an air balloon or drone at a fixed height.
+          Mario racing down a straight track of rainbow road with a stopped bowser or the finish line as reference points.
+          An olympic runner running down a straight track with reference points being a friend in the crowd or the finish line.
+          A rocket sled going up an inclined ramp with the reference points being a flag along the ramp and the end of the ramp.
+        - prompt 2: |
+          Now for each of the 10 generated scenarios, please generate the following set of values
+          1. The distance of the object relative to the first starting point, x_0, between 0 m and 100 m to three significant figures.
+          2. The speed of the object, v_{0x} and the direction of motion right/left, east/west, etc, relative to the starting point,
+          at the starting position x_0. This value should be between 0 to 20 m/s and have 3 significant figures
+          3. The time it takes for the object reach the second reference point, t, between 0 and 20 s to 3 significant figures
+          4. Generate either a velocity versus time function, v_x(t) or an acceleration function a_x(t). This function may be either:
+          A simple polynomial with constant coefficients
+            a_x(t) = a_0+a_1*t+a_2*t^2
+            v_x(t) = v_0+v_1*t+v_2*t^2+v_3*t^3
+          An exponentail function
+            a_x(t) = a_0*exp(-\omega*t)
+            a_x(t) = a_0*(1-exp(-\omega*t))
+            v_x(t) = v_0*exp(-\omega*t)
+            v_x(t) = v_0*(1-exp(-\omega*t))
+          A logarithmic function
+            v_x(t) = v_0*ln(1+\omega*t)
+          4.  Generate the necessary coefficients in the above functions, a_0, a_1, etc. These coefficients should all be between -1 and 1. Additionally,
+          the variable \omega should be between 0 and 0.25. Each value should be given to two significant figures.
+          5.  Generate a table and download it as a csv file labeled initialval.csv with a row number labeling each scenario, and columns for all generated values
+          of x_0, v_{0x}, t, and the coefficients, a_0, a_1, etc.
+        - prompt 3: |
+          For each of the 10 scenarios and the corresponding set of numbers, write a physics problem following those steps:
+          1. Write a problem in the form of a fun and creative story similar to those found in a general university physics 1 textbook
+          about the motion, giving as part of the problem statement a description of the motion
+          and values for the variables x_0, v_{0x}, t, and either the generated acceleration function a_x(t) for the object,
+          or the velocity function for the object, v_x(t).
+          2. If the object is moving up or down an inclined ramp, the problem should give the ramp angle and describe
+          that the variable x gives the distance up the ramp.
+          3. The direction of motion of the object should also be described in the problem statement, and whether the distance to the
+          first reference point at the start of the motion is to the left/right,
+          behind/ahead, above/below, etc. but do not give negative values or signs to the quantities.
+          4. If the probem gives the acceleration function a_x(t), prompt the student to calculate either:
+          the distance between first and second reference points.
+          the velocity of the object when it reaches the second reference point.
+          5. If instead the problem gives the velocity function v_x(t) for the object, prompt the student instead to calculate either:
+          the distance between first and second reference points.
+          the acceleration of the object when it reaches the second reference point.
+          6.  For each generated problem, calculate the numerical answer and check that:
+          if asking for the distance between the first and second reference point, that the value is between 0 and 1000
+          if asking for the velocity, that it's magnitude is between 0.5 and 100
+          if asking for the acceleration, that it's magnitude is between 0.5 and 50
+          If the solutions pass the check, continue, if not, regenerate the numerical values of the given variables and coefficients and check again
+          until the solutions lie within the specified ranges.
+          7.  Specify the correct number of significant figures required for the answer based on the value with the least number of significant digits.
+        - prompt 4: |
+          Write student facing solutions for the each problem. Each solution should include the following elements:
+          1. If the acceleration function a_x(t) is given, a description that of how to obtain the position and velocity functions by integrating the
+          acceleration function twice.
+          2. A step-by-step LaTeX solution showing how the indefinite integration is carried out to find the position and velocity functions as functions of time.
+          3. Next, explain how to apply the initial values x_0 and v_{0x} to specify the constants of integration. Include positive or negative signs here as
+          appropriate based on the problem description (distance ahead/behind and direction of motion.)
+          4. Finally, explain how to evaluate these functions at the time t to obtain the final position and velocity of the objects.
+          5. Interpret the signs of the answers in terms of before/after the starting reference point and direction of motion of the object.
+          6. If instead the velocity function v_x(t) is given, repeat the above except:
+          Integrate only once to find the position function
+          Explain how to find the acceleration function by differentiation and show the steps symbolically in LaTeX as above.
+          Repeat steps 3-6 to finish the description of the solution.
+        - formatting prompt: "./YAML_formatting_prompt.md"
+    associated data:
+        - random number generation script: "./PHY1-F-1DKINT-091525-script.py"
+    generation details: # Details of the creation process
+            model: GPT 4o # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 09-14-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Michael Jay Perez
+
+questions:
+- numerical:
+    id: vx_poly_rollerbot
+    title: Rollerbot Dash — Distance Traveled
+    points: 3
+    text: |
+      A small robot named *Rollerbot* is programmed to travel **forward** in a straight corridor inside a science museum. It begins its motion **80.245 m ahead** of the start line, moving with an initial speed of **15.632 m/s**. It continues moving for **12.370 s**, with a velocity that varies over time according to:
+
+      <latex>
+      v_x(t) = 0.85 - 0.24t - 0.31t^2 + 0.49t^3
+      </latex>
+
+      where \( v_x(t) \) is in m/s and \( t \) is in seconds.
+
+      **How far does Rollerbot travel during this time?**
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: 2660
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        To find displacement, integrate the velocity function:
+
+        <latex>
+        x(t) = \int v_x(t) dt = \int (0.85 - 0.24t - 0.31t^2 + 0.49t^3) dt
+        </latex>
+
+        <latex>
+        x(t) = 0.85t - 0.12t^2 - 0.1033t^3 + 0.1225t^4 + C
+        </latex>
+
+        Using initial position \( x_0 = 80.245 \) m, we evaluate the position at \( t = 12.370 \) s:
+
+        <latex>
+        x(12.370) pprox 2664.797\ 	ext{m}
+        </latex>
+
+        So the displacement is approximately \( oxed{2660\ 	ext{m}} \) (3 sig. figs).
+      on_correct: Excellent!
+      on_incorrect: Try again by integrating the velocity function and applying the initial condition.
+
+- numerical:
+    id: vx_exp_meteor
+    title: Meteor Drop — Instantaneous Acceleration
+    points: 2
+    text: |
+      A meteor fragment is falling **straight down** toward Earth. At a moment when it is **35.712 m above** the ground, its speed is measured to be **12.048 m/s downward**. From that point, it continues falling for **6.823 s**, and its velocity as a function of time is modeled by:
+
+      <latex>
+      v_x(t) = 0.58 \cdot \left(1 - e^{-0.11t}
+ight)
+      </latex>
+
+      **What is the instantaneous acceleration** of the meteor when it reaches the second reference point (after 6.823 s)?
+      Give your answer to **2 significant figures**.
+
+    answer:
+      value: 0.03
+      precision_type: significant_digits
+      precision: 2
+
+    feedback:
+      general: |
+        Differentiate velocity to get acceleration:
+
+        <latex>
+        a_x(t) =rac{d}{dt} \left[ 0.58(1 - e^{-0.11t}) 
+ight] = 0.58 \cdot 0.11 \cdot e^{-0.11t}
+        </latex>
+
+        At \( t = 6.823 \) s:
+
+        <latex>
+        a_x pprox 0.03\ 	ext{m/s}^2
+        </latex>
+
+        So the correct answer is \( oxed{0.03\ 	ext{m/s}^2} \).
+      on_correct: Well done!
+      on_incorrect: Review the derivative of exponential velocity functions.
+
+- numerical:
+    id: vx_log_mining
+    title: Martian Mining Sled — Distance on Ramp
+    points: 3
+    text: |
+      On a Martian slope, an automated mining sled begins **50.912 m up the ramp** from the mining base. It travels **down the ramp** at an initial speed of **4.692 m/s**, and the motion is measured over the next **14.582 s**. Its velocity function is modeled by:
+
+      <latex>
+      v_x(t) = 0.29 \cdot \ln(1 + 0.14t)
+      </latex>
+
+      The slope is at an angle of \( 20^\circ \).
+      **How far down the ramp** does the sled travel during this time?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: 2.78
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        To find displacement, integrate the velocity:
+
+        <latex>
+        x(t) = \int 0.29 \ln(1 + 0.14t) dt
+        </latex>
+
+        Use integration by parts and evaluate the expression at \( t = 14.582 \), adding to the initial position \( x_0 = 50.912 \) m:
+
+        \[
+        \Delta x pprox oxed{2.78\ 	ext{m}}
+        \]
+
+        This is the distance traveled **down the ramp** during the motion.
+      on_correct: Correct!
+      on_incorrect: Try integrating the logarithmic function and evaluating it over time.
+- numerical:
+    id: vx_exp_jetbunny
+    title: Jetpack Bunny Hop — Distance Traveled
+    points: 3
+    text: |
+      A stunt rabbit named Jet hops **29.214 m behind** a finish line on a launchpad. When his jetpack activates, he travels **forward** with a speed of **7.391 m/s**. His speed decays over time due to drag, following the velocity function:
+
+      <latex>
+      v_x(t) = -0.60 \cdot e^{-0.13t}
+      </latex>
+
+      He travels for **9.393 s**.
+
+      **How far does Jet travel during this time?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 1.361
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        We integrate the velocity:
+
+        <latex>
+        x(t) = \int -0.60 \cdot e^{-0.13t} dt =rac{0.60}{0.13} e^{-0.13t} + C
+        </latex>
+
+        Apply the initial condition and evaluate at \( t = 9.393 \):
+
+        \[
+        \Delta x pprox oxed{1.361\ 	ext{m}}
+        \]
+      on_correct: Correct!
+      on_incorrect: Try integrating the exponential velocity function.
+
+- numerical:
+    id: vx_poly_lavarover
+    title: Lava Rover Run — Downhill Travel
+    points: 3
+    text: |
+      A lava rover begins its journey **59.241 m downward** from a cliff edge on a volcanic slope. It rolls further down at an initial speed of **1.024 m/s**, but its velocity increases non-linearly due to gravity and engine boost:
+
+      <latex>
+      v_x(t) = -0.87 + 0.9t + 0.93t^2 + 0.62t^3
+      </latex>
+
+      The rover moves for **12.347 s**.
+
+      **How far does the rover travel down the slope?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 4243.647
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        Integrate the polynomial velocity:
+
+        <latex>
+        x(t) = -0.87t + 0.45t^2 + 0.31t^3 + 0.155t^4 + C
+        </latex>
+
+        Evaluate at \( t = 12.347 \):
+
+        \[
+        \Delta x pprox oxed{4243.647\ 	ext{m}}
+        \]
+      on_correct: Well done!
+      on_incorrect: Try integrating the polynomial and evaluating it at the given time.
+
+- numerical:
+    id: vx_log_puck
+    title: Moon Hockey Puck — Glide Distance
+    points: 3
+    text: |
+      On a moon base, an air hockey puck starts **30.461 m behind** a sensor gate and glides **backward** on a low-friction surface. Its speed changes according to:
+
+      <latex>
+      v_x(t) = -0.76 \cdot \ln(1 + 0.13t)
+      </latex>
+
+      The puck glides for **13.843 s**.
+
+      **How far does the puck move during this time?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 6.329
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        Integrate the velocity:
+
+        <latex>
+        x(t) = \int -0.76 \ln(1 + 0.13t) dt
+        </latex>
+
+        Evaluate at \( t = 13.843 \):
+
+        \[
+        \Delta x pprox oxed{6.329\ 	ext{m}}
+        \]
+      on_correct: That's right!
+      on_incorrect: Try evaluating the integral of the logarithmic velocity function.
+- numerical:
+    id: vx_exp_hovercrate
+    title: Hover-Crate Delivery — Drift Distance
+    points: 3
+    text: |
+      A supply drone hovers **3.439 m toward home** from a landing platform and begins drifting back as its propellers slow. It has an initial speed of **18.195 m/s**, and its velocity function is modeled by:
+
+      <latex>
+      v_x(t) = -0.15 \cdot e^{-0.06t}
+      </latex>
+
+      The drone hovers for **5.546 s** before shutting down.
+
+      **How far does the drone travel during this time?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 1.7924
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        Integrate the velocity:
+
+        <latex>
+        x(t) = \int -0.15 \cdot e^{-0.06t} dt =rac{0.15}{0.06} e^{-0.06t} + C
+        </latex>
+
+        Using \( x_0 = 3.439 \), evaluate at \( t = 5.546 \):
+
+        \[
+        \Delta x pprox oxed{1.792\ 	ext{m}}
+        \]
+      on_correct: Great work!
+      on_incorrect: Try integrating the exponential velocity function and evaluate carefully.
+
+- numerical:
+    id: vx_exp_balloon
+    title: Slow Balloon Drift — Small Displacement
+    points: 2
+    text: |
+      A helium balloon begins **56.770 m toward home** and slowly drifts backward due to a slight breeze. Its initial speed is **0.723 m/s**, and its velocity decays exponentially:
+
+      <latex>
+      v_x(t) = -0.21 \cdot e^{-0.23t}
+      </latex>
+
+      The motion continues for **16.925 s**.
+
+      **How far does the balloon drift during this time?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 0.0186
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        Integrate:
+
+        <latex>
+        x(t) = \int -0.21 \cdot e^{-0.23t} dt =rac{0.21}{0.23} e^{-0.23t} + C
+        </latex>
+
+        Apply the initial condition and evaluate at \( t = 16.925 \):
+
+        \[
+        \Delta x pprox oxed{0.0186\ 	ext{m}}
+        \]
+      on_correct: Correct!
+      on_incorrect: Don’t forget to apply the initial condition and evaluate properly.
+
+- numerical:
+    id: vx_poly_catapult
+    title: Catapult Cart — High-Speed Travel
+    points: 3
+    text: |
+      On a high-speed maglev test track, a cart is launched from **72.727 m ahead** of the end point. It accelerates from **6.598 m/s** and follows this velocity function:
+
+      <latex>
+      v_x(t) = 0.92 + 0.69t + 0.49t^2 + 0.08t^3
+      </latex>
+
+      The motion lasts **11.624 s**.
+
+      **How far does the cart travel in that time?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 678.9757
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        Integrate:
+
+        <latex>
+        x(t) = 0.92t + 0.345t^2 + 0.1633t^3 + 0.02t^4 + C
+        </latex>
+
+        Evaluate the expression at \( t = 11.624 \):
+
+        \[
+        \Delta x pprox oxed{678.976\ 	ext{m}}
+        \]
+      on_correct: Nicely done!
+      on_incorrect: Review polynomial integration and plug in values carefully.
+- numerical:
+    id: vx_poly_tunnelracer
+    title: Tunnel Racer — Velocity Dive
+    points: 3
+    text: |
+      A tunnel racer begins **58.675 m downhill** from a control gate and launches with high speed. Its velocity function during this unstable burst is:
+
+      <latex>
+      v_x(t) = -0.41 - 0.67t - 0.97t^2 - 0.15t^3
+      </latex>
+
+      It moves for **12.337 s** before stopping.
+
+      **How far does the racer travel in that time?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 1531.872
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        Integrate:
+
+        <latex>
+        x(t) = -0.41t - 0.335t^2 - 0.3233t^3 - 0.0375t^4 + C
+        </latex>
+
+        Evaluate at \( t = 12.337 \) and subtract the initial position:
+
+        \[
+        \Delta x pprox oxed{1531.872\ 	ext{m}}
+        \]
+      on_correct: Well done!
+      on_incorrect: Make sure to integrate the velocity and use the correct time interval.
+
+- numerical:
+    id: vx_poly_droplet
+    title: Water Droplet Slide — Leaf Motion
+    points: 2
+    text: |
+      A water droplet begins **39.488 m below** a ridge on a curved leaf and slides for **0.775 s**. Its velocity function is:
+
+      <latex>
+      v_x(t) = 0.42 + 0.58t + 0.21t^2 + 0.85t^3
+      </latex>
+
+      **How far does the droplet slide in this time?**
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: 0.609
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Integrate the velocity function:
+
+        <latex>
+        x(t) = 0.42t + 0.29t^2 + 0.07t^3 + 0.2125t^4 + C
+        </latex>
+
+        Evaluate at \( t = 0.775 \):
+
+        \[
+        \Delta x pprox oxed{0.609\ 	ext{m}}
+        \]
+      on_correct: Correct!
+      on_incorrect: Be careful with your polynomial integration.
+
+- numerical:
+    id: vx_exp_spacedebris
+    title: Space Debris Drift — Exponential Slowdown
+    points: 3
+    text: |
+      A small piece of space debris begins **65.108 m to the right** of a satellite's hull. Its motion is governed by an exponential velocity decay:
+
+      <latex>
+      v_x(t) = -0.81 \cdot e^{-0.1t}
+      </latex>
+
+      The object drifts for **17.076 s**.
+
+      **How far does the debris travel during this time?**
+      Give your answer to **4 significant figures**.
+
+    answer:
+      value: 1.469
+      precision_type: significant_digits
+      precision: 4
+
+    feedback:
+      general: |
+        Integrate:
+
+        <latex>
+        x(t) =rac{-0.81}{-0.1} e^{-0.1t} + C = 8.1e^{-0.1t} + C
+        </latex>
+
+        Evaluate from \( t = 0 \) to \( t = 17.076 \):
+
+        \[
+        \Delta x pprox oxed{1.469\ 	ext{m}}
+        \]
+      on_correct: Spot on!
+      on_incorrect: Try the exponential integration again using correct limits.
+- numerical:
+    id: log_acc_mars_train
+    title: Mars Train — Instantaneous Acceleration
+    points: 2
+    text: |
+      A cargo train on Mars begins **66.884 m along the rail** from a depot, gliding **forward** at a speed of **13.352 m/s**. After **12.235 s**, its velocity is governed by the function:
+
+      <latex>
+      v_x(t) = 0.12 \cdot \ln(1 + 0.10t)
+      </latex>
+
+      **What is the instantaneous acceleration** of the train at that moment?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: 0.005
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Differentiate the velocity function:
+
+        <latex>
+        a_x(t) =rac{d}{dt} \left[ 0.12 \cdot \ln(1 + 0.10t) 
+ight] =rac{0.012}{1 + 0.10t}
+        </latex>
+
+        At \( t = 12.235 \):
+
+        <latex>
+        a_x pproxrac{0.012}{2.2235} = oxed{0.005\ 	ext{m/s}^2}
+        </latex>
+      on_correct: Nicely done!
+      on_incorrect: Differentiate the logarithmic velocity function and plug in the time correctly.
+
+- numerical:
+    id: log_acc_booster
+    title: Booster Rocket — Instantaneous Acceleration
+    points: 2
+    text: |
+      A booster rocket begins **97.171 m behind** the mothership. It is gliding **in reverse** at **16.993 m/s**. After **14.713 s**, its velocity is given by:
+
+      <latex>
+      v_x(t) = -0.49 \cdot \ln(1 + 0.02t)
+      </latex>
+
+      **What is the instantaneous acceleration** of the rocket at that time?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: -0.008
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Differentiate:
+
+        <latex>
+        a_x(t) =rac{-0.0098}{1 + 0.02t}
+        </latex>
+
+        At \( t = 14.713 \):
+
+        <latex>
+        a_x pproxrac{-0.0098}{1.2943} = oxed{-0.008\ 	ext{m/s}^2}
+        </latex>
+      on_correct: Great!
+      on_incorrect: Be careful with signs and plug in correctly.
+
+- numerical:
+    id: log_acc_skatepod
+    title: Interplanetary Skate Pod — Acceleration
+    points: 2
+    text: |
+      A skate pod is cruising **71.066 m east** of a central hub with an initial speed of **2.307 m/s**. Its velocity evolves as:
+
+      <latex>
+      v_x(t) = 0.79 \cdot \ln(1 + 0.12t)
+      </latex>
+
+      After **9.347 s**, determine the **instantaneous acceleration**.
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: 0.045
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Differentiate:
+
+        <latex>
+        a_x(t) =rac{0.0948}{1 + 0.12t}
+        </latex>
+
+        At \( t = 9.347 \):
+
+        <latex>
+        a_x pproxrac{0.0948}{2.1216} = oxed{0.045\ 	ext{m/s}^2}
+        </latex>
+      on_correct: Correct!
+      on_incorrect: Try taking the derivative of the logarithmic velocity function carefully.
+- numerical:
+    id: exp_vel_dronedrift
+    title: Drone Drift — Velocity Change
+    points: 2
+    text: |
+      A drone starts **56.328 m downrange** of **a launch tower** and begins to drift toward **a control beacon**. The drone’s acceleration decays over time:
+
+      <latex>
+      a_x(t) = 0.89 \cdot e^{-0.15t}
+      </latex>
+
+      The motion lasts for **3.647 s**.
+
+      **What is the change in velocity** of the drone by the time it reaches the second reference point?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: -3.433
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Integrate acceleration:
+
+        <latex>
+        v_x(t) = \int 0.89 \cdot e^{-0.15t} dt =rac{0.89}{-0.15} e^{-0.15t} + C
+        </latex>
+
+        Evaluating from \( t = 0 \) to \( 3.647 \):
+
+        \[
+        \Delta v pprox oxed{-3.43\ 	ext{m/s}}
+        \]
+      on_correct: Well done!
+      on_incorrect: Review the integration of exponential decay functions.
+
+- numerical:
+    id: exp_vel_capsule
+    title: Capsule Launch — Velocity Change
+    points: 2
+    text: |
+      An escape capsule is launched from **a docking station**, located **69.478 m behind** the antenna array. Its thrusters provide an exponentially decaying acceleration:
+
+      <latex>
+      a_x(t) = 0.61 \cdot e^{-0.05t}
+      </latex>
+
+      The capsule travels toward the array for **12.863 s**.
+
+      **What is the change in velocity** of the capsule during this motion?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: -6.413
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Integrate:
+
+        <latex>
+        v_x(t) =rac{0.61}{-0.05} e^{-0.05t} + C
+        </latex>
+
+        Evaluate from 0 to 12.863:
+
+        \[
+        \Delta v pprox oxed{-6.41\ 	ext{m/s}}
+        \]
+      on_correct: Great!
+      on_incorrect: Try re-evaluating the exponential integral carefully.
+
+- numerical:
+    id: exp_vel_sled
+    title: Observatory Glide — Velocity Change
+    points: 2
+    text: |
+      A test sled glides from **an observatory**, located **89.256 m behind** **the maintenance zone**. It accelerates gently according to:
+
+      <latex>
+      a_x(t) = -0.46 \cdot (1 - e^{-0.17t})
+      </latex>
+
+      The motion lasts **16.341 s**.
+
+      **What is the change in velocity** of the sled during this glide?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: -7.685
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Integrate:
+
+        <latex>
+        v_x(t) = -0.46t +rac{0.46}{0.17} e^{-0.17t} + C
+        </latex>
+
+        Evaluate from 0 to 16.341:
+
+        \[
+        \Delta v pprox oxed{-7.69\ 	ext{m/s}}
+        \]
+      on_correct: Excellent!
+      on_incorrect: Don't forget to include both terms from the integration result.
+- numerical:
+    id: log_acc_probe
+    title: Probe Flyby — Solar Array Acceleration
+    points: 2
+    text: |
+      A probe starts **0.052 m toward port** of **a rest station** and glides toward **a solar panel array**. Its velocity changes according to:
+
+      <latex>
+      v_x(t) = 0.38 \cdot \ln(1 + 0.07t)
+      </latex>
+
+      The motion lasts **6.791 s**.
+
+      **What is the instantaneous acceleration** of the probe when it reaches the solar panel array?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: 0.018
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Differentiate velocity:
+
+        <latex>
+        a_x(t) =rac{0.0266}{1 + 0.07t}
+        </latex>
+
+        At \( t = 6.791 \):
+
+        \[
+        a_x pprox oxed{0.018\ 	ext{m/s}^2}
+        \]
+      on_correct: Nicely done!
+      on_incorrect: Try differentiating the logarithmic function and plugging in the time correctly.
+
+- numerical:
+    id: exp_acc_ejector
+    title: Ejector Module — Coolant Tower Approach
+    points: 2
+    text: |
+      An ejector module begins **24.413 m rightward** of **the shuttle hatch**, heading for **a coolant tower**. Its velocity decays exponentially:
+
+      <latex>
+      v_x(t) = 0.94 \cdot e^{-0.24t}
+      </latex>
+
+      The trip takes **5.157 s**.
+
+      **What is the instantaneous acceleration** of the module when it reaches the coolant tower?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: -0.065
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Differentiate velocity:
+
+        <latex>
+        a_x(t) = -0.94 \cdot 0.24 \cdot e^{-0.24t}
+        </latex>
+
+        At \( t = 5.157 \):
+
+        \[
+        a_x pprox oxed{-0.065\ 	ext{m/s}^2}
+        \]
+      on_correct: Well done!
+      on_incorrect: Review the derivative of exponential velocity decay.
+
+- numerical:
+    id: log_acc_module
+    title: Module Glide — Final Acceleration at Array
+    points: 2
+    text: |
+      A module starts **25.178 m toward the structure** from **the shuttle hatch** and moves toward **a solar panel array**. Its velocity evolves as:
+
+      <latex>
+      v_x(t) = 0.95 \cdot \ln(1 + 0.11t)
+      </latex>
+
+      The glide lasts **6.717 s**.
+
+      **What is the instantaneous acceleration** of the module upon arrival?
+      Give your answer to **3 significant figures**.
+
+    answer:
+      value: 0.06
+      precision_type: significant_digits
+      precision: 3
+
+    feedback:
+      general: |
+        Differentiate:
+
+        <latex>
+        a_x(t) =rac{0.1045}{1 + 0.11t}
+        </latex>
+
+        Evaluate at \( t = 6.717 \):
+
+        \[
+        a_x pprox oxed{0.060\ 	ext{m/s}^2}
+        \]
+      on_correct: Great job!
+      on_incorrect: Don’t forget to apply the chain rule when differentiating.
