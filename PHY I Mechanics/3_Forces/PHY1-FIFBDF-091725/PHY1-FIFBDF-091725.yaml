@@ -40,5 +40,39 @@ bank_info:
                 2. The solution to each problem should be short and mostly the same across multiple problems, stating that free body diagrams only include real external forces acting on the object not forces by the object acting on external objects also motion forces are not real
                 As a first step, generate the yaml code for the first problem as a test
         
-
+questions:
+- multiple_answers:
+    id: q-1
+    title: "Free-Body Diagram: Floating Boat"
+    points: 2
+    text: |
+      A boat is floating at rest on a lake. 
+      
+      Which of the following are valid forces acting on the object in its free-body diagram? Select all options that are correct.
+    answers:
+    - answer:
+      text: A free-body diagram only includes real, external forces that act *on* the object. It does not include forces exerted *by* the object on its surroundings (like the force of the boat on the anchor). Additionally, conceptual forces, such as the "force of motion," are not real forces and are not included in a free-body diagram.
+      correct: true
+    - answer:
+        text: The force of gravity on the boat.
+        correct: true
+    - answer:
+        text: The buoyant force exerted by the water on the boat.
+        correct: true
+    - answer:
+        text: The tension force from the anchor rope on the boat.
+        correct: true
+    - answer:
+        text: The force of the boat on the anchor.
+        correct: false
+    - answer:
+        text: The force of the boat's motion.
+        correct: false
+    feedback:
+        general: |
+            FBDs include only real external forces on the object: weight, contact/field forces like normal, tension, friction, drag, buoyancy. Exclude motion/inertia and forces exerted by the object on others.
+        on_correct: Correct!
+        on_incorrect: Not quite, try again!
+- multiple_answers:
+    id: q-2
                 
