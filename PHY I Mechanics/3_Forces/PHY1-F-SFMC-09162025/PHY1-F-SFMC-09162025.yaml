@@ -5,8 +5,9 @@ bank_info:
       An applied force at an angle is acting on an object. The object remains at rest. The goal is to find the static friction. A common mistake is to use static friction coefficient times normal force to get static friction.
     date created: 09-16-2025 # Today's date 
     learning objectives:
-        - 1DM-PD-1
-        - 1DM-VS-1
+        - to be able to determine static friction when it is not at maximum
+        - to be able to apply Newton's 2nd law for static equilibrium problem
+        - to be able to break down forces into components
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1.1: |
             I am a college professor writing physics problems about calculating static friction. I am asking you to help me write the problems. First, please generate 10 different cases of an object being pulled or pushed by either a human, an animal, or a machine/vehicle, but the object remains stationary on a surface. Indicate whether the pushing or pulling force must be angled upwards or downwards. Here are some examples: horse pulling a sledge on snow. upwards. A person pushing a couch across carpeted floor. Downwards a person dragging a heavy luggage case. Upwards. A towing truck dragging a damaged car on rough road. Upwards
@@ -66,8 +67,8 @@ bank_info:
         - excel file table:  # This can be any tables or files created as part of the process.
     generation details: # Details of the creation process
             model: GPT-5 # The model used to generate the questions
-            version: 0.0.1 # The version of the model used
-            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+            version:  # The version of the model used
+            last updated: 07-17-2025 # The date of the last update of the generation prompts.
     authors:
         - Tong Wan
  
@@ -79,7 +80,7 @@ questions:
     title: Horse Pulling a Plow
     points: 1
     text: |
-      A farmer is using a horse to pull a heavy plow across a flat field. The plow rests on a horizontal patch of dry dirt and remains stationary, even though the horse is actively pulling. The horse pulls with a force of 936.8 N through a rope that forms an angle of 57.5° upward with respect to the horizontal. The mass of the plow is 300 kg, and the coefficient of static friction between the plow and the ground is 0.25. Find the static friction in units of Newtons.
+      A farmer is using a horse to pull a heavy plow across a flat field. The plow rests on a horizontal patch of dry dirt and remains stationary, even though the horse is actively pulling. The horse pulls with a force of 936.8 N through a rope that forms an angle of 57.5° upward with respect to the horizontal. The mass of the plow is 300 kg, and the coefficient of static friction between the plow and the ground is 0.25. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 503.34 N
@@ -116,7 +117,7 @@ questions:
     title: Person Pushing a Couch
     points: 1
     text: |
-      A person is trying to push a large couch across a carpeted living room floor. The couch remains stationary on the horizontal surface, even though the person is applying a force of 149.5 N. This force is directed at an angle of 34.8° downward with respect to the horizontal. The mass of the couch is 80 kg, and the coefficient of static friction between the couch and the carpet is 0.15. Find the static friction in units of Newtons.
+      A person is trying to push a large couch across a carpeted living room floor. The couch remains stationary on the horizontal surface, even though the person is applying a force of 149.5 N. This force is directed at an angle of 34.8° downward with respect to the horizontal. The mass of the couch is 80 kg, and the coefficient of static friction between the couch and the carpet is 0.15. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 122.76 N
@@ -153,7 +154,7 @@ questions:
     title: Worker Dragging a Suitcase
     points: 1
     text: |
-      A worker is dragging a large suitcase across a tiled airport floor, but the suitcase remains stationary on the horizontal surface. The worker is pulling with a force of 30.0 N using a strap that forms an angle of 43.0° upward with respect to the horizontal. The mass of the suitcase is 25 kg, and the coefficient of static friction between the suitcase and the tile is 0.20. Find the static friction in units of Newtons.
+      A worker is dragging a large suitcase across a tiled airport floor, but the suitcase remains stationary on the horizontal surface. The worker is pulling with a force of 30.0 N using a strap that forms an angle of 43.0° upward with respect to the horizontal. The mass of the suitcase is 25 kg, and the coefficient of static friction between the suitcase and the tile is 0.20. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 21.94 N
@@ -190,7 +191,7 @@ questions:
     title: Towing Truck Pulling a Car
     points: 1
     text: |
-      A towing truck is pulling a stalled car along a rough horizontal asphalt road, but the car remains stationary. The truck pulls with a force of 1469.1 N using a metal cable that forms an angle of 20.6° upward with respect to the horizontal. The mass of the car is 1200 kg, and the coefficient of static friction between the car's tires and the road is 0.43. Find the static friction in units of Newtons.
+      A towing truck is pulling a stalled car along a rough horizontal asphalt road, but the car remains stationary. The truck pulls with a force of 1469.1 N using a metal cable that forms an angle of 20.6° upward with respect to the horizontal. The mass of the car is 1200 kg, and the coefficient of static friction between the car's tires and the road is 0.43. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 1375.17 N
@@ -227,7 +228,7 @@ questions:
     title: Worker Pushing a File Cabinet
     points: 1
     text: |
-      A factory worker is trying to push a heavy metal file cabinet across a vinyl office floor, but the cabinet remains stationary on the horizontal surface. The worker applies a force of 153.9 N at an angle of 36.2° downward with respect to the horizontal. The mass of the cabinet is 100 kg, and the coefficient of static friction between the cabinet and the vinyl flooring is 0.22. Find the static friction in units of Newtons.
+      A factory worker is trying to push a heavy metal file cabinet across a vinyl office floor, but the cabinet remains stationary on the horizontal surface. The worker applies a force of 153.9 N at an angle of 36.2° downward with respect to the horizontal. The mass of the cabinet is 100 kg, and the coefficient of static friction between the cabinet and the vinyl flooring is 0.22. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 124.19 N
@@ -264,7 +265,7 @@ questions:
     title: Dog Pulling a Garden Wagon
     points: 1
     text: |
-      A dog is harnessed to a garden wagon loaded with soil, and it attempts to pull the wagon across a compacted dirt path. The wagon remains stationary on the horizontal surface. The dog pulls with a force of 96.5 N through a leash that forms an angle of 17.0° upward with respect to the horizontal. The mass of the wagon is 40 kg, and the coefficient of static friction between the wagon and the dirt is 0.34. Find the static friction in units of Newtons.
+      A dog is harnessed to a garden wagon loaded with soil, and it attempts to pull the wagon across a compacted dirt path. The wagon remains stationary on the horizontal surface. The dog pulls with a force of 96.5 N through a leash that forms an angle of 17.0° upward with respect to the horizontal. The mass of the wagon is 40 kg, and the coefficient of static friction between the wagon and the dirt is 0.34. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 92.28 N
@@ -301,7 +302,7 @@ questions:
     title: Forklift Pushing a Crate
     points: 1
     text: |
-      A forklift is slowly pushing a large wooden crate across a horizontal concrete loading dock, but the crate does not move. The forklift applies a forward force of 1772.2 N using its front plate, which exerts the force at an angle of 49.3° downward with respect to the horizontal. The mass of the crate is 500 kg, and the coefficient of static friction between the crate and the dock is 0.28. Find the static friction in units of Newtons.
+      A forklift is slowly pushing a large wooden crate across a horizontal concrete loading dock, but the crate does not move. The forklift applies a forward force of 1772.2 N using its front plate, which exerts the force at an angle of 49.3° downward with respect to the horizontal. The mass of the crate is 500 kg, and the coefficient of static friction between the crate and the dock is 0.28. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 1155.65 N
@@ -338,7 +339,7 @@ questions:
     title: Child Dragging a Toy Wagon
     points: 1
     text: |
-      A child is dragging a toy wagon full of books across a wooden floor, but the wagon does not move. The child pulls with a force of 42.4 N using a rope that forms an angle of 54.8° upward with respect to the horizontal. The mass of the wagon is 10 kg, and the coefficient of static friction between the wagon and the wood is 0.42. Find the static friction in units of Newtons.
+      A child is dragging a toy wagon full of books across a wooden floor, but the wagon does not move. The child pulls with a force of 42.4 N using a rope that forms an angle of 54.8° upward with respect to the horizontal. The mass of the wagon is 10 kg, and the coefficient of static friction between the wagon and the wood is 0.42. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 24.44 N
@@ -375,7 +376,7 @@ questions:
     title: Worker Pushing a Cement Mixer
     points: 1
     text: |
-      A construction worker is attempting to push a cement mixer across a horizontal section of pavement, but the mixer stays still. The worker applies a force of 272.3 N at an angle of 57.4° downward with respect to the horizontal. The mass of the mixer is 150 kg, and the coefficient of static friction between the mixer and the pavement is 0.13. Find the static friction in units of Newtons.
+      A construction worker is attempting to push a cement mixer across a horizontal section of pavement, but the mixer stays still. The worker applies a force of 272.3 N at an angle of 57.4° downward with respect to the horizontal. The mass of the mixer is 150 kg, and the coefficient of static friction between the mixer and the pavement is 0.13. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 146.71 N
@@ -412,7 +413,7 @@ questions:
     title: Delivery Robot Pulling a Cart
     points: 1
     text: |
-      An autonomous delivery robot is trying to pull a wheeled cart full of packages across a brick-paved courtyard, but the cart remains stationary on the horizontal surface. The robot exerts a pulling force of 184.2 N using a tether that forms an angle of 45.2° upward with respect to the horizontal. The mass of the cart is 60 kg, and the coefficient of static friction between the cart and the bricks is 0.31. Find the static friction in units of Newtons.
+      An autonomous delivery robot is trying to pull a wheeled cart full of packages across a brick-paved courtyard, but the cart remains stationary on the horizontal surface. The robot exerts a pulling force of 184.2 N using a tether that forms an angle of 45.2° upward with respect to the horizontal. The mass of the cart is 60 kg, and the coefficient of static friction between the cart and the bricks is 0.31. Find the magnitude of the static friction.
     answers:
         - answer:
             text: 129.79 N
