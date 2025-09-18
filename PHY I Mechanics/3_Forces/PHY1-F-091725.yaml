@@ -1,0 +1,42 @@
+bank_info:
+    title: Identification of free body diagram forces
+    bank_id: PHY1-F-IFBDF-09-16-2025
+    description: | #to do 
+    date created: 09-17-2025
+    learning objectives: #to be added later
+    generational prompts:
+        - prompt 1: |
+            I would like to create a physics problem about Identification of free body diagram forces for my class. The problem consists of the following parts:
+                1. A situation involving an inanamate object acted on by exactly three non negligable external forces, A boat is floating at rest on a lake, a block sliding down a rough incline plane, an hockey puck gliding on ice.
+                2. Three corect answers:
+                a. An external force such as friction bouyancy normal force, aplied force, tention force
+                b. A second external force such as friction bouyancy normal force, aplied force, tention force
+                a. Each answer should describe an external force (including gravity) acting on the object
+                3. Two distractors
+                a. Distractor 1: Force by the object on the external
+                b. Distractor 2: The force of the object moving
+                Here is an example:
+
+                Situation: A wooden crate is sliding down a snowey hill at a constant velocity.
+
+                Correct 1: Normal force by the ground on the crate
+                Correct 2: The force of gravity on the crate
+                Correct 3: The force of kentic friction on the crate
+                Distractor 1: The force of the crate's motion up the hill
+                Distractor 2: The force of the crate on the ground
+
+                first, create 5 different versions according to this example format no emoji.
+        - prompt 1.1:  |
+                
+                
+        - prompt 1.2:  | 
+                Great, write another 10 different versions please.
+        - prompt 1.3:  |
+                Great, now generate another batch of 10 such problem descriptions
+
+                
+                
+                
+
+
+
