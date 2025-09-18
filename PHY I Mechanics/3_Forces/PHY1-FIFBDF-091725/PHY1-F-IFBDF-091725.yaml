@@ -1,7 +1,8 @@
 bank_info:
     title: Identification of free body diagram forces
     bank_id: PHY1-F-IFBDF-09-17-2025
-    description: | Multiple-answer about Identification of free body diagram forces
+    description: |-
+     Multiple-answer question, Identification of free body diagram forces
     date created: 09-17-2025
     learning objectives: #to be added later
     generational prompts:
