@@ -87,6 +87,7 @@ questions:
     id: q-2
     title: "Free-Body Diagram: Gliding Hockey Puck"
     points: 2
+    partial: true
     text: |
       A hockey puck is gliding across a sheet of ice after being struck. 
       
@@ -121,6 +122,7 @@ questions:
     id: q-3
     title: "Free-Body Diagram: Sliding Block"
     points: 2
+    partial: true
     text: |
       A block is sliding down a rough inclined plane. 
       
@@ -155,6 +157,7 @@ questions:
     id: q-4
     title: "Free-Body Diagram: Accelerating Hot Air Balloon"
     points: 2
+    partial: true
     text: |
       A hot air balloon is accelerating upwards. 
       
@@ -189,6 +192,7 @@ questions:
     id: q-5
     title: "Free-Body Diagram: Book on a Table"
     points: 2
+    partial: true
     text: |
       A book is at rest on a table, with a hand pressing down on it. 
       
@@ -223,6 +227,7 @@ questions:
     id: q-6
     title: "Free-Body Diagram: Pushed Box"
     points: 2
+    partial: true
     text: |
       A box is being pushed horizontally across a rough floor at a constant velocity. 
       
@@ -257,6 +262,7 @@ questions:
     id: q-7
     title: "Free-Body Diagram: Car Accelerating Uphill"
     points: 2
+    partial: true
     text: |
       A car is accelerating up a hill. 
       
@@ -291,6 +297,7 @@ questions:
     id: q-8
     title: "Free-Body Diagram: Falling Apple"
     points: 2
+    partial: true
     text: |
       An apple is falling from a tree with air resistance. 
       
@@ -325,6 +332,7 @@ questions:
     id: q-9
     title: "Free-Body Diagram: Pulled Sled"
     points: 2
+    partial: true
     text: |
       A sled is being pulled at a constant velocity across a flat, snowy field. 
       
@@ -359,6 +367,7 @@ questions:
     id: q-10
     title: "Free-Body Diagram: Orbiting Satellite"
     points: 2
+    partial: true
     text: |
       A satellite is in a stable circular orbit around the Earth. 
       
@@ -393,6 +402,7 @@ questions:
     id: q-11
     title: "Free-Body Diagram: Swaying Chandelier"
     points: 2
+    partial: true
     text: |
       A chandelier is hanging from the ceiling, slightly swaying back and forth. 
       
@@ -427,6 +437,7 @@ questions:
     id: q-12
     title: "Free-Body Diagram: Pulled Block"
     points: 2
+    partial: true
     text: |
       A block is being pulled across a flat, frictionless surface by a rope. 
       
@@ -461,6 +472,7 @@ questions:
     id: q-13
     title: "Free-Body Diagram: Pushed Log"
     points: 2
+    partial: true
     text: |
       A log is being pushed foward. 
       
@@ -495,6 +507,7 @@ questions:
     id: q-14
     title: "Free-Body Diagram: Braking Car"
     points: 2
+    partial: true
     text: |
       A car is braking to a stop on a flat, dry road. 
       
@@ -529,6 +542,7 @@ questions:
     id: q-15
     title: "Free-Body Diagram: Rising Helium Balloon"
     points: 2
+    partial: true
     text: |
       A helium balloon is rising at a constant velocity. 
       
@@ -562,6 +576,7 @@ questions:
     id: q-16
     title: "Free-Body Diagram: Lowered Piano"
     points: 2
+    partial: true
     text: |
       A piano is being lowered by two ropes at a constant velocity from a second-story window. 
       
@@ -596,6 +611,7 @@ questions:
     id: q-17
     title: "Free-Body Diagram: Stacked Blocks"
     points: 2
+    partial: true
     text: |
       A block is sitting at rest on a table, with another block resting on top of it. 
       
@@ -630,6 +646,7 @@ questions:
     id: q-18
     title: "Free-Body Diagram: Parked Car on Incline"
     points: 2
+    partial: true
     text: |
       A car is parked on a steep incline with its brakes applied. 
       
@@ -664,6 +681,7 @@ questions:
     id: q-19
     title: "Free-Body Diagram: Pulled Fish"
     points: 2
+    partial: true
     text: |
       A fishing line is pulling a fish out of the water at a constant velocity. 
       
@@ -698,6 +716,7 @@ questions:
     id: q-20
     title: "Free-Body Diagram: Pushed Toy Boat"
     points: 2
+    partial: true
     text: |
       A toy boat is pushed horizontally across a bathtub filled with water at a constant velocity. 
       
@@ -732,6 +751,7 @@ questions:
     id: q-21
     title: "Free-Body Diagram: Crate on a Ramp"
     points: 2
+    partial: true
     text: |
       A person is pulling a crate up a rough ramp at a constant speed. 
       
@@ -766,6 +786,7 @@ questions:
     id: q-22
     title: "Free-Body Diagram: Falling Apple Revisited"
     points: 2
+    partial: true
     text: |
       An apple is falling from a tree but has not yet reached the ground. 
       
@@ -800,6 +821,7 @@ questions:
     id: q-23
     title: "Free-Body Diagram: Simple Pendulum"
     points: 2
+    partial: true
     text: |
       A simple pendulum is at its lowest point, momentarily moving fastest. 
       
@@ -834,6 +856,7 @@ questions:
     id: q-24
     title: "Free-Body Diagram: Hanging Sign"
     points: 2
+    partial: true
     text: |
       A heavy sign is hanging motionless from two ropes of different lengths. 
       
@@ -867,6 +890,7 @@ questions:
     id: q-25
     title: "Free-Body Diagram: Rolling Bowling Ball"
     points: 2
+    partial: true
     text: |
       A bowling ball is rolling down a lane, slowing down due to friction. 
       
@@ -900,6 +924,7 @@ questions:
     id: q-26
     title: "Free-Body Diagram: Hanging Lamp"
     points: 2
+    partial: true
     text: |
       A lamp is hanging motionless from the ceiling by a single cord. 
       
@@ -933,6 +958,7 @@ questions:
     id: q-27
     title: "Free-Body Diagram: Accelerating Elevator"
     points: 2
+    partial: true
     text: |
       An elevator is accelerating upward. 
       
