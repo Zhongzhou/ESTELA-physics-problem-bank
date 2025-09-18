@@ -1,0 +1,630 @@
+bank_info:
+    title: Static Friction MC Problem Bank
+    bank_id: PHY1-F-SFMC-09162025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      An applied force at an angle is acting on an object. The object remains at rest. The goal is to find the static friction. A common mistake is to use static friction coefficient times normal force to get static friction.
+    date created: 09-16-2025 # Today's date 
+    learning objectives:
+        - 1DM-PD-1
+        - 1DM-VS-1
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1.1: |
+            I am a college professor writing physics problems about calculating static friction. I am asking you to help me write the problems. First, please generate 10 different cases of an object being pulled or pushed by either a human, an animal, or a machine/vehicle, but the object remains stationary on a surface. Indicate whether the pushing or pulling force must be angled upwards or downwards. Here are some examples: horse pulling a sledge on snow. upwards. A person pushing a couch across carpeted floor. Downwards a person dragging a heavy luggage case. Upwards. A towing truck dragging a damaged car on rough road. Upwards
+        - prompt 1.2: |
+            I don't want snow or ice. I need surface with some friction and the surface needs to be horizontal
+        - prompt 2: |
+            Now for each of those 10 cases, first generate the following set of values 1. Coefficient of static friction, \mu_k. Between 0.1 and 0.5 2. Angle of the force \theta. Positive 10 degrees to 60 degrees if the force is upwards, negative 10 degrees to 60 degrees if the force is downwards. 3. Mass of the object being pulled or pushed, M. Appropriate for the object being pushed or pulled, in units of kg. 4. Generate an estimation of the maximum force F_max that can be exerted by the human, animal or machine doing the pushing or pulling (not the object). 5. Generate the push or pulled force F in units of N. Be sure the force is a lot smaller than the maximum force. 6. Calculate the absolute value of F*cos(\theta) 7. Calculate \mu*(m*g-F*sin(\theta))
+        - prompt 3.1: |
+            Now check if the magnitude of F*cos(\theta) is smaller than \mu*(m*g-F*sin(\theta)). If yes, list the values. If not, re-generate the numbers.
+        - prompt 3.2: |
+            No, worker dragging suitcase has Fcos_theta > mu(mg-Fsin_theta). Please fix that
+        - prompt 4.1: |
+            For the first case, please write a physics problem following the steps: Describe the situation and state that the object is stationary. 2. Explain the known variables: mu, m, force applied, angle of the force applied. 3. Ask students to calculate the static friction and specify the unit. For example, find the static friction in units of Newtons.. 4. When stating the angle, explicitly state if it is upward or downward with respect to the horizontal, but not write any negative signs. 5. If the object is pulled by a rope or a chain or similar objects, state the angle as the rope/chain forms an angle of ….. with respect to the horizon
+        - prompt 4.2: |
+            Just write everything in one paragraph. Please do not list the information.
+        - prompt 5.1: |
+            Now give multiple choices, and include the correct answer. For distractors, one should be μ (mg – F sin θ), one should be F, and one should be μ mg.
+        - prompt 5.2: |
+            Now do the same for the next 3 cases. Include the problem statement, and multiple choices. Follow the same steps.
+        - prompt 5.3: |
+            Yes, please do next 3
+        - prompt 5.4: |
+            yes, final 3 please
+        - prompt 6.1: |
+            please help me get yaml file of the first 5 questions. The format should be as follow: questions: - multiple_choice: id: q-1 title: Title of Question points: 1 text: | Question body goes here figure: figure_folder/figure-name.png answers: - answer: text: First answer choice correct: true - answer: text: Second answer correct: false - answer: text: Third answer correct: false - answer: text: Forth answer correct: false
+        - prompt 6.2: |
+            The answer options should follow the problem statement
+        - prompt 6.3: |
+            please help me get yaml file of the first 5 questions. The format should be as follow: questions: - multiple_choice: id: q-1 title: Title of Question points: 1 text: | Question body goes here - answer: text: First answer choice correct: true - answer: text: Second answer correct: false - answer: text: Third answer correct: false - answer: text: Forth answer correct: false
+        - prompt 6.4: |
+            now generate yaml for the next 5 questions
+        - prompt 6.5: |
+            yes 10 combined please
+        - prompt 7: |
+            Can you please give me another 5 questions?
+        - prompt 8.1: |
+            For the 5 questions above, output a table with the following variables. μ θ (°) Mass (kg) F_max (N) F (N) |F cos θ| (N) μ(mg – F sin θ)
+        - prompt 8.2: |
+            for worker pulling hand truck, change the numbers in the question so that Fcos_theta < mu(mg-Fsin_theta)
+        - prompt 8.3: |
+            just again such Fcos_theta is at least 20 N less than mu(mg-Fsin_theta)
+        - prompt 8.4: |
+            yes
+        - prompt 9.1: |
+            Please generate a yaml file for the 5 problems above following the same formatting
+        - prompt 9.2: |
+            yes please. and in the yaml file, for every question, change "Find the static friction in units of Newtons" to "Find the magnitude of the static friction".
+        - prompt 10.1: |
+            For q11-15, you didn't include MC options as I wanted. please redo the answer options. Remember, in addition to the correct answer, F cos_theta, include distractors, μ (mg – F sin θ), F, and μ mg.
+        - prompt 10.2: | #chatgpt,"Want me to merge this with your full set of 15 into one updated file?" then I said yes, the yaml file it gave me did not include all the text it used ... in the middle instead for every problem. I know the chat got too long...
+            yes 
+        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    updates: 
+        - update 1: (9/17/2025) Tong Wan fixed q3. It had F*cos > maximum static friction. In prompt 3.2, I had it fixed the issue, but then it just halluciated, it gave me a wrong number for maxi static friction and the wrong number was greater than F*cos. I checked all the answer options for all the quesitons using excel and found the error. Numbers were updated. 
+        - update 2: (9/17/2025) Zhongzhou Chen fixed the missing "answers:" field, and also added solutions to all problems. The solution generation part was done using Gemini Pro 2.5
+    associated data:
+        - excel file table:  # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: GPT-5 # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Tong Wan
+ 
+
+questions:
+
+- multiple_choice:
+    id: q-1
+    title: Horse Pulling a Plow
+    points: 1
+    text: |
+      A farmer is using a horse to pull a heavy plow across a flat field. The plow rests on a horizontal patch of dry dirt and remains stationary, even though the horse is actively pulling. The horse pulls with a force of 936.8 N through a rope that forms an angle of 57.5° upward with respect to the horizontal. The mass of the plow is 300 kg, and the coefficient of static friction between the plow and the ground is 0.25. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 503.34 N
+            correct: true
+        - answer:
+            text: 537.48 N
+            correct: false
+        - answer:
+            text: 936.8 N
+            correct: false
+        - answer:
+            text: 735.0 N
+            correct: false
+    feedback:
+        general: |
+          Since the plow does not move, Newton's second law ensures zero net force in all directions.
+
+          The horse pulls at an upward angle, which affects both vertical and horizontal forces. Define <latex>f</latex> as the horizontal static friction.
+
+          We then express the horizontal force balance:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          This leads to:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Note that <latex>f = \mu N</latex> only applies to the **maximum** static friction value; the actual friction may be lower.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-2
+    title: Person Pushing a Couch
+    points: 1
+    text: |
+      A person is trying to push a large couch across a carpeted living room floor. The couch remains stationary on the horizontal surface, even though the person is applying a force of 149.5 N. This force is directed at an angle of 34.8° downward with respect to the horizontal. The mass of the couch is 80 kg, and the coefficient of static friction between the couch and the carpet is 0.15. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 122.76 N
+            correct: true
+        - answer:
+            text: 130.40 N
+            correct: false
+        - answer:
+            text: 149.5 N
+            correct: false
+        - answer:
+            text: 117.6 N
+            correct: false
+    feedback:
+        general: |
+          First, notice that the couch is not moving, which means the net force on the object is zero in both horizontal and vertical directions according to Newton’s second law.
+
+          Next, we can define the friction force <latex>f</latex> as the horizontal force that prevents the object from moving. Since the applied force has both horizontal and vertical components, we focus on the horizontal part.
+
+          We can then write down the force balance in the horizontal direction:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          Solving for static friction:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Note: The expression <latex>f = \mu N</latex> gives the **maximum** possible static friction, but the actual static friction can be less than this maximum as it adjusts to match the applied force.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-3
+    title: Worker Dragging a Suitcase
+    points: 1
+    text: |
+      A worker is dragging a large suitcase across a tiled airport floor, but the suitcase remains stationary on the horizontal surface. The worker is pulling with a force of 30.0 N using a strap that forms an angle of 43.0° upward with respect to the horizontal. The mass of the suitcase is 25 kg, and the coefficient of static friction between the suitcase and the tile is 0.20. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 21.94 N
+            correct: true
+        - answer:
+            text: 44.91 N
+            correct: false
+        - answer:
+            text: 30.0 N
+            correct: false
+        - answer:
+            text: 49.0 N
+            correct: false
+    feedback:
+        general: |
+          We know the suitcase is stationary, so the total force must be zero in both directions.
+
+          Here, the pulling force is angled upward. To find the actual static friction <latex>f</latex>, consider only the horizontal forces.
+
+          We write:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          Solving:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Keep in mind that <latex>\mu N</latex> is the maximum static friction; the real friction is what balances the applied horizontal force.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-4
+    title: Towing Truck Pulling a Car
+    points: 1
+    text: |
+      A towing truck is pulling a stalled car along a rough horizontal asphalt road, but the car remains stationary. The truck pulls with a force of 1469.1 N using a metal cable that forms an angle of 20.6° upward with respect to the horizontal. The mass of the car is 1200 kg, and the coefficient of static friction between the car's tires and the road is 0.43. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 1375.17 N
+            correct: true
+        - answer:
+            text: 4834.54 N
+            correct: false
+        - answer:
+            text: 1469.1 N
+            correct: false
+        - answer:
+            text: 5056.8 N
+            correct: false
+    feedback:
+        general: |
+          First, since the car remains stationary, Newton’s second law tells us that the net force must be zero in both directions.
+
+          We define <latex>f</latex> as the static friction that counters the towing force. The rope applies force at an angle, so only its horizontal component contributes to motion.
+
+          We can then write the force equation in the x-direction:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          Solving for friction gives:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Remember, <latex>f = \mu N</latex> is the **maximum** static friction force possible. The actual friction is just enough to prevent movement.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-5
+    title: Worker Pushing a File Cabinet
+    points: 1
+    text: |
+      A factory worker is trying to push a heavy metal file cabinet across a vinyl office floor, but the cabinet remains stationary on the horizontal surface. The worker applies a force of 153.9 N at an angle of 36.2° downward with respect to the horizontal. The mass of the cabinet is 100 kg, and the coefficient of static friction between the cabinet and the vinyl flooring is 0.22. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 124.19 N
+            correct: true
+        - answer:
+            text: 235.60 N
+            correct: false
+        - answer:
+            text: 153.9 N
+            correct: false
+        - answer:
+            text: 215.6 N
+            correct: false
+    feedback:
+        general: |
+          First, observe that the object remains at rest, so Newton's second law implies that forces balance in both axes.
+
+          The worker pushes at a downward angle. To analyze horizontal motion, define <latex>f</latex> as the friction resisting the push.
+
+          We write the horizontal force balance as:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          Solving this gives:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Keep in mind, <latex>\mu N</latex> gives the **maximum** possible static friction. The real value adjusts to match the applied horizontal force unless that maximum is exceeded.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-6
+    title: Dog Pulling a Garden Wagon
+    points: 1
+    text: |
+      A dog is harnessed to a garden wagon loaded with soil, and it attempts to pull the wagon across a compacted dirt path. The wagon remains stationary on the horizontal surface. The dog pulls with a force of 96.5 N through a leash that forms an angle of 17.0° upward with respect to the horizontal. The mass of the wagon is 40 kg, and the coefficient of static friction between the wagon and the dirt is 0.34. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 92.28 N
+            correct: true
+        - answer:
+            text: 123.69 N
+            correct: false
+        - answer:
+            text: 96.5 N
+            correct: false
+        - answer:
+            text: 133.3 N
+            correct: false
+    feedback:
+        general: |
+          First, note the wagon doesn’t move, which means the net force on the object is zero in both the horizontal and vertical directions, according to Newton’s second law.
+
+          The dog applies a pulling force at an upward angle. To find the static friction force, we examine forces in the horizontal direction.
+
+          We define <latex>f</latex> as the static friction force. Since the pulling force has a horizontal component:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          Solving for <latex>f</latex>:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Note: The expression <latex>f = \mu N</latex> represents the **maximum** static friction. The actual friction force can be smaller, just enough to prevent motion.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-7
+    title: Forklift Pushing a Crate
+    points: 1
+    text: |
+      A forklift is slowly pushing a large wooden crate across a horizontal concrete loading dock, but the crate does not move. The forklift applies a forward force of 1772.2 N using its front plate, which exerts the force at an angle of 49.3° downward with respect to the horizontal. The mass of the crate is 500 kg, and the coefficient of static friction between the crate and the dock is 0.28. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 1155.65 N
+            correct: true
+        - answer:
+            text: 1748.20 N
+            correct: false
+        - answer:
+            text: 1772.2 N
+            correct: false
+        - answer:
+            text: 1372.0 N
+            correct: false
+    feedback:
+        general: |
+          Because the crate remains stationary, Newton’s second law implies that all forces balance out, both horizontally and vertically.
+
+          The forklift is pushing at a downward angle, which affects the normal force but also contributes a horizontal force component.
+
+          We define <latex>f</latex> as the static friction force opposing motion. Summing forces in the horizontal direction gives:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          Solving for <latex>f</latex>:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Remember that <latex>\mu N</latex> is only the **maximum possible** static friction. The actual force adjusts as needed to keep the object from moving.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-8
+    title: Child Dragging a Toy Wagon
+    points: 1
+    text: |
+      A child is dragging a toy wagon full of books across a wooden floor, but the wagon does not move. The child pulls with a force of 42.4 N using a rope that forms an angle of 54.8° upward with respect to the horizontal. The mass of the wagon is 10 kg, and the coefficient of static friction between the wagon and the wood is 0.42. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 24.44 N
+            correct: true
+        - answer:
+            text: 26.61 N
+            correct: false
+        - answer:
+            text: 42.4 N
+            correct: false
+        - answer:
+            text: 41.2 N
+            correct: false
+    feedback:
+        general: |
+          Since the wagon remains at rest, the total force on it is zero in both directions, per Newton’s second law.
+
+          The child pulls the wagon using a rope that is angled upward. This force has a horizontal component responsible for potentially moving the wagon.
+
+          We define <latex>f</latex> as the static friction force. Summing forces along the horizontal axis gives:
+
+          <latex>f - F \cos(\theta) = 0</latex>
+
+          Solving:
+
+          <latex>f = F \cos(\theta)</latex>
+
+          Again, while <latex>f = \mu N</latex> describes the **maximum** static friction, the actual static friction force is exactly what is needed to keep the object at rest.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-9
+    title: Worker Pushing a Cement Mixer
+    points: 1
+    text: |
+      A construction worker is attempting to push a cement mixer across a horizontal section of pavement, but the mixer stays still. The worker applies a force of 272.3 N at an angle of 57.4° downward with respect to the horizontal. The mass of the mixer is 150 kg, and the coefficient of static friction between the mixer and the pavement is 0.13. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 146.71 N
+            correct: true
+        - answer:
+            text: 220.92 N
+            correct: false
+        - answer:
+            text: 272.3 N
+            correct: false
+        - answer:
+            text: 191.1 N
+            correct: false
+    feedback:
+        general: |
+          First, since the cement mixer remains stationary, Newton’s second law tells us that the net force must be zero in both the horizontal and vertical directions.
+
+          The worker applies force at a downward angle, so we must consider the horizontal component of this force to find the friction. We can define <latex>f</latex> as the static friction force that opposes the push.
+
+          We can write the force equation in the x-direction:
+          
+          <latex>f - F \cos(\theta) = 0</latex>
+          
+          Solving for the static friction gives:
+          
+          <latex>f = F \cos(\theta)</latex>
+          
+          It's important to remember that <latex>f = \mu_s N</latex> gives the **maximum** possible static friction. The actual static friction adjusts to be equal and opposite to the applied horizontal force, as long as that force is less than the maximum.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-10
+    title: Delivery Robot Pulling a Cart
+    points: 1
+    text: |
+      An autonomous delivery robot is trying to pull a wheeled cart full of packages across a brick-paved courtyard, but the cart remains stationary on the horizontal surface. The robot exerts a pulling force of 184.2 N using a tether that forms an angle of 45.2° upward with respect to the horizontal. The mass of the cart is 60 kg, and the coefficient of static friction between the cart and the bricks is 0.31. Find the static friction in units of Newtons.
+    answers:
+        - answer:
+            text: 129.79 N
+            correct: true
+        - answer:
+            text: 141.76 N
+            correct: false
+        - answer:
+            text: 184.2 N
+            correct: false
+        - answer:
+            text: 182.5 N
+            correct: false
+    feedback:
+        general: |
+          Because the cart does not move, we know from Newton's second law that the net force on it is zero.
+
+          The robot pulls the cart with a tether angled upward. To find the static friction, <latex>f</latex>, we only need to consider the forces acting along the horizontal axis.
+
+          The force balance equation in the horizontal direction is:
+          
+          <latex>f - F \cos(\theta) = 0</latex>
+          
+          Solving this for the friction force, we get:
+          
+          <latex>f = F \cos(\theta)</latex>
+          
+          Remember, the value <latex>\mu_s N</latex> represents the **maximum** static friction. The actual static friction is the force required to prevent motion, which is equal to the horizontal component of the pulling force.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-11
+    title: Person Pushing a Bookshelf
+    points: 1
+    text: |
+      A person tries to push a tall bookshelf across a wooden floor, but the bookshelf does not move. The person pushes with a force of 210.0 N at an angle of 25.0° downward with respect to the horizontal. The mass of the bookshelf is 120 kg, and the coefficient of static friction between the bookshelf and the wood is 0.30. Find the magnitude of the static friction.
+    answers:
+        - answer:
+            text: 190.32 N
+            correct: true
+        - answer:
+            text: 379.42 N
+            correct: false
+        - answer:
+            text: 210.0 N
+            correct: false
+        - answer:
+            text: 352.80 N
+            correct: false
+    feedback:
+        general: |
+          First, observe that the bookshelf is not moving. According to Newton's second law, this means the total force on the bookshelf is zero in all directions.
+
+          The person is pushing at a downward angle. The force that static friction must oppose is the horizontal component of this push. Let's call the static friction force <latex>f</latex>.
+
+          The sum of the horizontal forces is:
+          
+          <latex>f - F \cos(\theta) = 0</latex>
+          
+          Therefore, the static friction is:
+          
+          <latex>f = F \cos(\theta)</latex>
+          
+          Note that the formula <latex>f = \mu_s N</latex> calculates the **maximum** value of static friction. The actual static friction force is just strong enough to counteract the horizontal component of the applied force.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-12
+    title: Worker Pulling a Hand Truck
+    points: 1
+    text: |
+      A warehouse worker pulls on a hand truck loaded with boxes across a concrete floor, but the truck remains at rest on the horizontal surface. The worker pulls with a force of 235.0 N using a handle that makes an angle of 40.0° upward with respect to the horizontal. The mass of the loaded hand truck is 90 kg, and the coefficient of static friction is 0.28. Find the magnitude of the static friction.
+    answers:
+        - answer:
+            text: 180.02 N
+            correct: true
+        - answer:
+            text: 204.66 N
+            correct: false
+        - answer:
+            text: 235.0 N
+            correct: false
+        - answer:
+            text: 246.96 N
+            correct: false
+    feedback:
+        general: |
+          Since the hand truck remains at rest, we know that the net force acting on it is zero, as stated by Newton's second law.
+
+          The worker is pulling at an upward angle. The static friction, <latex>f</latex>, acts horizontally to oppose the horizontal component of the worker's pull.
+
+          We can write the equation for the forces in the horizontal direction:
+          
+          <latex>f - F \cos(\theta) = 0</latex>
+          
+          This gives us the magnitude of the static friction:
+          
+          <latex>f = F \cos(\theta)</latex>
+          
+          Keep in mind that <latex>\mu_s N</latex> is the **maximum** static friction possible. The actual static friction adjusts its magnitude to be exactly equal to the opposing horizontal force.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-13
+    title: Athlete Pushing a Sled
+    points: 1
+    text: |
+      An athlete pushes a weighted training sled across artificial turf, but the sled does not move. The athlete applies a force of 400.0 N at an angle of 15.0° downward with respect to the horizontal. The mass of the sled is 200 kg, and the coefficient of static friction between the sled and the turf is 0.35. Find the magnitude of the static friction.
+    answers:
+        - answer:
+            text: 386.37 N
+            correct: true
+        - answer:
+            text: 722.23 N
+            correct: false
+        - answer:
+            text: 400.0 N
+            correct: false
+        - answer:
+            text: 686.00 N
+            correct: false
+    feedback:
+        general: |
+          The problem states that the sled does not move, which means the forces are balanced, and the net force is zero according to Newton's second law.
+
+          The athlete pushes with a force directed at a downward angle. The static friction, which we'll call <latex>f</latex>, acts horizontally to oppose the motion. We only need to consider the horizontal component of the athlete's push.
+
+          The force balance in the horizontal direction is:
+          
+          <latex>f - F \cos(\theta) = 0</latex>
+          
+          Solving for the static friction, we find:
+          
+          <latex>f = F \cos(\theta)</latex>
+          
+          It is crucial to understand that <latex>\mu_s N</latex> gives the **maximum** static friction. The actual static friction force is simply the amount needed to keep the sled stationary.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-14
+    title: Gardener Pulling a Lawn Roller
+    points: 1
+    text: |
+      A gardener attempts to pull a cylindrical lawn roller across the grass, but the roller stays still. The gardener pulls with a force of 180.0 N using a rope that makes an angle of 30.0° upward with respect to the horizontal. The mass of the lawn roller is 75 kg, and the coefficient of static friction is 0.25. Find the magnitude of the static friction.
+    answers:
+        - answer:
+            text: 155.88 N
+            correct: true
+        - answer:
+            text: 161.25 N
+            correct: false
+        - answer:
+            text: 180.0 N
+            correct: false
+        - answer:
+            text: 183.75 N
+            correct: false
+    feedback:
+        general: |
+          We are told the lawn roller stays still, so we can apply Newton's second law, which tells us the net force is zero.
+
+          The gardener pulls the roller with a rope at an upward angle. The static friction force, <latex>f</latex>, must perfectly counteract the horizontal component of this pulling force.
+
+          The sum of forces in the horizontal direction is:
+          
+          <latex>f - F \cos(\theta) = 0</latex>
+          
+          Solving for <latex>f</latex> yields:
+          
+          <latex>f = F \cos(\theta)</latex>
+          
+          Remember, the expression <latex>\mu_s N</latex> calculates the **maximum** possible static friction. The actual static friction here is just what is necessary to prevent movement.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q-15
+    title: Machine Pushing a Steel Drum
+    points: 1
+    text: |
+      A robotic machine pushes a steel drum across a factory floor, but the drum does not move. The machine applies a force of 520.0 N at an angle of 35.0° downward with respect to the horizontal. The drum has a mass of 250 kg, and the coefficient of static friction between the drum and the floor is 0.32. Find the magnitude of the static friction.
+    answers:
+        - answer:
+            text: 425.96 N
+            correct: true
+        - answer:
+            text: 879.44 N
+            correct: false
+        - answer:
+            text: 520.0 N
+            correct: false
+        - answer:
+            text: 784.00 N
+            correct: false
+    feedback:
+        general: |
+          Because the steel drum remains stationary, the net force on it in any direction is zero, in accordance with Newton's second law.
+
+          The machine applies a force at a downward angle. The static friction force, <latex>f</latex>, acts in the opposite horizontal direction to prevent the drum from sliding.
+
+          We can set up the force balance equation for the horizontal axis:
+          
+          <latex>f - F \cos(\theta) = 0</latex>
+          
+          This allows us to solve for the static friction:
+          
+          <latex>f = F \cos(\theta)</latex>
+          
+          Note that <latex>\mu_s N</latex> represents the **maximum** available static friction. The actual static friction force will be equal in magnitude to the horizontal component of the applied force, as long as this component does not exceed the maximum.
+        on_correct: Good job!
+        on_incorrect: Try again!
