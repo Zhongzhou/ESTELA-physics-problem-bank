@@ -57,6 +57,7 @@ bank_info:
     updates: 
         - update 1: (9/11/25) Added problems 11 - 20 by Leo Murch, also removed some original problems that contain wheels. (violated kinetic friction condition)
         - update 2: (9/13/25) Changed "two significant figures" to "decimal places". Changed tolerance to 3% (instead of 0.05)
+        - update 3: (9/18/25) Corrected errors in the solution using Gemini Pro.
     associated data:
         - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This is no longer valid. should remove in the future.
     generation details: # Details of the creation process
@@ -121,9 +122,9 @@ questions:
           </latex>
           Solving for <latex>m</latex>:  
           <latex>
-          m = \frac{F \cos(\theta)}{\mu_k g + \mu_k F \sin(\theta)}
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
           </latex>
-          Since the force is pointing downward, we note that <latex>\theta</latex> should be considered negative in calculations.
+          The equations correctly account for the force being applied downward.
 
         on_correct: Good job!
         on_incorrect: Try again!
@@ -234,7 +235,7 @@ questions:
           </latex>
           Solving for <latex>m</latex>:  
           <latex>
-          m = \frac{F \cos(\theta)}{\mu_k g + \mu_k F \sin(\theta)}
+          m = \frac{F \cos(\theta) + \mu_k F \sin(\theta)}{\mu_k g}
           </latex>
 
         on_correct: Good job!
@@ -289,9 +290,9 @@ questions:
           </latex>
           Solving for <latex>m</latex>:  
           <latex>
-          m = \frac{F \cos(\theta)}{\mu_k g + \mu_k F \sin(\theta)}
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
           </latex>
-          Since the force is downward, the angle <latex>\theta</latex> should be considered negative in calculations.
+          The equations correctly account for the downward direction of the applied force.
 
         on_correct: Good job!
         on_incorrect: Try again!
@@ -367,7 +368,7 @@ questions:
       Determine the mass of the box in kilograms. Round your answers to two decimal places.
 
     answer:
-        value: 76.53
+        value: 55.71
         margin_type: percent
         tolerance: 3
     feedback:
@@ -390,10 +391,7 @@ questions:
           <latex>
           f = \mu_k N
           </latex>
-          Substituting <latex>N</latex>:  
-          <latex>
-          N = mg + F \sin(\theta)
-          </latex>
+          From the vertical equation, the normal force is <latex>N = mg + F \sin(\theta)</latex>. Substituting this into the friction formula gives:
           <latex>
           f = \mu_k (mg + F \sin(\theta))
           </latex>
@@ -403,9 +401,9 @@ questions:
           </latex>
           Solving for <latex>m</latex>:  
           <latex>
-          m = \frac{F \cos(\theta)}{\mu_k g + \mu_k F \sin(\theta)}
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
           </latex>
-          Since the force is downward, the numerical value of <latex>\theta</latex> should be negative in calculations.
+          The equations correctly account for the force being applied downward.
 
         on_correct: Good job!
         on_incorrect: Try again!
@@ -424,7 +422,7 @@ questions:
       Calculate the force exerted by the person in Newtons. Round your answers to two decimal places.
 
     answer:
-        value: 253.41
+        value: 232.33
         margin_type: percent
         tolerance: 3
     feedback:
@@ -443,14 +441,7 @@ questions:
           \sum \vec{F_x} = F \cos(\theta) - f = 0
           </latex>
 
-          The friction force is:  
-          <latex>
-          f = \mu_k N
-          </latex>
-          Substituting <latex>N</latex>:  
-          <latex>
-          N = mg - F \sin(\theta)
-          </latex>
+          The friction force is <latex>f = \mu_k N</latex>. The normal force from the vertical equation is <latex>N = mg - F \sin(\theta)</latex>. Substituting this into the friction equation gives:
           <latex>
           f = \mu_k (mg - F \sin(\theta))
           </latex>
@@ -480,7 +471,7 @@ questions:
       Find the force exerted by the tow truck in Newtons. Round your answers to two decimal places.
 
     answer:
-        value: 8731.42
+        value: 6909.80
         margin_type: percent
         tolerance: 3
     feedback:
@@ -499,14 +490,7 @@ questions:
           \sum \vec{F_x} = F \cos(\theta) - f = 0
           </latex>
 
-          The friction force is:  
-          <latex>
-          f = \mu_k N
-          </latex>
-          Substituting <latex>N</latex>:  
-          <latex>
-          N = mg - F \sin(\theta)
-          </latex>
+          The friction force is <latex>f = \mu_k N</latex>. The normal force is <latex>N = mg - F \sin(\theta)</latex>. Substituting this into the friction equation gives:
           <latex>
           f = \mu_k (mg - F \sin(\theta))
           </latex>
@@ -537,7 +521,7 @@ questions:
       Determine the mass of the loaded bin in kilograms. Round your answers to two decimal places.
 
     answer:
-        value: 87.64
+        value: 60.84
         margin_type: percent
         tolerance: 3
     feedback:
@@ -556,14 +540,7 @@ questions:
           \sum \vec{F_x} = F \cos(\theta) - f = 0
           </latex>
 
-          The friction force is:  
-          <latex>
-          f = \mu_k N
-          </latex>
-          Substituting <latex>N</latex>:  
-          <latex>
-          N = mg + F \sin(\theta)
-          </latex>
+          The friction force is <latex>f = \mu_k N</latex>. The normal force is <latex>N = mg + F \sin(\theta)</latex>. Substituting this gives:
           <latex>
           f = \mu_k (mg + F \sin(\theta))
           </latex>
@@ -573,9 +550,9 @@ questions:
           </latex>
           Solving for <latex>m</latex>:  
           <latex>
-          m = \frac{F \cos(\theta)}{\mu_k g + \mu_k F \sin(\theta)}
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
           </latex>
-          Since the force is downward, the numerical value of <latex>\theta</latex> should be negative in calculations.
+          The equations correctly account for the downward direction of the applied force.
 
         on_correct: Good job!
         on_incorrect: Try again!
@@ -587,14 +564,14 @@ questions:
     text: | 
       A bulldozer is pushing a pile of dirt across rocky ground at a constant speed. 
       The coefficient of kinetic friction between the dirt and the ground is <latex>0.72</latex>. 
-      The bulldozer applies a force at an angle of <latex>48.15^\circ</latex> downward with respect to the horizontal. 
+      The bulldozer applies a force at an angle of <latex>25.00^\circ</latex> downward with respect to the horizontal. 
       The pile of dirt has a mass of <latex>2743.68</latex> kg. 
       The acceleration due to gravity is <latex>9.81</latex> m/s².  
 
       Find the force exerted by the bulldozer in Newtons. Round your answers to two decimal places.
 
     answer:
-        value: 20832.57
+        value: 32190.00
         margin_type: percent
         tolerance: 3
     feedback:
@@ -613,14 +590,7 @@ questions:
           \sum \vec{F_x} = F \cos(\theta) - f = 0
           </latex>
 
-          The friction force is:  
-          <latex>
-          f = \mu_k N
-          </latex>
-          Substituting <latex>N</latex>:  
-          <latex>
-          N = mg + F \sin(\theta)
-          </latex>
+          The friction force is <latex>f = \mu_k N</latex>. The normal force is <latex>N = mg + F \sin(\theta)</latex>. Substituting this gives:
           <latex>
           f = \mu_k (mg + F \sin(\theta))
           </latex>
@@ -630,13 +600,14 @@ questions:
           </latex>
           Solving for <latex>F</latex>:  
           <latex>
-          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          F = \frac{\mu_k mg}{\cos(\theta) - \mu_k \sin(\theta)}
           </latex>
-          Since the force is downward, the numerical value of <latex>\theta</latex> should be negative in calculations.
+          The equations correctly account for the downward direction of the applied force.
 
         on_correct: Good job!
         on_incorrect: Try again!
-        
+
+
 - numerical:
     id: q11
     title: Warehouse Worker Pushing a Pallet Skid
