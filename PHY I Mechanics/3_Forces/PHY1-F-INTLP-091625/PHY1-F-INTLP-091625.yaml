@@ -1,7 +1,8 @@
 bank_info:
     title: Identification of Newton's third law pair 
     bank_id: PHY1-F-INTLP-091625 #Subject-Unit-Abbreviation_of_title_or_any_string-date
-    description: | Contains multiple answer problems for which students are required to identify Newton's 3rd law pairs of forces, and distinguish from the forces that are not N3 pairs.
+    description: | 
+    Contains multiple answer problems for which students are required to identify Newton's 3rd law pairs of forces, and distinguish from the forces that are not N3 pairs.
     date created: 09-16-2025 # Today's date 
     learning objectives: # to be added later
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
