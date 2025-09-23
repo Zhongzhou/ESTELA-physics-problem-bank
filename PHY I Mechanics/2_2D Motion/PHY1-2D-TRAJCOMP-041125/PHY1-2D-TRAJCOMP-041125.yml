@@ -48,6 +48,13 @@ bank_info:
             version: unsure # The version of the model used
             last updated: 2020-05-24 # The date of the last update of the generation prompts.
             solution: For projectile motion, it can be shown that both the flight time and the height of the trajectory are directly proportional to the y-component of the initial velocity. So the higher the trajectory, the longer it takes for the projectile to hit the ground. The range, on the other hand, is determined by both the flight time and the x-component of the initial velocity, so one cannot compare the flight time directly from the range of the trajectory.
+    updates:
+        - update 1:
+            - content:  # Gemini 2.5 Pro
+                Found four items in which one of the distractors are equivalent to the correct answer. q-11, q-20, q-21. Manually fixed the distractors.(AI also identified q15 but it was actually a hallucination)
+            - prompt: |
+                I have a yaml file that contains multiple-choice questions. Each question has one correct answer and several distractors. Please analyze all the problems, and find if there are problems in which the correct answer and one of the distractors are logically equivalent to each other.
+
     authors:
         - Zhongzhou Chen
 
@@ -360,7 +367,7 @@ questions:
           text: C > B > A
           correct: true
       - answer:
-          text: A < B < C
+          text: A < B = C
           correct: false
       - answer:
           text: C < A = B
@@ -624,7 +631,7 @@ questions:
           text: C < B = A
           correct: false
       - answer:
-          text: C = A < B
+          text: C < A < B
           correct: false
       feedback:
         general: 'For projectile motion, it can be shown that both the flight time and the height of the trajectory are directly proportional to the y-component of the initial velocity. So the higher the trajectory, the longer it takes for the projectile to hit the ground. The range, on the other hand, is determined by both the flight time and the x-component of the initial velocity, so one cannot compare the flight time directly from the range of the trajectory.'
@@ -653,7 +660,7 @@ questions:
           text: B = C > A
           correct: true
       - answer:
-          text: C = B > A
+          text: C > B > A
           correct: false
       feedback:
         general: 'For projectile motion, it can be shown that both the flight time and the height of the trajectory are directly proportional to the y-component of the initial velocity. So the higher the trajectory, the longer it takes for the projectile to hit the ground. The range, on the other hand, is determined by both the flight time and the x-component of the initial velocity, so one cannot compare the flight time directly from the range of the trajectory.'
