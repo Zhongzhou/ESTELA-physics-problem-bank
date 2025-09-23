@@ -1,0 +1,1090 @@
+bank_info:
+    title: One Force at an Angle with Kinetic Friction 
+    bank_id: PHY1-F-OFAKF-030625_altnum 
+    description: |-
+     Those problems involve an object subjected to an external force applied at an angle, and is moving with kinetic friction. 
+     The external force affects the normal force between the object and the surface.
+    date_created: 03-06-2025 # Today's date 
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |-
+            I'm writing physics problems involving calculation of kinetic friction and balance of forces on a moving object. As a first step, please help me by doing the following:
+            Generate 10 different cases of an object being pulled or pushed by either a human, an animal, or a machine/vehicle across a surface. Indicate whether the pushing or pulling force must be angled upwards or downwards. 
+            Here are some examples: 
+            horse pulling a sledge on snow. upwards.
+            A person pushing a couch across carpeted floor. Downwards.  
+            a person dragging a heavy luggage case. Upwards.
+            A towing truck dragging a damaged car on rough road. Upwards
+        - prompt 2: | # Should add instruction to download the outcome into csv in the future. That is for quality checking.
+            Now for each of those 10 cases, first generate the following set of values
+            1. Coefficient of kinetic friction, \mu_k. Between 0.1 and 0.9
+            2. Angle of the force \theta. Positive 10 degrees to 60 degrees if the force is upwards, negative 10 degrees to 60 degrees if the force is downwards.
+            3. Mass of the object being pulled or pushed, M. Appropriate for the object being pushed or pulled, in units of kg.
+            4. In addition, generate a generous estimation of the force that can be exerted by the human, animal or machine doing the pushing or pulling (not the object).
+            Next, calculate the magnitude of the force according to:
+
+              F = \mu * m *g/(cos(\theta) + \mu*sin(\theta)).
+    
+            Check if the magnitude of F (in Newtons) is within the estimated range, and if the magnitude is positive. If yes, list the values. If not, re-generate the random numbers.
+        - prompt 3: |
+            For each of the 10 scenarios and the corresponding set of numbers, write a physics problem following those steps:
+
+            1. Choose either F, m, or \mu_k as the unknown variable.
+            2. Describe the situation and explain the known variables.
+            3. Imply that the object is moving/sliding at constant or uniform speed.
+            4. When stating the angle, explicitly state if it is upward or downward with respect to the horizontal, but not write any negative signs.
+            5. If the object is pulled by a rope or a chain or similar objects, state the angle as the rope/chain forms an angle of ….. with respect to the horizon
+            6. Ask students to calculate the unknown variable, and specify the unit. For example, find the force F in units of Newtons.
+            7. Specify significant figures required for the answer.
+        - prompt 4: |
+            Write concise student facing solutions for the first 5 problems. Each solution should include the following elements:
+
+            1. Explain that due to the object moving at constant velocity along a flat surface, the acceleration is zero in both directions, so the total force on both horizontal and vertical directions must both add up to zero according to Newton's second law of motion.
+
+            2. set positive x in the direction of the object's motion and positive y pointing up in the vertical direction.
+
+            3. Write down the sum of forces along the y-axis equal to zero expression, starting with \sum(\vec{F_y}) = ... = 0
+
+            4. Similarly, write down the sum of forces along the x axis equal to zero expression, using f to represent friction.
+
+            5. Find the friction force using the kinetic friction force equation, and find the normal force using the y-axis forces equation.
+
+            6. Find the unknown variable.
+
+            7. If the force is pointing downward, add a sentence clarifying that since the force is pointing below the x-axis, the numerical value of the variable \theta should be negative the value used in the problem.
+
+            Do not use numbers, instead, use languages similar to "First, notice that.... Next, we can define..., We can then write down...".  
+        - formatting prompt: "./YAML_formatting_prompt.md"
+    updates: 
+        - update 1: (9/11/25) Added problems 11 - 20 by Leo Murch, also removed some original problems that contain wheels. (violated kinetic friction condition)
+        - update 2: (9/13/25) Changed "two significant figures" to "decimal places". Changed tolerance to 3% (instead of 0.05)
+        - update 3: (9/18/25) Corrected errors in the solution using Gemini Pro.
+        - update 4: (9/22/25) Leo Murch updated the numbers for the first 10 problems. Different from the original problem bank.
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This is no longer valid. should remove in the future.
+    generation details: # Details of the creation process
+            model: GPT-4o/Gemini Pro 
+            version: 2.5 # The version of the model used
+            last updated: 09-14-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+        - Leo Murch
+
+questions:
+
+- numerical:
+    id: q1
+    title: Worker Pushing a Wooden Crate
+    points: 3
+    text: | 
+      A worker is pushing a wooden crate across a concrete floor at a uniform speed. 
+      The coefficient of kinetic friction between the crate and the floor is <latex>0.41</latex>. 
+      The worker applies a force at an angle of <latex>15.32^\circ</latex> downward with respect to the horizontal. 
+      The required force exerted is <latex>480.25</latex> N. The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Find the mass of the crate in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 102.22
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: | 
+          First, notice that since the crate is moving at a constant velocity across a flat surface, its acceleration is zero in both the horizontal and vertical directions. According to Newton’s second law, the sum of forces in both directions must be zero.
+
+          Next, we can define the positive <latex>x</latex>-direction as the direction of motion and the positive <latex>y</latex>-direction as pointing upward.
+
+          We can then write down the force balance in the vertical direction:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+          where <latex>N</latex> is the normal force, <latex>m</latex> is the mass, <latex>g</latex> is the gravitational acceleration, and <latex>F</latex> is the applied force at an angle <latex>\theta</latex>.
+
+          Similarly, for the horizontal direction:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+          where <latex>f</latex> is the kinetic friction force.
+
+          The friction force is given by:  
+          <latex>
+          f = \mu_k N
+          </latex>
+          Substituting the expression for <latex>N</latex> from the vertical force equation:  
+          <latex>
+          N = mg + F \sin(\theta)
+          </latex>
+          we get:  
+          <latex>
+          f = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Now, substituting <latex>f</latex> into the horizontal force equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for <latex>m</latex>:  
+          <latex>
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+          The equations correctly account for the force being applied downward.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q2
+    title: Dog Pulling a Small Sled
+    points: 3
+    text: | 
+      A dog is pulling a small sled across an icy path at a steady speed. 
+      The coefficient of kinetic friction between the sled and the ice is <latex>0.48</latex>. 
+      The sled has a mass of <latex>12.55</latex> kg. 
+      The dog pulls the sled using a rope, which forms an angle of <latex>28.75^\circ</latex> with respect to the horizon. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Determine the force exerted by the dog in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 53.34
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the sled is moving at a constant velocity, its acceleration is zero. By Newton’s second law, the sum of forces in both directions must add up to zero.
+
+          We define the positive <latex>x</latex>-direction as the direction of motion and the positive <latex>y</latex>-direction as pointing upward.
+
+          For the vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For the horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is:  
+          <latex>
+          f = \mu_k N
+          </latex>
+          Substituting <latex>N</latex>:  
+          <latex>
+          N = mg - F \sin(\theta)
+          </latex>
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Substituting this into the horizontal force balance:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q3
+    title: Person Dragging a Backpack
+    points: 3
+    text: | 
+      A traveler is dragging a heavy backpack across an asphalt road at a constant speed. 
+      The coefficient of kinetic friction between the backpack and the ground is <latex>0.68</latex>. 
+      The person pulls the backpack at an angle of <latex>41.15^\circ</latex> upward with respect to the horizontal. 
+      The force applied by the traveler is <latex>65.73</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Calculate the mass of the backpack in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 11.83
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the backpack is moving at a constant velocity, Newton’s second law tells us that the forces must sum to zero in both directions.
+
+          We define positive <latex>x</latex> as the direction of motion and positive <latex>y</latex> as the upward vertical direction.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is:  
+          <latex>
+          f = \mu_k N
+          </latex>
+          Substituting <latex>N</latex>:  
+          <latex>
+          N = mg - F \sin(\theta)
+          </latex>
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Using the horizontal equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>m</latex>:  
+          <latex>
+          m = \frac{F \cos(\theta) + \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q4
+    title: Child Pushing a Toy Box
+    points: 3
+    text: | 
+      A child is pushing a toy box across a sandy playground at a uniform speed. 
+      The coefficient of kinetic friction between the toy box and the sand is <latex>0.45</latex>. 
+      The child applies a force of <latex>45.12</latex> N at an angle of <latex>29.58^\circ</latex> downward with respect to the horizontal. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Determine the mass of the toy box in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 6.62
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the toy box moves at a constant velocity, its acceleration is zero, meaning forces must sum to zero in both directions.
+
+          We set the positive <latex>x</latex>-direction along the motion and positive <latex>y</latex>-direction upward.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is:  
+          <latex>
+          f = \mu_k N
+          </latex>
+          Substituting <latex>N</latex>:  
+          <latex>
+          N = mg + F \sin(\theta)
+          </latex>
+          <latex>
+          f = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Using the horizontal equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for <latex>m</latex>:  
+          <latex>
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+          The equations correctly account for the downward direction of the applied force.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q5
+    title: Farmer Pulling a Plow with an Ox
+    points: 3
+    text: | 
+      A farmer is using an ox to pull a plow across a muddy field at a constant speed. 
+      The coefficient of kinetic friction between the plow and the ground is <latex>0.65</latex>. 
+      The ox pulls the plow with a rope that forms an angle of <latex>33.81^\circ</latex> with respect to the horizon. 
+      The plow has a mass of <latex>110.75</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Find the force exerted by the ox in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 592.73
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the plow moves at a constant velocity, forces must sum to zero in both directions according to Newton’s second law.
+
+          We define positive <latex>x</latex> as the direction of motion and positive <latex>y</latex> as upward.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is:  
+          <latex>
+          f = \mu_k N
+          </latex>
+          Substituting <latex>N</latex>:  
+          <latex>
+          N = mg - F \sin(\theta)
+          </latex>
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Using the horizontal equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          </latex>
+          Since the force is applied upward, the angle <latex>\theta</latex> remains positive.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q6
+    title: Robot Arm Pushing a Box
+    points: 3
+    text: | 
+      A robot arm is pushing a box across a smooth factory floor at a steady speed. 
+      The coefficient of kinetic friction between the box and the floor is <latex>0.38</latex>. 
+      The robot applies a force at an angle of <latex>22.19^\circ</latex> downward with respect to the horizontal. 
+      The force exerted is <latex>325.48</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Determine the mass of the box in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 68.32
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the box moves at a constant velocity, Newton’s second law states that the forces must sum to zero in both directions.
+
+          We define the positive <latex>x</latex>-direction as the direction of motion and the positive <latex>y</latex>-direction as upward.
+
+          For the vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+
+          For the horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The kinetic friction force is given by:  
+          <latex>
+          f = \mu_k N
+          </latex>
+          From the vertical equation, the normal force is <latex>N = mg + F \sin(\theta)</latex>. Substituting this into the friction formula gives:
+          <latex>
+          f = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Substituting this into the horizontal force balance:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for <latex>m</latex>:  
+          <latex>
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+          The equations correctly account for the force being applied downward.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q7
+    title: Person Dragging a Kayak
+    points: 3
+    text: | 
+      A person is dragging a kayak across wet grass at a uniform speed. 
+      The coefficient of kinetic friction between the kayak and the grass is <latex>0.52</latex>. 
+      The person pulls the kayak using a rope that forms an angle of <latex>34.66^\circ</latex> with respect to the horizon. 
+      The mass of the kayak is <latex>45.29</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Calculate the force exerted by the person in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 206.66
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the kayak is moving at a steady speed, the forces must sum to zero in both the horizontal and vertical directions.
+
+          We set positive <latex>x</latex> along the direction of motion and positive <latex>y</latex> upward.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. The normal force from the vertical equation is <latex>N = mg - F \sin(\theta)</latex>. Substituting this into the friction equation gives:
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Using the horizontal force equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q8
+    title: Tow Truck Dragging a Car
+    points: 3
+    text: | 
+      A tow truck is dragging a damaged car with locked wheels along a rough gravel road at a steady speed. 
+      The coefficient of kinetic friction between the car's tires and the road is <latex>0.75</latex>. 
+      The towing cable makes an angle of <latex>38.87^\circ</latex> with respect to the horizon. 
+      The mass of the car is <latex>1315.22</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Find the force exerted by the tow truck in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 7746.61
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the car is moving at a constant speed, Newton’s second law states that the forces in both directions must sum to zero.
+
+          We define the positive <latex>x</latex>-direction along the motion and the positive <latex>y</latex>-direction as upward.
+
+          For the vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For the horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. The normal force is <latex>N = mg - F \sin(\theta)</latex>. Substituting this into the friction equation gives:
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Using the horizontal equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          </latex>
+          Since the force is applied upward through a towing cable, the angle <latex>\theta</latex> remains positive.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q9
+    title: Construction Worker Pushing a Bin
+    points: 3
+    text: | 
+      A construction worker is pushing a loaded bin across a level surface at a uniform speed. 
+      The coefficient of kinetic friction between the bin and the surface is <latex>0.43</latex>. 
+      The worker applies a force at an angle of <latex>21.14^\circ</latex> downward with respect to the horizontal. 
+      The required force exerted is <latex>288.91</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Determine the mass of the loaded bin in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 53.26
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the bin moves at a uniform speed, the total forces in both directions must add up to zero.
+
+          We set positive <latex>x</latex> as the direction of motion and positive <latex>y</latex> as upward.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. The normal force is <latex>N = mg + F \sin(\theta)</latex>. Substituting this gives:
+          <latex>
+          f = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Using the horizontal equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for <latex>m</latex>:  
+          <latex>
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+          The equations correctly account for the downward direction of the applied force.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q10
+    title: Bulldozer Pushing a Pile of Dirt
+    points: 3
+    text: | 
+      A bulldozer is pushing a pile of dirt across rocky ground at a constant speed. 
+      The coefficient of kinetic friction between the dirt and the ground is <latex>0.78</latex>. 
+      The bulldozer applies a force at an angle of <latex>28.11^\circ</latex> downward with respect to the horizontal. 
+      The pile of dirt has a mass of <latex>2850.55</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Find the force exerted by the bulldozer in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 42400.68
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the pile of dirt moves at a constant velocity, Newton’s second law states that the forces must sum to zero in both directions.
+
+          We define positive <latex>x</latex> along the direction of motion and positive <latex>y</latex> upward.
+
+          For the vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+
+          For the horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. The normal force is <latex>N = mg + F \sin(\theta)</latex>. Substituting this gives:
+          <latex>
+          f = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Using the horizontal equation:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) - \mu_k \sin(\theta)}
+          </latex>
+          The equations correctly account for the downward direction of the applied force.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q11
+    title: Warehouse Worker Pushing a Pallet Skid
+    points: 3
+    text: | 
+      A warehouse worker is pushing a loaded pallet skid across a concrete floor at a constant speed. 
+      The pallet skid and its load have a combined mass of <latex>250.00</latex> kg. 
+      The worker applies a force of <latex>980.62</latex> N at an angle of <latex>25.00^\circ</latex> downward with respect to the horizontal. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Calculate the coefficient of kinetic friction between the pallet skid and the floor. Round your answers to two decimal places.
+
+    answer:
+        value: 0.31
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          First, notice that since the pallet skid is moving at a constant velocity across a flat surface, its acceleration is zero in both the horizontal and vertical directions. According to Newton’s second law, the sum of forces in both directions must be zero.
+
+          Next, we can define the positive <latex>x</latex>-direction as the direction of motion and the positive <latex>y</latex>-direction as pointing upward.
+
+          We can then write down the force balance in the vertical direction:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+          where <latex>N</latex> is the normal force, <latex>m</latex> is the mass, <latex>g</latex> is the gravitational acceleration, and <latex>F</latex> is the applied force at an angle <latex>\theta</latex>.
+
+          Similarly, for the horizontal direction:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+          where <latex>f</latex> is the kinetic friction force.
+
+          The friction force is given by <latex>f = \mu_k N</latex>. From the horizontal equation, <latex>f = F \cos(\theta)</latex>. The normal force from the vertical equation is <latex>N = mg + F \sin(\theta)</latex>.
+
+          Substituting these into the friction equation gives:
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for <latex>\mu_k</latex>:  
+          <latex>
+          \mu_k = \frac{F \cos(\theta)}{mg + F \sin(\theta)}
+          </latex>
+          Since the force is pointing downward, we note that the angle <latex>\theta</latex> is directed below the horizontal, which is correctly accounted for in the vertical force equation.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q12
+    title: Gardener Pulling a Tarp of Soil
+    points: 3
+    text: | 
+      A gardener is pulling a large tarp filled with soil across a level lawn at a steady speed. 
+      The coefficient of kinetic friction between the tarp and the lawn is <latex>0.45</latex>. 
+      The tarp and soil have a combined mass of <latex>60.00</latex> kg. 
+      The gardener pulls the tarp at an angle of <latex>35.00^\circ</latex> with respect to the horizon. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Determine the force exerted by the gardener in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 245.86
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the tarp is moving at a constant velocity, its acceleration is zero. By Newton’s second law, the sum of forces in both directions must add up to zero.
+
+          We define the positive <latex>x</latex>-direction as the direction of motion and the positive <latex>y</latex>-direction as pointing upward.
+
+          For the vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For the horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. From the vertical equation, the normal force is <latex>N = mg - F \sin(\theta)</latex>.
+          Substituting this into the friction equation gives:  
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Now, substituting this expression for <latex>f</latex> into the horizontal force balance:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q13
+    title: Mover Sliding a Bookshelf
+    points: 3
+    text: | 
+      A mover is pushing a heavy bookshelf across a wood floor at a uniform speed. 
+      The coefficient of kinetic friction between the bookshelf and the floor is <latex>0.28</latex>. 
+      The mover applies a force of <latex>450.00</latex> N at an angle of <latex>15.00^\circ</latex> downward with respect to the horizontal. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Calculate the mass of the bookshelf in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 146.36
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the bookshelf is moving at a constant velocity, Newton’s second law tells us that the forces must sum to zero in both directions.
+
+          We define positive <latex>x</latex> as the direction of motion and positive <latex>y</latex> as the upward vertical direction.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. From the vertical force equation, we find the normal force <latex>N = mg + F \sin(\theta)</latex>.
+          Substituting this into the friction relation gives:
+          <latex>
+          f = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Using the horizontal force equation, we set <latex>F \cos(\theta) = f</latex>:
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for <latex>m</latex>:  
+          <latex>
+          m = \frac{F \cos(\theta) - \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+          Since the force is pointing downward, we have used the appropriate signs in our initial setup of the force equations.
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q14
+    title: Person Pulling a Cooler on Sand
+    points: 3
+    text: | 
+      A person is pulling a cooler across a sandy beach at a constant speed. 
+      The coefficient of kinetic friction between the cooler and the sand is <latex>0.60</latex>. 
+      The cooler has a mass of <latex>25.00</latex> kg. 
+      The person pulls the handle at an angle of <latex>40.00^\circ</latex> upward with respect to the horizontal. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Determine the force the person exerts on the cooler in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 127.77
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the cooler moves at a constant velocity, its acceleration is zero, meaning forces must sum to zero in both directions.
+
+          We set the positive <latex>x</latex>-direction along the motion and positive <latex>y</latex>-direction upward.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. From the vertical force balance, we find the normal force <latex>N = mg - F \sin(\theta)</latex>.
+          Substituting this into the friction equation gives:
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Using the horizontal equation, <latex>F \cos(\theta) = f</latex>, we get:  
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q15
+    title: ATV Dragging a Log
+    points: 3
+    text: | 
+      An ATV (All-Terrain Vehicle) is dragging a large log across a rough forest path at a steady speed. 
+      The coefficient of kinetic friction between the log and the path is <latex>0.80</latex>. 
+      The ATV pulls the log with a chain that forms an angle of <latex>20.00^\circ</latex> with respect to the horizon. 
+      The force exerted by the ATV is <latex>2000.00</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Find the mass of the log in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 309.20
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the log moves at a constant velocity, forces must sum to zero in both directions according to Newton’s second law.
+
+          We define positive <latex>x</latex> as the direction of motion and positive <latex>y</latex> as upward.
+
+          For vertical forces:  
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          For horizontal forces:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The friction force is <latex>f = \mu_k N</latex>. From the vertical equation, we can express the normal force as <latex>N = mg - F \sin(\theta)</latex>.
+          Substituting for N in the friction formula:
+          <latex>
+          f = \mu_k (mg - F \sin(\theta))
+          </latex>
+          From the horizontal equation, we know <latex>F \cos(\theta) = f</latex>. Therefore:
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for <latex>m</latex>:  
+          <latex>
+          m = \frac{F \cos(\theta) + \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+        
+- numerical:
+    id: q16
+    title: Zamboni on an Ice Rink
+    points: 3
+    text: | 
+      A Zamboni machine is conditioning the ice on a rink, moving at a constant velocity. 
+      The machine has a mass of <latex>1200.00</latex> kg. 
+      The coefficient of kinetic friction from the conditioning blade on the ice is <latex>0.15</latex>. 
+      The net propulsion force from the wheels is applied at an effective angle of <latex>18.00^\circ</latex> downward (due to the machine's geometry) to counteract friction. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Calculate the propulsion force required to maintain a steady speed in Newtons. Round your answers to two decimal places.
+
+    answer:
+        value: 1951.71
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the Zamboni moves at a constant velocity, its acceleration is zero. According to Newton’s second law, the net force in both the horizontal and vertical directions must be zero.
+
+          We define the positive <latex>x</latex>-direction along the machine's motion and the positive <latex>y</latex>-direction as upward.
+
+          The sum of vertical forces is:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+
+          The sum of horizontal forces is:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The kinetic friction force is <latex>f = \mu_k N</latex>. From the vertical equation, the normal force is <latex>N = mg + F \sin(\theta)</latex>.
+          Substituting this into the friction equation gives:
+          <latex>
+          f = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Using this in the horizontal force equation:
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for the force <latex>F</latex>:  
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) - \mu_k \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q17
+    title: Pushing a Heavy Box
+    points: 3
+    text: | 
+      A person is pushing a heavy box across a level lawn at a uniform speed. 
+      The box has a mass of <latex>30.00</latex> kg. 
+      The person pushes at an angle of <latex>45.00^\circ</latex> downward from the horizontal with a force of <latex>150.00</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Find the coefficient of kinetic friction between the box and the grass. Round your answers to two decimal places.
+
+    answer:
+        value: 0.26
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Because the box moves at a uniform speed, the net force on it is zero in all directions, as stated by Newton's second law.
+
+          Let's set the positive <latex>x</latex>-direction to be the direction of motion and the positive <latex>y</latex>-direction to be vertically upward.
+
+          The vertical forces must balance:  
+          <latex>
+          \sum \vec{F_y} = N - mg - F \sin(\theta) = 0
+          </latex>
+
+          The horizontal forces must also balance:  
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          From the horizontal equation, the friction force is <latex>f = F \cos(\theta)</latex>. The normal force, from the vertical equation, is <latex>N = mg + F \sin(\theta)</latex>.
+          The definition of kinetic friction is <latex>f = \mu_k N</latex>. Substituting our expressions for <latex>f</latex> and <latex>N</latex>:
+          <latex>
+          F \cos(\theta) = \mu_k (mg + F \sin(\theta))
+          </latex>
+          Solving for the coefficient of kinetic friction <latex>\mu_k</latex>:  
+          <latex>
+          \mu_k = \frac{F \cos(\theta)}{mg + F \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q18
+    title: Mountain Rescue Sled
+    points: 3
+    text: | 
+      A mountain rescue worker is pulling a person on a rescue sled across a flat, snowy field at a constant speed. 
+      The coefficient of kinetic friction between the sled and the snow is <latex>0.22</latex>. 
+      The rescuer pulls on the tow rope with a force of <latex>350.00</latex> N. The rope makes an angle of <latex>25.00^\circ</latex> upward with the horizontal. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Calculate the total mass of the person and the sled in kilograms. Round your answers to two decimal places.
+
+    answer:
+        value: 162.05
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the sled is moving at a constant speed, its acceleration is zero, and the net force in both the horizontal and vertical dimensions must be zero.
+
+          We will define the positive <latex>x</latex>-direction as the direction of sled motion and the positive <latex>y</latex>-direction as straight up.
+
+          The sum of vertical forces is:
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          The sum of horizontal forces is:
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The kinetic friction force is defined as <latex>f = \mu_k N</latex>. From the force equations, we have <latex>f = F \cos(\theta)</latex> and <latex>N = mg - F \sin(\theta)</latex>.
+          Substituting these into the friction definition:
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          To find the mass <latex>m</latex>, we rearrange the equation:  
+          <latex>
+          m = \frac{F \cos(\theta) + \mu_k F \sin(\theta)}{\mu_k g}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q19
+    title: Child Pulling a Box of Toys
+    points: 3
+    text: | 
+      A child is pulling a box full of toys along a horizontal sidewalk at a steady speed. 
+      The total mass of the box and toys is <latex>15.00</latex> kg. 
+      The coefficient of kinetic friction between the box and the sidewalk is <latex>0.55</latex>. 
+      The child pulls on a rope attached to the box that makes an angle of <latex>50.00^\circ</latex> with the horizontal. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the force the child exerts on the rope, in Newtons? Round your answers to two decimal places.
+
+    answer:
+        value: 76.06
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          The box is moving at a steady speed, so its acceleration is zero. By Newton's second law, the sum of all forces acting on the box must be zero in both the horizontal and vertical directions.
+
+          We'll set up a coordinate system with the positive <latex>x</latex>-axis in the direction of motion and the positive <latex>y</latex>-axis pointing vertically upward.
+
+          The vertical forces sum to zero:
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          The horizontal forces also sum to zero:
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          The force of kinetic friction is <latex>f = \mu_k N</latex>. We can find the normal force <latex>N</latex> from the vertical equation: <latex>N = mg - F \sin(\theta)</latex>.
+          Substituting this expression for <latex>N</latex> into the friction formula gives <latex>f = \mu_k (mg - F \sin(\theta))</latex>.
+          Now, we use the horizontal force equation, setting <latex>F \cos(\theta) = f</latex>:
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Finally, we solve for the pulling force <latex>F</latex>:
+          <latex>
+          F = \frac{\mu_k mg}{\cos(\theta) + \mu_k \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q20
+    title: Draft Horse Pulling a Stone Block
+    points: 3
+    text: | 
+      A draft horse is dragging a large stone block of mass <latex>1500.00</latex> kg over rough, level ground at a constant speed for a construction project. 
+      The horse is attached to the block by a harness and chain, which makes an angle of <latex>12.00^\circ</latex> above the horizontal. 
+      The horse pulls with a constant force of <latex>9000.00</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      Calculate the coefficient of kinetic friction between the stone block and the ground. Round your answers to two decimal places.
+
+    answer:
+        value: 0.69
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          Since the block moves at a constant speed, its acceleration is zero. Therefore, according to Newton's second law, the net force on the block is zero in both the horizontal and vertical directions.
+
+          We establish a coordinate system where the positive <latex>x</latex>-direction is the direction of motion and the positive <latex>y</latex>-direction is vertically upward.
+
+          The sum of the vertical forces is zero:
+          <latex>
+          \sum \vec{F_y} = N - mg + F \sin(\theta) = 0
+          </latex>
+
+          The sum of the horizontal forces is also zero:
+          <latex>
+          \sum \vec{F_x} = F \cos(\theta) - f = 0
+          </latex>
+
+          From these equations, we can express the friction force as <latex>f = F \cos(\theta)</latex> and the normal force as <latex>N = mg - F \sin(\theta)</latex>.
+          The formula for kinetic friction is <latex>f = \mu_k N</latex>. By substituting the expressions for <latex>f</latex> and <latex>N</latex>, we get:
+          <latex>
+          F \cos(\theta) = \mu_k (mg - F \sin(\theta))
+          </latex>
+          Solving for the coefficient of kinetic friction, <latex>\mu_k</latex>:
+          <latex>
+          \mu_k = \frac{F \cos(\theta)}{mg - F \sin(\theta)}
+          </latex>
+
+        on_correct: Good job!
+        on_incorrect: Try again!
