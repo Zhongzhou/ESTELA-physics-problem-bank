@@ -42,6 +42,10 @@ bank_info:
         - prompt 6.1: | # This is specific to the generation section for problems 1-5
             Everything else looks right, but the solution is not the same as the solution in the uploaded file. Please use the first solution in the #Solution section on the md file.
         - formatting prompt: "../../../Templates/YAML_formatting_prompt.md" #modify as needed.
+    updates:
+      - update 1:
+        - content: updated the answer to 3 problems. q3, q4 and q5. 
+        - prompt: here is a yaml file containing projectile motion problems. Can you please check if the answer for all the problems in the bank are correct?
     associated data:
         - Problem Parameter Table: "./Tables/projectile_bank_with_params_and_prompts.csv" 
     generation details: # Details of the creation process
@@ -148,7 +152,7 @@ questions:
       Round your answer to 1 decimal place.
 
     answer:
-        value: 13.0
+        value: 13.2
         margin_type: percent
         tolerance: 3
     feedback:
@@ -187,7 +191,7 @@ questions:
       Round your answer to 1 decimal place.
 
     answer:
-        value: 3.0
+        value: 2.9
         margin_type: percent
         tolerance: 3
     feedback:
@@ -227,7 +231,7 @@ questions:
       Round your answer to 1 decimal place.
 
     answer:
-        value: 67.3
+        value: 60.6
         margin_type: percent
         tolerance: 3
     feedback:
