@@ -1,10 +1,10 @@
 bank_info:
-    title: Physics 1 impulse
-    bank_id: PHY1-IMPULSE-10012025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    title: Change in linear momentum and impulse.
+    bank_id: PHY1-ILM-CILMI-10012025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
       This is an example problem bank for assessment problems. 
       Use this template to create new problem banks by replacing the content with your own questions and details.
-    date_created: 01-01-2026 # Today's date 
+    date_created: 10-01-2025 # Today's date 
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |
             I'm working today to create a problem bank for a physics class. I want to use the relation of impulse 
@@ -82,9 +82,9 @@ questions:
     title: Impulse from Car Brakes
     points: 3
     text: |
-      A car of mass <latex>1550 \text{ kg}</latex> has its velocity change by <latex>-25.8 \text{ m/s}</latex> when the driver hits the brakes. Calculate the impulse (<latex>J</latex>) the braking system applied to the car.
+      A car of mass <latex>1550 \text{ kg}</latex> has its velocity change by <latex>-25.8 \text{ m/s}</latex> when the driver hits the brakes. Calculate the magnitude of the impulse (<latex>J</latex>) the braking system applied to the car.
     answer:
-        value: -40000
+        value: 40000
         margin_type: percent
         tolerance: 3
     feedback:
@@ -95,7 +95,7 @@ questions:
           
           **Solution:** <latex>J = (1550 \text{ kg}) \cdot (-25.8 \text{ m/s}) = -39,990 \text{ N} \cdot \text{s}</latex>
           
-          **Answer:** The impulse applied was approximately <latex>-4.00 \times 10^4 \text{ N} \cdot \text{s}</latex>.
+          **Answer:** The magnitude of the impulse applied was approximately <latex>4.00 \times 10^4 \text{ N} \cdot \text{s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
@@ -119,27 +119,29 @@ questions:
           **Answer:** The change in momentum is <latex>1450 \text{ kg} \cdot \text{m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
+
 - numerical:
     id: q5
-    title: Momentum Change of an Electron
+    title: Momentum Change of an Insect
     points: 3
     text: |
-      An electron of mass <latex>9.11 \times 10^{-31} \text{ kg}</latex> is accelerated, causing its velocity to change by <latex>2.50 \times 10^6 \text{ m/s}</latex>. Calculate the electron's change in momentum (<latex>\Delta p</latex>).
+      A small insect with a mass of <latex>0.500 \text{ g}</latex> changes its velocity by <latex>4.56 \text{ cm/s}</latex>. Calculate the magnitude of the insect's change in momentum (<latex>\Delta p</latex>) in g·cm/s.
     answer:
-        value: 2.28e-24
+        value: 2.28
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 9.11 \times 10^{-31} \text{ kg}</latex>, <latex>\Delta v = 2.50 \times 10^6 \text{ m/s}</latex>
+          **Given:** <latex>m = 0.500 \text{ g}</latex>, <latex>\Delta v = 4.56 \text{ cm/s}</latex>
           
           **Formula:** <latex>\Delta p = m \cdot \Delta v</latex>
           
-          **Solution:** <latex>\Delta p = (9.11 \times 10^{-31} \text{ kg}) \cdot (2.50 \times 10^6 \text{ m/s})</latex>
+          **Solution:** <latex>\Delta p = (0.500 \text{ g}) \cdot (4.56 \text{ cm/s})</latex>
           
-          **Answer:** The change in momentum is <latex>2.28 \times 10^{-24} \text{ kg} \cdot \text{m/s}</latex>.
+          **Answer:** The change in momentum is <latex>2.28 \text{ g} \cdot \text{cm/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
+
 - numerical:
     id: q6
     title: Momentum of a Tennis Ball
@@ -161,27 +163,30 @@ questions:
           **Answer:** The change in momentum is <latex>2.34 \text{ kg} \cdot \text{m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
+
 - numerical:
     id: q7
     title: Mass of a Raindrop
     points: 3
     text: |
-      A falling raindrop's momentum changes by <latex>1.22 \times 10^{-4} \text{ kg} \cdot \text{m/s}</latex> as its speed changes by <latex>4.15 \text{ m/s}</latex>. Find the mass (<latex>m</latex>) of the raindrop.
+      A falling raindrop's momentum changes by <latex>122 \text{ mg} \cdot \text{m/s}</latex> as its speed changes by <latex>4.15 \text{ m/s}</latex>. Find the mass (<latex>m</latex>) of the raindrop in **milligrams (mg)**.
     answer:
-        value: 2.94e-5
+        value: 29.4
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>\Delta p = 1.22 \times 10^{-4} \text{ kg} \cdot \text{m/s}</latex>, <latex>\Delta v = 4.15 \text{ m/s}</latex>
+          **Given:** <latex>\Delta p = 122 \text{ mg} \cdot \text{m/s}</latex>, <latex>\Delta v = 4.15 \text{ m/s}</latex>
           
           **Formula:** <latex>m = \frac{\Delta p}{\Delta v}</latex>
           
-          **Solution:** <latex>m = \frac{1.22 \times 10^{-4} \text{ kg} \cdot \text{m/s}}{4.15 \text{ m/s}}</latex>
+          **Solution:** <latex>m = \frac{122 \text{ mg} \cdot \text{m/s}}{4.15 \text{ m/s}}</latex>
           
-          **Answer:** The mass is <latex>2.94 \times 10^{-5} \text{ kg}</latex> (or 29.4 mg).
+          **Answer:** The mass is <latex>29.4 \text{ mg}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
+
+
 - numerical:
     id: q8
     title: Mass of a Cannonball
@@ -481,9 +486,9 @@ questions:
     title: Momentum Change of a Bowling Ball
     points: 3
     text: |
-      A bowling ball of mass <latex>6.85 \text{ kg}</latex> strikes the pins, and its velocity changes by <latex>-1.15 \text{ m/s}</latex>. What was the ball's change in momentum (<latex>\Delta p</latex>)?
+      A bowling ball of mass <latex>6.85 \text{ kg}</latex> strikes the pins, and its velocity changes by <latex>-1.15 \text{ m/s}</latex>. What was the magnitude of the ball's change in momentum (<latex>\Delta p</latex>)?
     answer:
-        value: -7.88
+        value: 7.88
         margin_type: percent
         tolerance: 3
     feedback:
@@ -494,7 +499,7 @@ questions:
 
           **Solution:** <latex>\Delta p = (6.85 \text{ kg}) \cdot (-1.15 \text{ m/s})</latex>
 
-          **Answer:** The change in momentum was <latex>-7.88 \text{ kg} \cdot \text{m/s}</latex>.
+          **Answer:** The magnitude of the change in momentum was <latex>7.88 \text{ kg} \cdot \text{m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
@@ -691,9 +696,9 @@ questions:
     title: Force on a Person Landing
     points: 3
     text: |
-      A person of mass <latex>72.5 \text{ kg}</latex> lands after a jump. By bending their knees, their velocity changes by <latex>-3.15 \text{ m/s}</latex> over a landing time of <latex>0.220 \text{ s}</latex>. What average force (<latex>F_{avg}</latex>) did the ground exert on them?
+      A person of mass <latex>72.5 \text{ kg}</latex> lands after a jump. By bending their knees, their velocity changes by <latex>-3.15 \text{ m/s}</latex> over a landing time of <latex>0.220 \text{ s}</latex>. What was the magnitude of the average force (<latex>F_{avg}</latex>) the ground exerted on them?
     answer:
-        value: -1040
+        value: 1040
         margin_type: percent
         tolerance: 3
     feedback:
@@ -704,7 +709,7 @@ questions:
 
           **Solution:** <latex>F_{avg} = \frac{(72.5 \text{ kg}) \cdot (-3.15 \text{ m/s})}{0.220 \text{ s}}</latex>
 
-          **Answer:** The average force is <latex>-1040 \text{ N}</latex>. (The negative indicates an upward force).
+          **Answer:** The magnitude of the average force is <latex>1040 \text{ N}</latex>. (The negative indicates an upward force).
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
