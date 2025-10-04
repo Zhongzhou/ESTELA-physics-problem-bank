@@ -1,0 +1,168 @@
+bank_info:
+    title: Static block on ramp with spring and friction
+    bank_id: PHY1-F-SBORWSF-10052026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This is an example problem bank for assessment problems. 
+      Use this template to create new problem banks by replacing the content with your own questions and details.
+    date created: 10-05-2026 # Today's date 
+    learning objectives:
+    generation prompts: # upload each of the 12 images to Gemini Pro and use the following prompts for every image, making small changes to the detail of prompts 1 and 2.
+        - prompt 1: |
+            For the situation in this image, write a physics problem asking for the mass of the block. Tension is pulling the block up the ramp. Give the magnitude of static friction, don't give the coefficient of static friction. The spring is compressed and has spring constant k, so the spring force points up the ramp. The friction force is pointing down the ramp in this problem. Write a symbolic equation for the solution.
+        - prompt 2: | 
+            Generate 4 sets of positive random numbers for T, f_s, k, \theta and \Delta x (the compression of the spring), then calculate M. \theta should be between 20 and 40 degrees. T, f_s and k\times(\Delta x) should be of similar order of magnitudes. If M is negative, significantly less than 0.1, or greater than 100, regenerate the random numbers. List all the numbers in a data table.
+        - prompt 3: | # Copy the four problems into a md file
+            Create 4 isomorphic versions of the problem, each problem should correspond to one set of random numbers, and ask for a different variable: T, k, \Delta x, M. In each of the problem bodies, state that the spring is placed at the bottom of the ramp, and don't mention the direction of spring force in the problem. Specify the decimal places that the answer should be rounded to.
+        - prompt 4: |
+            Write a concise solution for the first problem, outlining the mains steps of the solution, but don't list numerical calculation details.
+        - prompt 4.1: |
+            Great, use the same format, write the problem solution for the other three problems.
+        - prompt 5: | # add after text: field a "figure: [Figures/figure_name]" field.
+            Now let's put the four problems and four solutions together, and write them into a yaml format according to the following example:
+        - formatting prompt: "../../../Templates/YAML_formatting_prompt.md" #modify as needed.
+    updates: 
+        - update 1: (9/15/2025) Zhongzhou Chen added updates field to this yaml. 
+        - update 2: (date of update) who did what #this is an example.
+    associated data:
+        - image folder:
+    generation details: # Details of the creation process
+            model: GPT-4o # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Author 1
+        - Author 2
+
+questions:
+
+- numerical:
+    id: q_mass
+    title: 'Block on an Incline: Find the Mass'
+    points: 3
+    text: |
+      A block of unknown mass M rests on a ramp inclined at an angle of 22.34°. A string pulls the block up the ramp with a tension of 102.94 N. At the bottom of the ramp, a spring with a spring constant of 1024.66 N/m is compressed by 0.072 m. The block remains in static equilibrium, with a static friction force of 132.32 N acting down the ramp.
+
+      Assuming the acceleration due to gravity is <latex>g = 9.81 \, m/s^2</latex>, what is the mass M of the block? Round your answer to two decimal places.
+    figure: Figures/spring_down_compress_friction_down_pull.png
+    answer:
+        value: 11.95
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          This solution is found by applying Newton's First Law, as the block is in static equilibrium.
+
+          1.  **Identify Forces:** First, identify all forces acting on the block parallel to the ramp. The **upward forces** are the tension (T) and the spring force (<latex>F_{spring} = k\Delta x</latex>). The **downward forces** are the force of static friction (<latex>f_s</latex>) and the parallel component of the block's weight (<latex>F_{g,\parallel} = Mg\sin(\theta)</latex>).
+
+          2.  **Set Up Equilibrium Equation:** Since the net force is zero, the total upward force must equal the total downward force.
+              <latex>
+              T + k\Delta x = f_s + Mg\sin(\theta)
+              </latex>
+
+          3.  **Isolate the Mass (M):** Algebraically rearrange the equation to solve for the unknown mass, M.
+              <latex>
+              M = \frac{T + k\Delta x - f_s}{g\sin(\theta)}
+              </latex>
+
+          4.  **Calculate the Result:** Substitute the given numerical values into the final equation to calculate the mass.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q_tension
+    title: 'Block on an Incline: Find the Tension'
+    points: 3
+    text: |
+      A 67.83 kg block rests on a ramp inclined at an angle of 34.05°. The block is held in place by a string pulling it up the ramp with an unknown tension T. At the bottom of the ramp, a spring with a spring constant of 898.34 N/m is compressed by 0.165 m. The block remains in static equilibrium, with a static friction force of 48.64 N acting down the ramp.
+
+      Assuming the acceleration due to gravity is <latex>g = 9.81 \, m/s^2</latex>, what is the tension T in the string? Round your answer to two decimal places.
+    figure: Figures/spring_down_compress_friction_down_pull.png
+    answer:
+        value: 272.56
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          This solution is found by applying Newton's First Law, as the block is in static equilibrium.
+
+          1.  **Identify Forces:** First, identify all forces acting on the block parallel to the ramp. The **upward forces** are the tension (T) and the spring force (<latex>F_{spring} = k\Delta x</latex>). The **downward forces** are the force of static friction (<latex>f_s</latex>) and the parallel component of the block's weight (<latex>F_{g,\parallel} = Mg\sin(\theta)</latex>).
+
+          2.  **Set Up Equilibrium Equation:** Because the net force is zero, the total upward force must equal the total downward force.
+              <latex>
+              T + k\Delta x = f_s + Mg\sin(\theta)
+              </latex>
+
+          3.  **Isolate the Tension (T):** Algebraically rearrange the equation to solve for the unknown tension, T.
+              <latex>
+              T = f_s + Mg\sin(\theta) - k\Delta x
+              </latex>
+
+          4.  **Calculate the Result:** Substitute the given numerical values into the final equation to calculate the tension.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q_spring_constant
+    title: 'Block on an Incline: Find the Spring Constant'
+    points: 3
+    text: |
+      A 66.22 kg block rests on a ramp inclined at an angle of 29.58°. A string pulls the block up the ramp with a tension of 129.33 N. At the bottom of the ramp, a spring with an unknown spring constant k is compressed by 0.258 m. The block remains in static equilibrium, with a static friction force of 293.04 N acting down the ramp.
+
+      Assuming the acceleration due to gravity is <latex>g = 9.81 \, m/s^2</latex>, what is the spring constant k? Round your answer to two decimal places.
+    figure: Figures/spring_down_compress_friction_down_pull.png
+    answer:
+        value: 1880.16
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          This solution is found by applying Newton's First Law, as the block is in static equilibrium.
+
+          1.  **Identify Forces:** First, identify all forces acting on the block parallel to the ramp. The **upward forces** are the tension (T) and the spring force (<latex>F_{spring} = k\Delta x</latex>). The **downward forces** are the force of static friction (<latex>f_s</latex>) and the parallel component of the block's weight (<latex>F_{g,\parallel} = Mg\sin(\theta)</latex>).
+
+          2.  **Set Up Equilibrium Equation:** Since the net force is zero, the total upward force must equal the total downward force.
+              <latex>
+              T + k\Delta x = f_s + Mg\sin(\theta)
+              </latex>
+
+          3.  **Isolate the Spring Constant (k):** Algebraically rearrange the equation to solve for the unknown spring constant, k.
+              <latex>
+              k = \frac{f_s + Mg\sin(\theta) - T}{\Delta x}
+              </latex>
+
+          4.  **Calculate the Result:** Substitute the given numerical values into the final equation to calculate the spring constant.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q_spring_compression
+    title: 'Block on an Incline: Find the Spring Compression'
+    points: 3
+    text: |
+      A 27.54 kg block rests on a ramp inclined at an angle of 31.42°. A string pulls the block up the ramp with a tension of 445.78 N. At the bottom of the ramp, a spring with a spring constant of 412.50 N/m is compressed by an unknown distance Δx. The block remains in static equilibrium, with a static friction force of 417.34 N acting down the ramp.
+
+      Assuming the acceleration due to gravity is <latex>g = 9.81 \, m/s^2</latex>, what is the compression distance Δx of the spring? Round your answer to three decimal places.
+    figure: Figures/spring_down_compress_friction_down_pull.png
+    answer:
+        value: 0.273
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          This solution is found by applying Newton's First Law, because the block is in static equilibrium.
+
+          1.  **Identify Forces:** First, identify all forces acting on the block parallel to the ramp. The **upward forces** are the tension (T) and the spring force (<latex>F_{spring} = k\Delta x</latex>). The **downward forces** are the force of static friction (<latex>f_s</latex>) and the parallel component of the block's weight (<latex>F_{g,\parallel} = Mg\sin(\theta)</latex>).
+
+          2.  **Set Up Equilibrium Equation:** As the net force is zero, the total upward force must equal the total downward force.
+              <latex>
+              T + k\Delta x = f_s + Mg\sin(\theta)
+              </latex>
+
+          3.  **Isolate the Spring Compression (Δx):** Algebraically rearrange the equation to solve for the unknown compression distance, Δx.
+              <latex>
+              \Delta x = \frac{f_s + Mg\sin(\theta) - T}{k}
+              </latex>
+
+          4.  **Calculate the Result:** Substitute the given numerical values into the final equation to calculate the compression distance.
+        on_correct: Good job!
+        on_incorrect: Try again!
