@@ -1,0 +1,465 @@
+bank_info:
+    title: Newton's third law force pairs
+    bank_id: PHY1-F-N3FP-10042026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This is an example problem bank for assessment problems. 
+      Use this template to create new problem banks by replacing the content with your own questions and details.
+    date created: 01-01-2026 # Today's date 
+    learning objectives:
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I am creating physics problems about Newton's 3rd law of motion. The problems involve two moving objects colliding, one larger than the other. One example is a flying bug hits the windshield of a truck driving on the highway. Another example is a tennis ball being hit by a tennis racket. Can you please first come up with 15 similar scenarios?
+        - prompt 2: | 
+            Replace #2: Don't involve liquid, #3, #5, #8 don't involve traffic accidents or other tragedy,  
+        - prompt 3: |
+            The two objects must be both moving, or is subjected to move after the collision. Replace all the ones that involve stationary objects, such as #7 and #5 (stationary can).
+        - prompt 4: |
+            Replace #15 which will cause an accident or a tragedy.
+        - prompt 5: | # The example is problem 0 below.
+            Now I would like to write the problem body and the choices of each problem, in a yaml format. I have written an example problem for the bug and truck situation below. Please follow this example and write the yaml of the first 5 problems.
+    updates: 
+        - update 1: 
+        - update 2: (date of update) who did what #this is an example.
+    associated data:
+        - random number generation script: "
+    generation details: # Details of the creation process
+            model: Gemini Pro 2.5 # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Author 1
+        - Author 2
+
+questions:
+
+- multiple_answers:
+    id: q-0
+    title: bug hits truck
+    points: 3
+    text: |
+        A small bug hits the wind shield of a large truck driving on the road. Select all the statements that are true about this situation:
+    answers:
+    - answer:
+        text: The magnitude of the force by the truck on the bug is greater than the force by the bug on the truck.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the truck on the bug is equal to the force by the bug on the truck.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the truck on the bug is greater than the magnitude of the impulse by the bug on the truck.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the truck on the bug is equal to the magnitude of the impulse by the bug on the truck.
+    - answer:
+        text: The magnitude of instant acceleration of the bug is greater than the magnitude of the instant acceleration of the truck
+        correct: true
+    - answer: 
+        text: The magnitude of instant acceleration of the bug is equal to the magnitude of the instant acceleration of the truck
+
+- multiple_answers:
+    id: q-1
+    title: Lineman vs. Running Back
+    points: 3
+    text: |
+        A large football lineman and a smaller running back, both in motion, collide on the field. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the lineman on the running back is greater than the force by the running back on the lineman.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the lineman on the running back is equal to the force by the running back on the lineman.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the lineman on the running back is greater than the magnitude of the impulse by the running back on the lineman.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the lineman on the running back is equal to the magnitude of the impulse by the running back on the lineman.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the running back is greater than the magnitude of the instant acceleration of the lineman.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the running back is equal to the magnitude of the instant acceleration of the lineman.
+        correct: false
+
+- multiple_answers:
+    id: q-2
+    title: Medicine Ball vs. Kickball
+    points: 3
+    text: |
+        A heavy medicine ball and a lightweight kickball are thrown towards each other and collide in mid-air. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the medicine ball on the kickball is greater than the force by the kickball on the medicine ball.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the medicine ball on the kickball is equal to the force by the kickball on the medicine ball.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the medicine ball on the kickball is greater than the magnitude of the impulse by the kickball on the medicine ball.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the medicine ball on the kickball is equal to the magnitude of the impulse by the kickball on the medicine ball.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the kickball is greater than the magnitude of the instant acceleration of the medicine ball.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the kickball is equal to the magnitude of the instant acceleration of the medicine ball.
+        correct: false
+
+- multiple_answers:
+    id: q-3
+    title: Skater vs. Skateboarder
+    points: 3
+    text: |
+        A large person on roller skates and a smaller person on a skateboard are moving towards each other and have a gentle collision. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the skater on the skateboarder is greater than the force by the skateboarder on the skater.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the skater on the skateboarder is equal to the force by the skateboarder on the skater.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the skater on the skateboarder is greater than the magnitude of the impulse by the skateboarder on the skater.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the skater on the skateboarder is equal to the magnitude of the impulse by the skateboarder on the skater.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the skateboarder is greater than the magnitude of the instant acceleration of the skater.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the skateboarder is equal to the magnitude of the instant acceleration of the skater.
+        correct: false
+
+- multiple_answers:
+    id: q-4
+    title: Bat hits Baseball
+    points: 3
+    text: |
+        A moving baseball bat makes contact with a pitched baseball. Select all the statements that are true about the moment of impact.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the bat on the ball is greater than the force by the ball on the bat.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the bat on the ball is equal to the force by the ball on the bat.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the bat on the ball is greater than the magnitude of the impulse by the ball on the bat.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the bat on the ball is equal to the magnitude of the impulse by the ball on the bat.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the ball is greater than the magnitude of the instant acceleration of the bat.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the ball is equal to the magnitude of the instant acceleration of the bat.
+        correct: false
+        
+- multiple_answers:
+    id: q-5
+    title: Asteroid Collision
+    points: 3
+    text: |
+        A large asteroid and a smaller asteroid, both moving through space, collide with each other. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the large asteroid on the small asteroid is greater than the force by the small asteroid on the large asteroid.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the large asteroid on the small asteroid is equal to the force by the small asteroid on the large asteroid.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the large asteroid on the small asteroid is greater than the magnitude of the impulse by the small asteroid on the large asteroid.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the large asteroid on the small asteroid is equal to the magnitude of the impulse by the small asteroid on the large asteroid.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the small asteroid is greater than the magnitude of the instant acceleration of the large asteroid.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the small asteroid is equal to the magnitude of the instant acceleration of the large asteroid.
+        correct: false
+
+- multiple_answers:
+    id: q-6
+    title: Mallet strikes Ball
+    points: 3
+    text: |
+        A moving croquet mallet strikes a rolling croquet ball. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the mallet on the ball is greater than the force by the ball on the mallet.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the mallet on the ball is equal to the force by the ball on the mallet.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the mallet on the ball is greater than the magnitude of the impulse by the ball on the mallet.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the mallet on the ball is equal to the magnitude of the impulse by the ball on the mallet.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the ball is greater than the magnitude of the instant acceleration of the mallet.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the ball is equal to the magnitude of the instant acceleration of the mallet.
+        correct: false
+
+- multiple_answers:
+    id: q-7
+    title: Dogs Colliding
+    points: 3
+    text: |
+        A large dog and a small dog, both running in a park, bump into each other. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the large dog on the small dog is greater than the force by the small dog on the large dog.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the large dog on the small dog is equal to the force by the small dog on the large dog.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the large dog on the small dog is greater than the magnitude of the impulse by the small dog on the large dog.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the large dog on the small dog is equal to the magnitude of the impulse by the small dog on the large dog.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the small dog is greater than the magnitude of the instant acceleration of the large dog.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the small dog is equal to the magnitude of the instant acceleration of the large dog.
+        correct: false
+
+- multiple_answers:
+    id: q-8
+    title: Dodgeball Collision
+    points: 3
+    text: |
+        A large, thrown dodgeball hits a smaller, thrown dodgeball in mid-air. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the large dodgeball on the small dodgeball is greater than the force by the small dodgeball on the large dodgeball.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the large dodgeball on the small dodgeball is equal to the force by the small dodgeball on the large dodgeball.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the large dodgeball on the small dodgeball is greater than the magnitude of the impulse by the small dodgeball on the large dodgeball.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the large dodgeball on the small dodgeball is equal to the magnitude of the impulse by the small dodgeball on the large dodgeball.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the small dodgeball is greater than the magnitude of the instant acceleration of the large dodgeball.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the small dodgeball is equal to the magnitude of the instant acceleration of the large dodgeball.
+        correct: false
+
+- multiple_answers:
+    id: q-9
+    title: Billiard Ball Collision
+    points: 3
+    text: |
+        A heavier billiard ball and a lighter billiard ball collide while rolling on the table. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the heavier ball on the lighter ball is greater than the force by the lighter ball on the heavier ball.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the heavier ball on the lighter ball is equal to the force by the lighter ball on the heavier ball.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the heavier ball on the lighter ball is greater than the magnitude of the impulse by the lighter ball on the heavier ball.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the heavier ball on the lighter ball is equal to the magnitude of the impulse by the lighter ball on the heavier ball.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the lighter ball is greater than the magnitude of the instant acceleration of the heavier ball.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the lighter ball is equal to the magnitude of the instant acceleration of the heavier ball.
+        correct: false
+
+- multiple_answers:
+    id: q-10
+    title: Basketball Player Collision
+    points: 3
+    text: |
+        A large basketball player and a smaller basketball player, both running, collide with each other. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the large player on the small player is greater than the force by the small player on the large player.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the large player on the small player is equal to the force by the small player on the large player.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the large player on the small player is greater than the magnitude of the impulse by the small player on the large player.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the large player on the small player is equal to the magnitude of the impulse by the small player on the large player.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the small player is greater than the magnitude of the instant acceleration of the large player.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the small player is equal to the magnitude of the instant acceleration of the large player.
+        correct: false
+
+- multiple_answers:
+    id: q-11
+    title: Ferry vs. Sailboat
+    points: 3
+    text: |
+        A large ferry moving through a harbor collides with a small sailboat crossing its path. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the ferry on the sailboat is greater than the force by the sailboat on the ferry.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the ferry on the sailboat is equal to the force by the sailboat on the ferry.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the ferry on the sailboat is greater than the magnitude of the impulse by the sailboat on the ferry.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the ferry on the sailboat is equal to the magnitude of the impulse by the sailboat on the ferry.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the sailboat is greater than the magnitude of the instant acceleration of the ferry.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the sailboat is equal to the magnitude of the instant acceleration of the ferry.
+        correct: false
+
+- multiple_answers:
+    id: q-12
+    title: Shopping Cart Collision
+    points: 3
+    text: |
+        A heavily loaded shopping cart and an empty shopping cart are pushed into each other. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the loaded cart on the empty cart is greater than the force by the empty cart on the loaded cart.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the loaded cart on the empty cart is equal to the force by the empty cart on the loaded cart.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the loaded cart on the empty cart is greater than the magnitude of the impulse by the empty cart on the loaded cart.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the loaded cart on the empty cart is equal to the magnitude of the impulse by the empty cart on the loaded cart.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the empty cart is greater than the magnitude of the instant acceleration of the loaded cart.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the empty cart is equal to the magnitude of the instant acceleration of the loaded cart.
+        correct: false
+
+- multiple_answers:
+    id: q-13
+    title: RC Car Collision
+    points: 3
+    text: |
+        A large, remote-controlled monster truck collides with a smaller, remote-controlled race car. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the monster truck on the race car is greater than the force by the race car on the monster truck.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the monster truck on the race car is equal to the force by the race car on the monster truck.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the monster truck on the race car is greater than the magnitude of the impulse by the race car on the monster truck.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the monster truck on the race car is equal to the magnitude of the impulse by the race car on the monster truck.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the race car is greater than the magnitude of the instant acceleration of the monster truck.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the race car is equal to the magnitude of the instant acceleration of the monster truck.
+        correct: false
+
+- multiple_answers:
+    id: q-14
+    title: Bowling Ball vs. Tennis Ball
+    points: 3
+    text: |
+        A heavy rolling bowling ball collides with a light tennis ball rolling across the lane. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the bowling ball on the tennis ball is greater than the force by the tennis ball on the bowling ball.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the bowling ball on the tennis ball is equal to the force by the tennis ball on the bowling ball.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the bowling ball on the tennis ball is greater than the magnitude of the impulse by the tennis ball on the bowling ball.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the bowling ball on the tennis ball is equal to the magnitude of the impulse by the tennis ball on the bowling ball.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the tennis ball is greater than the magnitude of the instant acceleration of the bowling ball.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the tennis ball is equal to the magnitude of the instant acceleration of the bowling ball.
+        correct: false
+
+- multiple_answers:
+    id: q-15
+    title: Linebacker vs. Kicker
+    points: 3
+    text: |
+        A large NFL linebacker running at full speed tackles a much smaller running kicker. Select all the statements that are true about the collision.
+
+    answers:
+    - answer:
+        text: The magnitude of the force by the linebacker on the kicker is greater than the force by the kicker on the linebacker.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the linebacker on the kicker is equal to the force by the kicker on the linebacker.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the linebacker on the kicker is greater than the magnitude of the impulse by the kicker on the linebacker.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the linebacker on the kicker is equal to the magnitude of the impulse by the kicker on the linebacker.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the kicker is greater than the magnitude of the instant acceleration of the linebacker.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the kicker is equal to the magnitude of the instant acceleration of the linebacker.
+        correct: false
+
+
+
