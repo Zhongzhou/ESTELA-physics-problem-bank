@@ -1,10 +1,10 @@
 bank_info:
     title: Change in linear momentum and impulse.
-    bank_id: PHY1-ILM-CILMI-10012025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    bank_id: PHY1-ILM-CILMI-10042025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
       This is an example problem bank for assessment problems. 
-      Use this template to create new problem banks by replacing the content with your own questions and details.
-    date_created: 10-01-2025 # Today's date 
+      The problems have been updated to remove intermediate concepts like impulse and momentum as givens, requiring students to use the fundamental equations directly.
+    date_created: 10-04-2025 # Today's date 
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |
             I'm working today to create a problem bank for a physics class. I want to use the relation of impulse 
@@ -24,108 +24,112 @@ bank_info:
             This is perfect! Now in the csv file, I want you to look at the expressions and add values and answers that all make sense for each problem. 
             Please try to avoid neat values (ie those neatly divisible by 10, and add some decimals up until 3 sig figs.) 
             I'll review over them after to make sure they all seem correct.
+        - prompt 6: |
+            I want to add one more step to each problem. For example, for problems that ask for the change in momentum, give the mass and ask for the change in velocity instead.
+            for problems that ask for the magnitude of impulse, either give time and ask for average force, or vice versa. for problems that asks for the change in velocity, instead of giving change in momentum, give average force and time instead. 
+            Looking at the picture, I want to retain only the last equation in the last four categories. Change the prompts on the questions with 2 or 3 variables to solve for one of these with the constraints listed. Please provide the fully updated yaml file
+        - prompt 7: |
+            There's still problems in this which have impulse and momentum stated, but its closer! Change each momentum to a m*v, and Impulse to an F*t, and arrange to solve for the quantities
         - formatting prompt: "./YAML_formatting_prompt.md"
     generation details: # Details of the creation process
             model: Gemini Pro # The model used to generate the questions
             version: 2.5 # The version of the model used
-            last updated: 09-27-2025 # The date of the last update of the generation prompts.
+            last updated: 10-04-2025 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen
         - Leo Murch
 
 questions:
-
-- numerical: # The problem type is a numerical input problem
+- numerical:
     id: q1
-    title: Impulse in a Football Tackle
-    points: 3
+    title: Average Force in a Football Tackle
+    points: 4
     text: | 
-      A defensive lineman tackles a running back, causing the running back's momentum to change by <latex>405 \text{ kg} \cdot \text{m/s}</latex>. Calculate the impulse (<latex>J</latex>) the lineman delivered.
+      A defensive lineman tackles a <latex>95.0 \text{ kg}</latex> running back, causing the player's velocity to change by <latex>4.26 \text{ m/s}</latex>. If the tackle occurred over <latex>0.150 \text{ s}</latex>, what was the magnitude of the average force exerted, in **kilonewtons (kN)**? Provide your answer to three significant figures.
     answer:
-        value: 405
+        value: 2.70
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>\Delta p = 405 \text{ kg} \cdot \text{m/s}</latex>
+          **Given:** <latex>m = 95.0 \text{ kg}</latex>, <latex>\Delta v = 4.26 \text{ m/s}</latex>, <latex>\Delta t = 0.150 \text{ s}</latex>
           
-          **Formula:** <latex>J = \Delta p</latex>
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
           
-          **Solution:** Since impulse is defined as the change in momentum, the value is the same.
+          **Solution:** <latex>F_{avg} = \frac{(95.0 \text{ kg}) \cdot (4.26 \text{ m/s})}{0.150 \text{ s}} = 2700 \text{ N}</latex>
           
-          **Answer:** The impulse delivered was <latex>405 \text{ N} \cdot \text{s}</latex>.
+          **Answer:** The average force was <latex>2.70 \text{ kN}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q2
-    title: Impulse from a Rocket Engine
-    points: 3
+    title: Average Force from a Rocket Engine
+    points: 4
     text: |
-      A rocket's thruster fires for a time of <latex>4.25 \text{ s}</latex>, generating an average thrust of <latex>18,400 \text{ N}</latex>. What is the total impulse (<latex>J</latex>) produced during the burn?
+      Over a period of <latex>4.25 \text{ s}</latex>, a rocket engine expels <latex>26.1 \text{ kg}</latex> of gas, changing its velocity by <latex>3000 \text{ m/s}</latex>. What was the average thrust (force) generated, in **kilonewtons (kN)**? Provide your answer to three significant figures.
     answer:
-        value: 78200
+        value: 18.4
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>F_{avg} = 18,400 \text{ N}</latex>, <latex>\Delta t = 4.25 \text{ s}</latex>
+          **Given:** <latex>\Delta t = 4.25 \text{ s}</latex>, <latex>m = 26.1 \text{ kg}</latex>, <latex>\Delta v = 3000 \text{ m/s}</latex>
           
-          **Formula:** <latex>J = F_{avg} \cdot \Delta t</latex>
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
           
-          **Solution:** <latex>J = (18,400 \text{ N}) \cdot (4.25 \text{ s})</latex>
+          **Solution:** <latex>F_{avg} = \frac{(26.1 \text{ kg}) \cdot (3000 \text{ m/s})}{4.25 \text{ s}} = 18423.5 \text{ N}</latex>
           
-          **Answer:** The total impulse is <latex>78,200 \text{ N} \cdot \text{s}</latex>.
+          **Answer:** The average thrust is <latex>18.4 \text{ kN}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q3
-    title: Impulse from Car Brakes
-    points: 3
+    title: Average Force from Car Brakes
+    points: 4
     text: |
-      A car of mass <latex>1550 \text{ kg}</latex> has its velocity change by <latex>-25.8 \text{ m/s}</latex> when the driver hits the brakes. Calculate the magnitude of the impulse (<latex>J</latex>) the braking system applied to the car.
+      A car of mass <latex>1550 \text{ kg}</latex> has its velocity change by <latex>-25.8 \text{ m/s}</latex> over a period of <latex>5.50 \text{ s}</latex> when the driver hits the brakes. Calculate the magnitude of the average force the braking system applied, in **kilonewtons (kN)**. Provide your answer to three significant figures.
     answer:
-        value: 40000
+        value: 7.27
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 1550 \text{ kg}</latex>, <latex>\Delta v = -25.8 \text{ m/s}</latex>
+          **Given:** <latex>m = 1550 \text{ kg}</latex>, <latex>\Delta v = -25.8 \text{ m/s}</latex>, <latex>\Delta t = 5.50 \text{ s}</latex>
           
-          **Formula:** <latex>J = m \cdot \Delta v</latex>
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
           
-          **Solution:** <latex>J = (1550 \text{ kg}) \cdot (-25.8 \text{ m/s}) = -39,990 \text{ N} \cdot \text{s}</latex>
+          **Solution:** <latex>F_{avg} = \frac{(1550 \text{ kg}) \cdot (-25.8 \text{ m/s})}{5.50 \text{ s}} \approx -7270 \text{ N}</latex>
           
-          **Answer:** The magnitude of the impulse applied was approximately <latex>4.00 \times 10^4 \text{ N} \cdot \text{s}</latex>.
+          **Answer:** The magnitude of the average force applied was <latex>7.27 \text{ kN}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q4
-    title: Momentum Change from an Airbag
-    points: 3
+    title: Velocity Change from an Airbag
+    points: 4
     text: |
-      In a crash test, an airbag delivers an impulse of <latex>1450 \text{ N} \cdot \text{s}</latex> to a dummy's head. Find the head's change in momentum (<latex>\Delta p</latex>).
+      In a crash test, an airbag exerts an average force of <latex>20,700 \text{ N}</latex> on a <latex>4.50 \text{ kg}</latex> dummy's head for a duration of <latex>0.0700 \text{ s}</latex>. Find the head's change in velocity (<latex>\Delta v</latex>). Provide your answer to three significant figures.
     answer:
-        value: 1450
+        value: 322
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 1450 \text{ N} \cdot \text{s}</latex>
+          **Given:** <latex>F_{avg} = 20,700 \text{ N}</latex>, <latex>m = 4.50 \text{ kg}</latex>, <latex>\Delta t = 0.0700 \text{ s}</latex>
           
-          **Formula:** <latex>\Delta p = J</latex>
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
           
-          **Solution:** Change in momentum is equal to the impulse applied.
+          **Solution:** <latex>\Delta v = \frac{(20700 \text{ N}) \cdot (0.0700 \text{ s})}{4.50 \text{ kg}}</latex>
           
-          **Answer:** The change in momentum is <latex>1450 \text{ kg} \cdot \text{m/s}</latex>.
+          **Answer:** The change in velocity is <latex>322 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
-
 - numerical:
     id: q5
     title: Momentum Change of an Insect
     points: 3
     text: |
-      A small insect with a mass of <latex>0.500 \text{ g}</latex> changes its velocity by <latex>4.56 \text{ cm/s}</latex>. Calculate the magnitude of the insect's change in momentum (<latex>\Delta p</latex>) in g·cm/s.
+      A small insect with a mass of <latex>0.500 \text{ g}</latex> changes its velocity by <latex>4.56 \text{ cm/s}</latex>. Calculate the magnitude of the insect's change in momentum (<latex>\Delta p</latex>) in g·cm/s. Provide your answer to three significant figures.
     answer:
         value: 2.28
         margin_type: percent
@@ -141,69 +145,65 @@ questions:
           **Answer:** The change in momentum is <latex>2.28 \text{ g} \cdot \text{cm/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
-
 - numerical:
     id: q6
-    title: Momentum of a Tennis Ball
-    points: 3
+    title: Velocity of a Tennis Ball
+    points: 4
     text: |
-      A tennis racket applies an average force of <latex>425 \text{ N}</latex> to a ball for a contact time of <latex>0.00550 \text{ s}</latex>. What's the ball's change in momentum (<latex>\Delta p</latex>)?
+      A tennis racket applies an average force of <latex>425 \text{ N}</latex> to a <latex>0.0570 \text{ kg}</latex> tennis ball for a contact time of <latex>0.00550 \text{ s}</latex>. What is the ball's change in velocity (<latex>\Delta v</latex>)? Provide your answer to three significant figures.
     answer:
-        value: 2.34
+        value: 41.0
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>F_{avg} = 425 \text{ N}</latex>, <latex>\Delta t = 0.00550 \text{ s}</latex>
+          **Given:** <latex>F_{avg} = 425 \text{ N}</latex>, <latex>m=0.0570 \text{ kg}</latex>, <latex>\Delta t = 0.00550 \text{ s}</latex>
           
-          **Formula:** <latex>\Delta p = F_{avg} \cdot \Delta t</latex>
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
           
-          **Solution:** <latex>\Delta p = (425 \text{ N}) \cdot (0.00550 \text{ s})</latex>
+          **Solution:** <latex>\Delta v = \frac{(425 \text{ N}) \cdot (0.00550 \text{ s})}{0.0570 \text{ kg}}</latex>
           
-          **Answer:** The change in momentum is <latex>2.34 \text{ kg} \cdot \text{m/s}</latex>.
+          **Answer:** The change in velocity is <latex>41.0 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
-
 - numerical:
     id: q7
     title: Mass of a Raindrop
-    points: 3
+    points: 4
     text: |
-      A falling raindrop's momentum changes by <latex>122 \text{ mg} \cdot \text{m/s}</latex> as its speed changes by <latex>4.15 \text{ m/s}</latex>. Find the mass (<latex>m</latex>) of the raindrop in **milligrams (mg)**.
+      Due to air resistance and gravity, a net average force of <latex>2.44 \times 10^{-3} \text{ N}</latex> acts on a falling raindrop for <latex>0.0500 \text{ s}</latex>, causing its speed to change by <latex>4.15 \text{ m/s}</latex>. Find the mass (<latex>m</latex>) of the raindrop in **milligrams (mg)**. Provide your answer to three significant figures.
     answer:
         value: 29.4
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>\Delta p = 122 \text{ mg} \cdot \text{m/s}</latex>, <latex>\Delta v = 4.15 \text{ m/s}</latex>
+          **Given:** <latex>F_{avg} = 2.44 \times 10^{-3} \text{ N}</latex>, <latex>\Delta t = 0.0500 \text{ s}</latex>, <latex>\Delta v = 4.15 \text{ m/s}</latex>
           
-          **Formula:** <latex>m = \frac{\Delta p}{\Delta v}</latex>
+          **Formula:** <latex>m = \frac{F_{avg} \cdot \Delta t}{\Delta v}</latex>
           
-          **Solution:** <latex>m = \frac{122 \text{ mg} \cdot \text{m/s}}{4.15 \text{ m/s}}</latex>
+          **Solution:** <latex>m = \frac{(2.44 \times 10^{-3} \text{ N}) \cdot (0.0500 \text{ s})}{4.15 \text{ m/s}} \approx 2.94 \times 10^{-5} \text{ kg}</latex>. Converting to milligrams: <latex>(2.94 \times 10^{-5} \text{ kg}) \cdot (10^6 \text{ mg}/\text{kg})</latex>
           
           **Answer:** The mass is <latex>29.4 \text{ mg}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
-
-
 - numerical:
     id: q8
     title: Mass of a Cannonball
-    points: 3
+    points: 4
     text: |
-      A cannon delivers an impulse of <latex>6150 \text{ N} \cdot \text{s}</latex> to a cannonball, making its velocity change by <latex>135 \text{ m/s}</latex>. Calculate the cannonball's mass (<latex>m</latex>).
+      A cannon applies an average force of <latex>5.13 \times 10^5 \text{ N}</latex> to a cannonball for <latex>0.0120 \text{ s}</latex>, making its velocity change by <latex>135 \text{ m/s}</latex>. Calculate the cannonball's mass (<latex>m</latex>). Provide your answer to three significant figures.
     answer:
         value: 45.6
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 6150 \text{ N} \cdot \text{s}</latex>, <latex>\Delta v = 135 \text{ m/s}</latex>
+          **Given:** <latex>F_{avg} = 5.13 \times 10^5 \text{ N}</latex>, <latex>\Delta t = 0.0120 \text{ s}</latex>, <latex>\Delta v = 135 \text{ m/s}</latex>
           
-          **Formula:** <latex>m = \frac{J}{\Delta v}</latex>
+          **Formula:** <latex>m = \frac{F_{avg} \cdot \Delta t}{\Delta v}</latex>
           
-          **Solution:** <latex>m = \frac{6150 \text{ N} \cdot \text{s}}{135 \text{ m/s}}</latex>
+          **Solution:** <latex>m = \frac{(5.13 \times 10^5 \text{ N}) \cdot (0.0120 \text{ s})}{135 \text{ m/s}}</latex>
           
           **Answer:** The mass is <latex>45.6 \text{ kg}</latex>.
         on_correct: Good job!
@@ -213,7 +213,7 @@ questions:
     title: Mass of a Drone
     points: 3
     text: |
-      A small drone's propellers provide an average lift force of <latex>15.2 \text{ N}</latex> for a time of <latex>2.50 \text{ s}</latex>, causing its vertical velocity to change by <latex>6.25 \text{ m/s}</latex>. Calculate the drone's mass (<latex>m</latex>).
+      A small drone's propellers provide an average lift force of <latex>15.2 \text{ N}</latex> for a time of <latex>2.50 \text{ s}</latex>, causing its vertical velocity to change by <latex>6.25 \text{ m/s}</latex>. Calculate the drone's mass (<latex>m</latex>). Provide your answer to three significant figures.
     answer:
         value: 6.08
         margin_type: percent
@@ -232,20 +232,20 @@ questions:
 - numerical:
     id: q10
     title: Velocity Change of a Freight Car
-    points: 3
+    points: 4
     text: |
-      A freight train car of mass <latex>28,500 \text{ kg}</latex> experiences a change in momentum of <latex>15,200 \text{ kg} \cdot \text{m/s}</latex> when it couples with another car. Find its change in velocity (<latex>\Delta v</latex>).
+      A freight train car of mass <latex>28,500 \text{ kg}</latex> is pushed by an engine with an average force of <latex>19,000 \text{ N}</latex> for <latex>0.800 \text{ s}</latex> as it couples with another car. Find its change in velocity (<latex>\Delta v</latex>). Provide your answer to three significant figures.
     answer:
         value: 0.533
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 28,500 \text{ kg}</latex>, <latex>\Delta p = 15,200 \text{ kg} \cdot \text{m/s}</latex>
+          **Given:** <latex>m = 28,500 \text{ kg}</latex>, <latex>F_{avg} = 19,000 \text{ N}</latex>, <latex>\Delta t = 0.800 \text{ s}</latex>
           
-          **Formula:** <latex>\Delta v = \frac{\Delta p}{m}</latex>
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
           
-          **Solution:** <latex>\Delta v = \frac{15,200 \text{ kg} \cdot \text{m/s}}{28,500 \text{ kg}}</latex>
+          **Solution:** <latex>\Delta v = \frac{(19,000 \text{ N}) \cdot (0.800 \text{ s})}{28,500 \text{ kg}}</latex>
           
           **Answer:** The change in velocity is <latex>0.533 \text{ m/s}</latex>.
         on_correct: Good job!
@@ -253,20 +253,20 @@ questions:
 - numerical:
     id: q11
     title: Velocity of an Astronaut
-    points: 3
+    points: 4
     text: |
-      An astronaut with mass <latex>115 \text{ kg}</latex> (including suit) pushes off a satellite, receiving an impulse of <latex>85.0 \text{ N} \cdot \text{s}</latex>. What's their resulting change in velocity (<latex>\Delta v</latex>)?
+      An astronaut with mass <latex>115 \text{ kg}</latex> (including suit) is pushed by a robotic arm that exerts an average force of <latex>20.2 \text{ N}</latex> for <latex>4.20 \text{ s}</latex>. What's their resulting change in velocity (<latex>\Delta v</latex>)? Provide your answer to three significant figures.
     answer:
         value: 0.739
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 115 \text{ kg}</latex>, <latex>J = 85.0 \text{ N} \cdot \text{s}</latex>
+          **Given:** <latex>m = 115 \text{ kg}</latex>, <latex>F_{avg} = 20.2 \text{ N}</latex>, <latex>\Delta t = 4.20 \text{ s}</latex>
           
-          **Formula:** <latex>\Delta v = \frac{J}{m}</latex>
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
           
-          **Solution:** <latex>\Delta v = \frac{85.0 \text{ N} \cdot \text{s}}{115 \text{ kg}}</latex>
+          **Solution:** <latex>\Delta v = \frac{(20.2 \text{ N}) \cdot (4.20 \text{ s})}{115 \text{ kg}}</latex>
           
           **Answer:** The change in velocity is <latex>0.739 \text{ m/s}</latex>.
         on_correct: Good job!
@@ -276,7 +276,7 @@ questions:
     title: Velocity of a Steel Bearing
     points: 3
     text: |
-      A powerful electromagnet pulls on a steel bearing of mass <latex>0.0255 \text{ kg}</latex> with an average force of <latex>315 \text{ N}</latex> for a short time of <latex>0.0150 \text{ s}</latex>. Calculate the bearing's change in velocity (<latex>\Delta v</latex>).
+      A powerful electromagnet pulls on a steel bearing of mass <latex>0.0255 \text{ kg}</latex> with an average force of <latex>315 \text{ N}</latex> for a short time of <latex>0.0150 \text{ s}</latex>. Calculate the bearing's change in velocity (<latex>\Delta v</latex>). Provide your answer to three significant figures.
     answer:
         value: 185
         margin_type: percent
@@ -295,41 +295,41 @@ questions:
 - numerical:
     id: q13
     title: Force of a Boxer's Punch
-    points: 3
+    points: 4
     text: |
-      A boxer's glove delivers an impulse of <latex>95.5 \text{ N} \cdot \text{s}</latex> to a punching bag over a contact time of <latex>0.0350 \text{ s}</latex>. Find the average force (<latex>F_{avg}</latex>) of the impact.
+      A boxer's glove, with a mass of <latex>0.280 \text{ kg}</latex>, changes its velocity by <latex>22.5 \text{ m/s}</latex> over a contact time of <latex>0.0350 \text{ s}</latex> as it strikes a punching bag. Find the magnitude of the average force (<latex>F_{avg}</latex>) of the impact. Provide your answer to three significant figures.
     answer:
-        value: 2730
+        value: 180
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 95.5 \text{ N} \cdot \text{s}</latex>, <latex>\Delta t = 0.0350 \text{ s}</latex>
+          **Given:** <latex>m = 0.280 \text{ kg}</latex>, <latex>\Delta v = 22.5 \text{ m/s}</latex>, <latex>\Delta t = 0.0350 \text{ s}</latex>
           
-          **Formula:** <latex>F_{avg} = \frac{J}{\Delta t}</latex>
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
           
-          **Solution:** <latex>F_{avg} = \frac{95.5 \text{ N} \cdot \text{s}}{0.0350 \text{ s}}</latex>
+          **Solution:** <latex>F_{avg} = \frac{(0.280 \text{ kg}) \cdot (22.5 \text{ m/s})}{0.0350 \text{ s}}</latex>
           
-          **Answer:** The average force is <latex>2730 \text{ N}</latex>.
+          **Answer:** The average force is <latex>180 \text{ N}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q14
     title: Force of a Hailstone Impact
-    points: 3
+    points: 4
     text: |
-      The momentum of a falling hailstone changes by <latex>0.135 \text{ kg} \cdot \text{m/s}</latex> during the time <latex>0.00150 \text{ s}</latex> it takes to shatter. Find the average force (<latex>F_{avg}</latex>) the pavement exerts on it.
+      A <latex>0.00900 \text{ kg}</latex> hailstone changes its velocity by <latex>15.0 \text{ m/s}</latex> during the <latex>0.00150 \text{ s}</latex> it takes to shatter on the pavement. Find the magnitude of the average force (<latex>F_{avg}</latex>) the pavement exerts on it. Provide your answer to three significant figures.
     answer:
         value: 90.0
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>\Delta p = 0.135 \text{ kg} \cdot \text{m/s}</latex>, <latex>\Delta t = 0.00150 \text{ s}</latex>
+          **Given:** <latex>m = 0.00900 \text{ kg}</latex>, <latex>\Delta v = 15.0 \text{ m/s}</latex>, <latex>\Delta t = 0.00150 \text{ s}</latex>
           
-          **Formula:** <latex>F_{avg} = \frac{\Delta p}{\Delta t}</latex>
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
           
-          **Solution:** <latex>F_{avg} = \frac{0.135 \text{ kg} \cdot \text{m/s}}{0.00150 \text{ s}}</latex>
+          **Solution:** <latex>F_{avg} = \frac{(0.00900 \text{ kg}) \cdot (15.0 \text{ m/s})}{0.00150 \text{ s}}</latex>
           
           **Answer:** The average force is <latex>90.0 \text{ N}</latex>.
         on_correct: Good job!
@@ -339,7 +339,7 @@ questions:
     title: Force of a Bouncing Ball
     points: 3
     text: |
-      A rubber ball of mass <latex>0.0585 \text{ kg}</latex> hits a wall, and its velocity changes by <latex>18.5 \text{ m/s}</latex>. If the collision lasts for a time of <latex>0.00450 \text{ s}</latex>, what was the average force (<latex>F_{avg}</latex>) from the wall?
+      A rubber ball of mass <latex>0.0585 \text{ kg}</latex> hits a wall, and its velocity changes by <latex>18.5 \text{ m/s}</latex>. If the collision lasts for a time of <latex>0.00450 \text{ s}</latex>, what was the average force (<latex>F_{avg}</latex>) from the wall? Provide your answer to three significant figures.
     answer:
         value: 240
         margin_type: percent
@@ -358,41 +358,41 @@ questions:
 - numerical:
     id: q16
     title: Time to Stop a Supertanker
-    points: 3
+    points: 4
     text: |
-      To bring a supertanker to a stop, tugboats must provide a reverse impulse of <latex>9.55 \times 10^8 \text{ N} \cdot \text{s}</latex>. If their engines produce a combined average force of <latex>7.15 \times 10^5 \text{ N}</latex>, how much time (<latex>\Delta t</latex>) will it take?
+      To bring a supertanker of mass <latex>3.00 \times 10^8 \text{ kg}</latex> to a stop from a speed of <latex>3.18 \text{ m/s}</latex>, tugboats must provide a combined average force of <latex>7.15 \times 10^5 \text{ N}</latex>. How much time (<latex>\Delta t</latex>) will it take, in **kiloseconds (ks)**? Provide your answer to three significant figures.
     answer:
-        value: 1340
+        value: 1.34
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 9.55 \times 10^8 \text{ N} \cdot \text{s}</latex>, <latex>F_{avg} = 7.15 \times 10^5 \text{ N}</latex>
+          **Given:** <latex>m = 3.00 \times 10^8 \text{ kg}</latex>, <latex>\Delta v = -3.18 \text{ m/s}</latex>, <latex>F_{avg} = -7.15 \times 10^5 \text{ N}</latex>
           
-          **Formula:** <latex>\Delta t = \frac{J}{F_{avg}}</latex>
+          **Formula:** <latex>\Delta t = \frac{m \cdot \Delta v}{F_{avg}}</latex>
           
-          **Solution:** <latex>\Delta t = \frac{9.55 \times 10^8 \text{ N} \cdot \text{s}}{7.15 \times 10^5 \text{ N}}</latex>
+          **Solution:** <latex>\Delta t = \frac{(3.00 \times 10^8 \text{ kg}) \cdot (-3.18 \text{ m/s})}{-7.15 \times 10^5 \text{ N}} \approx 1340 \text{ s}</latex>
           
-          **Answer:** It will take <latex>1340 \text{ s}</latex> (about 22.3 minutes).
+          **Answer:** It will take <latex>1.34 \text{ ks}</latex> (about 22.3 minutes).
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q17
     title: Time for an Ion Thruster
-    points: 3
+    points: 4
     text: |
-      An ion thruster provides a constant, gentle average force of <latex>0.125 \text{ N}</latex>. How much time (<latex>\Delta t</latex>) must it fire to create a change in momentum of <latex>90.5 \text{ kg} \cdot \text{m/s}</latex> for a satellite?
+      An ion thruster provides a constant, gentle average force of <latex>0.125 \text{ N}</latex>. How much time (<latex>\Delta t</latex>) must it fire to change the velocity of a <latex>724 \text{ kg}</latex> satellite by <latex>0.125 \text{ m/s}</latex>? Provide your answer to three significant figures.
     answer:
         value: 724
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>F_{avg} = 0.125 \text{ N}</latex>, <latex>\Delta p = 90.5 \text{ kg} \cdot \text{m/s}</latex>
+          **Given:** <latex>F_{avg} = 0.125 \text{ N}</latex>, <latex>m = 724 \text{ kg}</latex>, <latex>\Delta v = 0.125 \text{ m/s}</latex>
           
-          **Formula:** <latex>\Delta t = \frac{\Delta p}{F_{avg}}</latex>
+          **Formula:** <latex>\Delta t = \frac{m \cdot \Delta v}{F_{avg}}</latex>
           
-          **Solution:** <latex>\Delta t = \frac{90.5 \text{ kg} \cdot \text{m/s}}{0.125 \text{ N}}</latex>
+          **Solution:** <latex>\Delta t = \frac{(724 \text{ kg}) \cdot (0.125 \text{ m/s})}{0.125 \text{ N}}</latex>
           
           **Answer:** The thruster must fire for <latex>724 \text{ s}</latex> (about 12.1 minutes).
         on_correct: Good job!
@@ -402,9 +402,9 @@ questions:
     title: Arrow Acceleration Time
     points: 3
     text: |
-      An archer pulls back on a bow, applying an average force of <latex>215 \text{ N}</latex> to an arrow of mass <latex>0.0225 \text{ kg}</latex>. What is the time interval (<latex>\Delta t</latex>) the arrow is in contact with the string if its velocity changes by <latex>70.5 \text{ m/s}</latex>?
+      An archer pulls back on a bow, applying an average force of <latex>215 \text{ N}</latex> to an arrow of mass <latex>0.0225 \text{ kg}</latex>. What is the time interval (<latex>\Delta t</latex>) the arrow is in contact with the string if its velocity changes by <latex>70.5 \text{ m/s}</latex>? Give your answer in **milliseconds (ms)**. Provide your answer to three significant figures.
     answer:
-        value: 0.00738
+        value: 7.38
         margin_type: percent
         tolerance: 3
     feedback:
@@ -413,72 +413,72 @@ questions:
           
           **Formula:** <latex>\Delta t = \frac{m \cdot \Delta v}{F_{avg}}</latex>
           
-          **Solution:** <latex>\Delta t = \frac{(0.0225 \text{ kg}) \cdot (70.5 \text{ m/s})}{215 \text{ N}}</latex>
+          **Solution:** <latex>\Delta t = \frac{(0.0225 \text{ kg}) \cdot (70.5 \text{ m/s})}{215 \text{ N}} \approx 0.00738 \text{ s}</latex>
           
-          **Answer:** The time interval is <latex>0.00738 \text{ s}</latex>.
+          **Answer:** The time interval is <latex>7.38 \text{ ms}</latex>.
         on_correct: Good job!
-        on_incorrect: Try again!
+        on_incorrect: Try again
 - numerical:
     id: q19
-    title: Impulse of a Karate Strike
-    points: 3
+    title: Average Force of a Karate Strike
+    points: 4
     text: |
-      A karate master strikes a board, applying an average force of <latex>2850 \text{ N}</latex> for a time of <latex>0.00850 \text{ s}</latex>. Determine the impulse (<latex>J</latex>) the board receives.
+      A karate master's <latex>0.700 \text{ kg}</latex> hand strikes a board, changing its velocity by <latex>34.6 \text{ m/s}</latex>. If the strike lasts for <latex>0.00850 \text{ s}</latex>, what is the magnitude of the average force exerted, in **kilonewtons (kN)**? Provide your answer to three significant figures.
     answer:
-        value: 24.2
+        value: 2.85
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>F_{avg} = 2850 \text{ N}</latex>, <latex>\Delta t = 0.00850 \text{ s}</latex>
-
-          **Formula:** <latex>J = F_{avg} \cdot \Delta t</latex>
-
-          **Solution:** <latex>J = (2850 \text{ N}) \cdot (0.00850 \text{ s})</latex>
-
-          **Answer:** The impulse is <latex>24.2 \text{ N} \cdot \text{s}</latex>.
+          **Given:** <latex>m = 0.700 \text{ kg}</latex>, <latex>\Delta v = 34.6 \text{ m/s}</latex>, <latex>\Delta t = 0.00850 \text{ s}</latex>
+          
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
+          
+          **Solution:** <latex>F_{avg} = \frac{(0.700 \text{ kg}) \cdot (34.6 \text{ m/s})}{0.00850 \text{ s}} \approx 2850 \text{ N}</latex>
+          
+          **Answer:** The average force is <latex>2.85 \text{ kN}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q20
-    title: Impulse on a Baseball
-    points: 3
+    title: Average Force on a Baseball
+    points: 4
     text: |
-      A baseball with a mass of <latex>0.146 \text{ kg}</latex> is hit by a bat, causing its velocity to change by <latex>83.5 \text{ m/s}</latex>. What impulse (<latex>J</latex>) did the bat deliver to the ball?
+      A baseball with a mass of <latex>0.146 \text{ kg}</latex> is hit by a bat, causing its velocity to change by <latex>83.5 \text{ m/s}</latex>. If the bat and ball are in contact for <latex>0.00150 \text{ s}</latex>, what is the magnitude of the average force exerted by the bat, in **kilonewtons (kN)**? Provide your answer to three significant figures.
     answer:
-        value: 12.2
+        value: 8.13
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 0.146 \text{ kg}</latex>, <latex>\Delta v = 83.5 \text{ m/s}</latex>
-
-          **Formula:** <latex>J = m \cdot \Delta v</latex>
-
-          **Solution:** <latex>J = (0.146 \text{ kg}) \cdot (83.5 \text{ m/s})</latex>
-
-          **Answer:** The impulse delivered is <latex>12.2 \text{ N} \cdot \text{s}</latex>.
+          **Given:** <latex>m = 0.146 \text{ kg}</latex>, <latex>\Delta v = 83.5 \text{ m/s}</latex>, <latex>\Delta t = 0.00150 \text{ s}</latex>
+          
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
+          
+          **Solution:** <latex>F_{avg} = \frac{(0.146 \text{ kg}) \cdot (83.5 \text{ m/s})}{0.00150 \text{ s}} \approx 8130 \text{ N}</latex>
+          
+          **Answer:** The average force is <latex>8.13 \text{ kN}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q21
-    title: Momentum of a Billiard Ball
-    points: 3
+    title: Velocity of a Billiard Ball
+    points: 4
     text: |
-      A cue stick provides a sharp impulse of <latex>4.85 \text{ N} \cdot \text{s}</latex> to a stationary billiard ball. What is the ball's resulting change in momentum (<latex>\Delta p</latex>)?
+      A cue stick applies an average force of <latex>1940 \text{ N}</latex> to a stationary <latex>0.170 \text{ kg}</latex> billiard ball for <latex>0.00250 \text{ s}</latex>. What is the ball's resulting change in velocity? Provide your answer to three significant figures.
     answer:
-        value: 4.85
+        value: 28.5
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 4.85 \text{ N} \cdot \text{s}</latex>
-
-          **Formula:** <latex>\Delta p = J</latex>
-
-          **Solution:** Change in momentum is equal to the impulse applied.
-
-          **Answer:** The change in momentum is <latex>4.85 \text{ kg} \cdot \text{m/s}</latex>.
+          **Given:** <latex>F_{avg} = 1940 \text{ N}</latex>, <latex>m = 0.170 \text{ kg}</latex>, <latex>\Delta t = 0.00250 \text{ s}</latex>
+          
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
+          
+          **Solution:** <latex>\Delta v = \frac{(1940 \text{ N}) \cdot (0.00250 \text{ s})}{0.170 \text{ kg}}</latex>
+          
+          **Answer:** The change in velocity is <latex>28.5 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
@@ -486,7 +486,7 @@ questions:
     title: Momentum Change of a Bowling Ball
     points: 3
     text: |
-      A bowling ball of mass <latex>6.85 \text{ kg}</latex> strikes the pins, and its velocity changes by <latex>-1.15 \text{ m/s}</latex>. What was the magnitude of the ball's change in momentum (<latex>\Delta p</latex>)?
+      A bowling ball of mass <latex>6.85 \text{ kg}</latex> strikes the pins, and its velocity changes by <latex>-1.15 \text{ m/s}</latex>. What was the magnitude of the ball's change in momentum (<latex>\Delta p</latex>)? Provide your answer to three significant figures.
     answer:
         value: 7.88
         margin_type: percent
@@ -494,74 +494,74 @@ questions:
     feedback:
         general: |
           **Given:** <latex>m = 6.85 \text{ kg}</latex>, <latex>\Delta v = -1.15 \text{ m/s}</latex>
-
+          
           **Formula:** <latex>\Delta p = m \cdot \Delta v</latex>
-
-          **Solution:** <latex>\Delta p = (6.85 \text{ kg}) \cdot (-1.15 \text{ m/s})</latex>
-
+          
+          **Solution:** <latex>\Delta p = (6.85 \text{ kg}) \cdot (-1.15 \text{ m/s}) = -7.8775 \text{ kg} \cdot \text{m/s}</latex>
+          
           **Answer:** The magnitude of the change in momentum was <latex>7.88 \text{ kg} \cdot \text{m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q23
-    title: Momentum of a Hockey Puck
-    points: 3
+    title: Velocity of a Hockey Puck
+    points: 4
     text: |
-      A hockey stick is in contact with a puck for a time of <latex>0.0210 \text{ s}</latex>, exerting an average force of <latex>195 \text{ N}</latex>. Find the puck's change in momentum (<latex>\Delta p</latex>).
+      A hockey stick is in contact with a <latex>0.170 \text{ kg}</latex> puck for a time of <latex>0.0210 \text{ s}</latex>, exerting an average force of <latex>195 \text{ N}</latex>. Find the puck's change in velocity. Provide your answer to three significant figures.
     answer:
-        value: 4.10
+        value: 24.1
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>F_{avg} = 195 \text{ N}</latex>, <latex>\Delta t = 0.0210 \text{ s}</latex>
-
-          **Formula:** <latex>\Delta p = F_{avg} \cdot \Delta t</latex>
-
-          **Solution:** <latex>\Delta p = (195 \text{ N}) \cdot (0.0210 \text{ s})</latex>
-
-          **Answer:** The change in momentum is <latex>4.10 \text{ kg} \cdot \text{m/s}</latex>.
+          **Given:** <latex>m = 0.170 \text{ kg}</latex>, <latex>F_{avg} = 195 \text{ N}</latex>, <latex>\Delta t = 0.0210 \text{ s}</latex>
+          
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
+          
+          **Solution:** <latex>\Delta v = \frac{(195 \text{ N}) \cdot (0.0210 \text{ s})}{0.170 \text{ kg}}</latex>
+          
+          **Answer:** The change in velocity is <latex>24.1 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q24
     title: Mass of an Unknown Object
-    points: 3
+    points: 4
     text: |
-      An unknown object in an experiment experiences a change in momentum of <latex>14.2 \text{ kg} \cdot \text{m/s}</latex> and a corresponding change in velocity of <latex>3.85 \text{ m/s}</latex>. What is the mass (<latex>m</latex>) of the object?
+      An average force of <latex>28.4 \text{ N}</latex> is applied to an unknown object for <latex>0.500 \text{ s}</latex>, resulting in a change in velocity of <latex>3.85 \text{ m/s}</latex>. What is the mass (<latex>m</latex>) of the object? Provide your answer to three significant figures.
     answer:
         value: 3.69
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>\Delta p = 14.2 \text{ kg} \cdot \text{m/s}</latex>, <latex>\Delta v = 3.85 \text{ m/s}</latex>
-
-          **Formula:** <latex>m = \frac{\Delta p}{\Delta v}</latex>
-
-          **Solution:** <latex>m = \frac{14.2 \text{ kg} \cdot \text{m/s}}{3.85 \text{ m/s}}</latex>
-
+          **Given:** <latex>F_{avg} = 28.4 \text{ N}</latex>, <latex>\Delta t = 0.500 \text{ s}</latex>, <latex>\Delta v = 3.85 \text{ m/s}</latex>
+          
+          **Formula:** <latex>m = \frac{F_{avg} \cdot \Delta t}{\Delta v}</latex>
+          
+          **Solution:** <latex>m = \frac{(28.4 \text{ N}) \cdot (0.500 \text{ s})}{3.85 \text{ m/s}}</latex>
+          
           **Answer:** The mass is <latex>3.69 \text{ kg}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q25
     title: Mass of a Lab Cart
-    points: 3
+    points: 4
     text: |
-      An impulse of <latex>5.25 \text{ N} \cdot \text{s}</latex> is applied to a stationary cart on a track, causing its velocity to change by <latex>2.05 \text{ m/s}</latex>. What is the mass (<latex>m</latex>) of the cart?
+      An average force of <latex>10.0 \text{ N}</latex> is applied to a stationary cart for <latex>0.525 \text{ s}</latex>, causing its velocity to change by <latex>2.05 \text{ m/s}</latex>. What is the mass (<latex>m</latex>) of the cart? Provide your answer to three significant figures.
     answer:
         value: 2.56
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 5.25 \text{ N} \cdot \text{s}</latex>, <latex>\Delta v = 2.05 \text{ m/s}</latex>
-
-          **Formula:** <latex>m = \frac{J}{\Delta v}</latex>
-
-          **Solution:** <latex>m = \frac{5.25 \text{ N} \cdot \text{s}}{2.05 \text{ m/s}}</latex>
-
+          **Given:** <latex>F_{avg} = 10.0 \text{ N}</latex>, <latex>\Delta t = 0.525 \text{ s}</latex>, <latex>\Delta v = 2.05 \text{ m/s}</latex>
+          
+          **Formula:** <latex>m = \frac{F_{avg} \cdot \Delta t}{\Delta v}</latex>
+          
+          **Solution:** <latex>m = \frac{(10.0 \text{ N}) \cdot (0.525 \text{ s})}{2.05 \text{ m/s}}</latex>
+          
           **Answer:** The mass is <latex>2.56 \text{ kg}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
@@ -570,7 +570,7 @@ questions:
     title: Mass of a Lab Block
     points: 3
     text: |
-      A student pushes a block on a frictionless table with an average force of <latex>12.8 \text{ N}</latex> for a time of <latex>1.15 \text{ s}</latex>, resulting in a change in velocity of <latex>5.90 \text{ m/s}</latex>. What is the block's mass (<latex>m</latex>)?
+      A student pushes a block on a frictionless table with an average force of <latex>12.8 \text{ N}</latex> for a time of <latex>1.15 \text{ s}</latex>, resulting in a change in velocity of <latex>5.90 \text{ m/s}</latex>. What is the block's mass (<latex>m</latex>)? Provide your answer to three significant figures.
     answer:
         value: 2.49
         margin_type: percent
@@ -578,53 +578,53 @@ questions:
     feedback:
         general: |
           **Given:** <latex>F_{avg} = 12.8 \text{ N}</latex>, <latex>\Delta t = 1.15 \text{ s}</latex>, <latex>\Delta v = 5.90 \text{ m/s}</latex>
-
+          
           **Formula:** <latex>m = \frac{F_{avg} \cdot \Delta t}{\Delta v}</latex>
-
+          
           **Solution:** <latex>m = \frac{(12.8 \text{ N}) \cdot (1.15 \text{ s})}{5.90 \text{ m/s}}</latex>
-
+          
           **Answer:** The mass is <latex>2.49 \text{ kg}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q27
     title: Velocity of a Bullet
-    points: 3
+    points: 4
     text: |
-      A bullet of mass <latex>0.0115 \text{ kg}</latex> is fired, undergoing a change in momentum of <latex>8.65 \text{ kg} \cdot \text{m/s}</latex>. What is its change in velocity (<latex>\Delta v</latex>) as it exits the barrel?
+      An average force of <latex>7210 \text{ N}</latex> is exerted on a <latex>0.0115 \text{ kg}</latex> bullet as it travels down a rifle barrel for <latex>0.00120 \text{ s}</latex>. What is its change in velocity (<latex>\Delta v</latex>) as it exits? Provide your answer to three significant figures.
     answer:
         value: 752
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 0.0115 \text{ kg}</latex>, <latex>\Delta p = 8.65 \text{ kg} \cdot \text{m/s}</latex>
-
-          **Formula:** <latex>\Delta v = \frac{\Delta p}{m}</latex>
-
-          **Solution:** <latex>\Delta v = \frac{8.65 \text{ kg} \cdot \text{m/s}}{0.0115 \text{ kg}}</latex>
-
+          **Given:** <latex>F_{avg} = 7210 \text{ N}</latex>, <latex>m = 0.0115 \text{ kg}</latex>, <latex>\Delta t = 0.00120 \text{ s}</latex>
+          
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
+          
+          **Solution:** <latex>\Delta v = \frac{(7210 \text{ N}) \cdot (0.00120 \text{ s})}{0.0115 \text{ kg}}</latex>
+          
           **Answer:** The change in velocity is <latex>752 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q28
     title: Velocity of a Soccer Ball
-    points: 3
+    points: 4
     text: |
-      A soccer player kicks a ball of mass <latex>0.435 \text{ kg}</latex>, delivering an impulse of <latex>9.15 \text{ N} \cdot \text{s}</latex>. What is the ball's change in velocity (<latex>\Delta v</latex>)?
+      A soccer player kicks a <latex>0.435 \text{ kg}</latex> ball, applying an average force of <latex>1140 \text{ N}</latex> for <latex>0.00800 \text{ s}</latex>. What is the ball's change in velocity (<latex>\Delta v</latex>)? Provide your answer to three significant figures.
     answer:
         value: 21.0
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 0.435 \text{ kg}</latex>, <latex>J = 9.15 \text{ N} \cdot \text{s}</latex>
-
-          **Formula:** <latex>\Delta v = \frac{J}{m}</latex>
-
-          **Solution:** <latex>\Delta v = \frac{9.15 \text{ N} \cdot \text{s}}{0.435 \text{ kg}}</latex>
-
+          **Given:** <latex>m = 0.435 \text{ kg}</latex>, <latex>F_{avg} = 1140 \text{ N}</latex>, <latex>\Delta t = 0.00800 \text{ s}</latex>
+          
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
+          
+          **Solution:** <latex>\Delta v = \frac{(1140 \text{ N}) \cdot (0.00800 \text{ s})}{0.435 \text{ kg}}</latex>
+          
           **Answer:** The change in velocity is <latex>21.0 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
@@ -633,7 +633,7 @@ questions:
     title: Velocity of a Crate
     points: 3
     text: |
-      A crate of mass <latex>125 \text{ kg}</latex> is pushed with an average force of <latex>85.5 \text{ N}</latex> for a time interval of <latex>3.50 \text{ s}</latex>. By how much does its velocity change (<latex>\Delta v</latex>)?
+      A crate of mass <latex>125 \text{ kg}</latex> is pushed with an average force of <latex>85.5 \text{ N}</latex> for a time interval of <latex>3.50 \text{ s}</latex>. By how much does its velocity change (<latex>\Delta v</latex>)? Provide your answer to three significant figures.
     answer:
         value: 2.39
         margin_type: percent
@@ -641,54 +641,54 @@ questions:
     feedback:
         general: |
           **Given:** <latex>m = 125 \text{ kg}</latex>, <latex>F_{avg} = 85.5 \text{ N}</latex>, <latex>\Delta t = 3.50 \text{ s}</latex>
-
+          
           **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
-
+          
           **Solution:** <latex>\Delta v = \frac{(85.5 \text{ N}) \cdot (3.50 \text{ s})}{125 \text{ kg}}</latex>
-
+          
           **Answer:** The velocity changes by <latex>2.39 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q30
     title: Force on a Passenger in a Car
-    points: 3
+    points: 4
     text: |
-      A car's crumple zone delivers a total impulse of <latex>1850 \text{ N} \cdot \text{s}</latex> to a passenger over the collision time of <latex>0.0750 \text{ s}</latex>. What is the average force (<latex>F_{avg}</latex>) exerted on the passenger?
+      During a collision, a <latex>75.0 \text{ kg}</latex> passenger's velocity changes by <latex>-24.7 \text{ m/s}</latex> over a time of <latex>0.0750 \text{ s}</latex>. What is the magnitude of the average force exerted on the passenger, in **kilonewtons (kN)**? Provide your answer to three significant figures.
     answer:
-        value: 24700
+        value: 24.7
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 1850 \text{ N} \cdot \text{s}</latex>, <latex>\Delta t = 0.0750 \text{ s}</latex>
-
-          **Formula:** <latex>F_{avg} = \frac{J}{\Delta t}</latex>
-
-          **Solution:** <latex>F_{avg} = \frac{1850 \text{ N} \cdot \text{s}}{0.0750 \text{ s}}</latex>
-
-          **Answer:** The average force is <latex>24,700 \text{ N}</latex>.
+          **Given:** <latex>m = 75.0 \text{ kg}</latex>, <latex>\Delta v = -24.7 \text{ m/s}</latex>, <latex>\Delta t = 0.0750 \text{ s}</latex>
+          
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
+          
+          **Solution:** <latex>F_{avg} = \frac{(75.0 \text{ kg}) \cdot (-24.7 \text{ m/s})}{0.0750 \text{ s}} = -24700 \text{ N}</latex>
+          
+          **Answer:** The average force is <latex>-24.7 \text{ kN}</latex>. The magnitude is <latex>24.7 \text{ kN}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q31
     title: Force of a Firehose
-    points: 3
+    points: 4
     text: |
-      Water from a firehose changes its momentum by <latex>505 \text{ kg} \cdot \text{m/s}</latex> in a time of <latex>1.25 \text{ s}</latex> as it hits a wall. What average force (<latex>F_{avg}</latex>) does the water exert on the wall?
+      In <latex>1.25 \text{ s}</latex>, a mass of <latex>16.8 \text{ kg}</latex> of water from a firehose hits a wall and stops, with its velocity changing by <latex>-30.0 \text{ m/s}</latex>. What average force does the water exert on the wall? Provide your answer to three significant figures.
     answer:
-        value: 404
+        value: 403
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>\Delta p = 505 \text{ kg} \cdot \text{m/s}</latex>, <latex>\Delta t = 1.25 \text{ s}</latex>
-
-          **Formula:** <latex>F_{avg} = \frac{\Delta p}{\Delta t}</latex>
-
-          **Solution:** <latex>F_{avg} = \frac{505 \text{ kg} \cdot \text{m/s}}{1.25 \text{ s}}</latex>
-
-          **Answer:** The average force is <latex>404 \text{ N}</latex>.
+          **Given:** <latex>m = 16.8 \text{ kg}</latex>, <latex>\Delta v = -30.0 \text{ m/s}</latex>, <latex>\Delta t = 1.25 \text{ s}</latex>
+          
+          **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
+          
+          **Solution:** The force the wall exerts on the water is <latex>F_{avg} = \frac{(16.8 \text{ kg}) \cdot (-30.0 \text{ m/s})}{1.25 \text{ s}} = -403.2 \text{ N}</latex>. By Newton's Third Law, the force the water exerts on the wall is the opposite.
+          
+          **Answer:** The average force on the wall is <latex>403 \text{ N}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
@@ -696,61 +696,61 @@ questions:
     title: Force on a Person Landing
     points: 3
     text: |
-      A person of mass <latex>72.5 \text{ kg}</latex> lands after a jump. By bending their knees, their velocity changes by <latex>-3.15 \text{ m/s}</latex> over a landing time of <latex>0.220 \text{ s}</latex>. What was the magnitude of the average force (<latex>F_{avg}</latex>) the ground exerted on them?
+      A person of mass <latex>72.5 \text{ kg}</latex> lands after a jump. By bending their knees, their velocity changes by <latex>-3.15 \text{ m/s}</latex> over a landing time of <latex>0.220 \text{ s}</latex>. What was the magnitude of the average force (<latex>F_{avg}</latex>) the ground exerted on them, in **kilonewtons (kN)**? Provide your answer to three significant figures.
     answer:
-        value: 1040
+        value: 1.04
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
           **Given:** <latex>m = 72.5 \text{ kg}</latex>, <latex>\Delta v = -3.15 \text{ m/s}</latex>, <latex>\Delta t = 0.220 \text{ s}</latex>
-
+          
           **Formula:** <latex>F_{avg} = \frac{m \cdot \Delta v}{\Delta t}</latex>
-
-          **Solution:** <latex>F_{avg} = \frac{(72.5 \text{ kg}) \cdot (-3.15 \text{ m/s})}{0.220 \text{ s}}</latex>
-
-          **Answer:** The magnitude of the average force is <latex>1040 \text{ N}</latex>. (The negative indicates an upward force).
+          
+          **Solution:** <latex>F_{avg} = \frac{(72.5 \text{ kg}) \cdot (-3.15 \text{ m/s})}{0.220 \text{ s}} \approx -1040 \text{ N}</latex>
+          
+          **Answer:** The magnitude of the average force is <latex>1.04 \text{ kN}</latex>. (The negative indicates an upward force).
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q33
     title: Contact Time for a Catcher's Mitt
-    points: 3
+    points: 4
     text: |
-      A catcher's mitt must provide an impulse of <latex>14.5 \text{ N} \cdot \text{s}</latex> to stop a fastball. If the mitt exerts an average force of <latex>1850 \text{ N}</latex>, for what time (<latex>\Delta t</latex>) is the ball in contact with the mitt?
+      A catcher's mitt applies an average force of <latex>1850 \text{ N}</latex> to stop a <latex>0.145 \text{ kg}</latex> fastball that changes velocity by <latex>42.0 \text{ m/s}</latex>. For what time (<latex>\Delta t</latex>) is the ball in contact with the mitt? Give your answer in **milliseconds (ms)**. Provide your answer to three significant figures.
     answer:
-        value: 0.00784
+        value: 3.29
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>J = 14.5 \text{ N} \cdot \text{s}</latex>, <latex>F_{avg} = 1850 \text{ N}</latex>
-
-          **Formula:** <latex>\Delta t = \frac{J}{F_{avg}}</latex>
-
-          **Solution:** <latex>\Delta t = \frac{14.5 \text{ N} \cdot \text{s}}{1850 \text{ N}}</latex>
-
-          **Answer:** The contact time is <latex>0.00784 \text{ s}</latex>.
+          **Given:** <latex>F_{avg} = 1850 \text{ N}</latex>, <latex>m = 0.145 \text{ kg}</latex>, <latex>\Delta v = 42.0 \text{ m/s}</latex>
+          
+          **Formula:** <latex>\Delta t = \frac{m \cdot \Delta v}{F_{avg}}</latex>
+          
+          **Solution:** <latex>\Delta t = \frac{(0.145 \text{ kg}) \cdot (42.0 \text{ m/s})}{1850 \text{ N}} \approx 0.00329 \text{ s}</latex>
+          
+          **Answer:** The contact time is <latex>3.29 \text{ ms}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
     id: q34
     title: Time for Car Brakes to Act
-    points: 3
+    points: 4
     text: |
-      A car's brakes can apply a maximum average force of <latex>9250 \text{ N}</latex>. How much time (<latex>\Delta t</latex>) is needed to produce a required change in momentum of <latex>38400 \text{ kg} \cdot \text{m/s}</latex>?
+      A car's brakes apply a maximum average force of <latex>9250 \text{ N}</latex>. How much time (<latex>\Delta t</latex>) is needed to change the velocity of the <latex>1600 \text{ kg}</latex> car by <latex>24.0 \text{ m/s}</latex>? Provide your answer to three significant figures.
     answer:
         value: 4.15
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>F_{avg} = 9250 \text{ N}</latex>, <latex>\Delta p = 38400 \text{ kg} \cdot \text{m/s}</latex>
-
-          **Formula:** <latex>\Delta t = \frac{\Delta p}{F_{avg}}</latex>
-
-          **Solution:** <latex>\Delta t = \frac{38400 \text{ kg} \cdot \text{m/s}}{9250 \text{ N}}</latex>
-
+          **Given:** <latex>F_{avg} = 9250 \text{ N}</latex>, <latex>m = 1600 \text{ kg}</latex>, <latex>\Delta v = 24.0 \text{ m/s}</latex>
+          
+          **Formula:** <latex>\Delta t = \frac{m \cdot \Delta v}{F_{avg}}</latex>
+          
+          **Solution:** <latex>\Delta t = \frac{(1600 \text{ kg}) \cdot (24.0 \text{ m/s})}{9250 \text{ N}}</latex>
+          
           **Answer:** The time needed is <latex>4.15 \text{ s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
@@ -759,7 +759,7 @@ questions:
     title: Airbag Inflation Time
     points: 3
     text: |
-      An airbag exerts an average force of <latex>1950 \text{ N}</latex> on a person of mass <latex>70.5 \text{ kg}</latex>. How long (<latex>\Delta t</latex>) must it inflate to cause a change in velocity of <latex>-28.5 \text{ m/s}</latex> and bring them to a safe stop?
+      An airbag exerts an average force of <latex>1950 \text{ N}</latex> on a person of mass <latex>70.5 \text{ kg}</latex>. How long (<latex>\Delta t</latex>) must it inflate to cause a change in velocity of <latex>-28.5 \text{ m/s}</latex> and bring them to a safe stop? Provide your answer to three significant figures.
     answer:
         value: 1.03
         margin_type: percent
@@ -767,11 +767,11 @@ questions:
     feedback:
         general: |
           **Given:** <latex>F_{avg} = -1950 \text{ N}</latex> (force is in opposite direction of initial velocity), <latex>m = 70.5 \text{ kg}</latex>, <latex>\Delta v = -28.5 \text{ m/s}</latex>
-
+          
           **Formula:** <latex>\Delta t = \frac{m \cdot \Delta v}{F_{avg}}</latex>
-
+          
           **Solution:** <latex>\Delta t = \frac{(70.5 \text{ kg}) \cdot (-28.5 \text{ m/s})}{-1950 \text{ N}}</latex>
-
+          
           **Answer:** The inflation time is <latex>1.03 \text{ s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
