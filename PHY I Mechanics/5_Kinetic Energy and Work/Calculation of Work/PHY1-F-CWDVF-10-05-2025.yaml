@@ -1,7 +1,8 @@
 bank_info:
     title: Calculation of Work Done by Varying Force
-    bank_id: PHY1-F-CWDVF-10-05-2025
-    description: |Calculation of Work done by a changing force over a distance.
+    bank_id: PHY1-ME-CWDVF-10-05-2025
+    description: | 
+        Calculation of Work done by a changing force over a distance.
     date created: 10-05-2025
     learning objectives: #to be added later
     generational prompts:
@@ -66,8 +67,8 @@ bank_info:
         - prompt 1.4:  |
                 write all the problems to a txt file
         - prompt 2:    |
-                I have 25 versions of the description of physics problems in this file. I would like to write them into the yaml format, as shown in the example in the YAML_formating_prompt. Here are the requirements: 
-                 1. The solution to each problem should be short and mostly the same across multiple problems
+               I have 25 versions of the description of physics problems in this file. I would like to write them into the yaml format, as shown in the example in the YAML_formating_prompt. Here are the requirements: 
+                1. The solution to each problem should be short and mostly the same across multiple problems
     associated data:
     generation details: # Details of the creation process
             model: Gemini-Pro # The model used to generate the questions
@@ -76,35 +77,37 @@ bank_info:
     authors:
         - Owen Raymond
 
+questions:
+
     - multiple_choice:
-    id: work_problem_1
-    title: Work Done by a Variable Force 1
-    points: 10
-    text: |
-      <p><b>Situation:</b></p>
-      <p>An object moves along the x-axis under the influence of a single force given by the expression $F(x) = 5x^4 - 2x^3 + 7x^2 - 10$.</p>
-      <p><b>Question:</b></p>
-      <p>What is the work done by this force as the object moves from $x = a$ to $x = b$?</p>
-    answers:
-    - answer:
-        text: '$ (5x^4 - 2x^3 + 7x^2 - 10)(b - a) $'
-        correct: false
-    - answer:
-        text: '$ [x^5 - \frac{1}{2}x^4 + \frac{7}{3}x^3 - 10x]_b^a $'
-        correct: false
-    - answer:
-        text: '$ \frac{d}{dx}[x^5 - \frac{1}{2}x^4 + \frac{7}{3}x^3 - 10x] $'
-        correct: false
-    - answer:
-        text: '$ [x^5 - \frac{1}{2}x^4 + \frac{7}{3}x^3 - 10x]_a^b $'
-        correct: true
-    - answer:
-        text: '$ [5x^4 - 2x^3 + 7x^2 - 10]_a^b $'
-        correct: false
-    solution: &solution
-      '<p>The work done by a variable force $F(x)$ as an object moves from an initial position $x_i$ to a final position $x_f$ is calculated by the definite integral of the force with respect to position:</p>
-      <p>$$W = \int_{x_i}^{x_f} F(x) \,dx$$</p>
-      <p>For the given force $F(x)$, the work is the integral of the polynomial, evaluated over the given bounds.</p>'
+        id: work_problem_1
+        title: Work Done by a Variable Force 1
+        points: 10
+        text: |
+            <p><b>Situation:</b></p>
+            <p>An object moves along the x-axis under the influence of a single force given by the expression $F(x) = 5x^4 - 2x^3 + 7x^2 - 10$.</p>
+            <p><b>Question:</b></p>
+            <p>What is the work done by this force as the object moves from $x = a$ to $x = b$?</p>
+        answers:
+        - answer:
+            text: '$ (5x^4 - 2x^3 + 7x^2 - 10)(b - a) $'
+            correct: false
+        - answer:
+            text: '$ [x^5 - \frac{1}{2}x^4 + \frac{7}{3}x^3 - 10x]_b^a $'
+            correct: false
+        - answer:
+            text: '$ \frac{d}{dx}[x^5 - \frac{1}{2}x^4 + \frac{7}{3}x^3 - 10x] $'
+            correct: false
+        - answer:
+            text: '$ [x^5 - \frac{1}{2}x^4 + \frac{7}{3}x^3 - 10x]_a^b $'
+            correct: true
+        - answer:
+            text: '$ [5x^4 - 2x^3 + 7x^2 - 10]_a^b $'
+            correct: false
+        solution: &solution
+            '<p>The work done by a variable force $F(x)$ as an object moves from an initial position $x_i$ to a final position $x_f$ is calculated by the definite integral of the force with respect to position:</p>
+            <p>$$W = \int_{x_i}^{x_f} F(x) \,dx$$</p>
+            <p>For the given force $F(x)$, the work is the integral of the polynomial, evaluated over the given bounds.</p>'
 - multiple_choice:
     id: work_problem_2
     title: Work Done by a Variable Force 2
