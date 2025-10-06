@@ -47,8 +47,21 @@ questions:
     title: Title of Question
     points: 1
     text: |
-      Question body goes here
-    figure: figure_folder/figure-name.png
+        Question stem text goes here.
+        Standard text following Markdown formatting rules.  
+        For best results, include blank lines between blocks of text or two blank spaces at the end of each line to insert line breaks.  
+        **Bold text.**  
+        *Italicized text.*  
+        <sup>Superscript text must use standard HTML tags.</sup>  
+        <sub>Subscript text must use standard HTML tags.</sub>  
+        Degree ° Theta θ Delta Δ Pi π and other special characters can be inserted literally or using the character's corresponding HTML hex code.  
+        Mathematical equations can be written using LaTeX and contained within nonstandard 'latex' HTML-like tags.  
+        The tags and corresponding LaTeX may be written inline:<latex>\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}</latex>  
+        The tags and corresponding LaTeX may also be written on separate lines:
+        <latex>
+        a^2 + b^2 = c^2
+        </latex>
+    #figure: figure_folder/figure-name.png
     answers:
         - answer:
             text: First answer choice
