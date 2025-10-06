@@ -17,18 +17,26 @@ bank_info:
             Replace #15 which will cause an accident or a tragedy.
         - prompt 5: | # The example is problem 0 below.
             Now I would like to write the problem body and the choices of each problem, in a yaml format. I have written an example problem for the bug and truck situation below. Please follow this example and write the yaml of the first 5 problems.
+        - prompt 6: | # I initially wanted to select 5 out of 10 scenarios, but I realized that the 5 are 
+            Now i would like you to create five more similar problems, but this time, give me 10 situations in which a human, animal, robot, vehicle or similar things that can "exert" a force pushes or pulls on another object that is inanimate but can move. For example, a person pushes his co-worker sitting on an office chair, or a robot arm slides a package down a conveyor belt, or similar situations.
+        - prompt 7: |
+            Great, now let's write all the 10 problems, following the examples above. Note that for each of those 10 scenarios, state that the motion has just started, for example: when the person starts to push the cart, or when the truck starts to pull the car. Then ask students to select the correct statement
+        - prompt 8: |
+            The problem bodies are way too short. it should contain a description of the situation, then a statement of the action being just started, and finally ask students to select the correct statement. Strictly follow the structure of the distractors in problems 1 - 15.
+        - prompt 9: |
+            Great, now in those last 10 problems, replace "accelerate" with "start moving" or " moves" in the problem description.
+        - prompt 10: |
+            One important point: for the last 10 problems, make sure the "mover" always have greater mass than the object being moved. Update all the problems that violates this, and list the question numbers that have been updated.
     updates: 
         - update 1: 
         - update 2: (date of update) who did what #this is an example.
     associated data:
-        - random number generation script: "
     generation details: # Details of the creation process
             model: Gemini Pro 2.5 # The model used to generate the questions
             version: 0.0.1 # The version of the model used
-            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+            last updated: 10-06-2025 # The date of the last update of the generation prompts.
     authors:
-        - Author 1
-        - Author 2
+        - Zhongzhou Chen
 
 questions:
 
@@ -461,5 +469,263 @@ questions:
         text: The magnitude of the instant acceleration of the kicker is equal to the magnitude of the instant acceleration of the linebacker.
         correct: false
 
+- multiple_answers:
+    id: q-16
+    title: Person pushes Cart
+    points: 3
+    text: |
+        A person in a grocery store wants to move a loaded shopping cart. The person has a significantly greater mass than the cart. To get it going, the person begins to push the cart, causing it to start moving from rest. Select all the statements that are true about this interaction at the instant motion starts.
+    answers:
+    - answer:
+        text: The magnitude of the force by the person on the cart is greater than the force by the cart on the person.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the person on the cart is equal to the force by the cart on the person.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the person on the cart is greater than the magnitude of the impulse by the cart on the person.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the person on the cart is equal to the magnitude of the impulse by the cart on the person.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the cart is greater than the magnitude of the instant acceleration of the person.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the cart is equal to the magnitude of the instant acceleration of the person.
+        correct: false
 
+- multiple_answers:
+    id: q-17
+    title: Tow Truck pulls Car
+    points: 3
+    text: |
+        A powerful tow truck is attached to a smaller car that is stuck. The tow truck has a much greater mass than the car. The truck begins to pull on the car with a tow cable, causing the car to start moving. Select all the statements that are true about the forces between them at the instant the car starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the truck on the car is greater than the force by the car on the truck.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the truck on the car is equal to the force by the car on the truck.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the truck on the car is greater than the magnitude of the impulse by the car on the truck.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the truck on the car is equal to the magnitude of the impulse by the car on the truck.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the car is greater than the magnitude of the instant acceleration of the truck.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the car is equal to the magnitude of the instant acceleration of the truck.
+        correct: false
+
+- multiple_answers:
+    id: q-18
+    title: Horse pulls Carriage
+    points: 3
+    text: |
+        A horse is harnessed to a carriage. The horse is more massive than the empty carriage. The horse begins to pull the carriage, causing it to start moving from a standstill. Select all the statements that are true about the forces between them at the instant the carriage starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the horse on the carriage is greater than the force by the carriage on the horse.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the horse on the carriage is equal to the force by the carriage on the horse.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the horse on the carriage is greater than the magnitude of the impulse by the carriage on the horse.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the horse on the carriage is equal to the magnitude of the impulse by the carriage on the horse.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the carriage is greater than the magnitude of the instant acceleration of the horse.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the carriage is equal to the magnitude of the instant acceleration of the horse.
+        correct: false
+
+- multiple_answers:
+    id: q-19
+    title: Robot slides Package
+    points: 3
+    text: |
+        A large, stationary factory robot arm is programmed to move packages. The robot is much more massive than a small package. The robot arm begins to push a package, causing it to start moving along a conveyor belt. Select all the statements that are true about the forces between them at the instant the package starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the robot on the package is greater than the force by the package on the robot.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the robot on the package is equal to the force by the package on the robot.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the robot on the package is greater than the magnitude of the impulse by the package on the robot.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the robot on the package is equal to the magnitude of the impulse by the package on the robot.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the package is greater than the magnitude of the instant acceleration of the robot.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the package is equal to the magnitude of the instant acceleration of the robot.
+        correct: false
+
+- multiple_answers:
+    id: q-20
+    title: Child pulls Wagon
+    points: 3
+    text: |
+        A child is standing on the sidewalk with a toy wagon. The child has a greater mass than the wagon. The child begins to pull on the wagon's handle, causing it to start moving from rest. Select all the statements that are true about the forces between them at the instant the wagon starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the child on the wagon is greater than the force by the wagon on the child.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the child on the wagon is equal to the force by the wagon on the child.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the child on the wagon is greater than the magnitude of the impulse by the wagon on the child.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the child on the wagon is equal to the magnitude of the impulse by the wagon on the child.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the wagon is greater than the magnitude of the instant acceleration of the child.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the wagon is equal to the magnitude of the instant acceleration of the child.
+        correct: false
+
+- multiple_answers:
+    id: q-21
+    title: Forklift lifts Pallet
+    points: 3
+    text: |
+        A forklift is positioned under a heavy pallet of bricks. The forklift is much more massive than the pallet. The forklift begins to lift the pallet, causing it to move upwards from the ground. Select all the statements that are true about the vertical forces between them at the instant the pallet starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the forklift on the pallet is greater than the force by the pallet on the forklift.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the forklift on the pallet is equal to the force by the pallet on the forklift.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the forklift on the pallet is greater than the magnitude of the impulse by the pallet on the forklift.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the forklift on the pallet is equal to the magnitude of the impulse by the pallet on the forklift.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the pallet is greater than the magnitude of the instant acceleration of the forklift.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the pallet is equal to the magnitude of the instant acceleration of the forklift.
+        correct: false
+
+- multiple_answers:
+    id: q-22
+    title: Person pushes Lawnmower
+    points: 3
+    text: |
+        A person is standing behind a lawnmower on a flat lawn. The person has a greater mass than the lawnmower. The person begins to push the lawnmower, causing it to start moving from rest. Select all the statements that are true about the forces between them at the instant the lawnmower starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the person on the lawnmower is greater than the force by the lawnmower on the person.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the person on the lawnmower is equal to the force by the lawnmower on the person.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the person on the lawnmower is greater than the magnitude of the impulse by the lawnmower on the person.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the person on the lawnmower is equal to the magnitude of the impulse by the lawnmower on the person.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the lawnmower is greater than the magnitude of the instant acceleration of the person.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the lawnmower is equal to the magnitude of the instant acceleration of the person.
+        correct: false
+
+- multiple_answers:
+    id: q-23
+    title: Tugboat pushes Barge
+    points: 3
+    text: |
+        In a harbor, a massive tugboat is tasked with moving a smaller, non-powered barge. The tugboat has a much greater mass than the barge. The tugboat makes contact and begins to push the barge, causing it to start moving from rest. Select all the statements that are true about this interaction at the instant motion starts.
+    answers:
+    - answer:
+        text: The magnitude of the force by the tugboat on the barge is greater than the force by the barge on the tugboat.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the tugboat on the barge is equal to the force by the barge on the tugboat.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the tugboat on the barge is greater than the magnitude of the impulse by the barge on the tugboat.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the tugboat on the barge is equal to the magnitude of the impulse by the barge on the tugboat.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the barge is greater than the magnitude of the instant acceleration of the tugboat.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the barge is equal to the magnitude of the instant acceleration of the tugboat.
+        correct: false
+
+- multiple_answers:
+    id: q-24
+    title: Athlete pushes Sled
+    points: 3
+    text: |
+        An athlete is training with a weighted sled on an artificial turf field. The athlete has a greater mass than the sled. The athlete begins to push the sled, causing it to start moving from a standstill. Select all the statements that are true about the forces between them at the instant the sled starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the athlete on the sled is greater than the force by the sled on the athlete.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the athlete on the sled is equal to the force by the sled on the athlete.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the athlete on the sled is greater than the magnitude of the impulse by the sled on the athlete.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the athlete on the sled is equal to the magnitude of the impulse by the sled on the athlete.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the sled is greater than the magnitude of the instant acceleration of the athlete.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the sled is equal to the magnitude of the instant acceleration of the athlete.
+        correct: false
+
+- multiple_answers:
+    id: q-25
+    title: Crane lifts Car
+    points: 3
+    text: |
+        In a junkyard, a large electromagnetic crane is positioned over a scrap car. The crane is much more massive than the car. The crane's magnet is activated and it begins to lift the car, causing it to move upwards from the ground. Select all the statements that are true about the vertical forces between them at the instant the car starts to move.
+    answers:
+    - answer:
+        text: The magnitude of the force by the crane on the car is greater than the force by the car on the crane.
+        correct: false
+    - answer:
+        text: The magnitude of the force by the crane on the car is equal to the force by the car on the crane.
+        correct: true
+    - answer:
+        text: The magnitude of the impulse exerted by the crane on the car is greater than the magnitude of the impulse by the car on the crane.
+        correct: false
+    - answer:
+        text: The magnitude of the impulse exerted by the crane on the car is equal to the magnitude of the impulse by the car on the crane.
+        correct: true
+    - answer:
+        text: The magnitude of the instant acceleration of the car is greater than the magnitude of the instant acceleration of the crane.
+        correct: true
+    - answer: 
+        text: The magnitude of the instant acceleration of the car is equal to the magnitude of the instant acceleration of the crane.
+        correct: false
 
