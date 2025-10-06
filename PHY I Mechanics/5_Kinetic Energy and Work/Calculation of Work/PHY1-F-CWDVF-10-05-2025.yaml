@@ -1,26 +1,78 @@
+bank_info:
+    title: Calculation of Work Done by Varying Force
+    bank_id: PHY1-F-CWDVF-10-05-2025
+    description: |Calculation of Work done by a changing force over a distance.
+    date created: 10-05-2025
+    learning objectives: #to be added later
+    generational prompts:
+        - prompt 1: |
+            I would like to create a physics problem about Identification of free body diagram forces for my class. The problem consists of the following parts:
+               1. A situation involving an object acted on by a variable external
+                 force F(x) = A x^3 + B x^2 + C x + D, where A, B, C, and D are
+                 constants. The object moves along the x-axis from x = x_initial
+                 to x = x_final.
+               2. The question should ask:
+                 "What is the work done by this force as the object moves from
+                 x_initial to x_final?"
+              3. The answer type should be Multiple Choice, symbolic response,
+                 with one correct answer and four distractors.
+              4. The correct answer must show the integral of F(x) over the
+                 displacement
+                  W = [A x^4/4 + B x^3/3 + C x^2/2 + D x]_{x_initial}^{x_final}
+              a. Simply multiply the distance:
+                    (A x^3 + B x^2 + C x + D)(x_final − x_initial)
+              
+              5. The four distractors should be:
+                 a. Simply multiply the distance:
+                    (A x^3 + B x^2 + C x + D)(x_final − x_initial)
+                 b. Flipped upper and lower bounds:
+                    [A x^4/4 + B x^3/3 + C x^2/2 + D x]_{x_final}^{x_initial}
+                 c. Derivative instead of integration:
+                    d/dx [A x^4/4 + B x^3/3 + C x^2/2 + D x]
+                 d. Integration error:
+                    [A x^3 + B x^2 + C x + D]_{x_initial}^{x_final}
 
- I would like to create a physics problem about Calculation of work done by changing force over a distance for a physics class. The problem consists of the following parts:
-                1. A situation involving an  object acted on by a variable external force F(x) = Ax^3 + Bx^2 + Cx + D, where A, B, C, D are given and constants. The problem asks for work done from x = xinital to x = xfinal. 
-                2. One corect answer Multiple Choice, symbolic response.
-                a. An external force such as friction bouyancy normal force, aplied force, tention force
-                b. A second external force such as friction bouyancy normal force, aplied force, tention force
-                a. Each answer should describe an external force (including gravity) acting on the object
-                3. three distractors
-                a. Distractor 1: simply multiply the distance
-                b. Distractor 2: Flipped upper and lower bounds
-                c. Distractor 3: Derivative instead of integration
-                d. Distractor 4: Integration error
-                Here is an example:
+                              6. Example problem format:
 
-                Situation: 
-                    A particle is acted on by the force F(x) = 3x^3 + 2x^2 + 3x − 1.
-                    Calculate the work done from x = 1 to x = 4.
-                Correct 1: [ (3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x ]1 4
-                Distractor 1:(3x^3 + 2x^2 + 3x − 1)(4 − 1)
-                Distractor 2:[ (3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x ]4 1
+                 Situation:
+                    A particle is acted on by the force F(x) = 3x^3 + 2x^2 + 3x − 1.
+                    Calculate the work done from x = 1 to x = 4.
 
-                Distractor 3:  d/dx[(3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x]
-                Distractor 4: [ 3x^3 + 2x^2 + 3x − 1 ]1 4 
-                
+                 Correct answer:
+                    [ (3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x ]₁⁴
 
-                first, create 5 different versions according to this example format no emoji.
+                 Distractor 1:
+                    (3x^3 + 2x^2 + 3x − 1)(4 − 1)
+
+                 Distractor 2:
+                    [ (3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x ]₄₁
+
+                 Distractor 3:
+                    d/dx[(3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x]
+
+                 Distractor 4:
+                    [ 3x^3 + 2x^2 + 3x − 1 ]₁⁴
+
+              7. Create five different versions of this problem by varying the
+                 coefficients or powers in F(x). No emojis, no numeric evaluation,
+                 symbolic expressions only.
+                 
+        - prompt 1.1:  |
+                Great, write another 10 different versions please.
+        - prompt 1.2:  |
+                Great, write another 10 different versions please.
+        - prompt 1.3:  |
+                Great, now generate another batch of 10 such problem descriptions
+        - prompt 2:    |
+                I have 25 versions of the description of physics problems in this file. I would like to write them into the yaml format, as shown in the example in the YAML_formating_prompt. Here are the requirements:
+                1. Each problem body should explain the problem situation, then ask “Which of the following are valid forces acting on the object in its free-body diagram? Select all that apply.”.
+                2. The solution to each problem should be short and mostly the same across multiple problems, stating that free body diagrams only include real external forces acting on the object not forces by the object acting on external objects also motion forces are not real
+                As a first step, generate the yaml code for the first problem as a test
+    associated data:
+    generation details: # Details of the creation process
+            model: Gemini-Pro # The model used to generate the questions
+            version: 2.5 # The version of the model used
+            last updated: 09-18-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Owen Raymond
+    
