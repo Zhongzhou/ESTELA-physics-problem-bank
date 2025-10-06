@@ -1,1 +1,26 @@
 
+ I would like to create a physics problem about Calculation of work done by changing force over a distance for a physics class. The problem consists of the following parts:
+                1. A situation involving an  object acted on by a variable external force F(x) = Ax^3 + Bx^2 + Cx + D, where A, B, C, D are given and constants. The problem asks for work done from x = xinital to x = xfinal. 
+                2. One corect answer Multiple Choice, symbolic response.
+                a. An external force such as friction bouyancy normal force, aplied force, tention force
+                b. A second external force such as friction bouyancy normal force, aplied force, tention force
+                a. Each answer should describe an external force (including gravity) acting on the object
+                3. three distractors
+                a. Distractor 1: simply multiply the distance
+                b. Distractor 2: Flipped upper and lower bounds
+                c. Distractor 3: Derivative instead of integration
+                d. Distractor 4: Integration error
+                Here is an example:
+
+                Situation: 
+                    A particle is acted on by the force F(x) = 3x^3 + 2x^2 + 3x − 1.
+                    Calculate the work done from x = 1 to x = 4.
+                Correct 1: [ (3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x ]1 4
+                Distractor 1:(3x^3 + 2x^2 + 3x − 1)(4 − 1)
+                Distractor 2:[ (3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x ]4 1
+
+                Distractor 3:  d/dx[(3/4)x^4 + (2/3)x^3 + (3/2)x^2 − x]
+                Distractor 4: [ 3x^3 + 2x^2 + 3x − 1 ]1 4 
+                
+
+                first, create 5 different versions according to this example format no emoji.
