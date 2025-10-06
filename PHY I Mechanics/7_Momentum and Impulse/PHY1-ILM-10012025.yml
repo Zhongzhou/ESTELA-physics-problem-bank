@@ -126,23 +126,23 @@ questions:
         on_incorrect: Try again!
 - numerical:
     id: q5
-    title: Momentum Change of an Insect
-    points: 3
+    title: Mass of an Insect
+    points: 4
     text: |
-      A small insect with a mass of <latex>0.500 \text{ g}</latex> changes its velocity by <latex>4.56 \text{ cm/s}</latex>. Calculate the magnitude of the insect's change in momentum (<latex>\Delta p</latex>) in g·cm/s. Provide your answer to three significant figures.
+      A gust of wind exerts an average force of <latex>1.50 \times 10^{-5} \text{ N}</latex> on a small insect for <latex>0.125 \text{ s}</latex>, causing its velocity to change by <latex>3.75 \text{ m/s}</latex>. Calculate the mass of the insect in **milligrams (mg)**. Provide your answer to three significant figures.
     answer:
-        value: 2.28
+        value: 0.500
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 0.500 \text{ g}</latex>, <latex>\Delta v = 4.56 \text{ cm/s}</latex>
+          **Given:** <latex>F_{avg} = 1.50 \times 10^{-5} \text{ N}</latex>, <latex>\Delta t = 0.125 \text{ s}</latex>, <latex>\Delta v = 3.75 \text{ m/s}</latex>
           
-          **Formula:** <latex>\Delta p = m \cdot \Delta v</latex>
+          **Formula:** <latex>m = \frac{F_{avg} \cdot \Delta t}{\Delta v}</latex>
           
-          **Solution:** <latex>\Delta p = (0.500 \text{ g}) \cdot (4.56 \text{ cm/s})</latex>
+          **Solution:** <latex>m = \frac{(1.50 \times 10^{-5} \text{ N}) \cdot (0.125 \text{ s})}{3.75 \text{ m/s}} = 5.00 \times 10^{-7} \text{ kg}</latex>. Converting to milligrams: <latex>(5.00 \times 10^{-7} \text{ kg}) \cdot (10^6 \text{ mg}/\text{kg})</latex>
           
-          **Answer:** The change in momentum is <latex>2.28 \text{ g} \cdot \text{cm/s}</latex>.
+          **Answer:** The mass is <latex>0.500 \text{ mg}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
@@ -483,23 +483,23 @@ questions:
         on_incorrect: Try again!
 - numerical:
     id: q22
-    title: Momentum Change of a Bowling Ball
-    points: 3
+    title: Velocity Change of a Bowling Ball
+    points: 4
     text: |
-      A bowling ball of mass <latex>6.85 \text{ kg}</latex> strikes the pins, and its velocity changes by <latex>-1.15 \text{ m/s}</latex>. What was the magnitude of the ball's change in momentum (<latex>\Delta p</latex>)? Provide your answer to three significant figures.
+      A <latex>6.85 \text{ kg}</latex> bowling ball strikes the pins, which exert an average resistive force of <latex>555 \text{ N}</latex> on the ball for a contact time of <latex>0.0150 \text{ s}</latex>. What is the magnitude of the ball's change in velocity (<latex>\Delta v</latex>)? Provide your answer to three significant figures.
     answer:
-        value: 7.88
+        value: 1.22
         margin_type: percent
         tolerance: 3
     feedback:
         general: |
-          **Given:** <latex>m = 6.85 \text{ kg}</latex>, <latex>\Delta v = -1.15 \text{ m/s}</latex>
+          **Given:** <latex>m = 6.85 \text{ kg}</latex>, <latex>F_{avg} = 555 \text{ N}</latex>, <latex>\Delta t = 0.0150 \text{ s}</latex>
           
-          **Formula:** <latex>\Delta p = m \cdot \Delta v</latex>
+          **Formula:** <latex>\Delta v = \frac{F_{avg} \cdot \Delta t}{m}</latex>
           
-          **Solution:** <latex>\Delta p = (6.85 \text{ kg}) \cdot (-1.15 \text{ m/s}) = -7.8775 \text{ kg} \cdot \text{m/s}</latex>
+          **Solution:** <latex>\Delta v = \frac{(555 \text{ N}) \cdot (0.0150 \text{ s})}{6.85 \text{ kg}} \approx 1.215 \text{ m/s}</latex>
           
-          **Answer:** The magnitude of the change in momentum was <latex>7.88 \text{ kg} \cdot \text{m/s}</latex>.
+          **Answer:** The magnitude of the change in velocity was <latex>1.22 \text{ m/s}</latex>.
         on_correct: Good job!
         on_incorrect: Try again!
 - numerical:
