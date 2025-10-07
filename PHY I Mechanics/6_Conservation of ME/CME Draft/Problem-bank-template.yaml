@@ -2,15 +2,18 @@ bank_info:
     title: Example Problem Bank
     bank_id: EXP-PB1-EXMPLPB-01012026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
-      This is an example problem bank for assessment problems. 
-      Use this template to create new problem banks by replacing the content with your own questions and details.
+      This problem bank contains problems that belong to four variations: 
+        1. an object being dropped from a height into a viscous liquid, airbag, or thick soft material, or deploys a parashoot, rocket or booster, where the object experiences some resistance or upward force, which can be approximated as constant.
+        2. an object of mass m being launched up a ramp with  initial velocity v. The object experience some resistance going up the ramp for a length of d and height of h.
+        3. an object being launched horizontally from a spring, or a mechanism that can be modeled as an ideal spring such as a bow or a sling shot. The object experiences constant non-conservative resistance such water resistance or a rough track, and reaches some velocity after traveling for a little distance after being launched.
+        4. an object traveling with some initial velocity on a rough track or in some dense fluid such as oil or water, or experience significant air resistance for a distance, before being slowed down by a spring, or a spring like object that can be modeled as a spring such as a rubber band or elastic net. The object experiences constant non-conservative resistance during the process, and compresses/extends the spring or rubber band for a distance before coming to a stop.
     date created: 01-01-2026 # Today's date 
     learning objectives:
 
     generation prompts: 
         - prompt 1: | # The prompts here creates problems for the first type of variation. A similar structure can be used for following variations.
-            I would like to create physics problems involving work and mechanical energy. Those problems will consist of problem situations, involving an object being dropped from a height into a viscous liquid, airbag, or thick soft materal, or deploys a parashoot, rocket or booster, where the object experiences some resistance or upward force, which can be approximated as constant. The object shouldn't be subjected to air resistance, nor should it hit solid material such as snow or mud.
-            The problems will give mass m, drop height h, depth (or additional drop) d, resistant force f, and ask for the velocity of the object at depth d. 
+            I would like to create physics problems involving work and mechanical energy. Those problems will consist of problem situations, involving an object being dropped from a height into a viscous liquid, airbag, or thick soft material, or deploys a parashoot, rocket or booster, where the object experiences some resistance or upward force, which can be approximated as constant. The object shouldn't be subjected to air resistance, nor should it hit solid material such as snow or mud.
+            The problems will give mass m, drop height h, depth (or additional drop) d, resistant force f, and ask for the velocity of the object at depth d.
             First, create five symbolic versions of the problem. Don't give actual numbers, and provide one symbolic solution.
         - prompt 2: | # Those constraints are specific to variation 1.
             Don't involve objects on other planets, nor should the objects be space objects such as meteorites or satellites. Replace scenario 4 since it is an accident. 
@@ -29,7 +32,7 @@ bank_info:
         - prompt 9: |
             Now write the first 2 problems and their solutions into a yaml file, following the example format below.
         - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
-    generation prompts 2: 
+    generation prompts 2: # These prompts are for the second type of variation.
         - prompt 1: |
             I would like to create physics problems involving work and mechanical energy. Those problems will consist of problem situations, involving an object of mass m being launched up a ramp with  initial velocity v. The object experience some resistance going up the ramp for a length of d and height of h. Each problem will involve a different scenario. The object shouldn't be subjected to air resistance, nor should it hit solid material such as snow or mud. Don't involve objects on other planets, nor should the objects be space objects such as meteorites or satellites. Avoid scenarios that might harm human life.
             The problems will give mass m, ramp height h, ramp length l, constant resistant force f, and ask for the velocity of the object when it reaches height h and has traveled length l on the ramp. Do not give the incline angle of the ramp since both height and length are specified.
@@ -50,6 +53,8 @@ bank_info:
             Great, follow the same style and write the solution for the other 4 problems.
         - prompt 9: |
             Now write the first 2 problems and their solutions into a yaml file, following the example format below.
+        - prompt 10: |
+            Make a small modification to the yaml: number the problems q6 - q10.
     updates: 
         - update 1: 
         - update 2: (date of update) who did what #this is an example.
@@ -267,5 +272,221 @@ questions:
       on_correct: You've got it!
       on_incorrect: Not quite. The algebra to solve for mass can be tricky, check your steps.
 
+- numerical:
+    id: q6
+    title: The Toy Car's Launch Speed
+    points: 3
+    text: |
+      A small toy car travels up a plastic ramp and is observed to be moving at a certain speed when it reaches the top. To achieve this, it must have been launched with a sufficient initial speed at the bottom.
 
+      Given the following information, determine the initial launch speed of the car.
+      <ul>
+        <li><b>Mass (m):</b> 0.2 kg</li>
+        <li><b>Final Velocity (v_f):</b> 1.39 m/s</li>
+        <li><b>Ramp Length (l):</b> 0.8 m</li>
+        <li><b>Ramp Height (h):</b> 0.3 m</li>
+        <li><b>Frictional Force (f):</b> 0.15 N</li>
+      </ul>
+      What was the initial velocity (v_0) of the toy car? Provide your answer in m/s with two significant figures.
+    answer:
+      value: 3.0
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        To solve this, we use the principle that the <b>work done by friction</b> (W_f) causes the change in the car's total <b>mechanical energy</b> (E_mech = K + U_g). The work done by the non-conservative friction force is given by W_f = -fl.
 
+        The relationship is expressed as:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        We can substitute the specific energy terms for the car at the top and bottom of the ramp:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        Now, we just need to algebraically solve for the <b>initial velocity, v_0</b>:
+        <latex>
+        \frac{1}{2}mv_0^2 = \frac{1}{2}mv_f^2 + mgh + fl
+        </latex>
+        Multiplying by 2/m and taking the square root gives the final symbolic answer:
+        <latex>
+        v_0 = \sqrt{v_f^2 + 2gh + \frac{2fl}{m}}
+        </latex>
+      on_correct: Good job!
+      on_incorrect: Not quite, check your energy conservation principle and algebra.
+
+- numerical:
+    id: q7
+    title: The Skateboard Ramp's Height
+    points: 3
+    text: |
+      A teenager with their skateboard starts from the bottom of a concrete skate ramp and coasts upwards. Their speed decreases due to both gravity and rolling resistance from the wheels.
+
+      Using the data below, calculate the vertical height of the ramp.
+      <ul>
+        <li><b>Mass (m):</b> 65 kg</li>
+        <li><b>Initial Velocity (v_0):</b> 7.0 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 3.99 m/s</li>
+        <li><b>Ramp Length (l):</b> 4.0 m</li>
+        <li><b>Rolling Resistance (f):</b> 30 N</li>
+      </ul>
+      What is the height (h) of the skate ramp? Provide your answer in meters with two significant figures.
+    answer:
+      value: 1.5
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        We'll solve this using the principle that the <b>work done by friction</b> (W_f) accounts for the change in the skateboarder's total <b>mechanical energy</b> (E_mech = K + U_g). The work done by the non-conservative rolling resistance is W_f = -fl.
+
+        The core relationship is:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Substituting the specific terms for the start and end points of the motion gives us:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        Our goal is to find the <b>height, h</b>. We'll rearrange the equation to isolate the potential energy term, mgh:
+        <latex>
+        mgh = \frac{1}{2}mv_0^2 - \frac{1}{2}mv_f^2 - fl
+        </latex>
+        Finally, dividing by mg gives the symbolic answer for the height:
+        <latex>
+        h = \frac{\frac{1}{2}m(v_0^2 - v_f^2) - fl}{mg}
+        </latex>
+      on_correct: Excellent work!
+      on_incorrect: Remember to account for the work done by friction.
+
+- numerical:
+    id: q8
+    title: Calculating Kinetic Friction on a Ramp
+    points: 3
+    text: |
+      In a physics experiment, a wooden block is sent sliding up a wooden board. By measuring its initial and final speeds, along with the dimensions of the board, it's possible to determine the kinetic friction acting on the block. 
+
+      From the measurements provided, find the constant force of kinetic friction that acted on the block.
+      <ul>
+        <li><b>Mass (m):</b> 2.0 kg</li>
+        <li><b>Initial Velocity (v_0):</b> 6.0 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 3.36 m/s</li>
+        <li><b>Ramp Length (l):</b> 2.5 m</li>
+        <li><b>Ramp Height (h):</b> 0.75 m</li>
+      </ul>
+      What is the magnitude of the frictional force (f)? Provide your answer in Newtons with two significant figures.
+    answer:
+      value: 4.0
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        This problem is solved by recognizing that the <b>work done by friction</b> (W_f) is the reason for the change in the block's <b>mechanical energy</b> (E_mech). The work done by this non-conservative force is what we need to find, and it's calculated over the length of the ramp as W_f = -fl.
+
+        We start with the work-energy relationship:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Plugging in the expressions for energy and the work done by friction, we get:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        To find the <b>frictional force, f</b>, we first solve for the total work it does, fl:
+        <latex>
+        fl = \frac{1}{2}mv_0^2 - \left(\frac{1}{2}mv_f^2 + mgh\right)
+        </latex>
+        Dividing by the ramp length, l, gives the final expression for the force:
+        <latex>
+        f = \frac{\frac{1}{2}m(v_0^2 - v_f^2) - mgh}{l}
+        </latex>
+      on_correct: Correct! You've successfully applied the work-energy theorem.
+      on_incorrect: Try again. Make sure you correctly isolate the work done by friction.
+
+- numerical:
+    id: q9
+    title: Determining an Object's Mass via Energy
+    points: 3
+    text: |
+      A puck of unknown mass is shot up a long, icy ramp. The puck is subject to a small, constant frictional force. An observer records its initial and final velocities, the ramp dimensions, and the friction.
+
+      Using this information, calculate the mass of the puck.
+      <ul>
+        <li><b>Initial Velocity (v_0):</b> 20 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 14.14 m/s</li>
+        <li><b>Ramp Length (l):</b> 15 m</li>
+        <li><b>Ramp Height (h):</b> 3.0 m</li>
+        <li><b>Frictional Force (f):</b> 0.80 N</li>
+      </ul>
+      What is the mass (m) of the puck? Provide your answer in kg with two significant figures.
+    answer:
+      value: 0.17
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        The solution here hinges on the work-energy principle. The <b>work done by friction</b> (W_f = -fl) is equal to the change in the puck's <b>mechanical energy</b> (E_mech). Since the mass, m, is a component of every energy term, we can isolate it algebraically.
+
+        The governing equation is:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Let's substitute the known expressions:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        To solve for the <b>mass, m</b>, we first rearrange the equation to group all terms containing mass on one side:
+        <latex>
+        \frac{1}{2}mv_0^2 - \frac{1}{2}mv_f^2 - mgh = fl
+        </latex>
+        Next, we factor out m from the left side of the equation:
+        <latex>
+        m\left(\frac{1}{2}v_0^2 - \frac{1}{2}v_f^2 - gh\right) = fl
+        </latex>
+        Finally, we can solve for the mass:
+        <latex>
+        m = \frac{fl}{\frac{1}{2}(v_0^2 - v_f^2) - gh}
+        </latex>
+      on_correct: That's it! Nice job isolating the mass variable.
+      on_incorrect: Check your algebra. All terms related to mechanical energy depend on mass.
+
+- numerical:
+    id: q10
+    title: Finding the Length of a Hill
+    points: 3
+    text: |
+      After crossing the finish line, a soapbox derby car coasts up a hill. The car's speed is reduced by the incline and a constant resistive force from its axles. The total vertical rise of the hill is known, but its slope length is not.
+
+      Based on the data collected, determine the length of the slope the car traveled.
+      <ul>
+        <li><b>Mass (m):</b> 100 kg</li>
+        <li><b>Initial Velocity (v_0):</b> 12 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 4.36 m/s</li>
+        <li><b>Ramp Height (h):</b> 5.0 m</li>
+        <li><b>Resistive Force (f):</b> 45 N</li>
+      </ul>
+      What is the length (l) of the hill's slope? Provide your answer in meters with two significant figures.
+    answer:
+      value: 30
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        We can find the length of the hill by applying the work-energy principle. The negative <b>work done by the resistive force</b> (W_f = -fl) is responsible for the total change in the car's <b>mechanical energy</b> (E_mech).
+
+        We begin with the standard work-energy equation:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Substituting the relevant terms for energy and work gives:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        Our goal is to find the <b>length, l</b>. We can start by solving for the total work term, fl:
+        <latex>
+        fl = \frac{1}{2}mv_0^2 - \left(\frac{1}{2}mv_f^2 + mgh\right)
+        </latex>
+        Now, we simply divide by the resistive force, f, to get the final expression for the length:
+        <latex>
+        l = \frac{\frac{1}{2}m(v_0^2 - v_f^2) - mgh}{f}
+        </latex>
+      on_correct: Perfect! You've correctly used the energy lost to find the distance.
+      on_incorrect: Take another look at the setup. Are you solving for the right variable?
