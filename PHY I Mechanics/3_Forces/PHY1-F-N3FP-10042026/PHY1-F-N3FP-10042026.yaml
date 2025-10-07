@@ -28,6 +28,7 @@ bank_info:
         - prompt 10: |
             One important point: for the last 10 problems, make sure the "mover" always have greater mass than the object being moved. Update all the problems that violates this, and list the question numbers that have been updated.
     updates: 
+        - need update: 
         - update 1: 
         - update 2: (date of update) who did what #this is an example.
     associated data:
