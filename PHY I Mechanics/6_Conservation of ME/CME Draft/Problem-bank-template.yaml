@@ -1,0 +1,271 @@
+bank_info:
+    title: Example Problem Bank
+    bank_id: EXP-PB1-EXMPLPB-01012026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This is an example problem bank for assessment problems. 
+      Use this template to create new problem banks by replacing the content with your own questions and details.
+    date created: 01-01-2026 # Today's date 
+    learning objectives:
+
+    generation prompts: 
+        - prompt 1: | # The prompts here creates problems for the first type of variation. A similar structure can be used for following variations.
+            I would like to create physics problems involving work and mechanical energy. Those problems will consist of problem situations, involving an object being dropped from a height into a viscous liquid, airbag, or thick soft materal, or deploys a parashoot, rocket or booster, where the object experiences some resistance or upward force, which can be approximated as constant. The object shouldn't be subjected to air resistance, nor should it hit solid material such as snow or mud.
+            The problems will give mass m, drop height h, depth (or additional drop) d, resistant force f, and ask for the velocity of the object at depth d. 
+            First, create five symbolic versions of the problem. Don't give actual numbers, and provide one symbolic solution.
+        - prompt 2: | # Those constraints are specific to variation 1.
+            Don't involve objects on other planets, nor should the objects be space objects such as meteorites or satellites. Replace scenario 4 since it is an accident. 
+        - prompt 3: |
+            Now for each of the 5 scenarios, come up with a set of context appropriate numbers for all the given variables, then calculate the velocity.
+        - prompt 4: |
+            Now write out the 5 problems using to those numbers. For each problem, pick a different variable as the unknown variable. List the correct answer.
+        - prompt 5: |
+            Re-write the problems. Give a verbal description of the entire scenario, before providing the numbers and ask for the unknown.
+        - prompt 6: |
+            Check if the answer numbers for each problem are precise, update if it is not, and specify the expected significant figures in the answer for each problem.
+        - prompt 7: |
+            Write a concise student facing solution for problem 1 outlining the symbolic derivation but don't include numerical calculation details. Use mechanical energy and work done by non-conservative force. 
+        - prompt 8: |
+            Great, follow the same style and write the solution for the other 4 problems.
+        - prompt 9: |
+            Now write the first 2 problems and their solutions into a yaml file, following the example format below.
+        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    generation prompts 2: 
+        - prompt 1: |
+            I would like to create physics problems involving work and mechanical energy. Those problems will consist of problem situations, involving an object of mass m being launched up a ramp with  initial velocity v. The object experience some resistance going up the ramp for a length of d and height of h. Each problem will involve a different scenario. The object shouldn't be subjected to air resistance, nor should it hit solid material such as snow or mud. Don't involve objects on other planets, nor should the objects be space objects such as meteorites or satellites. Avoid scenarios that might harm human life.
+            The problems will give mass m, ramp height h, ramp length l, constant resistant force f, and ask for the velocity of the object when it reaches height h and has traveled length l on the ramp. Do not give the incline angle of the ramp since both height and length are specified.
+            First, create five symbolic versions of the problem. Don't give actual numbers, and provide one symbolic solution.
+        - prompt 2: |
+            replace scenario 5 since the ramp shouldn't contain moving parts.
+        - prompt 3: |
+            Now for each of the 5 scenarios, come up with a set of context appropriate numbers for all the given variables, then calculate the velocity.
+        - prompt 4: |
+            Now write out the 5 problems using to those numbers. For each problem, pick a different variable as the unknown variable. The problem body should give a verbal description of the entire scenario, before providing the numbers and ask for the unknown. List the correct answer at the end.
+        - prompt 5: |
+            Calculate the answer for each problem, update if the provided answer number is not correct or not precise. Finally, specify the expected significant figures at the end of each problem text.
+        - prompt 6: |
+            Write a concise student facing solution for problem 1 outlining the symbolic derivation but don't include numerical calculation details. Use mechanical energy and work done by non-conservative force. 
+        - prompt 7: |
+            Make it a bit shorter
+        - prompt 8: |
+            Great, follow the same style and write the solution for the other 4 problems.
+        - prompt 9: |
+            Now write the first 2 problems and their solutions into a yaml file, following the example format below.
+    updates: 
+        - update 1: 
+        - update 2: (date of update) who did what #this is an example.
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: GPT-4o # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Author 1
+        - Author 2
+
+questions:
+# The following contents should be replaced by the output of the LLM.
+- numerical: 
+    id: q1
+    title: The Viscous Fluid Problem
+    points: 3
+    text: |
+      A small steel sphere is released from rest a short distance above a deep vat of thick, viscous oil. The sphere falls through the air, enters the oil, and begins to sink. A combination of the oil's drag and buoyancy creates a constant upward resistive force on the sphere as it moves downward.
+      
+
+      Given: The sphere's mass is 0.05 kg, it is dropped from an initial height of 0.5 m above the oil, and it sinks to a depth of 0.3 m. The upward resistive force is 0.4 N.
+      
+      What is the sphere's final velocity (<latex>v_f</latex>) at this depth in m/s? Report your answer to two significant figures.
+
+    answer:
+      value: 3.3 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        This problem involves both a conservative force (gravity) and a non-conservative force (the resistive force from the oil). The change in the sphere's mechanical energy (<latex>E_{mech}</latex>) is equal to the work done by the non-conservative resistive force (<latex>W_{nc}</latex>). The governing equation is:
+        <latex>
+        W_{nc} = \Delta E_{mech} = (K_f - K_i) + (U_{g,f} - U_{g,i})
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States:** Initial (i) is the sphere at rest at height <latex>h</latex>. Final (f) is the sphere at depth <latex>d</latex> in the oil.
+        2.  **Set Reference Level:** Let the final position be the zero-point for gravitational potential energy (<latex>y_f = 0</latex>). This means the initial height is <latex>y_i = h+d</latex>.
+        3.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        4.  **Combine and Solve:** Substitute these terms back into the main equation:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            Rearranging the equation to solve for the final velocity, <latex>v_f</latex>, gives the general symbolic solution:
+            <latex>
+            v_f = \sqrt{2g(h+d) - \frac{2fd}{m}}
+            </latex>
+      on_correct: Good job!
+      on_incorrect: Not quite. Check your application of the work-energy theorem.
+
+- numerical: 
+    id: q2
+    title: The Airbag Test Problem
+    points: 3
+    text: |
+      In a safety test, a crash-test dummy is dropped from a set height to simulate the physics of a collision. It lands squarely on a large airbag, which applies a constant upward force to slow the dummy's descent as it compresses. We want to determine the force the airbag provides.
+
+      Given: The dummy has a mass of 78 kg and is dropped from a height of 2.0 m. The airbag compresses by a distance of 0.4 m, at which point the dummy's velocity is 3.34 m/s.
+      
+      What is the constant upward force (<latex>f</latex>) exerted by the airbag in Newtons? Report your answer to two significant figures using scientific notation if needed (e.g., 1.2e3).
+
+    answer:
+      value: 3500 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The upward force from the airbag is a non-conservative force. The work it does (<latex>W_{nc}</latex>) is equal to the total change in the dummy's mechanical energy (<latex>\Delta E_{mech} = \Delta K + \Delta U_g</latex>). The relationship is:
+        <latex>
+        W_{nc} = (K_f - K_i) + (U_{g,f} - U_{g,i})
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the dummy at rest at height <latex>h</latex>. Final (f) is the dummy after compressing the airbag by <latex>d</latex>. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** Substitute the terms into the main equation:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            Now, rearrange the formula to solve for the unknown force, <latex>f</latex>:
+            <latex>
+            f = \frac{mg(h+d) - \frac{1}{2}mv_f^2}{d}
+            </latex>
+      on_correct: Excellent!
+      on_incorrect: Please try again. Ensure you've correctly isolated the force variable.
+
+- numerical: 
+    id: q3
+    title: The Parachute Drop Problem
+    points: 3
+    text: |
+      A supply package is released from a helicopter high above the ground. It free-falls for a time, after which its parachute deploys. The parachute provides a steady upward drag force as the package continues its descent toward a landing zone.
+
+      Given: The package has a mass of 25 kg. The parachute provides an upward force of 200 N. After the parachute opens, the package descends an additional distance of 20 m, reaching a final velocity of 32.43 m/s.
+      
+      From what initial height (<latex>h</latex>) did the package free-fall before the parachute opened? Report your answer in meters to two significant figures.
+
+    answer:
+      value: 50 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The parachute provides a non-conservative drag force. We can find the initial height by relating the work done by this force (<latex>W_{nc}</latex>) to the package's total change in mechanical energy (<latex>\Delta E_{mech}</latex>). The governing equation is:
+        <latex>
+        W_{nc} = \Delta E_{mech}
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the package at rest at the start of its free-fall. Final (f) is the package after its parachute descent. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** Substitute into the main equation:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            To find the initial free-fall height, <latex>h</latex>, rearrange the formula:
+            <latex>
+            h = \frac{\frac{1}{2}mv_f^2 + fd}{mg} - d
+            </latex>
+      on_correct: Correct!
+      on_incorrect: That's not it. Re-check your algebraic rearrangement for h.
+
+- numerical: 
+    id: q4
+    title: The Landing System Test
+    points: 3
+    text: |
+      Engineers are testing a magnetic braking system designed for a vertical drop tower. A heavy test payload is released from rest. After falling for a specific distance, the magnetic brakes engage, applying a strong, constant upward force to slow the payload.
+
+      Given: The payload has a mass of 500 kg and free-falls for a height of 10 m. The braking system applies an upward force of 15,000 N, and the payload's final velocity is 8.65 m/s.
+      
+      For what distance (<latex>d</latex>) did the braking system operate? Report your answer in meters to two significant figures.
+
+    answer:
+      value: 3.0
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The magnetic braking system exerts a non-conservative force, doing negative work on the payload. We relate this work (<latex>W_{nc}</latex>) to the total change in the payload's mechanical energy (<latex>\Delta E_{mech}</latex>).
+        <latex>
+        W_{nc} = \Delta E_{mech}
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the payload at rest at the top. Final (f) is after the braking phase. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** Substitute the terms:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            Solving for the braking distance, <latex>d</latex>, requires careful algebra:
+            <latex>
+            d = \frac{\frac{1}{2}mv_f^2 - mgh}{mg - f}
+            </latex>
+      on_correct: That's correct!
+      on_incorrect: Give it another try. Pay close attention when isolating the variable d.
+
+- numerical: 
+    id: q5
+    title: The Stunt Mat Problem
+    points: 3
+    text: |
+      For a movie scene, a stunt performer executes a high fall from a platform onto a large, soft crash mat below. As the performer lands, the mat compresses, exerting a constant upward force to safely slow them down.
+
+      Given: The performer falls from a height of 15 m. The mat compresses by a distance of 1.5 m while providing an upward force of 5000 N. The performer's velocity at this point of compression is 11.66 m/s.
+      
+      What is the performer's mass (<latex>m</latex>)? Report your answer in kg to two significant figures.
+
+    answer:
+      value: 80
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The upward force from the mat is a non-conservative force. Its work (<latex>W_{nc}</latex>) equals the change in the performer's mechanical energy (<latex>\Delta E_{mech}</latex>).
+        <latex>
+        W_{nc} = \Delta E_{mech}
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the performer at rest on the platform. Final (f) is when the mat is compressed by <latex>d</latex>. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** The substituted equation is:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            To find the mass, <latex>m</latex>, gather all terms containing <latex>m</latex> on one side and solve:
+            <latex>
+            m = \frac{fd}{g(h+d) - \frac{1}{2}v_f^2}
+            </latex>
+      on_correct: You've got it!
+      on_incorrect: Not quite. The algebra to solve for mass can be tricky, check your steps.
+
+
+
