@@ -1,0 +1,944 @@
+bank_info:
+    title: Mechanical Energy Conservation Conditions
+    bank_id: PHY1-CME-MECC-10082025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+        This bank contains categorization/drag and drop problems that ask students to categorize situations based on whether mechanical energy is conserved for the system.
+    date created: 10-08-2025 # Today's date 
+    learning objectives:
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I am creating physics problems that asks students about the concept of conservation of mechanical energy. First, generate a one sentence description of 5 scenarios in which only gravity does work on a moving object. Avoid objects that are far away from the surface of the earth such as satellites.
+        - prompt 2: |
+            Remove the statement about neglecting air resistance since it will be in the default of the general description. Then place those 5 items in a table column named "Gravity Only".
+        - prompt 3: |
+            Update the pinball one so that it says smooth track
+        - prompt 4: |
+            Now generate 5 scenarios in which only elastic force does work.
+        - prompt 5: |
+            In all situations, add "smooth" for "frictionless" to the surface such as "table" or "track". For the arrow situation, add "an arrow is being shot from a bow" to the description.
+        - prompt 6: |
+            Now come up with 5 situations in which both gravity and elastic force does work and energy is conserved.
+        - prompt 7: |
+            Finally, come up with 5 scenarios of uniform circular motion in which an unbalanced non-conservative force is always perpendicular to the motion.
+        - prompt 8: |
+            Replace the last three scenarios since they are not very familiar to students.
+        - prompt 9: |
+            Remove the clothes scenario, and remove the description of centripetal force in the remaining ones, only retaining the description of the scenario, don't mention the forces.
+        - prompt 10: |
+            Change the car scenario in to a banked curve.
+        - prompt 11: |
+            add "holding on to the center pole" to the 3rd situation, and add 'holding on to the rail" to the 4th situation.
+        - prompt 12: |
+            Great, now combine the four tables generated into a long form, with one column titled "type", containing information such as "Only Gravity" or "No Net Work", and one column containing "scenario".
+        - prompt 13: |
+            Now add a column named "not conserved". The column should contain situations that is modified from the ones in the first column, but make mechanical energy not conserve by involving either friction or an external pushing force to the scenario. However, for "No Net Work" category, just put "NA" since it will be a bit difficulty for students.
+            The scenario should not explicitly have the word "friction" in them, and shouldn't involve language suggesting that the object slows down.
+        - prompt 14: | 
+                I would like to write 30 categorization problems about conservation of mechanical energy. The problems are in yaml format following the example in the templace google doc. The categories are "Only conservative forces do work so mechanical energy is conserved". "No net work is done by any forces so mechanical energy is conserved", and "Non-conservative forces did work so Mechanical energy is not conserved". The first category should have 3 - 4 answers coming from the  column in the google sheet, one (or two) from each of the first 3 types. The secondcategory should have 1 or 2 answer, coming from the "scenario" column from thelast type. The 3rd category should have either 2 or 3 answers, coming from the "not conserved" column. The total number of possible answer choices should be either 7 C1 etc.
+        - prompt 15: Update the rows that have either 6 or 9 total options, and make them either 7 or 8 options.
+        - prompt 16: For each of the middle 3 columns, order the items in numerical order such as "B2, B8, B13". Then check if any two rows in this table are identical.
+        - prompt 17: Great. Now help me draft the problem statement, asking students to sort the choice items into the proper categories. This is for the categorization problem type for Canvas new quizzes. The statement should also say that air resistance is neglected for all scenarios except for those involving wind.
+        - prompt 18: In the table above, find rows such as row 1, that has complete matching items for Category A and Category C (for example, B2, B7, B12, and C2, C7 and C12), update those rows so that the choice items don't match exactly. Tell me if there are other rows in addition to row 1 that has exact matches 
+        - formatting prompt: "../../../Templates/YAML_problem_types.md" #example from here.
+    updates: 
+        - update 1: 
+        - update 2: 
+    associated data:
+        - data table: "./Energy Conservation Problem Scenarios.csv" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: Gemini Pro # The model used to generate the questions
+            version: 2.5 # The version of the model used
+            last updated: 10-08-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+
+questions:
+
+- categorization:
+    id: q_mech_energy_cat_1
+    title: Conservation of Mechanical Energy - Set 1
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A block attached to a horizontal spring oscillates back and forth on a smooth,
+          level table.
+        - A mass hanging from a vertical spring is pulled down and released, causing
+          it to oscillate.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+        - A car travels at a steady speed around a banked curve.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A skateboarder rolls up and down a semi-circular ramp made of rough concrete.
+        - A block attached to a horizontal spring oscillates back and forth across a
+          carpeted floor.
+        - A projectile is fired from a cannon and hits a target under water.
+- categorization:
+    id: q_mech_energy_cat_2
+    title: Conservation of Mechanical Energy - Set 2
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - A cart on a smooth, level track is launched from rest by a rapidly expanding
+          spring.
+        - A bungee jumper leaps from a high platform, falling until the elastic cord
+          stretches and rebounds.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A child on a swing is being pushed by the parent to moves back and forth
+          in a smooth arc.
+        - A fan-powered cart on a level track is launched from rest by an expanding
+          spring while the fan is turned on.
+- categorization:
+    id: q_mech_energy_cat_3
+    title: Conservation of Mechanical Energy - Set 3
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - A bowling ball rolling along a smooth floor is brought to a stop by a horizontal
+          bungee cord.
+        - A child bounces up and down on a pogo stick.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A projectile is fired from a cannon and hits a target under water.
+        - A bowling ball rolls across a sandy lane before being stopped by a horizontal
+          bungee cord.
+        - A child bounces up and down on a pogo stick in a muddy field.
+- categorization:
+    id: q_mech_energy_cat_4
+    title: Conservation of Mechanical Energy - Set 4
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A diver jumps from a platform and falls towards the water below.
+        - Two carts on a smooth, level track fly apart when a compressed spring between
+          them is released.
+        - A ball is shot straight up into the air by a compressed spring launcher
+          on the ground.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A pinball rolls along a rough track that has several hills and valleys.
+        - Two carts on a friction-covered track fly apart when a compressed spring
+          between them is released.
+- categorization:
+    id: q_mech_energy_cat_5
+    title: Conservation of Mechanical Energy - Set 5
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - An apple falls from a tree, landing on and compressing a vertical spring
+          below it.
+        - A rubber ball is dropped from a height and bounces off a hard floor.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A diver wearing a small rocket pack jumps from a platform, firing the pack
+          on the way down.
+        - A rubber ball is dropped from a height and sinks into a pile of soft sand.
+        - An apple falls from a tree, landing on a vertical spring that is submerged
+          in a bucket of thick oil.
+- categorization:
+    id: q_mech_energy_cat_6
+    title: Conservation of Mechanical Energy - Set 6
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - A diver jumps from a platform and falls towards the water below.
+        - A mass hanging from a vertical spring is pulled down and released, causing
+          it to oscillate.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A skateboarder rolls up and down a semi-circular ramp made of rough concrete.
+        - A compressed spring between two carts on a gravel-covered track is released,
+          pushing them apart.
+- categorization:
+    id: q_mech_energy_cat_7
+    title: Conservation of Mechanical Energy - Set 7
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - A block attached to a horizontal spring oscillates back and forth on a smooth,
+          level table.
+        - A bungee jumper leaps from a high platform, falling until the elastic cord
+          stretches and rebounds.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+        - A car travels at a steady speed around a banked curve.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A child on a swing is being pushed by the parent to moves back and forth
+          in a smooth arc.
+        - A projectile is fired from a cannon and hits a target under water.
+        - A pinball rolls along a rough track that has several hills and valleys.
+- categorization:
+    id: q_mech_energy_cat_8
+    title: Conservation of Mechanical Energy - Set 8
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A bowling ball rolling along a smooth floor is brought to a stop by a horizontal
+          bungee cord.
+        - A child bounces up and down on a pogo stick.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A diver wearing a small rocket pack jumps from a platform, firing the pack
+          on the way down.
+        - A block attached to a horizontal spring oscillates back and forth across a
+          carpeted floor.
+        - A fan-powered cart on a level track is launched from rest by an expanding
+          spring while the fan is turned on.
+- categorization:
+    id: q_mech_energy_cat_9
+    title: Conservation of Mechanical Energy - Set 9
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - Two carts on a smooth, level track fly apart when a compressed spring between
+          them is released.
+        - A ball is shot straight up into the air by a compressed spring launcher
+          on the ground.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A fan-powered cart on a level track is launched from rest by an expanding
+          spring while the fan is turned on.
+        - A bowling ball rolls across a sandy lane before being stopped by a horizontal
+          bungee cord.
+        - Two carts on a friction-covered track fly apart when a compressed spring
+          between them is released.
+- categorization:
+    id: q_mech_energy_cat_10
+    title: Conservation of Mechanical Energy - Set 10
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - A rubber ball is dropped from a height and bounces off a hard floor.
+        - An apple falls from a tree, landing on and compressing a vertical spring
+          below it.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A rubber ball is dropped from a height and sinks into a pile of soft sand.
+        - A mass hangs from a vertical spring under water, oscillating up and down.
+- categorization:
+    id: q_mech_energy_cat_11
+    title: Conservation of Mechanical Energy - Set 11
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A diver jumps from a platform and falls towards the water below.
+        - A mass hanging from a vertical spring is pulled down and released, causing
+          it to oscillate.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A child bounces up and down on a pogo stick in a muddy field.
+        - An apple falls from a tree, landing on a vertical spring that is submerged
+          in a bucket of thick oil.
+        - A compressed spring between two carts on a gravel-covered track is released,
+          pushing them apart.
+- categorization:
+    id: q_mech_energy_cat_12
+    title: Conservation of Mechanical Energy - Set 12
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - A block attached to a horizontal spring oscillates back and forth on a smooth,
+          level table.
+        - A cart on a smooth, level track is launched from rest by a rapidly expanding
+          spring.
+        - A bungee jumper leaps from a high platform, falling until the elastic cord
+          stretches and rebounds.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A skateboarder rolls up and down a semi-circular ramp made of rough concrete.
+        - A child on a swing is being pushed by the parent to moves back and forth
+          in a smooth arc.
+- categorization:
+    id: q_mech_energy_cat_13
+    title: Conservation of Mechanical Energy - Set 13
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - A bowling ball rolling along a smooth floor is brought to a stop by a horizontal
+          bungee cord.
+        - A child bounces up and down on a pogo stick.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A projectile is fired from a cannon and hits a target under water.
+        - A pinball rolls along a rough track that has several hills and valleys.
+        - A diver wearing a small rocket pack jumps from a platform, firing the pack
+          on the way down.
+- categorization:
+    id: q_mech_energy_cat_14
+    title: Conservation of Mechanical Energy - Set 14
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - Two carts on a smooth, level track fly apart when a compressed spring between
+          them is released.
+        - A ball is shot straight up into the air by a compressed spring launcher
+          on the ground.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A block attached to a horizontal spring oscillates back and forth across a
+          carpeted floor.
+        - A fan-powered cart on a level track is launched from rest by an expanding
+          spring while the fan is turned on.
+- categorization:
+    id: q_mech_energy_cat_15
+    title: Conservation of Mechanical Energy - Set 15
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A diver jumps from a platform and falls towards the water below.
+        - A rubber ball is dropped from a height and bounces off a hard floor.
+        - An apple falls from a tree, landing on and compressing a vertical spring
+          below it.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A bowling ball rolls across a sandy lane before being stopped by a horizontal
+          bungee cord.
+        - Two carts on a friction-covered track fly apart when a compressed spring
+          between them is released.
+        - A rubber ball is dropped from a height and sinks into a pile of soft sand.
+- categorization:
+    id: q_mech_energy_cat_16
+    title: Conservation of Mechanical Energy - Set 16
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - A block attached to a horizontal spring oscillates back and forth on a smooth,
+          level table.
+        - A mass hanging from a vertical spring is pulled down and released, causing
+          it to oscillate.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A mass hangs from a vertical spring under water, oscillating up and down.
+        - A child bounces up and down on a pogo stick in a muddy field.
+- categorization:
+    id: q_mech_energy_cat_17
+    title: Conservation of Mechanical Energy - Set 17
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - A cart on a smooth, level track is launched from rest by a rapidly expanding
+          spring.
+        - A bungee jumper leaps from a high platform, falling until the elastic cord
+          stretches and rebounds.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A skateboarder rolls up and down a semi-circular ramp made of rough concrete.
+        - An apple falls from a tree, landing on a vertical spring that is submerged
+          in a bucket of thick oil.
+        - A compressed spring between two carts on a gravel-covered track is released,
+          pushing them apart.
+- categorization:
+    id: q_mech_energy_cat_18
+    title: Conservation of Mechanical Energy - Set 18
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - A bowling ball rolling along a smooth floor is brought to a stop by a horizontal
+          bungee cord.
+        - A child bounces up and down on a pogo stick.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A child on a swing is being pushed by the parent to moves back and forth
+          in a smooth arc.
+        - A projectile is fired from a cannon and hits a target under water.
+- categorization:
+    id: q_mech_energy_cat_19
+    title: Conservation of Mechanical Energy - Set 19
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - Two carts on a smooth, level track fly apart when a compressed spring between
+          them is released.
+        - A ball is shot straight up into the air by a compressed spring launcher
+          on the ground.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A pinball rolls along a rough track that has several hills and valleys.
+        - A diver wearing a small rocket pack jumps from a platform, firing the pack
+          on the way down.
+        - A block attached to a horizontal spring oscillates back and forth across a
+          carpeted floor.
+- categorization:
+    id: q_mech_energy_cat_20
+    title: Conservation of Mechanical Energy - Set 20
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - A diver jumps from a platform and falls towards the water below.
+        - A rubber ball is dropped from a height and bounces off a hard floor.
+        - An apple falls from a tree, landing on and compressing a vertical spring
+          below it.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A fan-powered cart on a level track is launched from rest by an expanding
+          spring while the fan is turned on.
+        - A bowling ball rolls across a sandy lane before being stopped by a horizontal
+          bungee cord.
+- categorization:
+    id: q_mech_energy_cat_21
+    title: Conservation of Mechanical Energy - Set 21
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - A block attached to a horizontal spring oscillates back and forth on a smooth,
+          level table.
+        - A mass hanging from a vertical spring is pulled down and released, causing
+          it to oscillate.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - Two carts on a friction-covered track fly apart when a compressed spring
+          between them is released.
+        - A rubber ball is dropped from a height and sinks into a pile of soft sand.
+        - A mass hangs from a vertical spring under water, oscillating up and down.
+- categorization:
+    id: q_mech_energy_cat_22
+    title: Conservation of Mechanical Energy - Set 22
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A cart on a smooth, level track is launched from rest by a rapidly expanding
+          spring.
+        - A bungee jumper leaps from a high platform, falling until the elastic cord
+          stretches and rebounds.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A child bounces up and down on a pogo stick in a muddy field.
+        - An apple falls from a tree, landing on a vertical spring that is submerged
+          in a bucket of thick oil.
+- categorization:
+    id: q_mech_energy_cat_23
+    title: Conservation of Mechanical Energy - Set 23
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - A bowling ball rolling along a smooth floor is brought to a stop by a horizontal
+          bungee cord.
+        - Two carts on a smooth, level track fly apart when a compressed spring between
+          them is released.
+        - A child bounces up and down on a pogo stick.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A skateboarder rolls up and down a semi-circular ramp made of rough concrete.
+        - A child on a swing is being pushed by the parent to moves back and forth
+          in a smooth arc.
+        - A compressed spring between two carts on a gravel-covered track is released,
+          pushing them apart.
+- categorization:
+    id: q_mech_energy_cat_24
+    title: Conservation of Mechanical Energy - Set 24
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - A rubber ball is dropped from a height and bounces off a hard floor.
+        - A ball is shot straight up into the air by a compressed spring launcher
+          on the ground.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A projectile is fired from a cannon and hits a target under water.
+        - A pinball rolls along a rough track that has several hills and valleys.
+        - A diver wearing a small rocket pack jumps from a platform, firing the pack
+          on the way down.
+- categorization:
+    id: q_mech_energy_cat_25
+    title: Conservation of Mechanical Energy - Set 25
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - A diver jumps from a platform and falls towards the water below.
+        - An apple falls from a tree, landing on and compressing a vertical spring
+          below it.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A diver wearing a small rocket pack jumps from a platform, firing the pack
+          on the way down.
+        - A block attached to a horizontal spring oscillates back and forth across a
+          carpeted floor.
+        - A fan-powered cart on a level track is launched from rest by an expanding
+          spring while the fan is turned on.
+- categorization:
+    id: q_mech_energy_cat_26
+    title: Conservation of Mechanical Energy - Set 26
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A block attached to a horizontal spring oscillates back and forth on a smooth,
+          level table.
+        - A cart on a smooth, level track is launched from rest by a rapidly expanding
+          spring.
+        - A mass hanging from a vertical spring is pulled down and released, causing
+          it to oscillate.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A bowling ball rolls across a sandy lane before being stopped by a horizontal
+          bungee cord.
+        - Two carts on a friction-covered track fly apart when a compressed spring
+          between them is released.
+- categorization:
+    id: q_mech_energy_cat_27
+    title: Conservation of Mechanical Energy - Set 27
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A child on a swing moves back and forth in a smooth arc.
+        - A bowling ball rolling along a smooth floor is brought to a stop by a horizontal
+          bungee cord.
+        - A bungee jumper leaps from a high platform, falling until the elastic cord
+          stretches and rebounds.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A rubber ball is dropped from a height and sinks into a pile of soft sand.
+        - A mass hangs from a vertical spring under water, oscillating up and down.
+        - A child bounces up and down on a pogo stick in a muddy field.
+- categorization:
+    id: q_mech_energy_cat_28
+    title: Conservation of Mechanical Energy - Set 28
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A projectile is fired from a cannon and follows a parabolic trajectory.
+        - Two carts on a smooth, level track fly apart when a compressed spring between
+          them is released.
+        - A child bounces up and down on a pogo stick.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A car travels at a steady speed around a banked curve.
+        - A passenger rides on a merry-go-round that is moving at a constant speed,
+          holding on to the center pole.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - An apple falls from a tree, landing on a vertical spring that is submerged
+          in a bucket of thick oil.
+        - A compressed spring between two carts on a gravel-covered track is released,
+          pushing them apart.
+- categorization:
+    id: q_mech_energy_cat_29
+    title: Conservation of Mechanical Energy - Set 29
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A skateboarder glides up and down the inside of a semi-circular ramp.
+        - A pinball rolls along a smooth track that has several hills and valleys.
+        - A rubber ball is dropped from a height and bounces off a hard floor.
+        - A ball is shot straight up into the air by a compressed spring launcher
+          on the ground.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A child rides on a playground roundabout spinning at a constant speed, holding
+          on to the rail.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A skateboarder rolls up and down a semi-circular ramp made of rough concrete.
+        - A child on a swing is being pushed by the parent to moves back and forth
+          in a smooth arc.
+        - A projectile is fired from a cannon and hits a target under water.
+- categorization:
+    id: q_mech_energy_cat_30
+    title: Conservation of Mechanical Energy - Set 30
+    points: 1
+    text: |-
+      <p>Read each scenario below. Decide whether mechanical energy is conserved or not, and for what reason. Drag and drop each scenario into the category that best describes the physical situation.</p>
+      <p><strong>Note:</strong> For all situations, you may neglect the effects of air resistance, except in cases where wind is specifically part of the scenario.</p>
+    categories:
+    - category:
+        description: Only conservative forces do work so mechanical energy is conserved.
+        answers:
+        - A diver jumps from a platform and falls towards the water below.
+        - A block attached to a horizontal spring oscillates back and forth on a smooth,
+          level table.
+        - An apple falls from a tree, landing on and compressing a vertical spring
+          below it.
+    - category:
+        description: No net work is done by any forces so mechanical energy is conserved.
+        answers:
+        - A ball attached to a string is swung in a horizontal circle at a constant
+          speed.
+        - A car travels at a steady speed around a banked curve.
+    - category:
+        description: Non-conservative forces did work so Mechanical energy is not
+          conserved.
+        answers:
+        - A pinball rolls along a rough track that has several hills and valleys.
+        - A diver wearing a small rocket pack jumps from a platform, firing the pack
+          on the way down.
+
+
