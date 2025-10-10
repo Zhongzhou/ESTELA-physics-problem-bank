@@ -102,10 +102,11 @@ questions:
     - answer:
         text: '<latex>(5b^4 - 2b^3 + 7b^2 - 10)(b)</latex>'
         correct: false
-    solution: &solution |
-      <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
-      <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
-      <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the antiderivative of <latex>F(x)</latex>, which we can call <latex>W(x)</latex>, is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the antiderivative evaluated at the final position <latex>x_f</latex>.</p>
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_2
@@ -132,7 +133,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((-x_2^4 + 6x_2^3 - 3x_2^2 + 4) + (4))(x_2)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_3
@@ -159,7 +164,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{1}{10}x^5 + x^4 - \tfrac{1}{3}x^3 + 9x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_4
@@ -186,7 +195,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{8}{5}d^5 + \tfrac{1}{4}d^4 - \tfrac{5}{3}d^3 - 3d</latex>'
         correct: true
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_5
@@ -213,7 +226,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{k_1}{5}x^5 - \tfrac{k_2}{4}x^4 + \tfrac{k_3}{3}x^3 + k_4x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_6
@@ -240,7 +257,11 @@ questions:
     - answer:
         text: '<latex>-\tfrac{3}{5}x_0^5 + 2x_0^4 - 2x_0^3 + 12x_0</latex>'
         correct: true
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_7
@@ -267,7 +288,11 @@ questions:
     - answer:
         text: '<latex>-(2L^5 - \tfrac{9}{4}L^4 + \tfrac{2}{3}L^3 - 5L)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_8
@@ -294,7 +319,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((2.5x_f^4 + 1.5x_f^3 - 4x_f^2 + 1) + (1))(x_f)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_9
@@ -321,7 +350,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[-\tfrac{4}{5}x^5 - \tfrac{1}{2}x^4 + \tfrac{11}{3}x^3 + 6x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_10
@@ -339,14 +372,20 @@ questions:
     - answer:
         text: '<latex>(7a^4 + 5a^3 - a^2 - 8)(a)</latex>'
         correct: false
-    - answer: '<latex>\tfrac{1}{2}((7a^4 + 5a^3 - a^2 - 8) + (-8))(a)</latex>'
+    - answer:
+        text: '<latex>\tfrac{1}{2}((7a^4 + 5a^3 - a^2 - 8) + (-8))(a)</latex>'
+        correct: false
     - answer:
         text: '<latex>-(\tfrac{7}{5}a^5 + \tfrac{5}{4}a^4 - \tfrac{1}{3}a^3 - 8a)</latex>'
         correct: false
     - answer:
         text: '<latex>\tfrac{7}{5}a^5 + \tfrac{5}{4}a^4 - \tfrac{1}{3}a^3 - 8a</latex>'
         correct: true
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_11
@@ -373,7 +412,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{1}{20}x^5 - \tfrac{1}{12}x^4 + \tfrac{1}{6}x^3 + x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_12
@@ -400,7 +443,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{a}{5}L^5 - \tfrac{b}{4}L^4 + \tfrac{c}{3}L^3 - dL</latex>'
         correct: true
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_13
@@ -427,7 +474,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{9}{5}x^5 + x^4 - \tfrac{7}{3}x^3 + 2x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_14
@@ -454,7 +505,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((-6x_B^4 + 2x_B^3 + 5x_B^2 - 1) + (-1))(x_B)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_15
@@ -481,7 +536,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((-k_4x_f^4 - k_3x_f^3 - k_2x_f^2 - k_1) + (-k_1))(x_f)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_16
@@ -508,7 +567,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{12}{5}x^5 - \tfrac{5}{4}x^4 + \tfrac{20}{3}x^3 - 100x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_17
@@ -535,7 +598,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((-2L^4 + 7L^3 - 4L^2 + 9) + (9))(L)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_18
@@ -562,7 +629,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[-\tfrac{k}{5}x^5 - \tfrac{j}{4}x^4 - \tfrac{h}{3}x^3 - g*x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_19
@@ -589,7 +660,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{3}{10}x^5 + \tfrac{5}{12}x^4 - \tfrac{1}{12}x^3 + 5x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_20
@@ -616,7 +691,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((21x_0^4 - 16x_0^3 + 9x_0^2 - 2) + (-2))(x_0)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_21
@@ -643,7 +722,11 @@ questions:
     - answer:
         text: '<latex>3L^5 + \tfrac{5}{2}L^4 - \tfrac{8}{3}L^3 + 3L</latex>'
         correct: true
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_22
@@ -670,7 +753,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((-a^4 - a^3 - a^2 - 1) + (-1))(a)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_23
@@ -697,7 +784,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{\alpha}{5}x^5 + \tfrac{\beta}{4}x^4 + \tfrac{\gamma}{3}x^3 + \delta x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_24
@@ -724,7 +815,11 @@ questions:
     - answer:
         text: '<latex>\tfrac{1}{2}((-8c^4 + 3c^3 - 10c^2 - 5) + (-5))(c)</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
 
 - multiple_choice:
     id: work_problem_25
@@ -751,4 +846,8 @@ questions:
     - answer:
         text: '<latex>\tfrac{d}{dx}[\tfrac{1.6}{5}x^5 - 0.6x^4 + \tfrac{3.2}{3}x^3 + 4.8x]</latex>'
         correct: false
-    solution: *solution
+    feedback:
+      general: |
+        <p>The work done by a variable force <latex>F(x)</latex> as an object moves from an initial position <latex>x_i</latex> to a final position <latex>x_f</latex> is given by the definite integral:</p>
+        <p><latex>W = \int_{x_i}^{x_f} F(x)\,dx</latex></p>
+        <p>For a path from <latex>x=0</latex> to <latex>x=x_f</latex>, the integral <latex>W(x)</latex> is evaluated as <latex>W(x_f) - W(0)</latex>. For the polynomial forces in these problems, <latex>W(0)=0</latex>, so the work is simply the integral evaluated at the final position <latex>x_f</latex>.</p>
