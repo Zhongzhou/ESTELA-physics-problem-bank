@@ -1,0 +1,853 @@
+bank_info:
+    title: Example Problem Bank
+    bank_id: EXP-PB1-EXMPLPB-01012026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This problem bank contains problems that belong to four variations: 
+        1. an object being dropped from a height into a viscous liquid, airbag, or thick soft material, or deploys a parashoot, rocket or booster, where the object experiences some resistance or upward force, which can be approximated as constant.
+        2. an object of mass m being launched up a ramp with  initial velocity v. The object experience some resistance going up the ramp for a length of d and height of h.
+        3. an object being launched horizontally from a spring, or a mechanism that can be modeled as an ideal spring such as a bow or a sling shot. The object experiences constant non-conservative resistance such water resistance or a rough track, and reaches some velocity after traveling for a little distance after being launched.
+        4. an object traveling with some initial velocity on a rough track or in some dense fluid such as oil or water, or experience significant air resistance for a distance, before being slowed down by a spring, or a spring like object that can be modeled as a spring such as a rubber band or elastic net. The object experiences constant non-conservative resistance during the process, and compresses/extends the spring or rubber band for a distance before coming to a stop.
+    date created: 01-01-2026 # Today's date 
+    learning objectives:
+
+    generation prompts: 
+        - prompt 1: | # The prompts here creates problems for the first type of variation. A similar structure can be used for following variations.
+            I would like to create physics problems involving work and mechanical energy. Those problems will consist of problem situations, involving an object being dropped from a height into a viscous liquid, airbag, or thick soft material, or deploys a parashoot, rocket or booster, where the object experiences some resistance or upward force, which can be approximated as constant. The object shouldn't be subjected to air resistance, nor should it hit solid material such as snow or mud.
+            The problems will give mass m, drop height h, depth (or additional drop) d, resistant force f, and ask for the velocity of the object at depth d.
+            First, create five symbolic versions of the problem. Don't give actual numbers, and provide one symbolic solution.
+        - prompt 2: | # Those constraints are specific to variation 1.
+            Don't involve objects on other planets, nor should the objects be space objects such as meteorites or satellites. Replace scenario 4 since it is an accident. 
+        - prompt 3: |
+            Now for each of the 5 scenarios, come up with a set of context appropriate numbers for all the given variables, then calculate the velocity.
+        - prompt 4: |
+            Now write out the 5 problems using to those numbers. For each problem, pick a different variable as the unknown variable. List the correct answer.
+        - prompt 5: |
+            Re-write the problems. Give a verbal description of the entire scenario, before providing the numbers and ask for the unknown.
+        - prompt 6: |
+            Check if the answer numbers for each problem are precise, update if it is not, and specify the expected significant figures in the answer for each problem.
+        - prompt 7: |
+            Write a concise student facing solution for problem 1 outlining the symbolic derivation but don't include numerical calculation details. Use mechanical energy and work done by non-conservative force. 
+        - prompt 8: |
+            Great, follow the same style and write the solution for the other 4 problems.
+        - prompt 9: |
+            Now write the first 2 problems and their solutions into a yaml file, following the example format below.
+        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    generation prompts 2: # These prompts are for the second type of variation.
+        - prompt 1: |
+            I would like to create physics problems involving work and mechanical energy. Those problems will consist of problem situations, involving an object of mass m being launched up a ramp with  initial velocity v. The object experience some resistance going up the ramp for a length of d and height of h. Each problem will involve a different scenario. The object shouldn't be subjected to air resistance, nor should it hit solid material such as snow or mud. Don't involve objects on other planets, nor should the objects be space objects such as meteorites or satellites. Avoid scenarios that might harm human life.
+            The problems will give mass m, ramp height h, ramp length l, constant resistant force f, and ask for the velocity of the object when it reaches height h and has traveled length l on the ramp. Do not give the incline angle of the ramp since both height and length are specified.
+            First, create five symbolic versions of the problem. Don't give actual numbers, and provide one symbolic solution.
+        - prompt 2: |
+            replace scenario 5 since the ramp shouldn't contain moving parts.
+        - prompt 3: |
+            Now for each of the 5 scenarios, come up with a set of context appropriate numbers for all the given variables, then calculate the velocity.
+        - prompt 4: |
+            Now write out the 5 problems using to those numbers. For each problem, pick a different variable as the unknown variable. The problem body should give a verbal description of the entire scenario, before providing the numbers and ask for the unknown. List the correct answer at the end.
+        - prompt 5: |
+            Calculate the answer for each problem, update if the provided answer number is not correct or not precise. Finally, specify the expected significant figures at the end of each problem text.
+        - prompt 6: |
+            Write a concise student facing solution for problem 1 outlining the symbolic derivation but don't include numerical calculation details. Use mechanical energy and work done by non-conservative force. 
+        - prompt 7: |
+            Make it a bit shorter
+        - prompt 8: |
+            Great, follow the same style and write the solution for the other 4 problems.
+        - prompt 9: |
+            Now write the first 2 problems and their solutions into a yaml file, following the example format below.
+        - prompt 10: |
+            Make a small modification to the yaml: number the problems q6 - q10.
+    updates: 
+        - update 1: 
+        - update 2: (10/11/2025, Leo Murch) Expanded the problems to the last two scenarios, making 20 in total.
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: GPT-4o / Gemini 2.5 Pro # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen (q1 - q10)
+        - Leo Murch (q11 - q20)
+
+questions:
+# The following contents should be replaced by the output of the LLM.
+- numerical: 
+    id: q1
+    title: The Viscous Fluid Problem
+    points: 3
+    text: |
+      A small steel sphere is released from rest a short distance above a deep vat of thick, viscous oil. The sphere falls through the air, enters the oil, and begins to sink. A combination of the oil's drag and buoyancy creates a constant upward resistive force on the sphere as it moves downward.
+      
+
+      Given: The sphere's mass is 0.05 kg, it is dropped from an initial height of 0.5 m above the oil, and it sinks to a depth of 0.3 m. The upward resistive force is 0.4 N.
+      
+      What is the sphere's final velocity (<latex>v_f</latex>) at this depth in m/s? Report your answer to two significant figures.
+
+    answer:
+      value: 3.3 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        This problem involves both a conservative force (gravity) and a non-conservative force (the resistive force from the oil). The change in the sphere's mechanical energy (<latex>E_{mech}</latex>) is equal to the work done by the non-conservative resistive force (<latex>W_{nc}</latex>). The governing equation is:
+        <latex>
+        W_{nc} = \Delta E_{mech} = (K_f - K_i) + (U_{g,f} - U_{g,i})
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States:** Initial (i) is the sphere at rest at height <latex>h</latex>. Final (f) is the sphere at depth <latex>d</latex> in the oil.
+        2.  **Set Reference Level:** Let the final position be the zero-point for gravitational potential energy (<latex>y_f = 0</latex>). This means the initial height is <latex>y_i = h+d</latex>.
+        3.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        4.  **Combine and Solve:** Substitute these terms back into the main equation:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            Rearranging the equation to solve for the final velocity, <latex>v_f</latex>, gives the general symbolic solution:
+            <latex>
+            v_f = \sqrt{2g(h+d) - \frac{2fd}{m}}
+            </latex>
+      on_correct: Good job!
+      on_incorrect: Not quite. Check your application of the work-energy theorem.
+
+- numerical: 
+    id: q2
+    title: The Airbag Test Problem
+    points: 3
+    text: |
+      In a safety test, a crash-test dummy is dropped from a set height to simulate the physics of a collision. It lands squarely on a large airbag, which applies a constant upward force to slow the dummy's descent as it compresses. We want to determine the force the airbag provides.
+
+      Given: The dummy has a mass of 78 kg and is dropped from a height of 2.0 m. The airbag compresses by a distance of 0.4 m, at which point the dummy's velocity is 3.34 m/s.
+      
+      What is the constant upward force (<latex>f</latex>) exerted by the airbag in Newtons? Report your answer to two significant figures using scientific notation if needed (e.g., 1.2e3).
+
+    answer:
+      value: 3500 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The upward force from the airbag is a non-conservative force. The work it does (<latex>W_{nc}</latex>) is equal to the total change in the dummy's mechanical energy (<latex>\Delta E_{mech} = \Delta K + \Delta U_g</latex>). The relationship is:
+        <latex>
+        W_{nc} = (K_f - K_i) + (U_{g,f} - U_{g,i})
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the dummy at rest at height <latex>h</latex>. Final (f) is the dummy after compressing the airbag by <latex>d</latex>. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** Substitute the terms into the main equation:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            Now, rearrange the formula to solve for the unknown force, <latex>f</latex>:
+            <latex>
+            f = \frac{mg(h+d) - \frac{1}{2}mv_f^2}{d}
+            </latex>
+      on_correct: Excellent!
+      on_incorrect: Please try again. Ensure you've correctly isolated the force variable.
+
+- numerical: 
+    id: q3
+    title: The Parachute Drop Problem
+    points: 3
+    text: |
+      A supply package is released from a helicopter high above the ground. It free-falls for a time, after which its parachute deploys. The parachute provides a steady upward drag force as the package continues its descent toward a landing zone.
+
+      Given: The package has a mass of 25 kg. The parachute provides an upward force of 200 N. After the parachute opens, the package descends an additional distance of 20 m, reaching a final velocity of 32.43 m/s.
+      
+      From what initial height (<latex>h</latex>) did the package free-fall before the parachute opened? Report your answer in meters to two significant figures.
+
+    answer:
+      value: 50 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The parachute provides a non-conservative drag force. We can find the initial height by relating the work done by this force (<latex>W_{nc}</latex>) to the package's total change in mechanical energy (<latex>\Delta E_{mech}</latex>). The governing equation is:
+        <latex>
+        W_{nc} = \Delta E_{mech}
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the package at rest at the start of its free-fall. Final (f) is the package after its parachute descent. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** Substitute into the main equation:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            To find the initial free-fall height, <latex>h</latex>, rearrange the formula:
+            <latex>
+            h = \frac{\frac{1}{2}mv_f^2 + fd}{mg} - d
+            </latex>
+      on_correct: Correct!
+      on_incorrect: That's not it. Re-check your algebraic rearrangement for h.
+
+- numerical: 
+    id: q4
+    title: The Landing System Test
+    points: 3
+    text: |
+      Engineers are testing a magnetic braking system designed for a vertical drop tower. A heavy test payload is released from rest. After falling for a specific distance, the magnetic brakes engage, applying a strong, constant upward force to slow the payload.
+
+      Given: The payload has a mass of 500 kg and free-falls for a height of 10 m. The braking system applies an upward force of 15,000 N, and the payload's final velocity is 8.65 m/s.
+      
+      For what distance (<latex>d</latex>) did the braking system operate? Report your answer in meters to two significant figures.
+
+    answer:
+      value: 3.0
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The magnetic braking system exerts a non-conservative force, doing negative work on the payload. We relate this work (<latex>W_{nc}</latex>) to the total change in the payload's mechanical energy (<latex>\Delta E_{mech}</latex>).
+        <latex>
+        W_{nc} = \Delta E_{mech}
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the payload at rest at the top. Final (f) is after the braking phase. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** Substitute the terms:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            Solving for the braking distance, <latex>d</latex>, requires careful algebra:
+            <latex>
+            d = \frac{\frac{1}{2}mv_f^2 - mgh}{mg - f}
+            </latex>
+      on_correct: That's correct!
+      on_incorrect: Give it another try. Pay close attention when isolating the variable d.
+
+- numerical: 
+    id: q5
+    title: The Stunt Mat Problem
+    points: 3
+    text: |
+      For a movie scene, a stunt performer executes a high fall from a platform onto a large, soft crash mat below. As the performer lands, the mat compresses, exerting a constant upward force to safely slow them down.
+
+      Given: The performer falls from a height of 15 m. The mat compresses by a distance of 1.5 m while providing an upward force of 5000 N. The performer's velocity at this point of compression is 11.66 m/s.
+      
+      What is the performer's mass (<latex>m</latex>)? Report your answer in kg to two significant figures.
+
+    answer:
+      value: 80
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The upward force from the mat is a non-conservative force. Its work (<latex>W_{nc}</latex>) equals the change in the performer's mechanical energy (<latex>\Delta E_{mech}</latex>).
+        <latex>
+        W_{nc} = \Delta E_{mech}
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Reference:** Initial (i) is the performer at rest on the platform. Final (f) is when the mat is compressed by <latex>d</latex>. Let the final position be <latex>y_f=0</latex>, so the initial height is <latex>y_i = h+d</latex>.
+        2.  **Express Terms:**
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+            -   Change in Kinetic Energy: <latex>\Delta K = \frac{1}{2}mv_f^2 - 0</latex>
+            -   Change in Potential Energy: <latex>\Delta U_g = 0 - mg(h+d)</latex>
+        3.  **Combine and Solve:** The substituted equation is:
+            <latex>
+            -fd = \frac{1}{2}mv_f^2 - mg(h+d)
+            </latex>
+            To find the mass, <latex>m</latex>, gather all terms containing <latex>m</latex> on one side and solve:
+            <latex>
+            m = \frac{fd}{g(h+d) - \frac{1}{2}v_f^2}
+            </latex>
+      on_correct: You've got it!
+      on_incorrect: Not quite. The algebra to solve for mass can be tricky, check your steps.
+
+- numerical:
+    id: q6
+    title: The Toy Car's Launch Speed
+    points: 3
+    text: |
+      A small toy car travels up a plastic ramp and is observed to be moving at a certain speed when it reaches the top. To achieve this, it must have been launched with a sufficient initial speed at the bottom.
+
+      Given the following information, determine the initial launch speed of the car.
+      <ul>
+        <li><b>Mass (m):</b> 0.2 kg</li>
+        <li><b>Final Velocity (v_f):</b> 1.39 m/s</li>
+        <li><b>Ramp Length (l):</b> 0.8 m</li>
+        <li><b>Ramp Height (h):</b> 0.3 m</li>
+        <li><b>Frictional Force (f):</b> 0.15 N</li>
+      </ul>
+      What was the initial velocity (v_0) of the toy car? Provide your answer in m/s with two significant figures.
+    answer:
+      value: 3.0
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        To solve this, we use the principle that the <b>work done by friction</b> (W_f) causes the change in the car's total <b>mechanical energy</b> (E_mech = K + U_g). The work done by the non-conservative friction force is given by W_f = -fl.
+
+        The relationship is expressed as:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        We can substitute the specific energy terms for the car at the top and bottom of the ramp:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        Now, we just need to algebraically solve for the <b>initial velocity, v_0</b>:
+        <latex>
+        \frac{1}{2}mv_0^2 = \frac{1}{2}mv_f^2 + mgh + fl
+        </latex>
+        Multiplying by 2/m and taking the square root gives the final symbolic answer:
+        <latex>
+        v_0 = \sqrt{v_f^2 + 2gh + \frac{2fl}{m}}
+        </latex>
+      on_correct: Good job!
+      on_incorrect: Not quite, check your energy conservation principle and algebra.
+
+- numerical:
+    id: q7
+    title: The Skateboard Ramp's Height
+    points: 3
+    text: |
+      A teenager with their skateboard starts from the bottom of a concrete skate ramp and coasts upwards. Their speed decreases due to both gravity and rolling resistance from the wheels.
+
+      Using the data below, calculate the vertical height of the ramp.
+      <ul>
+        <li><b>Mass (m):</b> 65 kg</li>
+        <li><b>Initial Velocity (v_0):</b> 7.0 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 3.99 m/s</li>
+        <li><b>Ramp Length (l):</b> 4.0 m</li>
+        <li><b>Rolling Resistance (f):</b> 30 N</li>
+      </ul>
+      What is the height (h) of the skate ramp? Provide your answer in meters with two significant figures.
+    answer:
+      value: 1.5
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        We'll solve this using the principle that the <b>work done by friction</b> (W_f) accounts for the change in the skateboarder's total <b>mechanical energy</b> (E_mech = K + U_g). The work done by the non-conservative rolling resistance is W_f = -fl.
+
+        The core relationship is:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Substituting the specific terms for the start and end points of the motion gives us:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        Our goal is to find the <b>height, h</b>. We'll rearrange the equation to isolate the potential energy term, mgh:
+        <latex>
+        mgh = \frac{1}{2}mv_0^2 - \frac{1}{2}mv_f^2 - fl
+        </latex>
+        Finally, dividing by mg gives the symbolic answer for the height:
+        <latex>
+        h = \frac{\frac{1}{2}m(v_0^2 - v_f^2) - fl}{mg}
+        </latex>
+      on_correct: Excellent work!
+      on_incorrect: Remember to account for the work done by friction.
+
+- numerical:
+    id: q8
+    title: Calculating Kinetic Friction on a Ramp
+    points: 3
+    text: |
+      In a physics experiment, a wooden block is sent sliding up a wooden board. By measuring its initial and final speeds, along with the dimensions of the board, it's possible to determine the kinetic friction acting on the block. 
+
+      From the measurements provided, find the constant force of kinetic friction that acted on the block.
+      <ul>
+        <li><b>Mass (m):</b> 2.0 kg</li>
+        <li><b>Initial Velocity (v_0):</b> 6.0 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 3.36 m/s</li>
+        <li><b>Ramp Length (l):</b> 2.5 m</li>
+        <li><b>Ramp Height (h):</b> 0.75 m</li>
+      </ul>
+      What is the magnitude of the frictional force (f)? Provide your answer in Newtons with two significant figures.
+    answer:
+      value: 4.0
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        This problem is solved by recognizing that the <b>work done by friction</b> (W_f) is the reason for the change in the block's <b>mechanical energy</b> (E_mech). The work done by this non-conservative force is what we need to find, and it's calculated over the length of the ramp as W_f = -fl.
+
+        We start with the work-energy relationship:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Plugging in the expressions for energy and the work done by friction, we get:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        To find the <b>frictional force, f</b>, we first solve for the total work it does, fl:
+        <latex>
+        fl = \frac{1}{2}mv_0^2 - \left(\frac{1}{2}mv_f^2 + mgh\right)
+        </latex>
+        Dividing by the ramp length, l, gives the final expression for the force:
+        <latex>
+        f = \frac{\frac{1}{2}m(v_0^2 - v_f^2) - mgh}{l}
+        </latex>
+      on_correct: Correct! You've successfully applied the work-energy theorem.
+      on_incorrect: Try again. Make sure you correctly isolate the work done by friction.
+
+- numerical:
+    id: q9
+    title: Determining an Object's Mass via Energy
+    points: 3
+    text: |
+      A puck of unknown mass is shot up a long, icy ramp. The puck is subject to a small, constant frictional force. An observer records its initial and final velocities, the ramp dimensions, and the friction.
+
+      Using this information, calculate the mass of the puck.
+      <ul>
+        <li><b>Initial Velocity (v_0):</b> 20 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 14.14 m/s</li>
+        <li><b>Ramp Length (l):</b> 15 m</li>
+        <li><b>Ramp Height (h):</b> 3.0 m</li>
+        <li><b>Frictional Force (f):</b> 0.80 N</li>
+      </ul>
+      What is the mass (m) of the puck? Provide your answer in kg with two significant figures.
+    answer:
+      value: 0.17
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        The solution here hinges on the work-energy principle. The <b>work done by friction</b> (W_f = -fl) is equal to the change in the puck's <b>mechanical energy</b> (E_mech). Since the mass, m, is a component of every energy term, we can isolate it algebraically.
+
+        The governing equation is:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Let's substitute the known expressions:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        To solve for the <b>mass, m</b>, we first rearrange the equation to group all terms containing mass on one side:
+        <latex>
+        \frac{1}{2}mv_0^2 - \frac{1}{2}mv_f^2 - mgh = fl
+        </latex>
+        Next, we factor out m from the left side of the equation:
+        <latex>
+        m\left(\frac{1}{2}v_0^2 - \frac{1}{2}v_f^2 - gh\right) = fl
+        </latex>
+        Finally, we can solve for the mass:
+        <latex>
+        m = \frac{fl}{\frac{1}{2}(v_0^2 - v_f^2) - gh}
+        </latex>
+      on_correct: That's it! Nice job isolating the mass variable.
+      on_incorrect: Check your algebra. All terms related to mechanical energy depend on mass.
+
+- numerical:
+    id: q10
+    title: Finding the Length of a Hill
+    points: 3
+    text: |
+      After crossing the finish line, a soapbox derby car coasts up a hill. The car's speed is reduced by the incline and a constant resistive force from its axles. The total vertical rise of the hill is known, but its slope length is not.
+
+      Based on the data collected, determine the length of the slope the car traveled.
+      <ul>
+        <li><b>Mass (m):</b> 100 kg</li>
+        <li><b>Initial Velocity (v_0):</b> 12 m/s</li>
+        <li><b>Final Velocity (v_f):</b> 4.36 m/s</li>
+        <li><b>Ramp Height (h):</b> 5.0 m</li>
+        <li><b>Resistive Force (f):</b> 45 N</li>
+      </ul>
+      What is the length (l) of the hill's slope? Provide your answer in meters with two significant figures.
+    answer:
+      value: 30
+      margin_type: percent
+      tolerance: 2
+    feedback:
+      general: |
+        We can find the length of the hill by applying the work-energy principle. The negative <b>work done by the resistive force</b> (W_f = -fl) is responsible for the total change in the car's <b>mechanical energy</b> (E_mech).
+
+        We begin with the standard work-energy equation:
+        <latex>
+        W_f = E_{final} - E_{initial}
+        </latex>
+        Substituting the relevant terms for energy and work gives:
+        <latex>
+        -fl = \left(\frac{1}{2}mv_f^2 + mgh\right) - \left(\frac{1}{2}mv_0^2\right)
+        </latex>
+        Our goal is to find the <b>length, l</b>. We can start by solving for the total work term, fl:
+        <latex>
+        fl = \frac{1}{2}mv_0^2 - \left(\frac{1}{2}mv_f^2 + mgh\right)
+        </latex>
+        Now, we simply divide by the resistive force, f, to get the final expression for the length:
+        <latex>
+        l = \frac{\frac{1}{2}m(v_0^2 - v_f^2) - mgh}{f}
+        </latex>
+      on_correct: Perfect! You've correctly used the energy lost to find the distance.
+      on_incorrect: Take another look at the setup. Are you solving for the right variable?
+
+- numerical: 
+    id: q11
+    title: The Spring-Launched Toy Car
+    points: 3
+    text: |
+      A toy car is set against a compressed spring launcher at the start of a horizontal track. When released, the spring propels the car forward along the track, which has a constant frictional force. We want to find the car's speed after it has traveled a short distance.
+
+      Given: The car's mass is 0.50 kg, the spring constant is 100 N/m, and the spring is initially compressed by 0.20 m. The car travels 1.5 m along the track total against a frictional force of 1.0 N.
+      
+      What is the final velocity (<latex>v_f</latex>) of the car in m/s? Report your answer to two significant figures.
+
+    answer:
+      value: 1.4 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        This problem is governed by the work-energy theorem. The initial energy stored in the spring (<latex>U_s</latex>) is converted into the car's final kinetic energy (<latex>K_f</latex>) and the work done against the non-conservative frictional force (<latex>W_{nc}</latex>). The relationship is:
+        <latex>
+        \Delta E_{mech} = W_{nc} \implies E_f - E_i = W_{nc}
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States:** The initial state (i) is the car at rest against the compressed spring. The final state (f) is the car moving after traveling a distance <latex>d</latex>.
+        2.  **Express Terms:**
+            -   Initial Energy: <latex>E_i = K_i + U_{s,i} = 0 + \frac{1}{2}kx^2</latex>
+            -   Final Energy: <latex>E_f = K_f + U_{s,f} = \frac{1}{2}mv_f^2 + 0</latex>
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f \cdot d</latex>
+        3.  **Combine and Solve:** Substituting these into the work-energy equation:
+            <latex>
+            \frac{1}{2}mv_f^2 - \frac{1}{2}kx^2 = -fd
+            </latex>
+            Rearranging to solve for the final velocity, <latex>v_f</latex>, gives:
+            <latex>
+            v_f = \sqrt{\frac{kx^2 - 2fd}{m}}
+            </latex>
+      on_correct: Good job!
+      on_incorrect: Not quite. Check that you've correctly accounted for the energy lost to friction.
+
+- numerical: 
+    id: q12
+    title: The Archer's Bow
+    points: 3
+    text: |
+      An archer shoots an arrow. The bowstring acts like a spring, transferring stored potential energy to the arrow. As the arrow travels along the bow's riser, it experiences a small, constant resistive force. We aim to determine the magnitude of this force.
+
+      Given: The arrow has a mass of 0.030 kg. The bow can be modeled with a spring constant of 200 N/m and is drawn back 0.70 m. The arrow leaves the bow with a final velocity of 50 m/s after traveling the full draw length.
+      
+      What is the constant resistive force (<latex>f</latex>) acting on the arrow in Newtons? Report your answer to two significant figures.
+
+    answer:
+      value: 16 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The initial elastic potential energy of the bow (<latex>U_s</latex>) is converted into the arrow's kinetic energy (<latex>K_f</latex>) and the work done against the non-conservative resistive force (<latex>W_{nc}</latex>). The governing equation is:
+        <latex>
+        E_i = E_f - W_{nc} \quad \text{or} \quad \frac{1}{2}kx^2 = \frac{1}{2}mv_f^2 + fd
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States:** Initial (i) is the arrow at rest with the bow fully drawn. Final (f) is the arrow as it leaves the bow.
+        2.  **Express Terms:**
+            -   Initial Energy: <latex>E_i = \frac{1}{2}kx^2</latex>
+            -   Final Kinetic Energy: <latex>K_f = \frac{1}{2}mv_f^2</latex>
+            -   Work Done by Resistance: <latex>W_{lost} = f \cdot d</latex> (Here, the distance <latex>d</latex> is the same as the draw length <latex>x</latex>).
+        3.  **Combine and Solve:** The energy balance is <latex>\frac{1}{2}kx^2 = \frac{1}{2}mv_f^2 + fd</latex>. Rearranging to solve for the resistive force, <latex>f</latex>:
+            <latex>
+            f = \frac{\frac{1}{2}kx^2 - \frac{1}{2}mv_f^2}{d}
+            </latex>
+      on_correct: Excellent!
+      on_incorrect: Please try again. Ensure you've correctly set up the energy balance equation.
+
+- numerical: 
+    id: q13
+    title: The Underwater Spear Gun
+    points: 3
+    text: |
+      A diver fires a spear gun horizontally underwater. The powerful elastic bands launch the spear, but the water provides a significant and constant drag force that slows its acceleration.
+
+      Given: The spear's mass is 0.80 kg, and the gun's effective spring constant is 1200 N/m with a stretch of 0.50 m. The water exerts an average drag force of 120 N. The spear is slowed to a velocity of 12 m/s after traveling distance (<latex>d</latex>).
+      
+      For what total distance (<latex>d</latex>) did the spear travel from pulling the trigger to reach this velocity? Report your answer in meters to two significant figures.
+
+    answer:
+      value: 0.77
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The initial potential energy stored in the elastic bands (<latex>U_s</latex>) does work to give the spear its final kinetic energy (<latex>K_f</latex>), while also doing work against the non-conservative drag from the water (<latex>W_{nc}</latex>).
+        <latex>
+        \frac{1}{2}kx^2 = \frac{1}{2}mv_f^2 + fd
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States:** Initial (i) is the spear at rest, ready to be fired. Final (f) is the spear at its final velocity as it leaves the gun.
+        2.  **Express Terms:**
+            -   Initial Energy: <latex>E_i = \frac{1}{2}kx^2</latex>
+            -   Final Kinetic Energy: <latex>K_f = \frac{1}{2}mv_f^2</latex>
+            -   Work Done by Drag: <latex>W_{lost} = f \cdot d</latex>
+        3.  **Combine and Solve:** Using the energy balance equation <latex>\frac{1}{2}kx^2 = \frac{1}{2}mv_f^2 + fd</latex>, we rearrange to find the distance, <latex>d</latex>:
+            <latex>
+            d = \frac{\frac{1}{2}kx^2 - \frac{1}{2}mv_f^2}{f}
+            </latex>
+      on_correct: Correct!
+      on_incorrect: That's not it. Re-check your algebraic rearrangement for the distance, d.
+
+- numerical: 
+    id: q14
+    title: The Pinball Launcher
+    points: 3
+    text: |
+      A pinball machine uses a spring-loaded plunger to launch a steel ball into the playfield. The channel the ball travels through has a small amount of friction. We want to determine the spring constant of the plunger.
+
+      Given: The pinball has a mass of 0.080 kg. The player compresses the plunger by 0.050 m. The ball travels 0.20 m total (including the compression distance) in the launch channel against a frictional force of 0.10 N, emerging with a velocity of 2.0 m/s.
+      
+      What is the spring constant (<latex>k</latex>) of the plunger in N/m? Report your answer to three significant figures.
+
+    answer:
+      value: 144
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The work-energy principle applies here. The initial spring potential energy (<latex>U_s</latex>) must equal the sum of the ball's final kinetic energy (<latex>K_f</latex>) and the energy lost to friction over the launch distance (<latex>W_{lost}</latex>).
+        <latex>
+        \frac{1}{2}kx^2 = \frac{1}{2}mv_f^2 + fd
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States & Energy:** The initial state has energy <latex>E_i = \frac{1}{2}kx^2</latex>. The final state has kinetic energy <latex>K_f = \frac{1}{2}mv_f^2</latex>. Work done by friction is <latex>W_{lost} = fd</latex>.
+        2.  **Combine and Solve:** Setting up the energy balance:
+            <latex>
+            \frac{1}{2}kx^2 = \frac{1}{2}mv_f^2 + fd
+            </latex>
+            To find the spring constant, <latex>k</latex>, we rearrange the formula:
+            <latex>
+            k = \frac{2(\frac{1}{2}mv_f^2 + fd)}{x^2} = \frac{mv_f^2 + 2fd}{x^2}
+            </latex>
+      on_correct: That's correct!
+      on_incorrect: Give it another try. Pay close attention when isolating the spring constant variable.
+
+- numerical: 
+    id: q15
+    title: The Friction Block Experiment
+    points: 3
+    text: |
+      In a lab experiment, a block of unknown mass is pushed by a spring across a horizontal surface with a known, constant kinetic friction. By measuring the final velocity, we can determine the block's mass.
+
+      Given: The spring has a constant of 250 N/m and is compressed by 0.30 m. The block slides for 2.0 m total (including the compression distance) against a frictional force of 5.0 N, reaching a final velocity of 4.0 m/s.
+      
+      What is the mass (<latex>m</latex>) of the block? Report your answer in kg to two significant figures.
+
+    answer:
+      value: 0.16
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The initial energy stored in the compressed spring (<latex>U_s</latex>) is the total energy of the system. This energy is partially dissipated by the work done by friction (<latex>W_{nc}</latex>), with the remainder becoming the block's final kinetic energy (<latex>K_f</latex>).
+        <latex>
+        \frac{1}{2}kx^2 - fd = \frac{1}{2}mv_f^2
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Energy Balance:** The initial spring energy provides for both the work against friction and the final kinetic energy.
+        2.  **Equation:**
+            <latex>
+            E_i = W_{lost} + K_f \implies \frac{1}{2}kx^2 = fd + \frac{1}{2}mv_f^2
+            </latex>
+        3.  **Solve for Mass:** To find the mass, <latex>m</latex>, we first isolate the kinetic energy term and then solve for <latex>m</latex>:
+            <latex>
+            \frac{1}{2}mv_f^2 = \frac{1}{2}kx^2 - fd
+            </latex>
+            <latex>
+            m = \frac{2(\frac{1}{2}kx^2 - fd)}{v_f^2} = \frac{kx^2 - 2fd}{v_f^2}
+            </latex>
+      on_correct: You've got it!
+      on_incorrect: Not quite. The algebra to solve for mass can be tricky, check your steps.
+      
+- numerical: 
+    id: q16
+    title: The Mine Cart Safety Stop
+    points: 3
+    text: |
+      A heavy mine cart is rolling along a straight, horizontal track when its brakes fail. At the end of the track is a large spring buffer designed to stop runaway carts. The track provides a constant rolling resistance.
+
+      Given: The cart has a mass of 500 kg. It is traveling along a 10 m section of track before it contacts the spring. The track exerts a resistive force of 1000 N. The safety spring has a constant of 20,000 N/m and is compressed by 1.0 m before the cart comes to a stop.
+      
+      What was the initial velocity (<latex>v_0</latex>) of the cart when it entered the safety section? Report your answer in m/s to two significant figures.
+
+    answer:
+      value: 9.2 
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        This problem uses the work-energy theorem. The cart's initial kinetic energy (<latex>K_i</latex>) is entirely dissipated by the negative work done by the non-conservative frictional force (<latex>W_{nc}</latex>) and the energy stored in the compressed spring (<latex>U_s</latex>). The governing equation is:
+        <latex>
+        K_i = W_{lost} + U_s \quad \text{or} \quad \frac{1}{2}mv_0^2 = f(d+x) + \frac{1}{2}kx^2
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Define States:** Initial (i) is the cart moving before the safety track. Final (f) is the cart at rest with the spring fully compressed.
+        2.  **Express Terms:**
+            -   Initial Energy: <latex>E_i = K_i = \frac{1}{2}mv_0^2</latex>
+            -   Final Energy: <latex>E_f = U_s = \frac{1}{2}kx^2</latex>
+            -   Work by Non-Conservative Force: <latex>W_{nc} = -f(d+x)</latex>
+        3.  **Combine and Solve:** Using the relationship <latex>\Delta E = W_{nc} \implies E_f - E_i = -f(d+x)</latex>, we get <latex>\frac{1}{2}kx^2 - \frac{1}{2}mv_0^2 = -f(d+x)</latex>. Rearranging to solve for the initial velocity, <latex>v_0</latex>, gives:
+            <latex>
+            v_0 = \sqrt{\frac{kx^2 + 2f(d+x)}{m}}
+            </latex>
+      on_correct: Good job!
+      on_incorrect: Not quite. Ensure your initial energy equals the sum of the stored potential energy and the work done by friction.
+
+- numerical: 
+    id: q17
+    title: The Bungee-Cord Boat Stop
+    points: 3
+    text: |
+      A small boat is coasting toward a dock. To stop it gently, an elastic bungee net is stretched across the path. The boat travels a short distance through the water, experiencing drag, before contacting the net and stretching it to a stop.
+
+      Given: The boat's mass is 250 kg and its initial velocity is 3.0 m/s. It coasts for 5.0 m before hitting the net. The constant drag force from the water is 150 N. The net stretches by 2.0 m to bring the boat to rest.
+      
+      What is the effective spring constant (<latex>k</latex>) of the bungee net in N/m? Report your answer to two significant figures.
+
+    answer:
+      value: 38
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The initial kinetic energy (<latex>K_i</latex>) of the boat is converted into two forms: the potential energy stored in the stretched bungee net (<latex>U_s</latex>) and the energy lost to the non-conservative drag force of the water (<latex>W_{lost}</latex>). The energy balance is:
+        <latex>
+        \frac{1}{2}mv_0^2 = f(d+x) + \frac{1}{2}kx^2
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Energy Balance:** Set the initial kinetic energy equal to the sum of the final potential energy and the work done by drag.
+        2.  **Rearrange:** Isolate the spring potential energy term:
+            <latex>
+            \frac{1}{2}kx^2 = \frac{1}{2}mv_0^2 - f(d+x)
+            </latex>
+        3.  **Solve for k:** Rearrange the formula to solve for the spring constant, <latex>k</latex>:
+            <latex>
+            k = \frac{2(\frac{1}{2}mv_0^2 - f(d+x))}{x^2} = \frac{mv_0^2 - 2f(d+x)}{x^2}
+            </latex>
+      on_correct: Excellent!
+      on_incorrect: Please try again. Double-check that you've correctly isolated the spring constant.
+
+- numerical: 
+    id: q18
+    title: The Goalie's Pad
+    points: 3
+    text: |
+      A hockey puck slides at high speed toward a goalie. The goalie's leg pad, which can be modeled as a spring, absorbs the puck's impact, compressing as it brings the puck to a stop. The kinetic friction between the puck and the pad provides an additional stopping force.
+
+      Given: The puck has a mass of 0.17 kg and an initial velocity of 15 m/s. The goalie's pad has a spring constant of 500 N/m and compresses by 0.25 m. Assume friction only acts during the compression phase.
+      
+      What is the constant frictional force (<latex>f</latex>) between the puck and the pad in Newtons? Report your answer to two significant figures.
+
+    answer:
+      value: 14
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The puck's initial kinetic energy (<latex>K_i</latex>) is absorbed by both the spring potential energy of the pad (<latex>U_s</latex>) and the work done by the non-conservative frictional force (<latex>W_{lost}</latex>). The energy conservation equation is:
+        <latex>
+        \frac{1}{2}mv_0^2 = \frac{1}{2}kx^2 + fx
+        </latex>
+        (Note: Since friction only acts during compression, the distance is just <latex>x</latex>).
+
+        **Symbolic Derivation:**
+        1.  **Energy Balance:** The initial kinetic energy is the sum of the final potential energy and the work done by friction.
+        2.  **Isolate Work:** Rearrange to solve for the work done by friction, <latex>fx</latex>:
+            <latex>
+            fx = \frac{1}{2}mv_0^2 - \frac{1}{2}kx^2
+            </latex>
+        3.  **Solve for f:** Divide by the compression distance, <latex>x</latex>, to find the frictional force, <latex>f</latex>:
+            <latex>
+            f = \frac{\frac{1}{2}mv_0^2 - \frac{1}{2}kx^2}{x}
+            </latex>
+      on_correct: Correct!
+      on_incorrect: That's not it. Re-check your energy balance; the initial energy must be accounted for by the spring and friction.
+
+- numerical: 
+    id: q19
+    title: The Sliding Crate
+    points: 3
+    text: |
+      A crate is sliding across a warehouse floor with a constant kinetic friction. It runs into a bumper spring at the end of the aisle, which compresses and brings the crate to a stop.
+
+      Given: The crate has an initial velocity of 5.0 m/s. The kinetic friction force is 40 N. The crate slides 3.0 m before hitting the spring. The spring has a constant of 400 N/m and compresses by 0.80 m.
+      
+      What is the mass (<latex>m</latex>) of the crate in kg? Report your answer to two significant figures.
+
+    answer:
+      value: 22
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        We use the work-energy theorem. The initial kinetic energy (<latex>K_i = \frac{1}{2}mv_0^2</latex>) provides the energy to do work against friction (<latex>W_{lost}</latex>) over the total distance and to compress the spring, storing potential energy (<latex>U_s</latex>).
+        <latex>
+        \frac{1}{2}mv_0^2 = f(d+x) + \frac{1}{2}kx^2
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Energy Balance:** The kinetic energy is the only initial energy term. Set it equal to the sum of the final potential energy and the total work done by friction.
+        2.  **Solve for m:** The mass <latex>m</latex> is only present in the kinetic energy term. Isolate it by multiplying the entire equation by <latex>2/v_0^2</latex>.
+            <latex>
+            m = \frac{2(f(d+x) + \frac{1}{2}kx^2)}{v_0^2} = \frac{2f(d+x) + kx^2}{v_0^2}
+            </latex>
+      on_correct: That's correct!
+      on_incorrect: Give it another try. Remember that mass is part of the initial kinetic energy term.
+
+- numerical: 
+    id: q20
+    title: The Ball in the Mud
+    points: 3
+    text: |
+      A ball is rolling with some initial speed. It enters a 2.0 m long patch of mud, which provides a constant resistive force. At the end of the mud patch, it hits an elastic band that stretches until the ball stops. The mud's resistance continues to act on the ball as it stretches the band.
+
+      Given: The ball has a mass of 1.0 kg and an initial velocity of 6.0 m/s. The mud exerts a resistive force of 4.0 N. The elastic band has a spring constant of 100 N/m.
+      
+      By how much distance (<latex>x</latex>) does the elastic band stretch? Report your answer in meters to two significant figures.
+
+    answer:
+      value: 0.41
+      margin_type: percent 
+      tolerance: 3 
+    feedback:
+      general: |
+        **Concept:**
+        The ball's initial kinetic energy (<latex>K_i</latex>) is dissipated by the work done by the resistive force from the mud (<latex>W_{lost}</latex>) and stored as elastic potential energy in the band (<latex>U_s</latex>). This problem requires solving a quadratic equation for the stretch distance, <latex>x</latex>.
+        <latex>
+        \frac{1}{2}mv_0^2 = f(d+x) + \frac{1}{2}kx^2
+        </latex>
+
+        **Symbolic Derivation:**
+        1.  **Set up Equation:** Start with the work-energy balance equation.
+        2.  **Rearrange into Quadratic Form:** To solve for <latex>x</latex>, we must rearrange the equation into the standard quadratic form, <latex>Ax^2 + Bx + C = 0</latex>.
+            <latex>
+            (\frac{1}{2}k)x^2 + (f)x + (fd - \frac{1}{2}mv_0^2) = 0
+            </latex>
+        3.  **Solve:** Use the quadratic formula, <latex>x = \frac{-B \pm \sqrt{B^2 - 4AC}}{2A}</latex>, and take the positive root, as it represents a physical distance.
+      on_correct: You've got it! Nice work solving the quadratic.
+      on_incorrect: Not quite. This problem requires setting up and solving a quadratic equation for x. Check your setup.
