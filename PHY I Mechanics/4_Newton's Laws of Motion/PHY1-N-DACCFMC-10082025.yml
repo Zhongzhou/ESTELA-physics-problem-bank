@@ -1,0 +1,841 @@
+bank_info:
+    title: Determining acceleration_MC version
+    bank_id: PHY1-F-ACCAC-10082025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      An applied force at an angle is acting on an object on a rough surface. Calculate the acceleration.
+    date created: 10-08-2025 # Today's date 
+    learning objectives:
+        - to be able to break down forces into components
+        - to be able to apply Newton's 2nd law to find acceleration
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1.1: |
+            I am creating a problem bank about calculating the acceleration given forces. I would like you to help me with it. Previously I had genAI help me generate the problems with numerical answers. Now I want a multiple choice version. Attached is a yaml file with detailed documentation of the prompts I used previously to generate the problems. The file also has the problems generated, and answers, and feedback. For each question, I would like you to give five answer choices. The correct answer should be calculated using (F*cos_theta-mu*(mg-F*sin_theta))/m. For distractors, please use equations (1) (F*cos_theta-mu*(mg+F*sin_theta))/m, (2) (F*cos_theta-mu*mg)/m, (3) (F-mu*mg)/m, and (4) (F*sin_theta-mu*mg)/m. First, please modify q1-q5.
+            # file PHY1-F-ACC-10032025.yml attached
+        - prompt 1.2: |
+            keep the original yaml structure please
+        - prompt 1.3: |
+            numeric values
+        - prompt 2.1: |
+            The answer choices should follow this structure: # I pasted the correct formatting for MC
+        - prompt 2.2: |
+            For q1, please get rid of the following: Then do the same for all five questions. # still working on formatting
+        - prompt 3.1: |
+            yes please
+        - prompt 3.2: |
+            it's the same file
+        - prompt 3.3: |
+            two decimal places
+        - prompt 3.4: |
+            yes
+        - prompt 4: |
+            remember when using the formulas I gave you to calculate the answer choices, you should use a positive angle if the angle is upward, a negative angle if it is downward. Please check q1-10 and update the values if they were not calculated like that.
+        - prompt 5.1: |
+            Good. Now for the answer choices are negative, use the absolute values.
+        - prompt 5.2: |
+            yes please
+        - prompt 6.1: |
+            Before you do that, I would like you to make two changes. For each question, (1) change "numerical" to "multiple_choice", (2) change the last line of the question statement, "Determine the [x's] acceleration. Round your answers to two decimal places" to "What is the magnitude of the [x's] acceleration?"
+        - prompt 6.2: |
+            yes please
+        - prompt 6.3: |
+            PHY1-F-ACCMC-10082025.yml
+        - prompt 6.4: |
+            no header lines
+        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    updates: 
+        - update 1: (10/10/2025) Leo Murch fixed q10, distractor 4. All the answer choices were double checked using Excel.
+    associated data:
+        - excel file table:  # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: GPT-5 # The model used to generate the questions
+            version:  # The version of the model used
+            last updated:  # The date of the last update of the generation prompts.
+    authors:
+        - Tong Wan
+ 
+
+questions:
+- multiple_choice:
+    id: q1
+    title: Worker Pushing a Wooden Crate
+    points: 3
+    text: | 
+      A worker pushes a wooden crate across a concrete floor. 
+      The coefficient of kinetic friction between the crate and the floor is <latex>0.36</latex>. 
+      The worker applies a force of <latex>465.64</latex> N at an angle of <latex>12.74^\circ</latex> downward with respect to the horizontal. 
+      The crate has a mass of <latex>100.00</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the crate’s acceleration?
+    answers:
+      - answer:
+          text: 0.64 m/s^2
+          correct: true
+      - answer:
+          text: 1.38 m/s^2
+          correct: false
+      - answer:
+          text: 1.01 m/s^2
+          correct: false
+      - answer:
+          text: 1.12 m/s^2
+          correct: false
+      - answer:
+          text: 4.56 m/s^2
+          correct: false
+    feedback:
+        general: | 
+          Take +x along the motion and +y upward. Resolve the push:
+          <latex>F_x = F\cos\theta</latex>, <latex>F_y = -F\sin\theta</latex>. 
+          Downward push increases the normal force: <latex>N = mg + F\sin\theta</latex>. 
+          Kinetic friction: <latex>f_k = \mu_k N</latex>.
+          
+          Net horizontal force gives acceleration:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m}.
+          </latex>
+          
+          Substituting the numbers yields <latex>a \approx 0.64\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q2
+    title: Dog Pulling a Small Sled
+    points: 3
+    text: | 
+      A dog pulls a small sled across an icy path. 
+      The coefficient of kinetic friction between the sled and the ice is <latex>0.59</latex>. 
+      The sled has a mass of <latex>10.21</latex> kg. 
+      The dog pulls the sled using a rope that makes an angle of <latex>31.21^\circ</latex> above the horizontal and exerts a force of <latex>60.00</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the sled’s acceleration?
+    answers:
+      - answer:
+          text: 1.03 m/s^2
+          correct: true
+      - answer:
+          text: 2.56 m/s^2
+          correct: false
+      - answer:
+          text: 0.76 m/s^2
+          correct: false
+      - answer:
+          text: 0.09 m/s^2
+          correct: false
+      - answer:
+          text: 2.74 m/s^2
+          correct: false
+    feedback:
+        general: |
+          With an upward pull, the normal force decreases: <latex>N = mg - F\sin\theta</latex>. 
+          Friction is <latex>f_k = \mu_k N</latex>. Horizontal component is <latex>F_x = F\cos\theta</latex>. 
+          Then
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 1.03\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q3
+    title: Person Dragging a Backpack
+    points: 3
+    text: | 
+      A traveler drags a backpack across an asphalt road. 
+      The coefficient of kinetic friction between the backpack and the ground is <latex>0.73</latex>. 
+      The person pulls at an angle of <latex>37.92^\circ</latex> above the horizontal with a force of <latex>59.81</latex> N. 
+      The backpack has a mass of <latex>10.00</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the backpack’s acceleration?
+    answers:
+      - answer:
+          text: 0.24 m/s^2
+          correct: true
+      - answer:
+          text: 5.13 m/s^2
+          correct: false
+      - answer:
+          text: 2.44 m/s^2
+          correct: false
+      - answer:
+          text: 1.18 m/s^2
+          correct: false
+      - answer:
+          text: 3.49 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Upward pull: <latex>N = mg - F\sin\theta</latex>, so <latex>f_k = \mu_k N</latex>. 
+          Net x-force gives
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 0.24\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q4
+    title: Child Pushing a Toy Box
+    points: 3
+    text: | 
+      A child pushes a toy box across a sandy playground. 
+      The coefficient of kinetic friction between the toy box and the sand is <latex>0.40</latex>. 
+      The child applies a force of <latex>41.93</latex> N at an angle of <latex>32.04^\circ</latex> downward with respect to the horizontal. 
+      The toy box has a mass of <latex>6.00</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the toy box’s acceleration?
+    answers:
+      - answer:
+          text: 0.52 m/s^2
+          correct: true
+      - answer:
+          text: 3.48 m/s^2
+          correct: false
+      - answer:
+          text: 2.00 m/s^2
+          correct: false
+      - answer:
+          text: 3.06 m/s^2
+          correct: false
+      - answer:
+          text: 7.63 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Downward push increases the normal force: <latex>N = mg + F\sin\theta</latex>. 
+          <latex>f_k = \mu_k N</latex> and <latex>F_x = F\cos\theta</latex>. Hence
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m} \approx 0.52\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q5
+    title: Farmer Pulling a Plow with an Ox
+    points: 3
+    text: | 
+      A farmer uses an ox to pull a plow across a muddy field. 
+      The coefficient of kinetic friction between the plow and the ground is <latex>0.61</latex>. 
+      The ox pulls with a rope that makes an angle of <latex>37.26^\circ</latex> above the horizontal and exerts a force of <latex>600.00</latex> N. 
+      The plow has a mass of <latex>103.42</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the plow’s acceleration?
+    answers:
+      - answer:
+          text: 0.78 m/s^2
+          correct: true
+      - answer:
+          text: 3.51 m/s^2
+          correct: false
+      - answer:
+          text: 1.37 m/s^2
+          correct: false
+      - answer:
+          text: 0.18 m/s^2
+          correct: false
+      - answer:
+          text: 2.47 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Upward pull reduces the normal force: <latex>N = mg - F\sin\theta</latex>. Then <latex>f_k = \mu_k N</latex>. 
+          The horizontal equation gives
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 0.78\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q6
+    title: Robot Arm Pushing a Box
+    points: 3
+    text: | 
+      A robot arm is pushing a box across a smooth factory floor. 
+      The coefficient of kinetic friction between the box and the floor is <latex>0.42</latex>. 
+      The robot applies a force of <latex>312.17</latex> N at an angle of <latex>24.53^\circ</latex> downward with respect to the horizontal. 
+      The box has a mass of <latex>50.00</latex> kg.
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the box’s acceleration?
+    answers:
+      - answer:
+          text: 0.47 m/s^2
+          correct: true
+      - answer:
+          text: 2.65 m/s^2
+          correct: false
+      - answer:
+          text: 1.56 m/s^2
+          correct: false
+      - answer:
+          text: 2.12 m/s^2
+          correct: false
+      - answer:
+          text: 6.71 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Choose +x along motion and +y upward. Resolve the applied force:
+          <latex>F_x = F\cos\theta</latex>, <latex>F_y = -F\sin\theta</latex>. 
+          Downward push increases the normal: <latex>N = mg + F\sin\theta</latex>. 
+          Kinetic friction: <latex>f_k = \mu_k N</latex>. 
+          Net x-force gives
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m}.
+          </latex>
+          Substituting the numbers yields <latex>a \approx 0.47\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q7
+    title: Person Dragging a Kayak
+    points: 3
+    text: | 
+      A person drags a kayak across wet grass. 
+      The coefficient of kinetic friction between the kayak and the grass is <latex>0.57</latex>. 
+      The rope makes an angle of <latex>29.74^\circ</latex> above the horizontal, and the person exerts a force of <latex>260.00</latex> N. 
+      The mass of the kayak is <latex>47.83</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the kayak’s acceleration?
+    answers:
+      - answer:
+          text: 0.67 m/s^2
+          correct: true
+      - answer:
+          text: 2.41 m/s^2
+          correct: false
+      - answer:
+          text: 0.87 m/s^2
+          correct: false
+      - answer:
+          text: 0.16 m/s^2
+          correct: false
+      - answer:
+          text: 2.90 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Upward pull reduces the normal: <latex>N = mg - F\sin\theta</latex>. 
+          Friction is <latex>f_k = \mu_k N</latex>. Horizontal component is <latex>F_x=F\cos\theta</latex>. 
+          Then
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m}.
+          </latex>
+          Substituting values gives <latex>a \approx 0.67\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q8
+    title: Tow Truck Dragging a Car
+    points: 3
+    text: | 
+      A tow truck drags a damaged car with locked wheels along a rough gravel road. 
+      The coefficient of kinetic friction between the car’s tires and the road is <latex>0.65</latex>. 
+      The towing cable makes an angle of <latex>42.31^\circ</latex> above the horizontal. 
+      The mass of the car is <latex>1274.53</latex> kg. 
+      The truck exerts a pulling force of <latex>7500.00</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the car’s acceleration?
+    answers:
+      - answer:
+          text: 0.55 m/s^2
+          correct: true
+      - answer:
+          text: 4.60 m/s^2
+          correct: false
+      - answer:
+          text: 2.02 m/s^2
+          correct: false
+      - answer:
+          text: 0.49 m/s^2
+          correct: false
+      - answer:
+          text: 2.42 m/s^2
+          correct: false
+    feedback:
+        general: |
+          With an upward pull, <latex>N = mg - F\sin\theta</latex> and <latex>f_k = \mu_k N</latex>. 
+          Resolve horizontally: <latex>F_x = F\cos\theta</latex>. 
+          Net x-force:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m}.
+          </latex>
+          Numerically this gives <latex>a \approx 0.55\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q9
+    title: Construction Worker Pushing a Bin
+    points: 3
+    text: | 
+      A construction worker pushes a loaded bin across a level surface. 
+      The coefficient of kinetic friction between the bin and the surface is <latex>0.38</latex>. 
+      The worker applies a force of <latex>274.39</latex> N at an angle of <latex>18.62^\circ</latex> downward with respect to the horizontal. 
+      The mass of the loaded bin is <latex>55.00</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the bin’s acceleration?
+    answers:
+      - answer:
+          text: 0.39 m/s^2
+          correct: true
+      - answer:
+          text: 1.61 m/s^2
+          correct: false
+      - answer:
+          text: 1.00 m/s^2
+          correct: false
+      - answer:
+          text: 1.26 m/s^2
+          correct: false
+      - answer:
+          text: 5.32 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Downward push: <latex>N = mg + F\sin\theta</latex>, so <latex>f_k = \mu_k N</latex>. 
+          Horizontal component: <latex>F_x = F\cos\theta</latex>. 
+          Net x-force:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m}.
+          </latex>
+          Substituting the given numbers gives <latex>a \approx 0.39\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q10
+    title: Bulldozer Pushing a Pile of Dirt
+    points: 3
+    text: | 
+      A bulldozer pushes a pile of dirt across rocky ground. 
+      The coefficient of kinetic friction between the dirt and the ground is <latex>0.72</latex>. 
+      The bulldozer applies a force of <latex>36000.00</latex> N at an angle of <latex>25.00^\circ</latex> downward with respect to the horizontal. 
+      The pile of dirt has a mass of <latex>2743.68</latex> kg. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the pile’s acceleration?
+    answers:
+      - answer:
+          text: 0.84 m/s^2
+          correct: true
+      - answer:
+          text: 8.82 m/s^2
+          correct: false
+      - answer:
+          text: 4.83 m/s^2
+          correct: false
+      - answer:
+          text: 6.06 m/s^2
+          correct: false
+      - answer:
+          text: 12.6 m/s^2
+          correct: false
+    feedback:
+        general: |
+          For a downward push, <latex>N = mg + F\sin\theta</latex> and <latex>f_k = \mu_k N</latex>. 
+          Resolve the horizontal component <latex>F_x = F\cos\theta</latex>. 
+          Net force in x:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m}.
+          </latex>
+          Plugging in values gives <latex>a \approx 0.84\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q11
+    title: Warehouse Worker Pushing a Pallet Skid
+    points: 3
+    text: | 
+      A warehouse worker pushes a loaded pallet skid across a concrete floor. 
+      The pallet skid and its load have a combined mass of <latex>250.00</latex> kg. 
+      The coefficient of kinetic friction between the skid and the floor is <latex>0.28</latex>. 
+      The worker applies a force of <latex>980.62</latex> N at an angle of <latex>25.00^\circ</latex> downward with respect to the horizontal. 
+      Take <latex>g = 9.81</latex> m/s².  
+
+      What is the magnitude of the pallet skid’s acceleration?
+    answers:
+      - answer:
+          text: 0.34 m/s^2
+          correct: true
+      - answer:
+          text: 1.27 m/s^2
+          correct: false
+      - answer:
+          text: 0.81 m/s^2
+          correct: false
+      - answer:
+          text: 1.18 m/s^2
+          correct: false
+      - answer:
+          text: 4.40 m/s^2
+          correct: false
+    feedback:
+        general: | 
+          Downward push: <latex>N = mg + F\sin\theta</latex>, friction <latex>f_k = \mu_k N</latex>, horizontal component <latex>F_x = F\cos\theta</latex>.
+          Net horizontal force:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m}.
+          </latex>
+          Substituting the given numbers yields <latex>a \approx 0.34\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q12
+    title: Gardener Pulling a Tarp of Soil
+    points: 3
+    text: | 
+      A gardener pulls a large tarp filled with soil across a level lawn. 
+      The coefficient of kinetic friction between the tarp and the lawn is <latex>0.45</latex>. 
+      The tarp and soil have a combined mass of <latex>60.00</latex> kg. 
+      The gardener pulls at an angle of <latex>35.00^\circ</latex> above the horizontal with a force of <latex>300.00</latex> N. 
+      Take <latex>g = 9.81</latex> m/s².  
+
+      What is the magnitude of the tarp’s acceleration?
+    answers:
+      - answer:
+          text: 0.97 m/s^2
+          correct: true
+      - answer:
+          text: 1.61 m/s^2
+          correct: false
+      - answer:
+          text: 0.32 m/s^2
+          correct: false
+      - answer:
+          text: 0.59 m/s^2
+          correct: false
+      - answer:
+          text: 1.55 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Upward pull reduces normal force: <latex>N = mg - F\sin\theta</latex>, so <latex>f_k = \mu_k N</latex>.
+          Net horizontal:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 0.97\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q13
+    title: Mover Sliding a Bookshelf
+    points: 3
+    text: | 
+      A mover pushes a heavy bookshelf across a wood floor. 
+      The coefficient of kinetic friction between the bookshelf and the floor is <latex>0.28</latex>. 
+      The mover applies a force of <latex>500.00</latex> N at an angle of <latex>15.00^\circ</latex> downward with respect to the horizontal. 
+      The bookshelf’s mass is <latex>146.36</latex> kg. 
+      Take <latex>g = 9.81</latex> m/s².  
+
+      What is the magnitude of the bookshelf’s acceleration?
+    answers:
+      - answer:
+          text: 0.31 m/s^2
+          correct: true
+      - answer:
+          text: 0.80 m/s^2
+          correct: false
+      - answer:
+          text: 0.55 m/s^2
+          correct: false
+      - answer:
+          text: 0.67 m/s^2
+          correct: false
+      - answer:
+          text: 3.63 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Downward push increases normal: <latex>N = mg + F\sin\theta</latex>, so <latex>f_k=\mu_k N</latex>. Horizontal component: <latex>F_x=F\cos\theta</latex>.
+          Acceleration:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m} \approx 0.31\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q14
+    title: Person Pulling a Cooler on Sand
+    points: 3
+    text: | 
+      A person pulls a cooler across a sandy beach. 
+      The coefficient of kinetic friction between the cooler and the sand is <latex>0.60</latex>. 
+      The cooler has a mass of <latex>25.00</latex> kg. 
+      The person pulls the handle at an angle of <latex>40.00^\circ</latex> above the horizontal with a force of <latex>140.00</latex> N. 
+      Take <latex>g = 9.81</latex> m/s².  
+
+      What is the magnitude of the cooler’s acceleration?
+    answers:
+      - answer:
+          text: 0.56 m/s^2
+          correct: true
+      - answer:
+          text: 3.76 m/s^2
+          correct: false
+      - answer:
+          text: 1.60 m/s^2
+          correct: false
+      - answer:
+          text: 0.29 m/s^2
+          correct: false
+      - answer:
+          text: 2.29 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Upward pull: <latex>N = mg - F\sin\theta</latex>, <latex>f_k=\mu_k N</latex>, <latex>F_x=F\cos\theta</latex>.
+          Net horizontal:
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 0.56\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q15
+    title: ATV Dragging a Log
+    points: 3
+    text: | 
+      An ATV (All-Terrain Vehicle) drags a large log along a rough forest path. 
+      The coefficient of kinetic friction between the log and the path is <latex>0.80</latex>. 
+      The chain makes an angle of <latex>20.00^\circ</latex> above the horizontal, and the ATV exerts a force of <latex>2300.00</latex> N. 
+      The log’s mass is <latex>309.20</latex> kg. 
+      Take <latex>g = 9.81</latex> m/s².  
+
+      What is the magnitude of the log’s acceleration?
+    answers:
+      - answer:
+          text: 1.18 m/s^2
+          correct: true
+      - answer:
+          text: 2.89 m/s^2
+          correct: false
+      - answer:
+          text: 0.86 m/s^2
+          correct: false
+      - answer:
+          text: 0.41 m/s^2
+          correct: false
+      - answer:
+          text: 5.30 m/s^2
+          correct: false
+    feedback:
+        general: |
+          With an upward pull, <latex>N = mg - F\sin\theta</latex> and <latex>f_k=\mu_k N</latex>. The horizontal component is <latex>F_x=F\cos\theta</latex>.
+          Thus
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 1.18\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q16
+    title: Zamboni on an Ice Rink
+    points: 3
+    text: | 
+      A Zamboni machine is conditioning the ice on a rink. 
+      The machine has a mass of <latex>1200.00</latex> kg. 
+      The coefficient of kinetic friction from the conditioning blade on the ice is <latex>0.15</latex>. 
+      The net propulsion force from the wheels is applied at an effective angle of <latex>18.00^\circ</latex> downward with respect to the horizontal. 
+      The propulsion force is <latex>2300.00</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the Zamboni’s acceleration?
+    answers:
+      - answer:
+          text: 0.26 m/s^2
+          correct: true
+      - answer:
+          text: 0.44 m/s^2
+          correct: false
+      - answer:
+          text: 0.35 m/s^2
+          correct: false
+      - answer:
+          text: 0.45 m/s^2
+          correct: false
+      - answer:
+          text: 2.06 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Resolve the applied force: <latex>F_x = F\cos\theta</latex>, <latex>F_y = -F\sin\theta</latex>. 
+          Downward application increases the normal: <latex>N = mg + F\sin\theta</latex>. 
+          Kinetic friction: <latex>f_k = \mu_k N</latex>. Net horizontal force yields
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m}.
+          </latex>
+          Substituting the numbers (including <latex>F=2300.00\ \text{N}</latex>) gives <latex>a \approx 0.26\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q17
+    title: Pushing a Heavy Box
+    points: 3
+    text: | 
+      A person pushes a heavy box across a level lawn. 
+      The box has a mass of <latex>30.00</latex> kg. 
+      The person pushes with a force of <latex>150.00</latex> N at an angle of <latex>45.00^\circ</latex> downward from the horizontal. 
+      The coefficient of kinetic friction between the box and the grass is <latex>0.26</latex>. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s².  
+
+      What is the magnitude of the box’s acceleration?
+    answers:
+      - answer:
+          text: 0.07 m/s^2
+          correct: true
+      - answer:
+          text: 1.90 m/s^2
+          correct: false
+      - answer:
+          text: 0.98 m/s^2
+          correct: false
+      - answer:
+          text: 2.45 m/s^2
+          correct: false
+      - answer:
+          text: 6.09 m/s^2
+          correct: false
+    feedback:
+        general: |
+          With a downward push, <latex>N = mg + F\sin\theta</latex>; friction <latex>f_k = \mu_k N</latex>. 
+          Horizontal component <latex>F_x = F\cos\theta</latex>. Therefore
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg + F\sin\theta)}{m} \approx 0.07\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q18
+    title: Mountain Rescue Sled
+    points: 3
+    text: | 
+      A mountain rescuer pulls a person on a rescue sled across a flat, snowy field. 
+      The coefficient of kinetic friction between the sled and the snow is <latex>0.22</latex>. 
+      The rescuer pulls on the tow rope with a force of <latex>400.00</latex> N at an angle of <latex>25.00^\circ</latex> above the horizontal. 
+      The total mass of the person and sled is <latex>162.05</latex> kg. 
+      Take <latex>g = 9.81</latex> m/s².  
+
+      What is the magnitude of the sled’s acceleration?
+    answers:
+      - answer:
+          text: 0.31 m/s^2
+          correct: true
+      - answer:
+          text: 0.15 m/s^2
+          correct: false
+      - answer:
+          text: 0.08 m/s^2
+          correct: false
+      - answer:
+          text: 0.31 m/s^2
+          correct: false
+      - answer:
+          text: 1.12 m/s^2
+          correct: false
+    feedback:
+        general: |
+          Upward pull reduces the normal force: <latex>N = mg - F\sin\theta</latex>; thus <latex>f_k = \mu_k N</latex>. 
+          Horizontal component: <latex>F_x = F\cos\theta</latex>. Hence
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 0.31\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q19
+    title: Child Pulling a Box of Toys
+    points: 3
+    text: | 
+      A child pulls a box full of toys along a horizontal sidewalk. 
+      The total mass of the box and toys is <latex>15.00</latex> kg. 
+      The coefficient of kinetic friction between the box and the sidewalk is <latex>0.55</latex>. 
+      The child pulls on a rope that makes an angle of <latex>50.00^\circ</latex> above the horizontal with a force of <latex>90.00</latex> N. 
+      Take <latex>g = 9.81</latex> m/s².  
+
+      What is the magnitude of the box’s acceleration?
+    answers:
+      - answer:
+          text: 0.99 m/s^2
+          correct: true
+      - answer:
+          text: 4.07 m/s^2
+          correct: false
+      - answer:
+          text: 1.54 m/s^2
+          correct: false
+      - answer:
+          text: 0.60 m/s^2
+          correct: false
+      - answer:
+          text: 0.80 m/s^2
+          correct: false
+    feedback:
+        general: |
+          For an upward pull, <latex>N = mg - F\sin\theta</latex> and <latex>f_k = \mu_k N</latex>. 
+          Using <latex>F_x = F\cos\theta</latex>, the horizontal equation gives
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m} \approx 0.99\ \text{m/s}^2.
+          </latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q20
+    title: Draft Horse Pulling a Stone Block
+    points: 3
+    text: | 
+      A draft horse drags a large stone block across level ground. 
+      The block has a mass of <latex>1500.00</latex> kg. 
+      The harness and chain make an angle of <latex>12.00^\circ</latex> above the horizontal. 
+      The horse pulls with a force of <latex>9500.00</latex> N. 
+      The acceleration due to gravity is <latex>9.81</latex> m/s², and the coefficient of kinetic friction between the block and the ground is <latex>0.69</latex>.  
+
+      What is the magnitude of the block’s acceleration?
+    answers:
+      - answer:
+          text: 0.33 m/s^2
+          correct: true
+      - answer:
+          text: 1.48 m/s^2
+          correct: false
+      - answer:
+          text: 0.57 m/s^2
+          correct: false
+      - answer:
+          text: 0.44 m/s^2
+          correct: false
+      - answer:
+          text: 5.45 m/s^2
+          correct: false
+    feedback:
+        general: |
+          With an upward pull, <latex>N = mg - F\sin\theta</latex> and <latex>f_k = \mu_k N</latex>. 
+          Resolve horizontally: <latex>F_x = F\cos\theta</latex>. Then
+          <latex>
+          a = \frac{F\cos\theta - \mu_k\,(mg - F\sin\theta)}{m}.
+          </latex>
+          Substituting the data (including <latex>F=9500.00\ \text{N}</latex> and <latex>\mu_k=0.69</latex>) gives <latex>a \approx 0.33\ \text{m/s}^2</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
