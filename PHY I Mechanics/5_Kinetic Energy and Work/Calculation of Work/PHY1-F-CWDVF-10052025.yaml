@@ -1,6 +1,6 @@
 bank_info:
   title: Calculation of Work Done by Varying Force
-  bank_id: PHY1-F-CWDVF-10-05-2025
+  bank_id: PHY1-F-CWDVF-10052025
   description: Calculation of Work done by a changing force over a distance.
   date_created: 2025-10-05
   learning_objectives: # to be added later
@@ -88,19 +88,19 @@ questions:
       <p>What is the work done by this force as the object moves from <latex>x = 0</latex> to <latex>x = b</latex>?</p>
     answers:
     - answer:
-        text: '<latex>-(b^5 - \tfrac{1}{2}b^4 + \tfrac{7}{3}b^3 - 10b)</latex>'
+        text: <latex>-(b^5 - \frac{1}{2}b^4 + \frac{7}{3}b^3 - 10b)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((5b^4 - 2b^3 + 7b^2 - 10) + (-10))(b)</latex>'
+        text: <latex>\frac{1}{2}((5b^4 - 2b^3 + 7b^2 - 10) + (-10))(b)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[x^5 - \tfrac{1}{2}x^4 + \tfrac{7}{3}x^3 - 10x]</latex>'
+        text: <latex>\frac{d}{dx}[x^5 - \frac{1}{2}x^4 + \frac{7}{3}x^3 - 10x]</latex>
         correct: false
     - answer:
-        text: '<latex>b^5 - \tfrac{1}{2}b^4 + \tfrac{7}{3}b^3 - 10b</latex>'
+        text: <latex>b^5 - \frac{1}{2}b^4 + \frac{7}{3}b^3 - 10b</latex>
         correct: true
     - answer:
-        text: '<latex>(5b^4 - 2b^3 + 7b^2 - 10)(b)</latex>'
+        text: <latex>(5b^4 - 2b^3 + 7b^2 - 10)(b)</latex>
         correct: false
     feedback:
       general: |
@@ -119,19 +119,19 @@ questions:
       <p>What is the symbolic expression for the work done by the force on the particle as it moves from position <latex>x = 0</latex> to <latex>x = x_2</latex>?</p>
     answers:
     - answer:
-        text: '<latex>-\tfrac{1}{5}x_2^5 + \tfrac{3}{2}x_2^4 - x_2^3 + 4x_2</latex>'
+        text: <latex>-\frac{1}{5}x_2^5 + \frac{3}{2}x_2^4 - x_2^3 + 4x_2</latex>
         correct: true
     - answer:
-        text: '<latex>(-x_2^4 + 6x_2^3 - 3x_2^2 + 4)(x_2)</latex>'
+        text: <latex>(-x_2^4 + 6x_2^3 - 3x_2^2 + 4)(x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>-(-\tfrac{1}{5}x_2^5 + \tfrac{3}{2}x_2^4 - x_2^3 + 4x_2)</latex>'
+        text: <latex>-(-\frac{1}{5}x_2^5 + \frac{3}{2}x_2^4 - x_2^3 + 4x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{1}{5}x^5 + \tfrac{3}{2}x^4 - x^3 + 4x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{1}{5}x^5 + \frac{3}{2}x^4 - x^3 + 4x]</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-x_2^4 + 6x_2^3 - 3x_2^2 + 4) + (4))(x_2)</latex>'
+        text: <latex>\frac{1}{2}((-x_2^4 + 6x_2^3 - 3x_2^2 + 4) + (4))(x_2)</latex>
         correct: false
     feedback:
       general: |
@@ -145,24 +145,24 @@ questions:
     points: 10
     text: |
       <p><b>Situation:</b></p>
-      <p>Consider an object displaced along the x-axis by a variable force given by <latex>F(x) = \tfrac{1}{2}x^4 + 4x^3 - x^2 + 9</latex>.</p>
+      <p>Consider an object displaced along the x-axis by a variable force given by <latex>F(x) = \frac{1}{2}x^4 + 4x^3 - x^2 + 9</latex>.</p>
       <p><b>Question:</b></p>
       <p>Determine the work done by this force as the object is displaced from the origin <latex>x = 0</latex> to a final position <latex>x = L</latex>.</p>
     answers:
     - answer:
-        text: '<latex>-(\tfrac{1}{10}L^5 + L^4 - \tfrac{1}{3}L^3 + 9L)</latex>'
+        text: <latex>-(\frac{1}{10}L^5 + L^4 - \frac{1}{3}L^3 + 9L)</latex>
         correct: false
     - answer:
-        text: '<latex>(\tfrac{1}{2}L^4 + 4L^3 - L^2 + 9)(L)</latex>'
+        text: <latex>(\frac{1}{2}L^4 + 4L^3 - L^2 + 9)(L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{10}L^5 + L^4 - \tfrac{1}{3}L^3 + 9L</latex>'
+        text: <latex>\frac{1}{10}L^5 + L^4 - \frac{1}{3}L^3 + 9L</latex>
         correct: true
     - answer:
-        text: '<latex>\tfrac{1}{2}((\tfrac{1}{2}L^4 + 4L^3 - L^2 + 9) + (9))(L)</latex>'
+        text: <latex>\frac{1}{2}((\frac{1}{2}L^4 + 4L^3 - L^2 + 9) + (9))(L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{1}{10}x^5 + x^4 - \tfrac{1}{3}x^3 + 9x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{1}{10}x^5 + x^4 - \frac{1}{3}x^3 + 9x]</latex>
         correct: false
     feedback:
       general: |
@@ -181,19 +181,19 @@ questions:
       <p>Which expression correctly represents the work done by the force as the block moves from <latex>x = 0</latex> to <latex>x = d</latex>?</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{8}{5}x^5 + \tfrac{1}{4}x^4 - \tfrac{5}{3}x^3 - 3x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{8}{5}x^5 + \frac{1}{4}x^4 - \frac{5}{3}x^3 - 3x]</latex>
         correct: false
     - answer:
-        text: '<latex>(8d^4 + d^3 - 5d^2 - 3)(d)</latex>'
+        text: <latex>(8d^4 + d^3 - 5d^2 - 3)(d)</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{8}{5}d^5 + \tfrac{1}{4}d^4 - \tfrac{5}{3}d^3 - 3d)</latex>'
+        text: <latex>-(\frac{8}{5}d^5 + \frac{1}{4}d^4 - \frac{5}{3}d^3 - 3d)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((8d^4 + d^3 - 5d^2 - 3) + (-3))(d)</latex>'
+        text: <latex>\frac{1}{2}((8d^4 + d^3 - 5d^2 - 3) + (-3))(d)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{8}{5}d^5 + \tfrac{1}{4}d^4 - \tfrac{5}{3}d^3 - 3d</latex>'
+        text: <latex>\frac{8}{5}d^5 + \frac{1}{4}d^4 - \frac{5}{3}d^3 - 3d</latex>
         correct: true
     feedback:
       general: |
@@ -212,19 +212,19 @@ questions:
       <p>Find the work done by the force on the object as it moves from <latex>x = 0</latex> to a final position <latex>x = x_f</latex>.</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{k_1}{5}x_f^5 - \tfrac{k_2}{4}x_f^4 + \tfrac{k_3}{3}x_f^3 + k_4x_f</latex>'
+        text: <latex>\frac{k_1}{5}x_f^5 - \frac{k_2}{4}x_f^4 + \frac{k_3}{3}x_f^3 + k_4x_f</latex>
         correct: true
     - answer:
-        text: '<latex>-(\tfrac{k_1}{5}x_f^5 - \tfrac{k_2}{4}x_f^4 + \tfrac{k_3}{3}x_f^3 + k_4x_f)</latex>'
+        text: <latex>-(\frac{k_1}{5}x_f^5 - \frac{k_2}{4}x_f^4 + \frac{k_3}{3}x_f^3 + k_4x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>(k_1x_f^4 - k_2x_f^3 + k_3x_f^2 + k_4)(x_f)</latex>'
+        text: <latex>(k_1x_f^4 - k_2x_f^3 + k_3x_f^2 + k_4)(x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((k_1x_f^4 - k_2x_f^3 + k_3x_f^2 + k_4) + (k_4))(x_f)</latex>'
+        text: <latex>\frac{1}{2}((k_1x_f^4 - k_2x_f^3 + k_3x_f^2 + k_4) + (k_4))(x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{k_1}{5}x^5 - \tfrac{k_2}{4}x^4 + \tfrac{k_3}{3}x^3 + k_4x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{k_1}{5}x^5 - \frac{k_2}{4}x^4 + \frac{k_3}{3}x^3 + k_4x]</latex>
         correct: false
     feedback:
       general: |
@@ -243,19 +243,19 @@ questions:
       <p>What is the work done by this force on the particle as it moves from <latex>x = 0</latex> to <latex>x = x_0</latex>?</p>
     answers:
     - answer:
-        text: '<latex>-(\tfrac{-3}{5}x_0^5 + 2x_0^4 - 2x_0^3 + 12x_0)</latex>'
+        text: <latex>-(\frac{-3}{5}x_0^5 + 2x_0^4 - 2x_0^3 + 12x_0)</latex>
         correct: false
     - answer:
-        text: '<latex>(-3x_0^4 + 8x_0^3 - 6x_0^2 + 12)(x_0)</latex>'
+        text: <latex>(-3x_0^4 + 8x_0^3 - 6x_0^2 + 12)(x_0)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{3}{5}x^5 + 2x^4 - 2x^3 + 12x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{3}{5}x^5 + 2x^4 - 2x^3 + 12x]</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-3x_0^4 + 8x_0^3 - 6x_0^2 + 12) + (12))(x_0)</latex>'
+        text: <latex>\frac{1}{2}((-3x_0^4 + 8x_0^3 - 6x_0^2 + 12) + (12))(x_0)</latex>
         correct: false
     - answer:
-        text: '<latex>-\tfrac{3}{5}x_0^5 + 2x_0^4 - 2x_0^3 + 12x_0</latex>'
+        text: <latex>-\frac{3}{5}x_0^5 + 2x_0^4 - 2x_0^3 + 12x_0</latex>
         correct: true
     feedback:
       general: |
@@ -274,19 +274,19 @@ questions:
       <p>Calculate the work done by the force as the object moves from <latex>x = 0</latex> to a final position of <latex>x = L</latex>.</p>
     answers:
     - answer:
-        text: '<latex>2L^5 - \tfrac{9}{4}L^4 + \tfrac{2}{3}L^3 - 5L</latex>'
+        text: <latex>2L^5 - \frac{9}{4}L^4 + \frac{2}{3}L^3 - 5L</latex>
         correct: true
     - answer:
-        text: '<latex>\tfrac{1}{2}((10L^4 - 9L^3 + 2L^2 - 5) + (-5))(L)</latex>'
+        text: <latex>\frac{1}{2}((10L^4 - 9L^3 + 2L^2 - 5) + (-5))(L)</latex>
         correct: false
     - answer:
-        text: '<latex>(10L^4 - 9L^3 + 2L^2 - 5)(L)</latex>'
+        text: <latex>(10L^4 - 9L^3 + 2L^2 - 5)(L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[2x^5 - \tfrac{9}{4}x^4 + \tfrac{2}{3}x^3 - 5x]</latex>'
+        text: <latex>\frac{d}{dx}[2x^5 - \frac{9}{4}x^4 + \frac{2}{3}x^3 - 5x]</latex>
         correct: false
     - answer:
-        text: '<latex>-(2L^5 - \tfrac{9}{4}L^4 + \tfrac{2}{3}L^3 - 5L)</latex>'
+        text: <latex>-(2L^5 - \frac{9}{4}L^4 + \frac{2}{3}L^3 - 5L)</latex>
         correct: false
     feedback:
       general: |
@@ -305,19 +305,19 @@ questions:
       <p>Which of the following expressions gives the work done by this force from <latex>x = 0</latex> to <latex>x = x_f</latex>?</p>
     answers:
     - answer:
-        text: '<latex>(2.5x_f^4 + 1.5x_f^3 - 4x_f^2 + 1)(x_f)</latex>'
+        text: <latex>(2.5x_f^4 + 1.5x_f^3 - 4x_f^2 + 1)(x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{1}{2}x_f^5 + \tfrac{3}{8}x_f^4 - \tfrac{4}{3}x_f^3 + x_f)</latex>'
+        text: <latex>-(\frac{1}{2}x_f^5 + \frac{3}{8}x_f^4 - \frac{4}{3}x_f^3 + x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{1}{2}x^5 + \tfrac{3}{8}x^4 - \tfrac{4}{3}x^3 + x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{1}{2}x^5 + \frac{3}{8}x^4 - \frac{4}{3}x^3 + x]</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}x_f^5 + \tfrac{3}{8}x_f^4 - \tfrac{4}{3}x_f^3 + x_f</latex>'
+        text: <latex>\frac{1}{2}x_f^5 + \frac{3}{8}x_f^4 - \frac{4}{3}x_f^3 + x_f</latex>
         correct: true
     - answer:
-        text: '<latex>\tfrac{1}{2}((2.5x_f^4 + 1.5x_f^3 - 4x_f^2 + 1) + (1))(x_f)</latex>'
+        text: <latex>\frac{1}{2}((2.5x_f^4 + 1.5x_f^3 - 4x_f^2 + 1) + (1))(x_f)</latex>
         correct: false
     feedback:
       general: |
@@ -336,19 +336,19 @@ questions:
       <p>Determine the work done by the motor as the car travels from the origin <latex>x = 0</latex> to a final position <latex>x = L</latex>.</p>
     answers:
     - answer:
-        text: '<latex>-\tfrac{4}{5}L^5 - \tfrac{1}{2}L^4 + \tfrac{11}{3}L^3 + 6L</latex>'
+        text: <latex>-\frac{4}{5}L^5 - \frac{1}{2}L^4 + \frac{11}{3}L^3 + 6L</latex>
         correct: true
     - answer:
-        text: '<latex>(-4L^4 - 2L^3 + 11L^2 + 6)(L)</latex>'
+        text: <latex>(-4L^4 - 2L^3 + 11L^2 + 6)(L)</latex>
         correct: false
     - answer:
-        text: '<latex>-(-\tfrac{4}{5}L^5 - \tfrac{1}{2}L^4 + \tfrac{11}{3}L^3 + 6L)</latex>'
+        text: <latex>-(-\frac{4}{5}L^5 - \frac{1}{2}L^4 + \frac{11}{3}L^3 + 6L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-4L^4 - 2L^3 + 11L^2 + 6) + (6))(L)</latex>'
+        text: <latex>\frac{1}{2}((-4L^4 - 2L^3 + 11L^2 + 6) + (6))(L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{4}{5}x^5 - \tfrac{1}{2}x^4 + \tfrac{11}{3}x^3 + 6x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{4}{5}x^5 - \frac{1}{2}x^4 + \frac{11}{3}x^3 + 6x]</latex>
         correct: false
     feedback:
       general: |
@@ -367,19 +367,19 @@ questions:
       <p>What is the work done by the force in moving the bead from <latex>x = 0</latex> to <latex>x = a</latex>?</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{7}{5}x^5 + \tfrac{5}{4}x^4 - \tfrac{1}{3}x^3 - 8x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{7}{5}x^5 + \frac{5}{4}x^4 - \frac{1}{3}x^3 - 8x]</latex>
         correct: false
     - answer:
-        text: '<latex>(7a^4 + 5a^3 - a^2 - 8)(a)</latex>'
+        text: <latex>(7a^4 + 5a^3 - a^2 - 8)(a)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((7a^4 + 5a^3 - a^2 - 8) + (-8))(a)</latex>'
+        text: <latex>\frac{1}{2}((7a^4 + 5a^3 - a^2 - 8) + (-8))(a)</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{7}{5}a^5 + \tfrac{5}{4}a^4 - \tfrac{1}{3}a^3 - 8a)</latex>'
+        text: <latex>-(\frac{7}{5}a^5 + \frac{5}{4}a^4 - \frac{1}{3}a^3 - 8a)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{7}{5}a^5 + \tfrac{5}{4}a^4 - \tfrac{1}{3}a^3 - 8a</latex>'
+        text: <latex>\frac{7}{5}a^5 + \frac{5}{4}a^4 - \frac{1}{3}a^3 - 8a</latex>
         correct: true
     feedback:
       general: |
@@ -393,24 +393,24 @@ questions:
     points: 10
     text: |
       <p><b>Situation:</b></p>
-      <p>An object is acted upon by a force <latex>F(x) = \tfrac{1}{4}x^4 - \tfrac{1}{3}x^3 + \tfrac{1}{2}x^2 + 1</latex>.</p>
+      <p>An object is acted upon by a force <latex>F(x) = \frac{1}{4}x^4 - \frac{1}{3}x^3 + \frac{1}{2}x^2 + 1</latex>.</p>
       <p><b>Question:</b></p>
       <p>Find the work done by this force as the object moves from position <latex>x=0</latex> to position <latex>x=d</latex>.</p>
     answers:
     - answer:
-        text: '<latex>-(\tfrac{1}{20}d^5 - \tfrac{1}{12}d^4 + \tfrac{1}{6}d^3 + d)</latex>'
+        text: <latex>-(\frac{1}{20}d^5 - \frac{1}{12}d^4 + \frac{1}{6}d^3 + d)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{20}d^5 - \tfrac{1}{12}d^4 + \tfrac{1}{6}d^3 + d</latex>'
+        text: <latex>\frac{1}{20}d^5 - \frac{1}{12}d^4 + \frac{1}{6}d^3 + d</latex>
         correct: true
     - answer:
-        text: '<latex>(\tfrac{1}{4}d^4 - \tfrac{1}{3}d^3 + \tfrac{1}{2}d^2 + 1)(d)</latex>'
+        text: <latex>(\frac{1}{4}d^4 - \frac{1}{3}d^3 + \frac{1}{2}d^2 + 1)(d)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((\tfrac{1}{4}d^4 - \tfrac{1}{3}d^3 + \tfrac{1}{2}d^2 + 1) + (1))(d)</latex>'
+        text: <latex>\frac{1}{2}((\frac{1}{4}d^4 - \frac{1}{3}d^3 + \frac{1}{2}d^2 + 1) + (1))(d)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{1}{20}x^5 - \tfrac{1}{12}x^4 + \tfrac{1}{6}x^3 + x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{1}{20}x^5 - \frac{1}{12}x^4 + \frac{1}{6}x^3 + x]</latex>
         correct: false
     feedback:
       general: |
@@ -429,19 +429,19 @@ questions:
       <p>What is the work done by this force over the interval from <latex>x=0</latex> to <latex>x=L</latex>?</p>
     answers:
     - answer:
-        text: '<latex>(aL^4 - bL^3 + cL^2 - d)(L)</latex>'
+        text: <latex>(aL^4 - bL^3 + cL^2 - d)(L)</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{a}{5}L^5 - \tfrac{b}{4}L^4 + \tfrac{c}{3}L^3 - dL)</latex>'
+        text: <latex>-(\frac{a}{5}L^5 - \frac{b}{4}L^4 + \frac{c}{3}L^3 - dL)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{a}{5}x^5 - \tfrac{b}{4}x^4 + \tfrac{c}{3}x^3 - dx]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{a}{5}x^5 - \frac{b}{4}x^4 + \frac{c}{3}x^3 - dx]</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((aL^4 - bL^3 + cL^2 - d) + (-d))(L)</latex>'
+        text: <latex>\frac{1}{2}((aL^4 - bL^3 + cL^2 - d) + (-d))(L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{a}{5}L^5 - \tfrac{b}{4}L^4 + \tfrac{c}{3}L^3 - dL</latex>'
+        text: <latex>\frac{a}{5}L^5 - \frac{b}{4}L^4 + \frac{c}{3}L^3 - dL</latex>
         correct: true
     feedback:
       general: |
@@ -460,19 +460,19 @@ questions:
       <p>Determine the work done by the net force as the particle moves from <latex>x=0</latex> to <latex>x=x_2</latex>.</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{9}{5}x_2^5 + x_2^4 - \tfrac{7}{3}x_2^3 + 2x_2</latex>'
+        text: <latex>\frac{9}{5}x_2^5 + x_2^4 - \frac{7}{3}x_2^3 + 2x_2</latex>
         correct: true
     - answer:
-        text: '<latex>-(\tfrac{9}{5}x_2^5 + x_2^4 - \tfrac{7}{3}x_2^3 + 2x_2)</latex>'
+        text: <latex>-(\frac{9}{5}x_2^5 + x_2^4 - \frac{7}{3}x_2^3 + 2x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>(9x_2^4 + 4x_2^3 - 7x_2^2 + 2)(x_2)</latex>'
+        text: <latex>(9x_2^4 + 4x_2^3 - 7x_2^2 + 2)(x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((9x_2^4 + 4x_2^3 - 7x_2^2 + 2) + (2))(x_2)</latex>'
+        text: <latex>\frac{1}{2}((9x_2^4 + 4x_2^3 - 7x_2^2 + 2) + (2))(x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{9}{5}x^5 + x^4 - \tfrac{7}{3}x^3 + 2x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{9}{5}x^5 + x^4 - \frac{7}{3}x^3 + 2x]</latex>
         correct: false
     feedback:
       general: |
@@ -491,19 +491,19 @@ questions:
       <p>Calculate the work done by this force as the body is displaced from position <latex>x=0</latex> to position <latex>x=x_B</latex>.</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{6}{5}x^5 + \tfrac{1}{2}x^4 + \tfrac{5}{3}x^3 - x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{6}{5}x^5 + \frac{1}{2}x^4 + \frac{5}{3}x^3 - x]</latex>
         correct: false
     - answer:
-        text: '<latex>(-6x_B^4 + 2x_B^3 + 5x_B^2 - 1)(x_B)</latex>'
+        text: <latex>(-6x_B^4 + 2x_B^3 + 5x_B^2 - 1)(x_B)</latex>
         correct: false
     - answer:
-        text: '<latex>-\tfrac{6}{5}x_B^5 + \tfrac{1}{2}x_B^4 + \tfrac{5}{3}x_B^3 - x_B</latex>'
+        text: <latex>-\frac{6}{5}x_B^5 + \frac{1}{2}x_B^4 + \frac{5}{3}x_B^3 - x_B</latex>
         correct: true
     - answer:
-        text: '<latex>-(-\tfrac{6}{5}x_B^5 + \tfrac{1}{2}x_B^4 + \tfrac{5}{3}x_B^3 - x_B)</latex>'
+        text: <latex>-(-\frac{6}{5}x_B^5 + \frac{1}{2}x_B^4 + \frac{5}{3}x_B^3 - x_B)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-6x_B^4 + 2x_B^3 + 5x_B^2 - 1) + (-1))(x_B)</latex>'
+        text: <latex>\frac{1}{2}((-6x_B^4 + 2x_B^3 + 5x_B^2 - 1) + (-1))(x_B)</latex>
         correct: false
     feedback:
       general: |
@@ -522,19 +522,19 @@ questions:
       <p>What is the work that must be done by an external agent to move an object against this spring force from <latex>x=0</latex> to a final position <latex>x_f</latex>?</p>
     answers:
     - answer:
-        text: '<latex>-(-\tfrac{k_4}{5}x_f^5 - \tfrac{k_3}{4}x_f^4 - \tfrac{k_2}{3}x_f^3 - k_1x_f)</latex>'
+        text: <latex>-(-\frac{k_4}{5}x_f^5 - \frac{k_3}{4}x_f^4 - \frac{k_2}{3}x_f^3 - k_1x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>(-k_4x_f^4 - k_3x_f^3 - k_2x_f^2 - k_1)(x_f)</latex>'
+        text: <latex>(-k_4x_f^4 - k_3x_f^3 - k_2x_f^2 - k_1)(x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>-\tfrac{k_4}{5}x_f^5 - \tfrac{k_3}{4}x_f^4 - \tfrac{k_2}{3}x_f^3 - k_1x_f</latex>'
+        text: <latex>-\frac{k_4}{5}x_f^5 - \frac{k_3}{4}x_f^4 - \frac{k_2}{3}x_f^3 - k_1x_f</latex>
         correct: true
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{k_4}{5}x^5 - \tfrac{k_3}{4}x^4 - \tfrac{k_2}{3}x^3 - k_1x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{k_4}{5}x^5 - \frac{k_3}{4}x^4 - \frac{k_2}{3}x^3 - k_1x]</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-k_4x_f^4 - k_3x_f^3 - k_2x_f^2 - k_1) + (-k_1))(x_f)</latex>'
+        text: <latex>\frac{1}{2}((-k_4x_f^4 - k_3x_f^3 - k_2x_f^2 - k_1) + (-k_1))(x_f)</latex>
         correct: false
     feedback:
       general: |
@@ -553,19 +553,19 @@ questions:
       <p>What is the work done by the engine as the sled moves from its starting position <latex>x = 0</latex> to its final position <latex>x = b</latex>?</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{1}{2}((12b^4 - 5b^3 + 20b^2 - 100) + (-100))(b)</latex>'
+        text: <latex>\frac{1}{2}((12b^4 - 5b^3 + 20b^2 - 100) + (-100))(b)</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{12}{5}b^5 - \tfrac{5}{4}b^4 + \tfrac{20}{3}b^3 - 100b)</latex>'
+        text: <latex>-(\frac{12}{5}b^5 - \frac{5}{4}b^4 + \frac{20}{3}b^3 - 100b)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{12}{5}b^5 - \tfrac{5}{4}b^4 + \tfrac{20}{3}b^3 - 100b</latex>'
+        text: <latex>\frac{12}{5}b^5 - \frac{5}{4}b^4 + \frac{20}{3}b^3 - 100b</latex>
         correct: true
     - answer:
-        text: '<latex>(12b^4 - 5b^3 + 20b^2 - 100)(b)</latex>'
+        text: <latex>(12b^4 - 5b^3 + 20b^2 - 100)(b)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{12}{5}x^5 - \tfrac{5}{4}x^4 + \tfrac{20}{3}x^3 - 100x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{12}{5}x^5 - \frac{5}{4}x^4 + \frac{20}{3}x^3 - 100x]</latex>
         correct: false
     feedback:
       general: |
@@ -584,19 +584,19 @@ questions:
       <p>Which expression correctly calculates the work done by the magnetic force as the object is displaced from <latex>x=0</latex> to <latex>x=L</latex>?</p>
     answers:
     - answer:
-        text: '<latex>-\tfrac{2}{5}L^5 + \tfrac{7}{4}L^4 - \tfrac{4}{3}L^3 + 9L</latex>'
+        text: <latex>-\frac{2}{5}L^5 + \frac{7}{4}L^4 - \frac{4}{3}L^3 + 9L</latex>
         correct: true
     - answer:
-        text: '<latex>(-2L^4 + 7L^3 - 4L^2 + 9)(L)</latex>'
+        text: <latex>(-2L^4 + 7L^3 - 4L^2 + 9)(L)</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{2}{5}L^5 + \tfrac{7}{4}L^4 - \tfrac{4}{3}L^3 + 9L)</latex>'
+        text: <latex>-(\frac{2}{5}L^5 + \frac{7}{4}L^4 - \frac{4}{3}L^3 + 9L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{2}{5}x^5 + \tfrac{7}{4}x^4 - \tfrac{4}{3}x^3 + 9x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{2}{5}x^5 + \frac{7}{4}x^4 - \frac{4}{3}x^3 + 9x]</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-2L^4 + 7L^3 - 4L^2 + 9) + (9))(L)</latex>'
+        text: <latex>\frac{1}{2}((-2L^4 + 7L^3 - 4L^2 + 9) + (9))(L)</latex>
         correct: false
     feedback:
       general: |
@@ -615,19 +615,19 @@ questions:
       <p>Determine the work done by this restoring force as the object moves from <latex>x=0</latex> to a final position <latex>x_2</latex>.</p>
     answers:
     - answer:
-        text: '<latex>(-k x_2^4 - j x_2^3 - h x_2^2 - g)(x_2)</latex>'
+        text: <latex>(-k x_2^4 - j x_2^3 - h x_2^2 - g)(x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>-(-\tfrac{k}{5}x_2^5 - \tfrac{j}{4}x_2^4 - \tfrac{h}{3}x_2^3 - g x_2)</latex>'
+        text: <latex>-(-\frac{k}{5}x_2^5 - \frac{j}{4}x_2^4 - \frac{h}{3}x_2^3 - g x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>-\tfrac{k}{5}x_2^5 - \tfrac{j}{4}x_2^4 - \tfrac{h}{3}x_2^3 - g x_2</latex>'
+        text: <latex>-\frac{k}{5}x_2^5 - \frac{j}{4}x_2^4 - \frac{h}{3}x_2^3 - g x_2</latex>
         correct: true
     - answer:
-        text: '<latex>\tfrac{1}{2}((-k x_2^4 - j x_2^3 - h x_2^2 - g) + (-g))(x_2)</latex>'
+        text: <latex>\frac{1}{2}((-k x_2^4 - j x_2^3 - h x_2^2 - g) + (-g))(x_2)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{k}{5}x^5 - \tfrac{j}{4}x^4 - \tfrac{h}{3}x^3 - g*x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{k}{5}x^5 - \frac{j}{4}x^4 - \frac{h}{3}x^3 - g*x]</latex>
         correct: false
     feedback:
       general: |
@@ -641,24 +641,24 @@ questions:
     points: 10
     text: |
       <p><b>Situation:</b></p>
-      <p>A particle moves under the influence of a force <latex>F(x) = \tfrac{3}{2}x^4 + \tfrac{5}{3}x^3 - \tfrac{1}{4}x^2 + 5</latex>.</p>
+      <p>A particle moves under the influence of a force <latex>F(x) = \frac{3}{2}x^4 + \frac{5}{3}x^3 - \frac{1}{4}x^2 + 5</latex>.</p>
       <p><b>Question:</b></p>
       <p>What is the work done on the particle as it travels from position <latex>x=0</latex> to <latex>x=d</latex>?</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{3}{10}d^5 + \tfrac{5}{12}d^4 - \tfrac{1}{12}d^3 + 5d</latex>'
+        text: <latex>\frac{3}{10}d^5 + \frac{5}{12}d^4 - \frac{1}{12}d^3 + 5d</latex>
         correct: true
     - answer:
-        text: '<latex>-(\tfrac{3}{10}d^5 + \tfrac{5}{12}d^4 - \tfrac{1}{12}d^3 + 5d)</latex>'
+        text: <latex>-(\frac{3}{10}d^5 + \frac{5}{12}d^4 - \frac{1}{12}d^3 + 5d)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((\tfrac{3}{2}d^4 + \tfrac{5}{3}d^3 - \tfrac{1}{4}d^2 + 5) + (5))(d)</latex>'
+        text: <latex>\frac{1}{2}((\frac{3}{2}d^4 + \frac{5}{3}d^3 - \frac{1}{4}d^2 + 5) + (5))(d)</latex>
         correct: false
     - answer:
-        text: '<latex>(\tfrac{3}{2}d^4 + \tfrac{5}{3}d^3 - \tfrac{1}{4}d^2 + 5)(d)</latex>'
+        text: <latex>(\frac{3}{2}d^4 + \frac{5}{3}d^3 - \frac{1}{4}d^2 + 5)(d)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{3}{10}x^5 + \tfrac{5}{12}x^4 - \tfrac{1}{12}x^3 + 5x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{3}{10}x^5 + \frac{5}{12}x^4 - \frac{1}{12}x^3 + 5x]</latex>
         correct: false
     feedback:
       general: |
@@ -677,19 +677,19 @@ questions:
       <p>Find the work done by the propulsion system as the craft moves from <latex>x = 0</latex> to <latex>x = x_0</latex>.</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{21}{5}x^5 - 4x^4 + 3x^3 - 2x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{21}{5}x^5 - 4x^4 + 3x^3 - 2x]</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{21}{5}x_0^5 - 4x_0^4 + 3x_0^3 - 2x_0)</latex>'
+        text: <latex>-(\frac{21}{5}x_0^5 - 4x_0^4 + 3x_0^3 - 2x_0)</latex>
         correct: false
     - answer:
-        text: '<latex>(21x_0^4 - 16x_0^3 + 9x_0^2 - 2)(x_0)</latex>'
+        text: <latex>(21x_0^4 - 16x_0^3 + 9x_0^2 - 2)(x_0)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{21}{5}x_0^5 - 4x_0^4 + 3x_0^3 - 2x_0</latex>'
+        text: <latex>\frac{21}{5}x_0^5 - 4x_0^4 + 3x_0^3 - 2x_0</latex>
         correct: true
     - answer:
-        text: '<latex>\tfrac{1}{2}((21x_0^4 - 16x_0^3 + 9x_0^2 - 2) + (-2))(x_0)</latex>'
+        text: <latex>\frac{1}{2}((21x_0^4 - 16x_0^3 + 9x_0^2 - 2) + (-2))(x_0)</latex>
         correct: false
     feedback:
       general: |
@@ -708,19 +708,19 @@ questions:
       <p>Which expression represents the work done by this force during a stroke from <latex>x = 0</latex> to <latex>x = L</latex>?</p>
     answers:
     - answer:
-        text: '<latex>(15L^4 + 10L^3 - 8L^2 + 3)(L)</latex>'
+        text: <latex>(15L^4 + 10L^3 - 8L^2 + 3)(L)</latex>
         correct: false
     - answer:
-        text: '<latex>-(3L^5 + \tfrac{5}{2}L^4 - \tfrac{8}{3}L^3 + 3L)</latex>'
+        text: <latex>-(3L^5 + \frac{5}{2}L^4 - \frac{8}{3}L^3 + 3L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((15L^4 + 10L^3 - 8L^2 + 3) + (3))(L)</latex>'
+        text: <latex>\frac{1}{2}((15L^4 + 10L^3 - 8L^2 + 3) + (3))(L)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[3x^5 + \tfrac{5}{2}x^4 - \tfrac{8}{3}x^3 + 3x]</latex>'
+        text: <latex>\frac{d}{dx}[3x^5 + \frac{5}{2}x^4 - \frac{8}{3}x^3 + 3x]</latex>
         correct: false
     - answer:
-        text: '<latex>3L^5 + \tfrac{5}{2}L^4 - \tfrac{8}{3}L^3 + 3L</latex>'
+        text: <latex>3L^5 + \frac{5}{2}L^4 - \frac{8}{3}L^3 + 3L</latex>
         correct: true
     feedback:
       general: |
@@ -739,19 +739,19 @@ questions:
       <p>What is the work done by this force as the particle moves from <latex>x=0</latex> to <latex>x=a</latex>?</p>
     answers:
     - answer:
-        text: '<latex>-\tfrac{1}{5}a^5 - \tfrac{1}{4}a^4 - \tfrac{1}{3}a^3 - a</latex>'
+        text: <latex>-\frac{1}{5}a^5 - \frac{1}{4}a^4 - \frac{1}{3}a^3 - a</latex>
         correct: true
     - answer:
-        text: '<latex>-(-\tfrac{1}{5}a^5 - \tfrac{1}{4}a^4 - \tfrac{1}{3}a^3 - a)</latex>'
+        text: <latex>-(-\frac{1}{5}a^5 - \frac{1}{4}a^4 - \frac{1}{3}a^3 - a)</latex>
         correct: false
     - answer:
-        text: '<latex>(-a^4 - a^3 - a^2 - 1)(a)</latex>'
+        text: <latex>(-a^4 - a^3 - a^2 - 1)(a)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{1}{5}x^5 - \tfrac{1}{4}x^4 - \tfrac{1}{3}x^3 - x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{1}{5}x^5 - \frac{1}{4}x^4 - \frac{1}{3}x^3 - x]</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-a^4 - a^3 - a^2 - 1) + (-1))(a)</latex>'
+        text: <latex>\frac{1}{2}((-a^4 - a^3 - a^2 - 1) + (-1))(a)</latex>
         correct: false
     feedback:
       general: |
@@ -770,19 +770,19 @@ questions:
       <p>Find the work done in stretching this spring from <latex>x=0</latex> to a final displacement <latex>x_f</latex>.</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{\alpha}{5}x_f^5 + \tfrac{\beta}{4}x_f^4 + \tfrac{\gamma}{3}x_f^3 + \delta x_f</latex>'
+        text: <latex>\frac{\alpha}{5}x_f^5 + \frac{\beta}{4}x_f^4 + \frac{\gamma}{3}x_f^3 + \delta x_f</latex>
         correct: true
     - answer:
-        text: '<latex>(\alpha x_f^4 + \beta x_f^3 + \gamma x_f^2 + \delta)(x_f)</latex>'
+        text: <latex>(\alpha x_f^4 + \beta x_f^3 + \gamma x_f^2 + \delta)(x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{\alpha}{5}x_f^5 + \tfrac{\beta}{4}x_f^4 + \tfrac{\gamma}{3}x_f^3 + \delta x_f)</latex>'
+        text: <latex>-(\frac{\alpha}{5}x_f^5 + \frac{\beta}{4}x_f^4 + \frac{\gamma}{3}x_f^3 + \delta x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((\alpha x_f^4 + \beta x_f^3 + \gamma x_f^2 + \delta) + (\delta))(x_f)</latex>'
+        text: <latex>\frac{1}{2}((\alpha x_f^4 + \beta x_f^3 + \gamma x_f^2 + \delta) + (\delta))(x_f)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{\alpha}{5}x^5 + \tfrac{\beta}{4}x^4 + \tfrac{\gamma}{3}x^3 + \delta x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{\alpha}{5}x^5 + \frac{\beta}{4}x^4 + \frac{\gamma}{3}x^3 + \delta x]</latex>
         correct: false
     feedback:
       general: |
@@ -801,19 +801,19 @@ questions:
       <p>What is the work done on the object as it moves from <latex>x=0</latex> to <latex>x=c</latex>?</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{d}{dx}[-\tfrac{8}{5}x^5 + \tfrac{3}{4}x^4 - \tfrac{10}{3}x^3 - 5x]</latex>'
+        text: <latex>\frac{d}{dx}[-\frac{8}{5}x^5 + \frac{3}{4}x^4 - \frac{10}{3}x^3 - 5x]</latex>
         correct: false
     - answer:
-        text: '<latex>(-8c^4 + 3c^3 - 10c^2 - 5)(c)</latex>'
+        text: <latex>(-8c^4 + 3c^3 - 10c^2 - 5)(c)</latex>
         correct: false
     - answer:
-        text: '<latex>-\tfrac{8}{5}c^5 + \tfrac{3}{4}c^4 - \tfrac{10}{3}c^3 - 5c</latex>'
+        text: <latex>-\frac{8}{5}c^5 + \frac{3}{4}c^4 - \frac{10}{3}c^3 - 5c</latex>
         correct: true
     - answer:
-        text: '<latex>-(-\tfrac{8}{5}c^5 + \tfrac{3}{4}c^4 - \tfrac{10}{3}c^3 - 5c)</latex>'
+        text: <latex>-(-\frac{8}{5}c^5 + \frac{3}{4}c^4 - \frac{10}{3}c^3 - 5c)</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1}{2}((-8c^4 + 3c^3 - 10c^2 - 5) + (-5))(c)</latex>'
+        text: <latex>\frac{1}{2}((-8c^4 + 3c^3 - 10c^2 - 5) + (-5))(c)</latex>
         correct: false
     feedback:
       general: |
@@ -832,19 +832,19 @@ questions:
       <p>Determine the symbolic expression for the work done by this force as the block moves from <latex>x=0</latex> to a final position <latex>x_{end}</latex>.</p>
     answers:
     - answer:
-        text: '<latex>\tfrac{1}{2}((1.6x_{end}^4 - 2.4x_{end}^3 + 3.2x_{end}^2 + 4.8) + (4.8))(x_{end})</latex>'
+        text: <latex>\frac{1}{2}((1.6x_{end}^4 - 2.4x_{end}^3 + 3.2x_{end}^2 + 4.8) + (4.8))(x_{end})</latex>
         correct: false
     - answer:
-        text: '<latex>-(\tfrac{1.6}{5}x_{end}^5 - 0.6x_{end}^4 + \tfrac{3.2}{3}x_{end}^3 + 4.8x_{end})</latex>'
+        text: <latex>-(\frac{1.6}{5}x_{end}^5 - 0.6x_{end}^4 + \frac{3.2}{3}x_{end}^3 + 4.8x_{end})</latex>
         correct: false
     - answer:
-        text: '<latex>(1.6x_{end}^4 - 2.4x_{end}^3 + 3.2x_{end}^2 + 4.8)(x_{end})</latex>'
+        text: <latex>(1.6x_{end}^4 - 2.4x_{end}^3 + 3.2x_{end}^2 + 4.8)(x_{end})</latex>
         correct: false
     - answer:
-        text: '<latex>\tfrac{1.6}{5}x_{end}^5 - 0.6x_{end}^4 + \tfrac{3.2}{3}x_{end}^3 + 4.8x_{end}</latex>'
+        text: <latex>\frac{1.6}{5}x_{end}^5 - 0.6x_{end}^4 + \frac{3.2}{3}x_{end}^3 + 4.8x_{end}</latex>
         correct: true
     - answer:
-        text: '<latex>\tfrac{d}{dx}[\tfrac{1.6}{5}x^5 - 0.6x^4 + \tfrac{3.2}{3}x^3 + 4.8x]</latex>'
+        text: <latex>\frac{d}{dx}[\frac{1.6}{5}x^5 - 0.6x^4 + \frac{3.2}{3}x^3 + 4.8x]</latex>
         correct: false
     feedback:
       general: |

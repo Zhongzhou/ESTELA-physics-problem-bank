@@ -1,6 +1,6 @@
 bank_info:
-    title: Example Problem Bank
-    bank_id: EXP-PB1-EXMPLPB-01012026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    title: Mechanical Energy with External Work
+    bank_id: PHY1-ME1-MEWEW-10122025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
       This problem bank contains problems that belong to four variations: 
         1. an object being dropped from a height into a viscous liquid, airbag, or thick soft material, or deploys a parashoot, rocket or booster, where the object experiences some resistance or upward force, which can be approximated as constant.
