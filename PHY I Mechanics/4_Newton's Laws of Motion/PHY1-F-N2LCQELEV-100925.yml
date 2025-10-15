@@ -1,0 +1,462 @@
+bank_info:
+    title: Newton's 2nd Law of Motion Elevator Concept Questions
+    bank_id: PHY1-F-N2LCQELEV-100925 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      A set of simple conceptual questions testing Newton's 2nd Law of motion and direction of a Force given directions of velocity and acceleration/decceleration.
+    date created: 10-09-2025 # Today's date
+    learning objectives:
+        - LO3-4 N2D
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |-
+            I'm writing multiple-chocie concept questions for a university physics course testing Newton's second law of motion, involving the one-dimensional motion of an object. As a first step, please help me by generating
+            five different scenarios of an object moving in a straight line with two oposing forces acting on it. These forces could be the tension in a rope and the objects weight, the tension in a rope and the force of friction, 
+            a pushing force and friction, but both should be along the direction of the objects motion or have a component in this direction. The object may be moving horizontally, vertically, or along a ramp
+            a constant slope, as long as it is moving in a straight line and its path does not curve. The problem statement should be creative and in a narrative form, and give the object that is moving, the direction of
+            the object's motion, and wheter the object is speeding up, slowing down or moving with a constant speed. If there is a rope involved this should also be stated implicitly. The problem should then ask for which of the two opposing 
+            forces is greater. Some examples might be:
+            An elevator is held by a rope and is moving up and slowing down. 
+            A cart is moving to the east and speeding up.
+            A sled is moving to the west on a rough surface with friction and is slowing down.
+            A  box is being pulled by a rope up and moving along a smooth frictionless inclined plane but is slowing down.
+            A  box is being pulled by a rope up and moving along a smooth frictionless inclined plane and moving with a constant speed.
+        - prompt 2: |
+            The answers to the question should be some combination of:
+            Force A is greater than Force B.
+            Force B is greater than Force A.
+            Force A is equal to Force B.
+            There's not enough information to tell.
+            or similar.
+        - prompt 3: |
+            Please make sure that in writing the multiple-choice answers, you compare only the forces along the direction of motion. If a force is not directed along the
+            direction of motion, for example the weight of an object on a ramp, then the student should be prompted to compare only the component of the forces along the 
+            direction of motion. Avoid unphysical situations such as an elevator in space, a cart moving up a vertical wall etc. 
+            Make sure to vary the way in which the directions are stated, for example using up and down, east and west, north and south, forward and backward, etc.
+        - prompt 4: |
+            Write short student facing solutions for each problem. These should briefly explain why the correct answer choice is correct, and why some of the other choices would be 
+            incorrect. The explanations should rely on sound physical principles of Newton's laws of motion.
+        - formatting prompt: "./YAML_formatting_prompt.md"
+    associated data:
+        - random number generation script: "./PHY1-F-N2LCQELEV-100925-script.py"
+    generation details: # Details of the creation process
+            model: GPT 5 # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 10-14-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Michael Jay Perez
+
+questions:
+- multiple_choice:
+    id: q1
+    title: Steady Upward Speed in an Elevator
+    points: 1
+    text: A passenger stands on a bathroom scale in an elevator that moves upward
+      at a **constant speed**. Compare the normal force <latex>N</latex> from the
+      scale with the passenger's weight <latex>W</latex>. Which is greater?
+    answers:
+    - answer:
+        text: N > W
+        correct: false
+    - answer:
+        text: N = W
+        correct: true
+    - answer:
+        text: N < W
+        correct: false
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: Use Newton's 2nd Law vertically, <latex>\sum F_y = N - W = m a_y</latex>.
+        With **constant speed**, <latex>a_y = 0</latex>, so <latex>N = W</latex>.
+      on_correct: Great - constant speed means zero acceleration, so the scale reads
+        the true weight.
+      on_incorrect: Recall that constant speed implies zero acceleration, so <latex>N
+        = W</latex>.
+
+- multiple_choice:
+    id: q2
+    title: Speeding Up While Moving Up
+    points: 1
+    text: A delivery crate rests on the floor of an elevator. The elevator is moving
+      **upward and speeding up**. Compare the normal force <latex>N</latex> exerted
+      by the floor with the crate's weight <latex>W</latex>. Which is greater?
+    answers:
+    - answer:
+        text: N > W
+        correct: true
+    - answer:
+        text: N = W
+        correct: false
+    - answer:
+        text: N < W
+        correct: false
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: Apply Newton's 2nd Law, <latex> \sum F_y = N - W = m a_y </latex>. "Upward
+        and speeding up" means <latex> a_y > 0 </latex>, hence <latex>N > W</latex>.
+      on_correct: Yes - upward acceleration requires an upward-net force, so <latex>N
+        > W</latex>.
+      on_incorrect: 'Remember: speeding up in the direction of motion (up) means <latex>a_y</latex>
+        is up, so <latex>N > W</latex>.'
+
+- multiple_choice:
+    id: q3
+    title: Slowing Down While Moving Up
+    points: 1
+    text: A person rides an elevator that is moving **upward but slowing down**. Compare
+      the scale's normal force <latex>N</latex> with the person's weight <latex>W</latex>.
+      Which is greater?
+    answers:
+    - answer:
+        text: N > W
+        correct: false
+    - answer:
+        text: N = W
+        correct: false
+    - answer:
+        text: N < W
+        correct: true
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: With upward motion but slowing down, the acceleration is **downward**.
+        From <latex>\sum F_y = N - W = m a_y</latex> with <latex>a_y < 0</latex>,
+        we get <latex>N < W</latex>.
+      on_correct: Exactly - downward acceleration means the weight exceeds the normal
+        force.
+      on_incorrect: Since it's slowing while moving up, acceleration is down; that
+        requires <latex>N < W</latex>.
+
+- multiple_choice:
+    id: q4
+    title: Speeding Up While Moving Down
+    points: 1
+    text: A tool cart rests on an elevator floor. The elevator is moving **downward
+      and speeding up**. Compare the normal force <latex>N</latex> from the floor
+      with the cart's weight <latex>W</latex>. Which is greater?
+    answers:
+    - answer:
+        text: N > W
+        correct: false
+    - answer:
+        text: N = W
+        correct: false
+    - answer:
+        text: N < W
+        correct: true
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: '"Downward and speeding up" means the acceleration is **down**: <latex>a_y
+        < 0</latex>. With <latex>\sum F_y = N - W = m a_y</latex>, we have <latex>N
+        < W</latex>.'
+      on_correct: Correct - downward acceleration implies <latex>N < W</latex>.
+      on_incorrect: Think "net force follows acceleration." If <latex>a</latex> is
+        down, the larger force must be down (weight).
+
+- multiple_choice:
+    id: q5
+    title: Slowing Down While Moving Down
+    points: 1
+    text: A sealed box hangs from the elevator ceiling by a vertical rope. The elevator
+      is moving **downward but slowing down**. Compare the rope tension <latex>T</latex>
+      with the box's weight <latex>W</latex>. Which is greater?
+    answers:
+    - answer:
+        text: T > W
+        correct: true
+    - answer:
+        text: T = W
+        correct: false
+    - answer:
+        text: T < W
+        correct: false
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: Take up as positive. Moving down but **slowing** means <latex>a_y >
+        0</latex>. From <latex>\sum F_y = T - W = m a_y</latex>, we have <latex>T
+        > W</latex>.
+      on_correct: Nice - slowing while moving down means acceleration up, so <latex>T
+        > W</latex>.
+      on_incorrect: Since the box is slowing on the way down, its acceleration is
+        up; that requires <latex>T > W</latex>.
+
+- multiple_choice:
+    id: q6
+    title: Rocket Launch from Rest
+    points: 1
+    text: A small rocket launches vertically upward from rest. The engines produce
+      a constant upward thrust <latex>T</latex>. While the rocket is accelerating
+      upward, how does the thrust compare with its weight <latex>W</latex>?
+    answers:
+    - answer:
+        text: T > W
+        correct: true
+    - answer:
+        text: T = W
+        correct: false
+    - answer:
+        text: T < W
+        correct: false
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: Using Newton's 2nd Law, <latex>\sum F_y = T - W = m a_y</latex>. Since
+        <latex>a_y > 0</latex>, we have <latex>T > W</latex>.
+      on_correct: Yes - upward acceleration requires thrust greater than weight.
+      on_incorrect: To lift off and accelerate upward, the upward thrust must exceed
+        the weight.
+
+- multiple_choice:
+    id: q7
+    title: Parachutist Falling at Constant Speed
+    points: 1
+    text: A skydiver falls vertically at **constant speed** with the parachute open.
+      Compare the upward air resistance force <latex>F_{\text{air}}</latex> with the
+      skydiver's weight <latex>W</latex>.
+    answers:
+    - answer:
+        text: F_air > W
+        correct: false
+    - answer:
+        text: F_air = W
+        correct: true
+    - answer:
+        text: F_air < W
+        correct: false
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: Constant speed implies <latex>a_y = 0</latex>. From <latex>\sum F_y
+        = F_{\text{air}} - W = 0</latex>, it follows that <latex>F_{\text{air}} =
+        W</latex>.
+      on_correct: Good - terminal velocity means the upward and downward forces balance.
+      on_incorrect: Constant speed implies no acceleration, so the two forces must
+        be equal.
+
+- multiple_choice:
+    id: q8
+    title: Bungee Jumper Rebounding Upward
+    points: 1
+    text: A bungee jumper has just reached the lowest point and is pulled **upward**
+      by the stretched cord. At an instant when she is moving upward and **slowing
+      down**, compare the tension <latex>T</latex> in the cord with her weight <latex>W</latex>.
+    answers:
+    - answer:
+        text: T > W
+        correct: false
+    - answer:
+        text: T = W
+        correct: false
+    - answer:
+        text: T < W
+        correct: true
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: Define upward as positive. Moving up while slowing means <latex>a_y
+        < 0</latex> (down). With <latex>\sum F_y = T - W = m a_y</latex>, we get <latex>T
+        < W</latex>.
+      on_correct: Yes - moving up but slowing means acceleration down, so <latex>T
+        < W</latex>.
+      on_incorrect: Decelerating upward implies a downward net force; thus <latex>W
+        > T</latex>.
+
+- multiple_choice:
+    id: q9
+    title: Car Cresting a Hill
+    points: 1
+    text: A car travels over the top of a rounded hill at **constant speed**. Compare
+      the normal force <latex>N</latex> from the road with the car's weight <latex>W</latex>
+      at the very top.
+    answers:
+    - answer:
+        text: N > W
+        correct: false
+    - answer:
+        text: N = W
+        correct: false
+    - answer:
+        text: N < W
+        correct: true
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: 'At the crest, centripetal acceleration is downward: <latex>a_c = v^2/r</latex>.
+        Using <latex>W - N = m a_c</latex> gives <latex>N = W - m a_c</latex>, so
+        <latex>N < W</latex>.'
+      on_correct: Great - the road pushes less than your weight at the top of the
+        hill.
+      on_incorrect: The car accelerates downward at the crest, so the normal force
+        must be smaller than the weight.
+
+- multiple_choice:
+    id: q10
+    title: Airplane in Turbulence
+    points: 1
+    text: A coffee cup sits on a tray table in an airplane. The plane suddenly accelerates
+      **upward** for a brief moment. How does the normal force <latex>N</latex> on
+      the cup compare with its weight <latex>W</latex> during that instant?
+    answers:
+    - answer:
+        text: N > W
+        correct: true
+    - answer:
+        text: N = W
+        correct: false
+    - answer:
+        text: N < W
+        correct: false
+    - answer:
+        text: There isn't enough information to decide
+        correct: false
+    feedback:
+      general: Take upward as positive. With <latex>a_y > 0</latex>, <latex>\sum F_y
+        = N - W = m a_y</latex> implies <latex>N = W + m a_y</latex>, so <latex>N
+        > W</latex>.
+      on_correct: Right - upward acceleration increases the apparent weight.
+      on_incorrect: Since the plane accelerates upward, the tray must push harder,
+        so <latex>N > W</latex>.
+
+- multiple_choice:
+    id: q11
+    title: Subway Train Braking to a Stop
+    points: 1
+    text: A commuter stands on a subway train that is moving forward but **slowing
+      down** as it approaches a station. The horizontal force of the floor on the
+      commuter's shoes is <latex>F_{\text{floor}}</latex>. What is the direction of
+      this force on the commuter?
+    answers:
+    - answer:
+        text: Forward (same direction as motion)
+        correct: false
+    - answer:
+        text: Backward (opposite the direction of motion)
+        correct: true
+    - answer:
+        text: Upward
+        correct: false
+    - answer:
+        text: Downward
+        correct: false
+    feedback:
+      general: The train's acceleration is backward. The frictional force from the
+        floor on the commuter points backward to provide that deceleration.
+      on_correct: Yes - the backward frictional force provides the deceleration.
+      on_incorrect: The floor must push backward to slow the commuter's forward motion.
+
+- multiple_choice:
+    id: q12
+    title: Ice Skater Pushed Horizontally
+    points: 1
+    text: A skater on frictionless ice is pushed horizontally by a constant force
+      <latex>F_{\text{push}}</latex>. Air resistance is negligible. After the push
+      **ends**, what is her acceleration?
+    answers:
+    - answer:
+        text: Acceleration continues at the same rate
+        correct: false
+    - answer:
+        text: Acceleration becomes zero
+        correct: true
+    - answer:
+        text: Acceleration reverses direction
+        correct: false
+    - answer:
+        text: Acceleration increases
+        correct: false
+    feedback:
+      general: When the push ends, <latex>F_{\text{net}} = 0</latex> (no friction,
+        negligible drag), so <latex>a = 0</latex>. She continues at constant velocity.
+      on_correct: Correct - with no net force, the acceleration drops to zero.
+      on_incorrect: When the push stops, the force vanishes, so no acceleration remains.
+
+- multiple_choice:
+    id: q13
+    title: Tug-of-War at Steady Pull
+    points: 1
+    text: Two teams in a tug-of-war pull so the rope's center **does not accelerate**.
+      If the rope's tension is <latex>T</latex>, what can you say about the forces
+      each team exerts?
+    answers:
+    - answer:
+        text: Each team exerts an equal and opposite force of magnitude T
+        correct: true
+    - answer:
+        text: The team that wins exerts a greater force
+        correct: false
+    - answer:
+        text: The rope's tension must be zero
+        correct: false
+    - answer:
+        text: Only the heavier team feels a force
+        correct: false
+    feedback:
+      general: No acceleration implies zero net force. By Newton's 3rd Law, each
+        side pulls with equal magnitude and opposite direction, <latex>F_1 = F_2 =
+        T</latex>.
+      on_correct: Excellent - the balanced pulls produce no acceleration.
+      on_incorrect: Equal and opposite pulls keep the rope in equilibrium.
+
+- multiple_choice:
+    id: q14
+    title: Satellite Orbiting Earth
+    points: 1
+    text: A satellite moves in a circular orbit around Earth at constant speed. Which
+      statement about the forces is correct?
+    answers:
+    - answer:
+        text: The gravitational force equals the centripetal force in magnitude
+        correct: true
+    - answer:
+        text: There is no net force because the speed is constant
+        correct: false
+    - answer:
+        text: A forward thrust keeps the satellite moving
+        correct: false
+    - answer:
+        text: The gravitational force acts outward
+        correct: false
+    feedback:
+      general: 'The velocity continually changes direction, so there is inward (centripetal)
+        acceleration. Gravity provides exactly this: <latex>F_g = m v^2 / r</latex>.'
+      on_correct: Yes - gravity is the centripetal force that keeps it in orbit.
+      on_incorrect: The satellite is constantly accelerating inward, so a net inward
+        force must exist.
+
+- multiple_choice:
+    id: q15
+    title: Elevator Cable Failure (Free Fall)
+    points: 1
+    text: An elevator-s cable snaps and the elevator falls freely. What does a scale
+      on the floor read during the free fall?
+    answers:
+    - answer:
+        text: It reads the person's true weight
+        correct: false
+    - answer:
+        text: It reads zero
+        correct: true
+    - answer:
+        text: It reads more than the true weight
+        correct: false
+    - answer:
+        text: It fluctuates unpredictably
+        correct: false
+    feedback:
+      general: In free fall, elevator and person both accelerate downward at <latex>g</latex>,
+        so the normal force is <latex>N = 0</latex>. Scales read <latex>N</latex>,
+        hence zero.
+      on_correct: Correct - free fall means no normal force, so the scale reads zero.
+      on_incorrect: In free fall, you and the elevator fall together, removing the
+        contact force.
