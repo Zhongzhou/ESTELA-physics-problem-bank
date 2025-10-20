@@ -64,6 +64,7 @@ questions:
         correct: true
     - answer: 
         text: The magnitude of instant acceleration of the bug is equal to the magnitude of the instant acceleration of the truck
+        correct: true
 
 - multiple_answers:
     id: q-1

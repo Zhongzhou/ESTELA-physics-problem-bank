@@ -1,0 +1,1156 @@
+bank_info: ## Note: The import file will cause the ">" or "<" sign to be replaced by "&gt;" and "&lt;" when imported to Canvas.
+    title: Accelerating elevator categorization problem
+    bank_id: PHY1-N2-AECP-10172025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This is a bank of conceptual physics problems designed for a university-level course to test students' understanding of **Newton's Second Law** in one-dimensional vertical motion.
+        The problems are presented in a **categorization format**, where students must match a specific description of an object's motion to the correct physical relationship between the external applied force (like tension or normal force) and the object's weight.
+
+        Each question is grounded in a relatable, real-world scenario (e.g., an elevator, a crate on a forklift, a bucket on a crane) and covers all six fundamental states of vertical motion:
+        * Speeding up while moving upward or downward
+        * Slowing down while moving upward or downward
+        * Moving at a constant velocity upward or downward
+    date created: 10-17-2025 # Today's date 
+    learning objectives:
+
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I'm writing multiple-choice concept questions for a university physics course testing Newton's second law of motion, involving the one-dimensional motion of an object. The problem will ask students to compare gravity and the external force during acceleration. As a first step, please help me by generating fifteen different scenarios of an object moving up or down under either a pulling or a pushing force.  
+            Some examples might be:
+                          An elevator is being pulled by a cable
+                          A cat is in a basket being lowered from a window
+                        A cargo box is being lowered or lifted by a fork lift.
+            Avoid objects that are subjected to significant air resistance such as feather, avoid objects moving in outer space such as satellite or moons, avoid objects that could propel themselves such as rockets or birds, and avoid objects that is submerged in water.
+            The scenario should not contain indication of velocity such as up or down, or indication of acceleration such as "speed up" or "slow down".
+            Place all the scenarios in a table column named "scenario". 
+        - prompt 2: |
+            Examine the above scenarios, and exclude scenes in which the object is under water. Then add two columns: Direction of motion, Direction of acceleration. Each column can take three values: up, down or none, but the two columns cannot be both "none" on the same row.
+        - prompt 3: |
+            Actually, remove the rows in which the direction of motion is none.
+        - prompt 4: |
+            Add a new column to this table named "motion description" to the table, describing the motion of the object without explicitly mentioning velocity or acceleration. For example, it can say "the elevator is moving upward while speeding up" or "moving downward while slowing down", or "moving up at constant velocity". 
+        - prompt 5: |
+            Add a new column named "context rich description", which contain a complete sentence, such as "the elevator is moving upward while speeding up". Also, use several different expressions for different contexts, such as "moving up at an increasing rate" or "moving towards a lower floor while slowing down", or "being lifted upwards with an increasing speed".
+        - prompt 6: |
+            Add a new column named "External Force", that contains a description and a symbol of the external force, such as "tension (T) in the cable" or "normal force (N) by the hand"
+        - prompt 7: |
+            Add a new column named "Weight comparison", comparing the external force with the weight of the object (W), for each situation. It should contain expression such as "T > W" or "N = W", according to the direction of the acceleration.
+        - prompt 8: |
+            Add a new column to the table named "Problem body", which follow this template:
+            [Scenario] Compare the [External Force] with the weight W of the [object] in each of the following three situations, and drag the correct relation to the corresponding situations.
+        - prompt 9: |
+                        Now write two categorization problems for each scenario. The categorization problem follows the following yaml template format:
+                        ```yaml
+                        - categorization:
+                            id: question_categorization_1
+                            title: Categorization
+                            points: 1
+                            text: A categorization question for which answer options must be correctly sorted into categories, with some optionally defined distractors.
+            
+                            categories:
+                            # each category requires the 'description' and 'answers' properties
+                            - category:
+                                description: Category 1
+                                # the 'answers' property needs to be an array containing at least
+                                #  one string element
+                                answers:
+                                - Category 1 Item 1
+                                - Category 1 Item 2
+                                - Category 1 Item 3
+                            - category:
+                                description: Category 2
+                                answers:
+                                - Category 2 Item 1
+                            - category:
+                                description: Category 3
+                                answers:
+                                - Category 3 Item 1
+                                - Category 3 Item 2
+                        ```
+                        The text field of both problems comes from the problem body column. Each category should correspond to one of the six rows for each scenario. The category descriptions should come from the context rich description, and each category should only have one item, coming from the Weight Comparison column, but use plain text instead of latex. 
+                        For problem one, Category 1: row 1, category 2: row 3; category 3: row 5 (odd rows)
+                        For problem two, Category 1: row 2, category 2: row 4; category 3: row 6 (even rows)
+                        Try writing the problem yaml for the first scenario.
+        - prompt 10: |
+            This looks good. Can you do the same for all the scenarios in the table?
+        - prompt 11: |
+            How many scenarios are there in this bank?
+        - prompt 12: |
+            Try and write a concise solution for problem 1
+        - prompt 13: |
+            Now turn it into yaml code following the example here:
+            ``` yaml
+                feedback:
+                    general: |
+                        General feedback, or the solution to the problem.
+                         Standard text following Markdown formatting rules.  
+                         For best results, include blank lines between blocks of text or two blank spaces at the end of each line to insert line breaks.  
+                         **Bold text.**  
+                         *Italicized text.*  
+                         <sup>Superscript text must use standard HTML tags.</sup>  
+                         <sub>Subscript text must use standard HTML tags.</sub>  
+                         Degree ° Theta θ Delta Δ Pi π and other special characters can be inserted literally or using the character's corresponding HTML hex code.  
+                         Mathematical equations can be written using LaTeX and contained within nonstandard 'latex' HTML-like tags.  
+                         The tags and corresponding LaTeX may be written inline:<latex>\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}</latex>  
+                         The tags and corresponding LaTeX may also be written on separate lines:
+                         <latex>
+                         a^2 + b^2 = c^2
+                         </latex>
+                    on_correct: Good job!
+                    on_incorrect: Try again
+            ```
+            Append
+        - prompt 14: |
+            modify this feedback for problem 2
+        - prompt 15: |
+            Now append the feedback field to yaml of problems 1 and 2
+        - prompt 16: |
+            Now generate the solution in the same format for problems 3, 4, 5, 6, and output the yaml file.
+        - prompt 17: |
+            Can you do it for the bucket of concrete scenario?
+        - prompt 18: |
+            Now can you do the same for all the remaining scenarios?
+    updates: 
+        - update 1:  
+        - update 2: (date of update) who did what #this is an example.
+    associated data:
+        - problem table: 
+    generation details: # Details of the creation process
+            model: Gemini-Pro # The model used to generate the questions
+            version: 2.5 # The version of the model used
+            last updated: 10-17-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+
+questions:
+# The following contents should be replaced by the output of the LLM.
+- categorization:
+    id: elevator_categorization_1
+    title: 'Newton''s Second Law: Elevator Motion 1'
+    points: 1
+    text: A passenger elevator is supported by its main cable. Compare the tension (T) from the cable with the weight W of the elevator in each of the following three situations, and drag the correct relation to the corresponding situations.
+
+    categories:
+    - category:
+        description: The elevator is ascending while speeding up.
+        answers:
+        - T > W
+    - category:
+        description: The elevator is ascending at a constant speed.
+        answers:
+        - T = W
+    - category:
+        description: The elevator is descending at an increasing rate.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between tension (<latex>T</latex>) and weight (<latex>W</latex>) is determined by the elevator's acceleration (<latex>a</latex>) according to Newton's Second Law. If we define the upward direction as positive, the net force on the elevator is given by <latex>\sum F = T - W = ma</latex>. This equation can be rearranged to solve for tension: <latex>T = W + ma</latex>.
+
+        This core relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Ascending while speeding up.** The elevator has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is a positive value.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 2: Ascending at a constant speed.** The elevator has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+
+        * **Situation 3: Descending at an increasing rate.** The elevator is speeding up in the downward direction, which means it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is a negative value.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+
+- categorization:
+    id: elevator_categorization_1
+    title: 'Newton''s Second Law: Elevator Motion 1'
+    points: 1
+    text: A passenger elevator is supported by its main cable. Compare the tension (T) from the cable with the weight W of the elevator in each of the following three situations, and drag the correct relation to the corresponding situations.
+
+    categories:
+    - category:
+        description: The elevator is ascending while speeding up.
+        answers:
+        - T > W
+    - category:
+        description: The elevator is ascending at a constant speed.
+        answers:
+        - T = W
+    - category:
+        description: The elevator is descending at an increasing rate.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between tension (<latex>T</latex>) and weight (<latex>W</latex>) is determined by the elevator's acceleration (<latex>a</latex>) according to Newton's Second Law. If we define the upward direction as positive, the net force on the elevator is given by <latex>\sum F = T - W = ma</latex>. This equation can be rearranged to solve for tension: <latex>T = W + ma</latex>.
+
+        This core relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Ascending while speeding up.** The elevator has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is a positive value.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 2: Ascending at a constant speed.** The elevator has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+
+        * **Situation 3: Descending at an increasing rate.** The elevator is speeding up in the downward direction, which means it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is a negative value.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+
+- categorization:
+    id: bucket_categorization_1
+    title: 'Newton''s Second Law: Bucket Motion 1'
+    points: 1
+    text: A bucket of concrete is attached to a crane's cable. Compare the tension (T) from the cable with the weight W of the bucket in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The bucket is being lifted with increasing speed.
+        answers:
+        - T > W
+    - category:
+        description: The bucket is ascending at a constant velocity.
+        answers:
+        - T = W
+    - category:
+        description: The bucket is descending and picking up speed.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between the tension in the cable (<latex>T</latex>) and the bucket's weight (<latex>W</latex>) is governed by Newton's Second Law. By defining the upward direction as positive, the net force on the bucket is <latex>\sum F = T - W = ma</latex>. We can rearrange this to solve for tension: <latex>T = W + ma</latex>.
+
+        This equation helps us understand each case:
+
+        ***
+
+        * **Situation 1: Lifted with increasing speed.** The bucket has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 2: Ascending at a constant velocity.** The bucket has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+
+        * **Situation 3: Descending and picking up speed.** The bucket is speeding up downwards, so it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+      on_correct: Excellent!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: bucket_categorization_2
+    title: 'Newton''s Second Law: Bucket Motion 2'
+    points: 1
+    text: A bucket of concrete is attached to a crane's cable. Compare the tension (T) from the cable with the weight W of the bucket in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The bucket is moving upward, but its ascent is slowing.
+        answers:
+        - T < W
+    - category:
+        description: The bucket is being lowered while slowing down.
+        answers:
+        - T > W
+    - category:
+        description: The bucket is being lowered at a steady rate.
+        answers:
+        - T = W
+    feedback:
+      general: |
+        The relationship between the tension in the cable (<latex>T</latex>) and the bucket's weight (<latex>W</latex>) is governed by Newton's Second Law. By defining the upward direction as positive, the net force on the bucket is <latex>\sum F = T - W = ma</latex>. We can rearrange this to solve for tension: <latex>T = W + ma</latex>.
+
+        This equation helps us understand each case:
+
+        ***
+
+        * **Situation 1: Moving upward, but its ascent is slowing.** The bucket is moving up but slowing down, which means it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+
+        * **Situation 2: Being lowered while slowing down.** The bucket is moving down but slowing, so its acceleration is in the opposite (upward) direction. It has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 3: Being lowered at a steady rate.** Moving at a steady rate means the velocity is constant, so there is **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.      
+
+
+- categorization:
+    id: barbell_categorization_1
+    title: 'Newton''s Second Law: Barbell Motion 1'
+    points: 1
+    text: A barbell is in the hands of a weightlifter. Compare the normal force (N) from the hands with the weight W of the barbell in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The weightlifter is pushing the barbell upward with increasing speed.
+        answers:
+        - N > W
+    - category:
+        description: The weightlifter is lifting the barbell upward at a constant speed.
+        answers:
+        - N = W
+    - category:
+        description: The weightlifter is lowering the barbell with increasing speed.
+        answers:
+        - N < W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) and weight (<latex>W</latex>) is determined by the barbell's acceleration (<latex>a</latex>) according to Newton's Second Law. If we define the upward direction as positive, the net force on the barbell is given by <latex>\sum F = N - W = ma</latex>. This can be rearranged to solve for the normal force: <latex>N = W + ma</latex>.
+
+        This core relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Pushing upward with increasing speed.** The barbell has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is a positive value.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 2: Lifting upward at a constant speed.** The barbell has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+
+        * **Situation 3: Lowering with increasing speed.** The barbell is speeding up in the downward direction, so it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is a negative value.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: barbell_categorization_2
+    title: 'Newton''s Second Law: Barbell Motion 2'
+    points: 1
+    text: A barbell is in the hands of a weightlifter. Compare the normal force (N) from the hands with the weight W of the barbell in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The weightlifter is lifting the barbell, but the upward motion is slowing down.
+        answers:
+        - N < W
+    - category:
+        description: The weightlifter is lowering the barbell while bringing it to a stop.
+        answers:
+        - N > W
+    - category:
+        description: The weightlifter is lowering the barbell at a steady pace.
+        answers:
+        - N = W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) and weight (<latex>W</latex>) is determined by the barbell's acceleration (<latex>a</latex>) according to Newton's Second Law. If we define the upward direction as positive, the net force on the barbell is given by <latex>\sum F = N - W = ma</latex>. This can be rearranged to solve for the normal force: <latex>N = W + ma</latex>.
+
+        This core relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Lifting, but the upward motion is slowing down.** The barbell is moving up but slowing, which means it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is a negative value.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+
+        * **Situation 2: Lowering while bringing it to a stop.** The barbell is moving down but slowing, so the acceleration is in the opposite (upward) direction. It has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is a positive value.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 3: Lowering at a steady pace.** Moving at a steady pace means the velocity is constant, so there is **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+
+- categorization:
+    id: crate_categorization_1
+    title: 'Newton''s Second Law: Crate Motion 1'
+    points: 1
+    text: A crate of supplies rests on the platform of a forklift. Compare the normal force (N) from the platform with the weight W of the crate in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The crate is being raised and speeding up.
+        answers:
+        - N > W
+    - category:
+        description: The crate is being lifted at a constant speed.
+        answers:
+        - N = W
+    - category:
+        description: The crate is moving downward at an increasing rate.
+        answers:
+        - N < W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) and the crate's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>) based on Newton's Second Law. Defining the upward direction as positive, the net force on the crate is <latex>\sum F = N - W = ma</latex>. This can be rewritten as <latex>N = W + ma</latex>.
+
+        This core relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Being raised and speeding up.** The crate has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 2: Being lifted at a constant speed.** The crate has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+
+        * **Situation 3: Moving downward at an increasing rate.** The crate is speeding up downwards, so it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+
+
+- categorization:
+    id: crate_categorization_2
+    title: 'Newton''s Second Law: Crate Motion 2'
+    points: 1
+    text: A crate of supplies rests on the platform of a forklift. Compare the normal force (N) from the platform with the weight W of the crate in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The crate is ascending but losing speed.
+        answers:
+        - N < W
+    - category:
+        description: The crate is being lowered while slowing down.
+        answers:
+        - N > W
+    - category:
+        description: The crate is descending at a constant velocity.
+        answers:
+        - N = W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) and the crate's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>) based on Newton's Second Law. Defining the upward direction as positive, the net force on the crate is <latex>\sum F = N - W = ma</latex>. This can be rewritten as <latex>N = W + ma</latex>.
+
+        This core relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Ascending but losing speed.** The crate is moving up but slowing, which means it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+
+        * **Situation 2: Being lowered while slowing down.** The crate is moving down but slowing, so its acceleration is in the opposite (upward) direction. It has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 3: Descending at a constant velocity.** Moving at a constant velocity means there is **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+
+- categorization:
+    id: harness_categorization_1
+    title: 'Newton''s Second Law: Rescue Harness Motion 1'
+    points: 1
+    text: A person is in a rescue harness connected to a helicopter winch. Compare the tension (T) from the cable with the weight W of the person in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The person is being winched upward with increasing speed.
+        answers:
+        - T > W
+    - category:
+        description: The person is being lifted at a steady rate.
+        answers:
+        - T = W
+    - category:
+        description: The person is being winched downward at an increasing speed.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between the tension (<latex>T</latex>) and the person's weight (<latex>W</latex>) is determined by their acceleration (<latex>a</latex>) according to Newton's Second Law. If we define the upward direction as positive, the net force is <latex>\sum F = T - W = ma</latex>. This can be rearranged as <latex>T = W + ma</latex>.
+
+        This relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Winched upward with increasing speed.** The person has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 2: Lifted at a steady rate.** The person has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+
+        * **Situation 3: Winched downward at an increasing speed.** The person is speeding up downwards, so they have a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: harness_categorization_2
+    title: 'Newton''s Second Law: Rescue Harness Motion 2'
+    points: 1
+    text: A person is in a rescue harness connected to a helicopter winch. Compare the tension (T) from the cable with the weight W of the person in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The person is rising but their ascent is slowing.
+        answers:
+        - T < W
+    - category:
+        description: The person is being lowered but their descent is slowing.
+        answers:
+        - T > W
+    - category:
+        description: The person is descending at a constant speed.
+        answers:
+        - T = W
+    feedback:
+      general: |
+        The relationship between the tension (<latex>T</latex>) and the person's weight (<latex>W</latex>) is determined by their acceleration (<latex>a</latex>) according to Newton's Second Law. If we define the upward direction as positive, the net force is <latex>\sum F = T - W = ma</latex>. This can be rearranged as <latex>T = W + ma</latex>.
+
+        This relationship allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Rising but their ascent is slowing.** The person is moving up but slowing, which means they have a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+
+        * **Situation 2: Being lowered but their descent is slowing.** The person is moving down but slowing, so the acceleration is opposite to the motion (upward). They have an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 3: Descending at a constant speed.** Descending at a constant speed means there is **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: flag_categorization_1
+    title: 'Newton''s Second Law: Flag Motion 1'
+    points: 1
+    text: A large flag is attached to the rope on a flagpole. Compare the tension (T) from the rope with the weight W of the flag in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The flag is being raised up the pole and is speeding up.
+        answers:
+        - T > W
+    - category:
+        description: The flag is being hoisted at a constant velocity.
+        answers:
+        - T = W
+    - category:
+        description: The flag is moving down the pole at an increasing rate.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between the rope's tension (<latex>T</latex>) and the flag's weight (<latex>W</latex>) depends on the flag's acceleration (<latex>a</latex>), according to <latex>\sum F = ma</latex>. Taking 'up' as the positive direction, the net force is <latex>T - W = ma</latex>, which means <latex>T = W + ma</latex>.
+
+        Using this relationship, we can analyze the motions:
+
+        ***
+
+        * **Situation 1: Raised up the pole and speeding up.** The flag has an **upward (positive) acceleration**. With <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, resulting in **<latex>T > W</latex>**.
+
+        * **Situation 2: Hoisted at a constant velocity.** The flag has **zero acceleration**. With <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, resulting in **<latex>T = W</latex>**.
+
+        * **Situation 3: Moving down at an increasing rate.** The flag has a **downward (negative) acceleration**. With <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, resulting in **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: flag_categorization_2
+    title: 'Newton''s Second Law: Flag Motion 2'
+    points: 1
+    text: A large flag is attached to the rope on a flagpole. Compare the tension (T) from the rope with the weight W of the flag in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The flag is ascending but its speed is decreasing.
+        answers:
+        - T < W
+    - category:
+        description: The flag is being lowered but is slowing down.
+        answers:
+        - T > W
+    - category:
+        description: The flag is being lowered at a steady pace.
+        answers:
+        - T = W
+    feedback:
+      general: |
+        The relationship between the rope's tension (<latex>T</latex>) and the flag's weight (<latex>W</latex>) depends on the flag's acceleration (<latex>a</latex>), according to <latex>\sum F = ma</latex>. Taking 'up' as the positive direction, the net force is <latex>T - W = ma</latex>, which means <latex>T = W + ma</latex>.
+
+        Using this relationship, we can analyze the motions:
+
+        ***
+
+        * **Situation 1: Ascending but its speed is decreasing.** The flag is moving up but slowing, so it has a **downward (negative) acceleration**. With <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, resulting in **<latex>T < W</latex>**.
+
+        * **Situation 2: Being lowered but is slowing down.** The flag is moving down but slowing, so its acceleration must be upward. It has an **upward (positive) acceleration**. With <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, resulting in **<latex>T > W</latex>**.
+
+        * **Situation 3: Being lowered at a steady pace.** Moving at a steady pace means there is **zero acceleration**. With <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, resulting in **<latex>T = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: car_lift_categorization_1
+    title: 'Newton''s Second Law: Car Lift Motion 1'
+    points: 1
+    text: A car is positioned on the platform of a hydraulic lift. Compare the normal force (N) from the platform with the weight W of the car in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The car is being lifted upwards and gaining speed.
+        answers:
+        - N > W
+    - category:
+        description: The car is ascending at a constant speed.
+        answers:
+        - N = W
+    - category:
+        description: The car is being lowered with an increasing speed.
+        answers:
+        - N < W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) from the platform and the car's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>). Using Newton's Second Law and defining 'up' as positive, the net force is <latex>\sum F = N - W = ma</latex>. This gives the relation <latex>N = W + ma</latex>.
+
+        Let's apply this to the situations:
+
+        ***
+
+        * **Situation 1: Lifted upwards and gaining speed.** The car has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 2: Ascending at a constant speed.** The car has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+
+        * **Situation 3: Lowered with an increasing speed.** The car is speeding up downwards, so it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: car_lift_categorization_2
+    title: 'Newton''s Second Law: Car Lift Motion 2'
+    points: 1
+    text: A car is positioned on the platform of a hydraulic lift. Compare the normal force (N) from the platform with the weight W of the car in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The car is rising, but its upward motion is slowing.
+        answers:
+        - N < W
+    - category:
+        description: The car is descending while slowing to a stop.
+        answers:
+        - N > W
+    - category:
+        description: The car is moving downward at a constant velocity.
+        answers:
+        - N = W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) from the platform and the car's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>). Using Newton's Second Law and defining 'up' as positive, the net force is <latex>\sum F = N - W = ma</latex>. This gives the relation <latex>N = W + ma</latex>.
+
+        Let's apply this to the situations:
+
+        ***
+
+        * **Situation 1: Rising, but its upward motion is slowing.** The car is moving up but slowing, meaning it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+
+        * **Situation 2: Descending while slowing to a stop.** The car is moving down but slowing, so its acceleration is in the opposite (upward) direction. It has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 3: Moving downward at a constant velocity.** Moving at a constant velocity means there is **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: curtain_categorization_1
+    title: 'Newton''s Second Law: Curtain Motion 1'
+    points: 1
+    text: A theatrical curtain is being moved by its rigging ropes. Compare the tension (T) from the ropes with the weight W of the curtain in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The curtain is rising at an increasing rate.
+        answers:
+        - T > W
+    - category:
+        description: The curtain is rising at a steady speed.
+        answers:
+        - T = W
+    - category:
+        description: The curtain is descending and speeding up.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between the tension (<latex>T</latex>) and the curtain's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>) via Newton's Second Law. Let's define the upward direction as positive. The net force is <latex>\sum F = T - W = ma</latex>, which can be rearranged to <latex>T = W + ma</latex>.
+
+        We can use this equation to analyze each situation:
+
+        ***
+
+        * **Situation 1: Rising at an increasing rate.** The curtain has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 2: Rising at a steady speed.** The curtain has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+
+        * **Situation 3: Descending and speeding up.** The curtain has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: curtain_categorization_2
+    title: 'Newton''s Second Law: Curtain Motion 2'
+    points: 1
+    text: A theatrical curtain is being moved by its rigging ropes. Compare the tension (T) from the ropes with the weight W of the curtain in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The curtain is ascending but losing speed.
+        answers:
+        - T < W
+    - category:
+        description: The curtain is being lowered but is slowing down.
+        answers:
+        - T > W
+    - category:
+        description: The curtain is being lowered at a constant speed.
+        answers:
+        - T = W
+    feedback:
+      general: |
+        The relationship between the tension (<latex>T</latex>) and the curtain's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>) via Newton's Second Law. Let's define the upward direction as positive. The net force is <latex>\sum F = T - W = ma</latex>, which can be rearranged to <latex>T = W + ma</latex>.
+
+        We can use this equation to analyze each situation:
+
+        ***
+
+        * **Situation 1: Ascending but losing speed.** The curtain is moving up but slowing, so it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+
+        * **Situation 2: Being lowered but is slowing down.** The curtain is moving down but slowing, so its acceleration must be in the opposite (upward) direction. It has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 3: Being lowered at a constant speed.** Moving at a constant speed implies **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: mining_cart_categorization_1
+    title: 'Newton''s Second Law: Mining Cart Motion 1'
+    points: 1
+    text: A mining cart is being transported by a vertical lift cable. Compare the tension (T) from the cable with the weight W of the mining cart in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The mining cart is ascending out of the mine and speeding up.
+        answers:
+        - T > W
+    - category:
+        description: The mining cart is being lifted at a constant speed.
+        answers:
+        - T = W
+    - category:
+        description: The mining cart is moving downward at an increasing speed.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between the cable tension (<latex>T</latex>) and the cart's weight (<latex>W</latex>) depends on the cart's acceleration (<latex>a</latex>). According to Newton's Second Law, if 'up' is the positive direction, the net force is <latex>\sum F = T - W = ma</latex>. This gives us the equation <latex>T = W + ma</latex>.
+
+        Let's analyze the three motions:
+
+        ***
+
+        * **Situation 1: Ascending and speeding up.** The cart has an **upward (positive) acceleration**. Because <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, and so **<latex>T > W</latex>**.
+
+        * **Situation 2: Lifted at a constant speed.** The cart has **zero acceleration**. Because <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, and so **<latex>T = W</latex>**.
+
+        * **Situation 3: Moving downward at an increasing speed.** The cart has a **downward (negative) acceleration**. Because <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, and so **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: mining_cart_categorization_2
+    title: 'Newton''s Second Law: Mining Cart Motion 2'
+    points: 1
+    text: A mining cart is being transported by a vertical lift cable. Compare the tension (T) from the cable with the weight W of the mining cart in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The mining cart is moving upward but its speed is decreasing.
+        answers:
+        - T < W
+    - category:
+        description: The mining cart is descending into the mine while slowing down.
+        answers:
+        - T > W
+    - category:
+        description: The mining cart is being lowered at a steady rate.
+        answers:
+        - T = W
+    feedback:
+      general: |
+        The relationship between the cable tension (<latex>T</latex>) and the cart's weight (<latex>W</latex>) depends on the cart's acceleration (<latex>a</latex>). According to Newton's Second Law, if 'up' is the positive direction, the net force is <latex>\sum F = T - W = ma</latex>. This gives us the equation <latex>T = W + ma</latex>.
+
+        Let's analyze the three motions:
+
+        ***
+
+        * **Situation 1: Moving upward but its speed is decreasing.** The cart is moving up while slowing, so it has a **downward (negative) acceleration**. Because <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, and so **<latex>T < W</latex>**.
+
+        * **Situation 2: Descending while slowing down.** The cart is moving down while slowing, so its acceleration is in the opposite (upward) direction. It has an **upward (positive) acceleration**. Because <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, and so **<latex>T > W</latex>**.
+
+        * **Situation 3: Lowered at a steady rate.** Moving at a steady rate means there is **zero acceleration**. Because <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, and so **<latex>T = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: pipes_categorization_1
+    title: 'Newton''s Second Law: Steel Pipes Motion 1'
+    points: 1
+    text: A bundle of steel pipes is held by an industrial electromagnet. Compare the magnetic force (F_mag) from the electromagnet with the weight W of the bundle of pipes in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The bundle of pipes is being lifted and is speeding up.
+        answers:
+        - F_mag > W
+    - category:
+        description: The bundle of pipes is moving upward at a constant velocity.
+        answers:
+        - F_mag = W
+    - category:
+        description: The bundle of pipes is moving downward with increasing speed.
+        answers:
+        - F_mag < W
+    feedback:
+      general: |
+        The relationship between the magnetic force (<latex>F_{mag}</latex>) and the pipes' weight (<latex>W</latex>) is determined by the acceleration (<latex>a</latex>) of the bundle. Using Newton's Second Law and setting the upward direction as positive, the net force is <latex>\sum F = F_{mag} - W = ma</latex>. This can be written as <latex>F_{mag} = W + ma</latex>.
+
+        This equation allows us to analyze the situations:
+
+        ***
+
+        * **Situation 1: Lifted and speeding up.** The pipes have an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>F_{mag} = W + (\text{positive value})</latex>, which means **<latex>F_{mag} > W</latex>**.
+
+        * **Situation 2: Moving upward at a constant velocity.** The pipes have **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>F_{mag} = W + 0</latex>, which means **<latex>F_{mag} = W</latex>**.
+
+        * **Situation 3: Moving downward with increasing speed.** The pipes have a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>F_{mag} = W + (\text{negative value})</latex>, which means **<latex>F_{mag} < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: pipes_categorization_2
+    title: 'Newton''s Second Law: Steel Pipes Motion 2'
+    points: 1
+    text: A bundle of steel pipes is held by an industrial electromagnet. Compare the magnetic force (F_mag) from the electromagnet with the weight W of the bundle of pipes in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The bundle of pipes is ascending but slowing down.
+        answers:
+        - F_mag < W
+    - category:
+        description: The bundle of pipes is being lowered and is slowing its descent.
+        answers:
+        - F_mag > W
+    - category:
+        description: The bundle of pipes is descending at a steady speed.
+        answers:
+        - F_mag = W
+    feedback:
+      general: |
+        The relationship between the magnetic force (<latex>F_{mag}</latex>) and the pipes' weight (<latex>W</latex>) is determined by the acceleration (<latex>a</latex>) of the bundle. Using Newton's Second Law and setting the upward direction as positive, the net force is <latex>\sum F = F_{mag} - W = ma</latex>. This can be written as <latex>F_{mag} = W + ma</latex>.
+
+        This equation allows us to analyze the situations:
+
+        ***
+
+        * **Situation 1: Ascending but slowing down.** The pipes are moving up but slowing, which implies a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>F_{mag} = W + (\text{negative value})</latex>, which means **<latex>F_{mag} < W</latex>**.
+
+        * **Situation 2: Being lowered and slowing its descent.** The pipes are moving down but slowing, so the acceleration must be upward. They have an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>F_{mag} = W + (\text{positive value})</latex>, which means **<latex>F_{mag} > W</latex>**.
+
+        * **Situation 3: Descending at a steady speed.** Moving at a steady speed means there is **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>F_{mag} = W + 0</latex>, which means **<latex>F_{mag} = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: chandelier_categorization_1
+    title: 'Newton''s Second Law: Chandelier Motion 1'
+    points: 1
+    text: A large chandelier is suspended from a ceiling by its chain. Compare the tension (T) from the chain with the weight W of the chandelier in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The chandelier is being hoisted upward with increasing speed.
+        answers:
+        - T > W
+    - category:
+        description: The chandelier is ascending at a constant rate.
+        answers:
+        - T = W
+    - category:
+        description: The chandelier is descending and picking up speed.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between the chain's tension (<latex>T</latex>) and the chandelier's weight (<latex>W</latex>) is governed by Newton's Second Law, <latex>\sum F = ma</latex>. Defining 'up' as the positive direction, the net force is <latex>T - W = ma</latex>, so <latex>T = W + ma</latex>.
+
+        Let's analyze the three scenarios:
+
+        ***
+
+        * **Situation 1: Hoisted upward with increasing speed.** The chandelier has an **upward (positive) acceleration**. Because <latex>a > 0</latex>, <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 2: Ascending at a constant rate.** The chandelier has **zero acceleration**. Because <latex>a = 0</latex>, <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+
+        * **Situation 3: Descending and picking up speed.** The chandelier has a **downward (negative) acceleration**. Because <latex>a < 0</latex>, <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: chandelier_categorization_2
+    title: 'Newton''s Second Law: Chandelier Motion 2'
+    points: 1
+    text: A large chandelier is suspended from a ceiling by its chain. Compare the tension (T) from the chain with the weight W of the chandelier in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The chandelier is rising but its speed is decreasing.
+        answers:
+        - T < W
+    - category:
+        description: The chandelier is being lowered but is slowing down.
+        answers:
+        - T > W
+    - category:
+        description: The chandelier is being lowered at a constant speed.
+        answers:
+        - T = W
+    feedback:
+      general: |
+        The relationship between the chain's tension (<latex>T</latex>) and the chandelier's weight (<latex>W</latex>) is governed by Newton's Second Law, <latex>\sum F = ma</latex>. Defining 'up' as the positive direction, the net force is <latex>T - W = ma</latex>, so <latex>T = W + ma</latex>.
+
+        Let's analyze the three scenarios:
+
+        ***
+
+        * **Situation 1: Rising but its speed is decreasing.** The chandelier is moving up but slowing down, meaning it has a **downward (negative) acceleration**. Because <latex>a < 0</latex>, <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, which means **<latex>T < W</latex>**.
+
+        * **Situation 2: Lowered but is slowing down.** The chandelier is moving down but slowing, so its acceleration is in the opposite, upward direction. It has an **upward (positive) acceleration**. Because <latex>a > 0</latex>, <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, which means **<latex>T > W</latex>**.
+
+        * **Situation 3: Lowered at a constant speed.** Moving at a constant speed means there is **zero acceleration**. Because <latex>a = 0</latex>, <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, which means **<latex>T = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: glass_pane_categorization_1
+    title: 'Newton''s Second Law: Glass Pane Motion 1'
+    points: 1
+    text: A large pane of glass is being positioned by a suction cup lifter. Compare the lifting force (F_lift) from the suction cup with the weight W of the pane of glass in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The pane of glass is ascending and speeding up.
+        answers:
+        - F_lift > W
+    - category:
+        description: The pane of glass is moving upward at a steady pace.
+        answers:
+        - F_lift = W
+    - category:
+        description: The pane of glass is descending with increasing speed.
+        answers:
+        - F_lift < W
+    feedback:
+      general: |
+        The relationship between the lifting force (<latex>F_{lift}</latex>) and the glass pane's weight (<latex>W</latex>) depends on its acceleration (<latex>a</latex>). According to Newton's Second Law, with 'up' as the positive direction, the net force is <latex>\sum F = F_{lift} - W = ma</latex>. Rearranging gives <latex>F_{lift} = W + ma</latex>.
+
+        Let's examine each case:
+
+        ***
+
+        * **Situation 1: Ascending and speeding up.** The pane has an **upward (positive) acceleration**. With <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>F_{lift} = W + (\text{positive value})</latex>, so **<latex>F_{lift} > W</latex>**.
+
+        * **Situation 2: Moving upward at a steady pace.** The pane has **zero acceleration**. With <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>F_{lift} = W + 0</latex>, so **<latex>F_{lift} = W</latex>**.
+
+        * **Situation 3: Descending with increasing speed.** The pane has a **downward (negative) acceleration**. With <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>F_{lift} = W + (\text{negative value})</latex>, so **<latex>F_{lift} < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: glass_pane_categorization_2
+    title: 'Newton''s Second Law: Glass Pane Motion 2'
+    points: 1
+    text: A large pane of glass is being positioned by a suction cup lifter. Compare the lifting force (F_lift) from the suction cup with the weight W of the pane of glass in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The pane of glass is being lifted, but its motion is slowing.
+        answers:
+        - F_lift < W
+    - category:
+        description: The pane of glass is moving downward but slowing to a stop.
+        answers:
+        - F_lift > W
+    - category:
+        description: The pane of glass is being lowered at a constant velocity.
+        answers:
+        - F_lift = W
+    feedback:
+      general: |
+        The relationship between the lifting force (<latex>F_{lift}</latex>) and the glass pane's weight (<latex>W</latex>) depends on its acceleration (<latex>a</latex>). According to Newton's Second Law, with 'up' as the positive direction, the net force is <latex>\sum F = F_{lift} - W = ma</latex>. Rearranging gives <latex>F_{lift} = W + ma</latex>.
+
+        Let's examine each case:
+
+        ***
+
+        * **Situation 1: Lifted, but its motion is slowing.** The pane is moving up but slowing, so it has a **downward (negative) acceleration**. With <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>F_{lift} = W + (\text{negative value})</latex>, so **<latex>F_{lift} < W</latex>**.
+
+        * **Situation 2: Moving downward but slowing to a stop.** The pane is moving down but slowing, so its acceleration is directed upward. It has an **upward (positive) acceleration**. With <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>F_{lift} = W + (\text{positive value})</latex>, so **<latex>F_{lift} > W</latex>**.
+
+        * **Situation 3: Lowered at a constant velocity.** Moving at a constant velocity means there is **zero acceleration**. With <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>F_{lift} = W + 0</latex>, so **<latex>F_{lift} = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: dumbwaiter_categorization_1
+    title: 'Newton''s Second Law: Dumbwaiter Motion 1'
+    points: 1
+    text: A dumbwaiter is supported by its rope. Compare the tension (T) from the rope with the weight W of the dumbwaiter in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The dumbwaiter is moving to a higher floor at an increasing rate.
+        answers:
+        - T > W
+    - category:
+        description: The dumbwaiter is rising at a constant speed.
+        answers:
+        - T = W
+    - category:
+        description: The dumbwaiter is moving to a lower floor and speeding up.
+        answers:
+        - T < W
+    feedback:
+      general: |
+        The relationship between the tension (<latex>T</latex>) and the dumbwaiter's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>) using Newton's Second Law. Let's set the upward direction as positive. The net force is <latex>\sum F = T - W = ma</latex>, which can be rearranged to <latex>T = W + ma</latex>.
+
+        This equation allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Moving to a higher floor at an increasing rate.** The dumbwaiter has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, meaning **<latex>T > W</latex>**.
+
+        * **Situation 2: Rising at a constant speed.** The dumbwaiter has **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, meaning **<latex>T = W</latex>**.
+
+        * **Situation 3: Moving to a lower floor and speeding up.** The dumbwaiter has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, meaning **<latex>T < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: dumbwaiter_categorization_2
+    title: 'Newton''s Second Law: Dumbwaiter Motion 2'
+    points: 1
+    text: A dumbwaiter is supported by its rope. Compare the tension (T) from the rope with the weight W of the dumbwaiter in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The dumbwaiter is ascending, but its speed is decreasing.
+        answers:
+        - T < W
+    - category:
+        description: The dumbwaiter is descending while slowing down.
+        answers:
+        - T > W
+    - category:
+        description: The dumbwaiter is being lowered at a steady speed.
+        answers:
+        - T = W
+    feedback:
+      general: |
+        The relationship between the tension (<latex>T</latex>) and the dumbwaiter's weight (<latex>W</latex>) is determined by its acceleration (<latex>a</latex>) using Newton's Second Law. Let's set the upward direction as positive. The net force is <latex>\sum F = T - W = ma</latex>, which can be rearranged to <latex>T = W + ma</latex>.
+
+        This equation allows us to analyze each situation:
+
+        ***
+
+        * **Situation 1: Ascending, but its speed is decreasing.** The dumbwaiter is moving up but slowing, so it has a **downward (negative) acceleration**. Since <latex>a < 0</latex>, the term <latex>ma</latex> is negative.
+            Therefore, <latex>T = W + (\text{negative value})</latex>, meaning **<latex>T < W</latex>**.
+
+        * **Situation 2: Descending while slowing down.** The dumbwaiter is moving down but slowing, so its acceleration is in the opposite (upward) direction. It has an **upward (positive) acceleration**. Since <latex>a > 0</latex>, the term <latex>ma</latex> is positive.
+            Therefore, <latex>T = W + (\text{positive value})</latex>, meaning **<latex>T > W</latex>**.
+
+        * **Situation 3: Being lowered at a steady speed.** Moving at a steady speed means there is **zero acceleration**. Since <latex>a = 0</latex>, the term <latex>ma</latex> is zero.
+            Therefore, <latex>T = W + 0</latex>, meaning **<latex>T = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+- categorization:
+    id: books_categorization_1
+    title: 'Newton''s Second Law: Books Motion 1'
+    points: 1
+    text: A stack of books is being held from below by a person's hand. Compare the normal force (N) from the hand with the weight W of the stack of books in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The person is lifting the stack of books with increasing speed.
+        answers:
+        - N > W
+    - category:
+        description: The person is lifting the stack of books at a constant speed.
+        answers:
+        - N = W
+    - category:
+        description: The person is lowering the stack of books at an increasing rate.
+        answers:
+        - N < W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) from the hand and the books' weight (<latex>W</latex>) depends on their acceleration (<latex>a</latex>). Using Newton's Second Law with 'up' as the positive direction, the net force is <latex>\sum F = N - W = ma</latex>. This gives us the equation <latex>N = W + ma</latex>.
+
+        We can analyze the three situations with this formula:
+
+        ***
+
+        * **Situation 1: Lifting with increasing speed.** The books have an **upward (positive) acceleration**. Since <latex>a > 0</latex>, <latex>ma</latex> is a positive value.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 2: Lifting at a constant speed.** The books have **zero acceleration**. Since <latex>a = 0</latex>, <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+
+        * **Situation 3: Lowering at an increasing rate.** The books are speeding up downwards, so they have a **downward (negative) acceleration**. Since <latex>a < 0</latex>, <latex>ma</latex> is a negative value.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+      on_correct: Correct!
+      on_incorrect: Not quite, check the direction of the acceleration in each case.
+- categorization:
+    id: books_categorization_2
+    title: 'Newton''s Second Law: Books Motion 2'
+    points: 1
+    text: A stack of books is being held from below by a person's hand. Compare the normal force (N) from the hand with the weight W of the stack of books in each of the following three situations, and drag the correct relation to the corresponding situations.
+    categories:
+    - category:
+        description: The person is raising the stack of books, but the motion is slowing.
+        answers:
+        - N < W
+    - category:
+        description: The person is lowering the stack of books while slowing its descent.
+        answers:
+        - N > W
+    - category:
+        description: The person is lowering the stack of books at a steady pace.
+        answers:
+        - N = W
+    feedback:
+      general: |
+        The relationship between the normal force (<latex>N</latex>) from the hand and the books' weight (<latex>W</latex>) depends on their acceleration (<latex>a</latex>). Using Newton's Second Law with 'up' as the positive direction, the net force is <latex>\sum F = N - W = ma</latex>. This gives us the equation <latex>N = W + ma</latex>.
+
+        We can analyze the three situations with this formula:
+
+        ***
+
+        * **Situation 1: Raising the stack, but the motion is slowing.** The books are moving up but slowing, which implies a **downward (negative) acceleration**. Since <latex>a < 0</latex>, <latex>ma</latex> is a negative value.
+            Therefore, <latex>N = W + (\text{negative value})</latex>, which means **<latex>N < W</latex>**.
+
+        * **Situation 2: Lowering the stack while slowing its descent.** The books are moving down but slowing, so the acceleration is upward. They have an **upward (positive) acceleration**. Since <latex>a > 0</latex>, <latex>ma</latex> is a positive value.
+            Therefore, <latex>N = W + (\text{positive value})</latex>, which means **<latex>N > W</latex>**.
+
+        * **Situation 3: Lowering the stack at a steady pace.** Moving at a steady pace means there is **zero acceleration**. Since <latex>a = 0</latex>, <latex>ma</latex> is zero.
+            Therefore, <latex>N = W + 0</latex>, which means **<latex>N = W</latex>**.
+      on_correct: Good job!
+      on_incorrect: Not quite. Remember that an object slowing down has an acceleration in the opposite direction of its motion.
+
+
