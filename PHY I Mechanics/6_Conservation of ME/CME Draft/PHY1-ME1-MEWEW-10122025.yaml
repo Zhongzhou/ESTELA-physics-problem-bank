@@ -56,14 +56,14 @@ bank_info:
         - prompt 10: |
             Make a small modification to the yaml: number the problems q6 - q10.
     updates: 
-        - update 1: 
-        - update 2: (10/11/2025, Leo Murch) Expanded the problems to the last two scenarios, making 20 in total.
+        - update 1: 10/21 update the last problem from "At the end of the mud patch" to "Near the middle of the mud patch" to reduce confusion.
+        - update 2: 
     associated data:
         - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
     generation details: # Details of the creation process
-            model: GPT-4o / Gemini 2.5 Pro # The model used to generate the questions
-            version: 0.0.1 # The version of the model used
-            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+            model: Gemini 2.5 Pro # The model used to generate the questions
+            version: 2.5 # The version of the model used
+            last updated: 10-21-2025 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen (q1 - q10)
         - Leo Murch (q11 - q20)
@@ -824,7 +824,7 @@ questions:
     title: The Ball in the Mud
     points: 3
     text: |
-      A ball is rolling with some initial speed. It enters a 2.0 m long patch of mud, which provides a constant resistive force. At the end of the mud patch, it hits an elastic band that stretches until the ball stops. The mud's resistance continues to act on the ball as it stretches the band.
+      A ball is rolling with some initial speed. It enters a 2.0 m long patch of mud, which provides a constant resistive force. Nearing the middle of the mud patch, it hits an elastic band that stretches until the ball stops. The mud's resistance continues to act on the ball as it stretches the band.
 
       Given: The ball has a mass of 1.0 kg and an initial velocity of 6.0 m/s. The mud exerts a resistive force of 4.0 N. The elastic band has a spring constant of 100 N/m.
       
