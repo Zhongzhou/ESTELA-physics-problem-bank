@@ -1,0 +1,603 @@
+bank_info:
+    title: Collision and Explosion in 2D
+    bank_id: PHY1-CLM-CE2D-10232025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+    date created: 10-23-2025 # Today's date 
+    learning objectives:
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I would like to create physics problems involving conservation of linear momentum. I would like to find 15 situations in which one object, traveling in a straight line, either split/explodes into two pieces, or launches an object in a direction. For example: 
+            a piece of firework traveling directly upwards explodes into two pieces, 
+            A roller skater skating in a straight line throws a heavy backpack at an angle.
+            A space-ship cruising in space launches an exploration pod
+            Avoid objects that are subjected to significant air or water resistance, such as feather or parashoot, but small resistance such as a submarine is fine. The masses of the objects shouldn't be too different, for example, a skater and a backpack is fine but a skater and a ping-pong ball is too different. The launched object must be launched at an angle from the initial path of travel.
+        - prompt 2: | 
+            Update the above list following those requirements:
+                1. The object shouldn't be restricted by a track or travel on a rail
+                2. A buoy is subjected to too much external force, consider changing it into a probe or a drone.
+                3. Avoid "dropping" objects that are only subjected to gravity.
+        - prompt 3: |
+            Remove the last three scenarios in the launching category, and add one scenario to the splitting category involving a traveling particle decaying into two sub-particles. Organize all the scenarios into a table.
+        - prompt 4: |
+            Remove the key physics details column and the Category column. Add the following columns:
+                Object_Mass: Mass of the original object
+                Object_velocity: Initial velocity of the original object
+                Piece1_Mass: the mass of the first piece that is split or launched
+                Piece1_x_velocity: Component of the velocity of the first piece in the same direction as the original object.
+                Piece1_y_velocity: Component of the velocity of the first piece perpendicular to the original object.
+                Estimate the values of all those variables for each of the given scenario. 
+        - prompt 5: | # this is several prompts combined together. 
+            I want scenario 6 to be in the classic realm, so the particle velocity should be in m/s, whereas the mass should be in a much smaller unit to avoid very small numbers. This is for introductory level physics students. Also, change the masses to be 10 times smaller for rows 8 and 9, and update the scenario to small submarine and small space-ship.
+            Ok, let's change scenario 6 into a heavy particle undergoing alpha decay. Use a mass unit that is suitable for those particles, and make sure that the velocities are non-relativistic
+            Make the y-component velocity in row 6 1000 times smaller so that it doesn't dominate the resulting particle's motion.
+        - prompt 6: | # the created table is downloaded.
+            I have this table that contains 12 problems involving conservation of linear momentum of an object being exploded or splitted into two pieces. the existing columns contain the initial mass and velocity of the object, the x and y component velocity of the first piece, and the mass of the first piece. Can you please write a python program that calculates the values of the following:
+              mass of the second piece, x and y component velocities of the second piece, and the magnitude of the velocity of the second piece. 
+            Add all those values to the table by adding four columns please
+            Can you update the code so that it calculates the magnitude of the velocity of both the first piece and the second piece?
+        - prompt 7: |
+            Here is the resulting csv file containing all the information. Now try to write a physics problem based on the information in row 1, given the information about the original object and piece 1, asking for the magnitude of the velocity of piece 2. State in the problem that the linear momentum of the system can be seen as conserved immediately before and after the [event in the problem context]. Use \hat{i} to indicate the direction of the original velocity, and i and j to indicate the direction of the first piece.
+        - prompt 8: |
+            I've slightly modified problem 1 to make it read better. Now follow the same style and write a problem for row 2, this time, give the information for piece 2 and ask for the magnitude of velocity of piece 1, round all numbers to 2 decimal places after zero.
+            Please append problem 2 after problem 1 in a single markdown file, and remove Piece 1 and Piece 2 from the problem text.
+        - prompt 9: | # Note: may need to remove problem 2 since it contains a 0 j component velocity.
+            Now write the problem bodies for rows 3-10, alternating between asking for the velocity of piece 1 and the velocity of piece 2.
+        - prompt 10: |
+            Now write the remaining 2 problems please
+        - prompt 11: | # the markdown file is downloaded, and re-uploaded with the csv to generate solutions. This is also a combination of multiple prompts.
+            I have an md file containing the problem body of 12 linear momentum conservation problems, and a csv file containing the numbers used for each problem. Please write a concise solution for problem 1, don't explicitly list the numerical calculation details. Momentum conservation needs to be applied in each direction separately.
+            Make it shorter by using math expressions for the x-direction and y-direction conservation of linear momentum equations to replace the text description.
+            Great, now follow the same format, and construct solutions for problems 2 and 3
+            Now write problem solutions for problems 4-8, following the same template
+            Now write solutions for the remaining 4 problems please.
+        - prompt 12: |
+            Combine all the 12 solutions into a markdown file please
+        - prompt 13: | # yaml formatting prompt
+            I have three files, containing problem bodies, correct numbers, and solutions of 12 physics problem. I would like you to combine the problems, the correct answers, and the solutions into a single yaml file, following yaml format following this example:
+            (yaml example from template file goes here)
+            The yaml file should contain all 12 problems
+        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    updates: 
+        - update 1: 
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: Gemini # The model used to generate the questions
+            version: 2.5 Fast and 2.5 Pro # The version of the model used
+            last updated: 10-23-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+
+questions:
+# The following contents should be replaced by the output of the LLM.
+- numerical:
+    id: q1
+    title: Conservation of Momentum: Exploding Shell
+    points: 3
+    text: |
+      A <latex>10.0 \text{ kg}</latex> cannon shell is traveling with an initial velocity of <latex>\vec{V} = (300 \hat{i}) \text{ m/s}</latex> when it suddenly explodes into two fragments.
+      
+      Immediately after the explosion, one fragment has a mass of <latex>4.0 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (320 \hat{i} + 50 \hat{j}) \text{ m/s}</latex>.
+      
+      Assuming the linear momentum of the shell system is conserved immediately before and after the explosion, what is the magnitude of the velocity of the second fragment? Round your answer to two decimal places after zero.
+    answer:
+      value: 288.60
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 1</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the explosion (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the two fragments after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 10.0 \text{ kg}</latex>, <latex>\vec{V} = (300 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Fragment 1: <latex>m_1 = 4.0 \text{ kg}</latex>, <latex>\vec{v}_1 = (320 \hat{i} + 50 \hat{j}) \text{ m/s}</latex></li>
+            <li>Fragment 2: <latex>m_2 = 6.0 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the second fragment: <latex>\vec{v}_2 = (286.67 \hat{i} - 33.33 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the second fragment is <b><latex>288.60 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q2
+    title: Conservation of Momentum: Rocket Separation
+    points: 3
+    text: |
+      A <latex>200.00 \text{ kg}</latex> small sounding rocket is traveling in deep space with an initial velocity of <latex>\vec{V} = (5000.00 \hat{i}) \text{ m/s}</latex> when it separates its payload section from the main body.
+      
+      Immediately after the separation, the main body, which has a mass of <latex>150.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (4996.67 \hat{i}) \text{ m/s}</latex>. The separated payload section has the remaining mass of <latex>50.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the rocket system is conserved immediately before and after the separation, what is the magnitude of the velocity of the payload section? Round your answer to two decimal places.
+    answer:
+      value: 5010.00
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 2</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the separation (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the two parts after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 200.00 \text{ kg}</latex>, <latex>\vec{V} = (5000.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Payload (Piece 1): <latex>m_1 = 50.00 \text{ kg}</latex>, <latex>\vec{v}_1 = ?</latex></li>
+            <li>Main Body (Piece 2): <latex>m_2 = 150.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (4996.67 \hat{i}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_1 = (v_{1x} \hat{i} + v_{1y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the payload section: <latex>\vec{v}_1 = (5010.00 \hat{i} + 0 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_1| = \sqrt{v_{1x}^2 + v_{1y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the payload section is <b><latex>5010.00 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q3
+    title: Conservation of Momentum: Space Debris Fracture
+    points: 3
+    text: |
+      A <latex>50.00 \text{ kg}</latex> fragment of space debris traveling in a straight line with an initial velocity of <latex>\vec{V} = (8000.00 \hat{i}) \text{ m/s}</latex> fractures internally into two pieces.
+      
+      Immediately after fracturing, one piece has a mass of <latex>20.00 \text{ kg}</latex> and is observed to be moving with a velocity of <latex>\vec{v}_1 = (7900.00 \hat{i} + 100.00 \hat{j}) \text{ m/s}</latex>. The second piece has the remaining mass of <latex>30.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the system is conserved immediately before and after the fracture, what is the magnitude of the velocity of the second piece? Round your answer to two decimal places.
+    answer:
+      value: 8066.94
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 3</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the fracture (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the two pieces after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 50.00 \text{ kg}</latex>, <latex>\vec{V} = (8000.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Piece 1: <latex>m_1 = 20.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (7900.00 \hat{i} + 100.00 \hat{j}) \text{ m/s}</latex></li>
+            <li>Piece 2: <latex>m_2 = 30.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the second piece: <latex>\vec{v}_2 = (8066.67 \hat{i} - 66.67 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the second piece is <b><latex>8066.94 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q4
+    title: Conservation of Momentum: Exploding Ice Block
+    points: 3
+    text: |
+      A <latex>80.00 \text{ kg}</latex> large block of ice sliding frictionlessly across a frozen lake with an initial velocity of <latex>\vec{V} = (4.00 \hat{i}) \text{ m/s}</latex> explodes into two pieces.
+      
+      Immediately after the explosion, one piece, which has a mass of <latex>50.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (3.40 \hat{i} - 1.20 \hat{j}) \text{ m/s}</latex>. The other piece has the remaining mass of <latex>30.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the system is conserved immediately before and after the explosion, what is the magnitude of the velocity of the other piece? Round your answer to two decimal places.
+    answer:
+      value: 5.39
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 4</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the explosion (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the two pieces after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 80.00 \text{ kg}</latex>, <latex>\vec{V} = (4.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Piece 1: <latex>m_1 = 30.00 \text{ kg}</latex>, <latex>\vec{v}_1 = ?</latex></li>
+            <li>Piece 2: <latex>m_2 = 50.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (3.40 \hat{i} - 1.20 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_1 = (v_{1x} \hat{i} + v_{1y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the first piece: <latex>\vec{v}_1 = (5.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_1| = \sqrt{v_{1x}^2 + v_{1y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the other piece is <b><latex>5.39 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q5
+    title: Conservation of Momentum: Exploding Firework
+    points: 3
+    text: |
+      A <latex>0.50 \text{ kg}</latex> piece of firework traveling directly upwards with an initial velocity of <latex>\vec{V} = (50.00 \hat{i}) \text{ m/s}</latex> explodes into two non-identical pieces.
+      
+      Immediately after the explosion, one piece has a mass of <latex>0.20 \text{ kg}</latex> and is observed to be moving with a velocity of <latex>\vec{v}_1 = (55.00 \hat{i} + 15.00 \hat{j}) \text{ m/s}</latex>. The second piece has the remaining mass of <latex>0.30 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the system is conserved immediately before and after the explosion, what is the magnitude of the velocity of the second piece? Round your answer to two decimal places.
+    answer:
+      value: 81.99
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 5</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the explosion (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the two pieces after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <i>Note: The problem text "traveling directly upwards" implies an initial velocity in the <latex>\hat{j}</latex> direction, despite the vector <latex>\vec{V} = (50.00 \hat{i}) \text{ m/s}</latex> being listed. The solution is based on <latex>\vec{V} = (50.00 \hat{j}) \text{ m/s}</latex> to match the physical description and the provided data.</i>
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 0.50 \text{ kg}</latex>, <latex>\vec{V} = (50.00 \hat{j}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Piece 1: <latex>m_1 = 0.20 \text{ kg}</latex>, <latex>\vec{v}_1 = (55.00 \hat{i} + 15.00 \hat{j}) \text{ m/s}</latex></li>
+            <li>Piece 2: <latex>m_2 = 0.30 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the second piece: <latex>\vec{v}_2 = (-36.67 \hat{i} + 73.33 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the second piece is <b><latex>81.99 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q6
+    title: Conservation of Momentum: Alpha Decay
+    points: 3
+    text: |
+      A <latex>240.00 \text{ u}</latex> heavy nucleus (parent) moving in a straight line with an initial velocity of <latex>\vec{V} = (200.00 \hat{i}) \text{ m/s}</latex> undergoes alpha decay.
+      
+      Immediately after the decay, the resulting daughter nucleus, which has a mass of <latex>236.00 \text{ u}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (199.92 \hat{i} - 84.75 \hat{j}) \text{ m/s}</latex>. The emitted alpha particle has the remaining mass of <latex>4.00 \text{ u}</latex>.
+      
+      Assuming the linear momentum of the system is conserved immediately before and after the decay, what is the magnitude of the velocity of the alpha particle? Round your answer to two decimal places.
+    answer:
+      value: 5004.20
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 6</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the decay (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the two particles after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 240.00 \text{ u}</latex>, <latex>\vec{V} = (200.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Alpha Particle (Piece 1): <latex>m_1 = 4.00 \text{ u}</latex>, <latex>\vec{v}_1 = ?</latex></li>
+            <li>Daughter Nucleus (Piece 2): <latex>m_2 = 236.00 \text{ u}</latex>, <latex>\vec{v}_2 = (199.92 \hat{i} - 84.75 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_1 = (v_{1x} \hat{i} + v_{1y} \hat{j})</latex>.
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations using the precise data from the provided CSV file yields the velocity vector for the alpha particle: <latex>\vec{v}_1 = (205.00 \hat{i} + 5000.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_1| = \sqrt{v_{1x}^2 + v_{1y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the alpha particle is <b><latex>5004.20 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q7
+    title: Conservation of Momentum: Skater Throws Bag
+    points: 3
+    text: |
+      A <latex>70.00 \text{ kg}</latex> roller skater is skating on a smooth surface with an initial velocity of <latex>\vec{V} = (5.00 \hat{i}) \text{ m/s}</latex> when they throw a heavy gym bag.
+      
+      Immediately after throwing the bag, the gym bag, which has a mass of <latex>10.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (8.00 \hat{i} + 3.00 \hat{j}) \text{ m/s}</latex>. The skater has the remaining mass of <latex>60.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the skater-bag system is conserved immediately before and after the throw, what is the magnitude of the velocity of the skater? Round your answer to two decimal places.
+    answer:
+      value: 4.53
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 7</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the throw (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the skater and the bag after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 70.00 \text{ kg}</latex>, <latex>\vec{V} = (5.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Gym Bag (Piece 1): <latex>m_1 = 10.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (8.00 \hat{i} + 3.00 \hat{j}) \text{ m/s}</latex></li>
+            <li>Skater (Piece 2): <latex>m_2 = 60.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the skater: <latex>\vec{v}_2 = (4.50 \hat{i} - 0.50 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the skater is <b><latex>4.53 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q8
+    title: Conservation of Momentum: Submarine Launches Drone
+    points: 3
+    text: |
+      A <latex>10000.00 \text{ kg}</latex> small submarine is cruising horizontally with an initial velocity of <latex>\vec{V} = (10.00 \hat{i}) \text{ m/s}</latex> when it launches an underwater exploration drone.
+      
+      Immediately after the launch, the submarine, which has a new mass of <latex>9800.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (9.90 \hat{i} - 0.10 \hat{j}) \text{ m/s}</latex>. The exploration drone has a mass of <latex>200.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the submarine-drone system is conserved immediately before and after the launch, what is the magnitude of the velocity of the exploration drone? Round your answer to two decimal places.
+    answer:
+      value: 15.81
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 8</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the launch (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the submarine and drone after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 10000.00 \text{ kg}</latex>, <latex>\vec{V} = (10.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Drone (Piece 1): <latex>m_1 = 200.00 \text{ kg}</latex>, <latex>\vec{v}_1 = ?</latex></li>
+            <li>Submarine (Piece 2): <latex>m_2 = 9800.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (9.90 \hat{i} - 0.10 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_1 = (v_{1x} \hat{i} + v_{1y} \hat{j})</latex>.
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations using the precise data from the provided CSV file yields the velocity vector for the drone: <latex>\vec{v}_1 = (15.00 \hat{i} + 5.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_1| = \sqrt{v_{1x}^2 + v_{1y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the exploration drone is <b><latex>15.81 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q9
+    title: Conservation of Momentum: Space-ship Launches Pod
+    points: 3
+    text: |
+      A <latex>5000.00 \text{ kg}</latex> small space-ship is cruising in deep space with an initial velocity of <latex>\vec{V} = (2000.00 \hat{i}) \text{ m/s}</latex> when it launches an exploration pod.
+      
+      Immediately after the launch, the exploration pod, which has a mass of <latex>500.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (2500.00 \hat{i} + 1000.00 \hat{j}) \text{ m/s}</latex>. The space-ship has the remaining mass of <latex>4500.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the system is conserved immediately before and after the launch, what is the magnitude of the velocity of the space-ship? Round your answer to two decimal places.
+    answer:
+      value: 1947.62
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 9</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the launch (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the space-ship and pod after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 5000.00 \text{ kg}</latex>, <latex>\vec{V} = (2000.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Exploration Pod (Piece 1): <latex>m_1 = 500.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (2500.00 \hat{i} + 1000.00 \hat{j}) \text{ m/s}</latex></li>
+            <li>Space-ship (Piece 2): <latex>m_2 = 4500.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the space-ship: <latex>\vec{v}_2 = (1944.44 \hat{i} - 111.11 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the space-ship is <b><latex>1947.62 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q10
+    title: Conservation of Momentum: Passenger Jumps from Bumper Car
+    points: 3
+    text: |
+      A <latex>180.00 \text{ kg}</latex> bumper car is coasting on a slick surface with an initial velocity of <latex>\vec{V} = (3.00 \hat{i}) \text{ m/s}</latex> when its passenger jumps out.
+      
+      Immediately after the jump, the bumper car, which has a new mass of <latex>110.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (1.73 \hat{i} - 1.59 \hat{j}) \text{ m/s}</latex>. The passenger has a mass of <latex>70.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the car-passenger system is conserved immediately before and after the jump, what is the magnitude of the velocity of the passenger? Round your answer to two decimal places.
+    answer:
+      value: 5.59
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 10</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the jump (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the passenger and car after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 180.00 \text{ kg}</latex>, <latex>\vec{V} = (3.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Passenger (Piece 1): <latex>m_1 = 70.00 \text{ kg}</latex>, <latex>\vec{v}_1 = ?</latex></li>
+            <li>Bumper Car (Piece 2): <latex>m_2 = 110.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (1.73 \hat{i} - 1.59 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_1 = (v_{1x} \hat{i} + v_{1y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the passenger: <latex>\vec{v}_1 = (5.00 \hat{i} + 2.50 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_1| = \sqrt{v_{1x}^2 + v_{1y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the passenger is <b><latex>5.59 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q11
+    title: Conservation of Momentum: Hovercraft Pushes Crate
+    points: 3
+    text: |
+      A <latex>1000.00 \text{ kg}</latex> hovercraft is moving over a smooth surface with an initial velocity of <latex>\vec{V} = (15.00 \hat{i}) \text{ m/s}</latex> when it pushes a heavy supply crate.
+      
+      Immediately after being pushed, the supply crate, which has a mass of <latex>100.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (20.00 \hat{i} + 10.00 \hat{j}) \text{ m/s}</latex>. The hovercraft has the remaining mass of <latex>900.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the system is conserved immediately before and after the push, what is the magnitude of the velocity of the hovercraft? Round your answer to two decimal places.
+    answer:
+      value: 14.49
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 11</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the push (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the hovercraft and crate after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 1000.00 \text{ kg}</latex>, <latex>\vec{V} = (15.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Supply Crate (Piece 1): <latex>m_1 = 100.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (20.00 \hat{i} + 10.00 \hat{j}) \text{ m/s}</latex></li>
+            <li>Hovercraft (Piece 2): <latex>m_2 = 900.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the hovercraft: <latex>\vec{v}_2 = (14.44 \hat{i} - 1.11 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the hovercraft is <b><latex>14.49 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q12
+    title: Conservation of Momentum: Sled Launches Package
+    points: 3
+    text: |
+      A <latex>250.00 \text{ kg}</latex> heavy sled is sliding down a gentle, icy slope with an initial velocity of <latex>\vec{V} = (8.00 \hat{i}) \text{ m/s}</latex> when it launches a dense satellite package.
+      
+      Immediately after the launch, the sled, which has a new mass of <latex>220.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (7.45 \hat{i} - 0.82 \hat{j}) \text{ m/s}</latex>. The satellite package has a mass of <latex>30.00 \text{ kg}</latex>.
+      
+      Assuming the linear momentum of the sled-package system is conserved immediately before and after the launch, what is the magnitude of the velocity of the satellite package? Round your answer to two decimal places.
+    answer:
+      value: 13.42
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 12</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b>. The total momentum of the system before the launch (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the sled and package after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b> <latex>M = 250.00 \text{ kg}</latex>, <latex>\vec{V} = (8.00 \hat{i}) \text{ m/s}</latex></li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Satellite Package (Piece 1): <latex>m_1 = 30.00 \text{ kg}</latex>, <latex>\vec{v}_1 = ?</latex></li>
+            <li>Sled (Piece 2): <latex>m_2 = 220.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (7.45 \hat{i} - 0.82 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>M\vec{V} = m_1\vec{v}_1 + m_2\vec{v}_2</latex> is applied separately to the x and y components to solve for the unknown velocity <latex>\vec{v}_1 = (v_{1x} \hat{i} + v_{1y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>M V_x = m_1 v_{1x} + m_2 v_{2x}</latex></li>
+        <li><b>Y-Direction:</b> <latex>M V_y = m_1 v_{1y} + m_2 v_{2y}</latex></li>
+        </ol>
+        <br>
+        Solving these two equations gives the velocity vector for the satellite package: <latex>\vec{v}_1 = (12.00 \hat{i} + 6.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_1| = \sqrt{v_{1x}^2 + v_{1y}^2}</latex>.
+        <br><br>
+        The magnitude of the velocity of the satellite package is <b><latex>13.42 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+

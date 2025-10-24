@@ -799,7 +799,7 @@ questions:
       What is the mass (<latex>m</latex>) of the crate in kg? Report your answer to two significant figures.
 
     answer:
-      value: 22
+      value: 22.4
       margin_type: percent 
       tolerance: 3 
     feedback:
