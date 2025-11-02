@@ -1,0 +1,939 @@
+bank_info:
+    title: Angular Momentum of a Particle Multiple Answers
+    bank_id: PHY1-AM-AMPMA-11022025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This problem bank contains multiple answer problems that ask students to select the observer that measure the same or opposite angular momentum of a particle traveling in a straight line as a reference observer.
+    date created: 11-02-2025 # Today's date 
+    learning objectives:
+    generation prompts: # The following are the prompts that generated the questions for upper left corner, velocity to the right.
+    # We need to also create lower right corner, velocity to the left, and upper right corner, velocity pointing down.
+    # Theoretically, the point can be in all four corners, and the velocity could be left/right or up/down.
+        - prompt 1: | #Note: Future expansion of the problem bank should just use the python script generated to keep the image uniform
+            I am creating physics problems involving the concept of angular momentum of a particle traveling in a straight line. I want to generate problem figures using python following the instructions below:
+            1. Generate a 3 x 3 square grid of 9 points, labeled A - I by rows. Each point represents one potential  observer.
+            2. Add a point particle, represented using a bigger, green dot, at the center of the upper-left corner grid formed by points A, B, D, E.
+            3. Add an arrow to the particle indicating a velocity pointing to the right, add a label v.
+            4. Add a small circle on point A, indicating the observer mentioned in the problem body. 
+            Do not show the axis, but show a grid in the background.
+        - prompt 1.1: | 
+            Make the following modifications to the image: 
+            1. make the circle around point A smaller, make the markers on each point bigger.
+            2. For the particle, make it into a solid green circle instead of a cross. 
+            3. Add a dashed horizontal line that passes through the particle, indicating horizontal straight movement.
+            
+            The particle is still a cross, not a circle or a dot. Make a small circle with solid green fill at that location. Also, make the text labels one size better, and the dashed line one size thinner. 
+        - prompt 2: |
+            Now, modify the script so that it generates 9 images, with the black circle originally placed on point A being placed around a different point (A - I) in each image. Name the images according to the example: "upper_left_v_right_A.png", with "A" being replaced by B - I indicating the point with a circle on. 
+            Make them into a downloadable zip file.
+        - prompt 3: |
+            The first 9 problems will ask students to select the points at which an observer will measure the same angular momentum as the current observer. The correct answers should be the other two points on the same row. For example, for observer D, the other two points should be E and F. First, create a table that contains the following columns: Observer : [the observer mentioned in the image], same L: [the correct answers].
+        - prompt 4: |
+            Try to draft a problem text for the first 9 situations (same angular momentum). The problem body should contain the following information:
+            Nine observers, labeled A - I, stand on a square grid as shown in the figure. Each observer measures the angular momentum of a point particle traveling with velocity v in a straight line. The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure. Observer [A] measures the angular momentum of the particle as $\vec{L}$. Select all the other observers (if any) who would also measure the angular momentum of the particle as $\vec{L}$. 
+            Replace the observer label in each problem body, and add them in a new column to the table named "problem-same L".
+
+        - prompt 5: |
+            Turn the above table into a csv. Then, programmatically add a new column named "problem-opposite L", by replacing the last sentence in each of the problem body in the "problem- same L" column with:
+            "...who would measure the angular momentum as the opposite as that of observer [A]: $-\vec{L}$". Replace [A] with the observer. Make it into a downloadable csv file. Do not omit any text in the problem body.
+        - prompt 6: | #yaml example omitted. Create 5 problems at a time is a better practice. 
+            Create the yaml file for multiple answer problems for each row in the table, starting with the same angular momentum condition. Following the example here:
+
+            Create one problem for each row, a total of 9 problems. The problem body should be in the "same L" column. 
+            The choice items should be all the points, except for the observer point. All options should have lock set to true. 
+            Replace the latex label $$ with latex tags <latex></latex>
+            Add a "figure:" field before the "answer:" field in each problem. The figure field should contain the image name:"upper_left_v_right_{A}.png", with {A} replaced by the observer specified in each problem. For example, upper_left_v_right_A.png should be used for problems that has "Observer A" in the title.
+    updates: 
+        - update 1: 
+    associated data:
+        - Image generation script: "./Scripts/upper_left_v_right_generator.py"
+        - Table for first 18 problems: "./Scripts/observer_angular_momentum_problems.csv"
+    generation details: # Details of the creation process
+            model: GPT-5 # The model used to generate the questions
+            version: ChatGPT5 # The version of the model used
+            last updated: 11-02-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+
+questions:
+
+- multiple_answers:
+    id: q1
+    title: Multiple Answer - Same Angular Momentum (Observer A)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer A measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_A.png
+    answers:
+    - answer:
+        text: B
+        correct: true
+        lock: true
+    - answer:
+        text: C
+        correct: true
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q2
+    title: Multiple Answer - Same Angular Momentum (Observer B)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer B measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_B.png
+    answers:
+    - answer:
+        text: A
+        correct: true
+        lock: true
+    - answer:
+        text: C
+        correct: true
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q3
+    title: Multiple Answer - Same Angular Momentum (Observer C)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer C measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_C.png
+    answers:
+    - answer:
+        text: A
+        correct: true
+        lock: true
+    - answer:
+        text: B
+        correct: true
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q4
+    title: Multiple Answer - Same Angular Momentum (Observer D)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer D measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_D.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: true
+        lock: true
+    - answer:
+        text: F
+        correct: true
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q5
+    title: Multiple Answer - Same Angular Momentum (Observer E)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer E measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_E.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: true
+        lock: true
+    - answer:
+        text: F
+        correct: true
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q6
+    title: Multiple Answer - Same Angular Momentum (Observer F)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer F measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_F.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: true
+        lock: true
+    - answer:
+        text: E
+        correct: true
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q7
+    title: Multiple Answer - Same Angular Momentum (Observer G)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer G measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_G.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: true
+        lock: true
+    - answer:
+        text: I
+        correct: true
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q8
+    title: Multiple Answer - Same Angular Momentum (Observer H)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer H measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_H.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: true
+        lock: true
+    - answer:
+        text: I
+        correct: true
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q9
+    title: Multiple Answer - Same Angular Momentum (Observer I)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer I measures the angular momentum of the particle as <latex>\vec{L}</latex>. Select all the other observers (if any)
+      who would also measure the angular momentum of the particle as <latex>\vec{L}</latex>.
+    figure: upper_left_v_right_I.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: true
+        lock: true
+    - answer:
+        text: H
+        correct: true
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q1_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer A)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer A measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer A: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_A.png
+    answers:
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: true
+        lock: true
+    - answer:
+        text: E
+        correct: true
+        lock: true
+    - answer:
+        text: F
+        correct: true
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q2_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer B)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer B measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer B: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_B.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: true
+        lock: true
+    - answer:
+        text: E
+        correct: true
+        lock: true
+    - answer:
+        text: F
+        correct: true
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q3_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer C)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer C measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer C: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_C.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: true
+        lock: true
+    - answer:
+        text: E
+        correct: true
+        lock: true
+    - answer:
+        text: F
+        correct: true
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q4_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer D)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer D measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer D: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_D.png
+    answers:
+    - answer:
+        text: A
+        correct: true
+        lock: true
+    - answer:
+        text: B
+        correct: true
+        lock: true
+    - answer:
+        text: C
+        correct: true
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q5_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer E)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer E measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer E: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_E.png
+    answers:
+    - answer:
+        text: A
+        correct: true
+        lock: true
+    - answer:
+        text: B
+        correct: true
+        lock: true
+    - answer:
+        text: C
+        correct: true
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q6_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer F)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer F measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer F: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_F.png
+    answers:
+    - answer:
+        text: A
+        correct: true
+        lock: true
+    - answer:
+        text: B
+        correct: true
+        lock: true
+    - answer:
+        text: C
+        correct: true
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: false
+        lock: true
+
+- multiple_answers:
+    id: q7_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer G)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer G measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer G: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_G.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: true
+        lock: true
+
+- multiple_answers:
+    id: q8_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer H)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer H measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer H: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_H.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: I
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: true
+        lock: true
+
+- multiple_answers:
+    id: q9_opposite
+    title: Multiple Answer - Opposite Angular Momentum (Observer I)
+    points: 1
+    text: >-
+      Nine observers, labeled A–I, stand on a square grid as shown in the figure. Each observer
+      measures the angular momentum of a point particle traveling with velocity v in a straight line.
+      The particle's trajectory is in the middle of the first and second row of the grid, as shown in the figure.
+      Observer I measures the angular momentum of the particle as <latex>\vec{L}</latex>. 
+      Select all the other observers (if any) who would measure the angular momentum as the opposite as that of observer I: <latex>-\vec{L}</latex>.
+    figure: upper_left_v_right_I.png
+    answers:
+    - answer:
+        text: A
+        correct: false
+        lock: true
+    - answer:
+        text: B
+        correct: false
+        lock: true
+    - answer:
+        text: C
+        correct: false
+        lock: true
+    - answer:
+        text: D
+        correct: false
+        lock: true
+    - answer:
+        text: E
+        correct: false
+        lock: true
+    - answer:
+        text: F
+        correct: false
+        lock: true
+    - answer:
+        text: G
+        correct: false
+        lock: true
+    - answer:
+        text: H
+        correct: false
+        lock: true
+    - answer:
+        text: None of the observers
+        correct: true
+        lock: true
