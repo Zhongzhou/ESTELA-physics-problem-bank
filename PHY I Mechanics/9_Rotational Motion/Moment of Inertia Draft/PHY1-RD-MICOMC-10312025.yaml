@@ -165,5 +165,917 @@ questions:
             - \(m_3(L+d)^2\): point mass at the rim of the ring.  
         on_correct: 'Good job!'
         on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q4
+    title: Moment of Inertia – Square Plate with Middle Mass
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **left end** (indicated by the black dot in the figure). 
+        Attached to the **right end** of the rod is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached to the **midpoint** of the rod (at $L/2$).  
 
+        The entire system rotates in a vertical plane about the pivot point at the left end of the rod.  
 
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_left_mass_middle_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_2(L + d)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1L^2 + \frac{1}{6}m_2 d^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(L+\frac{d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(L+\frac{d}{2})^2\): parallel-axis shift from the plate’s center to the pivot.  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's midpoint.  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q5
+    title: Moment of Inertia – Uniform Disk with Middle Mass
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **left end** (shown as the black dot in the figure). 
+        Rigidly attached to the **right end** of the rod is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **midpoint** of the rod, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached.  
+
+        The system rotates about the pivot point at the left end of the rod in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_left_mass_middle_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2 d^2 + m_2(L + d)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(L+\frac{d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(L+\frac{d}{2})^2\): parallel-axis shift from disk’s center to pivot.  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's midpoint.  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q6
+    title: Moment of Inertia – Thin Ring with Middle Mass
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **left end** (indicated by the black dot in the figure). 
+        A **thin ring** of mass \(m_2\) and diameter \(d\) is rigidly attached to the **right end** of the rod so that the rod passes through the center of the ring. 
+        A **small point mass** of mass \(m_3\) (shown as the **green circular dot**) is fixed to the **midpoint** of the rod.  
+
+        The composite object rotates in a vertical plane about the pivot point at the left end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_left_mass_middle_ring.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2 d^2 + m_2(L + d)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(L+\frac{d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(m_2(\frac{d}{2})^2\): thin ring about its center.  
+            - \(m_2(L+\frac{d}{2})^2\): parallel-axis shift from ring’s center to pivot.  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's midpoint.  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q7
+    title: Moment of Inertia – Square Plate with Right Mass
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **left end** (indicated by the black dot in the figure). 
+        Attached to the **right end** of the rod is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached to the **right end** of the rod (at $L$).  
+
+        The entire system rotates in a vertical plane about the pivot point at the left end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_left_mass_right_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_2(L + d)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{6}m_2 d^2 + m_2 L^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1L^2 + \frac{1}{6}m_2 d^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(L+\frac{d}{2}\right)^{2}+m_3 L^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(L+\frac{d}{2})^2\): parallel-axis shift from the plate’s center to the pivot.  
+            - \(m_3 L^2\): point mass at the end of the rod.  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q8
+    title: Moment of Inertia – Uniform Disk with Right Mass
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **left end** (shown as the black dot in the figure). 
+        Rigidly attached to the **right end** of the rod is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **right end** of the rod, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached.  
+
+        The system rotates about the pivot point at the left end of the rod in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_left_mass_right_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2 d^2 + m_2(L + d)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2 L^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(L+\frac{d}{2}\right)^{2}+m_3 L^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(L+\frac{d}{2})^2\): parallel-axis shift from disk’s center to pivot.  
+            - \(m_3 L^2\): point mass at the end of the rod.  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q9
+    title: Moment of Inertia – Thin Ring with Right Mass
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **left end** (indicated by the black dot in the figure). 
+        A **thin ring** of mass \(m_2\) and diameter \(d\) is rigidly attached to the **right end** of the rod so that the rod passes through the center of the ring. 
+        A **small point mass** of mass \(m_3\) (shown as the **green circular dot**) is fixed to the **right end** of the rod.  
+
+        The composite object rotates in a vertical plane about the pivot point at the left end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_left_mass_right_ring.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2 d^2 + m_2(L + d)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2 L^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(L+\frac{d}{2}\right)^{2}+m_3 L^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(m_2(\frac{d}{2})^2\): thin ring about its center.  
+            - \(m_2(L+\frac{d}{2})^2\): parallel-axis shift from ring’s center to pivot.  
+            - \(m_3 L^2\): point mass at the end of the rod.  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q10
+    title: Moment of Inertia – Square Plate (Middle Pivot)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (indicated by the black dot in the figure). 
+        Attached to the **right end** of the rod is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached to the **far end** of the square plate.  
+
+        The entire system rotates in a vertical plane about the pivot point at the rod's midpoint.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_far_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3(L + d)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}+d\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for plate (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L}{2}+d)^2\): point mass at the far tip (distance $r = (L+d) - \frac{L}{2} = \frac{L}{2}+d$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q11
+    title: Moment of Inertia – Uniform Disk (Middle Pivot)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (shown as the black dot in the figure). 
+        Rigidly attached to the **right end** of the rod is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **outermost edge** of the disk, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached.  
+
+        The system rotates about the pivot point at the rod's midpoint in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_far_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3(L + d)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}+d\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for disk (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L}{2}+d)^2\): point mass at the disk’s rim (distance $r = (L+d) - \frac{L}{2} = \frac{L}{2}+d$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q12
+    title: Moment of Inertia – Thin Ring (Middle Pivot)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (indicated by the black dot in the figure). 
+        A **thin ring** of mass \(m_2\) and diameter \(d\) is rigidly attached to the **right end** of the rod so that the rod passes through the center of the ring. 
+        A **small point mass** of mass \(m_3\) (shown as the **green circular dot**) is fixed to the **outer rim** of the ring.  
+
+        The composite object rotates in a vertical plane about the pivot point at the rod's midpoint.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_far_ring.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3(L + d)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2} + d\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}+d\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(m_2(\frac{d}{2})^2\): thin ring about its center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for ring (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L}{2}+d)^2\): point mass at the rim of the ring (distance $r = (L+d) - \frac{L}{2} = \frac{L}{2}+d$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q13
+    title: Moment of Inertia – Square Plate (Middle Pivot, Right Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (indicated by the black dot in the figure). 
+        Attached to the **right end** of the rod is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached to the **right end** of the rod (at $L$).  
+
+        The entire system rotates in a vertical plane about the pivot point at the rod's midpoint.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_right_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for plate (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's end (distance $r = L - \frac{L}{2} = \frac{L}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q14
+    title: Moment of Inertia – Uniform Disk (Middle Pivot, Right Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (shown as the black dot in the figure). 
+        Rigidly attached to the **right end** of the rod is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **right end** of the rod, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached.  
+
+        The system rotates about the pivot point at the rod's midpoint in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_right_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for disk (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's end (distance $r = L - \frac{L}{2} = \frac{L}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q15
+    title: Moment of Inertia – Thin Ring (Middle Pivot, Right Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (indicated by the black dot in the figure). 
+        A **thin ring** of mass \(m_2\) and diameter \(d\) is rigidly attached to the **right end** of the rod so that the rod passes through the center of the ring. 
+        A **small point mass** of mass \(m_3\) (shown as the **green circular dot**) is fixed to the **right end** of the rod.  
+
+        The composite object rotates in a vertical plane about the pivot point at the rod's midpoint.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_right_ring.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(m_2(\frac{d}{2})^2\): thin ring about its center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for ring (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's end (distance $r = L - \frac{L}{2} = \frac{L}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q16
+    title: Moment of Inertia – Square Plate (Middle Pivot, Inside Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (indicated by the black dot in the figure). 
+        Attached to the **right end** of the rod is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is located at the **center** of the square plate.  
+
+        The entire system rotates in a vertical plane about the pivot point at the rod's midpoint.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_inside_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L+d}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L+d}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3\left(\frac{L+d}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3\left(L + \frac{d}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L+d}{2}\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for plate (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L+d}{2})^2\): point mass at the plate's center (distance $r = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q17
+    title: Moment of Inertia – Uniform Disk (Middle Pivot, Inside Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **midpoint** (shown as the black dot in the figure). 
+        Rigidly attached to the **right end** of the rod is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **center** of the disk, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached.  
+
+        The system rotates about the pivot point at the rod's midpoint in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_middle_mass_inside_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L+d}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3\left(\frac{L+d}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L+d}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{L+d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(L + \frac{d}{2}\right)^2 + m_3\left(L + \frac{d}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{12}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{L+d}{2}\right)^{2}+m_3\!\left(\frac{L+d}{2}\right)^{2} \)  
+            - \(\frac{1}{12}m_1L^2\): uniform rod about its center.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(\frac{L+d}{2})^2\): parallel-axis shift for disk (distance $D = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+            - \(m_3(\frac{L+d}{2})^2\): point mass at the disk's center (distance $r = (L+\frac{d}{2}) - \frac{L}{2} = \frac{L+d}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q18
+    title: Moment of Inertia – Square Plate (Right Pivot)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (indicated by the black dot in the figure, at position $L$). 
+        Attached to this pivot point is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached to the **far end** of the square plate.  
+
+        The entire system rotates in a vertical plane about the pivot point at the right end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_far_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3 d^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 \left(\frac{d}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2 d^2 + m_3 d^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_3 d^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for plate (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3 d^2\): point mass at the far tip (distance $r = (L+d) - L = d$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q19
+    title: Moment of Inertia – Uniform Disk (Right Pivot)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (shown as the black dot in the figure, at position $L$). 
+        Rigidly attached to this pivot point is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **outermost edge** of the disk, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached.  
+
+        The system rotates about the pivot point at the right end of the rod in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_far_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 \left(\frac{d}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2 d^2 + m_3 d^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{d}{2}\right)^{2}+m_3 d^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for disk (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3 d^2\): point mass at the disk’s rim (distance $r = (L+d) - L = d$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q20
+    title: Moment of Inertia – Thin Ring (Right Pivot)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (indicated by the black dot in the figure, at position $L$). 
+        A **thin ring** of mass \(m_2\) and diameter \(d\) is rigidly attached to this pivot point so that the rod passes through the center of the ring. 
+        A **small point mass** of mass \(m_3\) (shown as the **green circular dot**) is fixed to the **outer rim** of the ring.  
+
+        The composite object rotates in a vertical plane about the pivot point at the right end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_far_ring.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 d^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 \left(\frac{d}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2 d^2 + m_3 d^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{d}{2}\right)^{2}+m_3 d^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(m_2(\frac{d}{2})^2\): thin ring about its center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for ring (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3 d^2\): point mass at the rim of the ring (distance $r = (L+d) - L = d$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q21
+    title: Moment of Inertia – Square Plate (Right Pivot, Middle Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (indicated by the black dot in the figure, at position $L$). 
+        Attached to this pivot point is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached to the **midpoint** of the rod (at $L/2$).  
+
+        The entire system rotates in a vertical plane about the pivot point at the right end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_middle_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2 d^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for plate (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's midpoint (distance $r = L - \frac{L}{2} = \frac{L}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q22
+    title: Moment of Inertia – Uniform Disk (Right Pivot, Middle Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (shown as the black dot in the figure, at position $L$). 
+        Rigidly attached to this pivot point is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **midpoint** of the rod, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached (at $L/2$).  
+
+        The system rotates about the pivot point at the right end of the rod in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_center_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2 d^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for disk (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's midpoint (distance $r = L - \frac{L}{2} = \frac{L}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q23
+    title: Moment of Inertia – Thin Ring (Right Pivot, Middle Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (indicated by the black dot in the figure, at position $L$). 
+        A **thin ring** of mass \(m_2\) and diameter \(d\) is rigidly attached to this pivot point so that the rod passes through the center of the ring. 
+        A **small point mass** of mass \(m_3\) (shown as the **green circular dot**) is fixed to the **midpoint** of the rod (at $L/2$).  
+
+        The composite object rotates in a vertical plane about the pivot point at the right end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_center_ring.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2 d^2 + m_3\left(\frac{L}{2}\right)^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{d}{2}\right)^{2}+m_3\!\left(\frac{L}{2}\right)^{2} \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(m_2(\frac{d}{2})^2\): thin ring about its center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for ring (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3(\frac{L}{2})^2\): point mass at the rod's midpoint (distance $r = L - \frac{L}{2} = \frac{L}{2}$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+        
+- multiple_choice:
+    id: q24
+    title: Moment of Inertia – Square Plate (Right Pivot, Left Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (indicated by the black dot in the figure, at position $L$). 
+        Attached to this pivot point is a **uniform square plate** of mass \(m_2\) and side length \(d\), oriented so that one edge of the square is flush with the end of the rod. 
+        Finally, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached to the **far left end** of the rod (at $0$).  
+
+        The entire system rotates in a vertical plane about the pivot point at the right end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_left_square.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 \left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{6}m_2 d^2 + m_2 d^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{6}m_2 d^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_3 L^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{6}m_2 d^2\): square plate about its own center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for plate (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3 L^2\): point mass at the far left end (distance $r = L - 0 = L$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q25
+    title: Moment of Inertia – Uniform Disk (Right Pivot, Left Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (shown as the black dot in the figure, at position $L$). 
+        Rigidly attached to this pivot point is a **uniform solid disk** of mass \(m_2\) and diameter \(d\). 
+        The disk’s flat face is perpendicular to the rod, and its center lies along the rod’s axis. 
+        At the **far left end** of the rod, a **small point mass** of mass \(m_3\) (represented by the **green circular dot**) is attached (at $0$).  
+
+        The system rotates about the pivot point at the right end of the rod in a vertical plane.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_left_disk.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 \left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + \frac{1}{2}m_2\left(\frac{d}{2}\right)^2 + m_2 d^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+\frac{1}{2}m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{d}{2}\right)^{2}+m_3 L^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(\frac{1}{2}m_2(\frac{d}{2})^2\): solid disk about its center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for disk (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3 L^2\): point mass at the far left end (distance $r = L - 0 = L$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
+
+- multiple_choice:
+    id: q26
+    title: Moment of Inertia – Thin Ring (Right Pivot, Left Mass)
+    points: 1
+    text: |
+        A composite object consists of a **uniform thin rod** of mass \(m_1\) and length \(L\), pivoted about its **right end** (indicated by the black dot in the figure, at position $L$). 
+        A **thin ring** of mass \(m_2\) and diameter \(d\) is rigidly attached to this pivot point so that the rod passes through the center of the ring. 
+        A **small point mass** of mass \(m_3\) (shown as the **green circular dot**) is fixed to the **far left end** of the rod (at $0$).  
+
+        The composite object rotates in a vertical plane about the pivot point at the right end of the rod.  
+
+        Which of the following expressions correctly represents the **moment of inertia \(I\)** of this composite object about the pivot?  
+    figure: pivot_right_mass_left_ring.png
+    answers:
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: true
+    - answer:
+        text: \( I = \frac{1}{12}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 L^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2\left(\frac{d}{2}\right)^2 + m_3 \left(\frac{L}{2}\right)^2 \)
+        correct: false
+    - answer:
+        text: \( I = \frac{1}{3}m_1 L^2 + m_2\left(\frac{d}{2}\right)^2 + m_2 d^2 + m_3 L^2 \)
+        correct: false
+    feedback:
+        general: |
+            **Solution:** \( I=\frac{1}{3}m_1L^2+m_2\!\left(\frac{d}{2}\right)^{2}+m_2\!\left(\frac{d}{2}\right)^{2}+m_3 L^2 \)  
+            - \(\frac{1}{3}m_1L^2\): uniform rod about its end.  
+            - \(m_2(\frac{d}{2})^2\): thin ring about its center.  
+            - \(m_2(\frac{d}{2})^2\): parallel-axis shift for ring (distance $D = (L+\frac{d}{2}) - L = \frac{d}{2}$).  
+            - \(m_3 L^2\): point mass at the far left end (distance $r = L - 0 = L$).  
+        on_correct: 'Good job!'
+        on_incorrect: 'Try again.'
