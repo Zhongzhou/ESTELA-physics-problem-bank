@@ -251,7 +251,7 @@ questions:
     title: Conservation of Momentum Exploding Firework
     points: 3
     text: |
-      A <latex>0.50 \text{ kg}</latex> piece of firework traveling directly upwards with an initial velocity of <latex>\vec{V} = (50.00 \hat{i}) \text{ m/s}</latex> explodes into two non-identical pieces.
+      A <latex>0.50 \text{ kg}</latex> piece of firework traveling directly upwards with an initial velocity of <latex>\vec{V} = (50.00 \hat{i}) \text{ m/s}</latex> explodes into two non-identical pieces. (Assuming that the <latex>\hat{i}</latex> direction is defined vertically upwards.)
       
       Immediately after the explosion, one piece has a mass of <latex>0.20 \text{ kg}</latex> and is observed to be moving with a velocity of <latex>\vec{v}_1 = (55.00 \hat{i} + 15.00 \hat{j}) \text{ m/s}</latex>. The second piece has the remaining mass of <latex>0.30 \text{ kg}</latex>.
       
@@ -303,7 +303,7 @@ questions:
       
       Assuming the linear momentum of the system is conserved immediately before and after the decay, what is the magnitude of the velocity of the alpha particle? Round your answer to two decimal places.
     answer:
-      value: 5004.20
+      value: 5004.44
       margin_type: absolute
       tolerance: 0.01
     feedback:
@@ -391,7 +391,7 @@ questions:
       
       Assuming the linear momentum of the submarine-drone system is conserved immediately before and after the launch, what is the magnitude of the velocity of the exploration drone? Round your answer to two decimal places.
     answer:
-      value: 15.81
+      value: 15.69
       margin_type: absolute
       tolerance: 0.01
     feedback:
@@ -567,7 +567,7 @@ questions:
       
       Assuming the linear momentum of the sled-package system is conserved immediately before and after the launch, what is the magnitude of the velocity of the satellite package? Round your answer to two decimal places.
     answer:
-      value: 13.42
+      value: 13.45
       margin_type: absolute
       tolerance: 0.01
     feedback:
