@@ -1,0 +1,7 @@
+Situation,Context,Description,Rod Mass (kg),Particle Mass (kg),Rod Length (m),Initial Position (m),Final Position (m),Initial ω (rad/s),Final ω (rad/s),Initial f (rot/s),Initial T (s),Final f (rot/s),Final T (s)
+1 - Object moves inward,Rotating Air-Track Cart,"A small motorized cart moves inward along a rotating air track, changing the system’s rotation rate.",1.5,0.3,1.2,0.5,0.15,4.2,5.735,0.668,1.496,0.913,1.096
+1 - Object moves inward,Space Station Maintenance Drone,"A maintenance drone crawls toward the hub of a spinning space station antenna, altering its angular velocity.",300.0,40,24.0,10.0,3.0,0.45,0.561,0.072,13.963,0.089,11.2
+2 - Object slides outward,Rotating Lab Arm with Sliding Mass,"A small mass released near the center of a spinning lab rod slides outward, slowing the rotation.",0.6,0.08,0.8,0.05,0.38,6.5,4.806,1.035,0.967,0.765,1.307
+2 - Object slides outward,Turntable with Sliding Bead on a Rod,A bead placed near the axis of a rotating rod slides outward along it as the turntable spins.,0.9,0.02,1.0,0.08,0.45,7.8,7.413,1.241,0.806,1.18,0.848
+3 - Two objects land on rod,Docking Capsules on a Rotating Station,"Two supply pods dock symmetrically on a rotating station’s central rod, reducing its spin rate.",500.0,"180, 160",30.0,—,"+12.0, -9.0",0.6,0.295,0.095,10.472,0.047,21.329
+3 - Two objects land on rod,Rotating Bar with Falling Masses,"Two small masses drop from guides onto a freely rotating bar, changing its angular speed.",0.7,"0.10, 0.15",1.1,—,"+0.40, -0.45",5.0,3.017,0.796,1.257,0.48,2.082

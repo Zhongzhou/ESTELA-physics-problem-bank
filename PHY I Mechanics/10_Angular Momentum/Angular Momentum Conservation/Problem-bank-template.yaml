@@ -1,0 +1,171 @@
+bank_info:
+    title: Example Problem Bank
+    bank_id: EXP-PB1-EXMPLPB-01012026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This is an example problem bank for assessment problems. 
+      Use this template to create new problem banks by replacing the content with your own questions and details.
+    date created: 01-01-2026 # Today's date 
+    learning objectives:
+    generation prompts: # Those prompts were used to generate the rod rotating around center version. Modify them to generate similar problems for other shapes.
+        - prompt 1: |
+            I am writing problems about conservation of angular momentum for objects freely rotating around a fixed axis, and involving change of moment of inertia. The problems involve an object than can be modeled as a uniform thin rod or thin slab, rotating without friction around an axis located at its center. Help me think of two unique problem contexts for each of the following three situations: 
+            1. a small object on the rod that can be treated as a point particle initially far away from the rotation axis moves towards the axis powered by itself. 
+            2. a small object on the rod that can be treated as a point particle initially close to the rotation axis sliding away from the axis 
+            3. two small objects that can be treated as two point particles with mass, being dropped or landed onto the rod. 
+            The contexts could potentially involve physics experiment scenarios such as in a lab, science fiction or movie scenarios such as rotating space station antennae, or other scenarios. Create two candidate context for each scenario type.
+        - prompt 2: | 
+            Keep the following: situation 1: A1, B1, Situation 2: A1, A2, Situation 3: B1, A2. List the title and a one line description in a table.   
+        - prompt 3: |
+            For each problem context, create one set of randomly generated but context appropriate numbers for: The mass of the object and the particle(s), the length of the rod, the initial and final location of the particle (or the landing positions for the two particles), and the initial angular velocity of the rotating object. In situation 3, the positions of the two masses should not be identical.
+        - prompt 4: |
+            First, for each set of numbers, calculate the final angular velocity of the system. Then convert both the initial angular velocity and the final angular velocity into both frequency and period.
+        - prompt 5: |
+            For record keeping purposes, export the situation, the description and all the associated data into a csv file.
+        - prompt 6: |
+            Now write the problem bodies for the two cases under the first situation. Case 1 should give the initial frequency and ask for the final frequency of rotation, and case 2 should give the initial period and ask for the final period. Describe the frequency as "rotation per second", and the period as "takes [t] seconds to complete one rotation". The problem bodies should ask students about the final frequency/period, and ask students to round their answers to two decimal places. 
+        - prompt 6.1: |
+            I noticed an error in the first problem. The rod shouldn't be mounted on a turntable since the turntable will also have moment of inertia. The rod should be mounted directly on the axis.
+            Update both problems. In each one, mention that the cart and drone can be treated as point particles. Also, do not explicitly mention the change in moment of inertia please.
+        - prompt 7: |
+            Following the same requirements, write the problem bodies for the remaining four cases.
+        - prompt 8: | #uploaded both the yaml and the csv files.
+            I have put all the problem bodies in the markdown file, and slightly modified them. Using the problem bodies in the markdown file, as well as the data recorded in the csv file, write those four problems according to the following yaml format:
+        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    updates: 
+        - update 1: (9/15/2025) Zhongzhou Chen added updates field to this yaml. 
+        - update 2: (date of update) who did what #this is an example.
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: GPT-4o # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Author 1
+        - Author 2
+
+questions:
+# The following contents should be replaced by the output of the LLM.
+- numerical:
+    id: q1
+    title: Rotating Air-Track Cart
+    points: 3
+    text: |
+      A uniform thin rod of mass <latex>1.50\ \text{kg}</latex> and length <latex>1.20\ \text{m}</latex> is mounted directly on a **frictionless vertical axle through its center**, allowing it to rotate freely.  
+      A small cart of mass <latex>0.30\ \text{kg}</latex>, which can be treated as a point particle, moves along the rod from <latex>r_i = 0.50\ \text{m}</latex> from the axis to <latex>r_f = 0.15\ \text{m}</latex> while the system spins.  
+
+      Initially, the rod–cart system rotates at a frequency of <latex>0.67\ \text{rotation/second}</latex>.  
+      Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the cart reaches its final position.  
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.91
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: The solution of the problem
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q2
+    title: Space Station Maintenance Drone
+    points: 3
+    text: |
+      A long antenna array of a rotating space station can be modeled as a **uniform thin rod** of mass <latex>300\ \text{kg}</latex> and length <latex>24.0\ \text{m}</latex>, rotating freely about its center in deep space.  
+      A maintenance drone of mass <latex>40\ \text{kg}</latex>, which can be treated as a point particle, crawls along the array from a point <latex>r_i = 10.0\ \text{m}</latex> from the axis toward a point <latex>r_f = 3.0\ \text{m}</latex>.  
+
+      At the start, the station **takes <latex>13.96\ \text{s}</latex> to complete one rotation**.  
+      Assuming no external torque acts on the system, find how long the station **takes to complete one rotation**, in units of **seconds**, after the drone reaches the inner position.  
+      **Round your answer to two decimal places.**
+    answer:
+        value: 11.20
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: The solution of the problem
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q3
+    title: Rotating Lab Arm with Sliding Mass
+    points: 3
+    text: |
+      A uniform thin rod of mass <latex>0.60\ \text{kg}</latex> and length <latex>0.80\ \text{m}</latex> is mounted on a **frictionless vertical axle through its center** and can rotate freely.  
+      A small ring of mass <latex>0.080\ \text{kg}</latex>, which can be treated as a point particle, is released from <latex>r_i = 0.05\ \text{m}</latex> and slides outward along the rod to <latex>r_f = 0.38\ \text{m}</latex> while the system spins.  
+
+      Initially, the system rotates at <latex>1.04\ \text{rotation/second}</latex>.  
+      Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the ring reaches <latex>r_f = 0.38\ \text{m}</latex>.  
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.77
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: The solution of the problem
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q4
+    title: Sliding Bead on Rotating Rod
+    points: 3
+    text: |
+      A uniform thin rod of mass <latex>0.90\ \text{kg}</latex> and length <latex>1.00\ \text{m}</latex> is mounted on a **frictionless vertical axle through its center** and rotates freely.  
+      A small bead of mass <latex>0.020\ \text{kg}</latex>, which can be treated as a point particle, is initially at <latex>r_i = 0.08\ \text{m}</latex> from the axis and slides outward along the rod to <latex>r_f = 0.45\ \text{m}</latex> as the system spins.  
+
+      At the start, the system **takes <latex>0.81\ \text{s}</latex> to complete one rotation**.  
+      Assuming no external torque acts on the system, find how long the system **takes to complete one rotation**, in units of **seconds**, after the bead reaches <latex>r_f = 0.45\ \text{m}</latex>.  
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.85
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: The solution of the problem
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q5
+    title: Docking Capsules on a Rotating Station
+    points: 3
+    text: |
+      A rotating space station has a central structure that can be modeled as a **uniform thin rod** of mass <latex>500\ \text{kg}</latex> and length <latex>30.0\ \text{m}</latex>, free to rotate about its center in deep space.  
+      Two supply pods—**Pod A: <latex>180\ \text{kg}</latex>** and **Pod B: <latex>160\ \text{kg}</latex>**—each of which can be treated as a point particle, approach gradually and attach at fixed locations on opposite sides of the center: <latex>r_A = +12.0\ \text{m}</latex> and <latex>r_B = -9.0\ \text{m}</latex>.  
+
+      Initially, the station **takes <latex>10.47\ \text{s}</latex> to complete one rotation**.  
+      Assuming no external torque acts on the system, determine how long the station **takes to complete one rotation**, in units of **seconds**, after both pods have attached.  
+      **Round your answer to two decimal places.**
+    answer:
+        value: 21.33
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: The solution of the problem
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q6
+    title: Rotating Bar with Falling Masses
+    points: 3
+    text: |
+      In a laboratory setup, a **uniform thin bar** of mass <latex>0.70\ \text{kg}</latex> and length <latex>1.10\ \text{m}</latex> rotates freely about a **frictionless vertical axle through its center**.  
+      Two small metal disks—**Disk 1: <latex>0.10\ \text{kg}</latex>** and **Disk 2: <latex>0.15\ \text{kg}</latex>**—each of which can be treated as a point particle, are dropped from above so that they stick to the bar at <latex>r_1 = +0.40\ \text{m}</latex> and <latex>r_2 = -0.45\ \text{m}</latex> from the axis.  
+
+      Initially, the rotating bar has a frequency of <latex>0.80\ \text{rotation/second}</latex>.  
+      Assuming no external torque acts on the system, find the **final frequency of rotation**, in units of **rotations per second**, after both disks have attached.  
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.48
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: The solution of the problem
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+
+
