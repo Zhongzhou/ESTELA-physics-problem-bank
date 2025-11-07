@@ -72,7 +72,7 @@ questions:
 # The following contents should be replaced by the output of the LLM.
 - numerical:
     id: q1
-    title: Conservation of Momentum: Exploding Shell
+    title: Conservation of Momentum Exploding Shell
     points: 3
     text: |
       A <latex>10.0 \text{ kg}</latex> cannon shell is traveling with an initial velocity of <latex>\vec{V} = (300 \hat{i}) \text{ m/s}</latex> when it suddenly explodes into two fragments.
@@ -116,7 +116,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q2
-    title: Conservation of Momentum: Rocket Separation
+    title: Conservation of Momentum Rocket Separation
     points: 3
     text: |
       A <latex>200.00 \text{ kg}</latex> small sounding rocket is traveling in deep space with an initial velocity of <latex>\vec{V} = (5000.00 \hat{i}) \text{ m/s}</latex> when it separates its payload section from the main body.
@@ -160,7 +160,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q3
-    title: Conservation of Momentum: Space Debris Fracture
+    title: Conservation of Momentum Space Debris Fracture
     points: 3
     text: |
       A <latex>50.00 \text{ kg}</latex> fragment of space debris traveling in a straight line with an initial velocity of <latex>\vec{V} = (8000.00 \hat{i}) \text{ m/s}</latex> fractures internally into two pieces.
@@ -204,7 +204,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q4
-    title: Conservation of Momentum: Exploding Ice Block
+    title: Conservation of Momentum Exploding Ice Block
     points: 3
     text: |
       A <latex>80.00 \text{ kg}</latex> large block of ice sliding frictionlessly across a frozen lake with an initial velocity of <latex>\vec{V} = (4.00 \hat{i}) \text{ m/s}</latex> explodes into two pieces.
@@ -248,7 +248,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q5
-    title: Conservation of Momentum: Exploding Firework
+    title: Conservation of Momentum Exploding Firework
     points: 3
     text: |
       A <latex>0.50 \text{ kg}</latex> piece of firework traveling directly upwards with an initial velocity of <latex>\vec{V} = (50.00 \hat{i}) \text{ m/s}</latex> explodes into two non-identical pieces.
@@ -294,7 +294,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q6
-    title: Conservation of Momentum: Alpha Decay
+    title: Conservation of Momentum Alpha Decay
     points: 3
     text: |
       A <latex>240.00 \text{ u}</latex> heavy nucleus (parent) moving in a straight line with an initial velocity of <latex>\vec{V} = (200.00 \hat{i}) \text{ m/s}</latex> undergoes alpha decay.
@@ -338,7 +338,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q7
-    title: Conservation of Momentum: Skater Throws Bag
+    title: Conservation of Momentum Skater Throws Bag
     points: 3
     text: |
       A <latex>70.00 \text{ kg}</latex> roller skater is skating on a smooth surface with an initial velocity of <latex>\vec{V} = (5.00 \hat{i}) \text{ m/s}</latex> when they throw a heavy gym bag.
@@ -382,7 +382,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q8
-    title: Conservation of Momentum: Submarine Launches Drone
+    title: Conservation of Momentum Submarine Launches Drone
     points: 3
     text: |
       A <latex>10000.00 \text{ kg}</latex> small submarine is cruising horizontally with an initial velocity of <latex>\vec{V} = (10.00 \hat{i}) \text{ m/s}</latex> when it launches an underwater exploration drone.
@@ -426,7 +426,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q9
-    title: Conservation of Momentum: Space-ship Launches Pod
+    title: Conservation of Momentum Space-ship Launches Pod
     points: 3
     text: |
       A <latex>5000.00 \text{ kg}</latex> small space-ship is cruising in deep space with an initial velocity of <latex>\vec{V} = (2000.00 \hat{i}) \text{ m/s}</latex> when it launches an exploration pod.
@@ -470,7 +470,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q10
-    title: Conservation of Momentum: Passenger Jumps from Bumper Car
+    title: Conservation of Momentum Passenger Jumps from Bumper Car
     points: 3
     text: |
       A <latex>180.00 \text{ kg}</latex> bumper car is coasting on a slick surface with an initial velocity of <latex>\vec{V} = (3.00 \hat{i}) \text{ m/s}</latex> when its passenger jumps out.
@@ -514,7 +514,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q11
-    title: Conservation of Momentum: Hovercraft Pushes Crate
+    title: Conservation of Momentum Hovercraft Pushes Crate
     points: 3
     text: |
       A <latex>1000.00 \text{ kg}</latex> hovercraft is moving over a smooth surface with an initial velocity of <latex>\vec{V} = (15.00 \hat{i}) \text{ m/s}</latex> when it pushes a heavy supply crate.
@@ -558,7 +558,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q12
-    title: Conservation of Momentum: Sled Launches Package
+    title: Conservation of Momentum Sled Launches Package
     points: 3
     text: |
       A <latex>250.00 \text{ kg}</latex> heavy sled is sliding down a gentle, icy slope with an initial velocity of <latex>\vec{V} = (8.00 \hat{i}) \text{ m/s}</latex> when it launches a dense satellite package.
@@ -602,7 +602,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q13
-    title: Conservation of Momentum: Colliding Asteroids
+    title: Conservation of Momentum Colliding Asteroids
     points: 3
     text: |
       An asteroid of mass <latex>m_1 = 1000.00 \text{ kg}</latex> is traveling through space with a velocity of <latex>\vec{v}_1 = (20.00 \hat{i}) \text{ m/s}</latex>. It collides with a second asteroid of mass <latex>m_2 = 500.00 \text{ kg}</latex> traveling at <latex>\vec{v}_2 = (-10.00 \hat{i} + 30.00 \hat{j}) \text{ m/s}</latex>. The two asteroids stick together.
@@ -650,7 +650,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q14
-    title: Conservation of Momentum: Colliding Mud Balls
+    title: Conservation of Momentum Colliding Mud Balls
     points: 3
     text: |
       A <latex>0.50 \text{ kg}</latex> ball of mud is thrown with a velocity of <latex>\vec{v}_1 = (10.00 \hat{i}) \text{ m/s}</latex>. It strikes and sticks to a second ball of mud. The combined mass of <latex>0.80 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (7.00 \hat{i} + 1.50 \hat{j}) \text{ m/s}</latex>.
@@ -698,7 +698,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q15
-    title: Conservation of Momentum: Football Tackle
+    title: Conservation of Momentum Football Tackle
     points: 3
     text: |
       A <latex>110.00 \text{ kg}</latex> linebacker running at <latex>\vec{v}_1 = (8.00 \hat{i}) \text{ m/s}</latex> tackles a <latex>100.00 \text{ kg}</latex> running back who is moving at <latex>\vec{v}_2 = (-7.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex>. The linebacker holds on, and the two players move together.
@@ -746,7 +746,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q16
-    title: Conservation of Momentum: Shopping Carts
+    title: Conservation of Momentum Shopping Carts
     points: 3
     text: |
       A <latex>20.00 \text{ kg}</latex> shopping cart moving at <latex>\vec{v}_1 = (3.00 \hat{i}) \text{ m/s}</latex> collides with another shopping cart. The carts lock together and move off with a combined mass of <latex>45.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (4.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex>.
@@ -794,7 +794,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q17
-    title: Conservation of Momentum: Space Probe Docking
+    title: Conservation of Momentum Space Probe Docking
     points: 3
     text: |
       A <latex>4000.00 \text{ kg}</latex> space probe traveling at <latex>\vec{v}_1 = (1000.00 \hat{i}) \text{ m/s}</latex> docks with a <latex>1000.00 \text{ kg}</latex> supply module moving at <latex>\vec{v}_2 = (500.00 \hat{i} + 800.00 \hat{j}) \text{ m/s}</latex>. The two craft lock together.
@@ -842,7 +842,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q18
-    title: Conservation of Momentum: Clay Projectiles
+    title: Conservation of Momentum Clay Projectiles
     points: 3
     text: |
       A <latex>2.00 \text{ kg}</latex> clay projectile is fired with a velocity of <latex>\vec{v}_1 = (50.00 \hat{i}) \text{ m/s}</latex>. It strikes and sticks to a <latex>1.00 \text{ kg}</latex> clay target. The combined <latex>3.00 \text{ kg}</latex> mass moves with a final velocity of <latex>\vec{V}_{f} = (30.00 \hat{i} - 10.00 \hat{j}) \text{ m/s}</latex>.
@@ -890,7 +890,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q19
-    title: Conservation of Momentum: Train Car Coupling
+    title: Conservation of Momentum Train Car Coupling
     points: 3
     text: |
       A <latex>20000.00 \text{ kg}</latex> train car moving at <latex>\vec{v}_1 = (5.00 \hat{i}) \text{ m/s}</latex> on a straight track couples with a <latex>15000.00 \text{ kg}</latex> car that is moving at <latex>\vec{v}_2 = (2.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex> on an adjacent track (the tracks merge).
@@ -938,7 +938,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q20
-    title: Conservation of Momentum: Rafts Linking
+    title: Conservation of Momentum Rafts Linking
     points: 3
     text: |
       A <latex>300.00 \text{ kg}</latex> raft moving at <latex>\vec{v}_1 = (1.00 \hat{i}) \text{ m/s}</latex> collides and links with a second raft. The combined mass of <latex>500.00 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (0.60 \hat{i} - 0.60 \hat{j}) \text{ m/s}</latex>.
@@ -986,7 +986,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q21
-    title: Conservation of Momentum: Ice Skaters
+    title: Conservation of Momentum Ice Skaters
     points: 3
     text: |
       A <latex>70.00 \text{ kg}</latex> ice skater moving at <latex>\vec{v}_1 = (6.00 \hat{i}) \text{ m/s}</latex> grabs onto a <latex>50.00 \text{ kg}</latex> skater who is moving at <latex>\vec{v}_2 = (2.00 \hat{i} + 4.00 \hat{j}) \text{ m/s}</latex>. The two skaters then glide off together.
@@ -1034,7 +1034,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q22
-    title: Conservation of Momentum: Bumper Cars
+    title: Conservation of Momentum Bumper Cars
     points: 3
     text: |
       A <latex>150.00 \text{ kg}</latex> bumper car (car 1) moving at <latex>\vec{v}_1 = (4.00 \hat{i}) \text{ m/s}</latex> crashes into a second bumper car (car 2). The cars stick together and move off with a combined mass of <latex>260.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (3.00 \hat{i} - 1.00 \hat{j}) \text{ m/s}</latex>.
@@ -1082,7 +1082,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q23
-    title: Conservation of Momentum: Cargo Drone Catch
+    title: Conservation of Momentum Cargo Drone Catch
     points: 3
     text: |
       A <latex>80.00 \text{ kg}</latex> cargo drone is flying horizontally at <latex>\vec{v}_1 = (30.00 \hat{i}) \text{ m/s}</latex>. It moves to catch a <latex>20.00 \text{ kg}</latex> package that is moving at <latex>\vec{v}_2 = (10.00 \hat{i} + 50.00 \hat{j}) \text{ m/s}</latex>. The drone catches the package and holds onto it.
@@ -1130,7 +1130,7 @@ questions:
       on_incorrect: Try again!
 - numerical:
     id: q24
-    title: Conservation of Momentum: Colliding Sleds
+    title: Conservation of Momentum Colliding Sleds
     points: 3
     text: |
       A <latex>100.00 \text{ kg}</latex> sled is moving at <latex>\vec{v}_1 = (10.00 \hat{i}) \text{ m/s}</latex> on a frozen lake. It collides with another sled, and they stick together. The combined mass of <latex>180.00 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (7.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex>.

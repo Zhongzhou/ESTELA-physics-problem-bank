@@ -1,10 +1,9 @@
 bank_info:
-    title: Example Problem Bank
-    bank_id: EXP-PB1-EXMPLPB-01012026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    title: Conservation of Angular Momentum by Changing Moment of Inertia
+    bank_id: PHY1-AM-CAMCMI-11062025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
-      This is an example problem bank for assessment problems. 
-      Use this template to create new problem banks by replacing the content with your own questions and details.
-    date created: 01-01-2026 # Today's date 
+      To be added
+    date created: 11-06-2025 # Today's date 
     learning objectives:
     generation prompts: # Those prompts were used to generate the rod rotating around center version. Modify them to generate similar problems for other shapes.
         - prompt 1: |
@@ -62,7 +61,28 @@ questions:
         margin_type: percent
         tolerance: 3
     feedback:
-        general: The solution of the problem
+        general: |
+          **Solution:**
+
+          **Concept:**  
+          When no external torque acts on a rotating system, its **angular momentum** is conserved:  
+          <latex>I_i \omega_i = I_f \omega_f</latex>  
+
+          **Key Steps:**  
+          1. The system consists of a **uniform thin rod** and a **cart treated as a point particle** moving along it.  
+          2. The moment of inertia of the rod about its center is  
+             <latex>I_{\text{rod}} = \tfrac{1}{12} M L^2</latex>,  
+             and the cart contributes <latex>I_{\text{cart}} = m r^2</latex>.  
+          3. As the cart moves from <latex>r_i</latex> to <latex>r_f</latex>, the total moment of inertia changes, but angular momentum remains constant.  
+          4. Using conservation of angular momentum,  
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.  
+          5. The final frequency follows from <latex>f_f = \omega_f / (2\pi)</latex>.  
+
+          **Reasoning:**  
+          Moving inward reduces the total moment of inertia, so the system spins faster to conserve angular momentum.  
+
+          **Final Answer:**  
+          <latex>f_f = 0.91\ \text{rotations per second}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -82,7 +102,28 @@ questions:
         margin_type: percent
         tolerance: 3
     feedback:
-        general: The solution of the problem
+        general: |
+          **Solution:**
+
+          **Concept:**  
+          For a freely rotating system in deep space, with no external torque, **angular momentum is conserved**:  
+          <latex>I_i \omega_i = I_f \omega_f</latex>  
+
+          **Key Steps:**  
+          1. The space station is modeled as a **uniform rod**, and the drone is treated as a **point mass** at distance <latex>r</latex> from the axis.  
+          2. The total moment of inertia is  
+             <latex>I = \tfrac{1}{12} M L^2 + m r^2</latex>.  
+          3. As the drone moves inward, the moment of inertia decreases.  
+          4. From conservation of angular momentum,  
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.  
+          5. The period is related by <latex>T = 2\pi / \omega</latex>, so  
+             <latex>T_f = T_i \dfrac{I_f}{I_i}</latex>.  
+
+          **Reasoning:**  
+          Because the drone moves closer to the rotation axis, the system spins faster, so the period of one rotation becomes shorter.  
+
+          **Final Answer:**  
+          <latex>T_f = 11.20\ \text{seconds}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -102,7 +143,26 @@ questions:
         margin_type: percent
         tolerance: 3
     feedback:
-        general: The solution of the problem
+        general: |
+          **Solution:**
+
+          **Concept:**  
+          With no external torque, **angular momentum is conserved**:  
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**  
+          1. Treat the rod and ring as a compound system:  
+             <latex>I_{\text{rod}} = \tfrac{1}{12} M L^2</latex>, and the ring (point particle) contributes <latex>I_{\text{ring}} = m r^2</latex>.  
+          2. Before and after the slide, compute the total moment of inertia using the appropriate <latex>r</latex> value.  
+          3. Apply conservation of angular momentum to relate <latex>\omega_i</latex> and <latex>\omega_f</latex>:  
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.  
+          4. Convert angular speed to frequency with <latex>f = \omega/(2\pi)</latex> to obtain the requested quantity.
+
+          **Reasoning:**  
+          As the mass slides outward, the system’s total moment of inertia increases, so the rotation rate (frequency) decreases.
+
+          **Final Answer:**  
+          <latex>f_f = 0.77\ \text{rotations per second}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -122,7 +182,27 @@ questions:
         margin_type: percent
         tolerance: 3
     feedback:
-        general: The solution of the problem
+        general: |
+          **Solution:**
+
+          **Concept:**  
+          With no external torque, **angular momentum is conserved**:  
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**  
+          1. Model the system as a uniform rod plus a point particle (the bead):  
+             <latex>I = \tfrac{1}{12} M L^2 + m r^2</latex>.  
+          2. Use initial and final positions of the bead to form <latex>I_i</latex> and <latex>I_f</latex>.  
+          3. From conservation of angular momentum, relate angular speeds:  
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.  
+          4. Convert angular speed to **period** using <latex>T = \dfrac{2\pi}{\omega}</latex>; thus  
+             <latex>T_f = T_i \dfrac{I_f}{I_i}</latex>.
+
+          **Reasoning:**  
+          Sliding outward increases the total moment of inertia, which reduces angular speed and therefore **increases** the time for one rotation (the period).
+
+          **Final Answer:**  
+          <latex>T_f = 0.85\ \text{seconds}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -142,7 +222,27 @@ questions:
         margin_type: percent
         tolerance: 3
     feedback:
-        general: The solution of the problem
+        general: |
+          **Solution:**
+
+          **Concept:**  
+          With no external torque, **angular momentum is conserved**:  
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**  
+          1. Model the station as a uniform rod plus two point masses fixed at <latex>r_A</latex> and <latex>r_B</latex>:  
+             <latex>I = \tfrac{1}{12} M L^2 + m_A r_A^2 + m_B r_B^2</latex>.  
+          2. Before docking, the total is just the rod; after docking, include both pods.  
+          3. Apply conservation of angular momentum to relate angular speeds:  
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.  
+          4. Convert between angular speed and period using <latex>T = \dfrac{2\pi}{\omega}</latex>, giving  
+             <latex>T_f = T_i \dfrac{I_f}{I_i}</latex>.
+
+          **Reasoning:**  
+          Attaching pods far from the axis increases <latex>I</latex>, so the rotation slows and the **period increases**.
+
+          **Final Answer:**  
+          <latex>T_f = 21.33\ \text{seconds}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -162,7 +262,26 @@ questions:
         margin_type: percent
         tolerance: 3
     feedback:
-        general: The solution of the problem
+        general: |
+          **Solution:**
+
+          **Concept:**  
+          With no external torque, **angular momentum is conserved**:  
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**  
+          1. The total moment of inertia is that of the bar plus two point masses:  
+             <latex>I = \tfrac{1}{12} M L^2 + m_1 r_1^2 + m_2 r_2^2</latex>.  
+          2. Before the disks land, only the bar contributes; afterwards, add both <latex>m_1 r_1^2</latex> and <latex>m_2 r_2^2</latex>.  
+          3. Use conservation to obtain  
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.  
+          4. Convert to frequency with <latex>f = \dfrac{\omega}{2\pi}</latex> to get the requested value.
+
+          **Reasoning:**  
+          Sticking masses at nonzero radii increases <latex>I</latex>, so the system spins **slower** and the frequency decreases.
+
+          **Final Answer:**  
+          <latex>f_f = 0.48\ \text{rotations per second}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
