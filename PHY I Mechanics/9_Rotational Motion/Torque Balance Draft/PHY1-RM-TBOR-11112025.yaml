@@ -1,0 +1,873 @@
+bank_info:
+    title: Torque Balance On a Rod
+    bank_id: PHY1-RM-TBOR-11112025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      Torque balance on a uniform thin massiv rod, with one force at an angle, and one hanging block. The location of the force the block and the pivot changes between problems.
+    date created: 11-11-2025 # Today's date 
+    learning objectives:
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I want to create physics problems on the balance of torques of a uniform thin rod of mass m and length L, rotating around a fixed pivot, involving a hanging block of mass M, and an external force applied on the rod pointing up at an angle of 30 degrees with respect to the vertical direction. 
+            I would first like to create a table containing the possible variations of the problems. The table should contain the position of the pivot, the hanging block, and the location of the applied force. All the positions are measured by fraction of rod length to the right end of the rod, and for now it can take 4 values: 0, 1/4, 3/4, 1. 
+            First, the pivot can be at any of the four positions. Second, the hanging block can be at any of the remaining 3 positions. Finally, the Force can be at the remaining 2 positions. 
+            However, we need to remove the case in which both masses are on the opposite end of the pivot as the force. Those cases are: all cases in which pivot is at 1/4 and force at 0, and all cases in which pivot is at 3/4 and force at 1. Create this table first.
+        - prompt 2: | 
+            Ok, for all cases where block is at 1/4, add a variation where the block is at 1/8. For all cases where block is at 3/4, add a variation where the block is at 3/4, add a variation where the block is at 7/8.
+        - prompt 3: |
+            Next, add three new columns to the above table: Torque by block, torque by rod, torque by Force. The weight of the block can chosen from either 4N, 8N, 16N, or 32 N, and the weight of the rod should be also chosen from those values, but different from the block. The weight of the rod is always at the position of 1/2. Torque is positive if the position of block or rod is greater than position of the pivot, and vice versa. The torque by the force should balance the total torque.
+        - prompt 4: |
+            Now check if the numbers generated are consistent with the fact that the force is pointing upwards, according to the following rules: if the position of force is greater than the position of the pivot, the torque should be negative. If the force position is less than the position of the pivot, the torque should be positive. Identify all the rows that violates this requirement.
+        - prompt 4.1: |
+            In both cases, try reduce the block weight and increase the rod weight, so that the sign of the torque is flipped.
+            replace those two sets of numbers in the original table please.
+        - prompt 5: |
+            Now add two last columns: a Force column, which is the value of the force, assuming that the force is applied at 60 degree with respect to the vertical and 30 degree with respect to the horizontal, so the perpendicular component is half of the original component. Next add a column named "unknown", which is the unknown variable, which rotates between F, W_rod, W_block.
+        - prompt 6: |
+            Now try and write a problem body for the row 1 in the data table attached. The problem body should state that the rotating rod is in static equilibrium, the length of the rod is L = 1m, the rod is in a horizontal position. The force is applied at an angle of 60 degree with respect to the vertical direction, as shown in the image. All distances are with respect to the right end of the rod. Express distance as the fraction of the rod length L. In case of 0, state "at the right end", in case of "1" state "at the left end". Ask students to round their answer to the nearest integer. Don't include a separate "Question" heading. Also generate a concise solution to the problem, using data in row 1 of the attached table.
+        - prompt 7: |
+            Now write the problem body and solution for the first 3 rows of the table, using the exact same format as above, just replacing the values of different variables, and replacing the question part according to the unknown column in the table.
+        - prompt 8: |
+            In this python notebook there is a function to create the image for the problems. Using that function (do not change anything about it), create diagrams for the first three problems, using the parameters in the first three rows of the table above, and setting the angle to 60. The filenames of the output file should contain the question number, and the position of the pivot, block and force, for example "q1_p0_b_18_f34.png" (for the first row).
+            Looks great, now please create figures in the same fashion for rows 4 to 31 of the table.
+            Please create a zip file with all 30 images bundled.
+            Can you re-generate q17 with on modification to the original script: instead of ax.set_xlim(-0.1*L, 1.1*L), do ax.set_xlim(-0.1*L, 1.5*L)
+            Great, now please apply this change to the script and re-generate all the figures, and create a downloadable zip file.
+        - prompt 9: |
+            Let's update the csv table by adding a column named "Figure", which contains the corresponding image file name for each row.
+        - prompt 10: |
+            Now help me turn the first three questions and solution from the attached md file into the following yaml format:
+            The figure should be the figure names in the "Figures" column in the attached table (which you just generated).
+        - prompt 11: |
+            Now let's work on problem bodies and solutions of problems 4-9. The data table is attached here. Your problem bodies should be based almost exactly on problem bodies 1-3 (see the markdown file). For problems with F as unknown, base it off of problem 1, for problems with  W_rod as unkown, base it off of problem 2. For problems with W_block as unkown, base it off of problem 3. Update the values in the problem body according to the table, and retain the problem text. In the solution, make sure the sign of the torques correspond to the data and the final answer aligns with the table. Output in markdown format first.
+            Regenerate the above, remove the "acting at its center..." part from the problem bodies.
+        - prompt 12: |
+            Now turn all of them into the yaml format according to the example above, and using the figure name information in the uploaded table.
+            The figure file names are all incorrect, correct them according to the "Figure" column in this table. (use rolls 4 - 9)
+        - prompt 13: | # Open a new chat to do problem 10 - 13. Creating yaml directly is still too complicated for the AI.
+            The attached yml file contains three physics problems, the corresponding problem figure, the correct answer, and the corresponding solution for each problem. The attached csv file contains the corresponding data for the problems in the first 3 rows, and corresponding file name for each problem. The markdown file contains the problem bodies and the solutions in markdown format. I would like to first create the markdown for problems 10 - 12, according to the information in rows 10 - 12 of the csv file. For problems with F as unknown, base it off of problem 1, for problems with  W_rod as unkown, base it off of problem 2. For problems with W_block as unkown, base it off of problem 3. Update the values in the problem body according to the table, and retain the problem text. In the solution, make sure the sign of the torques correspond to the data and the final answer aligns with the info in the table. Create the markdown first.
+        - prompt 14: |
+            Now turn the above markdown into yaml file according to the yaml example from problems 1-3
+    updates: 
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: GPT-4o # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Author 1
+        - Author 2
+
+questions:
+# The following contents should be replaced by the output of the LLM.
+
+- numerical:
+    id: q1
+    title: Static Equilibrium of a Horizontal Rod – Force Determination
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**. A block of weight **4 N** is suspended from the rod **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+
+      An external force **F** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q1_p0_b_18_f34.png
+    answer:
+        value: 12
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = 4\left(\tfrac{1}{8}-0\right)=\tfrac{1}{2}, \quad
+          \tau_r = 8\left(\tfrac{1}{2}-0\right)=4, \quad
+          \tau_F = -\big(\tfrac{1}{2}F\big)\left(\tfrac{3}{4}-0\right) = -\tfrac{3}{8}F.
+          </latex>
+          Equilibrium: <latex>\tfrac{1}{2}+4-\tfrac{3}{8}F=0 \Rightarrow F=12~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q2
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **8 N** is suspended from the rod **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+
+      An external force of magnitude **18 N** is applied on the rod **at the left end** (i.e., **at <latex>1\cdot L</latex> from the right end**). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q2_p0_b_18_f1.png
+    answer:
+        value: 16
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = 8\left(\tfrac{1}{8}-0\right)=1, \quad
+          \tau_r = W_r\left(\tfrac{1}{2}-0\right)=\tfrac{1}{2}W_r, \quad
+          \tau_F = -\big(\tfrac{1}{2}\cdot 18\big)(1-0) = -9.
+          </latex>
+          Equilibrium: <latex>1+\tfrac{1}{2}W_r-9=0 \Rightarrow W_r=16~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q3
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**.
+
+      An external force of magnitude **53.33 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q3_p0_b_14_f34.png
+    answer:
+        value: 16
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = W_b\left(\tfrac{1}{4}-0\right)=\tfrac{1}{4}W_b, \quad
+          \tau_r = 32\left(\tfrac{1}{2}-0\right)=16, \quad
+          \tau_F = -\big(\tfrac{1}{2}\cdot 53.33\big)\left(\tfrac{3}{4}-0\right)\approx -20.00.
+          </latex>
+          Equilibrium: <latex>\tfrac{1}{4}W_b+16-20=0 \Rightarrow W_b=16~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q4
+    title: Static Equilibrium of a Horizontal Rod – Force Determination
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of weight **32 N** is suspended from the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+
+      An external force **F** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q4_p0_b_14_f1.png
+    answer:
+        value: 20
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = 32\left(\tfrac{1}{4}-0\right)=8,\quad
+          \tau_r = 4\left(\tfrac{1}{2}-0\right)=2,\quad
+          \tau_F = -\big(\tfrac{1}{2}F\big)(1-0)=-\tfrac{1}{2}F.
+          </latex>
+          Equilibrium: <latex>8+2-\tfrac{1}{2}F=0 \Rightarrow F=20~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q5
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **4 N** is suspended from the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+
+      An external force of magnitude **56 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q5_p0_b_34_f14.png
+    answer:
+        value: 8
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = 4\left(\tfrac{3}{4}-0\right)=3,\quad
+          \tau_r = W_r\left(\tfrac{1}{2}-0\right)=\tfrac{1}{2}W_r,\quad
+          \tau_F = -\big(\tfrac{1}{2}\cdot 56\big)\left(\tfrac{1}{4}-0\right)=-7.
+          </latex>
+          Equilibrium: <latex>3+\tfrac{1}{2}W_r-7=0 \Rightarrow W_r=8~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q6
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**.
+
+      An external force of magnitude **28 N** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q6_p0_b_34_f1.png
+    answer:
+        value: 8
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = W_b\left(\tfrac{3}{4}-0\right)=\tfrac{3}{4}W_b,\quad
+          \tau_r = 16\left(\tfrac{1}{2}-0\right)=8,\quad
+          \tau_F = -\big(\tfrac{1}{2}\cdot 28\big)(1-0)=-14.
+          </latex>
+          Equilibrium: <latex>\tfrac{3}{4}W_b+8-14=0 \Rightarrow W_b=8~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q7
+    title: Static Equilibrium of a Horizontal Rod – Force Determination
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of weight **16 N** is suspended from the rod **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+
+      An external force **F** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q7_p0_b_78_f14.png
+    answer:
+        value: 240
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = 16\left(\tfrac{7}{8}-0\right)=14,\quad
+          \tau_r = 32\left(\tfrac{1}{2}-0\right)=16,\quad
+          \tau_F = -\big(\tfrac{1}{2}F\big)\left(\tfrac{1}{4}-0\right)=-\tfrac{1}{8}F.
+          </latex>
+          Equilibrium: <latex>14+16-\tfrac{1}{8}F=0 \Rightarrow F=240~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q8
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **32 N** is suspended from the rod **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+
+      An external force of magnitude **60 N** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q8_p0_b_78_f1.png
+    answer:
+        value: 4
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = 32\left(\tfrac{7}{8}-0\right)=28,\quad
+          \tau_r = W_r\left(\tfrac{1}{2}-0\right)=\tfrac{1}{2}W_r,\quad
+          \tau_F = -\big(\tfrac{1}{2}\cdot 60\big)(1-0)=-30.
+          </latex>
+          Equilibrium: <latex>28+\tfrac{1}{2}W_r-30=0 \Rightarrow W_r=4~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q9
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1 
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**.
+
+      An external force of magnitude **64 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at the left end**. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q9_p0_b_1_f14.png
+    answer:
+        value: 4
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          About the pivot (right end), CCW positive:
+          <latex>
+          \tau_b = W_b(1-0)=W_b,\quad
+          \tau_r = 8\left(\tfrac{1}{2}-0\right)=4,\quad
+          \tau_F = -\big(\tfrac{1}{2}\cdot 64\big)\left(\tfrac{1}{4}-0\right)=-8.
+          </latex>
+          Equilibrium: <latex>W_b+4-8=0 \Rightarrow W_b=4~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+
+- numerical:
+    id: q10
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of weight **8 N** is suspended from the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
+
+      An external force **F** is applied on the rod **at <latex>\tfrac{3}{4}L</latex>** from the right end. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q10_p0_b_1_f34.png
+    answer:
+        value: 43
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Take torques about the pivot (right end), CCW positive.
+          <latex>
+          \tau_b = 8(1)L = 8L, \quad
+          \tau_r = 16\!\left(\tfrac{1}{2}\right)L = 8L, \quad
+          \tau_F = -\!\left(\tfrac{1}{2}F\right)\!\left(\tfrac{3}{4}L\right) = -\tfrac{3}{8}F\,L.
+          </latex>
+          Equilibrium: <latex>8L + 8L - \tfrac{3}{8}F\,L = 0 \Rightarrow F = 42.67~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q11
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **16 N** is attached at the **right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+
+      An external force of magnitude **16 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex>** from the right end. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q11_p14_b_0_f34.png
+    answer:
+        value: 32
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{1}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = -16\!\left(\tfrac{1}{4}\right)L = -4L, \quad
+          \tau_r = W_r\!\left(\tfrac{1}{4}\right)L, \quad
+          \tau_F = -8\!\left(\tfrac{1}{2}\right)L = -4L.
+          </latex>
+          Equilibrium: <latex>-4L + \left(\tfrac{1}{4}W_r\right)L - 4L = 0 \Rightarrow W_r = 32~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q12
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of unknown weight is attached at the **right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+
+      An external force of magnitude **18.67 N** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q12_p14_b_0_f1.png
+    answer:
+        value: 4
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{1}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = -W_b\!\left(\tfrac{1}{4}\right)L, \quad
+          \tau_r = 32\!\left(\tfrac{1}{4}\right)L = 8L, \quad
+          \tau_F = -9.333\!\left(\tfrac{3}{4}\right)L = -7L.
+          </latex>
+          Equilibrium: <latex>-\,\tfrac{1}{4}W_b\,L + 8L - 7L = 0 \Rightarrow W_b = 4~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q13
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**. A block of weight **4 N** is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+
+      An external force **F** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q13_p14_b_34_f1.png
+    answer:
+        value: 11
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Take torques about the pivot at <latex>\tfrac{1}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = 4\!\left(\tfrac{3}{4}-\tfrac{1}{4}\right)L = 2L, \quad
+          \tau_r = 8\!\left(\tfrac{1}{2}-\tfrac{1}{4}\right)L = 2L, \quad
+          \tau_F = -\!\left(\tfrac{1}{2}F\right)\!\left(1-\tfrac{1}{4}\right)L = -\tfrac{3}{8}F\,L.
+          </latex>
+          Equilibrium: <latex>2L + 2L - \tfrac{3}{8}F\,L = 0 \Rightarrow F = 10.67~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q14
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **8 N** is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+
+      An external force of magnitude **24 N** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q14_p14_b_78_f1.png
+    answer:
+        value: 16
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{1}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = 8\!\left(\tfrac{7}{8}-\tfrac{1}{4}\right)L = 5L, \quad
+          \tau_r = W_r\!\left(\tfrac{1}{2}-\tfrac{1}{4}\right)L = \tfrac{1}{4}W_r\,L, \quad
+          \tau_F = -12\!\left(\tfrac{3}{4}\right)L = -9L.
+          </latex>
+          Equilibrium: <latex>5L + \tfrac{1}{4}W_r\,L - 9L = 0 \Rightarrow W_r = 16~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q15
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of unknown weight is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
+
+      An external force of magnitude **80 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q15_p14_b_1_f34.png
+    answer:
+        value: 16
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{1}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = W_b\!\left(1-\tfrac{1}{4}\right)L = \tfrac{3}{4}W_b\,L, \quad
+          \tau_r = 32\!\left(\tfrac{1}{2}-\tfrac{1}{4}\right)L = 8L, \quad
+          \tau_F = -40\!\left(\tfrac{1}{2}\right)L = -20L.
+          </latex>
+          Equilibrium: <latex>\tfrac{3}{4}W_b\,L + 8L - 20L = 0 \Rightarrow W_b = 16~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q16
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of weight **32 N** is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+
+      An external force **F** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q16_p34_b_0_f14.png
+    answer:
+        value: 100
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Take torques about the pivot at <latex>\tfrac{3}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = -32\!\left(\tfrac{3}{4}\right)L = -24L, \quad
+          \tau_r = -4\!\left(\tfrac{1}{4}\right)L = -1L, \quad
+          \tau_F = +\!\left(\tfrac{1}{2}F\right)\!\left(\tfrac{1}{2}L\right) = \tfrac{1}{4}F\,L.
+          </latex>
+          Equilibrium: <latex>-24L - 1L + \tfrac{1}{4}F\,L = 0 \Rightarrow F = 100~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q17
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **4 N** is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+
+      An external force of magnitude **12.00 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q17_p34_b_18_f0.png
+    answer:
+        value: 8
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{3}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = 4\!\left(\tfrac{1}{8}-\tfrac{3}{4}\right)L = -2.5L, \quad
+          \tau_r = W_r\!\left(\tfrac{1}{2}-\tfrac{3}{4}\right)L = -\tfrac{1}{4}W_rL, \quad
+          \tau_F = 4.5L.
+          </latex>
+          Equilibrium: <latex>-2.5L - \tfrac{1}{4}W_r L + 4.5L = 0 \Rightarrow W_r = 8~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q18
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of unknown weight is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+
+      An external force of magnitude **21.33 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q18_p34_b_14_f0.png
+    answer:
+        value: 8
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{3}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = W_b\!\left(\tfrac{1}{4}-\tfrac{3}{4}\right)L = -\tfrac{1}{2}W_bL, \quad
+          \tau_r = 16\!\left(\tfrac{1}{2}-\tfrac{3}{4}\right)L = -4L, \quad
+          \tau_F = 8L.
+          </latex>
+          Equilibrium: <latex>-\,\tfrac{1}{2}W_b L - 4L + 8L = 0 \Rightarrow W_b = 8~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q19
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of weight **16 N** is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
+
+      An external force **F** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q19_p34_b_1_f0.png
+    answer:
+        value: 11
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{3}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = 16\!\left(1-\tfrac{3}{4}\right)L = 4L, \quad
+          \tau_r = 32\!\left(\tfrac{1}{2}-\tfrac{3}{4}\right)L = -8L, \quad
+          \tau_F = +\tfrac{3}{8}F\,L.
+          </latex>
+          Equilibrium: <latex>4L - 8L + \tfrac{3}{8}F L=0 \Rightarrow F = 10.67~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q20
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **4 N** is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
+
+      An external force of magnitude **28.00 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q20_p34_b_1_f14.png
+    answer:
+        value: 32
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>\tfrac{3}{4}L</latex>, CCW positive.
+          <latex>
+          \tau_b = 4\!\left(1-\tfrac{3}{4}\right)L = 1L, \quad
+          \tau_r = W_r\!\left(\tfrac{1}{2}-\tfrac{3}{4}\right)L = -\tfrac{1}{4}W_rL, \quad
+          \tau_F = 7L.
+          </latex>
+          Equilibrium: <latex>1L - \tfrac{1}{4}W_r L + 7L = 0 \Rightarrow W_r = 32~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q21
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**. A block of unknown weight is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+
+      An external force of magnitude **21.33 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q21_p1_b_0_f14.png
+    answer:
+        value: 4
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = -W_bL, \quad
+          \tau_r = -4L, \quad
+          \tau_F = 8L.
+          </latex>
+          Equilibrium: <latex>-W_bL - 4L + 8L = 0 \Rightarrow W_b = 4~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q22
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of weight **8 N** is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+
+      An external force **F** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q22_p1_b_0_f34.png
+    answer:
+        value: 128
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = -8L, \quad
+          \tau_r = -8L, \quad
+          \tau_F = 0.
+          </latex>
+          Equilibrium: <latex>-8L - 8L + 0 = 0</latex>; torque-neutral at the pivot.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q23
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **16 N** is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+
+      An external force of magnitude **60.00 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q23_p1_b_18_f0.png
+    answer:
+        value: 32
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = -14L, \quad
+          \tau_r = -\tfrac{1}{2}W_rL, \quad
+          \tau_F = 30L.
+          </latex>
+          Equilibrium: <latex>-14L - \tfrac{1}{2}W_rL + 30L = 0 \Rightarrow W_r = 32~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q24
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of unknown weight is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+
+      An external force of magnitude **240.00 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q24_p1_b_18_f34.png
+    answer:
+        value: 32
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = -\tfrac{7}{8}W_bL, \quad
+          \tau_r = -2L, \quad
+          \tau_F = 30L.
+          </latex>
+          Equilibrium: <latex>-\,\tfrac{7}{8}W_bL - 2L + 30L = 0 \Rightarrow W_b = 32~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q25
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**. A block of weight **4 N** is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+
+      An external force **F** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q25_p1_b_14_f0.png
+    answer:
+        value: 14
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = 4\!\left(\tfrac{1}{4}-1\right)L = -3L, \quad
+          \tau_r = 8\!\left(\tfrac{1}{2}-1\right)L = -4L, \quad
+          \tau_F = \tfrac{1}{2}F\,L.
+          </latex>
+          Equilibrium: <latex>-3L - 4L + \tfrac{1}{2}F L = 0 \Rightarrow F = 14~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q26
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **8 N** is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+
+      An external force of magnitude **112.00 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q26_p1_b_14_f34.png
+    answer:
+        value: 16
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = 8\!\left(\tfrac{1}{4}-1\right)L = -6L, \quad
+          \tau_r = W_r\!\left(\tfrac{1}{2}-1\right)L = -\tfrac{1}{2}W_rL, \quad
+          \tau_F = 14L.
+          </latex>
+          Equilibrium: <latex>-6L - \tfrac{1}{2}W_rL + 14L = 0 \Rightarrow W_r = 16~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q27
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of unknown weight is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+
+      An external force of magnitude **40.00 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q27_p1_b_34_f0.png
+    answer:
+        value: 16
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = W_b\!\left(\tfrac{3}{4}-1\right)L = -\tfrac{1}{4}W_bL, \quad
+          \tau_r = 32\!\left(\tfrac{1}{2}-1\right)L = -16L, \quad
+          \tau_F = 20L.
+          </latex>
+          Equilibrium: <latex>-\,\tfrac{1}{4}W_bL - 16L + 20L = 0 \Rightarrow W_b = 16~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q28
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of weight **32 N** is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+
+      An external force **F** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+      Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q28_p1_b_34_f14.png
+    answer:
+        value: 27
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = 32\!\left(\tfrac{3}{4}-1\right)L = -8L, \quad
+          \tau_r = 4\!\left(\tfrac{1}{2}-1\right)L = -2L, \quad
+          \tau_F = \tfrac{3}{8}F\,L.
+          </latex>
+          Equilibrium: <latex>-8L - 2L + \tfrac{3}{8}F L = 0 \Rightarrow F = 26.67~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q29
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **4 N** is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+
+      An external force of magnitude **9.00 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q29_p1_b_78_f0.png
+    answer:
+        value: 8
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = 4\!\left(\tfrac{7}{8}-1\right)L = -0.5L, \quad
+          \tau_r = W_r\!\left(\tfrac{1}{2}-1\right)L = -\tfrac{1}{2}W_rL, \quad
+          \tau_F = 4.5L.
+          </latex>
+          Equilibrium: <latex>-0.5L - \tfrac{1}{2}W_rL + 4.5L = 0 \Rightarrow W_r = 8~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- numerical:
+    id: q30
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+      A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of unknown weight is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+
+      An external force of magnitude **24.00 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+      Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q30_p1_b_78_f14.png
+    answer:
+        value: 8
+        margin_type: absolute
+        tolerance: 1
+    feedback:
+        general: |
+          Torques about the pivot at <latex>1L</latex>, CCW positive.
+          <latex>
+          \tau_b = -\tfrac{1}{8}W_bL, \quad
+          \tau_r = -8L, \quad
+          \tau_F = 9L.
+          </latex>
+          Equilibrium: <latex>-\,\tfrac{1}{8}W_bL - 8L + 9L = 0 \Rightarrow W_b = 8~\text{N}</latex>.
+        on_correct: Good job!
+        on_incorrect: Try again!
