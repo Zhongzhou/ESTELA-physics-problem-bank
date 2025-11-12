@@ -542,34 +542,36 @@ questions:
 
 - categorization:
     id: q15
-    title: Dropped Block on Cart with Air Resistance
+    title: Block Slides Down Rough Ramp and Collides with Cart
     points: 100
     text: |
-      A block (A) is held at rest high above a cart (B), which is also at rest on a frictionless horizontal track. 
-      The block is released and falls vertically, **experiencing significant air drag**, before landing on the cart. 
-      The block and cart stick together and then coast freely along the frictionless track.
+      A track starts with a rough ramp that slopes downward and then levels off into a smooth, frictionless horizontal section.
+      Block A starts at rest at the top of the rough ramp. Cart B is at rest on the smooth horizontal section of the same track.
+      Block A is released and slides down the rough ramp, gaining speed while experiencing friction. When Block A reaches
+      the smooth horizontal section, it collides with Cart B, and they stick together. The combined object then coasts
+      freely along the smooth horizontal section.
 
-      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system 
-      (block + cart) is conserved. Drag each conservation statement onto the corresponding process description.  
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (block + cart) is conserved. Drag each conservation statement onto the corresponding process description.
       If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
 
     categories:
     - category:
-        description: From when Block A is released and falls through the air to just before it lands on Cart B.
+        description: From when Block A is released at the top of the rough ramp to just before it collides with Cart B on the smooth section.
         answers:
     - category:
-        description: From just before Block A lands on Cart B to just after they stick together.
+        description: From just before Block A collides with Cart B to just after they stick together.
         answers:
         - Linear Momentum is conserved but not Mechanical Energy
     - category:
-        description: From just after they stick together to a moment later as they coast on the frictionless track.
+        description: From just after they stick together to a moment later as they coast freely on the smooth horizontal section.
         answers:
         - Both Linear Momentum and Mechanical Energy are conserved
     - category:
-        description: From when Block A is released until the combined object is coasting freely.
+        description: From when Block A is released at the top of the rough ramp until the combined object is coasting freely on the smooth section.
         answers:
     - category:
-        description: From just before Block A lands on Cart B until the combined object is coasting freely.
+        description: From just before Block A collides with Cart B until the combined object is coasting freely on the smooth section.
         answers:
 
     distractors:
