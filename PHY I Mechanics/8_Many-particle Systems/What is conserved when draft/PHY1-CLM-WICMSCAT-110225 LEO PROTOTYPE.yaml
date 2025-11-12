@@ -783,15 +783,16 @@ questions:
 
 - categorization:
     id: q22
-    title: Magnetic Carts on a Rough Patch
+    title: Magnetic Carts and Spring on Rough Patch
     points: 100
     text: |
-      On a frictionless horizontal air track, Cart A (a magnet) slides toward Cart B (also a magnet), which is at rest. 
-      They collide and stick together. The combined carts then move toward a large, fixed repelling magnet, 
-      but the track **becomes rough** in this section. The carts slow down due to both friction and magnetic repulsion.
+      On a frictionless horizontal air track, Cart A (a magnet) slides toward Cart B (also a magnet), which is at rest.
+      They collide and stick together due to magnetism. The combined carts then move toward a fixed spring bumper,
+      but the track **becomes rough** in this section. The carts slow down due to friction as they compress the spring
+      until they momentarily come to rest.
 
-      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-cart system 
-      is conserved. Drag each conservation statement onto the corresponding process description.  
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-cart system
+      is conserved. Drag each conservation statement onto the corresponding process description.
       If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
 
     categories:
@@ -804,13 +805,13 @@ questions:
         answers:
         - Linear Momentum is conserved but not Mechanical Energy
     - category:
-        description: From just after they stick together to a moment later as they move over the rough patch toward the magnet.
+        description: From just after they stick together to the moment they come to rest while compressing the spring on the rough patch.
         answers:
     - category:
-        description: From when Cart A begins moving toward Cart B until they are moving over the rough patch.
+        description: From when Cart A begins moving toward Cart B until they come to rest while compressing the spring on the rough patch.
         answers:
     - category:
-        description: From just before the carts collide until they are moving over the rough patch.
+        description: From just before the carts collide until they come to rest while compressing the spring on the rough patch.
         answers:
 
     distractors:
