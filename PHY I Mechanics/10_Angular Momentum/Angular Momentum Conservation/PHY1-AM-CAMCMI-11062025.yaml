@@ -446,6 +446,46 @@ questions:
         on_correct: Good job!
         on_incorrect: Try again!
 
+- numerical:
+    id: q11
+    title: Docking Capsules on a Rotating Disc Station
+    points: 3
+    text: |
+      A rotating space station has a disc-shaped platform that can be modeled as a **uniform disc** of mass <latex>500\ \text{kg}</latex> and radius <latex>15.0\ \text{m}</latex>, free to rotate about its center in deep space.
+      Two supply pods—**Pod A: <latex>180\ \text{kg}</latex>** and **Pod B: <latex>160\ \text{kg}</latex>**—each of which can be treated as a point particle, approach gradually and attach at fixed locations on the disc: <latex>r_A = 12.0\ \text{m}</latex> and <latex>r_B = 9.0\ \text{m}</latex> from the center.
+
+      Initially, the station **takes <latex>10.47\ \text{s}</latex> to complete one rotation**.
+      Assuming no external torque acts on the system, determine how long the station **takes to complete one rotation**, in units of **seconds**, after both pods have attached.
+      **Round your answer to two decimal places.**
+    answer:
+        value: 18.76
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Solution:**
+
+          **Concept:**
+          With no external torque, **angular momentum is conserved**:
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**
+          1. Model the station as a uniform disc plus two point masses fixed at <latex>r_A</latex> and <latex>r_B</latex>:
+             <latex>I = \tfrac{1}{2} M R^2 + m_A r_A^2 + m_B r_B^2</latex>.
+          2. Before docking, the total is just the disc; after docking, include both pods.
+          3. Apply conservation of angular momentum to relate angular speeds:
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
+          4. Convert between angular speed and period using <latex>T = \dfrac{2\pi}{\omega}</latex>, giving
+             <latex>T_f = T_i \dfrac{I_f}{I_i}</latex>.
+
+          **Reasoning:**
+          Attaching pods far from the axis increases <latex>I</latex>, so the rotation slows and the **period increases**.
+
+          **Final Answer:**
+          <latex>T_f = 18.76\ \text{seconds}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
 
 
 
