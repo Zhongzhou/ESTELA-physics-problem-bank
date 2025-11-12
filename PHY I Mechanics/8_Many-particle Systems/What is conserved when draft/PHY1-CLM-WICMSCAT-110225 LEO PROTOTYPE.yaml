@@ -647,8 +647,8 @@ questions:
     points: 100
     text: |
       On a frictionless horizontal air track, Cart A (a magnet) slides toward Cart B (also a magnet), which is at rest. 
-      They collide and stick together due to magnetism. The combined carts then move toward a large, fixed repelling magnet 
-      at the end of the track, slowing down as they approach it until they momentarily stop.
+      They collide and stick together due to magnetism. The combined carts then move forward to collide with a spring at 
+      the end of the track, slowing down as they compress it until they momentarily stop.
 
       For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-cart system 
       is conserved. Drag each conservation statement onto the corresponding process description.  
@@ -664,14 +664,14 @@ questions:
         answers:
         - Linear Momentum is conserved but not Mechanical Energy
     - category:
-        description: From just after they stick together to the moment they momentarily stop near the fixed repelling magnet.
+        description: From just after they stick together to the moment they momentarily stop while compressing the spring.
         answers:
         - Mechanical Energy is conserved but not Linear Momentum
     - category:
-        description: From when Cart A begins moving toward Cart B until they momentarily stop near the fixed magnet.
+        description: From when Cart A begins moving toward Cart B until they momentarily stop while compressing the spring.
         answers:
     - category:
-        description: From just before the carts collide until they momentarily stop near the fixed magnet.
+        description: From just before the carts collide until they momentarily stop while compressing the spring.
         answers:
 
 - categorization:
