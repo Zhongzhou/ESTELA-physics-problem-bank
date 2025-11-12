@@ -326,6 +326,47 @@ questions:
         on_correct: Good job!
         on_incorrect: Try again!
 
+- numerical:
+    id: q8
+    title: Space Station Disc with Maintenance Drone
+    points: 3
+    text: |
+      A rotating disc-shaped platform of a space station can be modeled as a **uniform disc** of mass <latex>300\ \text{kg}</latex> and radius <latex>12.0\ \text{m}</latex>, rotating freely about its center in deep space.
+      A maintenance drone of mass <latex>40\ \text{kg}</latex>, which can be treated as a point particle, crawls along a radial track on the disc from a point <latex>r_i = 10.0\ \text{m}</latex> from the axis toward a point <latex>r_f = 3.0\ \text{m}</latex>.
+
+      At the start, the station **takes <latex>13.96\ \text{s}</latex> to complete one rotation**.
+      Assuming no external torque acts on the system, find how long the station **takes to complete one rotation**, in units of **seconds**, after the drone reaches the inner position.
+      **Round your answer to two decimal places.**
+    answer:
+        value: 10.26
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Solution:**
+
+          **Concept:**
+          For a freely rotating system in deep space, with no external torque, **angular momentum is conserved**:
+          <latex>I_i \omega_i = I_f \omega_f</latex>
+
+          **Key Steps:**
+          1. The space station is modeled as a **uniform disc**, and the drone is treated as a **point mass** at distance <latex>r</latex> from the axis.
+          2. The total moment of inertia is
+             <latex>I = \tfrac{1}{2} M R^2 + m r^2</latex>.
+          3. As the drone moves inward, the moment of inertia decreases.
+          4. From conservation of angular momentum,
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
+          5. The period is related by <latex>T = 2\pi / \omega</latex>, so
+             <latex>T_f = T_i \dfrac{I_f}{I_i}</latex>.
+
+          **Reasoning:**
+          Because the drone moves closer to the rotation axis, the system spins faster, so the period of one rotation becomes shorter.
+
+          **Final Answer:**
+          <latex>T_f = 10.26\ \text{seconds}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
 
 
 
