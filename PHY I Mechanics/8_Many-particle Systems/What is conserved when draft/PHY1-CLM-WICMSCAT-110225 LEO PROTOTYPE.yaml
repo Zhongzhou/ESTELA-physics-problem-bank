@@ -680,20 +680,20 @@ questions:
 
 - categorization:
     id: q19
-    title: Stretched Spring Launch and Collision
+    title: Compressed Spring Launch and Collision
     points: 100
     text: |
-      Block A is attached to a stretched spring on a frictionless horizontal track. Block B is at rest farther down the track. 
-      Block A is released, accelerates as the spring pulls it, and detaches from the spring as it passes the equilibrium position. 
+      Block A is pressed against a compressed spring on a frictionless horizontal track. Block B is at rest farther down the track.
+      Block A is released, accelerates as the spring pushes it, and loses contact with the spring as it passes the equilibrium position.
       Block A then coasts and collides with Block B, sticking to it. The combined blocks coast freely.
 
-      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-block system 
-      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.  
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-block system
+      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.
       If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
 
     categories:
     - category:
-        description: From when Block A is released from the stretched spring to just before it hits Block B.
+        description: From when Block A is released from the compressed spring to just before it hits Block B.
         answers:
         - Mechanical Energy is conserved but not Linear Momentum
     - category:
@@ -705,10 +705,10 @@ questions:
         answers:
         - Both Linear Momentum and Mechanical Energy are conserved
     - category:
-        description: From when Block A is released from the stretched spring until the joined blocks are coasting freely.
+        description: From when Block A is released from the compressed spring until the joined blocks are coasting freely.
         answers:
     - category:
-        description: From when Block A is released from the stretched spring to just after Blocks A and B stick together.
+        description: From when Block A is released from the compressed spring to just after Blocks A and B stick together.
         answers:
 
 - categorization:
