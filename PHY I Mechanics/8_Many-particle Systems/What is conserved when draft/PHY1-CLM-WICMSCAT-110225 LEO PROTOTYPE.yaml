@@ -819,15 +819,15 @@ questions:
 
 - categorization:
     id: q23
-    title: Stretched Spring Launch on Rough Surface
+    title: Compressed Spring Launch on Rough Surface
     points: 100
     text: |
-      Block A is attached to a stretched spring on a **rough horizontal track**. Block B is at rest farther down the track on a **smooth section**. 
-      Block A is released, accelerates against friction, and detaches from the spring. 
+      Block A is pressed against a compressed spring on a **rough horizontal track**. Block B is at rest farther down the track on a **smooth section**.
+      Block A is released, accelerates against friction as the spring pushes it, and loses contact with the spring as it passes the equilibrium position.
       It then coasts onto the smooth section and collides with Block B, sticking to it. The combined blocks coast freely on the smooth section.
 
-      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-block system 
-      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.  
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-block system
+      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.
       If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
 
     categories:
