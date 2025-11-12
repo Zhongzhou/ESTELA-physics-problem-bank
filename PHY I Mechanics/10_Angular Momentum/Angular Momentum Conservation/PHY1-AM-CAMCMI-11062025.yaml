@@ -486,6 +486,45 @@ questions:
         on_correct: Good job!
         on_incorrect: Try again!
 
+- numerical:
+    id: q12
+    title: Rotating Disc with Falling Masses
+    points: 3
+    text: |
+      In a laboratory setup, a **uniform disc** of mass <latex>0.70\ \text{kg}</latex> and radius <latex>0.55\ \text{m}</latex> rotates freely about a **frictionless vertical axle through its center**.
+      Two small metal pellets—**Pellet 1: <latex>0.10\ \text{kg}</latex>** and **Pellet 2: <latex>0.15\ \text{kg}</latex>**—each of which can be treated as a point particle, are dropped from above so that they stick to the disc at <latex>r_1 = 0.40\ \text{m}</latex> and <latex>r_2 = 0.45\ \text{m}</latex> from the axis.
+
+      Initially, the rotating disc has a frequency of <latex>0.80\ \text{rotation/second}</latex>.
+      Assuming no external torque acts on the system, find the **final frequency of rotation**, in units of **rotations per second**, after both pellets have attached.
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.44
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Solution:**
+
+          **Concept:**
+          With no external torque, **angular momentum is conserved**:
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**
+          1. The total moment of inertia is that of the disc plus two point masses:
+             <latex>I = \tfrac{1}{2} M R^2 + m_1 r_1^2 + m_2 r_2^2</latex>.
+          2. Before the pellets land, only the disc contributes; afterwards, add both <latex>m_1 r_1^2</latex> and <latex>m_2 r_2^2</latex>.
+          3. Use conservation to obtain
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
+          4. Convert to frequency with <latex>f = \dfrac{\omega}{2\pi}</latex> to get the requested value.
+
+          **Reasoning:**
+          Sticking masses at nonzero radii increases <latex>I</latex>, so the system spins **slower** and the frequency decreases.
+
+          **Final Answer:**
+          <latex>f_f = 0.44\ \text{rotations per second}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
 
 
 
