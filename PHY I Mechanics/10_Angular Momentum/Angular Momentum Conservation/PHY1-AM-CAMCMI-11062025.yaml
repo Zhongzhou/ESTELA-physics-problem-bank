@@ -406,6 +406,46 @@ questions:
         on_correct: Good job!
         on_incorrect: Try again!
 
+- numerical:
+    id: q10
+    title: Sliding Puck on Rotating Disc
+    points: 3
+    text: |
+      A **uniform disc** of mass <latex>0.90\ \text{kg}</latex> and radius <latex>0.50\ \text{m}</latex> is mounted on a **frictionless vertical axle through its center** and rotates freely.
+      A small puck of mass <latex>0.020\ \text{kg}</latex>, which can be treated as a point particle, is initially at <latex>r_i = 0.08\ \text{m}</latex> from the axis and slides outward along a raised massless radial rail attached to the disc to <latex>r_f = 0.45\ \text{m}</latex> as the system spins.
+
+      At the start, the system **takes <latex>0.81\ \text{s}</latex> to complete one rotation**.
+      Assuming no external torque acts on the system, find how long the system **takes to complete one rotation**, in units of **seconds**, after the puck reaches <latex>r_f = 0.45\ \text{m}</latex>.
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.90
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Solution:**
+
+          **Concept:**
+          With no external torque, **angular momentum is conserved**:
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**
+          1. Model the system as a uniform disc plus a point particle (the puck):
+             <latex>I = \tfrac{1}{2} M R^2 + m r^2</latex>.
+          2. Use initial and final positions of the puck to form <latex>I_i</latex> and <latex>I_f</latex>.
+          3. From conservation of angular momentum, relate angular speeds:
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
+          4. Convert angular speed to **period** using <latex>T = \dfrac{2\pi}{\omega}</latex>; thus
+             <latex>T_f = T_i \dfrac{I_f}{I_i}</latex>.
+
+          **Reasoning:**
+          Sliding outward increases the total moment of inertia, which reduces angular speed and therefore **increases** the time for one rotation (the period).
+
+          **Final Answer:**
+          <latex>T_f = 0.90\ \text{seconds}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
 
 
 
