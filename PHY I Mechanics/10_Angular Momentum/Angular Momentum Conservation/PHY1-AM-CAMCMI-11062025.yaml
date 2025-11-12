@@ -285,6 +285,47 @@ questions:
         on_correct: Good job!
         on_incorrect: Try again!
 
+- numerical:
+    id: q7
+    title: Rotating Disc with Air-Track Cart
+    points: 3
+    text: |
+      A **uniform disc** of mass <latex>1.50\ \text{kg}</latex> and radius <latex>0.60\ \text{m}</latex> is mounted directly on a **frictionless vertical axle through its center**, allowing it to rotate freely.
+      A small cart of mass <latex>0.30\ \text{kg}</latex>, which can be treated as a point particle, moves along a radial track on the disc from <latex>r_i = 0.50\ \text{m}</latex> from the axis to <latex>r_f = 0.15\ \text{m}</latex> while the system spins.
+
+      Initially, the disc–cart system rotates at a frequency of <latex>0.67\ \text{rotation/second}</latex>.
+      Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the cart reaches its final position.
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.99
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Solution:**
+
+          **Concept:**
+          When no external torque acts on a rotating system, its **angular momentum** is conserved:
+          <latex>I_i \omega_i = I_f \omega_f</latex>
+
+          **Key Steps:**
+          1. The system consists of a **uniform disc** and a **cart treated as a point particle** moving along it.
+          2. The moment of inertia of the disc about its center is
+             <latex>I_{\text{disc}} = \tfrac{1}{2} M R^2</latex>,
+             and the cart contributes <latex>I_{\text{cart}} = m r^2</latex>.
+          3. As the cart moves from <latex>r_i</latex> to <latex>r_f</latex>, the total moment of inertia changes, but angular momentum remains constant.
+          4. Using conservation of angular momentum,
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
+          5. The final frequency follows from <latex>f_f = \omega_f / (2\pi)</latex>.
+
+          **Reasoning:**
+          Moving inward reduces the total moment of inertia, so the system spins faster to conserve angular momentum.
+
+          **Final Answer:**
+          <latex>f_f = 0.99\ \text{rotations per second}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
 
 
 
