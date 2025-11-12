@@ -367,6 +367,45 @@ questions:
         on_correct: Good job!
         on_incorrect: Try again!
 
+- numerical:
+    id: q9
+    title: Rotating Lab Disc with Sliding Slug
+    points: 3
+    text: |
+      A **uniform disc** of mass <latex>0.60\ \text{kg}</latex> and radius <latex>0.40\ \text{m}</latex> is mounted on a **frictionless vertical axle through its center** and can rotate freely.
+      A small slug of mass <latex>0.080\ \text{kg}</latex>, which can be treated as a point particle, is released from <latex>r_i = 0.05\ \text{m}</latex> and slides outward along a raised massless radial rail attached to the disc to <latex>r_f = 0.38\ \text{m}</latex> while the system spins.
+
+      Initially, the system rotates at <latex>1.04\ \text{rotation/second}</latex>.
+      Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the slug reaches <latex>r_f = 0.38\ \text{m}</latex>.
+      **Round your answer to two decimal places.**
+    answer:
+        value: 0.64
+        margin_type: percent
+        tolerance: 3
+    feedback:
+        general: |
+          **Solution:**
+
+          **Concept:**
+          With no external torque, **angular momentum is conserved**:
+          <latex>I_i \omega_i = I_f \omega_f</latex>.
+
+          **Key Steps:**
+          1. Treat the disc and slug as a compound system:
+             <latex>I_{\text{disc}} = \tfrac{1}{2} M R^2</latex>, and the slug (point particle) contributes <latex>I_{\text{slug}} = m r^2</latex>.
+          2. Before and after the slide, compute the total moment of inertia using the appropriate <latex>r</latex> value.
+          3. Apply conservation of angular momentum to relate <latex>\omega_i</latex> and <latex>\omega_f</latex>:
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
+          4. Convert angular speed to frequency with <latex>f = \omega/(2\pi)</latex> to obtain the requested quantity.
+
+          **Reasoning:**
+          As the slug slides outward, the system's total moment of inertia increases, so the rotation rate (frequency) decreases.
+
+          **Final Answer:**
+          <latex>f_f = 0.64\ \text{rotations per second}</latex>
+        on_correct: Good job!
+        on_incorrect: Try again!
+
 
 
 
