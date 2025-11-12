@@ -580,34 +580,36 @@ questions:
 
 - categorization:
     id: q16
-    title: Pendulum with Air Drag Swings Down and Collides
+    title: Cart on Rough Curved Ramp Collides with Magnetic Cart
     points: 100
     text: |
-      A metal ball (A) is suspended from a massless string. It is pulled back to a height h and released from rest. 
-      It swings down, **experiencing significant air drag**. At the bottom of its swing, it collides with and sticks 
-      to a block (B) resting on a **frictionless horizontal surface**. The combined (A+B) object then slides freely across the surface.
+      A small iron cart (A) starts at rest at the top of a rough curved ramp. Cart B, which has a magnet on its rear,
+      is at rest on a smooth, frictionless horizontal surface at the base of the ramp. Cart A is released and travels down
+      the rough curved ramp, experiencing friction. At the bottom, the ramp launches Cart A horizontally as it loses contact
+      with the ramp. Cart A immediately sticks to Cart B due to the magnetic attraction. The combined (A+B) object then slides
+      freely across the smooth, frictionless surface.
 
-      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system 
-      (ball + block) is conserved. Drag each conservation statement onto the corresponding process description.  
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (cart A + cart B) is conserved. Drag each conservation statement onto the corresponding process description.
       If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
 
     categories:
     - category:
-        description: From when Ball A is released and swings through the air to just before it hits Block B.
+        description: From when Cart A is released at the top of the rough ramp to just before it sticks to Cart B.
         answers:
     - category:
-        description: From just before Ball A hits Block B to just after they stick together.
+        description: From just before Cart A sticks to Cart B to just after they stick together.
         answers:
         - Linear Momentum is conserved but not Mechanical Energy
     - category:
-        description: From just after they stick together to a moment later as they coast on the frictionless surface.
+        description: From just after they stick together to a moment later as they coast on the smooth, frictionless surface.
         answers:
         - Both Linear Momentum and Mechanical Energy are conserved
     - category:
-        description: From when Ball A is released until the combined object is coasting freely.
+        description: From when Cart A is released until the combined object is coasting freely.
         answers:
     - category:
-        description: From when Ball A is released to just after they stick together.
+        description: From when Cart A is released to just after they stick together.
         answers:
 
     distractors:
