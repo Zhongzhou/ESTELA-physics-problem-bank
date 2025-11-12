@@ -643,7 +643,7 @@ questions:
 
 - categorization:
     id: q18
-    title: Magnetic Carts and Repulsion
+    title: Magnetic Carts and Spring
     points: 100
     text: |
       On a frictionless horizontal air track, Cart A (a magnet) slides toward Cart B (also a magnet), which is at rest. 
