@@ -91,8 +91,8 @@ questions:
     title: Space Station Maintenance Drone
     points: 3
     text: |
-      A long antenna array of a rotating space station can be modeled as a **uniform thin rod** of mass <latex>300\ \text{kg}</latex> and length <latex>24.0\ \text{m}</latex>, rotating freely about its center in deep space.  
-      A maintenance drone of mass <latex>40\ \text{kg}</latex>, which can be treated as a point particle, crawls along the array from a point <latex>r_i = 10.0\ \text{m}</latex> from the axis toward a point <latex>r_f = 3.0\ \text{m}</latex>.  
+      A  rotating space station with a long antenna array can be modeled as a **uniform thin rod** of mass <latex>300\ \text{kg}</latex> and length <latex>24.0\ \text{m}</latex>, rotating freely about its center in deep space.  
+      A small maintenance drone of mass <latex>40\ \text{kg}</latex>, which can be treated as a point particle, crawls along the array from a point <latex>r_i = 10.0\ \text{m}</latex> from the center toward a point <latex>r_f = 3.0\ \text{m}</latex>.  
 
       At the start, the station **takes <latex>13.96\ \text{s}</latex> to complete one rotation**.  
       Assuming no external torque acts on the system, find how long the station **takes to complete one rotation**, in units of **seconds**, after the drone reaches the inner position.  
@@ -133,7 +133,7 @@ questions:
     points: 3
     text: |
       A uniform thin rod of mass <latex>0.60\ \text{kg}</latex> and length <latex>0.80\ \text{m}</latex> is mounted on a **frictionless vertical axle through its center** and can rotate freely.  
-      A small ring of mass <latex>0.080\ \text{kg}</latex>, which can be treated as a point particle, is released from <latex>r_i = 0.05\ \text{m}</latex> and slides outward along the rod to <latex>r_f = 0.38\ \text{m}</latex> while the system spins.  
+      A small ring of mass <latex>0.080\ \text{kg}</latex>, **which can be treated as a point particle**, is released from <latex>r_i = 0.05\ \text{m}</latex> and slides outward along the rod to <latex>r_f = 0.38\ \text{m}</latex> while the system spins.  
 
       Initially, the system rotates at <latex>1.04\ \text{rotation/second}</latex>.  
       Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the ring reaches <latex>r_f = 0.38\ \text{m}</latex>.  
@@ -291,7 +291,7 @@ questions:
     points: 3
     text: |
       A **uniform disc** of mass <latex>1.50\ \text{kg}</latex> and radius <latex>0.60\ \text{m}</latex> is mounted directly on a **frictionless vertical axle through its center**, allowing it to rotate freely.
-      A small cart of mass <latex>0.30\ \text{kg}</latex>, which can be treated as a point particle, moves along a radial track on the disc from <latex>r_i = 0.50\ \text{m}</latex> from the axis to <latex>r_f = 0.15\ \text{m}</latex> while the system spins.
+      A small toy cart of mass <latex>0.30\ \text{kg}</latex>, which can be treated as a point particle, moves along a radial track on the disc from <latex>r_i = 0.50\ \text{m}</latex> from the axis to <latex>r_f = 0.15\ \text{m}</latex> while the system spins.
 
       Initially, the disc–cart system rotates at a frequency of <latex>0.67\ \text{rotation/second}</latex>.
       Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the cart reaches its final position.
@@ -331,11 +331,11 @@ questions:
     title: Space Station Disc with Maintenance Drone
     points: 3
     text: |
-      A rotating disc-shaped platform of a space station can be modeled as a **uniform disc** of mass <latex>300\ \text{kg}</latex> and radius <latex>12.0\ \text{m}</latex>, rotating freely about its center in deep space.
+      A rotating disc-shaped platform of a space station can be modeled as a **uniform disc** of mass <latex>300\ \text{kg}</latex> and radius <latex>12.0\ \text{m}</latex>, rotating freely about an axis its center in deep space.
       A maintenance drone of mass <latex>40\ \text{kg}</latex>, which can be treated as a point particle, crawls along a radial track on the disc from a point <latex>r_i = 10.0\ \text{m}</latex> from the axis toward a point <latex>r_f = 3.0\ \text{m}</latex>.
 
-      At the start, the station **takes <latex>13.96\ \text{s}</latex> to complete one rotation**.
-      Assuming no external torque acts on the system, find how long the station **takes to complete one rotation**, in units of **seconds**, after the drone reaches the inner position.
+      At the start, the platform **takes <latex>13.96\ \text{s}</latex> to complete one rotation**.
+      Assuming no external torque acts on the system, and the space station can be seen as stationary, find how long the platform **takes to complete one rotation**, in units of **seconds**, after the drone reaches the inner position.
       **Round your answer to two decimal places.**
     answer:
         value: 10.26
@@ -350,7 +350,7 @@ questions:
           <latex>I_i \omega_i = I_f \omega_f</latex>
 
           **Key Steps:**
-          1. The space station is modeled as a **uniform disc**, and the drone is treated as a **point mass** at distance <latex>r</latex> from the axis.
+          1. The platform is modeled as a **uniform disc**, and the drone is treated as a **point mass** at distance <latex>r</latex> from the axis.
           2. The total moment of inertia is
              <latex>I = \tfrac{1}{2} M R^2 + m r^2</latex>.
           3. As the drone moves inward, the moment of inertia decreases.
@@ -369,14 +369,14 @@ questions:
 
 - numerical:
     id: q9
-    title: Rotating Lab Disc with Sliding Slug
+    title: Rotating Lab Disc with Sliding Mass
     points: 3
     text: |
       A **uniform disc** of mass <latex>0.60\ \text{kg}</latex> and radius <latex>0.40\ \text{m}</latex> is mounted on a **frictionless vertical axle through its center** and can rotate freely.
-      A small slug of mass <latex>0.080\ \text{kg}</latex>, which can be treated as a point particle, is released from <latex>r_i = 0.05\ \text{m}</latex> and slides outward along a raised massless radial rail attached to the disc to <latex>r_f = 0.38\ \text{m}</latex> while the system spins.
+      A small puck of mass <latex>0.080\ \text{kg}</latex>, which can be treated as a point particle, is released from <latex>r_i = 0.05\ \text{m}</latex> and slides outward along a raised massless radial rail attached to the disc to <latex>r_f = 0.38\ \text{m}</latex> while the system spins.
 
       Initially, the system rotates at <latex>1.04\ \text{rotation/second}</latex>.
-      Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the slug reaches <latex>r_f = 0.38\ \text{m}</latex>.
+      Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the puck reaches <latex>r_f = 0.38\ \text{m}</latex>.
       **Round your answer to two decimal places.**
     answer:
         value: 0.64
@@ -391,15 +391,15 @@ questions:
           <latex>I_i \omega_i = I_f \omega_f</latex>.
 
           **Key Steps:**
-          1. Treat the disc and slug as a compound system:
-             <latex>I_{\text{disc}} = \tfrac{1}{2} M R^2</latex>, and the slug (point particle) contributes <latex>I_{\text{slug}} = m r^2</latex>.
+          1. Treat the disc and puck as a compound system:
+             <latex>I_{\text{disc}} = \tfrac{1}{2} M R^2</latex>, and the puck (point particle) contributes <latex>I_{\text{puck}} = m r^2</latex>.
           2. Before and after the slide, compute the total moment of inertia using the appropriate <latex>r</latex> value.
           3. Apply conservation of angular momentum to relate <latex>\omega_i</latex> and <latex>\omega_f</latex>:
              <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
           4. Convert angular speed to frequency with <latex>f = \omega/(2\pi)</latex> to obtain the requested quantity.
 
           **Reasoning:**
-          As the slug slides outward, the system's total moment of inertia increases, so the rotation rate (frequency) decreases.
+          As the puck slides outward, the system's total moment of inertia increases, so the rotation rate (frequency) decreases.
 
           **Final Answer:**
           <latex>f_f = 0.64\ \text{rotations per second}</latex>
