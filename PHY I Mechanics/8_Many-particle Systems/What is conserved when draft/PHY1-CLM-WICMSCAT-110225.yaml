@@ -47,13 +47,14 @@ bank_info:
     updates: 
         - update 1: 
     associated data:
-        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
     generation details: # Details of the creation process
             model: GPT-5 # The model used to generate the questions
             version: ChatGPT # The version of the model used
             last updated: 11-02-2025 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen
+        - Leo Murch
+        - Spencer Moore
 
 questions:
 # The following contents should be replaced by the output of the LLM.
@@ -228,7 +229,6 @@ questions:
     distractors:
     - Mechanical Energy is conserved but not Linear Momentum
 
----
 
 - categorization:
     id: q6
@@ -265,7 +265,6 @@ questions:
     distractors:
     - Mechanical Energy is conserved but not Linear Momentum
 
----
 
 - categorization:
     id: q7
@@ -303,7 +302,6 @@ questions:
     distractors:
     - Mechanical Energy is conserved but not Linear Momentum
 
----
 
 - categorization:
     id: q8
@@ -334,6 +332,562 @@ questions:
         answers:
     - category:
         description: From when Sled A begins sliding down the rough hill to just after the two sleds stick together.
+        answers:
+
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+
+- categorization:
+    id: q9
+    title: Ballistic Pendulum Collision
+    points: 100
+    text: |
+      A dart (A) is fired horizontally toward a wooden block (B), which hangs at rest from a long, massless string. 
+      The dart collides with and embeds itself in the block. The combined dart+block then swing upward as a pendulum 
+      until they momentarily stop at their maximum height. Assume the process occurs in a vacuum.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system 
+      (dart + block) is conserved. Drag each conservation statement onto the corresponding process description.  
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the dart is flying freely to just before it hits the block.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the dart hits the block to just after it embeds.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after the dart embeds to the moment the combined object stops at its max height.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From when the dart is flying freely until the combined object stops at its max height.
+        answers:
+    - category:
+        description: From just before the dart hits the block until the combined object stops at its max height.
+        answers:
+
+- categorization:
+    id: q10
+    title: Horizontal Spring Ballistics
+    points: 100
+    text: |
+      A bullet (A) is fired horizontally toward a block (B) resting on a frictionless horizontal surface. 
+      The block is attached to a horizontal spring, which is at its equilibrium length. The bullet strikes and sticks inside the block. 
+      The combined bullet+block then compress the spring until they momentarily come to rest.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system 
+      (bullet + block) is conserved. Drag each conservation statement onto the corresponding process description.  
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the bullet is coasting on its frictionless path to just before it hits the block.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the bullet hits the block to just after it sticks.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after the bullet sticks to the moment the spring is fully compressed.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From when the bullet is coasting until the spring is fully compressed.
+        answers:
+    - category:
+        description: From just before the bullet hits the block until the spring is fully compressed.
+        answers:
+
+- categorization:
+    id: q11
+    title: Block Slides Down Ramp and Collides with Cart
+    points: 100
+    text: |
+      A frictionless track starts as a ramp that slopes downward and then levels off into a horizontal section.
+      Block A starts at rest at the top of the ramp. Cart B is at rest on the horizontal section of the same track.
+      Block A is released and slides down the ramp, gaining speed. When Block A reaches the horizontal section,
+      it collides with Cart B, and they stick together. The combined object then coasts freely along the horizontal
+      section of the track. Assume no air resistance.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (block + cart) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Block A is released at the top of the ramp to just before it collides with Cart B on the horizontal section.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From just before Block A collides with Cart B to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they coast freely on the horizontal section.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Block A is released at the top of the ramp until the combined object is coasting freely on the horizontal section.
+        answers:
+    - category:
+        description: From just before Block A collides with Cart B until the combined object is coasting freely on the horizontal section.
+        answers:
+
+- categorization:
+    id: q12
+    title: Cart on Curved Ramp Collides with Magnetic Cart
+    points: 100
+    text: |
+      A small iron cart (A) starts at rest at the top of a smooth, frictionless curved ramp. Cart B, which has a magnet on its rear,
+      is at rest on a frictionless horizontal surface at the base of the ramp. Cart A is released and travels down the curved ramp.
+      At the bottom, the ramp launches Cart A horizontally as it loses contact with the ramp. Cart A immediately sticks to Cart B
+      due to the magnetic attraction. The combined (A+B) object then slides freely across the frictionless surface. Assume no air resistance.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (cart A + cart B) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Cart A is released at the top of the ramp to just before it sticks to Cart B.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From just before Cart A sticks to Cart B to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they coast on the frictionless surface.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Cart A is released until the combined object is coasting freely.
+        answers:
+    - category:
+        description: From when Cart A is released to just after they stick together.
+        answers:
+
+- categorization:
+    id: q13
+    title: Ballistic Pendulum with Air Resistance
+    points: 100
+    text: |
+      A dart (A) is fired horizontally toward a wooden block (B), which hangs at rest from a long, massless string. 
+      The dart collides with and embeds itself in the block. The combined dart+block then swing upward, 
+      **experiencing significant air drag** until they momentarily stop at their maximum height.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system 
+      (dart + block) is conserved. Drag each conservation statement onto the corresponding process description.  
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the dart is flying freely (assume no drag) to just before it hits the block.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the dart hits the block to just after it embeds.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after the dart embeds to the moment the combined object stops at its max height (with air drag).
+        answers:
+    - category:
+        description: From when the dart is flying freely until the combined object stops at its max height.
+        answers:
+    - category:
+        description: From just before the dart hits the block until the combined object stops at its max height.
+        answers:
+    
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+
+- categorization:
+    id: q14
+    title: Horizontal Spring Ballistics on a Rough Surface
+    points: 100
+    text: |
+      A bullet (A) is fired horizontally toward a block (B) resting on a **rough horizontal surface**. 
+      The block is attached to a horizontal spring, which is at its equilibrium length. The bullet strikes and sticks inside the block. 
+      The combined bullet+block then slide on the rough surface and compress the spring until they momentarily come to rest.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system 
+      (bullet + block) is conserved. Drag each conservation statement onto the corresponding process description.  
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the bullet is coasting (assume frictionless path) to just before it hits the block.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the bullet hits the block to just after it sticks.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after the bullet sticks to the moment the spring is fully compressed on the rough surface.
+        answers:
+    - category:
+        description: From when the bullet is coasting until the spring is fully compressed.
+        answers:
+    - category:
+        description: From just before the bullet hits the block until the spring is fully compressed.
+        answers:
+
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+
+- categorization:
+    id: q15
+    title: Block Slides Down Rough Ramp and Collides with Cart
+    points: 100
+    text: |
+      A track starts with a rough ramp that slopes downward and then levels off into a smooth, frictionless horizontal section.
+      Block A starts at rest at the top of the rough ramp. Cart B is at rest on the smooth horizontal section of the same track.
+      Block A is released and slides down the rough ramp, gaining speed while experiencing friction. When Block A reaches
+      the smooth horizontal section, it collides with Cart B, and they stick together. The combined object then coasts
+      freely along the smooth horizontal section.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (block + cart) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Block A is released at the top of the rough ramp to just before it collides with Cart B on the smooth section.
+        answers:
+    - category:
+        description: From just before Block A collides with Cart B to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they coast freely on the smooth horizontal section.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Block A is released at the top of the rough ramp until the combined object is coasting freely on the smooth section.
+        answers:
+    - category:
+        description: From just before Block A collides with Cart B until the combined object is coasting freely on the smooth section.
+        answers:
+
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+
+- categorization:
+    id: q16
+    title: Cart on Rough Curved Ramp Collides with Magnetic Cart
+    points: 100
+    text: |
+      A small iron cart (A) starts at rest at the top of a rough curved ramp. Cart B, which has a magnet on its rear,
+      is at rest on a smooth, frictionless horizontal surface at the base of the ramp. Cart A is released and travels down
+      the rough curved ramp, experiencing friction. At the bottom, the ramp launches Cart A horizontally as it loses contact
+      with the ramp. Cart A immediately sticks to Cart B due to the magnetic attraction. The combined (A+B) object then slides
+      freely across the smooth, frictionless surface.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (cart A + cart B) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Cart A is released at the top of the rough ramp to just before it sticks to Cart B.
+        answers:
+    - category:
+        description: From just before Cart A sticks to Cart B to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they coast on the smooth, frictionless surface.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Cart A is released until the combined object is coasting freely.
+        answers:
+    - category:
+        description: From when Cart A is released to just after they stick together.
+        answers:
+
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+    
+- categorization:
+    id: q17
+    title: Asteroid Collision and Gravitational Fall
+    points: 100
+    text: |
+      In deep space, far from other gravitational influences, Asteroid A moves toward Asteroid B, which is at rest. 
+      They collide and stick together. The combined mass then begins to fall toward a large, nearby planet. 
+      Assume the collision is instantaneous and there is no atmospheric drag.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-asteroid system 
+      is conserved. Drag each conservation statement onto the corresponding process description.  
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the asteroids are far apart to just before they collide.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the asteroids collide to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they are accelerating toward the planet.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From when Asteroid A begins moving toward Asteroid B until they are accelerating toward the planet.
+        answers:
+    - category:
+        description: From just before the asteroids collide until they are accelerating toward the planet.
+        answers:
+
+- categorization:
+    id: q18
+    title: Magnetic Carts and Spring
+    points: 100
+    text: |
+      On a frictionless horizontal air track, Cart A (a magnet) slides toward Cart B (also a magnet), which is at rest. 
+      They collide and stick together due to magnetism. The combined carts then move forward to collide with a spring at 
+      the end of the track, slowing down as they compress it until they momentarily stop.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-cart system 
+      is conserved. Drag each conservation statement onto the corresponding process description.  
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the carts are far apart to just before they collide.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the carts collide to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to the moment they momentarily stop while compressing the spring.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From when Cart A begins moving toward Cart B until they momentarily stop while compressing the spring.
+        answers:
+    - category:
+        description: From just before the carts collide until they momentarily stop while compressing the spring.
+        answers:
+
+- categorization:
+    id: q19
+    title: Compressed Spring Launch and Collision
+    points: 100
+    text: |
+      Block A is pressed against a compressed spring on a frictionless horizontal track. Block B is at rest farther down the track.
+      Block A is released, accelerates as the spring pushes it, and loses contact with the spring as it passes the equilibrium position.
+      Block A then coasts and collides with Block B, sticking to it. The combined blocks coast freely.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-block system
+      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Block A is released from the compressed spring to just before it hits Block B.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From just before Block A hits Block B to just after the two blocks stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after the two blocks stick together to a moment later while they are coasting freely.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Block A is released from the compressed spring until the joined blocks are coasting freely.
+        answers:
+    - category:
+        description: From when Block A is released from the compressed spring to just after Blocks A and B stick together.
+        answers:
+
+- categorization:
+    id: q20
+    title: Block Slides Down Ramp and Collides with Moving Cart
+    points: 100
+    text: |
+      A frictionless track starts as a ramp that slopes downward and then levels off into a horizontal section.
+      Block A starts at rest at the top of the ramp. Cart B is coasting at a constant velocity on the horizontal section
+      of the same track. Block A is released and slides down the ramp, gaining speed. When Block A reaches the horizontal
+      section, it collides with the moving Cart B, and they stick together. The combined object then coasts freely along
+      the horizontal section. Assume no air resistance.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Block A is released at the top of the ramp to just before it collides with Cart B on the horizontal section.
+        answers:
+        - Mechanical Energy is conserved but not Linear Momentum
+    - category:
+        description: From just before Block A collides with Cart B to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they coast freely on the horizontal section.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Block A is released at the top of the ramp until the combined object is coasting freely on the horizontal section.
+        answers:
+    - category:
+        description: From just before Block A collides with Cart B until the combined object is coasting freely on the horizontal section.
+        answers:
+
+- categorization:
+    id: q21
+    title: Asteroid Collision with Atmospheric Drag
+    points: 100
+    text: |
+      In deep space, Asteroid A moves toward Asteroid B, which is at rest. They collide and stick together. 
+      The combined mass then begins to fall toward a large, nearby planet and **enters its atmosphere**, 
+      experiencing significant drag as it accelerates.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-asteroid system 
+      is conserved. Drag each conservation statement onto the corresponding process description.  
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the asteroids are far apart to just before they collide.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the asteroids collide to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they are accelerating through the planet's atmosphere.
+        answers:
+    - category:
+        description: From when Asteroid A begins moving toward Asteroid B until they are accelerating through the atmosphere.
+        answers:
+    - category:
+        description: From just before the asteroids collide until they are accelerating through the atmosphere.
+        answers:
+
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+
+- categorization:
+    id: q22
+    title: Magnetic Carts and Spring on Rough Patch
+    points: 100
+    text: |
+      On a frictionless horizontal air track, Cart A (a magnet) slides toward Cart B (also a magnet), which is at rest.
+      They collide and stick together due to magnetism. The combined carts then move toward a fixed spring bumper,
+      but the track **becomes rough** in this section. The carts slow down due to friction as they compress the spring
+      until they momentarily come to rest.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-cart system
+      is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when the carts are far apart on the frictionless track to just before they collide.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From just before the carts collide to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to the moment they come to rest while compressing the spring on the rough patch.
+        answers:
+    - category:
+        description: From when Cart A begins moving toward Cart B until they come to rest while compressing the spring on the rough patch.
+        answers:
+    - category:
+        description: From just before the carts collide until they come to rest while compressing the spring on the rough patch.
+        answers:
+
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+
+- categorization:
+    id: q23
+    title: Compressed Spring Launch on Rough Surface
+    points: 100
+    text: |
+      Block A is pressed against a compressed spring on a **rough horizontal track**. Block B is at rest farther down the track on a **smooth section**.
+      Block A is released, accelerates against friction as the spring pushes it, and loses contact with the spring as it passes the equilibrium position.
+      It then coasts onto the smooth section and collides with Block B, sticking to it. The combined blocks coast freely on the smooth section.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-block system
+      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Block A is released on the rough track to just before it hits Block B (on the smooth track).
+        answers:
+    - category:
+        description: From just before Block A hits Block B to just after the two blocks stick together (on the smooth track).
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after the two blocks stick together to a moment later while they are coasting on the smooth track.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Block A is released on the rough track until the joined blocks are coasting on the smooth track.
+        answers:
+    - category:
+        description: From when Block A is released on the rough track to just after Blocks A and B stick together.
+        answers:
+
+    distractors:
+    - Mechanical Energy is conserved but not Linear Momentum
+
+- categorization:
+    id: q24
+    title: Block Slides Down Rough Ramp and Collides with Moving Cart
+    points: 100
+    text: |
+      A track starts with a rough ramp that slopes downward and then levels off into a smooth, frictionless horizontal section.
+      Block A starts at rest at the top of the rough ramp. Cart B is coasting at a constant velocity on the smooth horizontal
+      section of the same track. Block A is released and slides down the rough ramp, gaining speed while experiencing friction.
+      When Block A reaches the smooth horizontal section, it collides with the moving Cart B, and they stick together.
+      The combined object then coasts freely along the smooth horizontal section.
+
+      For each of the following process descriptions, determine whether mechanical energy and/or linear momentum of the two-object system
+      (A + B) is conserved. Drag each conservation statement onto the corresponding process description.
+      If neither linear momentum nor mechanical energy is conserved, do not drag any statement onto the process description.
+
+    categories:
+    - category:
+        description: From when Block A is released at the top of the rough ramp to just before it collides with Cart B on the smooth section.
+        answers:
+    - category:
+        description: From just before Block A collides with Cart B to just after they stick together.
+        answers:
+        - Linear Momentum is conserved but not Mechanical Energy
+    - category:
+        description: From just after they stick together to a moment later as they coast freely on the smooth horizontal section.
+        answers:
+        - Both Linear Momentum and Mechanical Energy are conserved
+    - category:
+        description: From when Block A is released at the top of the rough ramp until the combined object is coasting freely on the smooth section.
+        answers:
+    - category:
+        description: From just before Block A collides with Cart B until the combined object is coasting freely on the smooth section.
         answers:
 
     distractors:
