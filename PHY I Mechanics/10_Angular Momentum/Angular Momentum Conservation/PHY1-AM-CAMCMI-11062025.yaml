@@ -208,14 +208,14 @@ questions:
 
 - numerical:
     id: q5
-    title: Docking Capsules on a Rotating Station
+    title: Supply Pods Attaching to Rotating Radar Rod
     points: 3
     text: |
-      A rotating space station has a central structure that can be modeled as a **uniform thin rod** of mass <latex>500\ \text{kg}</latex> and length <latex>30.0\ \text{m}</latex>, free to rotate about its center in deep space.  
-      Two supply pods—**Pod A: <latex>180\ \text{kg}</latex>** and **Pod B: <latex>160\ \text{kg}</latex>**—each of which can be treated as a point particle, approach gradually and attach at fixed locations on opposite sides of the center: <latex>r_A = +12.0\ \text{m}</latex> and <latex>r_B = -9.0\ \text{m}</latex>.  
+      A large spaceship has a rotating radar rod that can be modeled as a **uniform thin rod** of mass <latex>500\ \text{kg}</latex> and length <latex>30.0\ \text{m}</latex>, which rotates freely about a fixed axis at its midpoint.
+      Two supply pods—**Pod A: <latex>180\ \text{kg}</latex>** and **Pod B: <latex>160\ \text{kg}</latex>**—each of which can be treated as a point particle, approach gradually and attach at fixed locations on the rod: <latex>r_A = 12.0\ \text{m}</latex> and <latex>r_B = 9.0\ \text{m}</latex> from the midpoint.
 
-      Initially, the station **takes <latex>10.47\ \text{s}</latex> to complete one rotation**.  
-      Assuming no external torque acts on the system, determine how long the station **takes to complete one rotation**, in units of **seconds**, after both pods have attached.  
+      Initially, the radar rod **takes <latex>10.47\ \text{s}</latex> to complete one rotation**.
+      Assuming no external torque acts on the system, determine how long the radar rod **takes to complete one rotation**, in units of **seconds**, after both pods have attached.
       **Round your answer to two decimal places.**
     answer:
         value: 21.33
@@ -229,16 +229,16 @@ questions:
           With no external torque, **angular momentum is conserved**:  
           <latex>I_i \omega_i = I_f \omega_f</latex>.
 
-          **Key Steps:**  
-          1. Model the station as a uniform rod plus two point masses fixed at <latex>r_A</latex> and <latex>r_B</latex>:  
-             <latex>I = \tfrac{1}{12} M L^2 + m_A r_A^2 + m_B r_B^2</latex>.  
-          2. Before docking, the total is just the rod; after docking, include both pods.  
-          3. Apply conservation of angular momentum to relate angular speeds:  
-             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.  
-          4. Convert between angular speed and period using <latex>T = \dfrac{2\pi}{\omega}</latex>, giving  
+          **Key Steps:**
+          1. Model the radar rod as a uniform rod plus two point masses fixed at <latex>r_A</latex> and <latex>r_B</latex>:
+             <latex>I = \tfrac{1}{12} M L^2 + m_A r_A^2 + m_B r_B^2</latex>.
+          2. Before the pods attach, the total is just the rod; after attachment, include both pods.
+          3. Apply conservation of angular momentum to relate angular speeds:
+             <latex>\omega_f = \omega_i \dfrac{I_i}{I_f}</latex>.
+          4. Convert between angular speed and period using <latex>T = \dfrac{2\pi}{\omega}</latex>, giving
              <latex>T_f = T_i \dfrac{I_f}{I_i}</latex>.
 
-          **Reasoning:**  
+          **Reasoning:**
           Attaching pods far from the axis increases <latex>I</latex>, so the rotation slows and the **period increases**.
 
           **Final Answer:**  
