@@ -218,7 +218,7 @@ questions:
       Assuming no external torque acts on the system, determine how long the radar rod **takes to complete one rotation**, in units of **seconds**, after both pods have attached.
       **Round your answer to two decimal places.**
     answer:
-        value: 17.71
+        value: 21.33
         margin_type: percent
         tolerance: 3
     feedback:
@@ -458,7 +458,7 @@ questions:
       Assuming no external torque acts on the system, determine how long the radar disc **takes to complete one rotation**, in units of **seconds**, after both pods have attached.
       **Round your answer to two decimal places.**
     answer:
-        value: 18.76
+        value: 17.71
         margin_type: percent
         tolerance: 3
     feedback:
@@ -482,7 +482,7 @@ questions:
           Attaching pods far from the axis increases <latex>I</latex>, so the rotation slows and the **period increases**.
 
           **Final Answer:**
-          <latex>T_f = 18.76\ \text{seconds}</latex>
+          <latex>T_f = 17.71\ \text{seconds}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
