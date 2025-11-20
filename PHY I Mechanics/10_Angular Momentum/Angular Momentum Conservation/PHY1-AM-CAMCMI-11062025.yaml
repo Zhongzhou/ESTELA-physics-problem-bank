@@ -297,7 +297,7 @@ questions:
       Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the cart reaches its final position.
       **Round your answer to two decimal places.**
     answer:
-        value: 0.99
+        value: 0.84
         margin_type: percent
         tolerance: 3
     feedback:
@@ -322,7 +322,7 @@ questions:
           Moving inward reduces the total moment of inertia, so the system spins faster to conserve angular momentum.
 
           **Final Answer:**
-          <latex>f_f = 0.99\ \text{rotations per second}</latex>
+          <latex>f_f = 0.84\ \text{rotations per second}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -338,7 +338,7 @@ questions:
       Assuming no external torque acts on the system, and the space station can be seen as stationary, find how long the platform **takes to complete one rotation**, in units of **seconds**, after the drone reaches the inner position.
       **Round your answer to two decimal places.**
     answer:
-        value: 10.26
+        value: 11.98
         margin_type: percent
         tolerance: 3
     feedback:
@@ -363,7 +363,7 @@ questions:
           Because the drone moves closer to the rotation axis, the system spins faster, so the period of one rotation becomes shorter.
 
           **Final Answer:**
-          <latex>T_f = 10.26\ \text{seconds}</latex>
+          <latex>T_f = 11.98\ \text{seconds}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -379,7 +379,7 @@ questions:
       Assuming no external torque acts on the system, determine the **final frequency of rotation**, in units of **rotations per second**, after the puck reaches <latex>r_f = 0.38\ \text{m}</latex>.
       **Round your answer to two decimal places.**
     answer:
-        value: 0.64
+        value: 0.84
         margin_type: percent
         tolerance: 3
     feedback:
@@ -402,7 +402,7 @@ questions:
           As the puck slides outward, the system's total moment of inertia increases, so the rotation rate (frequency) decreases.
 
           **Final Answer:**
-          <latex>f_f = 0.64\ \text{rotations per second}</latex>
+          <latex>f_f = 0.84\ \text{rotations per second}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -418,7 +418,7 @@ questions:
       Assuming no external torque acts on the system, find how long the system **takes to complete one rotation**, in units of **seconds**, after the puck reaches <latex>r_f = 0.45\ \text{m}</latex>.
       **Round your answer to two decimal places.**
     answer:
-        value: 0.90
+        value: 0.84
         margin_type: percent
         tolerance: 3
     feedback:
@@ -442,7 +442,7 @@ questions:
           Sliding outward increases the total moment of inertia, which reduces angular speed and therefore **increases** the time for one rotation (the period).
 
           **Final Answer:**
-          <latex>T_f = 0.90\ \text{seconds}</latex>
+          <latex>T_f = 0.84\ \text{seconds}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -498,7 +498,7 @@ questions:
       Assuming no external torque acts on the system, find the **final frequency of rotation**, in units of **rotations per second**, after both pellets have attached.
       **Round your answer to two decimal places.**
     answer:
-        value: 0.44
+        value: 0.56
         margin_type: percent
         tolerance: 3
     feedback:
@@ -521,7 +521,7 @@ questions:
           Sticking masses at nonzero radii increases <latex>I</latex>, so the system spins **slower** and the frequency decreases.
 
           **Final Answer:**
-          <latex>f_f = 0.44\ \text{rotations per second}</latex>
+          <latex>f_f = 0.56\ \text{rotations per second}</latex>
         on_correct: Good job!
         on_incorrect: Try again!
 
