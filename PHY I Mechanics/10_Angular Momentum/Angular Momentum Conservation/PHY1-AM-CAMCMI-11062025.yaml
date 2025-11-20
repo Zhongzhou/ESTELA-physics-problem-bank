@@ -218,7 +218,7 @@ questions:
       Assuming no external torque acts on the system, determine how long the radar rod **takes to complete one rotation**, in units of **seconds**, after both pods have attached.
       **Round your answer to two decimal places.**
     answer:
-        value: 21.33
+        value: 17.71
         margin_type: percent
         tolerance: 3
     feedback:
