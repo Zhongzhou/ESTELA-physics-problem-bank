@@ -1,0 +1,1300 @@
+bank_info:
+    title: Rotational Kinematics -- finding Angular Displacement from three kinematic variables.
+    bank_id: PHY1-RM-KE-AD-num-11112025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This problem bank contains problems that requires calculating the angular displacement given 3 other kinematic variables.   
+    date created: 11-11-2025 # Today's date 
+    learning objectives:
+    generation prompts: # The prompts
+        - prompt 1: |
+            Come up with 10 examples of rigid objects that undergo rotational motion and estimate realistic ranges for their angular velocities 
+            and angular acceleration. report in a table. in this chat, this will be known as table 1.
+        - prompt 2: | 
+            Using the data from table 2, create a word problem for each row describing a reasonable scenario in which the object undergoes 
+            some motion with constant angular acceleration. The stories should be independent for each problem and should have some detail, 
+            especially if you can think of some interesting scenario or useful application.
+
+            In all problems, the angular displacement is an unknown to be found, and the initial velocity is specified implicitly. 
+            Two other kinematic variables are given in each problem as follows:
+            For the A rows: the time interval and the angular acceleration. 
+            For the B rows: the time interval and the final velocity, and 
+            For the C rows: the angular acceleration and the final velocity.
+
+            The physical quantities and their values may be implied using some keyword -- for example, using "starting from" to refer 
+            to the initial angular velocity, or "speeds up at a rate of" to refer to the acceleration, or "rest" to refer to the angular velocity 
+            being 0, and so on. 
+
+            Use "how many revolutions" to as ask about the angular displacement. Ask the student to "Provide your answer to one decimal place."
+        - prompt 3: |
+            Write concise student facing solutions for all problems. Each solution should include the following elements: 
+            1. A statement of recognition that the situation described involves rotational motion with constant angular acceleration. 
+            Contextualize this statement using language inspired from the problem statement. 
+            2. A statement indicating that the objective is to find the angular displacement in units of revolution. 
+            3. A list of the rotational kinematic variables relevant to this segment of motion with constant angular acceleration, 
+            indicating for each variable whether it is explicitly or implicitly given or unknown. 
+            4. An explicit statement of the relevant kinematic equation including the relevance in the first place. 
+            5. A step by step algebraic manipulation to find a symbolic solution to get the desired variable. 
+            6. Substitute to find the angular displacement in radians, then convert to revolutions. 
+            Always be explicit about the units of every quantity. If you are going to use bullets, then indent for better readability.
+
+
+    updates: 
+    associated data:
+    generation details: # Details of the creation process
+            model: chatGPT # The model used to generate the questions
+            version: 5.1 # The version of the model used
+            last updated: ?-2025 # The date of the last update of the generation prompts.
+    authors:
+        O. Moussa
+
+questions:
+    - numerical:
+        id: q1A
+        title: Ceiling Fan Blade – Constant Angular Acceleration (1A)
+        points: 3
+        text: |
+            A ceiling fan blade starts from rest and speeds up with a constant
+            angular acceleration of **1.6 rad/s²** for **15.0 s**.
+            How many revolutions does the blade make during this period?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 28.6
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                The blade starts from rest, so <latex>\omega_i = 0</latex>.
+                For constant angular acceleration, the angular displacement is
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Because <latex>\omega_i = 0</latex>, this reduces to
+
+                <latex>
+                \theta = \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}(1.6)(15.0)^2
+                = 180\ \text{rad}
+                </latex>
+
+                Convert to revolutions using <latex>1\ \text{rev} = 2\pi\ \text{rad}</latex>:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{180}{2\pi} \approx 28.6\ \text{rev}
+                </latex>
+
+                **Answer: 28.6 revolutions**
+            on_correct: Nice work!
+            on_incorrect: Review the rotational kinematics equation for \(\theta\) with constant angular acceleration.
+
+    - numerical:
+        id: q1B
+        title: Ceiling Fan Blade – Uniform Acceleration to Final Speed (1B)
+        points: 3
+        text: |
+            A ceiling fan accelerates uniformly from rest to a final angular
+            velocity of **26 rad/s** over **12.0 s**.
+            How many revolutions does it complete while speeding up?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 24.8
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                With constant angular acceleration, the angular displacement can be
+                written in terms of the average angular velocity:
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                The fan starts from rest, so <latex>\omega_i = 0</latex> and
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(26)(12.0)
+                = 156\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{156}{2\pi} \approx 24.8\ \text{rev}
+                </latex>
+
+                **Answer: 24.8 revolutions**
+            on_correct: Great job applying average angular velocity!
+            on_incorrect: Try using the average angular velocity \(\bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)\).
+
+    - numerical:
+        id: q1C
+        title: Ceiling Fan Blade – Speeding Up to Given Angular Speed (1C)
+        points: 3
+        text: |
+            A ceiling fan blade starts from rest and speeds up at a constant
+            **2.9 rad/s²** until its angular speed reaches **7.4 rad/s**.
+            How many revolutions does the blade make in that time?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 1.5
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the rotational kinematic relation that does not require time:
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                Since the fan starts from rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{\omega_f^2}{2\alpha}
+                = \dfrac{(7.4)^2}{2(2.9)}
+                \approx 9.44\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{9.44}{2\pi} \approx 1.5\ \text{rev}
+                </latex>
+
+                **Answer: 1.5 revolutions**
+            on_correct: Excellent work!
+            on_incorrect: Use the \(\omega_f^2\) kinematic relation and then convert radians to revolutions.
+
+    - numerical:
+        id: q2A
+        title: Bicycle Wheel – Constant Angular Acceleration (2A)
+        points: 3
+        text: |
+            A cyclist begins pedaling from rest, and the bicycle wheel accelerates
+            uniformly at **8.3 rad/s²** for **9.8 s**.
+            How many revolutions does the wheel complete during this acceleration phase?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 63.4
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                The wheel starts from rest, so <latex>\omega_i = 0</latex>.
+                For constant angular acceleration,
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                This reduces to
+
+                <latex>
+                \theta = \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}(8.3)(9.8)^2
+                \approx 4.15 \times 96.04
+                \approx 398.6\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{398.6}{2\pi} \approx 63.4\ \text{rev}
+                </latex>
+
+                **Answer: 63.4 revolutions**
+            on_correct: Nicely done!
+            on_incorrect: Revisit \(\theta = \tfrac{1}{2}\alpha t^2\) for motion from rest.
+
+    - numerical:
+        id: q2B
+        title: Bicycle Wheel – Acceleration to Final Speed (2B)
+        points: 3
+        text: |
+            A bicycle wheel increases its angular speed uniformly from rest to
+            **30 rad/s** in **5.4 s**.
+            How many revolutions does the wheel make as it speeds up?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 12.9
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Under constant angular acceleration, the angular displacement is
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                Starting from rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(30)(5.4)
+                = 81.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{81.0}{2\pi} \approx 12.9\ \text{rev}
+                </latex>
+
+                **Answer: 12.9 revolutions**
+            on_correct: Great work!
+            on_incorrect: Use \(\theta = \tfrac{1}{2}\omega_f t\) for uniform acceleration from rest.
+
+    - numerical:
+        id: q2C
+        title: Bicycle Wheel – Given Final Speed and Acceleration (2C)
+        points: 3
+        text: |
+            Starting from rest, a cyclist’s wheel spins up to **50 rad/s** under a
+            constant angular acceleration of **9.4 rad/s²**.
+            How many revolutions occur while reaching that speed?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 21.2
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the kinematic relation
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(50)^2}{2(9.4)}
+                = \dfrac{2500}{18.8}
+                \approx 133.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{133.0}{2\pi} \approx 21.2\ \text{rev}
+                </latex>
+
+                **Answer: 21.2 revolutions**
+            on_correct: Excellent reasoning!
+            on_incorrect: Try the equation with \(\omega_f^2\) and solve for \(\theta\).
+
+    - numerical:
+        id: q3A
+        title: Car Tire – Constant Angular Acceleration (3A)
+        points: 3
+        text: |
+            A car starts from rest and its tires experience an angular acceleration
+            of **17 rad/s²** for **6.6 s** as it pulls away from a stoplight.
+            How many revolutions does each tire make during this time?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 58.9
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                The tire starts from rest, so <latex>\omega_i = 0</latex>.
+                Use
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                which becomes
+
+                <latex>
+                \theta = \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}(17)(6.6)^2
+                = 8.5 \times 43.56
+                \approx 370.3\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{370.3}{2\pi} \approx 58.9\ \text{rev}
+                </latex>
+
+                **Answer: 58.9 revolutions**
+            on_correct: Nicely handled!
+            on_incorrect: Remember \(\theta = \tfrac{1}{2}\alpha t^2\) for motion from rest.
+
+    - numerical:
+        id: q3B
+        title: Car Tire – Acceleration to Highway Speed (3B)
+        points: 3
+        text: |
+            While merging onto a highway, a car’s tire spins up from rest to
+            **100 rad/s** in **12.0 s**.
+            How many revolutions does it complete as it speeds up?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 95.5
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                For constant angular acceleration, displacement is given by
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(100)(12.0)
+                = 600\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{600}{2\pi} \approx 95.5\ \text{rev}
+                </latex>
+
+                **Answer: 95.5 revolutions**
+            on_correct: Great job!
+            on_incorrect: Use the average angular velocity for constant acceleration from rest.
+
+    - numerical:
+        id: q3C
+        title: Car Tire – Given Final Speed and Acceleration (3C)
+        points: 3
+        text: |
+            A car tire starts from rest and accelerates at a constant **6.0 rad/s²**
+            until its angular speed reaches **110 rad/s**.
+            How many revolutions does it make during this acceleration?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 160.5
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the time-independent kinematic relation
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solving for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(110)^2}{2(6.0)}
+                = \dfrac{12100}{12}
+                \approx 1008.3\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{1008.3}{2\pi} \approx 160.5\ \text{rev}
+                </latex>
+
+                **Answer: 160.5 revolutions**
+            on_correct: Excellent!
+            on_incorrect: Try the \(\omega_f^2\) equation to eliminate time.
+
+    - numerical:
+        id: q4A
+        title: Electric Drill Chuck – Spin-Up from Rest (4A)
+        points: 3
+        text: |
+            An electric drill starts from rest and its chuck speeds up with a
+            uniform angular acceleration of **330 rad/s²** for **7.7 s**.
+            How many revolutions does the chuck complete before reaching full speed?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 1557.0
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Starting from rest, <latex>\omega_i = 0</latex>, so use
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Substitute the given values:
+
+                <latex>
+                \theta = \tfrac{1}{2}(330)(7.7)^2
+                = 165 \times 59.29
+                \approx 9782.9\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{9782.9}{2\pi} \approx 1557.0\ \text{rev}
+                </latex>
+
+                **Answer: 1557.0 revolutions**
+            on_correct: Nice calculation!
+            on_incorrect: Re-apply \(\theta = \tfrac{1}{2}\alpha t^2\) and then convert radians to revolutions.
+
+    - numerical:
+        id: q4B
+        title: Electric Drill Chuck – Acceleration to High Speed (4B)
+        points: 3
+        text: |
+            A power drill accelerates from rest to **2600 rad/s** in **7.7 s**.
+            How many revolutions does the chuck make during this spin-up?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 1593.1
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                With constant angular acceleration,
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(2600)(7.7)
+                = 1300 \times 7.7
+                = 10010.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{10010.0}{2\pi} \approx 1593.1\ \text{rev}
+                </latex>
+
+                **Answer: 1593.1 revolutions**
+            on_correct: Great work!
+            on_incorrect: Use average angular velocity for motion from rest to \(\omega_f\).
+
+    - numerical:
+        id: q4C
+        title: Electric Drill Chuck – Given Final Speed and Acceleration (4C)
+        points: 3
+        text: |
+            A drill motor brings its chuck from rest to **2600 rad/s** while
+            accelerating steadily at **330 rad/s²**.
+            How many revolutions occur in this interval?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 1630.1
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the relation
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(2600)^2}{2(330)}
+                = \dfrac{6760000}{660}
+                \approx 10242.4\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{10242.4}{2\pi} \approx 1630.1\ \text{rev}
+                </latex>
+
+                **Answer: 1630.1 revolutions**
+            on_correct: Well done!
+            on_incorrect: Try using \(\omega_f^2 = \omega_i^2 + 2\alpha\theta\) and solve for \(\theta\).
+
+    - numerical:
+        id: q5A
+        title: Vinyl Record – Constant Angular Acceleration (5A)
+        points: 3
+        text: |
+            A turntable platter starts from rest and accelerates at
+            **0.23 rad/s²** for **25.0 s** to reach playback speed.
+            How many revolutions does it make in this time?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 11.4
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                From rest, <latex>\omega_i = 0</latex>, so,
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Substitute:
+
+                <latex>
+                \theta = \tfrac{1}{2}(0.23)(25.0)^2
+                = 0.115 \times 625
+                = 71.875\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{71.875}{2\pi} \approx 11.4\ \text{rev}
+                </latex>
+
+                **Answer: 11.4 revolutions**
+            on_correct: Nicely done!
+            on_incorrect: Re-check \(\theta = \tfrac{1}{2}\alpha t^2\) and your arithmetic.
+
+    - numerical:
+        id: q5B
+        title: Vinyl Record – Acceleration to Playback Speed (5B)
+        points: 3
+        text: |
+            A vinyl record accelerates uniformly from rest to **7.5 rad/s** in
+            **20.0 s**.
+            How many revolutions does the record make before reaching full speed?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 11.9
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                With constant angular acceleration, displacement can be written as
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                Starting from rest:
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(7.5)(20.0)
+                = 75.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{75.0}{2\pi} \approx 11.9\ \text{rev}
+                </latex>
+
+                **Answer: 11.9 revolutions**
+            on_correct: Great job!
+            on_incorrect: Use the average angular velocity for motion from rest.
+
+    - numerical:
+        id: q5C
+        title: Vinyl Record – Given Final Speed and Acceleration (5C)
+        points: 3
+        text: |
+            A record player spins up from rest to **7.4 rad/s** under a constant
+            **0.22 rad/s²** acceleration.
+            How many revolutions does the record complete during that interval?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 19.8
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the time-independent relation:
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(7.4)^2}{2(0.22)}
+                = \dfrac{54.76}{0.44}
+                \approx 124.5\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{124.5}{2\pi} \approx 19.8\ \text{rev}
+                </latex>
+
+                **Answer: 19.8 revolutions**
+            on_correct: Excellent work!
+            on_incorrect: Try the \(\omega_f^2\) equation and then convert radians to revolutions.
+
+    - numerical:
+        id: q6A
+        title: Helicopter Rotor – Constant Angular Acceleration (6A)
+        points: 3
+        text: |
+            A helicopter’s rotor begins spinning from rest and accelerates uniformly
+            at **2.8 rad/s²** for **14.0 s** before lift-off.
+            How many revolutions does the rotor make while speeding up?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 43.7
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Substitute:
+
+                <latex>
+                \theta = \tfrac{1}{2}(2.8)(14.0)^2
+                = 1.4 \times 196
+                = 274.4\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{274.4}{2\pi} \approx 43.7\ \text{rev}
+                </latex>
+
+                **Answer: 43.7 revolutions**
+            on_correct: Nicely done!
+            on_incorrect: Re-apply \(\theta = \tfrac{1}{2}\alpha t^2\) carefully.
+
+    - numerical:
+        id: q6B
+        title: Helicopter Rotor – Acceleration to Operating Speed (6B)
+        points: 3
+        text: |
+            A helicopter rotor speeds up from rest to **45 rad/s** over
+            **16.0 s**.
+            How many revolutions does it complete in this time?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 57.3
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                For constant angular acceleration,
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                Starting from rest:
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(45)(16.0)
+                = 360.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{360.0}{2\pi} \approx 57.3\ \text{rev}
+                </latex>
+
+                **Answer: 57.3 revolutions**
+            on_correct: Great work!
+            on_incorrect: Use the average angular velocity between 0 and \(\omega_f\).
+
+    - numerical:
+        id: q6C
+        title: Helicopter Rotor – Given Final Speed and Acceleration (6C)
+        points: 3
+        text: |
+            The main rotor of a helicopter starts from rest and accelerates at
+            **1.2 rad/s²** until it reaches **39 rad/s**.
+            How many revolutions occur during this start-up?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 100.9
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the time-independent relation:
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(39)^2}{2(1.2)}
+                = \dfrac{1521}{2.4}
+                \approx 633.8\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{633.8}{2\pi} \approx 100.9\ \text{rev}
+                </latex>
+
+                **Answer: 100.9 revolutions**
+            on_correct: Excellent job!
+            on_incorrect: Try \(\omega_f^2 = \omega_i^2 + 2\alpha\theta\) and solve for \(\theta\).
+
+    - numerical:
+        id: q7A
+        title: Washing Machine Drum – Spin-Up from Rest (7A)
+        points: 3
+        text: |
+            A washing machine begins its spin cycle from rest, accelerating at
+            **6.2 rad/s²** for **9.5 s**.
+            How many revolutions does the drum make during this period?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 44.5
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Substitute:
+
+                <latex>
+                \theta = \tfrac{1}{2}(6.2)(9.5)^2
+                = 3.1 \times 90.25
+                = 279.8\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{279.8}{2\pi} \approx 44.5\ \text{rev}
+                </latex>
+
+                **Answer: 44.5 revolutions**
+            on_correct: Nicely done!
+            on_incorrect: Check your substitution in \(\theta = \tfrac{1}{2}\alpha t^2\).
+
+    - numerical:
+        id: q7B
+        title: Washing Machine Drum – Acceleration to High Speed (7B)
+        points: 3
+        text: |
+            A washer drum accelerates uniformly from rest to **130 rad/s** in
+            **11.0 s**.
+            How many revolutions does it complete in that time?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 113.8
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                For constant angular acceleration,
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                From rest:
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(130)(11.0)
+                = 715.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{715.0}{2\pi} \approx 113.8\ \text{rev}
+                </latex>
+
+                **Answer: 113.8 revolutions**
+            on_correct: Great calculation!
+            on_incorrect: Use \(\theta = \tfrac{1}{2}\omega_f t\) for motion from rest.
+
+    - numerical:
+        id: q7C
+        title: Washing Machine Drum – Given Final Speed and Acceleration (7C)
+        points: 3
+        text: |
+            During a fast spin cycle, the drum starts from rest and speeds up at
+            **12 rad/s²** until it reaches **150 rad/s**.
+            How many revolutions does it make during that acceleration?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 149.2
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the relation without time:
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(150)^2}{2(12)}
+                = \dfrac{22500}{24}
+                = 937.5\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{937.5}{2\pi} \approx 149.2\ \text{rev}
+                </latex>
+
+                **Answer: 149.2 revolutions**
+            on_correct: Excellent!
+            on_incorrect: Try the \(\omega_f^2\) equation and re-check your arithmetic.
+
+    - numerical:
+        id: q8A
+        title: Figure Skater – Spin-Up from Rest (8A)
+        points: 3
+        text: |
+            A figure skater starts a spin from rest and accelerates uniformly at
+            **8.2 rad/s²** for **2.8 s**.
+            How many revolutions does the skater complete while gaining speed?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 5.1
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Substitute:
+
+                <latex>
+                \theta = \tfrac{1}{2}(8.2)(2.8)^2
+                = 4.1 \times 7.84
+                = 32.144\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{32.144}{2\pi} \approx 5.1\ \text{rev}
+                </latex>
+
+                **Answer: 5.1 revolutions**
+            on_correct: Nicely done!
+            on_incorrect: Re-use \(\theta = \tfrac{1}{2}\alpha t^2\) and check your calculator steps.
+
+    - numerical:
+        id: q8B
+        title: Figure Skater – Acceleration to Final Spin Rate (8B)
+        points: 3
+        text: |
+            A skater spins up from rest to **14 rad/s** in **4.0 s**.
+            How many revolutions occur during this acceleration?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 4.5
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                With constant angular acceleration,
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                From rest:
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(14)(4.0)
+                = 28\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{28}{2\pi} \approx 4.5\ \text{rev}
+                </latex>
+
+                **Answer: 4.5 revolutions**
+            on_correct: Great job!
+            on_incorrect: Use the average angular velocity between 0 and \(14\ \text{rad/s}\).
+
+    - numerical:
+        id: q8C
+        title: Figure Skater – Given Final Speed and Acceleration (8C)
+        points: 3
+        text: |
+            A skater pulls her arms in and accelerates at **1.6 rad/s²** until her
+            angular speed reaches **8.2 rad/s**.
+            How many revolutions does she complete in that process?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 3.3
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the relation
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(8.2)^2}{2(1.6)}
+                = \dfrac{67.24}{3.2}
+                \approx 21.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{21.0}{2\pi} \approx 3.3\ \text{rev}
+                </latex>
+
+                **Answer: 3.3 revolutions**
+            on_correct: Excellent reasoning!
+            on_incorrect: Try the \(\omega_f^2\) relation and then convert to revolutions.
+
+    - numerical:
+        id: q9A
+        title: Compact Disc – Constant Angular Acceleration (9A)
+        points: 3
+        text: |
+            A CD in a drive begins spinning from rest and accelerates at
+            **25 rad/s²** for **20.0 s**.
+            How many revolutions does the disc make as it reaches reading speed?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 795.8
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Substitute:
+
+                <latex>
+                \theta = \tfrac{1}{2}(25)(20.0)^2
+                = 12.5 \times 400
+                = 5000\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{5000}{2\pi} \approx 795.8\ \text{rev}
+                </latex>
+
+                **Answer: 795.8 revolutions**
+            on_correct: Great work!
+            on_incorrect: Re-check the substitution and your conversion to revolutions.
+
+    - numerical:
+        id: q9B
+        title: DVD – Acceleration to Reading Speed (9B)
+        points: 3
+        text: |
+            A DVD spins up from rest to **500 rad/s** in **15.0 s**.
+            How many revolutions does it make during this acceleration?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 596.8
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                With constant angular acceleration,
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                From rest:
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(500)(15.0)
+                = 3750\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{3750}{2\pi} \approx 596.8\ \text{rev}
+                </latex>
+
+                **Answer: 596.8 revolutions**
+            on_correct: Nicely done!
+            on_incorrect: Use \(\theta = \tfrac{1}{2}\omega_f t\) carefully.
+
+    - numerical:
+        id: q9C
+        title: Compact Disc – Given Final Speed and Acceleration (9C)
+        points: 3
+        text: |
+            A CD starts from rest and accelerates uniformly at **45 rad/s²**
+            until it reaches **450 rad/s**.
+            How many revolutions occur during that interval?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 358.1
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the time-independent relation:
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solving for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(450)^2}{2(45)}
+                = \dfrac{202500}{90}
+                = 2250\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{2250}{2\pi} \approx 358.1\ \text{rev}
+                </latex>
+
+                **Answer: 358.1 revolutions**
+            on_correct: Excellent!
+            on_incorrect: Try using \(\omega_f^2 = \omega_i^2 + 2\alpha\theta\) and convert your result.
+
+    - numerical:
+        id: q10A
+        title: Wind Turbine Blade – Constant Angular Acceleration (10A)
+        points: 3
+        text: |
+            A wind turbine begins turning from rest when the wind picks up,
+            accelerating at **0.32 rad/s²** for **18.0 s**.
+            How many revolutions does each blade make during this start-up?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 8.2
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \omega_i t + \tfrac{1}{2}\alpha t^2
+                = \tfrac{1}{2}\alpha t^2
+                </latex>
+
+                Substitute:
+
+                <latex>
+                \theta = \tfrac{1}{2}(0.32)(18.0)^2
+                = 0.16 \times 324
+                = 51.84\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{51.84}{2\pi} \approx 8.2\ \text{rev}
+                </latex>
+
+                **Answer: 8.2 revolutions**
+            on_correct: Nice work!
+            on_incorrect: Re-apply \(\theta = \tfrac{1}{2}\alpha t^2\) and check your arithmetic.
+
+    - numerical:
+        id: q10B
+        title: Wind Turbine Blade – Acceleration to Operating Speed (10B)
+        points: 3
+        text: |
+            A turbine speeds up from rest to **8.0 rad/s** in **10.0 s** as the
+            wind strengthens.
+            How many revolutions does it complete while accelerating?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 6.4
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                For constant angular acceleration,
+
+                <latex>
+                \theta = \bar{\omega}\, t, \qquad
+                \bar{\omega} = \tfrac{1}{2}(\omega_i + \omega_f)
+                </latex>
+
+                From rest:
+
+                <latex>
+                \theta = \tfrac{1}{2}\omega_f t
+                = \tfrac{1}{2}(8.0)(10.0)
+                = 40.0\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{40.0}{2\pi} \approx 6.4\ \text{rev}
+                </latex>
+
+                **Answer: 6.4 revolutions**
+            on_correct: Great job!
+            on_incorrect: Use \(\theta = \tfrac{1}{2}\omega_f t\) and convert to revolutions.
+
+    - numerical:
+        id: q10C
+        title: Wind Turbine Blade – Given Final Speed and Acceleration (10C)
+        points: 3
+        text: |
+            A large turbine starts from rest and steadily accelerates at
+            **0.90 rad/s²** until it reaches **10 rad/s**.
+            How many revolutions do the blades make in that time?
+            *Provide your answer to one decimal place.*
+        answer:
+            value: 8.8
+            margin_type: percent
+            tolerance: 3
+        feedback:
+            general: |
+                Use the time-independent relation:
+
+                <latex>
+                \omega_f^2 = \omega_i^2 + 2\alpha\theta
+                </latex>
+
+                Solve for \(\theta\):
+
+                <latex>
+                \theta = \dfrac{\omega_f^2 - \omega_i^2}{2\alpha}
+                </latex>
+
+                From rest, <latex>\omega_i = 0</latex>, so
+
+                <latex>
+                \theta = \dfrac{(10)^2}{2(0.90)}
+                = \dfrac{100}{1.8}
+                \approx 55.6\ \text{rad}
+                </latex>
+
+                Convert to revolutions:
+
+                <latex>
+                \theta_{\text{rev}} = \dfrac{55.6}{2\pi} \approx 8.8\ \text{rev}
+                </latex>
+
+                **Answer: 8.8 revolutions**
+            on_correct: Excellent!
+            on_incorrect: Use \(\omega_f^2 = \omega_i^2 + 2\alpha\theta\) and then convert to revolutions.
