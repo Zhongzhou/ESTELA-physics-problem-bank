@@ -1,0 +1,1464 @@
+bank_info:
+    title: Rotational Dynamics with Two Torques.
+    bank_id: PHY1-ROT-RDTT-11262025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This problem bank contains problems that    
+    date created: 01-01-2026 # Today's date 
+    learning objectives:
+    generation prompts: # The prompts will be added once Leo provides the first couple of prompts
+        - prompt 1: |
+        - prompt 2: | 
+    updates: 
+    associated data:
+    generation details: # Details of the creation process
+            model: Gemini-Pro # The model used to generate the questions
+            version: 3 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+        - Leo Murch
+
+
+questions:
+
+- numerical:
+    id: q1
+    title: Solid Disk - Mid-Radius Push - Assisted Motor
+    points: 10
+    text: |
+      A heavy playground merry-go-round is modeled as a solid disk of mass M = <latex>5.64 \text{ kg}</latex> and radius R = <latex>1.54 \text{ m}</latex>. It is initially rotating at <latex>\omega_0 = 13.25 \text{ rad/s}</latex>.
+      A hidden electric motor in the base provides a constant assisting torque of <latex>2.31 \text{ N}\cdot\text{m}</latex> in the same direction as the rotation.
+      A person pushes tangentially on the disk surface at a distance of <latex>0.77 \text{ m}</latex> (which is $R/2$) from the center with a force F = <latex>9.20 \text{ N}</latex> in the direction of rotation to make it go faster.
+      What is the angular velocity after <latex>t = 3.65 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 18.38
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 5.64 \text{ kg}</latex>, <latex>R = 1.54 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 13.25 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 9.20 \text{ N}</latex> (applied at <latex>r=0.77\text{ m}</latex>), <latex>\tau_{motor} = 2.31 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(5.64)(1.54)^2 = 6.687 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Since the motor helps the person, both torques are positive.
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r_{new} = (9.20)(0.77) = 7.084 \text{ N}\cdot\text{m}</latex>.</li>
+        <li>Motor Torque: <latex>\tau_{motor} = 2.31 \text{ N}\cdot\text{m}</latex>.</li>
+        </ul>
+        <latex>\tau_{net} = 7.084 + 2.31 = 9.394 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{9.394}{6.687} = 1.405 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 13.25 + (1.405)(3.65)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>18.38 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q2
+    title: Solid Disk - Mid-point Push - Twin Drive
+    points: 10
+    text: |
+      A horizontal turntable (solid disk) of mass M = <latex>3.82 \text{ kg}</latex> and radius R = <latex>2.10 \text{ m}</latex> is initially rotating at <latex>\omega_0 = 19.40 \text{ rad/s}</latex>.
+      A secondary drive system provides a constant assisting torque of <latex>1.15 \text{ N}\cdot\text{m}</latex> in the same direction as the rotation.
+      A mechanism pushes tangentially on the disk surface at a midpoint distance of <latex>1.05 \text{ m}</latex> from the center with a force F = <latex>12.60 \text{ N}</latex> to further sustain rotation.
+      What is the angular velocity after <latex>t = 4.20 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 26.57
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 3.82 \text{ kg}</latex>, <latex>R = 2.10 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 19.40 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 12.60 \text{ N}</latex> (applied at <latex>r=1.05\text{ m}</latex>), <latex>\tau_{drive} = 1.15 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(3.82)(2.10)^2 = 8.423 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Both inputs drive the rotation in the same direction (positive).
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r = (12.60)(1.05) = 13.23 \text{ N}\cdot\text{m}</latex>.</li>
+        <li>Drive Torque: <latex>\tau_{drive} = 1.15 \text{ N}\cdot\text{m}</latex>.</li>
+        </ul>
+        <latex>\tau_{net} = 13.23 + 1.15 = 14.38 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{14.38}{8.423} = 1.707 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 19.40 + (1.707)(4.20)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>26.57 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q3
+    title: Solid Disk - 2/3 Radius Brake - Assisted by Motor
+    points: 10
+    text: |
+      A potter's wheel (solid disk) of mass M = <latex>7.45 \text{ kg}</latex> and radius R = <latex>1.80 \text{ m}</latex> is initially spinning at <latex>\omega_0 = 22.10 \text{ rad/s}</latex>.
+      The wheel's motor switches to a "reverse braking" mode, providing a constant resistive torque of <latex>0.95 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      The potter simultaneously applies a brake pad to the disk surface at a distance of <latex>1.20 \text{ m}</latex> (which is $2R/3$) from the center, creating a tangential force F = <latex>5.30 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 2.50 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 20.59
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 7.45 \text{ kg}</latex>, <latex>R = 1.80 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 22.10 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 5.30 \text{ N}</latex> (applied at <latex>r=1.20\text{ m}</latex>), <latex>\tau_{motor} = 0.95 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(7.45)(1.80)^2 = 12.069 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Both the brake pad and the reverse motor oppose the rotation, so both torques are negative.
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r_{new} = (5.30)(1.20)</latex>. This opposes rotation (negative).</li>
+        <li>Reverse Motor: <latex>\tau_{motor} = 0.95</latex>. This also opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (-6.36) + (-0.95) = -7.31 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-7.31}{12.069} = -0.61 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 22.10 + (-0.61)(2.50)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>20.59 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q4
+    title: Solid Disk - Inner Hub Brake - Assisted Braking
+    points: 10
+    text: |
+      A solid disk flywheel of mass M = <latex>6.20 \text{ kg}</latex> and radius R = <latex>2.50 \text{ m}</latex> is initially rotating at <latex>\omega_0 = 15.60 \text{ rad/s}</latex>.
+      An internal regenerative braking system engages, providing a constant resistive torque of <latex>3.10 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A caliper brake engages on an inner hub at distance <latex>0.625 \text{ m}</latex>, applying a tangential force F = <latex>10.40 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 3.20 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 14.02
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 6.20 \text{ kg}</latex>, <latex>R = 2.50 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 15.60 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 10.40 \text{ N}</latex> (applied at <latex>r=0.625\text{ m}</latex>), <latex>\tau_{regen} = 3.10 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(6.20)(2.50)^2 = 19.375 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Both the external brake and the regenerative system oppose rotation, so both are negative.
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r = (10.40)(0.625) = -6.50 \text{ N}\cdot\text{m}</latex>.</li>
+        <li>Regenerative Torque: <latex>\tau_{regen} = -3.10 \text{ N}\cdot\text{m}</latex>.</li>
+        </ul>
+        <latex>\tau_{net} = -6.50 - 3.10 = -9.60 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-9.60}{19.375} = -0.495 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 15.60 + (-0.495)(3.20)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>14.02 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q5
+    title: Solid Disk - 3/4 Radius Brake - Motor Drive
+    points: 10
+    text: |
+      A motorized sanding disk (solid disk) of mass M = <latex>2.90 \text{ kg}</latex> and radius R = <latex>1.15 \text{ m}</latex> is initially rotating at <latex>\omega_0 = 24.50 \text{ rad/s}</latex>.
+      The motor provides a constant driving torque of <latex>4.20 \text{ N}\cdot\text{m}</latex> in the same direction as the rotation.
+      The disk is pressed against a surface at a distance of <latex>0.86 \text{ m}</latex> (approx $3R/4$) from the center, creating a friction force F = <latex>8.60 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 1.90 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 21.31
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 2.90 \text{ kg}</latex>, <latex>R = 1.15 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 24.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 8.60 \text{ N}</latex> (applied at <latex>r=0.8625\text{ m}</latex>), <latex>\tau_{motor} = 4.20 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(2.90)(1.15)^2 = 1.917 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note that the force is applied at $r \approx 0.86\text{ m}$.
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r_{new} = (8.60)(0.8625)</latex>. This opposes rotation (negative).</li>
+        <li>Motor Torque: <latex>\tau_{motor} = 4.20</latex>. This aids rotation (positive).</li>
+        </ul>
+        <latex>\tau_{net} = (-7.418) + (4.20) = -3.218 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-3.218}{1.917} = -1.68 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 24.50 + (-1.68)(1.90)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>21.31 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q6
+    title: Solid Cylinder - Inner Radius Pull - Assisted by Spring
+    points: 10
+    text: |
+      A large spool of thin wire is modeled as a solid disk of mass M = <latex>4.55 \text{ kg}</latex> and radius R = <latex>0.80 \text{ m}</latex>. It is initially rotating at <latex>\omega_0 = 8.10 \text{ rad/s}</latex> as wire is pulled off.
+      An internal spring motor aids the unspooling, providing a constant assisting torque of <latex>0.65 \text{ N}\cdot\text{m}</latex> acting in the same direction as the rotation.
+      The wire is wrapped around an inner hub radius of <latex>0.40 \text{ m}</latex> ($R/2$) and pulls with a tension force F = <latex>4.80 \text{ N}</latex> in the direction of rotation.
+      What is the angular velocity after <latex>t = 4.10 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 15.34
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 4.55 \text{ kg}</latex>, <latex>R = 0.80 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 8.10 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 4.80 \text{ N}</latex> (applied at <latex>r=0.40\text{ m}</latex>), <latex>\tau_{spring} = 0.65 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(4.55)(0.80)^2 = 1.456 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Both the wire tension and the spring motor aid rotation (positive).
+        <ul>
+        <li>Applied Force (String): <latex>\tau_{app} = F \cdot r_{new} = (4.80)(0.40) = 1.92 \text{ N}\cdot\text{m}</latex>.</li>
+        <li>Spring Motor: <latex>\tau_{spring} = 0.65 \text{ N}\cdot\text{m}</latex>.</li>
+        </ul>
+        <latex>\tau_{net} = 1.92 + 0.65 = 2.57 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{2.57}{1.456} = 1.765 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 8.10 + (1.765)(4.10)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>15.34 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q7
+    title: Grindstone - Tool Press (2/3 Radius) - Reverse Drive
+    points: 10
+    text: |
+      A heavy grindstone (solid disk) of mass M = <latex>8.15 \text{ kg}</latex> and radius R = <latex>0.95 \text{ m}</latex> is initially rotating at <latex>\omega_0 = 18.60 \text{ rad/s}</latex>.
+      The axle is connected to a reverse-drive system that creates a constant resistive torque of <latex>1.25 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A tool is pressed against the side of the stone at a distance of <latex>0.63 \text{ m}</latex> (approx $2R/3$) from the center, creating a friction force F = <latex>8.90 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 1.80 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 15.25
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 8.15 \text{ kg}</latex>, <latex>R = 0.95 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 18.60 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 8.90 \text{ N}</latex> (applied at <latex>r=0.63\text{ m}</latex>), <latex>\tau_{drive} = 1.25 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(8.15)(0.95)^2 = 3.678 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Both the tool friction and the reverse drive oppose rotation (negative).
+        <ul>
+        <li>Applied Force (Tool): <latex>\tau_{app} = F \cdot r_{new} = (8.90)(0.63) = -5.607 \text{ N}\cdot\text{m}</latex>.</li>
+        <li>Reverse Drive: <latex>\tau_{drive} = -1.25 \text{ N}\cdot\text{m}</latex>.</li>
+        </ul>
+        <latex>\tau_{net} = -5.607 - 1.25 = -6.857 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-6.857}{3.678} = -1.864 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 18.60 + (-1.864)(1.80)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>15.25 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q8
+    title: Flywheel - Mid-point Resistance - Motor Drive
+    points: 10
+    text: |
+      A flywheel is modeled as a solid disk of mass M = <latex>3.40 \text{ kg}</latex> and radius R = <latex>1.60 \text{ m}</latex>. It is initially rotating at <latex>\omega_0 = 6.50 \text{ rad/s}</latex>.
+      A motor provides a constant driving torque of <latex>4.50 \text{ N}\cdot\text{m}</latex> in the direction of rotation.
+      A braking mechanism presses against the disk face at a distance of <latex>0.80 \text{ m}</latex> from the center, creating a normal force that results in a friction force F = <latex>8.50 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 3.10 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 4.86
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 3.40 \text{ kg}</latex>, <latex>R = 1.60 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 6.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 8.50 \text{ N}</latex> (applied at <latex>r=0.8\text{ m}</latex>), <latex>\tau_{motor} = 4.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Disk, the inertia formula is <latex>I = \frac{1}{2}MR^2</latex>.
+        <br>
+        <latex>I = 0.5(3.40)(1.60)^2 = 4.352 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Brake): <latex>\tau_{brake} = F \cdot r = (8.50)(0.8)</latex>. This opposes rotation (negative).</li>
+        <li>Motor Torque: <latex>\tau_{motor} = 4.50</latex>. This aids rotation (positive).</li>
+        </ul>
+        <latex>\tau_{net} = (-6.80) + (4.50) = -2.30 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-2.30}{4.352} = -0.528 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 6.50 + (-0.528)(3.10)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>4.86 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q9
+    title: Bicycle Wheel - Hand Crank - Friction
+    points: 10
+    text: |
+      A bicycle wheel is modeled as a thin ring/hoop of mass M = <latex>1.25 \text{ kg}</latex> and radius R = <latex>0.35 \text{ m}</latex>. It is initially rotating at <latex>\omega_0 = 15.20 \text{ rad/s}</latex>.
+      The axle provides a constant resistive torque of <latex>0.25 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A person spins the wheel by hand, applying a tangential force F = <latex>6.80 \text{ N}</latex> at the outer edge (distance <latex>0.35 \text{ m}</latex>) in the direction of rotation.
+      What is the angular velocity after <latex>t = 2.50 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 50.00
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 1.25 \text{ kg}</latex>, <latex>R = 0.35 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 15.20 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 6.80 \text{ N}</latex> (applied at <latex>r=0.35\text{ m}</latex>), <latex>\tau_{axle} = 0.25 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Thin Ring/Hoop, the inertia formula is <latex>I = MR^2</latex>.
+        <br>
+        <latex>I = 1.0(1.25)(0.35)^2 = 0.153 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r = (6.80)(0.35)</latex>. This aids rotation (positive).</li>
+        <li>Axle Friction: <latex>\tau_{axle} = 0.25</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (2.38) + (-0.25) = 2.13 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{2.13}{0.153} = 13.92 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 15.20 + (13.92)(2.50)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>50.00 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q10
+    title: Bicycle Wheel - Rim Brake - Friction
+    points: 10
+    text: |
+      A bicycle wheel is modeled as a thin ring/hoop of mass M = <latex>2.10 \text{ kg}</latex> and radius R = <latex>0.62 \text{ m}</latex>. It is initially rotating at <latex>\omega_0 = 20.50 \text{ rad/s}</latex>.
+      The axle provides a constant resistive torque of <latex>0.50 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      Brake pads press against the outer rim (distance <latex>0.62 \text{ m}</latex>), creating a friction force F = <latex>3.50 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 1.80 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 14.54
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 2.10 \text{ kg}</latex>, <latex>R = 0.62 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 20.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 3.50 \text{ N}</latex> (applied at <latex>r=0.62\text{ m}</latex>), <latex>\tau_{axle} = 0.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Thin Ring/Hoop, the inertia formula is <latex>I = MR^2</latex>.
+        <br>
+        <latex>I = 1.0(2.10)(0.62)^2 = 0.807 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Brakes): <latex>\tau_{app} = F \cdot r = (3.50)(0.62)</latex>. This opposes rotation (negative).</li>
+        <li>Axle Friction: <latex>\tau_{axle} = 0.50</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (-2.17) + (-0.50) = -2.67 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-2.67}{0.807} = -3.31 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 20.50 + (-3.31)(1.80)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>14.54 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q11
+    title: Thin Hoop - Spoke Push - Friction
+    points: 10
+    text: |
+      A wagon wheel is modeled as a thin ring/hoop of mass M = <latex>3.45 \text{ kg}</latex> and radius R = <latex>1.10 \text{ m}</latex>. It is initially rotating at <latex>\omega_0 = 5.60 \text{ rad/s}</latex>.
+      Friction in the axle creates a constant resistive torque of <latex>1.80 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A tangential force F = <latex>7.20 \text{ N}</latex> is applied to a spoke at a distance of <latex>0.55 \text{ m}</latex> from the center in the direction of rotation.
+      What is the angular velocity after <latex>t = 4.00 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 7.67
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 3.45 \text{ kg}</latex>, <latex>R = 1.10 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 5.60 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 7.20 \text{ N}</latex> (applied at <latex>r=0.55\text{ m}</latex>), <latex>\tau_{fric} = 1.80 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Thin Ring/Hoop, the inertia formula is <latex>I = MR^2</latex>.
+        <br>
+        <latex>I = 1.0(3.45)(1.10)^2 = 4.175 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Spoke): <latex>\tau_{app} = F \cdot r = (7.20)(0.55)</latex>. This aids rotation (positive).</li>
+        <li>Axle Friction: <latex>\tau_{fric} = 1.80</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (3.96) + (-1.80) = 2.16 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{2.16}{4.175} = 0.52 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 5.60 + (0.52)(4.00)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>7.67 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q12
+    title: Hollow Cylinder - Hand Drag - Motor
+    points: 10
+    text: |
+      A motorized industrial drum is modeled as a thin-walled hollow cylinder of mass M = <latex>5.75 \text{ kg}</latex> and radius R = <latex>1.40 \text{ m}</latex>. It is initially rotating at <latex>\omega_0 = 10.50 \text{ rad/s}</latex>.
+      The motor provides a constant driving torque of <latex>4.20 \text{ N}\cdot\text{m}</latex> in the direction of rotation.
+      An operator slows the drum by placing a hand on the outer surface (distance <latex>1.40 \text{ m}</latex>), creating a tangential friction force F = <latex>6.10 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 3.50 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 9.15
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 5.75 \text{ kg}</latex>, <latex>R = 1.40 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 10.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 6.10 \text{ N}</latex> (applied at <latex>r=1.4\text{ m}</latex>), <latex>\tau_{motor} = 4.20 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Thin Ring/Hoop (Hollow Cylinder), the inertia formula is <latex>I = MR^2</latex>.
+        <br>
+        <latex>I = 1.0(5.75)(1.40)^2 = 11.27 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Hand Drag): <latex>\tau_{app} = F \cdot r = (6.10)(1.4)</latex>. This opposes rotation (negative).</li>
+        <li>Motor Torque: <latex>\tau_{motor} = 4.20</latex>. This aids rotation (positive).</li>
+        </ul>
+        <latex>\tau_{net} = (-8.54) + (4.20) = -4.34 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-4.34}{11.27} = -0.39 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 10.50 + (-0.39)(3.50)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>9.15 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q13
+    title: Hollow Cylinder - Cable Drum - Friction
+    points: 10
+    text: |
+      A large industrial cable drum is modeled as a thin-walled hollow cylinder of mass M = <latex>8.20 \text{ kg}</latex> and radius R = <latex>2.10 \text{ m}</latex>. It is mounted on a fixed frictionless axle and is initially rotating at <latex>\omega_0 = 4.20 \text{ rad/s}</latex>.
+      Internal bearing friction provides a constant resistive torque of <latex>3.50 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A cable wrapped around the outer edge (distance <latex>2.10 \text{ m}</latex>) pulls with a force F = <latex>12.40 \text{ N}</latex> in the direction of rotation.
+      What is the angular velocity after <latex>t = 2.80 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 5.95
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 8.20 \text{ kg}</latex>, <latex>R = 2.10 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 4.20 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 12.40 \text{ N}</latex> (applied at <latex>r=2.1\text{ m}</latex>), <latex>\tau_{fric} = 3.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Thin Ring/Hoop (Hollow Cylinder), the inertia formula is <latex>I = MR^2</latex>.
+        <br>
+        <latex>I = 1.0(8.20)(2.10)^2 = 36.162 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Cable): <latex>\tau_{app} = F \cdot r = (12.40)(2.1)</latex>. This aids rotation (positive).</li>
+        <li>Bearing Friction: <latex>\tau_{fric} = 3.50</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (26.04) + (-3.50) = 22.54 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{22.54}{36.162} = 0.62 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 4.20 + (0.62)(2.80)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>5.95 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q14
+    title: Bicycle Wheel - Test Stand - Air Drag
+    points: 10
+    text: |
+      A bicycle wheel is modeled as a thin ring/hoop of mass M = <latex>0.85 \text{ kg}</latex> and radius R = <latex>0.45 \text{ m}</latex> mounted on a fixed test stand. It is initially rotating at <latex>\omega_0 = 11.20 \text{ rad/s}</latex>.
+      Air drag on the spokes creates a constant resistive torque of <latex>0.15 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A mechanic spins the wheel by pushing on the tire at the top edge (distance <latex>0.45 \text{ m}</latex>) with a tangential force F = <latex>3.20 \text{ N}</latex> in the direction of rotation.
+      What is the angular velocity after <latex>t = 1.20 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 20.19
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 0.85 \text{ kg}</latex>, <latex>R = 0.45 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 11.20 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 3.20 \text{ N}</latex> (applied at <latex>r=0.45\text{ m}</latex>), <latex>\tau_{drag} = 0.15 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Thin Ring/Hoop, the inertia formula is <latex>I = MR^2</latex>.
+        <br>
+        <latex>I = 1.0(0.85)(0.45)^2 = 0.172 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r = (3.20)(0.45)</latex>. This aids rotation (positive).</li>
+        <li>Air Drag: <latex>\tau_{drag} = 0.15</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (1.44) + (-0.15) = 1.29 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{1.29}{0.172} = 7.50 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 11.20 + (7.50)(1.20)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>20.19 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q15
+    title: Solid Sphere - 3/4 Radius Push - Friction
+    points: 10
+    text: |
+      A heavy solid stone sphere of mass M = <latex>6.50 \text{ kg}</latex> and radius R = <latex>1.20 \text{ m}</latex> is initially rotating at <latex>\omega_0 = 9.40 \text{ rad/s}</latex>, around an axis through its center.
+      Friction at the base provides a constant resistive torque of <latex>2.20 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A person pushes tangentially on the sphere surface at a distance of <latex>0.90 \text{ m}</latex> ($3R/4$) from the axis of rotation with a force F = <latex>11.50 \text{ N}</latex> in the direction of rotation.
+      What is the angular velocity after <latex>t = 3.10 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 16.15
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 6.50 \text{ kg}</latex>, <latex>R = 1.20 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 9.40 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 11.50 \text{ N}</latex> (applied at <latex>r=0.90\text{ m}</latex>), <latex>\tau_{fric} = 2.20 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Sphere, the inertia formula is <latex>I = \frac{2}{5}MR^2</latex>.
+        <br>
+        <latex>I = 0.4(6.50)(1.20)^2 = 3.744 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r = 0.90\text{ m}$.
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r_{new} = (11.50)(0.90)</latex>. This aids rotation (positive).</li>
+        <li>Friction: <latex>\tau_{fric} = 2.20</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (10.35) + (-2.20) = 8.15 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{8.15}{3.744} = 2.18 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 9.40 + (2.18)(3.10)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>16.15 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q16
+    title: Solid Sphere - Mid-Radius Drag - Friction
+    points: 10
+    text: |
+      A decorative solid sphere of mass M = <latex>4.80 \text{ kg}</latex> and radius R = <latex>0.90 \text{ m}</latex> is rotating about a fixed vertical axis passing through its center. It has an initial angular velocity of <latex>\omega_0 = 20.50 \text{ rad/s}</latex>.
+      Friction in the mounting bearings provides a constant resistive torque of <latex>1.50 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A person drags their hand against the surface of the sphere at a distance of <latex>0.45 \text{ m}</latex> ($R/2$) from the axis, applying a tangential force F = <latex>7.60 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 1.40 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 16.07
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 4.80 \text{ kg}</latex>, <latex>R = 0.90 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 20.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 7.60 \text{ N}</latex> (applied at <latex>r=0.45\text{ m}</latex>), <latex>\tau_{fric} = 1.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Sphere, the inertia formula is <latex>I = \frac{2}{5}MR^2</latex>.
+        <br>
+        <latex>I = 0.4(4.80)(0.90)^2 = 1.555 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r = 0.45\text{ m}$.
+        <ul>
+        <li>Applied Force (Hand): <latex>\tau_{app} = F \cdot r_{new} = (7.60)(0.45)</latex>. This opposes rotation (negative).</li>
+        <li>Bearing Friction: <latex>\tau_{fric} = 1.50</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (-3.42) + (-1.50) = -4.92 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-4.92}{1.555} = -3.16 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 20.50 + (-3.16)(1.40)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>16.07 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q17
+    title: Solid Sphere - 2/3 Radius Belt Drag - Motor
+    points: 10
+    text: |
+      A solid sphere of mass M = <latex>3.25 \text{ kg}</latex> and radius R = <latex>0.55 \text{ m}</latex> is rotating about a fixed axis passing through its center. It is initially rotating at <latex>\omega_0 = 15.10 \text{ rad/s}</latex>.
+      A motor connected to the axis provides a constant driving torque of <latex>2.50 \text{ N}\cdot\text{m}</latex> in the direction of rotation.
+      A conveyor belt rubs against the sphere's surface at a distance of <latex>0.37 \text{ m}</latex> (approx $2R/3$) from the axis, applying a tangential friction force F = <latex>5.80 \text{ N}</latex> in the opposite direction of the rotation.
+      What is the angular velocity after <latex>t = 2.60 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 17.57
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 3.25 \text{ kg}</latex>, <latex>R = 0.55 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 15.10 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 5.80 \text{ N}</latex> (applied at <latex>r=0.37\text{ m}</latex>), <latex>\tau_{motor} = 2.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Sphere, the inertia formula is <latex>I = \frac{2}{5}MR^2</latex>.
+        <br>
+        <latex>I = 0.4(3.25)(0.55)^2 = 0.393 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r \approx 0.367\text{ m}$.
+        <ul>
+        <li>Applied Force (Belt): <latex>\tau_{app} = F \cdot r_{new} = (5.80)(0.367)</latex>. This opposes rotation (negative).</li>
+        <li>Motor Torque: <latex>\tau_{motor} = 2.50</latex>. This aids rotation (positive).</li>
+        </ul>
+        <latex>\tau_{net} = (-2.13) + (2.50) = 0.37 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{0.37}{0.393} = 0.94 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 15.10 + (0.94)(2.60)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>17.57 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q18
+    title: Bowling Ball - 3/4 Radius Spin Push
+    points: 10
+    text: |
+      A bowling ball (solid sphere) of mass M = <latex>7.20 \text{ kg}</latex> and radius R = <latex>0.11 \text{ m}</latex> is spinning about a fixed axis passing through its center. It has an initial angular velocity of <latex>\omega_0 = 10.00 \text{ rad/s}</latex>.
+      Friction with the floor creates a constant resistive torque of <latex>0.05 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A mechanical spinner applies a tangential force F = <latex>4.50 \text{ N}</latex> on the surface at a radius of <latex>0.083 \text{ m}</latex> ($3R/4$) in the direction of rotation.
+      What is the angular velocity after <latex>t = 2.00 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 28.46
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 7.20 \text{ kg}</latex>, <latex>R = 0.11 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 10.00 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 4.50 \text{ N}</latex> (applied at <latex>r=0.083\text{ m}</latex>), <latex>\tau_{fric} = 0.05 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Solid Sphere, the inertia formula is <latex>I = \frac{2}{5}MR^2</latex>.
+        <br>
+        <latex>I = 0.4(7.20)(0.11)^2 = 0.035 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r = 0.0825\text{ m}$.
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r_{new} = (4.50)(0.0825)</latex>. This aids rotation (positive).</li>
+        <li>Friction: <latex>\tau_{fric} = 0.05</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (0.371) + (-0.05) = 0.321 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{0.321}{0.035} = 9.23 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 10.00 + (9.23)(2.00)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>28.46 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q19
+    title: Basketball (Hollow) - Finger Spin - Air Drag
+    points: 10
+    text: |
+      A basketball is modeled as a hollow shell of mass M = <latex>0.62 \text{ kg}</latex> and radius R = <latex>0.12 \text{ m}</latex>. It is spinning about a fixed vertical axis passing through its center. The initial angular velocity is <latex>\omega_0 = 25.00 \text{ rad/s}</latex>.
+      Air drag creates a constant resistive torque of <latex>0.08 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A player swipes the ball, applying a tangential force F = <latex>2.10 \text{ N}</latex> at the equator (distance <latex>0.12 \text{ m}</latex>) in the direction of rotation.
+      What is the angular velocity after <latex>t = 0.50 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 39.45
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 0.62 \text{ kg}</latex>, <latex>R = 0.12 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 25.00 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 2.10 \text{ N}</latex> (applied at <latex>r=0.12\text{ m}</latex>), <latex>\tau_{drag} = 0.08 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Hollow Shell, the inertia formula is <latex>I = \frac{2}{3}MR^2</latex>.
+        <br>
+        <latex>I = 0.6667(0.62)(0.12)^2 = 0.006 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Finger): <latex>\tau_{app} = F \cdot r = (2.10)(0.12)</latex>. This aids rotation (positive).</li>
+        <li>Air Drag: <latex>\tau_{drag} = 0.08</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (0.25) + (-0.08) = 0.17 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{0.17}{0.006} = 28.90 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 25.00 + (28.90)(0.50)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>39.45 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q20
+    title: Hollow Shell - Tangential Push - Friction
+    points: 10
+    text: |
+      A machine part is modeled as a hollow spherical shell of mass M = <latex>3.80 \text{ kg}</latex> and radius R = <latex>0.85 \text{ m}</latex>. It is rotating about a fixed axis passing through its center with an initial angular velocity of <latex>\omega_0 = 12.20 \text{ rad/s}</latex>.
+      Friction in the axle provides a constant resistive torque of <latex>1.10 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A mechanism applies a tangential force F = <latex>5.40 \text{ N}</latex> at the outer surface (distance <latex>0.85 \text{ m}</latex>) in the direction of rotation.
+      What is the angular velocity after <latex>t = 3.80 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 19.45
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 3.80 \text{ kg}</latex>, <latex>R = 0.85 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 12.20 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 5.40 \text{ N}</latex> (applied at <latex>r=0.85\text{ m}</latex>), <latex>\tau_{fric} = 1.10 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Hollow Shell, the inertia formula is <latex>I = \frac{2}{3}MR^2</latex>.
+        <br>
+        <latex>I = 0.6667(3.80)(0.85)^2 = 1.83 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r = (5.40)(0.85)</latex>. This aids rotation (positive).</li>
+        <li>Axle Friction: <latex>\tau_{fric} = 1.10</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (4.59) + (-1.10) = 3.49 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{3.49}{1.83} = 1.91 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 12.20 + (1.91)(3.80)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>19.45 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q21
+    title: Hollow Shell - Hand Brake - Motor
+    points: 10
+    text: |
+      A rotating sculpture is modeled as a hollow spherical shell of mass M = <latex>5.10 \text{ kg}</latex> and radius R = <latex>0.70 \text{ m}</latex>. It is rotating about a fixed vertical axis passing through its center with an initial angular velocity of <latex>\omega_0 = 8.60 \text{ rad/s}</latex>.
+      A motor drives the rotation, providing a constant torque of <latex>2.80 \text{ N}\cdot\text{m}</latex> in the direction of rotation.
+      A person tries to stop it by pressing their hand against the equator (distance <latex>0.70 \text{ m}</latex>), applying a tangential friction force F = <latex>9.50 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 1.60 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 4.90
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 5.10 \text{ kg}</latex>, <latex>R = 0.70 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 8.60 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 9.50 \text{ N}</latex> (applied at <latex>r=0.7\text{ m}</latex>), <latex>\tau_{motor} = 2.80 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Hollow Shell, the inertia formula is <latex>I = \frac{2}{3}MR^2</latex>.
+        <br>
+        <latex>I = 0.6667(5.10)(0.70)^2 = 1.666 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Hand Brake): <latex>\tau_{app} = F \cdot r = (9.50)(0.7)</latex>. This opposes rotation (negative).</li>
+        <li>Motor Torque: <latex>\tau_{motor} = 2.80</latex>. This aids rotation (positive).</li>
+        </ul>
+        <latex>\tau_{net} = (-6.65) + (2.80) = -3.85 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-3.85}{1.666} = -2.31 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 8.60 + (-2.31)(1.60)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>4.90 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q22
+    title: Rod (Center Pivot) - Mid-Point Push
+    points: 10
+    text: |
+      A uniform rod of mass M = <latex>2.45 \text{ kg}</latex> and length L = <latex>2.80 \text{ m}</latex> is mounted on a fixed pivot through its center. It is initially rotating at <latex>\omega_0 = 6.80 \text{ rad/s}</latex>.
+      Friction in the pivot creates a constant resistive torque of <latex>1.30 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A tangential force F = <latex>5.60 \text{ N}</latex> is applied at a distance of <latex>0.70 \text{ m}</latex> from the pivot (halfway to the end) in the direction of rotation.
+      What is the angular velocity after <latex>t = 3.40 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 12.36
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 2.45 \text{ kg}</latex>, <latex>L = 2.80 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 6.80 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 5.60 \text{ N}</latex> (applied at <latex>r=0.70\text{ m}</latex>), <latex>\tau_{fric} = 1.30 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (Center Pivot), the inertia formula is <latex>I = \frac{1}{12}ML^2</latex>.
+        <br>
+        <latex>I = 0.08333(2.45)(2.80)^2 = 1.601 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note that $L/2 = 1.40\text{ m}$, and the force is at half that distance ($0.70\text{ m}$).
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r_{new} = (5.60)(0.70)</latex>. This aids rotation (positive).</li>
+        <li>Pivot Friction: <latex>\tau_{fric} = 1.30</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (3.92) + (-1.30) = 2.62 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{2.62}{1.601} = 1.64 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 6.80 + (1.64)(3.40)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>12.36 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q23
+    title: Rod (Center Pivot) - Middle Push - Friction
+    points: 10
+    text: |
+      A metal bar (rod) of mass M = <latex>4.60 \text{ kg}</latex> and length L = <latex>3.20 \text{ m}</latex> rotates around a fixed central pivot. It is initially rotating at <latex>\omega_0 = 9.10 \text{ rad/s}</latex>.
+      The pivot provides a constant resistive torque of <latex>2.10 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A mechanism applies a tangential force F = <latex>14.50 \text{ N}</latex> at a distance of <latex>0.80 \text{ m}</latex> from the pivot in the direction of rotation.
+      What is the angular velocity after <latex>t = 4.50 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 19.99
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 4.60 \text{ kg}</latex>, <latex>L = 3.20 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 9.10 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 14.50 \text{ N}</latex> (applied at <latex>r=0.8\text{ m}</latex>), <latex>\tau_{fric} = 2.10 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (Center Pivot), the inertia formula is <latex>I = \frac{1}{12}ML^2</latex>.
+        <br>
+        <latex>I = 0.08333(4.60)(3.20)^2 = 3.925 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r = (14.50)(0.8)</latex>. This aids rotation (positive).</li>
+        <li>Pivot Friction: <latex>\tau_{fric} = 2.10</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (11.60) + (-2.10) = 9.50 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{9.50}{3.925} = 2.42 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 9.10 + (2.42)(4.50)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>19.99 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q24
+    title: Propeller (Rod Center) - 2/3 Radius Drag
+    points: 10
+    text: |
+      A propeller is modeled as a uniform rod of mass M = <latex>3.10 \text{ kg}</latex> and length L = <latex>1.60 \text{ m}</latex>, rotating about a fixed center axle. It is initially rotating at <latex>\omega_0 = 28.00 \text{ rad/s}</latex>.
+      The engine provides a constant driving torque of <latex>4.50 \text{ N}\cdot\text{m}</latex> in the direction of rotation.
+      Air resistance creates a drag force F = <latex>6.80 \text{ N}</latex> applied tangentially at a distance of <latex>0.53 \text{ m}</latex> (approx $2/3$ of the blade length) from the center in the opposite direction of the rotation.
+      What is the angular velocity after <latex>t = 2.10 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 30.77
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 3.10 \text{ kg}</latex>, <latex>L = 1.60 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 28.00 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 6.80 \text{ N}</latex> (applied at <latex>r=0.533\text{ m}</latex>), <latex>\tau_{motor} = 4.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (Center Pivot), the inertia formula is <latex>I = \frac{1}{12}ML^2</latex>.
+        <br>
+        <latex>I = 0.08333(3.10)(1.60)^2 = 0.661 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r \approx 0.533\text{ m}$.
+        <ul>
+        <li>Applied Force (Drag): <latex>\tau_{app} = F \cdot r_{new} = (6.80)(0.533)</latex>. This opposes rotation (negative).</li>
+        <li>Motor Torque: <latex>\tau_{motor} = 4.50</latex>. This aids rotation (positive).</li>
+        </ul>
+        <latex>\tau_{net} = (-3.626) + (4.50) = 0.874 \text{ N}\cdot\text{m}</latex>
+        <br>
+        (Note: Because the drag force is applied closer to the center, its torque is reduced, and the motor torque now exceeds it, causing the propeller to speed up!)
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{0.874}{0.661} = 1.32 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 28.00 + (1.32)(2.10)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>30.77 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q25
+    title: Baton (Rod Center) - Hand Twist - Air Drag
+    points: 10
+    text: |
+      A twirling baton is modeled as a rod of mass M = <latex>0.65 \text{ kg}</latex> and length L = <latex>0.85 \text{ m}</latex>, rotating around a pivot at its center. It is initially rotating at <latex>\omega_0 = 15.50 \text{ rad/s}</latex>.
+      Air drag creates a constant resistive torque of <latex>0.25 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      The twirler applies a tangential force F = <latex>4.10 \text{ N}</latex> near the center (distance <latex>0.21 \text{ m}</latex>) in the direction of rotation to keep it spinning.
+      What is the angular velocity after <latex>t = 0.80 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 27.99
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 0.65 \text{ kg}</latex>, <latex>L = 0.85 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 15.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 4.10 \text{ N}</latex> (applied at <latex>r=0.21\text{ m}</latex>), <latex>\tau_{drag} = 0.25 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (Center Pivot), the inertia formula is <latex>I = \frac{1}{12}ML^2</latex>.
+        <br>
+        <latex>I = 0.08333(0.65)(0.85)^2 = 0.039 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Hand): <latex>\tau_{app} = F \cdot r = (4.10)(0.21)</latex>. This aids rotation (positive).</li>
+        <li>Air Drag: <latex>\tau_{drag} = 0.25</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (0.86) + (-0.25) = 0.61 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{0.61}{0.039} = 15.61 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 15.50 + (15.61)(0.80)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>27.99 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q26
+    title: Door (End Hinge) - 3/4 Width Push
+    points: 10
+    text: |
+      A heavy door is modeled as a uniform rod of mass M = <latex>12.50 \text{ kg}</latex> and length L = <latex>0.95 \text{ m}</latex>, rotating about a fixed vertical axis (hinges) at one end. It is initially opening with an angular velocity of <latex>\omega_0 = 1.50 \text{ rad/s}</latex>.
+      Friction in the rusty hinges creates a constant resistive torque of <latex>1.80 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A person pushes tangentially on the door at a distance of <latex>0.71 \text{ m}</latex> ($3/4$ of the width) from the hinges with a force F = <latex>8.50 \text{ N}</latex> in the direction of rotation.
+      What is the angular velocity after <latex>t = 2.50 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 4.33
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 12.50 \text{ kg}</latex>, <latex>L = 0.95 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 1.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 8.50 \text{ N}</latex> (applied at <latex>r=0.71\text{ m}</latex>), <latex>\tau_{fric} = 1.80 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (End Pivot), the inertia formula is <latex>I = \frac{1}{3}ML^2</latex>.
+        <br>
+        <latex>I = 0.33333(12.50)(0.95)^2 = 3.76 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r \approx 0.7125\text{ m}$.
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r_{new} = (8.50)(0.7125)</latex>. This aids rotation (positive).</li>
+        <li>Hinge Friction: <latex>\tau_{fric} = 1.80</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (6.06) + (-1.80) = 4.26 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{4.26}{3.76} = 1.13 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 1.50 + (1.13)(2.50)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>4.33 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q27
+    title: Door (End Hinge) - Middle Push - Hinge Friction
+    points: 10
+    text: |
+      A wide panel door is modeled as a uniform rod of mass M = <latex>14.20 \text{ kg}</latex> and length L = <latex>1.10 \text{ m}</latex>, rotating about a fixed vertical axis at one end. It is initially rotating at <latex>\omega_0 = 2.10 \text{ rad/s}</latex>.
+      The hinges provide a constant resistive torque of <latex>2.50 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A mechanism pushes tangentially on the door at its midpoint (distance <latex>0.55 \text{ m}</latex>) with a force F = <latex>15.60 \text{ N}</latex> in the direction of rotation.
+      What is the angular velocity after <latex>t = 3.20 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 5.50
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 14.20 \text{ kg}</latex>, <latex>L = 1.10 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 2.10 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 15.60 \text{ N}</latex> (applied at <latex>r=0.55\text{ m}</latex>), <latex>\tau_{fric} = 2.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (End Pivot), the inertia formula is <latex>I = \frac{1}{3}ML^2</latex>.
+        <br>
+        <latex>I = 0.33333(14.20)(1.10)^2 = 5.727 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force: <latex>\tau_{app} = F \cdot r = (15.60)(0.55)</latex>. This aids rotation (positive).</li>
+        <li>Hinge Friction: <latex>\tau_{fric} = 2.50</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (8.58) + (-2.50) = 6.08 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{6.08}{5.727} = 1.06 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 2.10 + (1.06)(3.20)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>5.50 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q28
+    title: Spring Door - Mid-Point Handle - Closing
+    points: 10
+    text: |
+      A self-closing door is modeled as a uniform rod of mass M = <latex>12.00 \text{ kg}</latex> and length L = <latex>1.00 \text{ m}</latex>, rotating about a fixed vertical axis (hinges) at one end. It is initially closing with an angular velocity of <latex>\omega_0 = 2.00 \text{ rad/s}</latex>.
+      The closing spring mechanism provides a constant torque of <latex>6.00 \text{ N}\cdot\text{m}</latex> in the direction of rotation.
+      A person tries to slow the door by pulling on a handle located at <latex>0.50 \text{ m}</latex> (middle of the door) from the hinges with a tangential force of F = <latex>14.00 \text{ N}</latex> opposite to the rotation.
+      What is the angular velocity after <latex>t = 0.60 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 1.85
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 12.00 \text{ kg}</latex>, <latex>L = 1.00 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 2.00 \text{ rad/s}</latex> (Closing)</li>
+        <li><b>Forces & Torques:</b> <latex>F = 14.00 \text{ N}</latex> (applied at <latex>r=0.50\text{ m}</latex>), <latex>\tau_{spring} = 6.00 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (End Pivot), the inertia formula is <latex>I = \frac{1}{3}ML^2</latex>.
+        <br>
+        <latex>I = 0.33333(12.00)(1.00)^2 = 4.00 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r = 0.50\text{ m}$.
+        <ul>
+        <li>Spring Torque: <latex>\tau_{spring} = 6.00</latex>. This aids the closing (positive).</li>
+        <li>Person's Pull: <latex>\tau_{person} = F \cdot r_{new} = (14.00)(0.50)</latex>. This opposes the closing (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (6.00) + (-7.00) = -1.00 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-1.00}{4.00} = -0.25 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 2.00 + (-0.25)(0.60)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>1.85 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q29
+    title: Beam (End Pivot) - 2/3 Length Brake
+    points: 10
+    text: |
+      An aluminum beam is modeled as a uniform rod of mass M = <latex>9.20 \text{ kg}</latex> and length L = <latex>2.40 \text{ m}</latex>, rotating about a fixed pivot at one end. It is initially rotating at <latex>\omega_0 = 4.50 \text{ rad/s}</latex>.
+      Friction in the pivot creates a constant resistive torque of <latex>3.10 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A braking force F = <latex>8.80 \text{ N}</latex> is applied tangentially at a distance of <latex>1.60 \text{ m}</latex> ($2/3$ of the length) from the pivot in the opposite direction of the rotation.
+      What is the angular velocity after <latex>t = 2.20 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 2.36
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 9.20 \text{ kg}</latex>, <latex>L = 2.40 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 4.50 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 8.80 \text{ N}</latex> (applied at <latex>r=1.60\text{ m}</latex>), <latex>\tau_{fric} = 3.10 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (End Pivot), the inertia formula is <latex>I = \frac{1}{3}ML^2</latex>.
+        <br>
+        <latex>I = 0.33333(9.20)(2.40)^2 = 17.664 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques. Note the force location $r = 1.60\text{ m}$.
+        <ul>
+        <li>Applied Force (Brake): <latex>\tau_{app} = F \cdot r_{new} = (8.80)(1.60)</latex>. This opposes rotation (negative).</li>
+        <li>Pivot Friction: <latex>\tau_{fric} = 3.10</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (-14.08) + (-3.10) = -17.18 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{-17.18}{17.664} = -0.97 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 4.50 + (-0.97)(2.20)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>2.36 \text{ rad/s}</latex></b>.
+
+- numerical:
+    id: q30
+    title: Gate (End Hinge) - Auto Closer - Hand Push
+    points: 10
+    text: |
+      A garden gate is modeled as a uniform rod of mass M = <latex>8.50 \text{ kg}</latex> and length L = <latex>1.20 \text{ m}</latex>, rotating about a fixed vertical axis (hinges) at one end. It is initially rotating at <latex>\omega_0 = 1.20 \text{ rad/s}</latex>.
+      An auto-closing spring provides a constant resistive torque of <latex>4.50 \text{ N}\cdot\text{m}</latex> acting in the opposite direction of the rotation.
+      A person pushes tangentially on the gate at a distance of <latex>0.60 \text{ m}</latex> from the hinge with a force F = <latex>18.50 \text{ N}</latex> in the direction of rotation.
+      What is the angular velocity after <latex>t = 1.50 \text{ s}</latex>?
+      Please round your answer to two decimal places.
+    answer:
+      value: 3.63
+      margin_type: percent
+      tolerance: 3
+    feedback:
+      general: |
+        This problem is solved using <b>Newton's Second Law for Rotation</b>.
+        <br><br>
+        <ul>
+        <li><b>System Properties:</b> <latex>M = 8.50 \text{ kg}</latex>, <latex>L = 1.20 \text{ m}</latex></li>
+        <li><b>Initial Motion:</b> <latex>\omega_0 = 1.20 \text{ rad/s}</latex></li>
+        <li><b>Forces & Torques:</b> <latex>F = 18.50 \text{ N}</latex> (applied at <latex>r=0.6\text{ m}</latex>), <latex>\tau_{spring} = 4.50 \text{ N}\cdot\text{m}</latex></li>
+        </ul>
+        <br>
+        <b>Step 1: Calculate Moment of Inertia</b><br>
+        For a Rod (End Pivot), the inertia formula is <latex>I = \frac{1}{3}ML^2</latex>.
+        <br>
+        <latex>I = 0.33333(8.50)(1.20)^2 = 4.08 \text{ kg}\cdot\text{m}^2</latex>
+        <br><br>
+        <b>Step 2: Calculate Net Torque</b><br>
+        We must sum the torques, paying attention to signs (direction).
+        <ul>
+        <li>Applied Force (Hand): <latex>\tau_{app} = F \cdot r = (18.50)(0.6)</latex>. This aids rotation (positive).</li>
+        <li>Auto-Closer Spring: <latex>\tau_{spring} = 4.50</latex>. This opposes rotation (negative).</li>
+        </ul>
+        <latex>\tau_{net} = (11.10) + (-4.50) = 6.60 \text{ N}\cdot\text{m}</latex>
+        <br><br>
+        <b>Step 3: Angular Acceleration & Kinematics</b><br>
+        First, find angular acceleration (<latex>\alpha</latex>):
+        <br>
+        <latex>\alpha = \frac{\tau_{net}}{I} = \frac{6.60}{4.08} = 1.62 \text{ rad/s}^2</latex>
+        <br><br>
+        Finally, use the kinematic equation to find the new velocity:
+        <br>
+        <latex>\omega_f = \omega_0 + \alpha t = 1.20 + (1.62)(1.50)</latex>
+        <br><br>
+        The final angular velocity is <b><latex>3.63 \text{ rad/s}</latex></b>.
