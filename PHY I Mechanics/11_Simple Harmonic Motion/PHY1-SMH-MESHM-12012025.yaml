@@ -1,0 +1,969 @@
+bank_info:
+    title: Math Expression for Simple Harmonic Motion
+    bank_id: PHY1-SMH-MESHM-12012025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+
+    date created: 01-01-2026 # Today's date 
+    learning objectives:
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I wanted to create a family of physics problems regarding simple harmonic motion. First, let's create a table for planning. I want the problems to involve two systems, a box attached to a spring on frictionless horizontal surface, and a pendulum swinging at small angle. Each system have two starting conditions at t = 0. First condition is that the system is at equilibrium position with a starting velocity v. The second condition is that the system is at maximum displacement from equilibrium, A, with 0 velocity. For each case, I would like you to write down the time dependent expression of the position, velocity, acceleration, kinetic energy and potential energy of the system. Please first create a table that contains all the above information.
+        - prompt 2: |
+             Great, just one update request: in the table, for each expression replace \omega with the actual expression involving either k, m or l, g.
+        - prompt 3: |
+             Now try to write the first problem for the first case of the Spring-mass system, starting from maximum velocity at equilibrium. The problem is multiple choice, and asks students to choose the correct expression for the position of the pendulum. Do not write the choice items for now, just write the problem body.
+        - prompt 4: | #yaml example omitted.
+             This looks good, now write the MC problem following the Example below
+        - prompt 5: |
+            The distractors should be all the other expressions under the current situation (velocity, acceleration, kinetic energy, potential energy), plus all the expressions from the block starting at maximum displacement situation.
+        - prompt 6: |
+            Now create 4 more problems using the same problem setup, but ask for a different expression (velocity, acceleration, kinetic energy, and potential energy) each time. Still using the same yaml format. 
+        - prompt 7: |
+            Now write the same set of 5 problems for the situation where the block is released from a distance A away from the center with zero initial velocity.
+        - prompt 8: |
+            One small change, in the last 5 questions, add " assuming that the block is at x = 0 when the spring is at equilibrium length" after the second sentence in the problem body.
+        - prompt 9: |
+            Check all the choice items, and remove variable labels such as x(t) =, v(t) =, a(t) = ..... from the expression. Those are a give-away for students to guess the correct answers because the distractors don't have them.
+        - prompt 10: |
+            Now, in a new document, please write the problem body for the first case in the pendulum setup, for the situation that the pendulum starts at its lowest points with initial velocity v.
+        - prompt 11: |
+            This looks good, now write the first set of 5 problems, following the same setup as the block and spring problems, asking for a different expression in each situation, and using the expression for the other situation as distractors.
+        - prompt 12: |
+            Great, now create the next 5 problems, for the case where the blob is being pulled to an angle \Theta, and released with zero initial angular velocity.
+
+    updates: 
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: Gemini Pro # The model used to generate the questions
+            version: 3 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Zhongzhou Chen
+
+questions:
+- multiple_choice:
+    id: q-1
+    title: Spring-Mass Position Function (Equilibrium Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>.
+        
+        At time <latex>t=0</latex>, the block is passing through the equilibrium position (<latex>x=0</latex>) with a velocity <latex>v</latex> in the positive <latex>x</latex>-direction.
+        
+        Which of the following expressions correctly describes the position <latex>x(t)</latex> of the block as a function of time?
+    answers:
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            The general solution for simple harmonic motion is <latex>x(t) = A \sin(\omega t + \phi)</latex> or <latex>x(t) = A \cos(\omega t + \phi')</latex>.
+            
+            1. **Determine the trigonometric function:** Since the block starts at the equilibrium position (<latex>x=0</latex>) at <latex>t=0</latex>, a sine function is most appropriate because <latex>\sin(0) = 0</latex>.
+            2. **Determine the sign:** The velocity is positive at <latex>t=0</latex>. The derivative of sine is cosine, and <latex>\cos(0) = 1</latex> (positive), so we use positive sine.
+            3. **Determine angular frequency:** For a spring-mass system, the angular frequency is <latex>\omega = \sqrt{\frac{k}{m}}</latex>.
+            
+            Putting this together, the position function is:
+            <latex>
+            x(t) = A \sin\left(\sqrt{\frac{k}{m}} t\right)
+            </latex>
+        on_correct: Correct! Since the block starts at equilibrium, we use the sine function, and the angular frequency for a spring is determined by k and m.
+        on_incorrect: Remember to check the initial conditions (t=0, x=0) and ensure the units match a position function (meters), not velocity (m/s) or energy (Joules).
+
+- multiple_choice:
+    id: q-2
+    title: Spring-Mass Velocity Function (Equilibrium Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>.
+        
+        At time <latex>t=0</latex>, the block is passing through the equilibrium position (<latex>x=0</latex>) with a velocity <latex>v</latex> in the positive <latex>x</latex>-direction.
+        
+        Which of the following expressions correctly describes the **velocity** <latex>v(t)</latex> of the block as a function of time?
+    answers:
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Velocity is the derivative of position. 
+            
+            1. **Start with Position:** We know <latex>x(t) = A \sin(\omega t)</latex>.
+            2. **Differentiate:** <latex>v(t) = \frac{dx}{dt} = \frac{d}{dt}[A \sin(\omega t)] = A\omega \cos(\omega t)</latex>.
+            3. **Substitute Omega:** With <latex>\omega = \sqrt{\frac{k}{m}}</latex>, the expression becomes <latex>v(t) = A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>.
+        on_correct: Correct! Velocity is the time derivative of position.
+        on_incorrect: Check your derivative rules. The derivative of sine is cosine. Also, don't forget the chain rule which brings out a factor of omega.
+
+- multiple_choice:
+    id: q-3
+    title: Spring-Mass Acceleration Function (Equilibrium Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>.
+        
+        At time <latex>t=0</latex>, the block is passing through the equilibrium position (<latex>x=0</latex>) with a velocity <latex>v</latex> in the positive <latex>x</latex>-direction.
+        
+        Which of the following expressions correctly describes the **acceleration** <latex>a(t)</latex> of the block as a function of time?
+    answers:
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Acceleration is the derivative of velocity (or second derivative of position).
+            
+            1. **Start with Velocity:** <latex>v(t) = A\omega \cos(\omega t)</latex>.
+            2. **Differentiate:** <latex>a(t) = \frac{dv}{dt} = -A\omega^2 \sin(\omega t)</latex>.
+            3. **Substitute Omega:** With <latex>\omega^2 = \frac{k}{m}</latex>, the expression becomes <latex>a(t) = -A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>.
+        on_correct: Correct! Acceleration includes the squared angular frequency and is opposite in sign to the displacement.
+        on_incorrect: Recall that a = -w^2 * x.
+
+- multiple_choice:
+    id: q-4
+    title: Spring-Mass Kinetic Energy Function (Equilibrium Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>.
+        
+        At time <latex>t=0</latex>, the block is passing through the equilibrium position (<latex>x=0</latex>) with a velocity <latex>v</latex> in the positive <latex>x</latex>-direction.
+        
+        Which of the following expressions correctly describes the **Kinetic Energy** <latex>K(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Kinetic Energy is given by <latex>K = \frac{1}{2}mv^2</latex>.
+            
+            1. **Use Velocity:** <latex>v(t) = A\omega \cos(\omega t)</latex>.
+            2. **Square it:** <latex>v^2 = A^2 \omega^2 \cos^2(\omega t)</latex>.
+            3. **Combine:** <latex>K = \frac{1}{2}m (A^2 \frac{k}{m} \cos^2(\omega t)) = \frac{1}{2}kA^2 \cos^2(\omega t)</latex>.
+        on_correct: Correct! Since velocity is a cosine function here, kinetic energy follows cosine squared.
+        on_incorrect: Kinetic energy depends on velocity squared. If velocity is a cosine function, KE must be cosine squared.
+
+- multiple_choice:
+    id: q-5
+    title: Spring-Mass Potential Energy Function (Equilibrium Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>.
+        
+        At time <latex>t=0</latex>, the block is passing through the equilibrium position (<latex>x=0</latex>) with a velocity <latex>v</latex> in the positive <latex>x</latex>-direction.
+        
+        Which of the following expressions correctly describes the **Potential Energy** <latex>U(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Potential Energy for a spring is <latex>U = \frac{1}{2}kx^2</latex>.
+            
+            1. **Use Position:** <latex>x(t) = A \sin(\omega t)</latex>.
+            2. **Square it:** <latex>x^2 = A^2 \sin^2(\omega t)</latex>.
+            3. **Combine:** <latex>U = \frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>.
+        on_correct: Correct! Potential energy depends on position squared. Since position is a sine function, PE is sine squared.
+        on_incorrect: Potential energy depends on position (x), not velocity. Since x is a sine function here, U must be sine squared.
+
+- multiple_choice:
+    id: q-6
+    title: Spring-Mass Position Function (Displacement Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>, assuming that the block is at <latex>x=0</latex> when the spring is at equilibrium length.
+        
+        At time <latex>t=0</latex>, the block is released from rest at the maximum displacement position (<latex>x=A</latex>).
+        
+        Which of the following expressions correctly describes the position <latex>x(t)</latex> of the block as a function of time?
+    answers:
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Since the block starts at maximum displacement (<latex>x=A</latex>) with zero velocity, the motion follows a cosine function. A cosine function starts at its maximum value at <latex>t=0</latex>.
+            
+            <latex>x(t) = A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+        on_correct: Correct! Starting from maximum displacement corresponds to the cosine function.
+        on_incorrect: Check the initial conditions. Which trigonometric function starts at a maximum value at t=0?
+
+- multiple_choice:
+    id: q-7
+    title: Spring-Mass Velocity Function (Displacement Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>, assuming that the block is at <latex>x=0</latex> when the spring is at equilibrium length.
+        
+        At time <latex>t=0</latex>, the block is released from rest at the maximum displacement position (<latex>x=A</latex>).
+        
+        Which of the following expressions correctly describes the **velocity** <latex>v(t)</latex> of the block as a function of time?
+    answers:
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Velocity is the derivative of position. 
+            
+            1. Position: <latex>x(t) = A \cos(\omega t)</latex>.
+            2. Differentiate: <latex>v(t) = \frac{d}{dt}[A \cos(\omega t)] = -A\omega \sin(\omega t)</latex>.
+            3. Substitute: <latex>v(t) = -A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>.
+        on_correct: Correct! The derivative of cosine is negative sine.
+        on_incorrect: Recall that the derivative of cosine is negative sine.
+
+- multiple_choice:
+    id: q-8
+    title: Spring-Mass Acceleration Function (Displacement Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>, assuming that the block is at <latex>x=0</latex> when the spring is at equilibrium length.
+        
+        At time <latex>t=0</latex>, the block is released from rest at the maximum displacement position (<latex>x=A</latex>).
+        
+        Which of the following expressions correctly describes the **acceleration** <latex>a(t)</latex> of the block as a function of time?
+    answers:
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Acceleration is the derivative of velocity.
+            
+            1. Velocity: <latex>v(t) = -A\omega \sin(\omega t)</latex>.
+            2. Differentiate: <latex>a(t) = -A\omega^2 \cos(\omega t)</latex>.
+            3. Substitute: <latex>a(t) = -A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>.
+        on_correct: Correct! Acceleration is proportional to negative displacement (negative cosine).
+        on_incorrect: Acceleration follows the same trigonometric form as position (cosine) but with a negative sign and omega squared.
+
+- multiple_choice:
+    id: q-9
+    title: Spring-Mass Kinetic Energy Function (Displacement Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>, assuming that the block is at <latex>x=0</latex> when the spring is at equilibrium length.
+        
+        At time <latex>t=0</latex>, the block is released from rest at the maximum displacement position (<latex>x=A</latex>).
+        
+        Which of the following expressions correctly describes the **Kinetic Energy** <latex>K(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Kinetic Energy depends on velocity squared: <latex>K = \frac{1}{2}mv^2</latex>.
+            
+            Since velocity is a sine function (<latex>v \propto \sin(\omega t)</latex>), the kinetic energy will be proportional to <latex>\sin^2(\omega t)</latex>.
+            
+            <latex>K(t) = \frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+        on_correct: Correct! Since velocity is a sine function here, kinetic energy follows sine squared.
+        on_incorrect: Check the velocity function. If velocity is sine, KE is sine squared. Also, KE starts at 0 at t=0.
+
+- multiple_choice:
+    id: q-10
+    title: Spring-Mass Potential Energy Function (Displacement Start)
+    points: 1
+    text: |
+        A block of mass <latex>m</latex> is attached to an ideal spring with spring constant <latex>k</latex> and is placed on a horizontal, frictionless surface. The block undergoes simple harmonic motion with an amplitude <latex>A</latex>, assuming that the block is at <latex>x=0</latex> when the spring is at equilibrium length.
+        
+        At time <latex>t=0</latex>, the block is released from rest at the maximum displacement position (<latex>x=A</latex>).
+        
+        Which of the following expressions correctly describes the **Potential Energy** <latex>U(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}kA^2 \sin^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A\sqrt{\frac{k}{m}} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>A \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\sqrt{\frac{k}{m}} \sin\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-A\frac{k}{m} \cos\left(\sqrt{\frac{k}{m}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Potential Energy depends on position squared: <latex>U = \frac{1}{2}kx^2</latex>.
+            
+            Since position is a cosine function (<latex>x \propto \cos(\omega t)</latex>), the potential energy will be proportional to <latex>\cos^2(\omega t)</latex>.
+            
+            <latex>U(t) = \frac{1}{2}kA^2 \cos^2\left(\sqrt{\frac{k}{m}} t\right)</latex>
+        on_correct: Correct! Since position is a cosine function here, potential energy follows cosine squared.
+        on_incorrect: Check the position function. If x is cosine, PE is cosine squared. Also, PE starts at max at t=0.
+
+- multiple_choice:
+    id: q-11
+    title: Pendulum Angular Position (Equilibrium Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the pendulum is passing through the vertical equilibrium position (<latex>\theta = 0</latex>) with a tangential velocity <latex>v</latex>.
+        
+        Which of the following expressions correctly describes the **angular position** <latex>\theta(t)</latex> of the pendulum as a function of time?
+    answers:
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            1. **Identify the Function:** The pendulum starts at the equilibrium position (<latex>\theta=0</latex>) at <latex>t=0</latex>. The sine function is zero at <latex>t=0</latex>, while cosine is maximum. Thus, it follows a sine function.
+            2. **Identify Angular Frequency:** For a simple pendulum, the angular frequency is <latex>\omega = \sqrt{\frac{g}{L}}</latex>.
+            
+            <latex>\theta(t) = \Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Starting at equilibrium implies a sine function.
+        on_incorrect: Check the initial conditions (t=0, theta=0). Which trig function is zero at t=0?
+
+- multiple_choice:
+    id: q-12
+    title: Pendulum Angular Velocity (Equilibrium Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the pendulum is passing through the vertical equilibrium position (<latex>\theta = 0</latex>) with a tangential velocity <latex>v</latex>.
+        
+        Which of the following expressions correctly describes the **angular velocity** <latex>\omega_{ang}(t)</latex> of the pendulum as a function of time?
+    answers:
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Angular velocity is the time derivative of angular position.
+            
+            1. Position: <latex>\theta(t) = \Theta \sin(\omega t)</latex>.
+            2. Differentiate: <latex>\omega_{ang}(t) = \frac{d\theta}{dt} = \Theta\omega \cos(\omega t)</latex>.
+            3. Substitute <latex>\omega = \sqrt{\frac{g}{L}}</latex>.
+            
+            <latex>\omega_{ang}(t) = \Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! The derivative of sine is cosine.
+        on_incorrect: Recall that velocity is the derivative of position.
+
+- multiple_choice:
+    id: q-13
+    title: Pendulum Angular Acceleration (Equilibrium Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the pendulum is passing through the vertical equilibrium position (<latex>\theta = 0</latex>) with a tangential velocity <latex>v</latex>.
+        
+        Which of the following expressions correctly describes the **angular acceleration** <latex>\alpha(t)</latex> of the pendulum as a function of time?
+    answers:
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Angular acceleration is the derivative of angular velocity.
+            
+            1. Velocity: <latex>\omega_{ang}(t) = \Theta\omega \cos(\omega t)</latex>.
+            2. Differentiate: <latex>\alpha(t) = \frac{d}{dt}[\Theta\omega \cos(\omega t)] = -\Theta\omega^2 \sin(\omega t)</latex>.
+            3. Substitute <latex>\omega^2 = \frac{g}{L}</latex>.
+            
+            <latex>\alpha(t) = -\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Acceleration is proportional to negative displacement (sine function).
+        on_incorrect: Acceleration is the derivative of velocity (cosine), resulting in a negative sine function.
+
+- multiple_choice:
+    id: q-14
+    title: Pendulum Kinetic Energy (Equilibrium Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the pendulum is passing through the vertical equilibrium position (<latex>\theta = 0</latex>) with a tangential velocity <latex>v</latex>.
+        
+        Which of the following expressions correctly describes the **Kinetic Energy** <latex>K(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Kinetic energy depends on the square of the velocity.
+            
+            1. Velocity is a cosine function: <latex>\omega_{ang} \propto \cos(\omega t)</latex>.
+            2. At <latex>t=0</latex>, velocity is maximum, so KE must be maximum.
+            3. <latex>\cos(0) = 1</latex>, so <latex>\cos^2</latex> is the correct dependence.
+            
+            <latex>K(t) = \frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Velocity is a cosine function, so KE is cosine squared.
+        on_incorrect: Check the initial condition. At t=0, the pendulum is at the bottom (fastest). KE should be maximum.
+
+- multiple_choice:
+    id: q-15
+    title: Pendulum Potential Energy (Equilibrium Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the pendulum is passing through the vertical equilibrium position (<latex>\theta = 0</latex>) with a tangential velocity <latex>v</latex>.
+        
+        Which of the following expressions correctly describes the **Potential Energy** <latex>U(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Potential Energy depends on the square of the displacement (<latex>\theta</latex>).
+            
+            1. Position is a sine function: <latex>\theta \propto \sin(\omega t)</latex>.
+            2. At <latex>t=0</latex>, displacement is zero, so PE must be zero.
+            3. <latex>\sin(0) = 0</latex>, so <latex>\sin^2</latex> is the correct dependence.
+            
+            <latex>U(t) = \frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Position is a sine function, so PE is sine squared.
+        on_incorrect: Check the initial condition. At t=0, the pendulum is at the lowest point (equilibrium). PE should be zero.
+
+- multiple_choice:
+    id: q-16
+    title: Pendulum Angular Position (Max Angle Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the bob is released from rest at the maximum angular displacement (<latex>\theta = \Theta</latex>).
+        
+        Which of the following expressions correctly describes the **angular position** <latex>\theta(t)</latex> of the pendulum as a function of time?
+    answers:
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            1. **Identify the Function:** The pendulum starts at the maximum displacement (<latex>\theta=\Theta</latex>) at <latex>t=0</latex>. The cosine function is at its maximum at <latex>t=0</latex>, while sine is zero. Thus, it follows a cosine function.
+            2. **Identify Angular Frequency:** For a simple pendulum, <latex>\omega = \sqrt{\frac{g}{L}}</latex>.
+            
+            <latex>\theta(t) = \Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Starting at maximum displacement implies a cosine function.
+        on_incorrect: Check the initial conditions. Which trig function starts at a maximum value at t=0?
+
+- multiple_choice:
+    id: q-17
+    title: Pendulum Angular Velocity (Max Angle Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the bob is released from rest at the maximum angular displacement (<latex>\theta = \Theta</latex>).
+        
+        Which of the following expressions correctly describes the **angular velocity** <latex>\omega_{ang}(t)</latex> of the pendulum as a function of time?
+    answers:
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Angular velocity is the time derivative of angular position.
+            
+            1. Position: <latex>\theta(t) = \Theta \cos(\omega t)</latex>.
+            2. Differentiate: <latex>\omega_{ang}(t) = \frac{d\theta}{dt} = -\Theta\omega \sin(\omega t)</latex>.
+            3. Substitute <latex>\omega = \sqrt{\frac{g}{L}}</latex>.
+            
+            <latex>\omega_{ang}(t) = -\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! The derivative of cosine is negative sine.
+        on_incorrect: Recall that the derivative of cosine involves a negative sine.
+
+- multiple_choice:
+    id: q-18
+    title: Pendulum Angular Acceleration (Max Angle Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the bob is released from rest at the maximum angular displacement (<latex>\theta = \Theta</latex>).
+        
+        Which of the following expressions correctly describes the **angular acceleration** <latex>\alpha(t)</latex> of the pendulum as a function of time?
+    answers:
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Angular acceleration is the derivative of angular velocity.
+            
+            1. Velocity: <latex>\omega_{ang}(t) = -\Theta\omega \sin(\omega t)</latex>.
+            2. Differentiate: <latex>\alpha(t) = \frac{d}{dt}[-\Theta\omega \sin(\omega t)] = -\Theta\omega^2 \cos(\omega t)</latex>.
+            3. Substitute <latex>\omega^2 = \frac{g}{L}</latex>.
+            
+            <latex>\alpha(t) = -\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Acceleration is proportional to negative displacement (negative cosine).
+        on_incorrect: Acceleration follows the same trigonometric form as position (cosine) but with a negative sign.
+
+- multiple_choice:
+    id: q-19
+    title: Pendulum Kinetic Energy (Max Angle Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the bob is released from rest at the maximum angular displacement (<latex>\theta = \Theta</latex>).
+        
+        Which of the following expressions correctly describes the **Kinetic Energy** <latex>K(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Kinetic energy depends on the square of the velocity.
+            
+            1. Velocity is a sine function: <latex>\omega_{ang} \propto \sin(\omega t)</latex>.
+            2. At <latex>t=0</latex>, velocity is zero (released from rest), so KE must be zero.
+            3. <latex>\sin(0) = 0</latex>, so <latex>\sin^2</latex> is the correct dependence.
+            
+            <latex>K(t) = \frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Velocity is a sine function, so KE is sine squared.
+        on_incorrect: Check the initial condition. At t=0, the pendulum is at rest. KE should be zero.
+
+- multiple_choice:
+    id: q-20
+    title: Pendulum Potential Energy (Max Angle Start)
+    points: 1
+    text: |
+        A simple pendulum consists of a bob of mass <latex>m</latex> attached to a light string of length <latex>L</latex> in a region where the acceleration due to gravity is <latex>g</latex>. The pendulum oscillates with a small angular amplitude <latex>\Theta</latex>.
+        
+        At time <latex>t=0</latex>, the bob is released from rest at the maximum angular displacement (<latex>\theta = \Theta</latex>).
+        
+        Which of the following expressions correctly describes the **Potential Energy** <latex>U(t)</latex> of the system as a function of time?
+    answers:
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: true
+        - answer:
+            text: <latex>\frac{1}{2}mgL\Theta^2 \sin^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta\sqrt{\frac{g}{L}} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>\Theta \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\sqrt{\frac{g}{L}} \sin\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+        - answer:
+            text: <latex>-\Theta\frac{g}{L} \cos\left(\sqrt{\frac{g}{L}} t\right)</latex>
+            correct: false
+    feedback:
+        general: |
+            Potential Energy depends on the square of the displacement (<latex>\theta</latex>).
+            
+            1. Position is a cosine function: <latex>\theta \propto \cos(\omega t)</latex>.
+            2. At <latex>t=0</latex>, displacement is maximum, so PE must be maximum.
+            3. <latex>\cos(0) = 1</latex>, so <latex>\cos^2</latex> is the correct dependence.
+            
+            <latex>U(t) = \frac{1}{2}mgL\Theta^2 \cos^2\left(\sqrt{\frac{g}{L}} t\right)</latex>
+        on_correct: Correct! Position is a cosine function, so PE is cosine squared.
+        on_incorrect: Check the initial condition. At t=0, the pendulum is at the highest point. PE should be maximum.
