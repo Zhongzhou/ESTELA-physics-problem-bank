@@ -1,7 +1,10 @@
 # Sharable Isomorphic Problem Banks for Introductory Physics
 This repository contains isomorphic problem banks for introductory level physics that are created with the assistance of Generative AI. 
 The bank structure is currently designed so that it can be reliably converted into QTI file compatible with CANVAS new Quiz item bank.
-This work is sponsored by the NSF-IUSE-HSI ESTELA project (add award link and details here...). 
+Creation of this repository is sponsored by:
+* NSF-2421299: Collaborative Research: HSI Implementation and Evaluation Project: Infusing Intentionality for Success by Transforming STEM Gateway Courses at Two HSIs Utilizing AI and Big Data.
+* Gates Foundation INV-076932
+
 
 ## What are isomorphic problem banks and how to use them.
 ### Isomorphic problems
@@ -42,6 +45,7 @@ Currently there is [PHY I Mechanics](./PHY%20I%20Mechanics/)
             Subject-Unit-Abbreviation_of_title_-mmddyy.yaml
             
             For example: PHY1-F-1DKINT-091525 corresponds to: Physics 1, Force, 1D Kinematics with Non-Constant Acceleration, created on 09-15-2025
+*Note:* Some earlier folders have yet to be cleaned up.
 
 ## Problem Bank Creation Workflow
 Follow this workflow to create an isomorphic problem bank that can be imported into Canvas. If you wish to directly use any of the problem banks, skip to step 5.
