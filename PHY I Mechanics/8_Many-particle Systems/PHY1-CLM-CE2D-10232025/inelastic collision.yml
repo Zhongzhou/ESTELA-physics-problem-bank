@@ -1,0 +1,624 @@
+bank_info:
+    title: Collision and Sticking in 2D
+    bank_id: PHY1-CLM-CS2D-10302025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      A problem bank for 2D perfectly inelastic collisions.
+    date created: 10-30-2025 # Today's date
+    learning objectives:
+      - Apply the principle of conservation of linear momentum in two dimensions.
+      - Solve problems involving perfectly inelastic collisions where two objects stick together.
+      - Decompose momentum vectors into components and use them to find unknown velocities.
+      - Calculate the magnitude of a velocity vector from its components.
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+            I would like to create physics problems involving conservation of linear momentum. I would like to find 12 situations in which two objects collide and stick together, forming a single combined mass.
+            For example:
+            - Two asteroids colliding and merging.
+            - A football tackle where the players stick together.
+            - Two shopping carts locking together.
+            One of the objects (object 1) must have an initial velocity purely in the \hat{i} direction. The other object (object 2) must have a 2D velocity (components in \hat{i} and \hat{j}).
+        - prompt 2: |
+            Use a variety of contexts, such as space, sports, and everyday life.
+            The masses of the objects should be reasonably different but not extreme (e.g., two carts, not a cart and a fly).
+        - prompt 3: |
+            Create 12 problems based on these scenarios.
+            Alternate the unknown variable:
+            - For odd-numbered problems, provide m1, v1, m2, and v2. Ask for the magnitude of the final velocity, |V_final|.
+            - For even-numbered problems, provide m1, v1, M_final, and V_final. Ask for the magnitude of the initial velocity of the second object, |v2|.
+        - prompt 4: |
+            For each problem, write a problem text, a numerical answer, and a full solution/feedback text.
+            The solution text should clearly state the conservation of momentum equation for an inelastic collision: m1*v1 + m2*v2 = (m1+m2)*V_final.
+            The solution must show the application of this equation in the x and y directions separately to find the unknown components.
+            The final step is always to calculate the magnitude using the Pythagorean theorem.
+        - prompt 5: |
+            Format the entire problem bank as a single YAML file, following the structure of the previous "PHY1-CLM-CE2D-10232025.yaml" file.
+            Use the same IDs (q1, q2...) and formatting for text, latex, and feedback.
+            Update the bank_info.title and bank_id.
+    updates:
+        - update 1: Initial creation of 12 problems.
+    associated data:
+        - None
+    generation details: # Details of the creation process
+            model: Gemini # The model used to generate the questions
+            version: 2.5 Pro # The version of the model used
+            last updated: 10-31-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Gemini (based on user request)
+
+questions:
+- numerical:
+    id: q1
+    title: Conservation of Momentum: Colliding Asteroids
+    points: 3
+    text: |
+      An asteroid of mass <latex>m_1 = 1000.00 \text{ kg}</latex> is traveling through space with a velocity of <latex>\vec{v}_1 = (20.00 \hat{i}) \text{ m/s}</latex>. It collides with a second asteroid of mass <latex>m_2 = 500.00 \text{ kg}</latex> traveling at <latex>\vec{v}_2 = (-10.00 \hat{i} + 30.00 \hat{j}) \text{ m/s}</latex>. The two asteroids stick together.
+      
+      Assuming the linear momentum of the two-asteroid system is conserved, what is the magnitude of the velocity of the combined mass immediately after the collision? Round your answer to two decimal places.
+    answer:
+      value: 14.14
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 1</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 1000.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (20.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 500.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (-10.00 \hat{i} + 30.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = m_1 + m_2 = 1500.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown final velocity <latex>\vec{V}_{f} = (V_{fx} \hat{i} + V_{fy} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(1000.00)(20.00) + (500.00)(-10.00) = (1500.00) V_{fx} \implies V_{fx} = 10.00 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(1000.00)(0) + (500.00)(30.00) = (1500.00) V_{fy} \implies V_{fy} = 10.00 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the combined object is <latex>\vec{V}_{f} = (10.00 \hat{i} + 10.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{V}_{f}| = \sqrt{V_{fx}^2 + V_{fy}^2}</latex>.
+        <br><br>
+        The magnitude of the final velocity is <b><latex>14.14 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q2
+    title: Conservation of Momentum: Colliding Mud Balls
+    points: 3
+    text: |
+      A <latex>0.50 \text{ kg}</latex> ball of mud is thrown with a velocity of <latex>\vec{v}_1 = (10.00 \hat{i}) \text{ m/s}</latex>. It strikes and sticks to a second ball of mud. The combined mass of <latex>0.80 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (7.00 \hat{i} + 1.50 \hat{j}) \text{ m/s}</latex>.
+      
+      Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of the second mud ball (which had a mass of <latex>0.30 \text{ kg}</latex>)? Round your answer to two decimal places.
+    answer:
+      value: 4.47
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 2</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 0.50 \text{ kg}</latex>, <latex>\vec{v}_1 = (10.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 0.30 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = 0.80 \text{ kg}</latex>, <latex>\vec{V}_{f} = (7.00 \hat{i} + 1.50 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown initial velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(0.50)(10.00) + (0.30) v_{2x} = (0.80)(7.00) \implies v_{2x} = 2.00 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(0.50)(0) + (0.30) v_{2y} = (0.80)(1.50) \implies v_{2y} = 4.00 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the second object was <latex>\vec{v}_2 = (2.00 \hat{i} + 4.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the initial velocity of the second object is <b><latex>4.47 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q3
+    title: Conservation of Momentum: Football Tackle
+    points: 3
+    text: |
+      A <latex>110.00 \text{ kg}</latex> linebacker running at <latex>\vec{v}_1 = (8.00 \hat{i}) \text{ m/s}</latex> tackles a <latex>100.00 \text{ kg}</latex> running back who is moving at <latex>\vec{v}_2 = (-7.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex>. The linebacker holds on, and the two players move together.
+      
+      Assuming the linear momentum of the two-player system is conserved, what is the magnitude of their combined velocity immediately after the tackle? Round your answer to two decimal places.
+    answer:
+      value: 1.28
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 3</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 110.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (8.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 100.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (-7.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = m_1 + m_2 = 210.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown final velocity <latex>\vec{V}_{f} = (V_{fx} \hat{i} + V_{fy} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(110.00)(8.00) + (100.00)(-7.00) = (210.00) V_{fx} \implies V_{fx} = 0.86 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(110.00)(0) + (100.00)(2.00) = (210.00) V_{fy} \implies V_{fy} = 0.95 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the combined object is <latex>\vec{V}_{f} = (0.86 \hat{i} + 0.95 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{V}_{f}| = \sqrt{V_{fx}^2 + V_{fy}^2}</latex>.
+        <br><br>
+        The magnitude of the final velocity is <b><latex>1.28 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q4
+    title: Conservation of Momentum: Shopping Carts
+    points: 3
+    text: |
+      A <latex>20.00 \text{ kg}</latex> shopping cart moving at <latex>\vec{v}_1 = (3.00 \hat{i}) \text{ m/s}</latex> collides with another shopping cart. The carts lock together and move off with a combined mass of <latex>45.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (4.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex>.
+      
+      Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of the second shopping cart (which had a mass of <latex>25.00 \text{ kg}</latex>)? Round your answer to two decimal places.
+    answer:
+      value: 5.13
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 4</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 20.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (3.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 25.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = 45.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = (4.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown initial velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(20.00)(3.00) + (25.00) v_{2x} = (45.00)(4.00) \implies v_{2x} = 4.80 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(20.00)(0) + (25.00) v_{2y} = (45.00)(1.00) \implies v_{2y} = 1.80 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the second object was <latex>\vec{v}_2 = (4.80 \hat{i} + 1.80 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the initial velocity of the second object is <b><latex>5.13 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q5
+    title: Conservation of Momentum: Space Probe Docking
+    points: 3
+    text: |
+      A <latex>4000.00 \text{ kg}</latex> space probe traveling at <latex>\vec{v}_1 = (1000.00 \hat{i}) \text{ m/s}</latex> docks with a <latex>1000.00 \text{ kg}</latex> supply module moving at <latex>\vec{v}_2 = (500.00 \hat{i} + 800.00 \hat{j}) \text{ m/s}</latex>. The two craft lock together.
+      
+      Assuming the linear momentum of the system is conserved, what is the magnitude of the velocity of the combined craft immediately after docking? Round your answer to two decimal places.
+    answer:
+      value: 914.11
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 5</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 4000.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (1000.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 1000.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (500.00 \hat{i} + 800.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = m_1 + m_2 = 5000.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown final velocity <latex>\vec{V}_{f} = (V_{fx} \hat{i} + V_{fy} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(4000.00)(1000.00) + (1000.00)(500.00) = (5000.00) V_{fx} \implies V_{fx} = 900.00 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(4000.00)(0) + (1000.00)(800.00) = (5000.00) V_{fy} \implies V_{fy} = 160.00 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the combined object is <latex>\vec{V}_{f} = (900.00 \hat{i} + 160.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{V}_{f}| = \sqrt{V_{fx}^2 + V_{fy}^2}</latex>.
+        <br><br>
+        The magnitude of the final velocity is <b><latex>914.11 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q6
+    title: Conservation of Momentum: Clay Projectiles
+    points: 3
+    text: |
+      A <latex>2.00 \text{ kg}</latex> clay projectile is fired with a velocity of <latex>\vec{v}_1 = (50.00 \hat{i}) \text{ m/s}</latex>. It strikes and sticks to a <latex>1.00 \text{ kg}</latex> clay target. The combined <latex>3.00 \text{ kg}</latex> mass moves with a final velocity of <latex>\vec{V}_{f} = (30.00 \hat{i} - 10.00 \hat{j}) \text{ m/s}</latex>.
+      
+      Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of the <latex>1.00 \text{ kg}</latex> target? Round your answer to two decimal places.
+    answer:
+      value: 31.62
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 6</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 2.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (50.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 1.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = 3.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = (30.00 \hat{i} - 10.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown initial velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(2.00)(50.00) + (1.00) v_{2x} = (3.00)(30.00) \implies v_{2x} = -10.00 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(2.00)(0) + (1.00) v_{2y} = (3.00)(-10.00) \implies v_{2y} = -30.00 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the second object was <latex>\vec{v}_2 = (-10.00 \hat{i} - 30.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the initial velocity of the second object is <b><latex>31.62 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q7
+    title: Conservation of Momentum: Train Car Coupling
+    points: 3
+    text: |
+      A <latex>20000.00 \text{ kg}</latex> train car moving at <latex>\vec{v}_1 = (5.00 \hat{i}) \text{ m/s}</latex> on a straight track couples with a <latex>15000.00 \text{ kg}</latex> car that is moving at <latex>\vec{v}_2 = (2.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex> on an adjacent track (the tracks merge).
+      
+      Assuming the linear momentum of the system is conserved, what is the magnitude of the velocity of the two coupled cars immediately after they link? Round your answer to two decimal places.
+    answer:
+      value: 3.74
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 7</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 20000.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (5.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 15000.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (2.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = m_1 + m_2 = 35000.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown final velocity <latex>\vec{V}_{f} = (V_{fx} \hat{i} + V_{fy} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(20000.00)(5.00) + (15000.00)(2.00) = (35000.00) V_{fx} \implies V_{fx} = 3.71 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(20000.00)(0) + (15000.00)(1.00) = (35000.00) V_{fy} \implies V_{fy} = 0.43 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the combined object is <latex>\vec{V}_{f} = (3.71 \hat{i} + 0.43 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{V}_{f}| = \sqrt{V_{fx}^2 + V_{fy}^2}</latex>.
+        <br><br>
+        The magnitude of the final velocity is <b><latex>3.74 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q8
+    title: Conservation of Momentum: Rafts Linking
+    points: 3
+    text: |
+      A <latex>300.00 \text{ kg}</latex> raft moving at <latex>\vec{v}_1 = (1.00 \hat{i}) \text{ m/s}</latex> collides and links with a second raft. The combined mass of <latex>500.00 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (0.60 \hat{i} - 0.60 \hat{j}) \text{ m/s}</latex>.
+      
+      Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of the second raft (which had a mass of <latex>200.00 \text{ kg}</latex>)? Round your answer to two decimal places.
+    answer:
+      value: 1.50
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 8</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 300.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (1.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 200.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = 500.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = (0.60 \hat{i} - 0.60 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown initial velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(300.00)(1.00) + (200.00) v_{2x} = (500.00)(0.60) \implies v_{2x} = 0.00 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(300.00)(0) + (200.00) v_{2y} = (500.00)(-0.60) \implies v_{2y} = -1.50 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the second object was <latex>\vec{v}_2 = (0.00 \hat{i} - 1.50 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the initial velocity of the second object is <b><latex>1.50 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q9
+    title: Conservation of Momentum: Ice Skaters
+    points: 3
+    text: |
+      A <latex>70.00 \text{ kg}</latex> ice skater moving at <latex>\vec{v}_1 = (6.00 \hat{i}) \text{ m/s}</latex> grabs onto a <latex>50.00 \text{ kg}</latex> skater who is moving at <latex>\vec{v}_2 = (2.00 \hat{i} + 4.00 \hat{j}) \text{ m/s}</latex>. The two skaters then glide off together.
+      
+      Assuming the linear momentum of the system is conserved, what is the magnitude of their combined velocity immediately after they join? Round your answer to two decimal places.
+    answer:
+      value: 4.64
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 9</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 70.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (6.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 50.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (2.00 \hat{i} + 4.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = m_1 + m_2 = 120.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown final velocity <latex>\vec{V}_{f} = (V_{fx} \hat{i} + V_{fy} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(70.00)(6.00) + (50.00)(2.00) = (120.00) V_{fx} \implies V_{fx} = 4.33 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(70.00)(0) + (50.00)(4.00) = (120.00) V_{fy} \implies V_{fy} = 1.67 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the combined object is <latex>\vec{V}_{f} = (4.33 \hat{i} + 1.67 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{V}_{f}| = \sqrt{V_{fx}^2 + V_{fy}^2}</latex>.
+        <br><br>
+        The magnitude of the final velocity is <b><latex>4.64 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q10
+    title: Conservation of Momentum: Bumper Cars
+    points: 3
+    text: |
+      A <latex>150.00 \text{ kg}</latex> bumper car (car 1) moving at <latex>\vec{v}_1 = (4.00 \hat{i}) \text{ m/s}</latex> crashes into a second bumper car (car 2). The cars stick together and move off with a combined mass of <latex>260.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (3.00 \hat{i} - 1.00 \hat{j}) \text{ m/s}</latex>.
+      
+      Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of car 2 (which had a mass of <latex>110.00 \text{ kg}</latex>)? Round your answer to two decimal places.
+    answer:
+      value: 2.87
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 10</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 150.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (4.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 110.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = 260.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = (3.00 \hat{i} - 1.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown initial velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(150.00)(4.00) + (110.00) v_{2x} = (260.00)(3.00) \implies v_{2x} = 1.64 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(150.00)(0) + (110.00) v_{2y} = (260.00)(-1.00) \implies v_{2y} = -2.36 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the second object was <latex>\vec{v}_2 = (1.64 \hat{i} - 2.36 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the initial velocity of the second object is <b><latex>2.87 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q11
+    title: Conservation of Momentum: Cargo Drone Catch
+    points: 3
+    text: |
+      A <latex>80.00 \text{ kg}</latex> cargo drone is flying horizontally at <latex>\vec{v}_1 = (30.00 \hat{i}) \text{ m/s}</latex>. It moves to catch a <latex>20.00 \text{ kg}</latex> package that is moving at <latex>\vec{v}_2 = (10.00 \hat{i} + 50.00 \hat{j}) \text{ m/s}</latex>. The drone catches the package and holds onto it.
+      
+      Assuming the linear momentum of the system is conserved, what is the magnitude of the velocity of the drone and its package immediately after the catch? Round your answer to two decimal places.
+    answer:
+      value: 27.86
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 11</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 80.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (30.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 20.00 \text{ kg}</latex>, <latex>\vec{v}_2 = (10.00 \hat{i} + 50.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = m_1 + m_2 = 100.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = ?</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown final velocity <latex>\vec{V}_{f} = (V_{fx} \hat{i} + V_{fy} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(80.00)(30.00) + (20.00)(10.00) = (100.00) V_{fx} \implies V_{fx} = 26.00 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(80.00)(0) + (20.00)(50.00) = (100.00) V_{fy} \implies V_{fy} = 10.00 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the combined object is <latex>\vec{V}_{f} = (26.00 \hat{i} + 10.00 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{V}_{f}| = \sqrt{V_{fx}^2 + V_{fy}^2}</latex>.
+        <br><br>
+        The magnitude of the final velocity is <b><latex>27.86 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q12
+    title: Conservation of Momentum: Colliding Sleds
+    points: 3
+    text: |
+      A <latex>100.00 \text{ kg}</latex> sled is moving at <latex>\vec{v}_1 = (10.00 \hat{i}) \text{ m/s}</latex> on a frozen lake. It collides with another sled, and they stick together. The combined mass of <latex>180.00 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (7.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex>.
+      
+      Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of the second sled (which had a mass of <latex>80.00 \text{ kg}</latex>)? Round your answer to two decimal places.
+    answer:
+      value: 5.55
+      margin_type: absolute
+      tolerance: 0.01
+    feedback:
+      general: |
+        <b>Solution to Problem 12</b>
+        <br><br>
+        This problem is solved using the <b>principle of conservation of linear momentum</b> for a perfectly inelastic collision. The total momentum of the system before the collision (<latex>\vec{P}_{initial}</latex>) must equal the total momentum of the combined object after (<latex>\vec{P}_{final}</latex>).
+        <br><br>
+        <ul>
+        <li><b>Initial State:</b>
+            <ul>
+            <li>Object 1: <latex>m_1 = 100.00 \text{ kg}</latex>, <latex>\vec{v}_1 = (10.00 \hat{i}) \text{ m/s}</latex></li>
+            <li>Object 2: <latex>m_2 = 80.00 \text{ kg}</latex>, <latex>\vec{v}_2 = ?</latex></li>
+            </ul>
+        </li>
+        <li><b>Final State:</b>
+            <ul>
+            <li>Combined Object: <latex>M_f = 180.00 \text{ kg}</latex>, <latex>\vec{V}_{f} = (7.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex></li>
+            </ul>
+        </li>
+        </ul>
+        <br>
+        The conservation equation <latex>m_1\vec{v}_1 + m_2\vec{v}_2 = M_f\vec{V}_{f}</latex> is applied separately to the x and y components to solve for the unknown initial velocity <latex>\vec{v}_2 = (v_{2x} \hat{i} + v_{2y} \hat{j})</latex>:
+        <br><br>
+        <ol>
+        <li><b>X-Direction:</b> <latex>m_1 v_{1x} + m_2 v_{2x} = M_f V_{fx}</latex></li>
+        <latex>(100.00)(10.00) + (80.00) v_{2x} = (180.00)(7.00) \implies v_{2x} = 3.25 \text{ m/s}</latex>
+        <li><b>Y-Direction:</b> <latex>m_1 v_{1y} + m_2 v_{2y} = M_f V_{fy}</latex></li>
+        <latex>(100.00)(0) + (80.00) v_{2y} = (180.00)(2.00) \implies v_{2y} = 4.50 \text{ m/s}</latex>
+        </ol>
+        <br>
+        The velocity vector for the second object was <latex>\vec{v}_2 = (3.25 \hat{i} + 4.50 \hat{j}) \text{ m/s}</latex>.
+        <br><br>
+        The <b>magnitude</b> of this velocity is found using the Pythagorean theorem: <latex>|\vec{v}_2| = \sqrt{v_{2x}^2 + v_{2y}^2}</latex>.
+        <br><br>
+        The magnitude of the initial velocity of the second object is <b><latex>5.55 \text{ m/s}</latex></b>.
+      on_correct: Good job!
+      on_incorrect: Try again!
