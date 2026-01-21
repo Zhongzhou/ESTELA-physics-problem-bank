@@ -55,8 +55,8 @@ bank_info:
             version: 0.0.1 # The version of the model used
             last updated: 03-06-2025 # The date of the last update of the generation prompts.
     authors:
-        - Author 1
-        - Author 2
+        - Zhongzhou Chen 
+        - Spencer Moore
 
 questions:
 # The following contents should be replaced by the output of the LLM.

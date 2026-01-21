@@ -31,17 +31,14 @@ bank_info:
             I have put all the problem bodies in the markdown file, and slightly modified them. Using the problem bodies in the markdown file, as well as the data recorded in the csv file, write those four problems according to the following yaml format:
         - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
     updates: 
-        - update 1: (9/15/2025) Zhongzhou Chen added updates field to this yaml. 
-        - update 2: (date of update) who did what #this is an example.
     associated data:
         - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
     generation details: # Details of the creation process
             model: GPT-4o # The model used to generate the questions
             version: 0.0.1 # The version of the model used
-            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+            last updated: 11-06-2025 # The date of the last update of the generation prompts.
     authors:
-        - Author 1
-        - Author 2
+      - Zhongzhou Chen
 
 questions:
 # The following contents should be replaced by the output of the LLM.
