@@ -22,7 +22,7 @@ bank_info:
         - prompt 5: |
             Now let's put the four problems and four solutions together, and write them into a yaml format according to the following example:
     authors:
-        - x
+        - Zhongzhou Chen
 
 questions:
 
