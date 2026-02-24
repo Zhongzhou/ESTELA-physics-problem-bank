@@ -136,7 +136,7 @@ def get_first_problem_type(content):
     
     return ''
 
-def extract_bank_info(file_path):
+def extract_bank_info(file_path, base_dir=None):
     """Extract topic, bank_id, title, description, author, number of problems, and problem type from a YAML file."""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -152,7 +152,13 @@ def extract_bank_info(file_path):
         
         # Get the topic (parent folder name, one level above the bank folder)
         # Structure: base_dir / topic_folder / bank_folder / bank_file.yaml
-        topic = file_path.parent.parent.name
+        topic_folder = file_path.parent.parent
+        topic = topic_folder.name
+        
+        # Validate that topic folder is directly under the course folder (base_dir)
+        if base_dir and topic_folder.parent != base_dir:
+            print(f"Warning: {file_path.name} - topic folder is not directly under course folder")
+            return None
         
         return {
             'Topic': topic,
@@ -206,7 +212,7 @@ def main():
     # Extract information from each file
     bank_data = []
     for yaml_file in sorted(main_files):
-        info = extract_bank_info(yaml_file)
+        info = extract_bank_info(yaml_file, base_dir)
         if info:
             bank_data.append(info)
     
