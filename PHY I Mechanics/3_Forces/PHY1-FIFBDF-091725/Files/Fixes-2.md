@@ -98,3 +98,87 @@ Which of the following forces should be included in the free-body diagram of the
 * [Correct] The force of kinetic friction on the crate.
 * [Distractor] The force of the crate's forward motion.
 * [Distractor] The normal force exerted by the crate on the floor.
+
+I apologize for the confusion! Sometimes the interface can hide or improperly render large code blocks, which makes them easy to miss.
+
+Here are those 6 newly corrected problems (where we added the missing forces) written directly in plain Markdown so you can easily read, copy, and paste them right from this response:
+
+**q-6: Free-Body Diagram: Pushed Box**
+A box is being pushed horizontally across a rough floor at a constant velocity.
+Which of the following forces should be included in the free-body diagram of the box? Select all that apply.
+
+* [Correct] The force of gravity on the box.
+* [Correct] The normal force by the floor on the box.
+* [Correct] The force of kinetic friction on the box.
+* [Correct] The applied pushing force on the box.
+* [Distractor] The normal force exerted by the box on the floor.
+* [Distractor] The force of the box's motion.
+
+---
+
+**q-9: Free-Body Diagram: Pulled Sled**
+A sled is being pulled at a constant velocity across a flat, snowy field.
+Which of the following forces should be included in the free-body diagram of the sled? Select all that apply.
+
+* [Correct] The force of gravity on the sled.
+* [Correct] The normal force by the snow on the sled.
+* [Correct] The tension force from the rope on the sled.
+* [Correct] The force of kinetic friction by the snow on the sled.
+* [Distractor] The force of the sled's motion.
+* [Distractor] The normal force exerted by the sled on the snow.
+
+---
+
+**q-13: Free-Body Diagram: Pushed Log**
+A log is being pushed forward.
+Which of the following forces should be included in the free-body diagram of the log? Select all that apply.
+
+* [Correct] The force of gravity on the log.
+* [Correct] The applied force pushing the log.
+* [Correct] The normal force from the ground on the log.
+* [Correct] The force of kinetic friction on the log.
+* [Distractor] The force of the log's motion.
+* [Distractor] The normal force exerted by the log on the ground.
+
+---
+
+**q-19: Free-Body Diagram: Pulled Fish**
+A fishing line is pulling a fish out of the water at a constant velocity.
+Which of the following forces should be included in the free-body diagram of the fish? Select all that apply.
+
+* [Correct] The force of tension from the fishing line on the fish.
+* [Correct] The force of gravity on the fish.
+* [Correct] The force of drag from the water on the fish.
+* [Correct] The buoyant force from the water on the fish.
+* [Distractor] The drag force exerted by the fish on the water.
+* [Distractor] The force of the fish's motion.
+
+---
+
+**q-20: Free-Body Diagram: Pushed Toy Boat**
+A toy boat is pushed horizontally across a bathtub filled with water at a constant velocity.
+Which of the following forces should be included in the free-body diagram of the toy boat? Select all that apply.
+
+* [Correct] The applied force of the person on the toy boat.
+* [Correct] The force of buoyancy on the toy boat.
+* [Correct] The force of drag from the water on the toy boat.
+* [Correct] The force of gravity on the toy boat.
+* [Distractor] The force of the boat moving.
+* [Distractor] The force exerted by the boat on the water.
+
+---
+
+**q-21: Free-Body Diagram: Crate on a Ramp**
+A person is pulling a crate up a rough ramp at a constant speed.
+Which of the following forces should be included in the free-body diagram of the crate? Select all that apply.
+
+* [Correct] The force of tension from the rope on the crate.
+* [Correct] The force of kinetic friction on the crate.
+* [Correct] The force of gravity on the crate.
+* [Correct] The normal force exerted by the ramp on the crate.
+* [Distractor] The pulling force exerted by the crate on the person.
+* [Distractor] The force of the crate's motion up the ramp.
+
+---
+
+Would you like me to write out the rest of the updated problems from earlier in the conversation in this exact same plain-text format so you have them all in one easy-to-grab place?
