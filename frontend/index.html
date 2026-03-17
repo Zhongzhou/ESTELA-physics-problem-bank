@@ -686,8 +686,8 @@ async function doTex(version, kind) {
       cart: _cartBody(), version, title, kind
     });
     const fname = `${kind}_v${version}.tex`;
-    dlBlob(new Blob([src], {type:'text/plain'}), fname);
-    toast('Downloaded ' + fname);
+    const savedPath = await window.__TAURI__.core.invoke('save_tex', {content: src, filename: fname});
+    toast('Saved to ' + savedPath);
   } catch(e) { toast('Export failed: ' + e); }
 }
 
@@ -698,10 +698,8 @@ async function doPreview(version, includeAnswers) {
     const html = await window.__TAURI__.core.invoke('export_html', {
       cart: _cartBody(), version, title, includeAnswers
     });
-    const blob = new Blob([html], {type:'text/html'});
-    const url = URL.createObjectURL(blob);
-    window.open(url, '_blank');
-    setTimeout(() => URL.revokeObjectURL(url), 120000);
+    await window.__TAURI__.core.invoke('open_preview', {html});
+    toast('Opened in browser');
   } catch(e) { toast('Error: ' + e); }
 }
 
