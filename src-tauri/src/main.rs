@@ -847,14 +847,31 @@ hr{{border:none;border-top:1.5px solid #e0ded6;margin:.5cm 0 .7cm;}}
 // ══════════════════════════════════════════════════════════════════════════════
 
 #[tauri::command]
-fn save_tex(content: String, filename: String) -> Result<String, String> {
-    let downloads = dirs::download_dir()
-        .or_else(|| dirs::home_dir().map(|h| h.join("Downloads")))
-        .unwrap_or_else(std::env::temp_dir);
-    std::fs::create_dir_all(&downloads).map_err(|e| e.to_string())?;
-    let path = downloads.join(&filename);
+fn save_tex(content: String, filename: String, folder: Option<String>) -> Result<String, String> {
+    let dir = if let Some(f) = folder {
+        PathBuf::from(f)
+    } else {
+        dirs::download_dir()
+            .or_else(|| dirs::home_dir().map(|h| h.join("Downloads")))
+            .unwrap_or_else(std::env::temp_dir)
+    };
+    std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
+    let path = dir.join(&filename);
     std::fs::write(&path, content).map_err(|e| e.to_string())?;
     Ok(path.to_string_lossy().to_string())
+}
+
+#[tauri::command]
+fn save_tex_batch(files: Vec<(String, String)>, folder: String) -> Result<Vec<String>, String> {
+    let dir = PathBuf::from(&folder);
+    std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
+    let mut saved = Vec::new();
+    for (filename, content) in files {
+        let path = dir.join(&filename);
+        std::fs::write(&path, &content).map_err(|e| e.to_string())?;
+        saved.push(path.to_string_lossy().to_string());
+    }
+    Ok(saved)
 }
 
 #[tauri::command]
@@ -868,6 +885,7 @@ fn open_preview(html: String) -> Result<(), String> {
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_dialog::init())
         .register_uri_scheme_protocol("figure", |_app, request| {
             let path_str = request.uri().path();
             // On some platforms the path starts with //host or ///path
@@ -896,7 +914,7 @@ fn main() {
                     .unwrap(),
             }
         })
-        .invoke_handler(tauri::generate_handler![scan_repo, bank_data, export_tex, export_html, open_preview, save_tex])
+        .invoke_handler(tauri::generate_handler![scan_repo, bank_data, export_tex, export_html, open_preview, save_tex, save_tex_batch])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

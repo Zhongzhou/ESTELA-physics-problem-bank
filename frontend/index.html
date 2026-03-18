@@ -672,23 +672,54 @@ function updateExportBtns() {
   el.innerHTML =
     row('Preview Exam', vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},false)">👁 ${versionLabel(v)}</button>`).join('')) +
     row('Preview Key',  vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},true)">👁 ${versionLabel(v)}</button>`).join('')) +
-    row('Exam .tex',    vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('exam')})">⬇ ${versionLabel(v)}</button>`).join('')) +
-    row('Key .tex',     vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">⬇ ${versionLabel(v)}</button>`).join(''));
+    row('Export .tex',
+      vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('exam')})">Exam ${versionLabel(v)}</button>`).join('') +
+      vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">Key ${versionLabel(v)}</button>`).join('') +
+      `<button class="btn btn-xs btn-p" onclick="doTexAll()">⬇ Save All</button>`);
 }
 
 function _cartBody() {
   return S.cart.map(c=>({path:c.path, meta:c.meta, rawData:c.rawData||{}, qn:c.qn||1}));
 }
 
+async function pickSaveFolder() {
+  if (!window.__TAURI__) return null;
+  try {
+    const folder = await window.__TAURI__.dialog.open({directory: true, multiple: false, title: 'Choose save folder'});
+    return folder || null;
+  } catch(e) { return null; }
+}
+
 async function doTex(version, kind) {
   const title = document.getElementById('exam-title').value || 'Exam';
+  const folder = await pickSaveFolder();
   try {
     const src = await window.__TAURI__.core.invoke('export_tex', {
       cart: _cartBody(), version, title, kind
     });
     const fname = `${kind}_${versionLabel(version)}.tex`;
-    const savedPath = await window.__TAURI__.core.invoke('save_tex', {content: src, filename: fname});
+    const savedPath = await window.__TAURI__.core.invoke('save_tex', {content: src, filename: fname, folder});
     toast('Saved to ' + savedPath);
+  } catch(e) { toast('Export failed: ' + e); }
+}
+
+async function doTexAll() {
+  const title = document.getElementById('exam-title').value || 'Exam';
+  const nv = Math.max(1, parseInt(document.getElementById('n-ver')?.value||'2'));
+  const folder = await pickSaveFolder();
+  if (!folder) return;
+  toast('Exporting all versions…');
+  try {
+    const cart = _cartBody();
+    const files = [];
+    for (let v = 1; v <= nv; v++) {
+      const exam = await window.__TAURI__.core.invoke('export_tex', {cart, version: v, title, kind: 'exam'});
+      const key  = await window.__TAURI__.core.invoke('export_tex', {cart, version: v, title, kind: 'key'});
+      files.push([`exam_${versionLabel(v)}.tex`, exam]);
+      files.push([`key_${versionLabel(v)}.tex`,  key]);
+    }
+    const saved = await window.__TAURI__.core.invoke('save_tex_batch', {files, folder});
+    toast(`Saved ${saved.length} files to ${folder}`);
   } catch(e) { toast('Export failed: ' + e); }
 }
 
