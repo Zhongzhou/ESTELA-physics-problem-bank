@@ -215,6 +215,14 @@ fn extract_mc_answers(answers: &Value) -> Vec<(usize, String, bool)> {
     result
 }
 
+fn version_label(v: i64) -> String {
+    if v >= 1 && v <= 26 {
+        ((b'A' + (v - 1) as u8) as char).to_string()
+    } else {
+        v.to_string()
+    }
+}
+
 fn strip_round_instruction(text: &str) -> String {
     // Strip trailing "Round your answer..." rounding instructions from numerical questions
     if let Some(pos) = text.rfind("Round") {
@@ -611,7 +619,7 @@ Name:\underline{{\hspace{{8cm}}}} \hfill Score: \underline{{\hspace{{2cm}}}} / \
 \end{{questions}}
 \end{{document}}
 ",
-        graphicspath_line, title, version, body
+        graphicspath_line, title, version_label(version), body
     )
 }
 
@@ -674,7 +682,7 @@ fn build_key_latex(cart: &Value, version: i64, title: &str) -> String {
 \end{{enumerate}}
 \end{{document}}
 ",
-        title, version, rows_str
+        title, version_label(version), rows_str
     )
 }
 
@@ -828,7 +836,7 @@ hr{{border:none;border-top:1.5px solid #e0ded6;margin:.5cm 0 .7cm;}}
 </body>
 </html>"#,
         title = title,
-        version = version,
+        version = version_label(version),
         label = label,
         parts_html = parts_html,
     )

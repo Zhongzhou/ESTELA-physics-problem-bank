@@ -669,10 +669,10 @@ function updateExportBtns() {
        <div style="display:flex;flex-wrap:wrap;gap:.22rem">${btns}</div>
      </div>`;
   el.innerHTML =
-    row('Preview Exam', vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},false)">👁 v${v}</button>`).join('')) +
-    row('Preview Key',  vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},true)">👁 v${v}</button>`).join('')) +
-    row('Exam .tex',    vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('exam')})">⬇ v${v}</button>`).join('')) +
-    row('Key .tex',     vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">⬇ v${v}</button>`).join(''));
+    row('Preview Exam', vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},false)">👁 ${versionLabel(v)}</button>`).join('')) +
+    row('Preview Key',  vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},true)">👁 ${versionLabel(v)}</button>`).join('')) +
+    row('Exam .tex',    vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('exam')})">⬇ ${versionLabel(v)}</button>`).join('')) +
+    row('Key .tex',     vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">⬇ ${versionLabel(v)}</button>`).join(''));
 }
 
 function _cartBody() {
@@ -685,7 +685,7 @@ async function doTex(version, kind) {
     const src = await window.__TAURI__.core.invoke('export_tex', {
       cart: _cartBody(), version, title, kind
     });
-    const fname = `${kind}_v${version}.tex`;
+    const fname = `${kind}_${versionLabel(version)}.tex`;
     const savedPath = await window.__TAURI__.core.invoke('save_tex', {content: src, filename: fname});
     toast('Saved to ' + savedPath);
   } catch(e) { toast('Export failed: ' + e); }
@@ -745,6 +745,7 @@ async function restoreCart(repoData) {
 }
 
 // ── Utilities ──────────────────────────────────────────────────────────────
+function versionLabel(v) { return String.fromCharCode(64 + v); }
 function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
