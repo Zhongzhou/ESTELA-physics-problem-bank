@@ -4,6 +4,7 @@ bank_info:
     description: |-
      Multiple-answer question, Identification of free body diagram forces
     date created: 09-17-2025
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives: #to be added later
     generational prompts:
         - prompt 1: |

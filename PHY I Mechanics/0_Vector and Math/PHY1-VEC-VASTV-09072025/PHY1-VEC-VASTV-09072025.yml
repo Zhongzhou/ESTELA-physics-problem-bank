@@ -4,6 +4,7 @@ bank_info:
     description: |-
       The problem bank asks students to calculate the vector operation of three vectors, given their magnitude and direction. One of those vectors has an angle defined with respect to the y-axis. There are three distractors each problem: Direct addition of magnitude with two randomly chosen angles, and ignoring the angle with the y-axis (swapped components of one of the vectors.)
     date_created: 09-07-2025
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         -prompt 1: |-
             I'm working to make Physics problems related to vectors. You're going to be making 3 vectors.

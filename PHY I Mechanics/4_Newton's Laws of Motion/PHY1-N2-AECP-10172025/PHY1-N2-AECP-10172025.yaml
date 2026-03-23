@@ -10,6 +10,7 @@ bank_info: ## Note: The import file will cause the ">" or "<" sign to be replace
         * Slowing down while moving upward or downward
         * Moving at a constant velocity upward or downward
     date created: 10-17-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
 
     generation prompts: # The following are the prompts that generated the questions in the problem bank.

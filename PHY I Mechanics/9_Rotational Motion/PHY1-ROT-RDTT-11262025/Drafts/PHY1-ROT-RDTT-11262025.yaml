@@ -4,6 +4,7 @@ bank_info:
     description: |-
       This problem bank contains problems that    
     date created: 01-01-2026 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The prompts will be added once Leo provides the first couple of prompts
         - prompt 1: |

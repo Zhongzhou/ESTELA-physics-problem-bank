@@ -4,6 +4,7 @@ bank_info:
     description: |-
      Those problems involve unit conversion to/from fictious units.
     date_created: 09-15-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     LLM: chatGPT-5
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |-

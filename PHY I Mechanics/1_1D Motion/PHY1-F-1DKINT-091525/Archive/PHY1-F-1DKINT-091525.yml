@@ -5,6 +5,7 @@ bank_info:
       A simple one-dimensional kinematics problem that involves integrating a non-constant acceleration
       function to find the objects position and velocities at fixed reference positions and times.
     date created: 09-15-2025 # Today's date
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
         - 1DM-A-1
         - 1DM-A-3

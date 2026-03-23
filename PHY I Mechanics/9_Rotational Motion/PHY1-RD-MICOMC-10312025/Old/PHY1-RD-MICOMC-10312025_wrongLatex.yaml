@@ -4,6 +4,7 @@ bank_info:
     description: |-
       We can ask GPT to generate the description of the problem bank.
     date created: 10-31-2025 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following prompts will generate three problems for a set of three images with a different object. Lightly modify those prompts to generate sets of three questions for other configurations.
         - prompt 1: |

@@ -5,6 +5,7 @@ bank_info:
       This is an example problem bank for assessment problems. 
       The problems have been updated to remove intermediate concepts like impulse and momentum as givens, requiring students to use the fundamental equations directly.
     date_created: 10-04-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |
             I'm working today to create a problem bank for a physics class. I want to use the relation of impulse 

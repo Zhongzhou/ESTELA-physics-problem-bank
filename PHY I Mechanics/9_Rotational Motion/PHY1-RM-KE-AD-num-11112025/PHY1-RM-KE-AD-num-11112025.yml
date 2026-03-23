@@ -4,6 +4,7 @@ bank_info:
     description: |-
       This problem bank contains problems that requires calculating the angular displacement given 3 other kinematic variables.   
     date created: 11-11-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The prompts
         - prompt 1: |

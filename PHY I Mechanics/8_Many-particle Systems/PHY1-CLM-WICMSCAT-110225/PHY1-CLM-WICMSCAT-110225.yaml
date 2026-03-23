@@ -4,6 +4,7 @@ bank_info:
     description: |-
         The description will be generated after all the problems are being created.
     date created: 11-02-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # Those prompts creates the 8 problems for the perfectly inelastic collision condition. Modify those prompt to create two mor sets of 8 problems for explosion/launch forward situation, and collide and bounce condition.
         - prompt 1: |

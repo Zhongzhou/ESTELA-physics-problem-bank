@@ -8,6 +8,7 @@ bank_info:
         3. an object being launched horizontally from a spring, or a mechanism that can be modeled as an ideal spring such as a bow or a sling shot. The object experiences constant non-conservative resistance such water resistance or a rough track, and reaches some velocity after traveling for a little distance after being launched.
         4. an object traveling with some initial velocity on a rough track or in some dense fluid such as oil or water, or experience significant air resistance for a distance, before being slowed down by a spring, or a spring like object that can be modeled as a spring such as a rubber band or elastic net. The object experiences constant non-conservative resistance during the process, and compresses/extends the spring or rubber band for a distance before coming to a stop.
     date created: 01-01-2026 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
 
     generation prompts: 

@@ -4,6 +4,7 @@ bank_info:
     description: |-
       An applied force at an angle is acting on an object. The object remains at rest. The goal is to find the static friction. A common mistake is to use static friction coefficient times normal force to get static friction.
     date created: 09-16-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
         - to be able to determine static friction when it is not at maximum
         - to be able to apply Newton's 2nd law for static equilibrium problem

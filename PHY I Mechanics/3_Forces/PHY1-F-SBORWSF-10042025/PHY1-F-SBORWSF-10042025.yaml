@@ -1,9 +1,10 @@
 bank_info:
     title: Static block on ramp with compressed spring and friction
-    bank_id: PHY1-F-SBORWSFUPDATE-10042025
+    bank_id: PHY1-F-SBORWSF-10042025
     description: |-
       A set of isomorphic problems involving a block in static equilibrium on an inclined plane. The block is acted upon by a compressed spring, an external pulling force (tension), gravity, and static friction, with all non-gravitational forces acting up the ramp.
     date created: 10-04-2025
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
       - Apply Newton's First Law to a static system on an inclined plane.
       - Decompose the force of gravity into components parallel and perpendicular to an incline.

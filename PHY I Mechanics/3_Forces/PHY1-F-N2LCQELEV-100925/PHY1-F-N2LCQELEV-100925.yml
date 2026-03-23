@@ -4,6 +4,7 @@ bank_info:
     description: |-
       A set of simple conceptual questions testing Newton's 2nd Law of motion and direction of a Force given directions of velocity and acceleration/decceleration.
     date created: 10-09-2025 # Today's date
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
         - LO3-4 N2D
     generation prompts: # The following are the prompts that generated the questions in the problem bank.

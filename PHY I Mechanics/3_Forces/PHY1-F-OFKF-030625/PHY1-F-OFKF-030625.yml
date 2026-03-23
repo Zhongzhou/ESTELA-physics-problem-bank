@@ -5,6 +5,7 @@ bank_info:
      Those problems involve an object subjected to an external force applied at an angle, and is moving with kinetic friction. 
      The external force affects the normal force between the object and the surface.
     date_created: 03-06-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |-
             I'm writing physics problems involving calculation of kinetic friction and balance of forces on a moving object. As a first step, please help me by doing the following:

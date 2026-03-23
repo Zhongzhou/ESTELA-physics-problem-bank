@@ -4,6 +4,7 @@ bank_info:
     description: |-
       To be added
     date created: 11-06-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # Those prompts were used to generate the rod rotating around center version. Modify them to generate similar problems for other shapes.
         - prompt 1: |

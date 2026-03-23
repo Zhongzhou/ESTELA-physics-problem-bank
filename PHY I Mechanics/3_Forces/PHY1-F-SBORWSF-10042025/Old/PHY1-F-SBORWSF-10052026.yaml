@@ -5,6 +5,7 @@ bank_info:
       This is an example problem bank for assessment problems. 
       Use this template to create new problem banks by replacing the content with your own questions and details.
     date created: 10-05-2026 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # upload each of the 12 images to Gemini Pro and use the following prompts for every image, making small changes to the detail of prompts 1 and 2.
         - prompt 1: |

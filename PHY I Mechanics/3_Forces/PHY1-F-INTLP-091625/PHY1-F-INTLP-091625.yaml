@@ -4,6 +4,7 @@ bank_info:
     description: | 
     Contains multiple answer problems for which students are required to identify Newton's 3rd law pairs of forces, and distinguish from the forces that are not N3 pairs.
     date created: 09-16-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives: # to be added later
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: | # I copied the output of each batch of problems into an md file.

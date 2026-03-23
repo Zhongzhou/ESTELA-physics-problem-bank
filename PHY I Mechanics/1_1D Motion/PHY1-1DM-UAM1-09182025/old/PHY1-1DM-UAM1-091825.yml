@@ -4,6 +4,7 @@ bank_info:
     description: |-
       Problem set for 1 segment of UAM along 1D.
     date_created: 09-18-2025 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     LLM: chatGPT-5
     authors: O. Moussa
 questions:

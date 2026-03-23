@@ -4,6 +4,7 @@ bank_info:
     description: |-
       Torque balance on a uniform thin massiv rod, with one force at an angle, and one hanging block. The location of the force the block and the pivot changes between problems.
     date created: 11-11-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |

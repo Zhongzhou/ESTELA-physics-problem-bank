@@ -3,6 +3,7 @@ bank_info:
   bank_id: PHY1-F-CWDVF-10052025
   description: Calculation of Work done by a changing force over a distance.
   date_created: 2025-10-05
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
   learning_objectives: # to be added later
   generational_prompts:
     - prompt_1: |

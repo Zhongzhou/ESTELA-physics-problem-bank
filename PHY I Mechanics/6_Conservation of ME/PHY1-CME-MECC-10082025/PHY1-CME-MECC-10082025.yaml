@@ -4,6 +4,7 @@ bank_info:
     description: |-
         This bank contains categorization/drag and drop problems that ask students to categorize situations based on whether mechanical energy is conserved for the system.
     date created: 10-08-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |

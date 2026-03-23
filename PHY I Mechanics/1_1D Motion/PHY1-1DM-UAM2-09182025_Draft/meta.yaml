@@ -4,6 +4,7 @@ bank_info:
     description: |-
       Problem set for back to back segments of UAM along 1D.
     date created: 09-18-2025 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
         - 1DM-KE-1
     generation prompts: # The following are the prompts that generated the questions in the problem bank.

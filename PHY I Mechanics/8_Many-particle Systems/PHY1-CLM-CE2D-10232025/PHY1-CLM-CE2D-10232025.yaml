@@ -3,6 +3,7 @@ bank_info:
     bank_id: PHY1-CLM-CE2D-10232025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
     date created: 10-23-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |

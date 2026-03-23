@@ -4,6 +4,7 @@ bank_info:
     description: |-
       This problem bank contains multiple answer problems that ask students to select the observer that measure the same or opposite angular momentum of a particle traveling in a straight line as a reference observer.
     date created: 11-02-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following are the prompts that generated the questions for upper left corner, velocity to the right.
     # We need to also create lower right corner, velocity to the left, and upper right corner, velocity pointing down.

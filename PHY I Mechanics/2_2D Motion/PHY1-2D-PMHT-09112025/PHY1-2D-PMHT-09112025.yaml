@@ -1,9 +1,10 @@
 bank_info:
     title: Projectile motion involving half the trajectory
-    bank_id: PHY1-2DM-PMHT-09112025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    bank_id: PHY1-2D-PMHT-09112025 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
         This problem bank consists of projectile motion calculation problems involving a projectile that either started from a height with horizontal velocity, or launched to a target at the peak of the trajectory.
     date created: 09-11-2025 # Today's date 
+    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives: # to be added later
         - 1DM-PD-1
         - 1DM-VS-1
