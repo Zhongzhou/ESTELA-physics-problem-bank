@@ -5,6 +5,7 @@ bank_info:
       This is an example problem bank for assessment problems. 
       Use this template to create new problem banks by replacing the content with your own questions and details.
     date created: 01-01-2026 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field. 'draft' and 'deprecated' files won't be parsed by the exam builder.
     learning objectives:
         - 1DM-PD-1
         - 1DM-VS-1
