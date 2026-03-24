@@ -126,7 +126,27 @@ fn html2tex(text: &str) -> String {
     });
     // strip remaining HTML tags
     let tag_re = Regex::new(r"<[^>]+>").unwrap();
-    tag_re.replace_all(&result, "").trim().to_string()
+    let result = tag_re.replace_all(&result, "").trim().to_string();
+    // Escape bare < and > outside math delimiters as $<$ / $>$ so LaTeX renders them
+    let mut out = String::with_capacity(result.len());
+    let bytes = result.as_bytes();
+    let mut i = 0;
+    let mut in_math = false;
+    while i < bytes.len() {
+        // Detect \( \) \[ \] math boundaries
+        if i + 1 < bytes.len() && bytes[i] == b'\\' {
+            match bytes[i + 1] {
+                b'(' | b'[' => { in_math = true;  out.push('\\'); out.push(bytes[i+1] as char); i += 2; continue; }
+                b')' | b']' => { in_math = false; out.push('\\'); out.push(bytes[i+1] as char); i += 2; continue; }
+                _ => {}
+            }
+        }
+        if !in_math && bytes[i] == b'<' { out.push_str("$<$"); i += 1; continue; }
+        if !in_math && bytes[i] == b'>' { out.push_str("$>$"); i += 1; continue; }
+        out.push(bytes[i] as char);
+        i += 1;
+    }
+    out
 }
 
 fn bank_meta(data: &Value) -> Value {
@@ -224,6 +244,25 @@ fn version_label(v: i64) -> String {
     }
 }
 
+/// Simple seeded Fisher-Yates shuffle — deterministic per (version, question)
+fn seeded_shuffle<T>(items: &mut Vec<T>, seed: u64) {
+    let n = items.len();
+    if n <= 1 { return; }
+    let mut rng = seed;
+    for i in (1..n).rev() {
+        rng = rng.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407);
+        let j = (rng >> 33) as usize % (i + 1);
+        items.swap(i, j);
+    }
+}
+
+/// Returns true if any answer choice has lock:true (meaning don't shuffle)
+fn answers_have_lock(answers: &Value) -> bool {
+    answers.as_array().map(|arr| arr.iter().any(|a| {
+        a.get("answer").and_then(|inner| inner.get("lock")).and_then(|l| l.as_bool()).unwrap_or(false)
+    })).unwrap_or(false)
+}
+
 fn strip_round_instruction(text: &str) -> String {
     // Strip trailing "Round your answer..." rounding instructions from numerical questions
     if let Some(pos) = text.rfind("Round") {
@@ -287,7 +326,7 @@ fn figure_to_base64(path: &Path) -> Option<String> {
     Some(format!("data:{};base64,{}", mime, b64))
 }
 
-fn q_to_latex(q: &Value, num: usize, bank_dir: &Path) -> String {
+fn q_to_latex(q: &Value, num: usize, bank_dir: &Path, version: i64) -> String {
     let qtype = get_qtype(q);
     let qdata = q.get(&qtype).cloned().unwrap_or(json!({}));
     let raw_text = qdata.get("text").and_then(|v| v.as_str()).unwrap_or("");
@@ -313,9 +352,13 @@ fn q_to_latex(q: &Value, num: usize, bank_dir: &Path) -> String {
         out.push(String::new());
     } else if qtype == "multiple_choice" || qtype == "multiple_answers" {
         out.push("\\begin{choices}".to_string());
-        let answers = qdata.get("answers").cloned().unwrap_or(json!([]));
-        for (_, atxt, correct) in extract_mc_answers(&answers) {
-            let cmd = if correct { "\\CorrectChoice" } else { "\\choice" };
+        let answers_val = qdata.get("answers").cloned().unwrap_or(json!([]));
+        let mut answer_list = extract_mc_answers(&answers_val);
+        if !answers_have_lock(&answers_val) {
+            seeded_shuffle(&mut answer_list, version as u64 * 10000 + num as u64);
+        }
+        for (_, atxt, correct) in &answer_list {
+            let cmd = if *correct { "\\CorrectChoice" } else { "\\choice" };
             out.push(format!("  {} {}", cmd, html2tex(&atxt)));
         }
         out.push("\\end{choices}".to_string());
@@ -427,6 +470,13 @@ fn scan_repo(path: String) -> Result<Value, String> {
 
                     if let Some(data) = load_yaml(fp) {
                         if is_bank(&data) {
+                            let status = data.get("bank_info")
+                                .and_then(|i| i.get("status"))
+                                .and_then(|s| s.as_str())
+                                .unwrap_or("");
+                            if status == "draft" || status == "deprecated" {
+                                continue;
+                            }
                             let meta = bank_meta(&data);
                             banks.push(json!({
                                 "path": fp.to_string_lossy(),
@@ -582,7 +632,7 @@ fn build_exam_latex(cart: &Value, version: i64, title: &str) -> String {
         }
     }
     let body: String = qs_with_dir.iter().enumerate()
-        .map(|(i, (q, dir))| q_to_latex(q, i + 1, dir))
+        .map(|(i, (q, dir))| q_to_latex(q, i + 1, dir, version))
         .collect::<Vec<_>>()
         .join("\n\n");
     let graphicspath_line = if !graphicspaths.is_empty() {
@@ -629,6 +679,7 @@ fn build_key_latex(cart: &Value, version: i64, title: &str) -> String {
                 let q = &questions[(start + i) % n];
                 let qtype = get_qtype(q);
                 let qdata = q.get(&qtype).cloned().unwrap_or(json!({}));
+                let q_num = rows.len() + 1;
 
                 if qtype == "numerical" {
                     let ans = qdata.get("answer").cloned().unwrap_or(json!({}));
@@ -642,10 +693,15 @@ fn build_key_latex(cart: &Value, version: i64, title: &str) -> String {
                     rows.push(format!(r"  \item ${}{}$", val, ts));
                 } else if qtype == "multiple_choice" || qtype == "multiple_answers" {
                     let ans_val = qdata.get("answers").cloned().unwrap_or(json!([]));
-                    let correct_letters: Vec<String> = extract_mc_answers(&ans_val)
-                        .into_iter()
-                        .filter(|(_, _, is_correct)| *is_correct)
-                        .map(|(j, _, _)| ((b'A' + j as u8) as char).to_string())
+                    let mut answer_list = extract_mc_answers(&ans_val);
+                    if !answers_have_lock(&ans_val) {
+                        seeded_shuffle(&mut answer_list, version as u64 * 10000 + q_num as u64);
+                    }
+                    let correct_letters: Vec<String> = answer_list
+                        .iter()
+                        .enumerate()
+                        .filter(|(_, (_, _, is_correct))| *is_correct)
+                        .map(|(j, _)| ((b'A' + j as u8) as char).to_string())
                         .collect();
                     let ans_str = if correct_letters.is_empty() { "?".to_string() } else { correct_letters.join(", ") };
                     rows.push(format!(r"  \item {}", ans_str));
@@ -706,13 +762,17 @@ fn build_pdf_html(cart: &Value, version: i64, title: &str, include_answers: bool
                 let mut ans_html = String::new();
                 if qtype == "multiple_choice" || qtype == "multiple_answers" {
                     let ans_val = qdata.get("answers").cloned().unwrap_or(json!([]));
-                    for (j, atxt, correct) in extract_mc_answers(&ans_val) {
-                        let cls = if include_answers && correct { "ans-ok" } else { "ans-opt" };
+                    let mut answer_list = extract_mc_answers(&ans_val);
+                    if !answers_have_lock(&ans_val) {
+                        seeded_shuffle(&mut answer_list, version as u64 * 10000 + q_num as u64);
+                    }
+                    for (j, (_, atxt, correct)) in answer_list.iter().enumerate() {
+                        let cls = if include_answers && *correct { "ans-ok" } else { "ans-opt" };
                         ans_html.push_str(&format!(
                             "<div class=\"{}\"><b>{}.</b> {}</div>",
                             cls,
                             (b'A' + j as u8) as char,
-                            latex_to_html(&atxt)
+                            latex_to_html(atxt)
                         ));
                     }
                 } else if qtype == "numerical" {
@@ -829,6 +889,60 @@ hr{{border:none;border-top:1.5px solid #e0ded6;margin:.5cm 0 .7cm;}}
         label = label,
         parts_html = parts_html,
     )
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// Bundle export
+// ══════════════════════════════════════════════════════════════════════════════
+
+#[tauri::command]
+fn export_exam_bundle(cart: Value, versions: i64, title: String, dest_folder: String) -> Result<String, String> {
+    let dest = PathBuf::from(&dest_folder);
+    let exam_dir = dest.join("Exams");
+    let key_dir  = dest.join("Keys");
+    let img_dir  = dest.join("Images");
+    std::fs::create_dir_all(&exam_dir).map_err(|e| e.to_string())?;
+    std::fs::create_dir_all(&key_dir).map_err(|e| e.to_string())?;
+    std::fs::create_dir_all(&img_dir).map_err(|e| e.to_string())?;
+
+    // Copy all referenced images (deduplicated by filename)
+    let mut images_copied = 0usize;
+    if let Some(arr) = cart.as_array() {
+        for item in arr {
+            let bank_path = item.get("path").and_then(|v| v.as_str()).unwrap_or("");
+            let bank_dir = Path::new(bank_path).parent().unwrap_or(Path::new("."));
+            let raw = item.get("rawData").cloned().unwrap_or(json!({}));
+            for q in raw.get("questions").and_then(|v| v.as_array()).cloned().unwrap_or_default() {
+                let qtype = get_qtype(&q);
+                let qdata = q.get(&qtype).cloned().unwrap_or(json!({}));
+                if let Some(src) = resolve_figure(&qdata, bank_dir) {
+                    let fname = src.file_name().unwrap_or_default();
+                    let dst = img_dir.join(fname);
+                    if !dst.exists() {
+                        std::fs::copy(&src, &dst).map_err(|e| e.to_string())?;
+                        images_copied += 1;
+                    }
+                }
+            }
+        }
+    }
+
+    // Generate all exam + key tex files; rewrite graphicspath to point at ../Images/
+    let graphicspath_re = Regex::new(r"\\graphicspath\{[^}]*\}").unwrap();
+    for v in 1..=versions {
+        let exam_tex = build_exam_latex(&cart, v, &title);
+        let exam_tex = graphicspath_re.replace(&exam_tex, r"\graphicspath{{../Images/}}").to_string();
+        let key_tex  = build_key_latex(&cart, v, &title);
+        std::fs::write(exam_dir.join(format!("exam_{}.tex", version_label(v))), &exam_tex).map_err(|e| e.to_string())?;
+        std::fs::write(key_dir.join(format!("key_{}.tex",  version_label(v))), &key_tex).map_err(|e| e.to_string())?;
+    }
+
+    Ok(format!(
+        "Exported {} version{} + {} image{} to {}",
+        versions, if versions == 1 { "" } else { "s" },
+        images_copied, if images_copied == 1 { "" } else { "s" },
+        dest_folder
+    ))
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -1009,7 +1123,7 @@ fn main() {
                     .unwrap(),
             }
         })
-        .invoke_handler(tauri::generate_handler![scan_repo, bank_data, export_tex, export_html, open_preview, save_tex, save_tex_batch, fetch_remote_courses, download_courses])
+        .invoke_handler(tauri::generate_handler![scan_repo, bank_data, export_tex, export_html, open_preview, save_tex, save_tex_batch, export_exam_bundle, fetch_remote_courses, download_courses])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

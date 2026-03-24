@@ -248,6 +248,7 @@ body:not(.tauri) #shell{height:100vh;}
         <select id="ft" class="sel" style="display:none" onchange="renderBanks()">
           <option value="">All topics</option>
         </select>
+        <div id="type-filter" style="margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.22rem"></div>
       </div>
 
       <div class="sb-sec" id="search-sec" style="display:none">
@@ -324,6 +325,7 @@ const S = {
   expanded: new Set(),
   theme: localStorage.getItem('theme') || 'light',
   search: '',
+  typeFilter: new Set(), // empty = show all types
 };
 
 // ── Theme ──────────────────────────────────────────────────────────────────
@@ -398,6 +400,24 @@ function populateFilters() {
   });
   document.getElementById('filter-sec').style.display = 'block';
   document.getElementById('search-sec').style.display = 'block';
+  renderTypeFilter();
+}
+
+function renderTypeFilter() {
+  const el = document.getElementById('type-filter');
+  if (!el) return;
+  const types = Object.entries(TS);
+  el.innerHTML = types.map(([t, label]) => {
+    const on = S.typeFilter.has(t);
+    return `<button class="badge ${on ? 'bd-ok' : 'bd-gen'}" style="cursor:pointer;padding:.18rem .45rem" onclick="toggleTypeFilter('${t}')">${label}</button>`;
+  }).join('');
+}
+
+function toggleTypeFilter(t) {
+  if (S.typeFilter.has(t)) S.typeFilter.delete(t);
+  else S.typeFilter.add(t);
+  renderTypeFilter();
+  renderBanks();
 }
 
 function onFilterChange() {
@@ -437,7 +457,7 @@ function renderBanks() {
     if (fc && course !== fc) continue;
     for (const [topic, banks] of Object.entries(topics)) {
       if (ft && topic !== ft) continue;
-      const filtered = q ? banks.filter(b => {
+      const textFiltered = q ? banks.filter(b => {
         const m = b.meta;
         return (m.title||'').toLowerCase().includes(q) ||
                (m.bank_id||'').toLowerCase().includes(q) ||
@@ -445,6 +465,8 @@ function renderBanks() {
                topic.toLowerCase().includes(q) ||
                (m.lo||[]).some(l => String(l).toLowerCase().includes(q));
       }) : banks;
+      const filtered = S.typeFilter.size === 0 ? textFiltered
+        : textFiltered.filter(b => Object.keys(b.meta.q_types||{}).some(t => S.typeFilter.has(t)));
       if (!filtered.length) continue;
       html += `<div class="topic-rule">
         <span class="tr-c">${course}</span>
@@ -620,6 +642,15 @@ function adjustCartQn(path, delta) {
   saveCart(); renderCart();
 }
 
+function jumpToBank(path) {
+  S.expanded.add(path);
+  renderBanks();
+  requestAnimationFrame(() => {
+    const el = document.getElementById(`bc-${slugify(path)}`);
+    if (el) el.scrollIntoView({behavior: 'smooth', block: 'center'});
+  });
+}
+
 function moveCartItem(path, dir) {
   const idx = S.cart.findIndex(c => c.path === path);
   if (idx === -1) return;
@@ -663,7 +694,7 @@ function renderCart() {
         <button class="ci-step" onclick="moveCartItem(${attr(item.path)},1)"  ${idx===S.cart.length-1?'disabled':''} title="Move down" style="${idx===S.cart.length-1?'opacity:.3':''}">↓</button>
       </div>
       <div class="ci-info">
-        <div class="ci-title">${esc(item.meta.title)}</div>
+        <div class="ci-title" onclick="jumpToBank(${attr(item.path)})" style="cursor:pointer;text-decoration:underline dotted;text-underline-offset:2px" title="View in main panel">${esc(item.meta.title)}</div>
         <div style="font-family:var(--font-m);font-size:.82rem;color:var(--ink4);margin-bottom:.1rem">${esc(item.topic||'')}</div>
         <div class="ci-stepper">
           <button class="ci-step" onclick="adjustCartQn(${attr(item.path)},-1)">−</button>
@@ -698,10 +729,10 @@ function updateExportBtns() {
   el.innerHTML =
     row('Preview Exam', vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},false)">👁 ${versionLabel(v)}</button>`).join('')) +
     row('Preview Key',  vs.map(v=>`<button class="btn btn-xs" onclick="doPreview(${v},true)">👁 ${versionLabel(v)}</button>`).join('')) +
-    row('Export .tex',
+    row('Export Bundle', `<button class="btn btn-xs btn-p" onclick="doExportBundle()">⬇ Export All (Exams + Keys + Images)</button>`) +
+    row('Export single .tex',
       vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('exam')})">Exam ${versionLabel(v)}</button>`).join('') +
-      vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">Key ${versionLabel(v)}</button>`).join('') +
-      `<button class="btn btn-xs btn-p" onclick="doTexAll()">⬇ Save All</button>`);
+      vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">Key ${versionLabel(v)}</button>`).join(''));
 }
 
 function _cartBody() {
@@ -719,6 +750,7 @@ async function pickSaveFolder() {
 async function doTex(version, kind) {
   const title = document.getElementById('exam-title').value || 'Exam';
   const folder = await pickSaveFolder();
+  if (!folder) return;
   try {
     const src = await window.__TAURI__.core.invoke('export_tex', {
       cart: _cartBody(), version, title, kind
@@ -726,6 +758,20 @@ async function doTex(version, kind) {
     const fname = `${kind}_${versionLabel(version)}.tex`;
     const savedPath = await window.__TAURI__.core.invoke('save_tex', {content: src, filename: fname, folder});
     toast('Saved to ' + savedPath);
+  } catch(e) { toast('Export failed: ' + e); }
+}
+
+async function doExportBundle() {
+  const title = document.getElementById('exam-title').value || 'Exam';
+  const nv = Math.max(1, parseInt(document.getElementById('n-ver')?.value||'2'));
+  const folder = await pickSaveFolder();
+  if (!folder) return;
+  toast('Building exam bundle…');
+  try {
+    const msg = await window.__TAURI__.core.invoke('export_exam_bundle', {
+      cart: _cartBody(), versions: nv, title, destFolder: folder
+    });
+    toast(msg);
   } catch(e) { toast('Export failed: ' + e); }
 }
 
