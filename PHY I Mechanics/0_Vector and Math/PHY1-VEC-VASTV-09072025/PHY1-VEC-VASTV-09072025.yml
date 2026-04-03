@@ -85,35 +85,35 @@ questions:
       text: |
         You are given three vectors:
         <ul>
-        <li>Vector <latex>\vec{A}</latex> has a magnitude of 11.0 units at <b>-109^\circ from the positive x-axis</b>.</li>
-        <li>Vector <latex>\vec{B}</latex> has a magnitude of 15.0 units at <b>26^\circ from the positive y-axis</b>.</li>
-        <li>Vector <latex>\vec{C}</latex> has a magnitude of 9.0 units at <b>33^\circ from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{A}</latex> has a magnitude of 11.0 units at <b><latex>-109^\circ</latex> from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> has a magnitude of 15.0 units at <b><latex>26^\circ</latex> from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> has a magnitude of 9.0 units at <b><latex>33^\circ</latex> from the positive x-axis</b>.</li>
         </ul>
         Calculate the resultant vector <latex>\vec{R}</latex> from the operation <latex>\vec{R} = \vec{A} + \vec{C} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle.
       figure: figure_folder/q-1.png
       answers:
         - answer:
-            text: Magnitude = 21.7 units, Angle = 299.1^\circ
+            text: Magnitude = 21.7 units, Angle = <latex>299.1^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (11.0 + 15.0 + 9.0 = 35.0) with random angle.
-            text: Magnitude = 35.0 units, Angle = 120.0^\circ
+            text: Magnitude = 35.0 units, Angle = <latex>120.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 3: Calculation error (swapped B components: Bx=13.48, By=-6.58). Result: R_x = -9.51, R_y = 1.08 -> Mag=9.6, Angle=173.5^\circ
-            text: Magnitude = 9.6 units, Angle = 173.5^\circ
+            text: Magnitude = 9.6 units, Angle = <latex>173.5^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 3 (9.6) with different random angle.
-            text: Magnitude = 9.6 units, Angle = 45.0^\circ
+            text: Magnitude = 9.6 units, Angle = <latex>45.0^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
-          <li><b>Vector <latex>\vec{A}</latex>:</b> The angle is -109^\circ. To get the equivalent positive angle, add 360^\circ. <br><latex>\theta_A = -109^\circ + 360^\circ = 251^\circ</latex></li>
-          <li><b>Vector <latex>\vec{B}</latex>:</b> The angle is 26^\circ from the positive y-axis (90^\circ). Add the given angle to 90^\circ. <br><latex>\theta_B = 90^\circ + 26^\circ = 116^\circ</latex></li>
+          <li><b>Vector <latex>\vec{A}</latex>:</b> The angle is <latex>-109^\circ</latex>. To get the equivalent positive angle, add <latex>360^\circ</latex>. <br><latex>\theta_A = -109^\circ + 360^\circ = 251^\circ</latex></li>
+          <li><b>Vector <latex>\vec{B}</latex>:</b> The angle is <latex>26^\circ</latex> from the positive y-axis (<latex>90^\circ</latex>). Add the given angle to <latex>90^\circ</latex>. <br><latex>\theta_B = 90^\circ + 26^\circ = 116^\circ</latex></li>
           <li><b>Vector <latex>\vec{C}</latex>:</b> The angle is already in standard format. <br><latex>\theta_C = 33^\circ</latex></li>
           </ul>
           <h4>1. Find Vector Components</h4>
@@ -142,7 +142,7 @@ questions:
           <li><latex>R = \sqrt{111.30 + 360.24} = 21.7</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>21.7 units</b> at an angle of <b>299.1^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>21.7 units</b> at an angle of <b><latex>299.1^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -153,32 +153,32 @@ questions:
       text: |
         Consider the following three vectors:
         <ul>
-        <li>Vector <latex>\vec{A}</latex>: Magnitude = 6.0 units, Angle = <b>-124^\circ from the positive x-axis</b></li>
-        <li>Vector <latex>\vec{B}</latex>: Magnitude = 10.0 units, Angle = <b>244^\circ from the positive y-axis</b></li>
-        <li>Vector <latex>\vec{C}</latex>: Magnitude = 12.0 units, Angle = <b>128^\circ from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{A}</latex>: Magnitude = 6.0 units, Angle = <b><latex>-124^\circ</latex> from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{B}</latex>: Magnitude = 10.0 units, Angle = <b><latex>244^\circ</latex> from the positive y-axis</b></li>
+        <li>Vector <latex>\vec{C}</latex>: Magnitude = 12.0 units, Angle = <b><latex>128^\circ</latex> from the positive x-axis</b></li>
         </ul>
         What is the resultant vector <latex>\vec{R}</latex> if <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>? Select the choice with the correct resultant magnitude and direction.
       figure: figure_folder/q-2.png
       answers:
         - answer:
-            text: Magnitude = 22.9 units, Angle = 304.7^\circ
+            text: Magnitude = 22.9 units, Angle = <latex>304.7^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (6.0 + 10.0 + 12.0 = 28.0) with random angle.
-            text: Magnitude = 28.0 units, Angle = 80.0^\circ
+            text: Magnitude = 28.0 units, Angle = <latex>80.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 3: Calculation error (swapped C components: Cx=9.46, Cy=-7.39). Result: R_x = -3.83, R_y = -1.96 -> Mag=4.3, Angle=207.1^\circ
-            text: Magnitude = 4.3 units, Angle = 207.1^\circ
+            text: Magnitude = 4.3 units, Angle = <latex>207.1^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 1 (28.0) with different random angle.
-            text: Magnitude = 28.0 units, Angle = 240.0^\circ
+            text: Magnitude = 28.0 units, Angle = <latex>240.0^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -124^\circ + 360^\circ = 236^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 244^\circ = 334^\circ</latex></li>
@@ -209,7 +209,7 @@ questions:
           <li><latex>R = \sqrt{(13.02)^2 + (-18.81)^2} = \sqrt{169.52 + 353.82} = 22.9</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>22.9 units</b> at an angle of <b>304.7^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>22.9 units</b> at an angle of <b><latex>304.7^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -220,32 +220,32 @@ questions:
       text: |
         Three vectors are defined as follows:
         <ul>
-        <li><latex>\vec{A}</latex>: 13.0 units at <b>-134^\circ from the positive x-axis</b></li>
-        <li><latex>\vec{B}</latex>: 9.0 units at <b>248^\circ from the positive y-axis</b></li>
-        <li><latex>\vec{C}</latex>: 7.0 units at <b>114^\circ from the positive x-axis</b></li>
+        <li><latex>\vec{A}</latex>: 13.0 units at <b><latex>-134^\circ</latex> from the positive x-axis</b></li>
+        <li><latex>\vec{B}</latex>: 9.0 units at <b><latex>248^\circ</latex> from the positive y-axis</b></li>
+        <li><latex>\vec{C}</latex>: 7.0 units at <b><latex>114^\circ</latex> from the positive x-axis</b></li>
         </ul>
         Find the resultant vector <latex>\vec{R}</latex> where <latex>\vec{R} = \vec{B} + \vec{C} - \vec{A}</latex>. Choose the option that has the correct magnitude and angle.
       figure: figure_folder/q-3.png
       answers:
         - answer:
-            text: Magnitude = 19.1 units, Angle = 40.5^\circ
+            text: Magnitude = 19.1 units, Angle = <latex>40.5^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 3: Calculation error (swapped C components: Cx=6.40, Cy=-2.85). Result: R_x = 23.78, R_y = 3.15 -> Mag=24.0, Angle=7.5^\circ
-            text: Magnitude = 24.0 units, Angle = 7.5^\circ
+            text: Magnitude = 24.0 units, Angle = <latex>7.5^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (13.0 + 9.0 + 7.0 = 29.0) with random angle.
-            text: Magnitude = 29.0 units, Angle = 300.0^\circ
+            text: Magnitude = 29.0 units, Angle = <latex>300.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 3 (24.0) with different random angle.
-            text: Magnitude = 24.0 units, Angle = 180.0^\circ
+            text: Magnitude = 24.0 units, Angle = <latex>180.0^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -134^\circ + 360^\circ = 226^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 248^\circ = 338^\circ</latex></li>
@@ -275,7 +275,7 @@ questions:
           <li><latex>R = \sqrt{(14.53)^2 + (12.40)^2} = \sqrt{211.12 + 153.76} = 19.1</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>19.1 units</b> at an angle of <b>40.5^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>19.1 units</b> at an angle of <b><latex>40.5^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -286,32 +286,32 @@ questions:
       text: |
         Given vectors <latex>\vec{A}</latex>, <latex>\vec{B}</latex>, and <latex>\vec{C}</latex>:
         <ul>
-        <li>Vector <latex>\vec{A}</latex> is 5.0 units at <b>-203^\circ from the positive x-axis</b>.</li>
-        <li>Vector <latex>\vec{B}</latex> is 16.0 units at <b>205^\circ from the positive y-axis</b>.</li>
-        <li>Vector <latex>\vec{C}</latex> is 14.0 units at <b>43^\circ from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{A}</latex> is 5.0 units at <b><latex>-203^\circ</latex> from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> is 16.0 units at <b><latex>205^\circ</latex> from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> is 14.0 units at <b><latex>43^\circ</latex> from the positive x-axis</b>.</li>
         </ul>
         Determine the resultant vector <latex>\vec{R}</latex> for the operation <latex>\vec{R} = \vec{A} - \vec{C} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle.
       figure: figure_folder/q-4.png
       answers:
         - answer:
-            text: Magnitude = 22.7 units, Angle = 162.3^\circ
+            text: Magnitude = 22.7 units, Angle = <latex>162.3^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (5.0 + 16.0 + 14.0 = 35.0) with random angle.
-            text: Magnitude = 35.0 units, Angle = 270.0^\circ
+            text: Magnitude = 35.0 units, Angle = <latex>270.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 1 (35.0) with different random angle.
-            text: Magnitude = 35.0 units, Angle = 45.0^\circ
+            text: Magnitude = 35.0 units, Angle = <latex>45.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 3: Calculation error (swapped B components: Bx=-14.50, By=6.76). Result: R_x = -0.35, R_y = -14.36 -> Mag=14.4, Angle=268.6^\circ
-            text: Magnitude = 14.4 units, Angle = 268.6^\circ
+            text: Magnitude = 14.4 units, Angle = <latex>268.6^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -203^\circ + 360^\circ = 157^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 205^\circ = 295^\circ</latex></li>
@@ -341,7 +341,7 @@ questions:
           <li><latex>R = \sqrt{(-21.61)^2 + (6.90)^2} = \sqrt{466.99 + 47.61} = 22.7</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>22.7 units</b> at an angle of <b>162.3^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>22.7 units</b> at an angle of <b><latex>162.3^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -352,32 +352,32 @@ questions:
       text: |
         You are given three vectors:
         <ul>
-        <li>Vector <latex>\vec{A}</latex>: 12.0 units at <b>-68^\circ from the positive x-axis</b></li>
-        <li>Vector <latex>\vec{B}</latex>: 8.0 units at <b>-56^\circ from the positive y-axis</b></li>
-        <li>Vector <latex>\vec{C}</latex>: 11.0 units at <b>151^\circ from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{A}</latex>: 12.0 units at <b><latex>-68^\circ</latex> from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{B}</latex>: 8.0 units at <b><latex>-56^\circ</latex> from the positive y-axis</b></li>
+        <li>Vector <latex>\vec{C}</latex>: 11.0 units at <b><latex>151^\circ</latex> from the positive x-axis</b></li>
         </ul>
         Calculate the resultant vector <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>. Select the choice with the correct resultant magnitude and direction.
       figure: figure_folder/q-5.png
       answers:
         - answer:
-            text: Magnitude = 24.0 units, Angle = 330.0^\circ
+            text: Magnitude = 24.0 units, Angle = <latex>330.0^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 3: Calculation error (swapped A components: Ax=-11.14, Ay=4.50). Result: R_x = 5.14, R_y = 3.64 -> Mag=6.3, Angle=35.3^\circ
-            text: Magnitude = 6.3 units, Angle = 35.3^\circ
+            text: Magnitude = 6.3 units, Angle = <latex>35.3^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (12.0 + 8.0 + 11.0 = 31.0) with random angle.
-            text: Magnitude = 31.0 units, Angle = 100.0^\circ
+            text: Magnitude = 31.0 units, Angle = <latex>100.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 1 (31.0) with different random angle.
-            text: Magnitude = 31.0 units, Angle = 200.0^\circ
+            text: Magnitude = 31.0 units, Angle = <latex>200.0^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -68^\circ + 360^\circ = 292^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + (-56^\circ) = 34^\circ</latex></li>
@@ -408,7 +408,7 @@ questions:
           <li><latex>R = \sqrt{(20.78)^2 + (-12.00)^2} = \sqrt{431.81 + 144.00} = 24.0</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>24.0 units</b> at an angle of <b>330.0^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>24.0 units</b> at an angle of <b><latex>330.0^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -419,32 +419,32 @@ questions:
       text: |
         Consider the following three vectors:
         <ul>
-        <li>Vector <latex>\vec{A}</latex> has a magnitude of 16.0 units at <b>-294^\circ from the positive x-axis</b>.</li>
-        <li>Vector <latex>\vec{B}</latex> has a magnitude of 10.0 units at <b>111^\circ from the positive y-axis</b>.</li>
-        <li>Vector <latex>\vec{C}</latex> has a magnitude of 5.0 units at <b>308^\circ from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{A}</latex> has a magnitude of 16.0 units at <b><latex>-294^\circ</latex> from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> has a magnitude of 10.0 units at <b><latex>111^\circ</latex> from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> has a magnitude of 5.0 units at <b><latex>308^\circ</latex> from the positive x-axis</b>.</li>
         </ul>
         Find the resultant vector <latex>\vec{R}</latex> from the operation <latex>\vec{R} = \vec{C} - \vec{A} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle for <latex>\vec{R}</latex>.
       figure: figure_folder/q-6.png
       answers:
         - answer:
-            text: Magnitude = 16.1 units, Angle = 291.5^\circ
+            text: Magnitude = 16.1 units, Angle = <latex>291.5^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 3: Calculation error (swapped B components: Bx=-3.58, By=-9.34). Result: R_x = 0.15, R_y = -9.22 -> Mag=9.2, Angle=270.9^\circ
-            text: Magnitude = 9.2 units, Angle = 270.9^\circ
+            text: Magnitude = 9.2 units, Angle = <latex>270.9^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (16.0 + 10.0 + 5.0 = 31.0) with random angle.
-            text: Magnitude = 31.0 units, Angle = 150.0^\circ
+            text: Magnitude = 31.0 units, Angle = <latex>150.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 3 (9.2) with different random angle.
-            text: Magnitude = 9.2 units, Angle = 45.0^\circ
+            text: Magnitude = 9.2 units, Angle = <latex>45.0^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -294^\circ + 360^\circ = 66^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 111^\circ = 201^\circ</latex></li>
@@ -475,7 +475,7 @@ questions:
           <li><latex>R = \sqrt{(5.91)^2 + (-14.98)^2} = \sqrt{34.93 + 224.40} = 16.1</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>16.1 units</b> at an angle of <b>291.5^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>16.1 units</b> at an angle of <b><latex>291.5^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -486,32 +486,32 @@ questions:
       text: |
         Three vectors are defined as follows:
         <ul>
-        <li><latex>\vec{A}</latex>: 7.0 units at <b>-21^\circ from the positive x-axis</b></li>
-        <li><latex>\vec{B}</latex>: 13.0 units at <b>46^\circ from the positive y-axis</b></li>
-        <li><latex>\vec{C}</latex>: 15.0 units at <b>241^\circ from the positive x-axis</b></li>
+        <li><latex>\vec{A}</latex>: 7.0 units at <b><latex>-21^\circ</latex> from the positive x-axis</b></li>
+        <li><latex>\vec{B}</latex>: 13.0 units at <b><latex>46^\circ</latex> from the positive y-axis</b></li>
+        <li><latex>\vec{C}</latex>: 15.0 units at <b><latex>241^\circ</latex> from the positive x-axis</b></li>
         </ul>
         What is the resultant vector <latex>\vec{R}</latex> if <latex>\vec{R} = \vec{B} - \vec{A} - \vec{C}</latex>? Select the choice with the correct resultant magnitude and direction.
       figure: figure_folder/q-7.png
       answers:
         - answer:
-            text: Magnitude = 26.2 units, Angle = 109.2^\circ
+            text: Magnitude = 26.2 units, Angle = <latex>109.2^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (7.0 + 13.0 + 15.0 = 35.0) with random angle.
-            text: Magnitude = 35.0 units, Angle = 300.0^\circ
+            text: Magnitude = 35.0 units, Angle = <latex>300.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 1 (35.0) with different random angle.
-            text: Magnitude = 35.0 units, Angle = 20.0^\circ
+            text: Magnitude = 35.0 units, Angle = <latex>20.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 3: Calculation error (swapped A components: Ax=-2.57, Ay=6.52). Result: R_x = 0.49, R_y = 15.63 -> Mag=15.6, Angle=88.2^\circ
-            text: Magnitude = 15.6 units, Angle = 88.2^\circ
+            text: Magnitude = 15.6 units, Angle = <latex>88.2^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -21^\circ + 360^\circ = 339^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 46^\circ = 136^\circ</latex></li>
@@ -541,7 +541,7 @@ questions:
           <li><latex>R = \sqrt{(-8.60)^2 + (24.72)^2} = \sqrt{73.96 + 611.08} = 26.2</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>26.2 units</b> at an angle of <b>109.2^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>26.2 units</b> at an angle of <b><latex>109.2^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -552,32 +552,32 @@ questions:
       text: |
         Given vectors <latex>\vec{A}</latex>, <latex>\vec{B}</latex>, and <latex>\vec{C}</latex>:
         <ul>
-        <li>Vector <latex>\vec{A}</latex> is 14.0 units at <b>-228^\circ from the positive x-axis</b>.</li>
-        <li>Vector <latex>\vec{B}</latex> is 6.0 units at <b>168^\circ from the positive y-axis</b>.</li>
-        <li>Vector <latex>\vec{C}</latex> is 8.0 units at <b>12^\circ from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{A}</latex> is 14.0 units at <b><latex>-228^\circ</latex> from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> is 6.0 units at <b><latex>168^\circ</latex> from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> is 8.0 units at <b><latex>12^\circ</latex> from the positive x-axis</b>.</li>
         </ul>
         Calculate the resultant vector <latex>\vec{R}</latex> where <latex>\vec{R} = \vec{A} + \vec{C} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle.
       figure: figure_folder/q-8.png
       answers:
         - answer:
-            text: Magnitude = 17.9 units, Angle = 90.9^\circ
+            text: Magnitude = 17.9 units, Angle = <latex>90.9^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (14.0 + 6.0 + 8.0 = 28.0) with random angle.
-            text: Magnitude = 28.0 units, Angle = 200.0^\circ
+            text: Magnitude = 28.0 units, Angle = <latex>200.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 3: Calculation error (swapped A components: Ax=10.40, Ay=-9.37). Result: R_x = 19.48, R_y = -1.84 -> Mag=19.6, Angle=354.6^\circ
-            text: Magnitude = 19.6 units, Angle = 354.6^\circ
+            text: Magnitude = 19.6 units, Angle = <latex>354.6^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 3 (19.6) with different random angle.
-            text: Magnitude = 19.6 units, Angle = 135.0^\circ
+            text: Magnitude = 19.6 units, Angle = <latex>135.0^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -228^\circ + 360^\circ = 132^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 168^\circ = 258^\circ</latex></li>
@@ -607,7 +607,7 @@ questions:
           <li><latex>R = \sqrt{(-0.29)^2 + (17.93)^2} = \sqrt{0.084 + 321.48} = 17.9</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>17.9 units</b> at an angle of <b>90.9^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>17.9 units</b> at an angle of <b><latex>90.9^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -618,32 +618,32 @@ questions:
       text: |
         You are given three vectors:
         <ul>
-        <li>Vector <latex>\vec{A}</latex>: Magnitude = 10.0 units, Angle = <b>-314^\circ from the positive x-axis</b></li>
-        <li>Vector <latex>\vec{B}</latex>: Magnitude = 9.0 units, Angle = <b>63^\circ from the positive y-axis</b></li>
-        <li>Vector <latex>\vec{C}</latex>: Magnitude = 16.0 units, Angle = <b>322^\circ from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{A}</latex>: Magnitude = 10.0 units, Angle = <b><latex>-314^\circ</latex> from the positive x-axis</b></li>
+        <li>Vector <latex>\vec{B}</latex>: Magnitude = 9.0 units, Angle = <b><latex>63^\circ</latex> from the positive y-axis</b></li>
+        <li>Vector <latex>\vec{C}</latex>: Magnitude = 16.0 units, Angle = <b><latex>322^\circ</latex> from the positive x-axis</b></li>
         </ul>
         Determine the resultant vector <latex>\vec{R}</latex> from the operation <latex>\vec{R} = \vec{A} + \vec{B} - \vec{C}</latex>. Select the choice with the correct resultant magnitude and direction.
       figure: figure_folder/q-9.png
       answers:
         - answer:
-            text: Magnitude = 25.2 units, Angle = 122.9^\circ
+            text: Magnitude = 25.2 units, Angle = <latex>122.9^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (10.0 + 9.0 + 16.0 = 35.0) with random angle.
-            text: Magnitude = 35.0 units, Angle = 330.0^\circ
+            text: Magnitude = 35.0 units, Angle = <latex>330.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 1 (35.0) with different random angle.
-            text: Magnitude = 35.0 units, Angle = 210.0^\circ
+            text: Magnitude = 35.0 units, Angle = <latex>210.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 3: Calculation error (swapped B components: Bx=4.09, By=-8.02). Result: R_x = -1.57, R_y = 9.02 -> Mag=9.2, Angle=99.9^\circ
-            text: Magnitude = 9.2 units, Angle = 99.9^\circ
+            text: Magnitude = 9.2 units, Angle = <latex>99.9^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -314^\circ + 360^\circ = 46^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 63^\circ = 153^\circ</latex></li>
@@ -673,7 +673,7 @@ questions:
           <li><latex>R = \sqrt{(-13.68)^2 + (21.13)^2} = \sqrt{187.14 + 446.48} = 25.2</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>25.2 units</b> at an angle of <b>122.9^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>25.2 units</b> at an angle of <b><latex>122.9^\circ</latex></b>.
         on_correct:
         on_incorrect:
 
@@ -684,32 +684,32 @@ questions:
       text: |
         Consider the following three vectors:
         <ul>
-        <li>Vector <latex>\vec{A}</latex> has a magnitude of 5.0 units at <b>-155^\circ from the positive x-axis</b>.</li>
-        <li>Vector <latex>\vec{B}</latex> has a magnitude of 12.0 units at <b>211^\circ from the positive y-axis</b>.</li>
-        <li>Vector <latex>\vec{C}</latex> has a magnitude of 15.0 units at <b>79^\circ from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{A}</latex> has a magnitude of 5.0 units at <b><latex>-155^\circ</latex> from the positive x-axis</b>.</li>
+        <li>Vector <latex>\vec{B}</latex> has a magnitude of 12.0 units at <b><latex>211^\circ</latex> from the positive y-axis</b>.</li>
+        <li>Vector <latex>\vec{C}</latex> has a magnitude of 15.0 units at <b><latex>79^\circ</latex> from the positive x-axis</b>.</li>
         </ul>
         Find the resultant vector <latex>\vec{R}</latex> for <latex>\vec{R} = \vec{C} + \vec{A} - \vec{B}</latex>. Choose the option that has the correct magnitude and angle for <latex>\vec{R}</latex>.
       figure: figure_folder/q-10.png
       answers:
         - answer:
-            text: Magnitude = 24.2 units, Angle = 108.9^\circ
+            text: Magnitude = 24.2 units, Angle = <latex>108.9^\circ</latex>
             correct: true
         - answer:
             # Distractor Type 3: Calculation error (swapped C components: Cx=14.72, Cy=2.86). Result: R_x = 4.01, R_y = 11.04 -> Mag=11.8, Angle=70.0^\circ
-            text: Magnitude = 11.8 units, Angle = 70.0^\circ
+            text: Magnitude = 11.8 units, Angle = <latex>70.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 2: Copied magnitude from Type 3 (11.8) with different random angle.
-            text: Magnitude = 11.8 units, Angle = 30.0^\circ
+            text: Magnitude = 11.8 units, Angle = <latex>30.0^\circ</latex>
             correct: false
         - answer:
             # Distractor Type 1: Scalar sum of magnitudes (5.0 + 12.0 + 15.0 = 32.0) with random angle.
-            text: Magnitude = 32.0 units, Angle = 270.0^\circ
+            text: Magnitude = 32.0 units, Angle = <latex>270.0^\circ</latex>
             correct: false
       feedback:
         general: |
           <h4>Preliminary Step: Convert to Standard Angles</h4>
-          First, convert each vector's angle to the standard format (0^\circ to 360^\circ, counter-clockwise from the positive x-axis).
+          First, convert each vector's angle to the standard format (<latex>0^\circ</latex> to <latex>360^\circ</latex>, counter-clockwise from the positive x-axis).
           <ul>
           <li><b>Vector <latex>\vec{A}</latex>:</b> <latex>\theta_A = -155^\circ + 360^\circ = 205^\circ</latex></li>
           <li><b>Vector <latex>\vec{B}</latex>:</b> <latex>\theta_B = 90^\circ + 211^\circ = 301^\circ</latex></li>
@@ -739,6 +739,6 @@ questions:
           <li><latex>R = \sqrt{(-7.85)^2 + (22.90)^2} = \sqrt{61.62 + 524.41} = 24.2</latex> units</li>
           </ul>
           <h4>5. Final Answer</h4>
-          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>24.2 units</b> at an angle of <b>108.9^\circ</b>.
+          The resultant vector <latex>\vec{R}</latex> has a magnitude of <b>24.2 units</b> at an angle of <b><latex>108.9^\circ</latex></b>.
         on_correct:
         on_incorrect:
