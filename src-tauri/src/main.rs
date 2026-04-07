@@ -420,6 +420,78 @@ fn build_key_md(cart: &Value, version: i64, title: &str) -> String {
     )
 }
 
+/// Build a full exam as Markdown with unicode math so Word Online renders it without
+/// [Equation] placeholders. Less pretty than LaTeX but actually readable.
+fn build_exam_md(cart: &Value, version: i64, title: &str) -> String {
+    let mut parts: Vec<String> = Vec::new();
+    let mut q_num = 0usize;
+
+    if let Some(arr) = cart.as_array() {
+        for item in arr {
+            let raw = item.get("rawData").cloned().unwrap_or(json!({}));
+            let questions = raw.get("questions").and_then(|v| v.as_array()).cloned().unwrap_or_default();
+            if questions.is_empty() { continue; }
+
+            let qn = item.get("qn").and_then(|v| v.as_i64()).unwrap_or(1).max(1) as usize;
+            let n = questions.len();
+            let start = (((version - 1) as usize * qn) % n) as usize;
+
+            for i in 0..qn {
+                let q = &questions[(start + i) % n];
+                let qtype = get_qtype(q);
+                let qdata = q.get(&qtype).cloned().unwrap_or(json!({}));
+                q_num += 1;
+
+                // Question text — strip LaTeX tags, convert math to unicode
+                let raw_text = qdata.get("text").and_then(|v| v.as_str()).unwrap_or("");
+                // strip <latex>...</latex> wrapping to bare math, then unicode-ify
+                let text = Regex::new(r"(?s)<latex>(.*?)</latex>").unwrap()
+                    .replace_all(raw_text, |caps: &regex::Captures| {
+                        latex_to_unicode(&caps[1])
+                    }).to_string();
+                // strip remaining HTML tags
+                let text = Regex::new(r"<[^>]+>").unwrap().replace_all(&text, "").to_string();
+                // convert any remaining $...$ inline math
+                let text = Regex::new(r"\$\$([^$]*)\$\$").unwrap()
+                    .replace_all(&text, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
+                let text = Regex::new(r"\$([^$]*)\$").unwrap()
+                    .replace_all(&text, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
+
+                let mut block = format!("**{}. ({})** {}\n", q_num, type_label(qtype.as_str()), text.trim());
+
+                if qtype == "multiple_choice" || qtype == "multiple_answers" {
+                    let ans_val = qdata.get("answers").cloned().unwrap_or(json!([]));
+                    let mut answer_list = extract_mc_answers(&ans_val);
+                    if !answers_have_lock(&ans_val) {
+                        seeded_shuffle(&mut answer_list, version as u64 * 10000 + q_num as u64);
+                    }
+                    for (j, (_, atxt, _)) in answer_list.iter().enumerate() {
+                        let letter = (b'A' + j as u8) as char;
+                        // same conversion for answer text
+                        let atxt = Regex::new(r"(?s)<latex>(.*?)</latex>").unwrap()
+                            .replace_all(atxt, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
+                        let atxt = Regex::new(r"<[^>]+>").unwrap().replace_all(&atxt, "").to_string();
+                        let atxt = Regex::new(r"\$([^$]*)\$").unwrap()
+                            .replace_all(&atxt, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
+                        block.push_str(&format!("   {}. {}\n", letter, atxt.trim()));
+                    }
+                } else if qtype == "true_false" {
+                    block.push_str("   A. True\n   B. False\n");
+                } else {
+                    block.push_str("\n_Work space_\n");
+                }
+
+                parts.push(block);
+            }
+        }
+    }
+
+    format!(
+        "# {} \u{2014} Version {}\n\n---\n\nName: __________________________ Score: ______\n\n---\n\n{}\n",
+        title, version_label(version), parts.join("\n")
+    )
+}
+
 fn type_label(qtype: &str) -> &str {
     match qtype {
         "numerical" => "Numerical",
@@ -1277,12 +1349,12 @@ fn export_docx(cart: Value, version: i64, title: String, kind: String, folder: O
             return Err(format!("Pandoc error: {}", String::from_utf8_lossy(&output.stderr).trim()));
         }
     } else {
-        // Full exam: LaTeX → OMML equations. Renders correctly in desktop Word.
-        let tex = build_exam_latex(&cart, version, &title);
-        let tex_path = tmp_dir.join("export_exam.tex");
-        std::fs::write(&tex_path, &tex).map_err(|e| e.to_string())?;
+        // Full exam: Markdown with unicode math so Word Online renders without [Equation] placeholders.
+        let md = build_exam_md(&cart, version, &title);
+        let md_path = tmp_dir.join("export_exam.md");
+        std::fs::write(&md_path, &md).map_err(|e| e.to_string())?;
         let output = std::process::Command::new(&pandoc)
-            .arg(&tex_path)
+            .arg(&md_path)
             .arg("-o").arg(&docx_path)
             .arg("--standalone")
             .output()
