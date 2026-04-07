@@ -45,6 +45,34 @@ jobs:
         with:
           workspaces: src-tauri
 
+      - name: Install pandoc (Linux)
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          VER=$(curl -fsSL https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.tag_name')
+          curl -fsSL "https://github.com/jgm/pandoc/releases/download/${VER}/pandoc-${VER}-linux-amd64.tar.gz" -o pandoc.tar.gz
+          tar xzf pandoc.tar.gz
+          mkdir -p src-tauri/binaries
+          mv "pandoc-${VER}/bin/pandoc" "src-tauri/binaries/pandoc-x86_64-unknown-linux-gnu"
+
+      - name: Install pandoc (Windows)
+        if: matrix.platform == 'windows-latest'
+        shell: pwsh
+        run: |
+          $ver = (Invoke-RestMethod "https://api.github.com/repos/jgm/pandoc/releases/latest").tag_name
+          Invoke-WebRequest "https://github.com/jgm/pandoc/releases/download/$ver/pandoc-$ver-windows-x86_64.zip" -OutFile pandoc.zip
+          Expand-Archive pandoc.zip -DestinationPath pandoc-tmp
+          New-Item -ItemType Directory -Force -Path src-tauri/binaries | Out-Null
+          Copy-Item "pandoc-tmp/pandoc-$ver/pandoc.exe" "src-tauri/binaries/pandoc-x86_64-pc-windows-msvc.exe"
+
+      - name: Install pandoc (macOS)
+        if: matrix.platform == 'macos-latest'
+        run: |
+          brew install pandoc
+          mkdir -p src-tauri/binaries
+          # Note: on arm64 runners building x86_64 target, this bundles an arm64 pandoc.
+          # System pandoc is used as fallback at runtime on Intel Macs.
+          cp "$(brew --prefix)/bin/pandoc" "src-tauri/binaries/pandoc-${{ matrix.rust-target }}"
+
       - name: Install Node + Tauri CLI
         run: npm install
 

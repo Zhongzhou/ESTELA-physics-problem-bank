@@ -732,7 +732,10 @@ function updateExportBtns() {
     row('Export Bundle', `<button class="btn btn-xs btn-p" onclick="doExportBundle()">⬇ Export All (Exams + Keys + Images)</button>`) +
     row('Export single .tex',
       vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('exam')})">Exam ${versionLabel(v)}</button>`).join('') +
-      vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">Key ${versionLabel(v)}</button>`).join(''));
+      vs.map(v=>`<button class="btn btn-xs" onclick="doTex(${v},${attr('key')})">Key ${versionLabel(v)}</button>`).join('')) +
+    row('Export .docx (Word)',
+      vs.map(v=>`<button class="btn btn-xs" onclick="doDocx(${v},${attr('exam')})">Exam ${versionLabel(v)}</button>`).join('') +
+      vs.map(v=>`<button class="btn btn-xs" onclick="doDocx(${v},${attr('key')})">Key ${versionLabel(v)}</button>`).join(''));
 }
 
 function _cartBody() {
@@ -792,6 +795,19 @@ async function doTexAll() {
     }
     const saved = await window.__TAURI__.core.invoke('save_tex_batch', {files, folder});
     toast(`Saved ${saved.length} files to ${folder}`);
+  } catch(e) { toast('Export failed: ' + e); }
+}
+
+async function doDocx(version, kind) {
+  const title = document.getElementById('exam-title').value || 'Exam';
+  const folder = await pickSaveFolder();
+  if (!folder) return;
+  toast('Building .docx…');
+  try {
+    const savedPath = await window.__TAURI__.core.invoke('export_docx', {
+      cart: _cartBody(), version, title, kind, folder
+    });
+    toast('Saved to ' + savedPath);
   } catch(e) { toast('Export failed: ' + e); }
 }
 

@@ -1097,6 +1097,61 @@ fn open_preview(html: String) -> Result<(), String> {
     open::that(path).map_err(|e| e.to_string())
 }
 
+fn find_pandoc() -> PathBuf {
+    let bin = if cfg!(windows) { "pandoc.exe" } else { "pandoc" };
+    // Production: bundled next to the executable
+    if let Ok(exe) = std::env::current_exe() {
+        if let Some(dir) = exe.parent() {
+            let p = dir.join(bin);
+            if p.exists() { return p; }
+        }
+    }
+    // Fall back to system pandoc on PATH
+    PathBuf::from(bin)
+}
+
+#[tauri::command]
+fn export_docx(cart: Value, version: i64, title: String, kind: String, folder: Option<String>) -> Result<String, String> {
+    let tex = if kind == "key" {
+        build_key_latex(&cart, version, &title)
+    } else {
+        build_exam_latex(&cart, version, &title)
+    };
+
+    let tmp_dir = std::env::temp_dir().join("estela");
+    std::fs::create_dir_all(&tmp_dir).map_err(|e| e.to_string())?;
+    let tex_path = tmp_dir.join("export_tmp.tex");
+    std::fs::write(&tex_path, &tex).map_err(|e| e.to_string())?;
+
+    let out_dir = if let Some(f) = folder {
+        PathBuf::from(f)
+    } else {
+        dirs::download_dir()
+            .or_else(|| dirs::home_dir().map(|h| h.join("Downloads")))
+            .unwrap_or_else(std::env::temp_dir)
+    };
+    std::fs::create_dir_all(&out_dir).map_err(|e| e.to_string())?;
+
+    let fname = format!("{}_{}.docx", kind, version_label(version));
+    let docx_path = out_dir.join(&fname);
+
+    let pandoc = find_pandoc();
+    let output = std::process::Command::new(&pandoc)
+        .arg(&tex_path)
+        .arg("-o")
+        .arg(&docx_path)
+        .arg("--standalone")
+        .output()
+        .map_err(|e| format!("Failed to run pandoc ({}): {}", pandoc.display(), e))?;
+
+    if !output.status.success() {
+        let stderr = String::from_utf8_lossy(&output.stderr);
+        return Err(format!("Pandoc error: {}", stderr.trim()));
+    }
+
+    Ok(docx_path.to_string_lossy().to_string())
+}
+
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
@@ -1128,7 +1183,7 @@ fn main() {
                     .unwrap(),
             }
         })
-        .invoke_handler(tauri::generate_handler![scan_repo, bank_data, export_tex, export_html, open_preview, save_tex, save_tex_batch, export_exam_bundle, fetch_remote_courses, download_courses])
+        .invoke_handler(tauri::generate_handler![scan_repo, bank_data, export_tex, export_html, open_preview, save_tex, save_tex_batch, export_exam_bundle, export_docx, fetch_remote_courses, download_courses])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
