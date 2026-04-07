@@ -293,8 +293,37 @@ fn tol_str_plain(tol: &str, margin_type: &str) -> String {
     format!(" ± {}{}", tol, pct)
 }
 
+fn unicode_subscript(c: char) -> Option<char> {
+    match c {
+        '0'=>Some('₀'),'1'=>Some('₁'),'2'=>Some('₂'),'3'=>Some('₃'),'4'=>Some('₄'),
+        '5'=>Some('₅'),'6'=>Some('₆'),'7'=>Some('₇'),'8'=>Some('₈'),'9'=>Some('₉'),
+        'a'=>Some('ₐ'),'e'=>Some('ₑ'),'o'=>Some('ₒ'),'x'=>Some('ₓ'),
+        'i'=>Some('ᵢ'),'r'=>Some('ᵣ'),'u'=>Some('ᵤ'),'v'=>Some('ᵥ'),
+        _ => None,
+    }
+}
+
+fn unicode_superscript(c: char) -> Option<char> {
+    match c {
+        '0'=>Some('⁰'),'1'=>Some('¹'),'2'=>Some('²'),'3'=>Some('³'),'4'=>Some('⁴'),
+        '5'=>Some('⁵'),'6'=>Some('⁶'),'7'=>Some('⁷'),'8'=>Some('⁸'),'9'=>Some('⁹'),
+        'n'=>Some('ⁿ'),'i'=>Some('ⁱ'),
+        _ => None,
+    }
+}
+
+fn apply_script(content: &str, sup: bool) -> String {
+    if content.len() == 1 {
+        let c = content.chars().next().unwrap();
+        let mapped = if sup { unicode_superscript(c) } else { unicode_subscript(c) };
+        if let Some(u) = mapped { return u.to_string(); }
+    }
+    if sup { format!("^({})", content) } else { format!("({})", content) }
+}
+
 /// Convert simple LaTeX math to readable unicode plain text.
-/// Good enough for physics answer values (numbers, greek, operators).
+/// Subscripts/superscripts become unicode characters so no raw `_` or `^`
+/// survive to confuse Markdown parsers.
 fn latex_to_unicode(s: &str) -> String {
     let s = s
         // strip math delimiters
@@ -302,57 +331,55 @@ fn latex_to_unicode(s: &str) -> String {
         .replace("\\(", "").replace("\\)", "")
         .replace("\\[", "").replace("\\]", "")
         // greek lowercase
-        .replace("\\alpha", "α").replace("\\beta", "β")
-        .replace("\\gamma", "γ").replace("\\delta", "δ")
-        .replace("\\epsilon", "ε").replace("\\varepsilon", "ε")
-        .replace("\\zeta", "ζ").replace("\\eta", "η")
-        .replace("\\theta", "θ").replace("\\vartheta", "θ")
-        .replace("\\iota", "ι").replace("\\kappa", "κ")
-        .replace("\\lambda", "λ").replace("\\mu", "μ")
-        .replace("\\nu", "ν").replace("\\xi", "ξ")
-        .replace("\\pi", "π").replace("\\rho", "ρ")
-        .replace("\\sigma", "σ").replace("\\tau", "τ")
-        .replace("\\upsilon", "υ").replace("\\phi", "φ")
-        .replace("\\chi", "χ").replace("\\psi", "ψ")
-        .replace("\\omega", "ω")
+        .replace("\\alpha","α").replace("\\beta","β").replace("\\gamma","γ")
+        .replace("\\delta","δ").replace("\\epsilon","ε").replace("\\varepsilon","ε")
+        .replace("\\zeta","ζ").replace("\\eta","η").replace("\\theta","θ")
+        .replace("\\vartheta","θ").replace("\\iota","ι").replace("\\kappa","κ")
+        .replace("\\lambda","λ").replace("\\mu","μ").replace("\\nu","ν")
+        .replace("\\xi","ξ").replace("\\pi","π").replace("\\rho","ρ")
+        .replace("\\sigma","σ").replace("\\tau","τ").replace("\\upsilon","υ")
+        .replace("\\phi","φ").replace("\\varphi","φ").replace("\\chi","χ")
+        .replace("\\psi","ψ").replace("\\omega","ω")
         // greek uppercase
-        .replace("\\Gamma", "Γ").replace("\\Delta", "Δ")
-        .replace("\\Theta", "Θ").replace("\\Lambda", "Λ")
-        .replace("\\Xi", "Ξ").replace("\\Pi", "Π")
-        .replace("\\Sigma", "Σ").replace("\\Upsilon", "Υ")
-        .replace("\\Phi", "Φ").replace("\\Psi", "Ψ")
-        .replace("\\Omega", "Ω")
+        .replace("\\Gamma","Γ").replace("\\Delta","Δ").replace("\\Theta","Θ")
+        .replace("\\Lambda","Λ").replace("\\Xi","Ξ").replace("\\Pi","Π")
+        .replace("\\Sigma","Σ").replace("\\Upsilon","Υ").replace("\\Phi","Φ")
+        .replace("\\Psi","Ψ").replace("\\Omega","Ω")
         // operators / symbols
-        .replace("\\pm", "±").replace("\\mp", "∓")
-        .replace("\\times", "×").replace("\\cdot", "·")
-        .replace("\\div", "÷").replace("\\infty", "∞")
-        .replace("\\approx", "≈").replace("\\neq", "≠")
-        .replace("\\leq", "≤").replace("\\geq", "≥")
-        .replace("\\ll", "«").replace("\\gg", "»")
-        .replace("\\rightarrow", "→").replace("\\leftarrow", "←")
-        .replace("\\Rightarrow", "⇒").replace("\\Leftarrow", "⇐")
-        .replace("\\nabla", "∇").replace("\\partial", "∂")
-        .replace("\\hbar", "ℏ").replace("\\degree", "°")
-        .replace("^\\circ", "°").replace("\\circ", "°")
-        .replace("\\vec", "").replace("\\hat", "")
-        .replace("\\tilde", "").replace("\\bar", "")
-        .replace("\\dot", "").replace("\\ddot", "");
+        .replace("\\pm","±").replace("\\mp","∓").replace("\\times","×")
+        .replace("\\cdot","·").replace("\\div","÷").replace("\\infty","∞")
+        .replace("\\approx","≈").replace("\\neq","≠").replace("\\leq","≤")
+        .replace("\\geq","≥").replace("\\ll","«").replace("\\gg","»")
+        .replace("\\rightarrow","→").replace("\\leftarrow","←")
+        .replace("\\Rightarrow","⇒").replace("\\Leftarrow","⇐")
+        .replace("\\nabla","∇").replace("\\partial","∂").replace("\\hbar","ℏ")
+        .replace("\\degree","°").replace("^\\circ","°").replace("\\circ","°")
+        .replace("\\vec","").replace("\\hat","").replace("\\tilde","")
+        .replace("\\bar","").replace("\\dot","").replace("\\ddot","");
 
-    // \text{...} → content
+    // \text{...} / \mathrm{...} etc. → content
     let s = Regex::new(r"\\(?:text|mathrm|mathbf|mathit|operatorname)\{([^}]*)\}")
         .unwrap().replace_all(&s, "$1").to_string();
-    // \frac{a}{b} → a/b
+    // \frac{a}{b} → (a)/(b)
     let s = Regex::new(r"\\frac\{([^}]*)\}\{([^}]*)\}")
         .unwrap().replace_all(&s, "($1)/($2)").to_string();
-    // \sqrt{x} → √x
+    // \sqrt{x} → √(x)
     let s = Regex::new(r"\\sqrt\{([^}]*)\}")
         .unwrap().replace_all(&s, "√($1)").to_string();
     let s = s.replace("\\sqrt", "√");
-    // ^{n} / _{n} - strip braces, keep content
-    let s = s.replace("^{", "^").replace("_{", "_");
-    // strip remaining LaTeX commands
+    // ^{...} → unicode superscript or ^(...)
+    let s = Regex::new(r"\^\{([^}]*)\}").unwrap()
+        .replace_all(&s, |caps: &regex::Captures| apply_script(&caps[1], true)).to_string();
+    // _{...} → unicode subscript or (...)
+    let s = Regex::new(r"_\{([^}]*)\}").unwrap()
+        .replace_all(&s, |caps: &regex::Captures| apply_script(&caps[1], false)).to_string();
+    // bare ^x and _x (single char, no braces)
+    let s = Regex::new(r"\^(\w)").unwrap()
+        .replace_all(&s, |caps: &regex::Captures| apply_script(&caps[1], true)).to_string();
+    let s = Regex::new(r"_(\w)").unwrap()
+        .replace_all(&s, |caps: &regex::Captures| apply_script(&caps[1], false)).to_string();
+    // strip remaining LaTeX commands and stray braces
     let s = Regex::new(r"\\[a-zA-Z]+").unwrap().replace_all(&s, "").to_string();
-    // strip stray braces
     let s = s.replace('{', "").replace('}', "");
     Regex::new(r"\s+").unwrap().replace_all(s.trim(), " ").to_string()
 }
@@ -487,7 +514,7 @@ fn build_exam_md(cart: &Value, version: i64, title: &str) -> String {
     }
 
     format!(
-        "# {} \u{2014} Version {}\n\n---\n\nName: __________________________ Score: ______\n\n---\n\n{}\n",
+        "# {} \u{2014} Version {}\n\n**Name:** __________________________ \u{a0}\u{a0}\u{a0} **Score:** ______\n\n\n{}\n",
         title, version_label(version), parts.join("\n")
     )
 }
