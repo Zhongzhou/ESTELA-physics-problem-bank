@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ESTELA Exam Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafaf8;--bg2:#f3f2ee;--bg3:#e8e6de;
+  --ink:#1a1916;--ink2:#3d3b35;--ink3:#6b6860;--ink4:#9b9890;
+  --accent:#c8391a;--border:#d8d6ce;
+  --font-d:'DM Serif Display',Georgia,serif;
+  --font-b:'DM Sans',system-ui,sans-serif;
+  --font-m:'DM Mono','Courier New',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Nav */
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:.7rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:var(--font-d);font-size:1.1rem;color:var(--ink);text-decoration:none}
+.nav-logo em{font-style:normal;color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{font-size:.9rem;color:var(--ink3);text-decoration:none;font-family:var(--font-m)}
+.nav-links a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{max-width:820px;margin:0 auto;padding:5rem 2rem 4rem;text-align:center}
+.hero-badge{font-family:var(--font-m);font-size:.82rem;color:var(--accent);background:rgba(200,57,26,.07);border:1px solid rgba(200,57,26,.2);border-radius:20px;padding:.2rem .75rem;display:inline-block;margin-bottom:1.5rem;letter-spacing:.05em;text-transform:uppercase}
+.hero h1{font-family:var(--font-d);font-size:3rem;line-height:1.15;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.2rem}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{font-size:1.1rem;color:var(--ink3);max-width:540px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.3rem;border-radius:8px;font-family:var(--font-b);font-size:.95rem;font-weight:500;text-decoration:none;cursor:pointer;transition:all .15s}
+.btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent);box-shadow:0 2px 8px rgba(200,57,26,.25)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-secondary{background:var(--bg2);color:var(--ink2);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--bg3)}
+
+/* Downloads */
+.section{max-width:820px;margin:0 auto;padding:3rem 2rem}
+.section-title{font-family:var(--font-d);font-size:1.7rem;letter-spacing:-.02em;margin-bottom:.4rem}
+.section-sub{font-size:.95rem;color:var(--ink3);margin-bottom:2rem}
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem}
+.dl-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem}
+.dl-os{font-family:var(--font-m);font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink4)}
+.dl-name{font-weight:600;font-size:1rem;color:var(--ink)}
+.dl-desc{font-size:.87rem;color:var(--ink3);flex:1}
+.dl-btn{display:inline-flex;align-items:center;gap:.35rem;margin-top:.4rem;padding:.42rem .85rem;background:var(--accent);color:#fff;border-radius:6px;font-size:.88rem;font-weight:500;text-decoration:none;width:fit-content;transition:filter .15s}
+.dl-btn:hover{filter:brightness(1.08)}
+.dl-btn.secondary{background:var(--bg2);color:var(--ink2);border:1px solid var(--border)}
+.dl-btn.secondary:hover{background:var(--bg3)}
+.dl-btn[disabled]{opacity:.4;pointer-events:none}
+.version-badge{font-family:var(--font-m);font-size:.82rem;color:var(--ink4);margin-top:.2rem}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:1.2rem;margin-top:1.5rem}
+.step{display:flex;gap:1.1rem;align-items:flex-start}
+.step-n{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--font-m);font-size:.85rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem}
+.step-body h3{font-size:1rem;font-weight:600;margin-bottom:.2rem}
+.step-body p{font-size:.92rem;color:var(--ink3);line-height:1.6}
+code{font-family:var(--font-m);font-size:.88em;background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:.1em .35em}
+
+/* Divider */
+hr{border:none;border-top:1px solid var(--border);margin:0 2rem}
+
+/* Supported types */
+.types-grid{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.type-pill{font-family:var(--font-m);font-size:.82rem;padding:.18rem .5rem;border-radius:4px;background:var(--bg2);border:1px solid var(--border);color:var(--ink3)}
+
+/* Footer */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-family:var(--font-m);font-size:.85rem;color:var(--ink4)}
+footer a{color:var(--ink3);text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+#dl-loading{font-family:var(--font-m);font-size:.9rem;color:var(--ink4);padding:1rem 0}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">E<em>S</em>TELA Exam Builder</a>
+  <div class="nav-links">
+    <a href="#download">Download</a>
+    <a href="#usage">Usage</a>
+    <a href="https://github.com/Zhongzhou/ESTELA-physics-problem-bank" target="_blank">GitHub</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">UCF / NSF-2421299 &nbsp;·&nbsp; Open Source</div>
+  <h1>Build physics exams<br>from <em>isomorphic</em> problem banks</h1>
+  <p>A desktop app for UCF physics instructors. Browse the ESTELA problem bank, assemble exam carts, and export ready-to-print LaTeX or Word documents — multiple versions, shuffled choices, figures included.</p>
+  <div class="hero-btns">
+    <a href="#download" class="btn btn-primary">⬇ Download</a>
+    <a href="https://github.com/Zhongzhou/ESTELA-physics-problem-bank" class="btn btn-secondary" target="_blank">View on GitHub</a>
+  </div>
+</div>
+
+<hr>
+
+<div class="section" id="download">
+  <div class="section-title">Download</div>
+  <div class="section-sub">Pre-built binaries for all platforms. No installation of LaTeX or Python required.</div>
+  <div id="dl-loading">Fetching latest release…</div>
+  <div id="dl-grid" class="dl-grid" style="display:none"></div>
+  <p id="dl-version" class="version-badge" style="margin-top:1rem"></p>
+</div>
+
+<hr>
+
+<div class="section" id="usage">
+  <div class="section-title">Getting started</div>
+  <div class="section-sub">From download to a ready-to-print exam in under a minute.</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-body">
+        <h3>Get the problem banks</h3>
+        <p>Clone the repository or use the built-in <b>Get Problem Banks</b> panel in the app sidebar to download individual courses directly.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div class="step-body">
+        <h3>Load a repository</h3>
+        <p>Enter the path to your local clone in the <b>Repository</b> field and click <b>Load</b>. All banks are scanned automatically.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div class="step-body">
+        <h3>Add banks to your cart</h3>
+        <p>Browse by course and topic. Preview individual questions, then click <b>+ Add</b> to add a bank to the exam cart. Use the stepper to choose how many questions to pull from each bank per version.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">4</div>
+      <div class="step-body">
+        <h3>Export</h3>
+        <p>Set the exam title and number of versions. Export options:</p>
+        <ul style="margin-top:.4rem;padding-left:1.2rem;font-size:.92rem;color:var(--ink3);line-height:1.9">
+          <li><b>Preview</b> — renders the exam in your browser with KaTeX math</li>
+          <li><b>.tex</b> — LaTeX source for each exam and answer key version</li>
+          <li><b>Export Bundle</b> — all versions + keys + figures in one folder</li>
+          <li><b>.docx</b> — Word document (equations as unicode, figures embedded)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="section">
+  <div class="section-title">Supported question types</div>
+  <div class="section-sub">The following ESTELA YAML question types are supported for export.</div>
+  <div class="types-grid">
+    <span class="type-pill">Numerical</span>
+    <span class="type-pill">Multiple Choice</span>
+    <span class="type-pill">Multiple Answers</span>
+    <span class="type-pill">True / False</span>
+    <span class="type-pill">Essay</span>
+    <span class="type-pill">Formula</span>
+    <span class="type-pill">Fill-in-the-Blank</span>
+    <span class="type-pill">Ordering</span>
+    <span class="type-pill">Hot Spot</span>
+  </div>
+</div>
+
+<footer>
+  <p>ESTELA Exam Builder &nbsp;·&nbsp; UCF Department of Physics &nbsp;·&nbsp; NSF Award #2421299</p>
+  <p style="margin-top:.4rem"><a href="https://github.com/Zhongzhou/ESTELA-physics-problem-bank" target="_blank">github.com/Zhongzhou/ESTELA-physics-problem-bank</a></p>
+</footer>
+
+<script>
+const REPO = 'Zhongzhou/ESTELA-physics-problem-bank';
+
+const PLATFORMS = [
+  {
+    os: 'Linux',
+    name: 'AppImage',
+    desc: 'Universal — runs on any modern Linux distro without installation.',
+    match: a => a.name.endsWith('.AppImage'),
+    primary: true,
+  },
+  {
+    os: 'Linux',
+    name: 'Debian / Ubuntu',
+    desc: '.deb package for Debian-based systems.',
+    match: a => a.name.endsWith('.deb'),
+    primary: false,
+  },
+  {
+    os: 'Windows',
+    name: 'Installer',
+    desc: 'Windows 10/11 x64. Run the installer and launch from the Start menu.',
+    match: a => a.name.endsWith('.msi'),
+    primary: true,
+  },
+  {
+    os: 'macOS',
+    name: 'Apple Silicon (M1/M2/M3/M4)',
+    desc: 'ARM64 .app bundle. Unzip and drag to Applications.',
+    match: a => a.name.includes('aarch64') && a.name.endsWith('.zip'),
+    primary: true,
+  },
+  {
+    os: 'macOS',
+    name: 'Intel',
+    desc: 'x86_64 .app bundle for older Intel Macs. Unzip and drag to Applications.',
+    match: a => a.name.includes('x86_64') && a.name.endsWith('.zip'),
+    primary: false,
+  },
+];
+
+async function loadRelease() {
+  try {
+    const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`);
+    if (!r.ok) throw new Error('No release found');
+    const release = await r.json();
+
+    document.getElementById('dl-loading').style.display = 'none';
+    document.getElementById('dl-version').textContent =
+      `Latest: ${release.tag_name} · ${new Date(release.published_at).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})}`;
+
+    const grid = document.getElementById('dl-grid');
+    grid.style.display = 'grid';
+
+    for (const p of PLATFORMS) {
+      const asset = release.assets.find(p.match);
+      const card = document.createElement('div');
+      card.className = 'dl-card';
+      card.innerHTML = `
+        <div class="dl-os">${p.os}</div>
+        <div class="dl-name">${p.name}</div>
+        <div class="dl-desc">${p.desc}</div>
+        ${asset
+          ? `<a href="${asset.browser_download_url}" class="dl-btn${p.primary ? '' : ' secondary'}">⬇ Download</a>`
+          : `<a class="dl-btn secondary" disabled>Not available</a>`
+        }
+      `;
+      grid.appendChild(card);
+    }
+  } catch(e) {
+    document.getElementById('dl-loading').textContent =
+      'No release published yet — check back after the first tagged build, or download from the ' +
+      '<a href="https://github.com/' + REPO + '/actions">Actions artifacts</a>.';
+    document.getElementById('dl-loading').innerHTML =
+      'No release published yet — check the <a href="https://github.com/' + REPO + '/releases">Releases page</a> or ' +
+      '<a href="https://github.com/' + REPO + '/actions">Actions artifacts</a>.';
+  }
+}
+
+loadRelease();
+</script>
+</body>
+</html>
