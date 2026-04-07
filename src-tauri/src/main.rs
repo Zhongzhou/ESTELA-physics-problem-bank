@@ -287,6 +287,139 @@ fn tol_str(tol: &str, margin_type: &str) -> String {
     format!(r" \pm {}{}", tol, pct)
 }
 
+fn tol_str_plain(tol: &str, margin_type: &str) -> String {
+    if tol.is_empty() { return String::new(); }
+    let pct = if margin_type == "percent" { "%" } else { "" };
+    format!(" ± {}{}", tol, pct)
+}
+
+/// Convert simple LaTeX math to readable unicode plain text.
+/// Good enough for physics answer values (numbers, greek, operators).
+fn latex_to_unicode(s: &str) -> String {
+    let s = s
+        // strip math delimiters
+        .replace("$$", "").replace("$", "")
+        .replace("\\(", "").replace("\\)", "")
+        .replace("\\[", "").replace("\\]", "")
+        // greek lowercase
+        .replace("\\alpha", "α").replace("\\beta", "β")
+        .replace("\\gamma", "γ").replace("\\delta", "δ")
+        .replace("\\epsilon", "ε").replace("\\varepsilon", "ε")
+        .replace("\\zeta", "ζ").replace("\\eta", "η")
+        .replace("\\theta", "θ").replace("\\vartheta", "θ")
+        .replace("\\iota", "ι").replace("\\kappa", "κ")
+        .replace("\\lambda", "λ").replace("\\mu", "μ")
+        .replace("\\nu", "ν").replace("\\xi", "ξ")
+        .replace("\\pi", "π").replace("\\rho", "ρ")
+        .replace("\\sigma", "σ").replace("\\tau", "τ")
+        .replace("\\upsilon", "υ").replace("\\phi", "φ")
+        .replace("\\chi", "χ").replace("\\psi", "ψ")
+        .replace("\\omega", "ω")
+        // greek uppercase
+        .replace("\\Gamma", "Γ").replace("\\Delta", "Δ")
+        .replace("\\Theta", "Θ").replace("\\Lambda", "Λ")
+        .replace("\\Xi", "Ξ").replace("\\Pi", "Π")
+        .replace("\\Sigma", "Σ").replace("\\Upsilon", "Υ")
+        .replace("\\Phi", "Φ").replace("\\Psi", "Ψ")
+        .replace("\\Omega", "Ω")
+        // operators / symbols
+        .replace("\\pm", "±").replace("\\mp", "∓")
+        .replace("\\times", "×").replace("\\cdot", "·")
+        .replace("\\div", "÷").replace("\\infty", "∞")
+        .replace("\\approx", "≈").replace("\\neq", "≠")
+        .replace("\\leq", "≤").replace("\\geq", "≥")
+        .replace("\\ll", "«").replace("\\gg", "»")
+        .replace("\\rightarrow", "→").replace("\\leftarrow", "←")
+        .replace("\\Rightarrow", "⇒").replace("\\Leftarrow", "⇐")
+        .replace("\\nabla", "∇").replace("\\partial", "∂")
+        .replace("\\hbar", "ℏ").replace("\\degree", "°")
+        .replace("^\\circ", "°").replace("\\circ", "°")
+        .replace("\\vec", "").replace("\\hat", "")
+        .replace("\\tilde", "").replace("\\bar", "")
+        .replace("\\dot", "").replace("\\ddot", "");
+
+    // \text{...} → content
+    let s = Regex::new(r"\\(?:text|mathrm|mathbf|mathit|operatorname)\{([^}]*)\}")
+        .unwrap().replace_all(&s, "$1").to_string();
+    // \frac{a}{b} → a/b
+    let s = Regex::new(r"\\frac\{([^}]*)\}\{([^}]*)\}")
+        .unwrap().replace_all(&s, "($1)/($2)").to_string();
+    // \sqrt{x} → √x
+    let s = Regex::new(r"\\sqrt\{([^}]*)\}")
+        .unwrap().replace_all(&s, "√($1)").to_string();
+    let s = s.replace("\\sqrt", "√");
+    // ^{n} / _{n} - strip braces, keep content
+    let s = s.replace("^{", "^").replace("_{", "_");
+    // strip remaining LaTeX commands
+    let s = Regex::new(r"\\[a-zA-Z]+").unwrap().replace_all(&s, "").to_string();
+    // strip stray braces
+    let s = s.replace('{', "").replace('}', "");
+    Regex::new(r"\s+").unwrap().replace_all(s.trim(), " ").to_string()
+}
+
+/// Build a plain-Markdown answer key (no OMML equations) so Word Online renders it cleanly.
+fn build_key_md(cart: &Value, version: i64, title: &str) -> String {
+    let mut rows: Vec<String> = Vec::new();
+
+    if let Some(arr) = cart.as_array() {
+        for item in arr {
+            let raw = item.get("rawData").cloned().unwrap_or(json!({}));
+            let questions = raw.get("questions").and_then(|v| v.as_array()).cloned().unwrap_or_default();
+            if questions.is_empty() { continue; }
+
+            let qn = item.get("qn").and_then(|v| v.as_i64()).unwrap_or(1).max(1) as usize;
+            let n = questions.len();
+            let start = (((version - 1) as usize * qn) % n) as usize;
+
+            for i in 0..qn {
+                let q = &questions[(start + i) % n];
+                let qtype = get_qtype(q);
+                let qdata = q.get(&qtype).cloned().unwrap_or(json!({}));
+                let q_num = rows.len() + 1;
+
+                let ans = if qtype == "numerical" {
+                    let a = qdata.get("answer").cloned().unwrap_or(json!({}));
+                    let val = a.get("value").map(|v| match v {
+                        Value::String(s) => s.clone(),
+                        other => other.to_string(),
+                    }).unwrap_or_else(|| "?".to_string());
+                    let tol = a.get("tolerance").and_then(|v| v.as_str()).unwrap_or("");
+                    let mt  = a.get("margin_type").and_then(|v| v.as_str()).unwrap_or("");
+                    format!("{}{}", latex_to_unicode(&val), tol_str_plain(tol, mt))
+                } else if qtype == "multiple_choice" || qtype == "multiple_answers" {
+                    let ans_val = qdata.get("answers").cloned().unwrap_or(json!([]));
+                    let mut answer_list = extract_mc_answers(&ans_val);
+                    if !answers_have_lock(&ans_val) {
+                        seeded_shuffle(&mut answer_list, version as u64 * 10000 + q_num as u64);
+                    }
+                    let letters: Vec<String> = answer_list.iter().enumerate()
+                        .filter(|(_, (_, _, ok))| *ok)
+                        .map(|(j, _)| ((b'A' + j as u8) as char).to_string())
+                        .collect();
+                    if letters.is_empty() { "?".to_string() } else { letters.join(", ") }
+                } else if qtype == "true_false" {
+                    if qdata.get("answer").and_then(|v| v.as_bool()).unwrap_or(false) {
+                        "True".to_string()
+                    } else {
+                        "False".to_string()
+                    }
+                } else {
+                    "[See rubric]".to_string()
+                };
+
+                rows.push(format!("{}. {}", q_num, ans));
+            }
+        }
+    }
+
+    format!(
+        "# {} \u{2014} Version {} \u{2014} Answer Key\n\n{}\n",
+        title,
+        version_label(version),
+        rows.join("\n")
+    )
+}
+
 fn type_label(qtype: &str) -> &str {
     match qtype {
         "numerical" => "Numerical",
@@ -1112,16 +1245,8 @@ fn find_pandoc() -> PathBuf {
 
 #[tauri::command]
 fn export_docx(cart: Value, version: i64, title: String, kind: String, folder: Option<String>) -> Result<String, String> {
-    let tex = if kind == "key" {
-        build_key_latex(&cart, version, &title)
-    } else {
-        build_exam_latex(&cart, version, &title)
-    };
-
     let tmp_dir = std::env::temp_dir().join("estela");
     std::fs::create_dir_all(&tmp_dir).map_err(|e| e.to_string())?;
-    let tex_path = tmp_dir.join("export_tmp.tex");
-    std::fs::write(&tex_path, &tex).map_err(|e| e.to_string())?;
 
     let out_dir = if let Some(f) = folder {
         PathBuf::from(f)
@@ -1134,19 +1259,37 @@ fn export_docx(cart: Value, version: i64, title: String, kind: String, folder: O
 
     let fname = format!("{}_{}.docx", kind, version_label(version));
     let docx_path = out_dir.join(&fname);
-
     let pandoc = find_pandoc();
-    let output = std::process::Command::new(&pandoc)
-        .arg(&tex_path)
-        .arg("-o")
-        .arg(&docx_path)
-        .arg("--standalone")
-        .output()
-        .map_err(|e| format!("Failed to run pandoc ({}): {}", pandoc.display(), e))?;
 
-    if !output.status.success() {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        return Err(format!("Pandoc error: {}", stderr.trim()));
+    if kind == "key" {
+        // Answer keys use plain Markdown with unicode math so Word Online renders
+        // them as normal text (no [Equation] placeholders).
+        let md = build_key_md(&cart, version, &title);
+        let md_path = tmp_dir.join("export_key.md");
+        std::fs::write(&md_path, &md).map_err(|e| e.to_string())?;
+        let output = std::process::Command::new(&pandoc)
+            .arg(&md_path)
+            .arg("-o").arg(&docx_path)
+            .arg("--standalone")
+            .output()
+            .map_err(|e| format!("Failed to run pandoc: {}", e))?;
+        if !output.status.success() {
+            return Err(format!("Pandoc error: {}", String::from_utf8_lossy(&output.stderr).trim()));
+        }
+    } else {
+        // Full exam: LaTeX → OMML equations. Renders correctly in desktop Word.
+        let tex = build_exam_latex(&cart, version, &title);
+        let tex_path = tmp_dir.join("export_exam.tex");
+        std::fs::write(&tex_path, &tex).map_err(|e| e.to_string())?;
+        let output = std::process::Command::new(&pandoc)
+            .arg(&tex_path)
+            .arg("-o").arg(&docx_path)
+            .arg("--standalone")
+            .output()
+            .map_err(|e| format!("Failed to run pandoc: {}", e))?;
+        if !output.status.success() {
+            return Err(format!("Pandoc error: {}", String::from_utf8_lossy(&output.stderr).trim()));
+        }
     }
 
     Ok(docx_path.to_string_lossy().to_string())
