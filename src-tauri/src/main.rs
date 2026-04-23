@@ -213,7 +213,10 @@ fn is_bank(data: &Value) -> bool {
 
 fn load_yaml(path: &Path) -> Option<Value> {
     let content = std::fs::read_to_string(path).ok()?;
-    serde_yaml::from_str(&content).ok()
+    // Two-step avoids serde_yaml 0.9 failures on YAML timestamp/date values
+    // (e.g. `date_created: 2025-10-05`) when deserializing directly into serde_json::Value
+    let yaml_val: serde_yaml::Value = serde_yaml::from_str(&content).ok()?;
+    serde_json::to_value(yaml_val).ok()
 }
 
 fn extract_mc_answers(answers: &Value) -> Vec<(usize, String, bool)> {
@@ -384,7 +387,34 @@ fn latex_to_unicode(s: &str) -> String {
     Regex::new(r"\s+").unwrap().replace_all(s.trim(), " ").to_string()
 }
 
-/// Build a plain-Markdown answer key (no OMML equations) so Word Online renders it cleanly.
+/// Convert text with <latex>...</latex> tags to Markdown math ($...$) for pandoc → docx OMML.
+/// Unlike latex_to_unicode, this preserves all math exactly and lets pandoc emit proper Word equations.
+fn latex_to_math_md(text: &str) -> String {
+    // Block latex: <latex>\n...\n</latex> → $$\n...\n$$
+    let block_re = Regex::new(r"(?s)<latex>\s*\n(.*?)\n\s*</latex>").unwrap();
+    let result = block_re.replace_all(text, |caps: &regex::Captures| {
+        format!("$$\n{}\n$$", &caps[1])
+    });
+    // Inline latex: <latex>...</latex> → $...$
+    let inline_re = Regex::new(r"(?s)<latex>(.*?)</latex>").unwrap();
+    let result = inline_re.replace_all(&result, |caps: &regex::Captures| {
+        format!("${}$", &caps[1])
+    });
+    // \(...\) → $...$
+    let paren_re = Regex::new(r"(?s)\\\((.*?)\\\)").unwrap();
+    let result = paren_re.replace_all(&result, |caps: &regex::Captures| {
+        format!("${}$", &caps[1])
+    });
+    // \[...\] → $$...$$
+    let bracket_re = Regex::new(r"(?s)\\\[(.*?)\\\]").unwrap();
+    let result = bracket_re.replace_all(&result, |caps: &regex::Captures| {
+        format!("$${}$$", &caps[1])
+    });
+    // strip remaining HTML tags
+    Regex::new(r"<[^>]+>").unwrap().replace_all(&result, "").to_string()
+}
+
+/// Build a Markdown answer key for pandoc → docx export.
 fn build_key_md(cart: &Value, version: i64, title: &str) -> String {
     let mut rows: Vec<String> = Vec::new();
 
@@ -412,7 +442,13 @@ fn build_key_md(cart: &Value, version: i64, title: &str) -> String {
                     }).unwrap_or_else(|| "?".to_string());
                     let tol = a.get("tolerance").and_then(|v| v.as_str()).unwrap_or("");
                     let mt  = a.get("margin_type").and_then(|v| v.as_str()).unwrap_or("");
-                    format!("{}{}", latex_to_unicode(&val), tol_str_plain(tol, mt))
+                    // Wrap in $...$ if the value looks like LaTeX, so pandoc emits proper Word equations
+                    let val_md = if val.contains('\\') || val.contains('{') {
+                        format!("${}$", val)
+                    } else {
+                        val
+                    };
+                    format!("{}{}", val_md, tol_str_plain(tol, mt))
                 } else if qtype == "multiple_choice" || qtype == "multiple_answers" {
                     let ans_val = qdata.get("answers").cloned().unwrap_or(json!([]));
                     let mut answer_list = extract_mc_answers(&ans_val);
@@ -447,8 +483,7 @@ fn build_key_md(cart: &Value, version: i64, title: &str) -> String {
     )
 }
 
-/// Build a full exam as Markdown with unicode math so Word Online renders it without
-/// [Equation] placeholders. Less pretty than LaTeX but actually readable.
+/// Build a full exam as Markdown with $...$ math delimiters so pandoc emits native Word (OMML) equations.
 fn build_exam_md(cart: &Value, version: i64, title: &str) -> String {
     let mut parts: Vec<String> = Vec::new();
     let mut q_num = 0usize;
@@ -472,17 +507,8 @@ fn build_exam_md(cart: &Value, version: i64, title: &str) -> String {
                 let qdata = q.get(&qtype).cloned().unwrap_or(json!({}));
                 q_num += 1;
 
-                // Question text — strip LaTeX tags, convert math to unicode
                 let raw_text = qdata.get("text").and_then(|v| v.as_str()).unwrap_or("");
-                let text = Regex::new(r"(?s)<latex>(.*?)</latex>").unwrap()
-                    .replace_all(raw_text, |caps: &regex::Captures| {
-                        latex_to_unicode(&caps[1])
-                    }).to_string();
-                let text = Regex::new(r"<[^>]+>").unwrap().replace_all(&text, "").to_string();
-                let text = Regex::new(r"\$\$([^$]*)\$\$").unwrap()
-                    .replace_all(&text, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
-                let text = Regex::new(r"\$([^$]*)\$").unwrap()
-                    .replace_all(&text, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
+                let text = latex_to_math_md(raw_text);
 
                 let mut block = format!("**{}. ({})** {}\n", q_num, type_label(qtype.as_str()), text.trim());
 
@@ -500,12 +526,7 @@ fn build_exam_md(cart: &Value, version: i64, title: &str) -> String {
                     block.push('\n');
                     for (j, (_, atxt, _)) in answer_list.iter().enumerate() {
                         let letter = (b'A' + j as u8) as char;
-                        let atxt = Regex::new(r"(?s)<latex>(.*?)</latex>").unwrap()
-                            .replace_all(atxt, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
-                        let atxt = Regex::new(r"<[^>]+>").unwrap().replace_all(&atxt, "").to_string();
-                        let atxt = Regex::new(r"\$([^$]*)\$").unwrap()
-                            .replace_all(&atxt, |caps: &regex::Captures| latex_to_unicode(&caps[1])).to_string();
-                        // Each choice on its own list item so pandoc puts them on separate lines
+                        let atxt = latex_to_math_md(atxt);
                         block.push_str(&format!("- {}. {}\n", letter, atxt.trim()));
                     }
                 } else if qtype == "true_false" {
@@ -1367,8 +1388,6 @@ fn export_docx(cart: Value, version: i64, title: String, kind: String, folder: O
     let pandoc = find_pandoc();
 
     if kind == "key" {
-        // Answer keys use plain Markdown with unicode math so Word Online renders
-        // them as normal text (no [Equation] placeholders).
         let md = build_key_md(&cart, version, &title);
         let md_path = tmp_dir.join("export_key.md");
         std::fs::write(&md_path, &md).map_err(|e| e.to_string())?;
@@ -1382,7 +1401,6 @@ fn export_docx(cart: Value, version: i64, title: String, kind: String, folder: O
             return Err(format!("Pandoc error: {}", String::from_utf8_lossy(&output.stderr).trim()));
         }
     } else {
-        // Full exam: Markdown with unicode math so Word Online renders without [Equation] placeholders.
         let md = build_exam_md(&cart, version, &title);
         let md_path = tmp_dir.join("export_exam.md");
         std::fs::write(&md_path, &md).map_err(|e| e.to_string())?;
