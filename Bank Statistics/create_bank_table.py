@@ -137,7 +137,7 @@ def get_first_problem_type(content):
     return ''
 
 def extract_bank_info(file_path, base_dir=None):
-    """Extract topic, bank_id, title, description, author, number of problems, and problem type from a YAML file."""
+    """Extract topic, bank_id, title, description, author, status, number of problems, and problem type from a YAML file."""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -147,6 +147,7 @@ def extract_bank_info(file_path, base_dir=None):
         title = simple_yaml_parse_field(content, 'title')
         description = simple_yaml_parse_field(content, 'description')
         author = extract_first_author(content)
+        status = simple_yaml_parse_field(content, 'status')
         num_problems = count_questions(content)
         problem_type = get_first_problem_type(content)
         
@@ -166,12 +167,20 @@ def extract_bank_info(file_path, base_dir=None):
             'Title': title or '',
             'Description': description or '',
             'Author': author,
+            'Status': status or '',
             'Number of problems': num_problems,
             'Problem Type': problem_type
         }
     except Exception as e:
         print(f"Error processing {file_path}: {e}")
         return None
+
+def topic_sort_key(topic):
+    """Sort topics by leading number (0, 1, ..., 11), then by name."""
+    match = re.match(r'^(\d+)', topic)
+    if match:
+        return (int(match.group(1)), topic)
+    return (float('inf'), topic)
 
 def main():
     # Base directory - go up one level from Bank Statistics to PHY I Mechanics
@@ -216,10 +225,13 @@ def main():
         if info:
             bank_data.append(info)
     
+    # Order by topic number (0..11), then BankId within each topic
+    bank_data.sort(key=lambda row: (topic_sort_key(row['Topic']), row['BankId']))
+    
     # Write to CSV
     output_file = script_dir / "problem_banks_table.csv"
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['Topic', 'BankId', 'Title', 'Description', 'Author', 'Number of problems', 'Problem Type']
+        fieldnames = ['Topic', 'BankId', 'Title', 'Description', 'Author', 'Status', 'Number of problems', 'Problem Type']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -237,6 +249,7 @@ def main():
         print(f"   Bank ID: {row['BankId']}")
         print(f"   Title: {row['Title']}")
         print(f"   Author: {row['Author']}")
+        print(f"   Status: {row['Status']}")
         print(f"   # Problems: {row['Number of problems']}")
         print(f"   Problem Type: {row['Problem Type']}")
         print(f"   Description: {row['Description'][:80]}..." if len(row['Description']) > 80 else f"   Description: {row['Description']}")
