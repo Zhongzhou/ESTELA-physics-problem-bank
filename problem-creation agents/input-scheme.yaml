@@ -1,0 +1,30 @@
+# Fill this in as plain notes. Informal math is fine.
+
+name: "One object centripetal motion"
+context:
+  scenario: An object undergoing uniform circular motion. 
+  scenario_specifications: 
+    - Only one force (or component of one force) provides the centripetal acceleration for the object.
+    - Object should not experience significant air resistance.
+    - Don't use quantum mechanical particles
+    - Avoid scenarios in which gravity is balanced by static friction such as motorcycle on vertical walls
+    - There should only be one object involved, not two.
+  n_scenarios: 10
+
+structure:
+  formulas:
+    - 'F_{\mathrm{net}} = \frac{m v^{2}}{r}'
+    - One of:
+      - 'T = \frac{2 \pi r}{v}'
+      - 'f = \frac{v}{2 \pi r}'
+
+  variable_specifications: 
+    - Give or ask for either period T or frequency f, not both.
+    - Do not directly give or ask for linear velocity v or angular velocity.
+
+  possible_unknowns: F_net, m, T or f, r
+  unknown_change_variation: 2 # The number of variations that differ only by the unknown.
+  tolerance: 0.03 # Default to 3% answer tolerance.
+other (optional):
+  specifications:
+  example_problem:
