@@ -20,11 +20,13 @@ structure:
 
   variable_specifications: 
     - Give or ask for either period T or frequency f, not both.
-    - Do not directly give or ask for linear velocity v or angular velocity.
+    - Do not directly give or ask for linear velocity v or angular velocity. 
 
   possible_unknowns: F_net, m, T or f, r
-  unknown_change_variation: 2 # The number of variations that differ only by the unknown.
+  unknown_rotation: 2 # The number of isomorphic variations created by rotating the knowns and unknowns.
   tolerance: 0.03 # Default to 3% answer tolerance.
+  rounding_decimal: 2 # Round to 2 decimal places for all variables.
 other (optional):
+  variables_for_random_number: F_net, m, r, #variables to assign random numbers to during problem creation. 
   specifications:
   example_problem:
