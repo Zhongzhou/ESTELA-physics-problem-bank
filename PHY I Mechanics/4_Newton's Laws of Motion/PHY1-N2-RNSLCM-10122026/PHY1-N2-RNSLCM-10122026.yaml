@@ -1,0 +1,1353 @@
+bank_info:
+    title: Radial Newton's Second Law in Circular Motion
+    bank_id: PHY1-N2-RNSLCM-10122026 # Subject-Unit-Abbreviation-date
+    description: |-
+      Thirty-six multiple-choice problems on Newton's second law along the radial direction for an object in circular motion. Twelve scenarios are each asked at three labeled positions. The positive radial direction is toward the center of the circle.
+
+      The scenarios cover a vertical circle on a string, a vertical circle on a frictionless track, a horizontal circle on a string with wind or current, and a horizontal circle on a flat road with friction and wind.
+    date created: 10-12-2026
+    status: deployed # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field. 'draft' and 'deprecated' files won't be parsed by the exam builder.
+    learning objectives: # Not yet assigned.
+    generation prompts: # In order: problem-creation session, problem-review session, then this YAML session.
+        - prompt 1: |
+            Review the @PHY I Mechanics/4_Newton's Laws of Motion/Circular motion draft/Creation Plan.md document and let me know if you need any additional clarification/decision to proceed.
+        - prompt 2: |
+            1. Flat road: friction replaces normal force. slotted track: use normal force, keep the track frictionless 2. direction be added later as a variation. 3. I am only asking for the force/force component on the radial direction, so drag or buoyancy won't matter. 4. Let's shoot for the 36 grid. We can always eliminate unnatural scenarios later. The goal is to have at least 30 variations. Now proceed with step 1.
+        - prompt 3: |
+            for the last scenario, replace the go-kart with something else since not all students are familiar with go-kart.
+        - prompt 4: |
+            Now proceed to the next step according to plan. Do not generate image for backup scenarios. Store the images in a markdown file. For horizontal cases, clearly label the image as "top view".
+        - prompt 5: |
+            Now proceed to the next step according to plan. Do not generate image for backup scenarios. Store the images in a markdown file. For horizontal cases, clearly label the image as "top view".
+        - prompt 6: |
+            1. the "top view" and "side view" should be much less prominent, the same font size as everything else and without bonding boxes. 2. The locations should be labeled as 1, 2 and 3, rather than using text. 3. The array of arrows in the horizontal cases should be aligned vertically instead of horizontally, and placed on the side of the origin of the force. (put on left for a left to right wind/current).
+        - prompt 7: |
+            Remove extra white spaces around the images so that the size of the figures are just big enough to include all contents.
+        - prompt 8: |
+            Now write the problem bodies and choice items according to the specifications in @PHY I Mechanics/4_Newton's Laws of Motion/Circular motion draft/Creation Plan.md item 3.
+        - prompt 9: |
+            I've made comments on problem 1 and problem 4 in the document. You should mirro the problem 1 comments on all other problems. Rewrite the 4 problms for my review.
+        - prompt 10: |
+            Using those four problems as example, write all the other variations.
+        - prompt 11: |
+            Evaluate the correctness and clarity of all problems in @PHY I Mechanics/4_Newton's Laws of Motion/Circular motion draft/problems.md make small fixes automatically, and list major updates for me to consider.
+        - prompt 12: |
+            1. Add that the motor or engine only provides tangential forces to overcome resistance. 2. Yes please. 3. in all horizontal cases that is not on the ground, say that weight is balanced by either buoyancy or airlift. On the ground cases can be ommitted. 4.  Yes. 5. I think "northmost point" will introduce other sources of confusion. So we can just leave the wording as is. Implement those changes. Then for each problem, write a brief feedback message explaining why the correct answer should be chosen.
+        - prompt 13: |
+            The class marbal and toy car images needs to be fixed since the small orange circle is not touching the inside of the track circle. The position of the center of the small orange circle should be at big circle radius minus small circle radius.
+        - prompt 14: |
+            From @PHY I Mechanics/4_Newton's Laws of Motion/Circular motion draft/problems.md use @Templates/Problem-bank-template-mathjax.yaml and create a yaml file in the circular motion folder for this problem bank. First fill in the question field with the problem contents, then fille in as many meta-data filed as you can and ask me what other information you need.
+        - prompt 15: |
+            1. abbreviation should be RNSLCM, consistent with the title. 2. learning objectives can be blank for now. 3. 1 point for each question. In addition, list all my prompts in the other two related sessions as well as in this session under "generation prompts" in the form of - prompt 1: - prompt 2: etc. I fixed everything else.
+    updates:
+        - update 1: (10/12/2026) Converted Circular motion draft/problems.md into this MathJax YAML. Question text, figures, answer choices, correct responses, and general feedback were taken from that draft.
+    associated data:
+        - problem source: "./problems.md"
+        - problem review: "./problems-review.md"
+        - creation plan: "./Creation Plan.md"
+        - diagrams: "./diagrams/"
+        - diagram script: "./generate_diagrams.py"
+    generation details:
+            model: Cursor Grok
+            version: 3.7
+            last updated: 10-12-2026
+    authors:
+        - Zhongzhou Chen
+
+questions:
+
+- multiple_choice:
+    id: q1
+    title: Bucket of water, position 1
+    points: 1
+    text: |
+      <p>A gardener swings a small bucket of water, tied to a rope, through a full vertical circle. The rope stays taut and the water stays in the bucket during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the bucket during the circle. The bucket is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the bucket of water <strong>along the radial direction</strong> at <strong>position 1</strong> (top of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the rope.</p>
+      <p>\(m\) is the mass of the bucket of water.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the bucket of water.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the bucket.</p>
+    figure: diagrams/01-bucket-of-water.png
+    answers:
+    - answer:
+        text: <p>\(T + mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the top, the rope pulls toward the center and the weight also points toward the center. Both contributions are positive, so \(T + mg = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q2
+    title: Bucket of water, position 2
+    points: 1
+    text: |
+      <p>A gardener swings a small bucket of water, tied to a rope, through a full vertical circle. The rope stays taut and the water stays in the bucket during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the bucket during the circle. The bucket is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the bucket of water <strong>along the radial direction</strong> at <strong>position 2</strong> (right-hand side of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the rope.</p>
+      <p>\(m\) is the mass of the bucket of water.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the bucket of water.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the bucket.</p>
+    figure: diagrams/01-bucket-of-water.png
+    answers:
+    - answer:
+        text: <p>\(T + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the right-hand side, the rope is horizontal and pulls toward the center. The weight is vertical, so its radial component is zero and \(T = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q3
+    title: Bucket of water, position 3
+    points: 1
+    text: |
+      <p>A gardener swings a small bucket of water, tied to a rope, through a full vertical circle. The rope stays taut and the water stays in the bucket during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the bucket during the circle. The bucket is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the bucket of water <strong>along the radial direction</strong> at <strong>position 3</strong> (bottom of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the rope.</p>
+      <p>\(m\) is the mass of the bucket of water.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the bucket of water.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the bucket.</p>
+    figure: diagrams/01-bucket-of-water.png
+    answers:
+    - answer:
+        text: <p>\(T + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the bottom, the rope pulls toward the center and the weight points away from the center. The net inward force is \(T - mg\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q4
+    title: Steel nut, position 1
+    points: 1
+    text: |
+      <p>A student swings a steel nut, tied to a fishing line, through a full vertical circle. The line stays taut during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the steel nut during the circle. The steel nut is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the steel nut <strong>along the radial direction</strong> at <strong>position 1</strong> (top of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the fishing line.</p>
+      <p>\(m\) is the mass of the steel nut.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the steel nut.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the steel nut.</p>
+    figure: diagrams/02-steel-nut.png
+    answers:
+    - answer:
+        text: <p>\(T + mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the top, the fishing line pulls toward the center and the weight also points toward the center. Both contributions are positive, so \(T + mg = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q5
+    title: Steel nut, position 2
+    points: 1
+    text: |
+      <p>A student swings a steel nut, tied to a fishing line, through a full vertical circle. The line stays taut during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the steel nut during the circle. The steel nut is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the steel nut <strong>along the radial direction</strong> at <strong>position 2</strong> (right-hand side of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the fishing line.</p>
+      <p>\(m\) is the mass of the steel nut.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the steel nut.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the steel nut.</p>
+    figure: diagrams/02-steel-nut.png
+    answers:
+    - answer:
+        text: <p>\(T + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the right-hand side, the fishing line is horizontal and pulls toward the center. The weight is vertical, so its radial component is zero and \(T = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q6
+    title: Steel nut, position 3
+    points: 1
+    text: |
+      <p>A student swings a steel nut, tied to a fishing line, through a full vertical circle. The line stays taut during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the steel nut during the circle. The steel nut is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the steel nut <strong>along the radial direction</strong> at <strong>position 3</strong> (bottom of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the fishing line.</p>
+      <p>\(m\) is the mass of the steel nut.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the steel nut.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the steel nut.</p>
+    figure: diagrams/02-steel-nut.png
+    answers:
+    - answer:
+        text: <p>\(T + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the bottom, the fishing line pulls toward the center and the weight points away from the center. The net inward force is \(T - mg\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q7
+    title: Toy car, position 1
+    points: 1
+    text: |
+      <p>A toy car moves on the inside of a smooth, frictionless track in the shape of a vertical loop. The toy car does not leave the track during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the toy car during the circle. The toy car is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the toy car <strong>along the radial direction</strong> at <strong>position 1</strong> (top of the path)?</p>
+      <p>\(N\) is the magnitude of the normal force exerted by the track on the toy car.</p>
+      <p>\(m\) is the mass of the toy car.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the toy car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the toy car.</p>
+    figure: diagrams/03-toy-car.png
+    answers:
+    - answer:
+        text: <p>\(N + mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(N - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The toy car is on the inside of the loop, so at the top the track pushes the car toward the center. The weight also points toward the center. Both contributions are positive, so \(N + mg = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q8
+    title: Toy car, position 2
+    points: 1
+    text: |
+      <p>A toy car moves on the inside of a smooth, frictionless track in the shape of a vertical loop. The toy car does not leave the track during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the toy car during the circle. The toy car is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the toy car <strong>along the radial direction</strong> at <strong>position 2</strong> (right-hand side of the path)?</p>
+      <p>\(N\) is the magnitude of the normal force exerted by the track on the toy car.</p>
+      <p>\(m\) is the mass of the toy car.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the toy car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the toy car.</p>
+    figure: diagrams/03-toy-car.png
+    answers:
+    - answer:
+        text: <p>\(N + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(N + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the right-hand side, the track pushes the toy car toward the center. The weight is vertical, so its radial component is zero and \(N = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q9
+    title: Toy car, position 3
+    points: 1
+    text: |
+      <p>A toy car moves on the inside of a smooth, frictionless track in the shape of a vertical loop. The toy car does not leave the track during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the toy car during the circle. The toy car is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the toy car <strong>along the radial direction</strong> at <strong>position 3</strong> (bottom of the path)?</p>
+      <p>\(N\) is the magnitude of the normal force exerted by the track on the toy car.</p>
+      <p>\(m\) is the mass of the toy car.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the toy car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the toy car.</p>
+    figure: diagrams/03-toy-car.png
+    answers:
+    - answer:
+        text: <p>\(N + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(N = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the bottom, the track pushes the toy car toward the center and the weight points away from the center. The net inward force is \(N - mg\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q10
+    title: Glass marble, position 1
+    points: 1
+    text: |
+      <p>A glass marble moves on the inside of a smooth, frictionless track in the shape of a vertical loop. The marble does not leave the track during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the marble during the circle. The marble is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the glass marble <strong>along the radial direction</strong> at <strong>position 1</strong> (top of the path)?</p>
+      <p>\(N\) is the magnitude of the normal force exerted by the track on the marble.</p>
+      <p>\(m\) is the mass of the marble.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the marble.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the marble.</p>
+    figure: diagrams/04-glass-marble.png
+    answers:
+    - answer:
+        text: <p>\(N + mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(N - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The marble is on the inside of the loop, so at the top the track pushes the marble toward the center. The weight also points toward the center. Both contributions are positive, so \(N + mg = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q11
+    title: Glass marble, position 2
+    points: 1
+    text: |
+      <p>A glass marble moves on the inside of a smooth, frictionless track in the shape of a vertical loop. The marble does not leave the track during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the marble during the circle. The marble is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the glass marble <strong>along the radial direction</strong> at <strong>position 2</strong> (right-hand side of the path)?</p>
+      <p>\(N\) is the magnitude of the normal force exerted by the track on the marble.</p>
+      <p>\(m\) is the mass of the marble.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the marble.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the marble.</p>
+    figure: diagrams/04-glass-marble.png
+    answers:
+    - answer:
+        text: <p>\(N + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(N + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the right-hand side, the track pushes the marble toward the center. The weight is vertical, so its radial component is zero and \(N = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q12
+    title: Glass marble, position 3
+    points: 1
+    text: |
+      <p>A glass marble moves on the inside of a smooth, frictionless track in the shape of a vertical loop. The marble does not leave the track during the entire circle, as shown in the figure. The figure is a side view of the path that shows three positions of the marble during the circle. The marble is at the top of the path at position 1, at the right-hand side of the path at position 2, and at the bottom of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the glass marble <strong>along the radial direction</strong> at <strong>position 3</strong> (bottom of the path)?</p>
+      <p>\(N\) is the magnitude of the normal force exerted by the track on the marble.</p>
+      <p>\(m\) is the mass of the marble.</p>
+      <p>\(g\) is the acceleration due to gravity.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the marble.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the marble.</p>
+    figure: diagrams/04-glass-marble.png
+    answers:
+    - answer:
+        text: <p>\(N + mg = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(N = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N - mg + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(N + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>At the bottom, the track pushes the marble toward the center and the weight points away from the center. The net inward force is \(N - mg\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q13
+    title: Model airplane, position 1
+    points: 1
+    text: |
+      <p>A model airplane flies in a horizontal circle at the end of a horizontal tether. The tether stays taut during the entire circle, as shown in the figure. A constant wind blows the airplane from left to right during the entire circle. The airplane's weight is balanced by lift from the air. The figure is a top view of the path that shows three positions of the airplane during the circle. The airplane is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the airplane <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the tether.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the airplane.</p>
+      <p>\(m\) is the mass of the airplane.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the airplane.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the airplane.</p>
+    figure: diagrams/05-model-airplane.png
+    answers:
+    - answer:
+        text: <p>\(T + F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Lift balances the airplane's weight, so both forces are vertical and drop out of the radial equation. At the leftmost point the center is to the right, and the wind also blows to the right. The tether and the wind both point toward the center, so \(T + F_w = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q14
+    title: Model airplane, position 2
+    points: 1
+    text: |
+      <p>A model airplane flies in a horizontal circle at the end of a horizontal tether. The tether stays taut during the entire circle, as shown in the figure. A constant wind blows the airplane from left to right during the entire circle. The airplane's weight is balanced by lift from the air. The figure is a top view of the path that shows three positions of the airplane during the circle. The airplane is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the airplane <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(T\) is the magnitude of the tension in the tether.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the airplane.</p>
+      <p>\(m\) is the mass of the airplane.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the airplane.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the airplane.</p>
+    figure: diagrams/05-model-airplane.png
+    answers:
+    - answer:
+        text: <p>\(T + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Lift balances the airplane's weight, so both forces are vertical and drop out of the radial equation. At the point at the top of the figure, the wind blows perpendicular to the radius and has no radial component. The tension alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q15
+    title: Model airplane, position 3
+    points: 1
+    text: |
+      <p>A model airplane flies in a horizontal circle at the end of a horizontal tether. The tether stays taut during the entire circle, as shown in the figure. A constant wind blows the airplane from left to right during the entire circle. The airplane's weight is balanced by lift from the air. The figure is a top view of the path that shows three positions of the airplane during the circle. The airplane is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the airplane <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the tether.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the airplane.</p>
+      <p>\(m\) is the mass of the airplane.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the airplane.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the airplane.</p>
+    figure: diagrams/05-model-airplane.png
+    answers:
+    - answer:
+        text: <p>\(T + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Lift balances the airplane's weight, so both forces are vertical and drop out of the radial equation. At the rightmost point the center is to the left, while the wind blows to the right, away from the center. The net inward force is \(T - F_w\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q16
+    title: Model boat, position 1
+    points: 1
+    text: |
+      <p>A model boat moves in a horizontal circle, tied by a horizontal line to a fixed post. The line stays taut during the entire circle, as shown in the figure. A constant current pushes the boat from left to right during the entire circle. The boat's weight is balanced by buoyancy. The figure is a top view of the path that shows three positions of the boat during the circle. The boat is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the boat <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the line.</p>
+      <p>\(F_{\mathrm{cur}}\) is the magnitude of the force exerted by the current on the boat.</p>
+      <p>\(m\) is the mass of the boat.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the boat.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the boat.</p>
+    figure: diagrams/06-model-boat.png
+    answers:
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Buoyancy balances the boat's weight, so both forces are vertical and drop out of the radial equation. At the leftmost point the center is to the right, and the current also pushes to the right. The line and the current both point toward the center, so \(T + F_{\mathrm{cur}} = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q17
+    title: Model boat, position 2
+    points: 1
+    text: |
+      <p>A model boat moves in a horizontal circle, tied by a horizontal line to a fixed post. The line stays taut during the entire circle, as shown in the figure. A constant current pushes the boat from left to right during the entire circle. The boat's weight is balanced by buoyancy. The figure is a top view of the path that shows three positions of the boat during the circle. The boat is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the boat <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(T\) is the magnitude of the tension in the line.</p>
+      <p>\(F_{\mathrm{cur}}\) is the magnitude of the force exerted by the current on the boat.</p>
+      <p>\(m\) is the mass of the boat.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the boat.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the boat.</p>
+    figure: diagrams/06-model-boat.png
+    answers:
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Buoyancy balances the boat's weight, so both forces are vertical and drop out of the radial equation. At the point at the top of the figure, the current pushes perpendicular to the radius and has no radial component. The tension alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q18
+    title: Model boat, position 3
+    points: 1
+    text: |
+      <p>A model boat moves in a horizontal circle, tied by a horizontal line to a fixed post. The line stays taut during the entire circle, as shown in the figure. A constant current pushes the boat from left to right during the entire circle. The boat's weight is balanced by buoyancy. The figure is a top view of the path that shows three positions of the boat during the circle. The boat is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the boat <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the line.</p>
+      <p>\(F_{\mathrm{cur}}\) is the magnitude of the force exerted by the current on the boat.</p>
+      <p>\(m\) is the mass of the boat.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the boat.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the boat.</p>
+    figure: diagrams/06-model-boat.png
+    answers:
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Buoyancy balances the boat's weight, so both forces are vertical and drop out of the radial equation. At the rightmost point the center is to the left, while the current pushes to the right, away from the center. The net inward force is \(T - F_{\mathrm{cur}}\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q19
+    title: Model car, position 1
+    points: 1
+    text: |
+      <p>A model car on a smooth, frictionless table moves in a horizontal circle, tied by a horizontal cord to a fixed peg. The cord stays taut during the entire circle, as shown in the figure. A constant wind blows the model car from right to left during the entire circle. The model car's weight is balanced by the normal force from the table. The figure is a top view of the path that shows three positions of the model car during the circle. The model car is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the model car <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the cord.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the model car.</p>
+      <p>\(m\) is the mass of the model car.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the model car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the model car.</p>
+    figure: diagrams/07-model-car.png
+    answers:
+    - answer:
+        text: <p>\(T + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The normal force from the table balances the model car's weight, so both forces are vertical and drop out of the radial equation. At the leftmost point the center is to the right, while the wind blows to the left, away from the center. The net inward force is \(T - F_w\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q20
+    title: Model car, position 2
+    points: 1
+    text: |
+      <p>A model car on a smooth, frictionless table moves in a horizontal circle, tied by a horizontal cord to a fixed peg. The cord stays taut during the entire circle, as shown in the figure. A constant wind blows the model car from right to left during the entire circle. The model car's weight is balanced by the normal force from the table. The figure is a top view of the path that shows three positions of the model car during the circle. The model car is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the model car <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(T\) is the magnitude of the tension in the cord.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the model car.</p>
+      <p>\(m\) is the mass of the model car.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the model car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the model car.</p>
+    figure: diagrams/07-model-car.png
+    answers:
+    - answer:
+        text: <p>\(T + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The normal force from the table balances the model car's weight, so both forces are vertical and drop out of the radial equation. At the point at the top of the figure, the wind blows perpendicular to the radius and has no radial component. The tension alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q21
+    title: Model car, position 3
+    points: 1
+    text: |
+      <p>A model car on a smooth, frictionless table moves in a horizontal circle, tied by a horizontal cord to a fixed peg. The cord stays taut during the entire circle, as shown in the figure. A constant wind blows the model car from right to left during the entire circle. The model car's weight is balanced by the normal force from the table. The figure is a top view of the path that shows three positions of the model car during the circle. The model car is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the model car <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the cord.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the model car.</p>
+      <p>\(m\) is the mass of the model car.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the model car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the model car.</p>
+    figure: diagrams/07-model-car.png
+    answers:
+    - answer:
+        text: <p>\(T + F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The normal force from the table balances the model car's weight, so both forces are vertical and drop out of the radial equation. At the rightmost point the center is to the left, and the wind also blows to the left. The cord and the wind both point toward the center, so \(T + F_w = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q22
+    title: Underwater probe, position 1
+    points: 1
+    text: |
+      <p>A small underwater probe moves in a horizontal circle at the end of a horizontal tether. The tether stays taut during the entire circle, as shown in the figure. A constant current pushes the probe from right to left during the entire circle. The probe's weight is balanced by buoyancy. The figure is a top view of the path that shows three positions of the probe during the circle. The probe is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the probe <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the tether.</p>
+      <p>\(F_{\mathrm{cur}}\) is the magnitude of the force exerted by the current on the probe.</p>
+      <p>\(m\) is the mass of the probe.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the probe.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the probe.</p>
+    figure: diagrams/08-underwater-probe.png
+    answers:
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Buoyancy balances the probe's weight, so both forces are vertical and drop out of the radial equation. At the leftmost point the center is to the right, while the current pushes to the left, away from the center. The net inward force is \(T - F_{\mathrm{cur}}\), which equals \(m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q23
+    title: Underwater probe, position 2
+    points: 1
+    text: |
+      <p>A small underwater probe moves in a horizontal circle at the end of a horizontal tether. The tether stays taut during the entire circle, as shown in the figure. A constant current pushes the probe from right to left during the entire circle. The probe's weight is balanced by buoyancy. The figure is a top view of the path that shows three positions of the probe during the circle. The probe is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the probe <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(T\) is the magnitude of the tension in the tether.</p>
+      <p>\(F_{\mathrm{cur}}\) is the magnitude of the force exerted by the current on the probe.</p>
+      <p>\(m\) is the mass of the probe.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the probe.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the probe.</p>
+    figure: diagrams/08-underwater-probe.png
+    answers:
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Buoyancy balances the probe's weight, so both forces are vertical and drop out of the radial equation. At the point at the top of the figure, the current pushes perpendicular to the radius and has no radial component. The tension alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q24
+    title: Underwater probe, position 3
+    points: 1
+    text: |
+      <p>A small underwater probe moves in a horizontal circle at the end of a horizontal tether. The tether stays taut during the entire circle, as shown in the figure. A constant current pushes the probe from right to left during the entire circle. The probe's weight is balanced by buoyancy. The figure is a top view of the path that shows three positions of the probe during the circle. The probe is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the probe <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(T\) is the magnitude of the tension in the tether.</p>
+      <p>\(F_{\mathrm{cur}}\) is the magnitude of the force exerted by the current on the probe.</p>
+      <p>\(m\) is the mass of the probe.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the probe.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the probe.</p>
+    figure: diagrams/08-underwater-probe.png
+    answers:
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T - F_{\mathrm{cur}} + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(T + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>Buoyancy balances the probe's weight, so both forces are vertical and drop out of the radial equation. At the rightmost point the center is to the left, and the current also pushes to the left. The tether and the current both point toward the center, so \(T + F_{\mathrm{cur}} = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q25
+    title: Car, position 1
+    points: 1
+    text: |
+      <p>A car drives at constant speed around a flat, unbanked circular track. The engine provides only tangential forces to overcome resistance. A constant wind blows the car from left to right during the entire circle. The figure is a top view of the path that shows three positions of the car during the circle. The car is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the car <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the car and the track. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the car.</p>
+      <p>\(m\) is the mass of the car.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the car.</p>
+    figure: diagrams/09-car.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the leftmost point the center is to the right, and the wind also blows to the right. With \(f_s\) positive toward the center, \(f_s + F_w = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q26
+    title: Car, position 2
+    points: 1
+    text: |
+      <p>A car drives at constant speed around a flat, unbanked circular track. The engine provides only tangential forces to overcome resistance. A constant wind blows the car from left to right during the entire circle. The figure is a top view of the path that shows three positions of the car during the circle. The car is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the car <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the car and the track. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the car.</p>
+      <p>\(m\) is the mass of the car.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the car.</p>
+    figure: diagrams/09-car.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the point at the top of the figure, the wind blows perpendicular to the radius and has no radial component. The radial component of friction alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q27
+    title: Car, position 3
+    points: 1
+    text: |
+      <p>A car drives at constant speed around a flat, unbanked circular track. The engine provides only tangential forces to overcome resistance. A constant wind blows the car from left to right during the entire circle. The figure is a top view of the path that shows three positions of the car during the circle. The car is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the car <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the car and the track. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the car.</p>
+      <p>\(m\) is the mass of the car.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the car.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the car.</p>
+    figure: diagrams/09-car.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the rightmost point the center is to the left, while the wind blows to the right, away from the center. With \(f_s\) positive toward the center, \(f_s - F_w = m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q28
+    title: Delivery truck, position 1
+    points: 1
+    text: |
+      <p>A delivery truck drives at constant speed around a flat, unbanked circular lot. The engine provides only tangential forces to overcome resistance. A constant wind blows the truck from left to right during the entire circle. The figure is a top view of the path that shows three positions of the truck during the circle. The truck is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the truck <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the truck and the lot. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the truck.</p>
+      <p>\(m\) is the mass of the truck.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the truck.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the truck.</p>
+    figure: diagrams/10-delivery-truck.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the leftmost point the center is to the right, and the wind also blows to the right. With \(f_s\) positive toward the center, \(f_s + F_w = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q29
+    title: Delivery truck, position 2
+    points: 1
+    text: |
+      <p>A delivery truck drives at constant speed around a flat, unbanked circular lot. The engine provides only tangential forces to overcome resistance. A constant wind blows the truck from left to right during the entire circle. The figure is a top view of the path that shows three positions of the truck during the circle. The truck is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the truck <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the truck and the lot. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the truck.</p>
+      <p>\(m\) is the mass of the truck.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the truck.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the truck.</p>
+    figure: diagrams/10-delivery-truck.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the point at the top of the figure, the wind blows perpendicular to the radius and has no radial component. The radial component of friction alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q30
+    title: Delivery truck, position 3
+    points: 1
+    text: |
+      <p>A delivery truck drives at constant speed around a flat, unbanked circular lot. The engine provides only tangential forces to overcome resistance. A constant wind blows the truck from left to right during the entire circle. The figure is a top view of the path that shows three positions of the truck during the circle. The truck is at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the truck <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the truck and the lot. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the truck.</p>
+      <p>\(m\) is the mass of the truck.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the truck.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the truck.</p>
+    figure: diagrams/10-delivery-truck.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the rightmost point the center is to the left, while the wind blows to the right, away from the center. With \(f_s\) positive toward the center, \(f_s - F_w = m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q31
+    title: Bicycle and rider, position 1
+    points: 1
+    text: |
+      <p>A bicycle and rider move at constant speed around a flat, unbanked circular path. The rider provides only tangential forces to overcome resistance. A constant wind blows the bicycle and rider from right to left during the entire circle. The figure is a top view of the path that shows three positions of the bicycle and rider during the circle. The bicycle and rider are at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the bicycle and rider <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the bicycle and the path. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the bicycle and rider.</p>
+      <p>\(m\) is the mass of the bicycle and rider combined.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the bicycle and rider.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the bicycle and rider.</p>
+    figure: diagrams/11-bicycle.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The rider's force is tangential, so it has no radial component. At the leftmost point the center is to the right, while the wind blows to the left, away from the center. With \(f_s\) positive toward the center, \(f_s - F_w = m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q32
+    title: Bicycle and rider, position 2
+    points: 1
+    text: |
+      <p>A bicycle and rider move at constant speed around a flat, unbanked circular path. The rider provides only tangential forces to overcome resistance. A constant wind blows the bicycle and rider from right to left during the entire circle. The figure is a top view of the path that shows three positions of the bicycle and rider during the circle. The bicycle and rider are at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the bicycle and rider <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the bicycle and the path. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the bicycle and rider.</p>
+      <p>\(m\) is the mass of the bicycle and rider combined.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the bicycle and rider.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the bicycle and rider.</p>
+    figure: diagrams/11-bicycle.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The rider's force is tangential, so it has no radial component. At the point at the top of the figure, the wind blows perpendicular to the radius and has no radial component. The radial component of friction alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q33
+    title: Bicycle and rider, position 3
+    points: 1
+    text: |
+      <p>A bicycle and rider move at constant speed around a flat, unbanked circular path. The rider provides only tangential forces to overcome resistance. A constant wind blows the bicycle and rider from right to left during the entire circle. The figure is a top view of the path that shows three positions of the bicycle and rider during the circle. The bicycle and rider are at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the bicycle and rider <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the bicycle and the path. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the bicycle and rider.</p>
+      <p>\(m\) is the mass of the bicycle and rider combined.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the bicycle and rider.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the bicycle and rider.</p>
+    figure: diagrams/11-bicycle.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The rider's force is tangential, so it has no radial component. At the rightmost point the center is to the left, and the wind also blows to the left. With \(f_s\) positive toward the center, \(f_s + F_w = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q34
+    title: Motorcycle and rider, position 1
+    points: 1
+    text: |
+      <p>A motorcycle and rider move at constant speed around a flat, unbanked circular path. The engine provides only tangential forces to overcome resistance. A constant wind blows the motorcycle and rider from right to left during the entire circle. The figure is a top view of the path that shows three positions of the motorcycle and rider during the circle. The motorcycle and rider are at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the motorcycle and rider <strong>along the radial direction</strong> at <strong>position 1</strong> (leftmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the motorcycle and the path. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the motorcycle and rider.</p>
+      <p>\(m\) is the mass of the motorcycle and rider combined.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the motorcycle and rider.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the motorcycle and rider.</p>
+    figure: diagrams/12-motorcycle.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the leftmost point the center is to the right, while the wind blows to the left, away from the center. With \(f_s\) positive toward the center, \(f_s - F_w = m a_c\). The centripetal force is already that net force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q35
+    title: Motorcycle and rider, position 2
+    points: 1
+    text: |
+      <p>A motorcycle and rider move at constant speed around a flat, unbanked circular path. The engine provides only tangential forces to overcome resistance. A constant wind blows the motorcycle and rider from right to left during the entire circle. The figure is a top view of the path that shows three positions of the motorcycle and rider during the circle. The motorcycle and rider are at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the motorcycle and rider <strong>along the radial direction</strong> at <strong>position 2</strong> (point at the top of the figure)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the motorcycle and the path. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the motorcycle and rider.</p>
+      <p>\(m\) is the mass of the motorcycle and rider combined.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the motorcycle and rider.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the motorcycle and rider.</p>
+    figure: diagrams/12-motorcycle.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the point at the top of the figure, the wind blows perpendicular to the radius and has no radial component. The radial component of friction alone equals \(m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
+
+- multiple_choice:
+    id: q36
+    title: Motorcycle and rider, position 3
+    points: 1
+    text: |
+      <p>A motorcycle and rider move at constant speed around a flat, unbanked circular path. The engine provides only tangential forces to overcome resistance. A constant wind blows the motorcycle and rider from right to left during the entire circle. The figure is a top view of the path that shows three positions of the motorcycle and rider during the circle. The motorcycle and rider are at the leftmost point of the path at position 1, at the point at the top of the figure at position 2, and at the rightmost point of the path at position 3.</p>
+      <p>Take the positive direction along the radius to be toward the center of the circle. Which of the following equations correctly expresses Newton's second law for the motorcycle and rider <strong>along the radial direction</strong> at <strong>position 3</strong> (rightmost point of the path)?</p>
+      <p>\(f_s\) is the radial component of the static friction force between the tires of the motorcycle and the path. It is positive toward the center and negative away from the center.</p>
+      <p>\(F_w\) is the magnitude of the force exerted by the wind on the motorcycle and rider.</p>
+      <p>\(m\) is the mass of the motorcycle and rider combined.</p>
+      <p>\(a_c\) is the magnitude of the centripetal acceleration of the motorcycle and rider.</p>
+      <p>\(F_c\) is the magnitude of the centripetal force on the motorcycle and rider.</p>
+    figure: diagrams/12-motorcycle.png
+    answers:
+    - answer:
+        text: <p>\(f_s + F_w = m a_c\)</p>
+        correct: true
+    - answer:
+        text: <p>\(f_s - F_w = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s - F_w + F_c = m a_c\)</p>
+        correct: false
+    - answer:
+        text: <p>\(f_s + F_c = m a_c\)</p>
+        correct: false
+    feedback:
+        general: |
+          <p>The engine's force is tangential, so it has no radial component. At the rightmost point the center is to the left, and the wind also blows to the left. With \(f_s\) positive toward the center, \(f_s + F_w = m a_c\). The centripetal force is already that net inward force, so it is not added again.</p>
