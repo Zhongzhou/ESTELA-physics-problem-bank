@@ -16,17 +16,42 @@ Note: Maybe the agents can automate some hard rules such as checking the number 
 
 -----The above has already been built -----
 
-Agent 4: isomorphic version planner. This agent creates a table, in which each row represents the information for one isomorphic.
-        * First, list all possible combinations of formulas listed in input-scheme, if any formula requires a choice between a set. For example, if a problem consists of two formulas, eq1 and eq2. The second formula has two versions, eq2a and eq2b, then the table has two rows:
+Agent 4: Equations and calculation. This agent takes the input yaml and builds a table of every equation combination, with constants, parameters, computed variables, and a calculation function for each row.
+
+        * First, if any formula requires a choice among a set, list every combination of formulas in the input. Otherwise put all of the formulas in one row. For example, if a problem consists of eq1 and eq2, and eq2 has two versions, eq2a and eq2b, the table has two rows:
             * eq1, eq2a
             * eq1, eq2b
-        * Next, 
-       * Next, associates each accepted scenario with all the possible combination of formulas. For example, if a problem consists of two scenarios, s1 and s2, and two equations, eq1 and eq2. The second equation has two versions, eq2a and eq2b. Then the table will contain 4 rows:
-          * s1, eq1, eq2a, {vars_1,2a}
-          * s1, eq1, eq2b, {vars_1,2b}
-          * s2, eq1, eq2a, {vars_1,2a}
-          * s2, eq1, eq2b, {vars_1,2b}
-  (Note to self: future iterations may enable selection of equation based on the type of scenario generated)
+        * Next, for each equation set, determine:
+            * constants and their values: quantities that do not change between variations, such as g or pi. Use a best guess when the input does not give a value. Fix these values inside the calculation function.
+            * parameters: variables that receive random numbers and are passed into the calculation function.
+               * If `parameters` is specified, use that set. A choice such as "T or f" is resolved from the equations selected in that row.
+               * If `parameters` is omitted, select both the parameters and the computed variables. Parameters are quantities that are easier to estimate, such as the mass or speed of an object. Computed variables are quantities that are harder to estimate and have to be calculated, such as the tension in a string or the energy of a ball.
+            * computed variables: the values the function returns. This includes a quantity the problem neither gives nor asks for, such as v. The number of computed variables equals the number of equations in that row. Use the same computed variables for every equation combination, except where a formula branch changes a symbol, such as T in one row and f in the other.
+            * `question_unknowns` and `unknown_rotation` belong to later question writing. Do not use them when choosing parameters or computed variables.
+        * Next, for each equation set, design and validate a Python function that calculates the computed variables from the parameters. Constants are fixed inside the function. Parameters are the arguments. Computed variables are the return values. Use `rounding_decimal` from the input to set the precision of each step, and record the function on that row.
 
+Agent 5: Scenario association.
 
-  
+       * Associate each accepted scenario with every equation set from Agent 4. Pair every scenario with every equation set. A scenario-to-equation exception can be added in a later iteration. For example, two scenarios s1 and s2, and equation rows eq2a and eq2b, produce four rows:
+          * s1, eq1, eq2a, parameters, computed variables
+          * s1, eq1, eq2b, parameters, computed variables
+          * s2, eq1, eq2a, parameters, computed variables
+          * s2, eq1, eq2b, parameters, computed variables
+        * Keep the constants, parameters, computed variables, and calculation function on each row.
+        * Constants stay at their fixed values. Every other variable stays either a function parameter or a function output. This stage does not choose random numbers.
+
+`unknown_rotation` is the number of isomorphic question versions that differ only by which quantities are given and which question unknown the student is asked to calculate. For example, q1a gives F, T, and m and asks for r, and q1b gives F, T, and r and asks for m. Those versions are not part of Agents 4 and 5, and they do not change the numbers used for the calculation.
+           
+--- The above has been built ---
+
+ Agent 6: This agent will hand over one row at a time of the table created by Agent 5 to all the following sub-agents, and collect the outcomes in a new table.
+ 
+
+ Agent 6.1: Context appropriate random number generation: Based on the scenario and the parameter list do the following two things:
+ 1. Write a description of each parameter variable for the scenario. For example, if the context is a car, then write: m: the mass of the car, v: the velocity of the car, etc.
+ 2. Generate multiple sets of random numbers for the parameter variables. The random numbers should be appropriate for the given scenario. The number of sets is determined by the number specified in "unknown_rotation". Hand over the results to Agent 6.2. 
+
+Agent 6.2: Compute the "computed variables". For each set of random number parameters, use the associated python script to determine the computed variables. list all values of parameters and computed variables and hand it over to agent 6.3
+
+Agent 6.3: Select the unknown and write the problem body. Based on the scenario from Agent 6 and the variable values from 
+

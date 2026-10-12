@@ -1,0 +1,462 @@
+# Calculation table for the problem-creation workflow.
+# Python writes this file.
+# equation_sets are the Agent 4 rows.
+# rows pair each accepted scenario with every equation set.
+source_input: problem-creation agents\input-scheme.yaml
+source_scenarios: problem-creation agents\input-scheme.scenarios.yaml
+rounding_decimal: 2
+needs_classifier: false
+classify_attempts: 0
+parameters_source: input
+variable_specifications:
+- r is the radius of the circular motion
+- Give or ask for either period T or frequency f, not both.
+- Do not directly give or ask for linear velocity v or angular velocity.
+equation_sets:
+- id: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  parsed:
+  - Eq(F_net, m*v**2/r)
+  - Eq(T, 2*pi*r/v)
+  symbols:
+  - F_net
+  - m
+  - v
+  - r
+  - T
+  - pi
+  function: solve_eqset_01
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  steps:
+  - symbol: v
+    expression: math.sqrt(F_net*r/m)
+  - symbol: T
+    expression: 2*math.pi*r/v
+  validated: true
+- id: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  parsed:
+  - Eq(F_net, m*v**2/r)
+  - Eq(f, v/(2*pi*r))
+  symbols:
+  - F_net
+  - m
+  - v
+  - r
+  - f
+  - pi
+  function: solve_eqset_02
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  steps:
+  - symbol: v
+    expression: math.sqrt(F_net*r/m)
+  - symbol: f
+    expression: (1/2)*v/(math.pi*r)
+  validated: true
+rows:
+- id: row_001
+  scenario_index: 0
+  scenario: A puck slides at constant speed in a horizontal circle on a frictionless air table, tied by a horizontal cord to a fixed peg at the center.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_002
+  scenario_index: 0
+  scenario: A puck slides at constant speed in a horizontal circle on a frictionless air table, tied by a horizontal cord to a fixed peg at the center.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_003
+  scenario_index: 1
+  scenario: A steel ball hanging from a string moves at constant speed in a horizontal circle, with the string keeping a constant angle to the vertical.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_004
+  scenario_index: 1
+  scenario: A steel ball hanging from a string moves at constant speed in a horizontal circle, with the string keeping a constant angle to the vertical.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_005
+  scenario_index: 2
+  scenario: A satellite travels at constant speed in a circular orbit far above Earth's atmosphere.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_006
+  scenario_index: 2
+  scenario: A satellite travels at constant speed in a circular orbit far above Earth's atmosphere.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_007
+  scenario_index: 3
+  scenario: A coin rests without slipping on a level turntable that spins at a constant rate, so the coin moves with the turntable in a circle.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_008
+  scenario_index: 3
+  scenario: A coin rests without slipping on a level turntable that spins at a constant rate, so the coin moves with the turntable in a circle.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_009
+  scenario_index: 4
+  scenario: A dense block slides at constant speed in a horizontal circle on a smooth, frictionless banked track.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_010
+  scenario_index: 4
+  scenario: A dense block slides at constant speed in a horizontal circle on a smooth, frictionless banked track.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_011
+  scenario_index: 5
+  scenario: A metal bead threaded on a smooth horizontal circular wire slides around the wire at constant speed.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_012
+  scenario_index: 5
+  scenario: A metal bead threaded on a smooth horizontal circular wire slides around the wire at constant speed.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_013
+  scenario_index: 6
+  scenario: A crate rests without sliding on the floor of a van that travels at constant speed along a flat, unbanked circular road.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_014
+  scenario_index: 6
+  scenario: A crate rests without sliding on the floor of a van that travels at constant speed along a flat, unbanked circular road.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_015
+  scenario_index: 7
+  scenario: A person stays on the inner rim of a cylindrical space station that rotates at a constant rate in deep space, far from any planet, and moves with the station in a circle about its axis.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_016
+  scenario_index: 7
+  scenario: A person stays on the inner rim of a cylindrical space station that rotates at a constant rate in deep space, far from any planet, and moves with the station in a circle about its axis.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_017
+  scenario_index: 8
+  scenario: Two stars of equal mass move at constant speed in circular paths about their common center of mass, in empty space far from every other body.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_018
+  scenario_index: 8
+  scenario: Two stars of equal mass move at constant speed in circular paths about their common center of mass, in empty space far from every other body.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+- id: row_019
+  scenario_index: 9
+  scenario: A dense disk slides at constant speed in a horizontal circle on a frictionless table, tied to a cord that passes through a central hole and supports a block hanging at rest below the table.
+  equation_set: eqset_01
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - T = \frac{2 \pi r}{v}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - T
+  function: solve_eqset_01
+- id: row_020
+  scenario_index: 9
+  scenario: A dense disk slides at constant speed in a horizontal circle on a frictionless table, tied to a cord that passes through a central hole and supports a block hanging at rest below the table.
+  equation_set: eqset_02
+  formulas:
+  - F_{\mathrm{net}} = \frac{m v^{2}}{r}
+  - f = \frac{v}{2 \pi r}
+  constants:
+  - symbol: pi
+    python: math.pi
+    value: 3.141592653589793
+  parameters:
+  - F_net
+  - m
+  - r
+  computed:
+  - v
+  - f
+  function: solve_eqset_02
+tolerance: 0.03
+functions_module: problem-creation agents\input-scheme.calculations.py

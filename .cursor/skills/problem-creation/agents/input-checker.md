@@ -12,7 +12,7 @@ These must be present and non-empty:
 - `context.n_scenarios` (a positive integer)
 - `structure.formulas`
 - `structure.variable_specifications`
-- `structure.possible_unknowns`
+- `structure.question_unknowns`
 
 The key `other (optional)` and every field under it may be empty. Leave those fields alone unless the user supplied text there that is relevant to a clarification.
 
@@ -22,7 +22,7 @@ The key `other (optional)` and every field under it may be empty. Leave those fi
 2. Rewrite every formula string into standard LaTeX. Edit the input file directly. Keep branching groups such as a key `One of:` whose value is a list of formulas. Rewrite the strings inside those lists too.
    - `F_net = m v^2 / r` becomes `F_{\mathrm{net}} = \frac{m v^{2}}{r}`
    - A bare `pi` becomes `\pi`
-3. If the validator lists missing fields, or a required value is ambiguous, ask the user. One ambiguity to catch: a symbol in `possible_unknowns` that does not match the symbols in the formulas. Do not invent physics requirements the user did not state.
+3. If the validator lists missing fields, or a required value is ambiguous, ask the user. One ambiguity to catch: a symbol in `question_unknowns` that does not match the symbols in the formulas. Do not invent physics requirements the user did not state.
 4. If `warnings` is non-empty, show each warning. A warning that `n_scenarios` is greater than 10 does not block confirmation.
 5. Show the edited YAML. Then stop.
 

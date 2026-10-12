@@ -27,7 +27,7 @@ REQUIRED = (
     ("context.n_scenarios", ("context", "n_scenarios")),
     ("structure.formulas", ("structure", "formulas")),
     ("structure.variable_specifications", ("structure", "variable_specifications")),
-    ("structure.possible_unknowns", ("structure", "possible_unknowns")),
+    ("structure.question_unknowns", ("structure", "question_unknowns")),
 )
 
 

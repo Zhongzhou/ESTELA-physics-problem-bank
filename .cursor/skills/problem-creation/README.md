@@ -1,8 +1,8 @@
 # Problem-creation agents
 
-This skill turns an input YAML into a reviewed list of physics scenarios. In Cursor, ask to run the problem-creation workflow and name the input file. The skill instructions are in [SKILL.md](SKILL.md). An example input is [problem-creation agents/input-scheme.yaml](<../../../problem-creation agents/input-scheme.yaml>).
+This skill turns an input YAML into a reviewed list of physics scenarios, then into calculation functions and one row per scenario and equation set. In Cursor, ask to run the problem-creation workflow and name the input file. The skill instructions are in [SKILL.md](SKILL.md). An example input is [problem-creation agents/input-scheme.yaml](<../../../problem-creation agents/input-scheme.yaml>).
 
-Problem statements, numbers, and solutions are not generated yet. A later agent should read the confirmed input and the accepted scenarios.
+Random numbers, question wording, and `unknown_rotation` versions are not generated yet.
 
 ## Usage
 
@@ -18,7 +18,7 @@ On macOS or Linux the interpreter is `.venv/bin/python`. The `.venv` directory i
 2. Copy the example input, or start a new YAML with the same fields. Informal math is fine. The checker rewrites formulas into LaTeX.
 3. In chat, ask to run the problem-creation workflow on that file.
 4. Read the edited input. Answer any clarification questions. Confirm the input when it looks right. Scenario generation does not start before that confirmation.
-5. When the run finishes, open the sidecar next to the input. For `input-scheme.yaml` the sidecar is `input-scheme.scenarios.yaml`.
+5. When the run finishes, open the sidecars next to the input. For `input-scheme.yaml` those are `input-scheme.scenarios.yaml`, `input-scheme.calculations.yaml`, and `input-scheme.calculations.py`.
 
 If a sidecar already exists, the workflow asks before replacing it.
 
@@ -34,9 +34,13 @@ Input YAML
        Agent 2 writes the scenarios still needed
        Agent 3 keeps or rejects that batch
   -> sidecar file with the accepted list
+  -> Python expands every formula combination
+  -> when parameters is omitted, Agent 4 chooses parameters and computed variables
+  -> Python writes and checks one function per equation set
+  -> Python pairs every accepted scenario with every equation set
 ```
 
-Python is the only writer of `target` and `update_count`. The target is always copied from `context.n_scenarios` in the input file. Agent prompts do not contain a fixed scenario count.
+Python is the only writer of `target`, `update_count`, the calculation sidecar, and the calculation functions. The target is always copied from `context.n_scenarios` in the input file. Agent prompts do not contain a fixed scenario count.
 
 `update_count` starts at 0. It increases by 1 each time a generation pass starts. Passes 1 through 5 are allowed. If the count goes past 5 and the accepted list is still short of `target`, the run stops. You can lower `context.n_scenarios` or change `context.scenario_specifications`, confirm another attempt, and continue. Lowering the target writes the new number back to the input, copies it into the sidecar, and resets `update_count` to 0. Scenarios already accepted or rejected stay in the file. If the accepted list already meets the new target, the run finishes.
 
@@ -48,7 +52,7 @@ A value of `n_scenarios` greater than 10 produces a warning during the input che
 
 Instructions: [agents/input-checker.md](agents/input-checker.md).
 
-The chat agent does this step itself and edits the input file in place. It rewrites every formula string into standard LaTeX, including formulas nested under a branch such as `One of:`. It asks you when a required field is missing or ambiguous, for example when a symbol in `possible_unknowns` does not match the formulas. It then shows the edited YAML and waits.
+The chat agent does this step itself and edits the input file in place. It rewrites every formula string into standard LaTeX, including formulas nested under a branch such as `One of:`. It asks you when a required field is missing or ambiguous, for example when a symbol in `question_unknowns` does not match the formulas. It then shows the edited YAML and waits.
 
 Required fields:
 
@@ -58,7 +62,7 @@ Required fields:
 - `context.n_scenarios` (a positive integer)
 - `structure.formulas`
 - `structure.variable_specifications`
-- `structure.possible_unknowns`
+- `structure.question_unknowns`
 
 `other (optional)` and every field under it may be empty.
 
@@ -74,7 +78,21 @@ Instructions: [agents/scenario-critic.md](agents/scenario-critic.md).
 
 A separate subagent judges only the new batch. It rejects a scenario that breaks a specification or that is unsuitable as the setting of an introductory physics calculation problem. Each rejection includes a short reason. Survivors are marked accepted. The parent agent applies those decisions with the Python script, then asks Agent 2 to fill whatever gap remains.
 
-## Result file
+### Agent 4: equations and calculation
+
+Instructions for the classifier: [agents/equation-classifier.md](agents/equation-classifier.md).
+
+Python expands each `One of:` group into equation sets. For each set it fixes constants such as `pi` and `g`, then splits the other symbols into parameters and computed variables. Parameters are the function arguments and later receive random numbers. Computed variables are the function results. Their count equals the number of equations in that set. A quantity the problem neither gives nor asks for, such as `v`, stays a computed variable.
+
+If `other (optional).parameters` is filled in, Python uses that list and resolves a choice such as `T or f` from the equation set. If the list leaves a computed-variable count other than one per equation, the run stops and asks you to change it. If the field is omitted, a subagent chooses the split. Parameters are quantities that are easier to estimate, such as mass or speed. Computed variables are quantities that have to be calculated, such as tension or energy. `question_unknowns` and `unknown_rotation` are not used.
+
+Python then writes one function per equation set, with constants fixed inside it, and checks the function against the formulas. Each computed value is rounded to `rounding_decimal` at that step.
+
+### Agent 5: scenario association
+
+Python pairs every accepted scenario with every equation set and keeps the constants, parameters, computed variables, and function name on each row. A scenario-to-equation exception can be added later. This step does not choose random numbers.
+
+## Result files
 
 The sidecar stays on disk after a finished run and after an early stop. Accepted scenarios are the `scenarios` entries with `status: accepted`. Removed ones are under `rejected` with the reason.
 
@@ -92,6 +110,22 @@ rejected:
 
 `target` in a real file is whatever `context.n_scenarios` was when the sidecar was created or last updated.
 
+The calculation sidecar lists each equation set and then one row per accepted scenario and equation set:
+
+```yaml
+equation_sets:
+  - id: eqset_01
+    parameters: [F_net, m, r]
+    computed: [v, T]
+    function: solve_eqset_01
+    validated: true
+rows:
+  - id: row_001
+    scenario_index: 0
+    equation_set: eqset_01
+    function: solve_eqset_01
+```
+
 ## Scripts
 
 Run these from the repository root with `.venv/Scripts/python.exe`. Replace `INPUT.yaml` with the input path. The sidecar path is the input path with `.scenarios.yaml` added before the extension, beside the input file.
@@ -105,5 +139,11 @@ Run these from the repository root with `.venv/Scripts/python.exe`. Replace `INP
 | `scripts/scenario_list.py remove --file SIDECAR.yaml --index 0 --reason "..."` | Reject pending items by their index in the new batch and accept the rest. Omit `--index` to accept the whole batch. |
 | `scripts/scenario_list.py status --file SIDECAR.yaml` | Print the current counts without changing the file. |
 | `scripts/scenario_list.py set-target --file SIDECAR.yaml --input INPUT.yaml` | Copy `context.n_scenarios` again and reset `update_count` to 0. |
+| `scripts/calculation_table.py prepare --input INPUT.yaml --scenarios SIDECAR.yaml` | Expand formula combinations. Uses `parameters` when that field is present. |
+| `scripts/calculation_table.py classify-receive --file CALC.yaml` | Start a classifier pass. Used only when `parameters` was omitted. |
+| `scripts/calculation_table.py apply --file CALC.yaml --json-file classify.json` | Store a classifier split that passes the checks. |
+| `scripts/calculation_table.py build --file CALC.yaml` | Write `CALC.py` and check the functions against the formulas. |
+| `scripts/calculation_table.py associate --file CALC.yaml` | Pair every accepted scenario with every equation set. |
+| `scripts/calculation_table.py status --file CALC.yaml` | Print calculation progress without changing the file. |
 
 Quote paths that contain spaces.
