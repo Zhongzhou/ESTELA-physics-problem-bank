@@ -1,0 +1,148 @@
+bank_info:
+    title: Example Problem Bank
+    bank_id: EXP-PB1-EXMPLPB-01012026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    description: |-
+      This is an example problem bank for assessment problems. 
+      Use this template to create new problem banks by replacing the content with your own questions and details.
+    date created: 01-01-2026 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field. 'draft' and 'deprecated' files won't be parsed by the exam builder.
+    learning objectives:
+        - 1DM-PD-1
+        - 1DM-VS-1
+    generation prompts: # The following are the prompts that generated the questions in the problem bank.
+        - prompt 1: |
+        - prompt 2: | 
+        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+    updates: 
+        - update 1: (9/15/2025) Zhongzhou Chen added updates field to this yaml. 
+        - update 2: (date of update) who did what #this is an example.
+    associated data:
+        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+    generation details: # Details of the creation process
+            model: GPT-4o # The model used to generate the questions
+            version: 0.0.1 # The version of the model used
+            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+    authors:
+        - Author 1
+        - Author 2
+
+questions:
+# The following contents should be replaced by the output of the LLM.
+# Question text, answer text, and feedback are HTML. Wrap each block in <p> tags.
+# Inline math uses \( ... \). Display math uses \[ ... \].
+- numerical: # The problem type is a numerical input problem
+    id: q1
+    title: Title of Question 
+    points: 3
+    text: |
+      <p>This is example question text which contains an inline equation: \(x^2 + 2x + 1 = 0\).</p>
+      <p>We can also write equation in new line using:</p>
+      <p>Degree ° Theta θ Delta Δ Pi π and other special characters can be inserted literally or using the character's corresponding HTML hex code.</p>
+      <p>\[
+      x^2 + 2x + 1 = 0
+      \]</p>
+
+    answer:
+        value: 42.2 # The answer to the problem
+        margin_type: percent # ... any answer within a certain absolute range will also be counted as 'correct'
+        tolerance: 3 # The tolerance value
+    feedback:
+        general: <p>The solution of the problem</p>
+        on_correct: <p>Good job!</p>
+        on_incorrect: <p>Try again!</p>
+
+
+- multiple_choice:
+    id: question_multiple_choice_1
+    title: Multiple Choice - Locked Answer
+    points: 1
+    text: |
+        <p>This is a standard multiple choice question, in which only one answer is correct and all other choices grant no points.</p>
+        <p>Note: the third answer option is locked into position.</p>
+    answers:
+    - answer:
+        text: <p>A</p>
+        # in standard multiple choice questions, each anser option must have
+        #  a 'correct' property
+        # this property should have a value of 'false' for every answer except
+        #  the single correct one, which should have a value of 'true'
+        correct: false
+    - answer:
+        text: <p>B</p>
+        correct: true
+    - answer:
+        text: <p>C</p>
+        # set the 'lock' property to the boolean value 'true' on an answer to
+        #  keep it in that location when shuffling
+        # note that setting 'lock' to 'false' is not necessary, as omitting
+        #  the property entirely assumes a value of 'false'
+        lock: true
+        correct: false
+    - answer:
+        text: <p>D</p>
+        correct: false
+    - answer:
+        text: <p>E</p>
+        correct: false
+
+
+- multiple_choice:
+    id: question_multiple_choice_2
+    title: Multiple Choice - Variable Points
+    # when allowing a different number of points per answer, make sure the
+    #  question's 'points' property has the same value as the highest-value answer
+    points: 8
+    text: <p>A multiple choice question in which points are awarded based on the selected answer.</p>
+    answers:
+    - answer:
+        text: <p>Six</p>
+        points: 6
+    - answer:
+        text: <p>Eight</p>
+        points: 8
+    - answer:
+        text: <p>Four</p>
+        points: 4
+    - answer:
+        text: <p>Five</p>
+        points: 5
+
+
+- multiple_answers:
+    id: question_multiple_answer_1
+    title: Multiple Answer - Partial Credit
+    points: 5
+    text: |
+        <p>This is a multiple answer question that awards partial credit with a penalty based on chosen answers.</p>
+        <p>Partial credit is awarded for correct answers selected and a penalty is applied for incorrect answers selected.</p>
+        <p>Any option may be locked, preserving that option's position if shuffling is enabled.</p>
+
+    # to enable partial credit and penalties, set the 'partial' property of the question object to 'true'
+    # this will give partial credit if some correct answers are selected, but
+    #  will also apply score penalties if incorrect answers are selected
+    partial: true
+
+    answers:
+    - answer:
+        text: |
+            <p>Correct. Option 1.</p>
+            <p>Answer text can be HTML.</p>
+        # if an answer is one of the correct options, the 'correct' property must be set to 'true'
+        correct: true
+        # any answer option may be optionally locked into its position by setting the value of the 'lock' property to 'true'
+        # if this value is set to 'false' or is not set at all, then the answer may be positioned differently if shuffling is enabled
+        lock: false
+    - answer:
+        text: <p>Correct. Option 2. Answer text can also be plain text.</p>
+        correct: true
+    - answer:
+        text: <p>Incorrect. Option 3.</p>
+        # incorrect answers may set this value to false or omit it entirely
+        correct: false
+    # incorrect answers may optionally leave 'correct' undefined - if it is absent, a value of 'false' is assumed
+    - answer:
+        text: <p>Incorrect. Option 4.</p>
+    - answer:
+        text: |
+            <p>Incorrect.</p>
+            <p><strong>Option 5.</strong></p>
