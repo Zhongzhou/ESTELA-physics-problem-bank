@@ -1,0 +1,88 @@
+# Keeps the published Exam Builder in step with the banks.
+#
+# The pages under docs/ are single files with every bank embedded as a base64 zip, so they
+# do not read the repo at runtime -- whatever was bundled when the file was last generated
+# is what the site shows, forever. docs/standalone-enhanced.html had been frozen since
+# 2026-07-01, which is why a bank merged in October never appeared.
+#
+# This regenerates them whenever the banks change, and once a day as a backstop in case a
+# change lands by a route the push trigger misses.
+
+name: Rebuild standalone Exam Builder
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'PHY I Mechanics/**'
+      - 'frontend/**'
+      - 'scripts/build_standalone_html.py'
+      - '.github/workflows/rebuild-standalone.yml'
+  schedule:
+    - cron: '17 7 * * *'      # 07:17 UTC daily; off the hour, which GitHub asks for
+  workflow_dispatch:
+
+# Only the commit below needs write access.
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild-standalone
+  cancel-in-progress: false   # let a running rebuild finish rather than racing a commit
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # build_standalone_html.py is standard library only, so there is nothing to install.
+
+      - name: Rebuild both published builds
+        run: |
+          python scripts/build_standalone_html.py \
+            --template frontend/index.html \
+            --output   docs/standalone.html \
+            --label    "PHY I Mechanics"
+
+          python scripts/build_standalone_html.py \
+            --template frontend/enhanced.html \
+            --output   docs/standalone-enhanced.html \
+            --label    "PHY I Mechanics (enhanced)"
+
+      - name: Report what is bundled
+        run: |
+          python - <<'PY'
+          import base64, io, re, zipfile
+          for page in ("docs/standalone.html", "docs/standalone-enhanced.html"):
+              src = open(page, encoding="utf-8", errors="replace").read()
+              m = re.search(r'zipBase64:\s*"([A-Za-z0-9+/=]+)"', src)
+              if not m:
+                  print(f"{page}: no bundle found"); continue
+              names = zipfile.ZipFile(io.BytesIO(base64.b64decode(m.group(1)))).namelist()
+              banks = [n for n in names if n.endswith((".yaml", ".yml"))]
+              print(f"{page}: {len(banks)} banks, {len(names)} files")
+              for b in sorted(banks):
+                  print("   ", b)
+          PY
+
+      - name: Commit only if the bundle actually changed
+        run: |
+          # Verified: the build is reproducible -- same banks in, byte-identical file out --
+          # so a plain diff is a sound gate and the nightly run stays silent when nothing
+          # changed. If the build script ever starts embedding a timestamp, this check
+          # quietly turns into a nightly commit, which is the thing to watch for.
+          if git diff --quiet -- docs/standalone.html docs/standalone-enhanced.html; then
+            echo "No change to the published builds."
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/standalone.html docs/standalone-enhanced.html
+          git commit -m "Rebuild standalone Exam Builder with the current banks"
+          git push
