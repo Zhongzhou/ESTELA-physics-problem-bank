@@ -1,0 +1,716 @@
+bank_info:
+  title: Equivalent Resistance of Five-Resistor Networks
+  bank_id: PHY2-DC-REQ-10032026
+  description: |
+    <p>Twelve formula questions about the equivalent resistance of five equal resistors in distinct circuits. Each circuit includes a battery cell labeled \(V\). The assigned values of \(R\) are \(5.00\), \(6.00\), \(10.0\), and \(12.0\ \Omega\). Numerical resistance givens and answers use three significant digits. Each question is worth one point, with a 5% tolerance.</p>
+  date created: 10-03-2026
+  learning objectives:
+  - PHY2-DC
+  status: ready
+  generation prompts:
+  - circuit generation: |
+      <p>Draw twelve different circuits with Schemdraw, each containing one BatteryCell labeled V and five resistors labeled R1 through R5 in a random connected network.</p>
+  - bank generation: |
+      <p>Create twelve formula questions corresponding to the circuits. Ask for equivalent resistance when all five resistors are equal. Use HTML snippets and MathJax, with complete symbolic solutions in general feedback. Provide four answer sets for the prescribed resistor values, with three significant digits in all numerical resistance givens and results.</p>
+  - formatting prompt: YAML_formatting_prompt.md
+  updates: []
+  associated data:
+  - circuit figures: Figures/circuit_01.png through Figures/circuit_12.png
+  - source circuit collection: schemdraw_12_circuits.zip
+  generation details:
+    model: GPT-6
+    version: '1.0'
+    last updated: 10-03-2026
+    converter repository: https://github.com/omoussa/yaml-to-qti/
+    inspected converter revision: 7f7dfdf507c727ce50f18f94a382b0cd9ae7df9c
+    question type: formula
+    answer generation: Prescribed values in their supplied order; no random sampling. Bounded formula
+      helper checked against exact rational coefficients and independently solved node-voltage equations.
+    numerical precision: Resistance givens and precomputed results are quoted numeric strings with three
+      significant digits, preserving trailing zeros. Exact symbolic integers, fractions, component counts,
+      and IDs are not rounded.
+    rounding: ROUND_HALF_UP; retain exact symbolic fractions until the final result.
+    decimal metadata: The converter uses decimal-place metadata, not significant-digit metadata. Per-question
+      decimal places were chosen so all four numeric results match the specified three-significant-digit
+      results. Variable decimals=2 accommodates all prescribed input strings.
+    converter limits:
+    - MathJax delimiters are preserved inside HTML blocks; this converter does not translate them to MathML.
+    - The converter omits points_possible metadata; the YAML requests one point per question. Confirm
+      point values in Canvas after import.
+    - General feedback exports as HTML text in a text/plain QTI wrapper; verify rendering in Canvas.
+    - Actual Canvas import, MathJax rendering, and imported variable formatting have not been tested.
+  authors:
+  - O. Moussa
+questions:
+- formula:
+    id: q1
+    title: Equivalent Resistance - Circuit 1
+    points: 1
+    text: |
+      <p>In Circuit 1, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span></p>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 1:</strong> Three branches connect the battery-terminal junctions. The top branch contains \(R_4\), \(R_3\), and \(R_2\) in that order. The middle branch contains \(R_1\), and the bottom branch contains \(R_5\).</p>
+    figure: Figures/circuit_01.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 3*R/7
+    answers:
+    - answer:
+        R: '5.00'
+        result: '2.14'
+    - answer:
+        R: '6.00'
+        result: '2.57'
+    - answer:
+        R: '10.0'
+        result: '4.29'
+    - answer:
+        R: '12.0'
+        result: '5.14'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Identify the branches.</strong> The top branch contains \(R_4\), \(R_3\), and \(R_2\) in series. The middle branch contains \(R_1\), and the bottom branch contains \(R_5\). All three branches connect to the same two junctions, so they are in parallel.</p></li>
+        <li><p><strong>Reduce the top series branch.</strong> There are no branching junctions between these three resistors, so they carry the same current.</p><p>\[R_{\mathrm{top}}=R_4+R_3+R_2=R+R+R=3R.\]</p></li>
+        <li><p><strong>Combine the three parallel branches.</strong> Parallel branches have the same potential difference; add their reciprocal resistances.</p><p>\[\frac{1}{R_{\mathrm{eq}}}=\frac{1}{R_{\mathrm{top}}}+\frac{1}{R_1}+\frac{1}{R_5}=\frac{1}{3R}+\frac{1}{R}+\frac{1}{R}=\frac{7}{3R}.\]</p></li>
+        <li><p><strong>Invert and check.</strong> The equivalent resistance is smaller than \(R\), the smallest branch resistance, as expected for parallel branches.</p><p>\[\boxed{R_{\mathrm{eq}}=\frac{3}{7}R}.\]</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q2
+    title: Equivalent Resistance - Circuit 2
+    points: 1
+    text: |
+      <p>In Circuit 2, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 2:</strong> The top arm contains \(R_2\) followed by \(R_5\); the bottom arm contains \(R_4\) followed by \(R_1\). Resistor \(R_3\) joins the two arm midpoints.</p>
+    figure: Figures/circuit_02.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: R
+    answers:
+    - answer:
+        R: '5.00'
+        result: '5.00'
+    - answer:
+        R: '6.00'
+        result: '6.00'
+    - answer:
+        R: '10.0'
+        result: '10.0'
+    - answer:
+        R: '12.0'
+        result: '12.0'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Identify the bridge.</strong> The top arm is \(R_2\) followed by \(R_5\); the bottom arm is \(R_4\) followed by \(R_1\). Resistor \(R_3\) connects the two arm midpoints. This is a Wheatstone bridge.</p></li>
+        <li><p><strong>Check the balance condition.</strong> The ratios in the two arms are equal. Therefore, their midpoints, called \(C\) and \(D\), have the same potential.</p><p>\[\frac{R_2}{R_5}=\frac{R_4}{R_1}=\frac{R}{R}=1.\]</p><p>\[\phi_C=\phi_D,\qquad \Delta V_3=\phi_C-\phi_D=0,\qquad I_3=\frac{\Delta V_3}{R_3}=0.\]</p></li>
+        <li><p><strong>Reduce the two conducting arms.</strong> Because the center resistor carries zero current, each arm consists of two resistors carrying the same current in series. The arms are in parallel between the battery terminals.</p><p>\[R_{\mathrm{top}}=R_2+R_5=2R,\qquad R_{\mathrm{bottom}}=R_4+R_1=2R.\]</p></li>
+        <li><p><strong>Combine the arms and check.</strong> Two equal resistances in parallel give half the resistance of either arm. The center resistor's zero-current condition follows from the equal resistor values.</p><p>\[\frac{1}{R_{\mathrm{eq}}}=\frac{1}{2R}+\frac{1}{2R}=\frac{1}{R},\qquad \boxed{R_{\mathrm{eq}}=R}.\]</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Check whether the bridge is balanced. If the midpoints have equal potential, the center resistor carries zero current; then reduce the two conducting arms. Keep exact expressions until the final rounding.</p>
+- formula:
+    id: q3
+    title: Equivalent Resistance - Circuit 3
+    points: 1
+    text: |
+      <p>In Circuit 3, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 3:</strong> The lower branch contains \(R_3\). In the upper branch, one path contains \(R_1\) followed by \(R_4\), and an alternative path contains \(R_2\). These paths rejoin before \(R_5\), which connects to the right terminal.</p>
+    figure: Figures/circuit_03.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 5*R/8
+    answers:
+    - answer:
+        R: '5.00'
+        result: '3.13'
+    - answer:
+        R: '6.00'
+        result: '3.75'
+    - answer:
+        R: '10.0'
+        result: '6.25'
+    - answer:
+        R: '12.0'
+        result: '7.50'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Combine the upper series pair.</strong> Resistors \(R_1\) and \(R_4\) share a junction without any other branch.</p><p>\[R_{14}=R_1+R_4=2R.\]</p></li>
+        <li><p><strong>Combine this pair with its parallel resistor.</strong> The series pair and \(R_2\) connect across the same two junctions.</p><p>\[R_{142}=\left(\frac{1}{R_{14}}+\frac{1}{R_2}\right)^{-1}=\left(\frac{1}{2R}+\frac{1}{R}\right)^{-1}=\frac{2}{3}R.\]</p></li>
+        <li><p><strong>Add the resistor in series with this block.</strong> Current leaving the reduced block passes through \(R_5\).</p><p>\[R_{\mathrm{upper}}=R_{142}+R_5=\frac{2}{3}R+R=\frac{5}{3}R.\]</p></li>
+        <li><p><strong>Combine the upper branch with the lower branch.</strong> The upper branch and \(R_3\) are in parallel. The result is smaller than the smallest branch resistance, \(R\).</p><p>\[\frac{1}{R_{\mathrm{eq}}}=\frac{1}{(5/3)R}+\frac{1}{R_3}=\frac{3}{5R}+\frac{1}{R}=\frac{8}{5R},\qquad \boxed{R_{\mathrm{eq}}=\frac{5}{8}R}.\]</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q4
+    title: Equivalent Resistance - Circuit 4
+    points: 1
+    text: |
+      <p>In Circuit 4, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 4:</strong> The lower branch contains \(R_2\). The upper branch contains a parallel pair of \(R_1\) and \(R_4\), followed by a parallel pair of \(R_3\) and \(R_5\). The two pairs meet at a common central junction.</p>
+    figure: Figures/circuit_04.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: R/2
+    answers:
+    - answer:
+        R: '5.00'
+        result: '2.50'
+    - answer:
+        R: '6.00'
+        result: '3.00'
+    - answer:
+        R: '10.0'
+        result: '5.00'
+    - answer:
+        R: '12.0'
+        result: '6.00'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Reduce the left parallel pair.</strong> Resistors \(R_1\) and \(R_4\) share both junctions.</p><p>\[R_{14}=\left(\frac{1}{R_1}+\frac{1}{R_4}\right)^{-1}=\left(\frac{1}{R}+\frac{1}{R}\right)^{-1}=\frac{R}{2}.\]</p></li>
+        <li><p><strong>Reduce the right parallel pair.</strong> Resistors \(R_3\) and \(R_5\) share both junctions.</p><p>\[R_{35}=\left(\frac{1}{R_3}+\frac{1}{R_5}\right)^{-1}=\frac{R}{2}.\]</p></li>
+        <li><p><strong>Combine the two blocks in series.</strong> The same total current passes through both reduced blocks.</p><p>\[R_{\mathrm{upper}}=R_{14}+R_{35}=\frac{R}{2}+\frac{R}{2}=R.\]</p></li>
+        <li><p><strong>Combine the upper branch with the lower resistor.</strong> The upper branch and \(R_2\) are in parallel. Both have resistance \(R\), so the final result is half either branch resistance.</p><p>\[\frac{1}{R_{\mathrm{eq}}}=\frac{1}{R_{\mathrm{upper}}}+\frac{1}{R_2}=\frac{2}{R},\qquad \boxed{R_{\mathrm{eq}}=\frac{R}{2}}.\]</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q5
+    title: Equivalent Resistance - Circuit 5
+    points: 1
+    text: |
+      <p>In Circuit 5, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 5:</strong> Four branches connect the battery-terminal junctions. The top branch contains \(R_3\) followed by \(R_1\). The other three branches contain \(R_5\), \(R_2\), and \(R_4\), respectively.</p>
+    figure: Figures/circuit_05.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 2*R/7
+    answers:
+    - answer:
+        R: '5.00'
+        result: '1.43'
+    - answer:
+        R: '6.00'
+        result: '1.71'
+    - answer:
+        R: '10.0'
+        result: '2.86'
+    - answer:
+        R: '12.0'
+        result: '3.43'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Identify the four parallel branches.</strong> The top branch contains \(R_3\) and \(R_1\) in series. The other branches contain \(R_5\), \(R_2\), and \(R_4\), respectively. All four branches share the same terminal junctions.</p></li>
+        <li><p><strong>Reduce the top branch.</strong> The two resistors in that branch carry the same current.</p><p>\[R_{\mathrm{top}}=R_3+R_1=2R.\]</p></li>
+        <li><p><strong>Add the four parallel conductances.</strong> Use the reciprocal-resistance rule for all four branches.</p><p>\[\frac{1}{R_{\mathrm{eq}}}=\frac{1}{2R}+\frac{1}{R_5}+\frac{1}{R_2}+\frac{1}{R_4}=\frac{1}{2R}+\frac{3}{R}=\frac{7}{2R}.\]</p></li>
+        <li><p><strong>Invert and check.</strong> The equivalent resistance is smaller than \(R\), consistent with parallel branches.</p><p>\[\boxed{R_{\mathrm{eq}}=\frac{2}{7}R}.\]</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q6
+    title: Equivalent Resistance - Circuit 6
+    points: 1
+    text: |
+      <p>In Circuit 6, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 6:</strong> From the left terminal, \(R_4\) leads to a junction with two paths: an upper path containing \(R_5\) followed by \(R_1\), and a lower path containing \(R_2\). The paths rejoin before \(R_3\), which leads to the right terminal.</p>
+    figure: Figures/circuit_06.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 1
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 8*R/3
+    answers:
+    - answer:
+        R: '5.00'
+        result: '13.3'
+    - answer:
+        R: '6.00'
+        result: '16.0'
+    - answer:
+        R: '10.0'
+        result: '26.7'
+    - answer:
+        R: '12.0'
+        result: '32.0'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Reduce the internal series pair.</strong> Resistors \(R_5\) and \(R_1\) are in series within the upper internal branch.</p><p>\[R_{51}=R_5+R_1=2R.\]</p></li>
+        <li><p><strong>Reduce the internal parallel block.</strong> The series pair and \(R_2\) connect across the same two internal junctions.</p><p>\[R_{\mathrm{block}}=\left(\frac{1}{R_{51}}+\frac{1}{R_2}\right)^{-1}=\left(\frac{1}{2R}+\frac{1}{R}\right)^{-1}=\frac{2}{3}R.\]</p></li>
+        <li><p><strong>Add the two outer series resistors.</strong> Every current path from one battery terminal to the other passes through \(R_4\), the reduced internal block, and \(R_3\).</p><p>\[R_{\mathrm{eq}}=R_4+R_{\mathrm{block}}+R_3=R+\frac{2}{3}R+R=\boxed{\frac{8}{3}R}.\]</p></li>
+        <li><p><strong>Check the result.</strong> The parallel block has resistance between zero and \(R\), so the total lies between \(2R\) and \(3R\), as the derived expression does.</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q7
+    title: Equivalent Resistance - Circuit 7
+    points: 1
+    text: |
+      <p>In Circuit 7, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 7:</strong> Three outer branches connect the battery-terminal junctions. The middle branch contains \(R_1\), and the bottom branch contains \(R_5\). The upper branch first splits into paths through \(R_2\) and \(R_4\); those paths rejoin before \(R_3\).</p>
+    figure: Figures/circuit_07.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 3*R/8
+    answers:
+    - answer:
+        R: '5.00'
+        result: '1.88'
+    - answer:
+        R: '6.00'
+        result: '2.25'
+    - answer:
+        R: '10.0'
+        result: '3.75'
+    - answer:
+        R: '12.0'
+        result: '4.50'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Reduce the upper-left parallel pair.</strong> Resistors \(R_2\) and \(R_4\) share both junctions.</p><p>\[R_{24}=\left(\frac{1}{R_2}+\frac{1}{R_4}\right)^{-1}=\frac{R}{2}.\]</p></li>
+        <li><p><strong>Add the resistor in series with this pair.</strong> Resistor \(R_3\) carries the total current leaving the parallel pair.</p><p>\[R_{\mathrm{upper}}=R_{24}+R_3=\frac{R}{2}+R=\frac{3}{2}R.\]</p></li>
+        <li><p><strong>Combine all three outer parallel branches.</strong> The upper branch, \(R_1\), and \(R_5\) share the same battery-terminal junctions.</p><p>\[\frac{1}{R_{\mathrm{eq}}}=\frac{1}{(3/2)R}+\frac{1}{R_1}+\frac{1}{R_5}=\frac{2}{3R}+\frac{2}{R}=\frac{8}{3R}.\]</p></li>
+        <li><p><strong>Invert and check.</strong> The result is smaller than the smallest branch resistance, \(R\).</p><p>\[\boxed{R_{\mathrm{eq}}=\frac{3}{8}R}.\]</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q8
+    title: Equivalent Resistance - Circuit 8
+    points: 1
+    text: |
+      <p>In Circuit 8, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 8:</strong> From the left terminal, three paths contain \(R_3\) followed by \(R_1\), \(R_4\) alone, and \(R_2\) alone. The three paths rejoin before \(R_5\), which connects to the right terminal.</p>
+    figure: Figures/circuit_08.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 7*R/5
+    answers:
+    - answer:
+        R: '5.00'
+        result: '7.00'
+    - answer:
+        R: '6.00'
+        result: '8.40'
+    - answer:
+        R: '10.0'
+        result: '14.0'
+    - answer:
+        R: '12.0'
+        result: '16.8'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Reduce the upper series branch.</strong> Resistors \(R_3\) and \(R_1\) carry the same current.</p><p>\[R_{31}=R_3+R_1=2R.\]</p></li>
+        <li><p><strong>Combine the three parallel branches.</strong> The series pair, \(R_4\), and \(R_2\) share the same two junctions.</p><p>\[\frac{1}{R_{\mathrm{block}}}=\frac{1}{R_{31}}+\frac{1}{R_4}+\frac{1}{R_2}=\frac{1}{2R}+\frac{2}{R}=\frac{5}{2R},\qquad R_{\mathrm{block}}=\frac{2}{5}R.\]</p></li>
+        <li><p><strong>Add the final series resistor.</strong> All current leaving the parallel block passes through \(R_5\).</p><p>\[R_{\mathrm{eq}}=R_{\mathrm{block}}+R_5=\frac{2}{5}R+R=\boxed{\frac{7}{5}R}.\]</p></li>
+        <li><p><strong>Check the result.</strong> Adding the positive block resistance makes the total greater than \(R\). The block is smaller than \(R\), so the total is also smaller than \(2R\).</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q9
+    title: Equivalent Resistance - Circuit 9
+    points: 1
+    text: |
+      <p>In Circuit 9, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 9:</strong> Four paths containing \(R_2\), \(R_4\), \(R_5\), and \(R_1\) connect the left terminal to a common junction. That junction connects through \(R_3\) to the right terminal.</p>
+    figure: Figures/circuit_09.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 5*R/4
+    answers:
+    - answer:
+        R: '5.00'
+        result: '6.25'
+    - answer:
+        R: '6.00'
+        result: '7.50'
+    - answer:
+        R: '10.0'
+        result: '12.5'
+    - answer:
+        R: '12.0'
+        result: '15.0'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Identify the four-resistor parallel block.</strong> Resistors \(R_2\), \(R_4\), \(R_5\), and \(R_1\) each connect between the same two junctions.</p><p>\[\frac{1}{R_{\mathrm{block}}}=\frac{1}{R_2}+\frac{1}{R_4}+\frac{1}{R_5}+\frac{1}{R_1}=\frac{4}{R}.\]</p></li>
+        <li><p><strong>Invert to obtain the block resistance.</strong> Four equal resistors in parallel give one-quarter of a single resistor's resistance.</p><p>\[R_{\mathrm{block}}=\frac{R}{4}.\]</p></li>
+        <li><p><strong>Add the resistor in series with the block.</strong> All current leaving the block passes through \(R_3\).</p><p>\[R_{\mathrm{eq}}=R_{\mathrm{block}}+R_3=\frac{R}{4}+R=\boxed{\frac{5}{4}R}.\]</p></li>
+        <li><p><strong>Check the result.</strong> The total exceeds \(R\), because a positive parallel-block resistance is added in series with \(R_3\).</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q10
+    title: Equivalent Resistance - Circuit 10
+    points: 1
+    text: |
+      <p>In Circuit 10, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 10:</strong> From the left terminal, the upper path contains \(R_4\) followed by \(R_5\), and the lower path contains \(R_3\) followed by \(R_1\). The paths rejoin before \(R_2\), which connects to the right terminal.</p>
+    figure: Figures/circuit_10.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 1
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 2*R
+    answers:
+    - answer:
+        R: '5.00'
+        result: '10.0'
+    - answer:
+        R: '6.00'
+        result: '12.0'
+    - answer:
+        R: '10.0'
+        result: '20.0'
+    - answer:
+        R: '12.0'
+        result: '24.0'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Reduce the two series branches.</strong> The top branch contains \(R_4\) and \(R_5\), while the lower branch contains \(R_3\) and \(R_1\). Each pair carries its branch's current.</p><p>\[R_{\mathrm{top}}=R_4+R_5=2R,\qquad R_{\mathrm{bottom}}=R_3+R_1=2R.\]</p></li>
+        <li><p><strong>Combine the branches in parallel.</strong> Both branches connect between the same two junctions.</p><p>\[R_{\mathrm{block}}=\left(\frac{1}{2R}+\frac{1}{2R}\right)^{-1}=R.\]</p></li>
+        <li><p><strong>Add the final series resistor.</strong> The total current leaving the block passes through \(R_2\).</p><p>\[R_{\mathrm{eq}}=R_{\mathrm{block}}+R_2=R+R=\boxed{2R}.\]</p></li>
+        <li><p><strong>Check the result.</strong> The parallel block has resistance \(R\), and adding one more equal resistor in series doubles that value.</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q11
+    title: Equivalent Resistance - Circuit 11
+    points: 1
+    text: |
+      <p>In Circuit 11, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 11:</strong> From the left terminal, \(R_3\) leads to three paths containing \(R_5\), \(R_2\), and \(R_4\). The paths rejoin before \(R_1\), which connects to the right terminal.</p>
+    figure: Figures/circuit_11.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 1
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 7*R/3
+    answers:
+    - answer:
+        R: '5.00'
+        result: '11.7'
+    - answer:
+        R: '6.00'
+        result: '14.0'
+    - answer:
+        R: '10.0'
+        result: '23.3'
+    - answer:
+        R: '12.0'
+        result: '28.0'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Identify the internal parallel block.</strong> Resistors \(R_5\), \(R_2\), and \(R_4\) share the same two junctions.</p><p>\[\frac{1}{R_{\mathrm{block}}}=\frac{1}{R_5}+\frac{1}{R_2}+\frac{1}{R_4}=\frac{3}{R}.\]</p></li>
+        <li><p><strong>Invert to obtain the block resistance.</strong> Three equal resistors in parallel give one-third of a single resistor's resistance.</p><p>\[R_{\mathrm{block}}=\frac{R}{3}.\]</p></li>
+        <li><p><strong>Add the outer series resistors.</strong> Every path through the complete network passes through \(R_3\), the parallel block, and \(R_1\).</p><p>\[R_{\mathrm{eq}}=R_3+R_{\mathrm{block}}+R_1=R+\frac{R}{3}+R=\boxed{\frac{7}{3}R}.\]</p></li>
+        <li><p><strong>Check the result.</strong> The positive parallel block contributes less than \(R\), so the total lies between \(2R\) and \(3R\).</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
+- formula:
+    id: q12
+    title: Equivalent Resistance - Circuit 12
+    points: 1
+    text: |
+      <p>In Circuit 12, all five resistors have the same resistance: \(R_1=R_2=R_3=R_4=R_5=R\).</p>
+
+      <span>Each resistor has a resistance of </span>\`R\`<span> &Omega;.</span>
+
+      <p>Calculate the equivalent resistance \(R_{\mathrm{eq}}\) of the complete five-resistor network as viewed from the battery terminals. Treat the connecting wires as ideal. Enter your numerical answer in ohms, rounded to <strong>three significant digits</strong>.</p>
+
+      <p><strong>Text description of Circuit 12:</strong> From the left terminal, the upper path contains \(R_1\), \(R_2\), and \(R_4\) in that order, and the lower path contains \(R_3\). The paths rejoin before \(R_5\), which connects to the right terminal.</p>
+    figure: Figures/circuit_12.png
+    variables:
+    - variable:
+        name: R
+        min: '5.00'
+        max: '12.0'
+        decimals: 2
+    settings:
+      decimals: 2
+      scientific: false
+      margin_type: percent
+      margin: 5
+    formula: 7*R/4
+    answers:
+    - answer:
+        R: '5.00'
+        result: '8.75'
+    - answer:
+        R: '6.00'
+        result: '10.5'
+    - answer:
+        R: '10.0'
+        result: '17.5'
+    - answer:
+        R: '12.0'
+        result: '21.0'
+    feedback:
+      general: |
+        <section>
+        <h3>Symbolic solution</h3>
+        <p>Given: \(R_1=R_2=R_3=R_4=R_5=R\), where \(R\) is a positive resistance measured in ohms. Find \(R_{\mathrm{eq}}\) between the battery terminals. Ideal wires have zero resistance.</p>
+        <p>Series resistors carry the same current and have equivalent resistance \(R_{\mathrm{s}}=\sum_i R_i\). Parallel resistors share a potential difference and satisfy \(\frac{1}{R_{\mathrm{p}}}=\sum_i\frac{1}{R_i}\).</p>
+        <ol>
+        <li><p><strong>Reduce the upper series branch.</strong> Resistors \(R_1\), \(R_2\), and \(R_4\) carry the same branch current.</p><p>\[R_{\mathrm{top}}=R_1+R_2+R_4=3R.\]</p></li>
+        <li><p><strong>Combine the two parallel branches.</strong> The upper series branch and \(R_3\) share the same two junctions.</p><p>\[R_{\mathrm{block}}=\left(\frac{1}{R_{\mathrm{top}}}+\frac{1}{R_3}\right)^{-1}=\left(\frac{1}{3R}+\frac{1}{R}\right)^{-1}=\frac{3}{4}R.\]</p></li>
+        <li><p><strong>Add the final series resistor.</strong> All current leaving the parallel block passes through \(R_5\).</p><p>\[R_{\mathrm{eq}}=R_{\mathrm{block}}+R_5=\frac{3}{4}R+R=\boxed{\frac{7}{4}R}.\]</p></li>
+        <li><p><strong>Check the result.</strong> The parallel block is positive and smaller than \(R\), so the total lies between \(R\) and \(2R\).</p></li>
+        <li><p><strong>Apply the assigned value and report the result.</strong> Substitute the resistance assigned to each resistor for \(R\) in the boxed expression. Keep the exact fraction until the final calculation, then report the equivalent resistance in ohms to <strong>three significant digits</strong>. The symbolic expression applies to every provided answer set.</p></li>
+        </ol>
+        </section>
+      on_correct: |
+        <p>Correct! Your equivalent resistance agrees with the circuit's connections and equal resistor values.</p>
+      on_incorrect: |
+        <p>Follow the electrical junctions. Combine resistors carrying the same current in series, and combine branches sharing both junctions in parallel. Work from the innermost groups outward and round only the final result.</p>
