@@ -26,7 +26,7 @@ bank_info:
                 Distractor 2: The weight of the person plus the mattress and the supporting force from the bedframe.
                 Distractor 3: The normal force by the person on the mattress and the normal force by the bed frame on the mattress
 
-                First, create 5 different versions according to this example format.
+               First, create 5 different versions according to this example format.
         - prompt 1.1: | 
                 Do not include images, and don't specify whether the system is stationary or not (this doesn't affect the answer choices).
         - prompt 1.2: | 
@@ -41,7 +41,7 @@ bank_info:
                 2. The solution to each problem should be short and mostly the same across multiple problems, stating the general principle that Newton's 3rd law force pairs must originate from the same interaction, and act on two different objects that are interacting with each other.
                 As a first step, generate the yaml code for the first problem as a test.
         - prompt 2.1: |
-                Everything else looks good, except two things:
+                Everyt hing else looks good, except two things:
                     1. the id should just be q-1
                     2. the on_incorrect: field should just be "Not quite, try again!"
                     Now can you try and generate the entire yaml file for the 25 problems?
