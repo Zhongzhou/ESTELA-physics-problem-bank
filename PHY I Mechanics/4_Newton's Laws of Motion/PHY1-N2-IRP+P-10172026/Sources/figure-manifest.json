@@ -1,0 +1,398 @@
+{
+  "figures": [
+    {
+      "scenario": "scenario 1",
+      "scene_index": 0,
+      "drawing": {},
+      "scene_id": "U0",
+      "scene_caption": "Wooden crate / sandbag",
+      "figure": "Figures/U0.png",
+      "vector_figure": "Vectors/U0.svg",
+      "alt_text": "Object A, a wooden crate, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 1,
+      "drawing": {},
+      "scene_id": "U1",
+      "scene_caption": "Brass block / steel weight",
+      "figure": "Figures/U1.png",
+      "vector_figure": "Vectors/U1.svg",
+      "alt_text": "Object A, a brass block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging steel weight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 2,
+      "drawing": {},
+      "scene_id": "U2",
+      "scene_caption": "Concrete paver / gravel bucket",
+      "figure": "Figures/U2.png",
+      "vector_figure": "Vectors/U2.svg",
+      "alt_text": "Object A, a concrete paver, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging gravel bucket, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 3,
+      "drawing": {},
+      "scene_id": "U3",
+      "scene_caption": "Scenery block / stage counterweight",
+      "figure": "Figures/U3.png",
+      "vector_figure": "Vectors/U3.svg",
+      "alt_text": "Object A, a scenery block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging stage counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 0,
+      "drawing": {},
+      "scene_id": "D0",
+      "scene_caption": "Wooden block / hanging mass",
+      "figure": "Figures/D0.png",
+      "vector_figure": "Vectors/D0.svg",
+      "alt_text": "Object A, a wooden block, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging hanging mass, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 1,
+      "drawing": {},
+      "scene_id": "D1",
+      "scene_caption": "Packing crate / sandbag",
+      "figure": "Figures/D1.png",
+      "vector_figure": "Vectors/D1.svg",
+      "alt_text": "Object A, a packing crate, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 2,
+      "drawing": {},
+      "scene_id": "D2",
+      "scene_caption": "Rubber specimen block / weight pouch",
+      "figure": "Figures/D2.png",
+      "vector_figure": "Vectors/D2.svg",
+      "alt_text": "Object A, a rubber specimen block, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging weight pouch, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 3,
+      "drawing": {},
+      "scene_id": "D3",
+      "scene_caption": "Wooden stage prop / counterweight",
+      "figure": "Figures/D3.png",
+      "vector_figure": "Vectors/D3.svg",
+      "alt_text": "Object A, a wooden stage prop, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface."
+    }
+  ],
+  "items": [
+    {
+      "scenario": "scenario 1",
+      "scene_index": 0,
+      "scene_id": "U0",
+      "values": {
+        "kinematic_state": "uphill_speeding_up"
+      },
+      "motion_description": "Moving uphill; speeding up",
+      "figure": "Figures/U0.png",
+      "alt_text": "Object A, a wooden crate, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 0,
+      "scene_id": "U0",
+      "values": {
+        "kinematic_state": "uphill_slowing_down"
+      },
+      "motion_description": "Moving uphill; slowing down",
+      "figure": "Figures/U0.png",
+      "alt_text": "Object A, a wooden crate, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 0,
+      "scene_id": "U0",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/U0.png",
+      "alt_text": "Object A, a wooden crate, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 0,
+      "scene_id": "U0",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/U0.png",
+      "alt_text": "Object A, a wooden crate, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 1,
+      "scene_id": "U1",
+      "values": {
+        "kinematic_state": "uphill_speeding_up"
+      },
+      "motion_description": "Moving uphill; speeding up",
+      "figure": "Figures/U1.png",
+      "alt_text": "Object A, a brass block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging steel weight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 1,
+      "scene_id": "U1",
+      "values": {
+        "kinematic_state": "uphill_slowing_down"
+      },
+      "motion_description": "Moving uphill; slowing down",
+      "figure": "Figures/U1.png",
+      "alt_text": "Object A, a brass block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging steel weight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 1,
+      "scene_id": "U1",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/U1.png",
+      "alt_text": "Object A, a brass block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging steel weight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 1,
+      "scene_id": "U1",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/U1.png",
+      "alt_text": "Object A, a brass block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging steel weight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 2,
+      "scene_id": "U2",
+      "values": {
+        "kinematic_state": "uphill_speeding_up"
+      },
+      "motion_description": "Moving uphill; speeding up",
+      "figure": "Figures/U2.png",
+      "alt_text": "Object A, a concrete paver, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging gravel bucket, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 2,
+      "scene_id": "U2",
+      "values": {
+        "kinematic_state": "uphill_slowing_down"
+      },
+      "motion_description": "Moving uphill; slowing down",
+      "figure": "Figures/U2.png",
+      "alt_text": "Object A, a concrete paver, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging gravel bucket, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 2,
+      "scene_id": "U2",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/U2.png",
+      "alt_text": "Object A, a concrete paver, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging gravel bucket, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 2,
+      "scene_id": "U2",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/U2.png",
+      "alt_text": "Object A, a concrete paver, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging gravel bucket, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 3,
+      "scene_id": "U3",
+      "values": {
+        "kinematic_state": "uphill_speeding_up"
+      },
+      "motion_description": "Moving uphill; speeding up",
+      "figure": "Figures/U3.png",
+      "alt_text": "Object A, a scenery block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging stage counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 3,
+      "scene_id": "U3",
+      "values": {
+        "kinematic_state": "uphill_slowing_down"
+      },
+      "motion_description": "Moving uphill; slowing down",
+      "figure": "Figures/U3.png",
+      "alt_text": "Object A, a scenery block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging stage counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 3,
+      "scene_id": "U3",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/U3.png",
+      "alt_text": "Object A, a scenery block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging stage counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 1",
+      "scene_index": 3,
+      "scene_id": "U3",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/U3.png",
+      "alt_text": "Object A, a scenery block, is on the left on a rough incline sloping upward to the right. A rope runs parallel to the incline to a fixed pulley at the upper right end, then vertically down to object B, a freely hanging stage counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 0,
+      "scene_id": "D0",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/D0.png",
+      "alt_text": "Object A, a wooden block, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging hanging mass, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 0,
+      "scene_id": "D0",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/D0.png",
+      "alt_text": "Object A, a wooden block, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging hanging mass, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 1,
+      "scene_id": "D1",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/D1.png",
+      "alt_text": "Object A, a packing crate, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 1,
+      "scene_id": "D1",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/D1.png",
+      "alt_text": "Object A, a packing crate, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging sandbag, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 2,
+      "scene_id": "D2",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/D2.png",
+      "alt_text": "Object A, a rubber specimen block, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging weight pouch, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 2,
+      "scene_id": "D2",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/D2.png",
+      "alt_text": "Object A, a rubber specimen block, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging weight pouch, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 3,
+      "scene_id": "D3",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "motion_description": "Moving downhill; speeding up",
+      "figure": "Figures/D3.png",
+      "alt_text": "Object A, a wooden stage prop, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1
+    },
+    {
+      "scenario": "scenario 2",
+      "scene_index": 3,
+      "scene_id": "D3",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "motion_description": "Moving downhill; slowing down",
+      "figure": "Figures/D3.png",
+      "alt_text": "Object A, a wooden stage prop, is on the left on a rough incline sloping downward to the right. A rope runs parallel to the incline to a fixed pulley at the lower right end, then vertically down to object B, a freely hanging counterweight, on the right. The angle theta is marked between the surface and a horizontal reference. The axes originate on A: positive x points right along the incline and positive y points perpendicular to and outward from the surface.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1
+    }
+  ]
+}

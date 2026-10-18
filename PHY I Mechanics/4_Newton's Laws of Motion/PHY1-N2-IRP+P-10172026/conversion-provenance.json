@@ -1,0 +1,11 @@
+{
+  "converter_repository": "https://github.com/omoussa/yaml-to-qti",
+  "converter_revision": "0b1cfc0636e3b5422119b35780916afa3220ef87",
+  "converter_modified": false,
+  "source_yaml": "PHY1-F-N2LI-10172026.yaml",
+  "source_yaml_sha256": "76fd80d69cecccd17d177db956bc3372f234093ad093d1d55dd294583016793d",
+  "media_count": 14,
+  "shuffle_answers": false,
+  "package": "PHY1-F-N2LI-10172026-QTI.zip",
+  "qti_zip_sha256": "dc34b31d10121b30e4c79b695f528060f1b69fa5e9a216f3b664973f7049ee36"
+}

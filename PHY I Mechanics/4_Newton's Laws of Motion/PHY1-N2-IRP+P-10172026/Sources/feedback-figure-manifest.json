@@ -1,0 +1,244 @@
+{
+  "figures": [
+    {
+      "scenario": "scenario 1",
+      "values": {
+        "kinematic_state": "uphill_speeding_up"
+      },
+      "scene_id": "U",
+      "scene_caption": "Moving uphill; speeding up",
+      "figure": "FeedbackFigures/fbd-U-uphill-speeding-up.png",
+      "vector_figure": "FeedbackVectors/fbd-U-uphill-speeding-up.svg",
+      "alt_text": "Free-body diagram of isolated object A. Tension points uphill toward the right, the normal force is perpendicular to and outward from the incline, weight points vertically down, and kinetic friction points downhill, opposite the motion. Above A, a solid velocity arrow points uphill toward the right; a dashed acceleration arrow points uphill toward the right. The coordinate axes originate on A: positive x points right along the incline and positive y points perpendicular and outward. A dotted guide extends in the negative y direction. The acute angle theta is marked between this negative y direction and the vertically downward weight.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1,
+      "axes_origin": [
+        0.0,
+        0.0
+      ],
+      "negative_y_direction": [
+        0.4067366430758002,
+        -0.9135454576426009
+      ],
+      "theta_degrees": 24.000000000000004,
+      "forces": {
+        "tension_direction": [
+          0.9135454576426009,
+          0.4067366430758002
+        ],
+        "normal_direction": [
+          -0.4067366430758002,
+          0.9135454576426009
+        ],
+        "weight_direction": [
+          0.0,
+          -1.0
+        ],
+        "kinetic_friction_direction": [
+          -0.9135454576426009,
+          -0.4067366430758002
+        ]
+      }
+    },
+    {
+      "scenario": "scenario 1",
+      "values": {
+        "kinematic_state": "uphill_slowing_down"
+      },
+      "scene_id": "U",
+      "scene_caption": "Moving uphill; slowing down",
+      "figure": "FeedbackFigures/fbd-U-uphill-slowing-down.png",
+      "vector_figure": "FeedbackVectors/fbd-U-uphill-slowing-down.svg",
+      "alt_text": "Free-body diagram of isolated object A. Tension points uphill toward the right, the normal force is perpendicular to and outward from the incline, weight points vertically down, and kinetic friction points downhill, opposite the motion. Above A, a solid velocity arrow points uphill toward the right; a dashed acceleration arrow points downhill toward the left. The coordinate axes originate on A: positive x points right along the incline and positive y points perpendicular and outward. A dotted guide extends in the negative y direction. The acute angle theta is marked between this negative y direction and the vertically downward weight.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1,
+      "axes_origin": [
+        0.0,
+        0.0
+      ],
+      "negative_y_direction": [
+        0.4067366430758002,
+        -0.9135454576426009
+      ],
+      "theta_degrees": 24.000000000000004,
+      "forces": {
+        "tension_direction": [
+          0.9135454576426009,
+          0.4067366430758002
+        ],
+        "normal_direction": [
+          -0.4067366430758002,
+          0.9135454576426009
+        ],
+        "weight_direction": [
+          0.0,
+          -1.0
+        ],
+        "kinetic_friction_direction": [
+          -0.9135454576426009,
+          -0.4067366430758002
+        ]
+      }
+    },
+    {
+      "scenario": "scenario 1",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "scene_id": "U",
+      "scene_caption": "Moving downhill; speeding up",
+      "figure": "FeedbackFigures/fbd-U-downhill-speeding-up.png",
+      "vector_figure": "FeedbackVectors/fbd-U-downhill-speeding-up.svg",
+      "alt_text": "Free-body diagram of isolated object A. Tension points uphill toward the right, the normal force is perpendicular to and outward from the incline, weight points vertically down, and kinetic friction points uphill, opposite the motion. Above A, a solid velocity arrow points downhill toward the left; a dashed acceleration arrow points downhill toward the left. The coordinate axes originate on A: positive x points right along the incline and positive y points perpendicular and outward. A dotted guide extends in the negative y direction. The acute angle theta is marked between this negative y direction and the vertically downward weight.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": -1,
+      "axes_origin": [
+        0.0,
+        0.0
+      ],
+      "negative_y_direction": [
+        0.4067366430758002,
+        -0.9135454576426009
+      ],
+      "theta_degrees": 24.000000000000004,
+      "forces": {
+        "tension_direction": [
+          0.9135454576426009,
+          0.4067366430758002
+        ],
+        "normal_direction": [
+          -0.4067366430758002,
+          0.9135454576426009
+        ],
+        "weight_direction": [
+          0.0,
+          -1.0
+        ],
+        "kinetic_friction_direction": [
+          0.9135454576426009,
+          0.4067366430758002
+        ]
+      }
+    },
+    {
+      "scenario": "scenario 1",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "scene_id": "U",
+      "scene_caption": "Moving downhill; slowing down",
+      "figure": "FeedbackFigures/fbd-U-downhill-slowing-down.png",
+      "vector_figure": "FeedbackVectors/fbd-U-downhill-slowing-down.svg",
+      "alt_text": "Free-body diagram of isolated object A. Tension points uphill toward the right, the normal force is perpendicular to and outward from the incline, weight points vertically down, and kinetic friction points uphill, opposite the motion. Above A, a solid velocity arrow points downhill toward the left; a dashed acceleration arrow points uphill toward the right. The coordinate axes originate on A: positive x points right along the incline and positive y points perpendicular and outward. A dotted guide extends in the negative y direction. The acute angle theta is marked between this negative y direction and the vertically downward weight.",
+      "velocity_sign_x": -1,
+      "acceleration_sign_x": 1,
+      "axes_origin": [
+        0.0,
+        0.0
+      ],
+      "negative_y_direction": [
+        0.4067366430758002,
+        -0.9135454576426009
+      ],
+      "theta_degrees": 24.000000000000004,
+      "forces": {
+        "tension_direction": [
+          0.9135454576426009,
+          0.4067366430758002
+        ],
+        "normal_direction": [
+          -0.4067366430758002,
+          0.9135454576426009
+        ],
+        "weight_direction": [
+          0.0,
+          -1.0
+        ],
+        "kinetic_friction_direction": [
+          0.9135454576426009,
+          0.4067366430758002
+        ]
+      }
+    },
+    {
+      "scenario": "scenario 2",
+      "values": {
+        "kinematic_state": "downhill_speeding_up"
+      },
+      "scene_id": "D",
+      "scene_caption": "Moving downhill; speeding up",
+      "figure": "FeedbackFigures/fbd-D-downhill-speeding-up.png",
+      "vector_figure": "FeedbackVectors/fbd-D-downhill-speeding-up.svg",
+      "alt_text": "Free-body diagram of isolated object A. Tension points downhill toward the right, the normal force is perpendicular to and outward from the incline, weight points vertically down, and kinetic friction points uphill, opposite the motion. Above A, a solid velocity arrow points downhill toward the right; a dashed acceleration arrow points downhill toward the right. The coordinate axes originate on A: positive x points right along the incline and positive y points perpendicular and outward. A dotted guide extends in the negative y direction. The acute angle theta is marked between this negative y direction and the vertically downward weight.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": 1,
+      "axes_origin": [
+        0.0,
+        0.0
+      ],
+      "negative_y_direction": [
+        -0.4067366430758002,
+        -0.9135454576426009
+      ],
+      "theta_degrees": 24.000000000000004,
+      "forces": {
+        "tension_direction": [
+          0.9135454576426009,
+          -0.4067366430758002
+        ],
+        "normal_direction": [
+          0.4067366430758002,
+          0.9135454576426009
+        ],
+        "weight_direction": [
+          0.0,
+          -1.0
+        ],
+        "kinetic_friction_direction": [
+          -0.9135454576426009,
+          0.4067366430758002
+        ]
+      }
+    },
+    {
+      "scenario": "scenario 2",
+      "values": {
+        "kinematic_state": "downhill_slowing_down"
+      },
+      "scene_id": "D",
+      "scene_caption": "Moving downhill; slowing down",
+      "figure": "FeedbackFigures/fbd-D-downhill-slowing-down.png",
+      "vector_figure": "FeedbackVectors/fbd-D-downhill-slowing-down.svg",
+      "alt_text": "Free-body diagram of isolated object A. Tension points downhill toward the right, the normal force is perpendicular to and outward from the incline, weight points vertically down, and kinetic friction points uphill, opposite the motion. Above A, a solid velocity arrow points downhill toward the right; a dashed acceleration arrow points uphill toward the left. The coordinate axes originate on A: positive x points right along the incline and positive y points perpendicular and outward. A dotted guide extends in the negative y direction. The acute angle theta is marked between this negative y direction and the vertically downward weight.",
+      "velocity_sign_x": 1,
+      "acceleration_sign_x": -1,
+      "axes_origin": [
+        0.0,
+        0.0
+      ],
+      "negative_y_direction": [
+        -0.4067366430758002,
+        -0.9135454576426009
+      ],
+      "theta_degrees": 24.000000000000004,
+      "forces": {
+        "tension_direction": [
+          0.9135454576426009,
+          -0.4067366430758002
+        ],
+        "normal_direction": [
+          0.4067366430758002,
+          0.9135454576426009
+        ],
+        "weight_direction": [
+          0.0,
+          -1.0
+        ],
+        "kinetic_friction_direction": [
+          -0.9135454576426009,
+          0.4067366430758002
+        ]
+      }
+    }
+  ]
+}
