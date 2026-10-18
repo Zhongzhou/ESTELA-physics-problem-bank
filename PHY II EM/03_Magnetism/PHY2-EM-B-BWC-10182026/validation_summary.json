@@ -1,0 +1,30 @@
+{
+  "question_count": 84,
+  "points_per_question": 1,
+  "tolerance_percent": 2,
+  "answer_units": "microteslas",
+  "learning_objectives": [
+    "EM-B-Bnet"
+  ],
+  "yaml_valid": true,
+  "qti_checked": true,
+  "qti_check_no_errors": true,
+  "complete_orientation_sign_inventory": 84,
+  "question_images": 84,
+  "feedback_images": 84,
+  "all_168_image_bytes_verified": true,
+  "question_images_exclude_field_overlays": true,
+  "question_and_feedback_images_differ": true,
+  "all_QTI_numeric_bounds_match_2_percent": true,
+  "all_QTI_numerical_scores_equal_1": true,
+  "direct_Biot_Savart_checks": 84,
+  "maximum_relative_integration_error": 3.547824994779752e-15,
+  "converter_revision": "0b1cfc0636e3b5422119b35780916afa3220ef87",
+  "converter_warnings": {
+    "HTML is exported as text/plain; check feedback rendering after import": 84,
+    "feedback node has no displayfeedback link": 84,
+    "displayfeedback references missing node correct": 84,
+    "converter omits points_possible metadata; confirm requested points after import": 84
+  },
+  "canvas_import_tested": false
+}
