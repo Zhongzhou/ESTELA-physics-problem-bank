@@ -1,0 +1,35 @@
+title: Newton’s Second Law on Rough Inclines
+bank_id: PHY1-F-N2LI-10172026
+authors:
+- O. Moussa
+learning objectives:
+- N2D
+points: 1
+bank_info:
+  title: Newton’s Second Law on Rough Inclines
+  bank_id: PHY1-F-N2LI-10172026
+  description: Choose vector forms of Newton’s second law for a sliding object on a rough incline connected to a hanging object. Infer acceleration from the motion description.
+  date created: 10-17-2026
+  learning objectives:
+  - N2D
+  generation prompts:
+  - workflow: multiple-choice-questions; eight accepted scenes; 24 motion variants
+  - formatting: HTML block fragments with MathJax delimiters in every presentation field
+  - feedback: FBD of A with axes on A, theta between negative y and gravity, a solid velocity arrow, and a dashed acceleration arrow
+  updates:
+  - update 1: '10-17-2026: Initial bank; falling-right uphill motion excluded.'
+  - update 2: '10-18-2026: Removed incorrect-choice explanations from general feedback; added thin borders between force-component table cells.'
+  associated data:
+  - input: Sources/input-inclined-plane-confirmed.yaml
+  - workflow: Sources/input-inclined-plane-confirmed.mcq.yaml
+  - markdown source: inclined-plane-bank-review.md
+  - question diagram script: Sources/draw_inclined_plane_bank.py
+  - feedback diagram script: Sources/draw_inclined_plane_feedback.py
+  - bank builder: Sources/build_inclined_plane_bank.py
+  - bank settings: Sources/inclined-plane-bank-settings.yaml
+  generation details:
+    model: Codex
+    bank version: 1.0.1
+    last updated: 10-18-2026
+  authors:
+  - O. Moussa
