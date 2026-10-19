@@ -7,6 +7,11 @@
 #
 # This regenerates them whenever the banks change, and once a day as a backstop in case a
 # change lands by a route the push trigger misses.
+#
+# The rebuilt pages are deployed straight to GitHub Pages as an artifact rather than
+# committed back to main: main is protected (changes only through a PR), so a bot push is
+# rejected. This needs Settings -> Pages -> Source set to "GitHub Actions". The copies of
+# docs/standalone*.html in the repo can lag the live site; the live site is the truth.
 
 name: Rebuild standalone Exam Builder
 
@@ -22,17 +27,21 @@ on:
     - cron: '17 7 * * *'      # 07:17 UTC daily; off the hour, which GitHub asks for
   workflow_dispatch:
 
-# Only the commit below needs write access.
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: rebuild-standalone
-  cancel-in-progress: false   # let a running rebuild finish rather than racing a commit
+  group: pages
+  cancel-in-progress: false   # let a running deploy finish
 
 jobs:
   rebuild:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -70,19 +79,9 @@ jobs:
                   print("   ", b)
           PY
 
-      - name: Commit only if the bundle actually changed
-        run: |
-          # Verified: the build is reproducible -- same banks in, byte-identical file out --
-          # so a plain diff is a sound gate and the nightly run stays silent when nothing
-          # changed. If the build script ever starts embedding a timestamp, this check
-          # quietly turns into a nightly commit, which is the thing to watch for.
-          if git diff --quiet -- docs/standalone.html docs/standalone-enhanced.html; then
-            echo "No change to the published builds."
-            exit 0
-          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
 
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/standalone.html docs/standalone-enhanced.html
-          git commit -m "Rebuild standalone Exam Builder with the current banks"
-          git push
+      - id: deploy
+        uses: actions/deploy-pages@v4
