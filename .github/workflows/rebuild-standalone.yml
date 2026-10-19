@@ -5,7 +5,7 @@
 # is what the site shows, forever. docs/standalone-enhanced.html had been frozen since
 # 2026-07-01, which is why a bank merged in October never appeared.
 #
-# This regenerates them whenever the banks change, and once a day as a backstop in case a
+# This regenerates them whenever the banks change, and once a week as a backstop in case a
 # change lands by a route the push trigger misses.
 #
 # The rebuilt pages are deployed straight to GitHub Pages as an artifact rather than
@@ -24,7 +24,7 @@ on:
       - 'scripts/build_standalone_html.py'
       - '.github/workflows/rebuild-standalone.yml'
   schedule:
-    - cron: '17 7 * * *'      # 07:17 UTC daily; off the hour, which GitHub asks for
+    - cron: '17 7 * * 1'      # 07:17 UTC Mondays; off the hour, which GitHub asks for
   workflow_dispatch:
 
 permissions:
