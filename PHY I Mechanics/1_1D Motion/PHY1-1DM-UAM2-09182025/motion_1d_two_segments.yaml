@@ -1,0 +1,1481 @@
+# HTML snippets use MathJax delimiters: \( ... \) and \[ ... \].
+# The host must support MathJax; no scripts are embedded in question HTML.
+# Original numerical inputs are retained, including ambiguous trailing zeros.
+# Every question states its required final reporting precision.
+# answer.value is numeric and matches the reported final answer.
+# A numeric tolerance grades numerical value; it does not count typed significant figures.
+
+bank_info:
+  title: Motion in 1D with constant acceleration (two consecutive segments)
+  bank_id: PHY1-1DM-UAM2-09182025
+  description: |-
+    Ten numerical problems involving two consecutive segments of one-dimensional motion with constant acceleration within each segment.
+  date created: 09-18-2025
+  status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
+  learning objectives:
+    - 1DM-KE-2
+  generation prompts:
+    - prompts: ./prompts.md
+    - formatting prompt: ./YAML_formatting_prompt.md
+  generation details:
+    model: GPT-6
+    last updated: 09-11-2026
+  authors:
+    - O. Moussa
+  updates:
+    - update 1: '09-11-2026: Corrected clear precision issues and the solutions for Scenarios 4b, 4c, and P3; retained
+        ambiguous numerical input notation; added reporting precision to every question; converted the full questions
+        and solutions to HTML with MathJax delimiters; set each item to 1 point and 5 percent tolerance.'
+
+questions:
+
+  - numerical:
+      id: q1
+      title: Scenario 1a — Elevator (upward, symmetric accel then decel)
+      points: 1
+      text: |-
+        <p>A modern elevator departs the lobby and follows a comfort profile: it speeds up uniformly for \(2.5\,\mathrm{s}\) at \(1.2\,\mathrm{m/s^2}\) starting from rest, then immediately applies a symmetric constant deceleration of \(1.2\,\mathrm{m/s^2}\) for another \(2.5\,\mathrm{s}\) to arrive level with the target floor. Assuming vertical motion only, determine the total upward rise of the car in SI units.</p>
+        <p>Report your answer in meters to two significant figures.</p>
+      answer:
+        value: 7.5
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From departure at rest in the lobby to the instant upward acceleration ends, after the first \(2.5\,\mathrm{s}\).</li>
+          <li><strong>Segment 2:</strong> From the instant braking begins to arrival at rest at the target floor, after the next \(2.5\,\mathrm{s}\).</li>
+          </ul>
+          <p><strong>Given:</strong> The initial rest condition, both acceleration magnitudes, and both time intervals.</p>
+          <p><strong>Find:</strong> The magnitude of the total upward displacement. There is no reversal, so this also equals the total distance traveled.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(y\)-axis upward along the elevator shaft, with unit vector \(\hat{j}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_y\hat{j}\), \(\vec{a}=a_y\hat{j}\), and \(\Delta\vec{r}=\Delta y\hat{j}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_y|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Departure to the start of braking</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Starts from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(1.2\,\mathrm{m/s^2}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(2.5\,\mathrm{s}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Start of braking to rest at the floor</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Stops at the floor</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(-1.2\,\mathrm{m/s^2}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Opposite the upward velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(2.5\,\mathrm{s}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <p>First find the transition velocity and the displacement in each segment.</p>
+          <div>\[\vec{v}_{f1}=\vec{v}_{i1}+\vec{a}_1\Delta t_1\]</div>
+          <div>\[\Delta\vec{r}_k=\vec{v}_{ik}\Delta t_k+\frac12\vec{a}_k(\Delta t_k)^2\qquad(k=1,2)\]</div>
+          <div>\[\Delta\vec{r}_{\mathrm{tot}}=\Delta\vec{r}_1+\Delta\vec{r}_2\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[\vec{v}_{f1}=[0\,\mathrm{m/s}+(1.2\,\mathrm{m/s^2})(2.5\,\mathrm{s})]\hat{j}=3.0\,\mathrm{m/s}\,\hat{j}\]</div>
+          <div>\[\Delta\vec{r}_1=\left[(0\,\mathrm{m/s})(2.5\,\mathrm{s})+\frac12(1.2\,\mathrm{m/s^2})(2.5\,\mathrm{s})^2\right]\hat{j}=3.75\,\mathrm{m}\,\hat{j}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[\Delta\vec{r}_2=\left[(3.0\,\mathrm{m/s})(2.5\,\mathrm{s})+\frac12(-1.2\,\mathrm{m/s^2})(2.5\,\mathrm{s})^2\right]\hat{j}=3.75\,\mathrm{m}\,\hat{j}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[\Delta\vec{r}_{\mathrm{tot}}=(3.75\,\mathrm{m}+3.75\,\mathrm{m})\hat{j}=7.5\,\mathrm{m}\,\hat{j}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>Both the acceleration magnitudes and time intervals have two significant figures. Report the upward rise to two significant figures.</p>
+          <div>\[\boxed{|\Delta\vec{r}_{\mathrm{tot}}|=7.5\,\mathrm{m}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Original 5.0 s reporting precision retained.
+
+  - numerical:
+      id: q2
+      title: Scenario 1b — Elevator (upward, symmetric accel then decel)
+      points: 1
+      text: |-
+        <p>The elevator’s controller targets a smooth stop exactly at the floor. It leaves the lobby, starting from rest, and covers \(3.75\,\mathrm{m}\) while accelerating uniformly at \(1.2\,\mathrm{m/s^2}\). It then applies a constant deceleration of \(1.2\,\mathrm{m/s^2}\) to come to rest at the landing. Compute the total travel time in SI units from departure to level stop.</p>
+        <p>Report your answer in seconds to two significant figures.</p>
+      answer:
+        value: 5.0
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From departure at rest in the lobby to the end of the first \(3.75\,\mathrm{m}\) of upward travel.</li>
+          <li><strong>Segment 2:</strong> From the start of braking at that position to rest at the landing.</li>
+          </ul>
+          <p><strong>Given:</strong> The initial and final rest conditions, the first displacement, and both acceleration magnitudes.</p>
+          <p><strong>Find:</strong> The total elapsed time from departure to rest at the landing.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(y\)-axis upward along the elevator shaft, with unit vector \(\hat{j}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_y\hat{j}\), \(\vec{a}=a_y\hat{j}\), and \(\Delta\vec{r}=\Delta y\hat{j}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_y|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Departure to the start of braking</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(3.75\,\mathrm{m}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Starts from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(1.2\,\mathrm{m/s^2}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Start of braking to rest at the landing</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Stops at the landing</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(-1.2\,\mathrm{m/s^2}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Opposite the upward velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <p>Use the signed vertical components. Choose the positive square root because the elevator is moving upward at the transition.</p>
+          <div>\[v_{f1,y}^2=v_{i1,y}^2+2a_{1,y}\Delta y_1\quad\Rightarrow\quad v_{f1,y}=+\sqrt{v_{i1,y}^2+2a_{1,y}\Delta y_1}\]</div>
+          <div>\[\Delta t_1=\frac{v_{f1,y}-v_{i1,y}}{a_{1,y}},\qquad\Delta t_2=\frac{v_{f2,y}-v_{f1,y}}{a_{2,y}}\]</div>
+          <div>\[t_{\mathrm{tot}}=\Delta t_1+\Delta t_2\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[v_{f1,y}=\sqrt{(0\,\mathrm{m/s})^2+2(1.2\,\mathrm{m/s^2})(3.75\,\mathrm{m})}=3.0\,\mathrm{m/s}\]</div>
+          <div>\[\vec{v}_{f1}=3.0\,\mathrm{m/s}\,\hat{j}\]</div>
+          <div>\[\Delta t_1=\frac{3.0\,\mathrm{m/s}-0\,\mathrm{m/s}}{1.2\,\mathrm{m/s^2}}=2.5\,\mathrm{s}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[\Delta t_2=\frac{0\,\mathrm{m/s}-3.0\,\mathrm{m/s}}{-1.2\,\mathrm{m/s^2}}=2.5\,\mathrm{s}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[t_{\mathrm{tot}}=2.5\,\mathrm{s}+2.5\,\mathrm{s}=5.0\,\mathrm{s}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>The acceleration magnitudes have two significant figures. Report the total time to two significant figures; the zero in 5.0 is significant.</p>
+          <div>\[\boxed{t_{\mathrm{tot}}=5.0\,\mathrm{s}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Original time notation (60 s, 90 s, 150-s run) is unchanged.
+  # Trailing-zero significance remains unspecified; the added reporting
+  # instruction requests two significant figures, consistent with 0.60 m/s^2.
+  # Unrounded result 4320 m; requested reported answer 4.3 x 10^3 m.
+
+  - numerical:
+      id: q3
+      title: Scenario 2a — High-speed train (accelerate then cruise)
+      points: 1
+      text: |-
+        <p>Leaving a timing point, a train accelerates uniformly from rest at \(0.60\,\mathrm{m/s^2}\) for \(60\,\mathrm{s}\), then holds a constant speed for the next \(90\,\mathrm{s}\) along a straight, level segment. How far down the line is the train after this \(150\,\mathrm{s}\) run? Report the magnitude in SI units to two significant figures.</p>
+      answer:
+        value: 4300
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From departure at rest at the timing point to the end of the \(60\,\mathrm{s}\) acceleration interval.</li>
+          <li><strong>Segment 2:</strong> From the start of constant-speed travel to the end of the next \(90\,\mathrm{s}\).</li>
+          </ul>
+          <p><strong>Given:</strong> The initial rest condition, the first acceleration and time interval, and the cruising time.</p>
+          <p><strong>Find:</strong> The magnitude of the total forward displacement. Because the train never reverses, this also equals the distance traveled.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(x\)-axis forward along the straight track, with unit vector \(\hat{i}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_x\hat{i}\), \(\vec{a}=a_x\hat{i}\), and \(\Delta\vec{r}=\Delta x\hat{i}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_x|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Departure to the start of cruising</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Starts from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0.60\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(60\,\mathrm{s}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Start to end of cruising</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(90\,\mathrm{s}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <div>\[\vec{v}_{f1}=\vec{v}_{i1}+\vec{a}_1\Delta t_1\]</div>
+          <div>\[\Delta\vec{r}_1=\vec{v}_{i1}\Delta t_1+\frac12\vec{a}_1(\Delta t_1)^2\]</div>
+          <p>The second segment has zero acceleration, so its displacement is velocity multiplied by elapsed time.</p>
+          <div>\[\Delta\vec{r}_2=\vec{v}_{f1}\Delta t_2,\qquad\Delta\vec{r}_{\mathrm{tot}}=\Delta\vec{r}_1+\Delta\vec{r}_2\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[\vec{v}_{f1}=[(0.60\,\mathrm{m/s^2})(60\,\mathrm{s})]\hat{i}=36\,\mathrm{m/s}\,\hat{i}\]</div>
+          <div>\[\Delta\vec{r}_1=\left[\frac12(0.60\,\mathrm{m/s^2})(60\,\mathrm{s})^2\right]\hat{i}=1080\,\mathrm{m}\,\hat{i}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[\Delta\vec{r}_2=[(36\,\mathrm{m/s})(90\,\mathrm{s})]\hat{i}=3240\,\mathrm{m}\,\hat{i}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[\Delta\vec{r}_{\mathrm{tot}}=(1080\,\mathrm{m}+3240\,\mathrm{m})\hat{i}=4320\,\mathrm{m}\,\hat{i}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>Round the unrounded total to the requested two significant figures. Scientific notation makes the reporting precision explicit.</p>
+          <div>\[\boxed{|\Delta\vec{r}_{\mathrm{tot}}|\approx4.3\times10^3\,\mathrm{m}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Original distance notation (1080 m, 3240 m) is unchanged.
+  # Acceleration limits the requested result to two significant figures.
+
+  - numerical:
+      id: q4
+      title: Scenario 2b — High-speed train (displacement given)
+      points: 1
+      text: |-
+        <p>A dispatcher notes: “Train-AS34d started from rest, and covered \(1080\,\mathrm{m}\) during its uniform acceleration phase (at a rate of \(0.60\,\mathrm{m/s^2}\)), then coasted at that achieved speed for another \(3240\,\mathrm{m}\).” Compute the total elapsed time for the two phases in SI units to two significant figures.</p>
+      answer:
+        value: 150
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From departure at rest to the end of the first \(1080\,\mathrm{m}\) of travel.</li>
+          <li><strong>Segment 2:</strong> From the start of cruising to the end of the additional \(3240\,\mathrm{m}\).</li>
+          </ul>
+          <p><strong>Given:</strong> The initial rest condition, the first acceleration, and the displacement of each segment.</p>
+          <p><strong>Find:</strong> The total elapsed time across both phases.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(x\)-axis forward along the straight track, with unit vector \(\hat{i}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_x\hat{i}\), \(\vec{a}=a_x\hat{i}\), and \(\Delta\vec{r}=\Delta x\hat{i}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_x|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Departure to the start of cruising</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(1080\,\mathrm{m}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Starts from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0.60\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Start to end of cruising</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(3240\,\mathrm{m}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <p>Find the positive forward velocity at the transition, then the time in each segment.</p>
+          <div>\[v_{f1,x}=+\sqrt{v_{i1,x}^2+2a_{1,x}\Delta x_1}\]</div>
+          <div>\[\Delta t_1=\frac{v_{f1,x}-v_{i1,x}}{a_{1,x}},\qquad\Delta t_2=\frac{\Delta x_2}{v_{f1,x}}\]</div>
+          <div>\[t_{\mathrm{tot}}=\Delta t_1+\Delta t_2\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[v_{f1,x}=\sqrt{(0\,\mathrm{m/s})^2+2(0.60\,\mathrm{m/s^2})(1080\,\mathrm{m})}=36\,\mathrm{m/s}\]</div>
+          <div>\[\vec{v}_{f1}=36\,\mathrm{m/s}\,\hat{i}\]</div>
+          <div>\[\Delta t_1=\frac{36\,\mathrm{m/s}-0\,\mathrm{m/s}}{0.60\,\mathrm{m/s^2}}=60\,\mathrm{s}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[\Delta t_2=\frac{3240\,\mathrm{m}}{36\,\mathrm{m/s}}=90\,\mathrm{s}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[t_{\mathrm{tot}}=60\,\mathrm{s}+90\,\mathrm{s}=150\,\mathrm{s}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>The acceleration has two significant figures. Report the total time to two significant figures, using scientific notation to make that precision clear.</p>
+          <div>\[\boxed{t_{\mathrm{tot}}=1.5\times10^2\,\mathrm{s}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # The ambiguous precision of 150 m is unchanged.
+  # Original 9.0 s reporting precision retained; no third figure is added.
+
+  - numerical:
+      id: q5
+      title: Scenario 3b — Rocket sled (boost then brake)
+      points: 1
+      text: |-
+        <p>Data logs show a rocket sled covered \(150\,\mathrm{m}\) during an initial boost at \(12.0\,\mathrm{m/s^2}\) starting from rest, then engaged a constant braking thrust of \(15.0\,\mathrm{m/s^2}\) to a full stop. Determine the total time of the sled&#x27;s acceleration and deceleration, in SI units, to two significant figures.</p>
+      answer:
+        value: 9.0
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From the start of the boost at rest to the end of the first \(150\,\mathrm{m}\).</li>
+          <li><strong>Segment 2:</strong> From engagement of the braking thrust to the instant the sled stops.</li>
+          </ul>
+          <p><strong>Given:</strong> The initial and final rest conditions, the boost displacement, and both acceleration magnitudes.</p>
+          <p><strong>Find:</strong> The total elapsed time of the boost and braking segments.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(x\)-axis forward along the sled track, with unit vector \(\hat{i}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_x\hat{i}\), \(\vec{a}=a_x\hat{i}\), and \(\Delta\vec{r}=\Delta x\hat{i}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_x|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Start of boost to engagement of braking</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(150\,\mathrm{m}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Starts from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(12.0\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Engagement of braking to rest</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Comes to rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(-15.0\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Opposite the forward velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <div>\[v_{f1,x}=+\sqrt{v_{i1,x}^2+2a_{1,x}\Delta x_1}\]</div>
+          <div>\[\Delta t_1=\frac{v_{f1,x}-v_{i1,x}}{a_{1,x}},\qquad\Delta t_2=\frac{v_{f2,x}-v_{f1,x}}{a_{2,x}}\]</div>
+          <div>\[t_{\mathrm{tot}}=\Delta t_1+\Delta t_2\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[v_{f1,x}=\sqrt{(0\,\mathrm{m/s})^2+2(12.0\,\mathrm{m/s^2})(150\,\mathrm{m})}=60\,\mathrm{m/s}\]</div>
+          <div>\[\vec{v}_{f1}=60\,\mathrm{m/s}\,\hat{i}\]</div>
+          <div>\[\Delta t_1=\frac{60\,\mathrm{m/s}-0\,\mathrm{m/s}}{12.0\,\mathrm{m/s^2}}=5.0\,\mathrm{s}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[\Delta t_2=\frac{0\,\mathrm{m/s}-60\,\mathrm{m/s}}{-15.0\,\mathrm{m/s^2}}=4.0\,\mathrm{s}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[t_{\mathrm{tot}}=5.0\,\mathrm{s}+4.0\,\mathrm{s}=9.0\,\mathrm{s}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>Report the total time to the requested two significant figures.</p>
+          <div>\[\boxed{t_{\mathrm{tot}}=9.0\,\mathrm{s}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Segment 2 wording corrected to braking to rest.
+  # Final answer corrected from 15.0 s to 15 s (two significant figures).
+
+  - numerical:
+      id: q6
+      title: Scenario 4b — Cyclist (downhill then brake to stop)
+      points: 1
+      text: |-
+        <p>A cyclist was moving at \(5.0\,\mathrm{m/s}\) when he encounters a mild grade. The cyclist covers \(75\,\mathrm{m}\) downhill while uniformly speeding up at a net acceleration of \(0.50\,\mathrm{m/s^2}\). At the bottom of the grade, keeping brake pressure steady, the bike decelerates at \(2.00\,\mathrm{m/s^2}\) to a full stop at the painted line. What is the total combined time, in SI units, for these two phases? Report your answer to two significant figures.</p>
+      answer:
+        value: 15
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From encountering the grade at \(5.0\,\mathrm{m/s}\) to reaching its bottom after traveling \(75\,\mathrm{m}\).</li>
+          <li><strong>Segment 2:</strong> From applying the brakes at the bottom of the grade to coming to rest at the painted line.</li>
+          </ul>
+          <p><strong>Given:</strong> The initial speed, the downhill displacement and acceleration, and the braking acceleration and final rest condition.</p>
+          <p><strong>Find:</strong> The combined time for the downhill speed-up and the braking segment.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(x\)-axis forward along the road in the direction of travel, with unit vector \(\hat{i}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_x\hat{i}\), \(\vec{a}=a_x\hat{i}\), and \(\Delta\vec{r}=\Delta x\hat{i}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_x|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Entry to the grade to the start of braking</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(75\,\mathrm{m}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(5.0\,\mathrm{m/s}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0.50\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Start of braking to rest at the line</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Stops at the line</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(-2.00\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Braking; opposite the velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <p>The first segment increases the forward speed. The second segment has negative acceleration and decreases that speed to zero.</p>
+          <div>\[v_{f1,x}=+\sqrt{v_{i1,x}^2+2a_{1,x}\Delta x_1}\]</div>
+          <div>\[\Delta t_1=\frac{v_{f1,x}-v_{i1,x}}{a_{1,x}},\qquad\Delta t_2=\frac{v_{f2,x}-v_{f1,x}}{a_{2,x}}\]</div>
+          <div>\[t_{\mathrm{tot}}=\Delta t_1+\Delta t_2\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[v_{f1,x}=\sqrt{(5.0\,\mathrm{m/s})^2+2(0.50\,\mathrm{m/s^2})(75\,\mathrm{m})}=10.0\,\mathrm{m/s}\]</div>
+          <div>\[\vec{v}_{f1}=10.0\,\mathrm{m/s}\,\hat{i}\]</div>
+          <div>\[\Delta t_1=\frac{10.0\,\mathrm{m/s}-5.0\,\mathrm{m/s}}{0.50\,\mathrm{m/s^2}}=10.0\,\mathrm{s}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[\Delta t_2=\frac{0\,\mathrm{m/s}-10.0\,\mathrm{m/s}}{-2.00\,\mathrm{m/s^2}}=5.0\,\mathrm{s}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[t_{\mathrm{tot}}=10.0\,\mathrm{s}+5.0\,\mathrm{s}=15.0\,\mathrm{s}\quad\text{(before final rounding)}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>The initial speed, first acceleration, and first displacement have two significant figures. Report the combined time to two significant figures.</p>
+          <div>\[\boxed{t_{\mathrm{tot}}=15\,\mathrm{s}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Solution rebuilt for the stated initial rest condition.
+  # Removed the unstated 10.0 s interval; v_final^2 = 115 m^2/s^2.
+  # Unrounded speed 10.723805294763608 m/s; reported answer 11 m/s.
+
+  - numerical:
+      id: q7
+      title: Scenario 4c — Cyclist (two accelerating pushes)
+      points: 1
+      text: |-
+        <p>A cyclist rides along a straight training stretch, starting from rest. GPS shows a uniform-acceleration segment with \(0.50\,\mathrm{m/s^2}\) over \(75\,\mathrm{m}\), followed by another segment of \(25\,\mathrm{m}\) where the rider pushes harder and achieves a steady acceleration of \(0.80\,\mathrm{m/s^2}\). What is the cyclist’s speed (in SI units) at the end of this \(100\,\mathrm{m}\) effort? Report your answer to two significant figures.</p>
+      answer:
+        value: 11
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From departure at rest to the end of the first \(75\,\mathrm{m}\), where the acceleration changes.</li>
+          <li><strong>Segment 2:</strong> From that change in acceleration to the end of the next \(25\,\mathrm{m}\).</li>
+          </ul>
+          <p><strong>Given:</strong> The initial rest condition, both displacements, and both accelerations. No time interval is given or needed.</p>
+          <p><strong>Find:</strong> The speed at the end of the second segment, which is the magnitude of the final velocity.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(x\)-axis forward along the straight training stretch, with unit vector \(\hat{i}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_x\hat{i}\), \(\vec{a}=a_x\hat{i}\), and \(\Delta\vec{r}=\Delta x\hat{i}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_x|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Departure at rest to the change in acceleration</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(75\,\mathrm{m}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Starts from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0.50\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given; not required</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Change in acceleration to the end of the effort</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(25\,\mathrm{m}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final target velocity</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0.80\,\mathrm{m/s^2}\,\hat{i}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given; not required</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <p>Use the equation that relates velocity, acceleration, and displacement without time.</p>
+          <div>\[v_{f1,x}^2=v_{i1,x}^2+2a_{1,x}\Delta x_1\]</div>
+          <div>\[v_{f2,x}^2=v_{f1,x}^2+2a_{2,x}\Delta x_2\]</div>
+          <p>Substitute the first relation into the second before taking the square root. This avoids rounding the transition speed.</p>
+          <div>\[v_{f2,x}=+\sqrt{v_{i1,x}^2+2a_{1,x}\Delta x_1+2a_{2,x}\Delta x_2}\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[v_{f1,x}^2=(0\,\mathrm{m/s})^2+2(0.50\,\mathrm{m/s^2})(75\,\mathrm{m})=75\,\mathrm{m^2/s^2}\]</div>
+          <div>\[\vec{v}_{f1}=\sqrt{75\,\mathrm{m^2/s^2}}\,\hat{i}\approx8.660254\,\mathrm{m/s}\,\hat{i}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[v_{f2,x}^2=75\,\mathrm{m^2/s^2}+2(0.80\,\mathrm{m/s^2})(25\,\mathrm{m})=115\,\mathrm{m^2/s^2}\]</div>
+          <div>\[\vec{v}_{f2}=\sqrt{115\,\mathrm{m^2/s^2}}\,\hat{i}\approx10.723805\,\mathrm{m/s}\,\hat{i}\]</div>
+          <h4>Combine the segments</h4>
+          <p>The two displacement contributions to the change in squared speed have already been combined. Take the magnitude of the final velocity; do not add the two segment speeds.</p>
+          <h3>6. Report the requested result</h3>
+          <p>Both accelerations and both segment displacements have two significant figures. Round only the final speed to two significant figures.</p>
+          <div>\[\boxed{|\vec{v}_{f2}|\approx11\,\mathrm{m/s}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Final answer corrected from 423 m to 4.2 x 10^2 m.
+  # Gravitational acceleration is used without explicitly supplying its value.
+
+  - numerical:
+      id: q8
+      title: Scenario P1 — Package drop (short freefall, strong parachute)
+      points: 1
+      text: |-
+        <p>A drone releases a supply package from rest. The package freefalls straight down for \(5.0\,\mathrm{s}\) under the influence of gravity alone. Then its parachute deploys, providing a uniform deceleration of \(4.0\,\mathrm{m/s^2}\) until the package comes to rest just as it touches the ground. What is the total vertical distance (in SI units) the package descends during its journey? Report your answer to two significant figures.</p>
+      answer:
+        value: 420
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From release at rest to parachute deployment after \(5.0\,\mathrm{s}\) of freefall.</li>
+          <li><strong>Segment 2:</strong> From parachute deployment to the instant the package comes to rest at ground contact.</li>
+          </ul>
+          <p><strong>Given:</strong> The initial rest condition, the freefall time, the constant braking acceleration magnitude, and the final rest condition.</p>
+          <p><strong>Find:</strong> The total vertical distance descended. The package does not reverse direction, so this equals the magnitude of its total displacement.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(y\)-axis downward, in the direction of the descent, with unit vector \(\hat{j}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_y\hat{j}\), \(\vec{a}=a_y\hat{j}\), and \(\Delta\vec{r}=\Delta y\hat{j}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_y|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Release to parachute deployment</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Released from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(g\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Gravity; g is its magnitude</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(5.0\,\mathrm{s}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Parachute deployment to rest at ground contact</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Stops at ground contact</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(-4.0\,\mathrm{m/s^2}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Net acceleration is upward</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <p>During freefall the acceleration is downward. During parachute braking the stated deceleration is the magnitude of the net upward acceleration.</p>
+          <div>\[v_{f1,y}=g\Delta t_1,\qquad\Delta y_1=\frac12g(\Delta t_1)^2\]</div>
+          <div>\[v_{f2,y}^2=v_{f1,y}^2+2a_{2,y}\Delta y_2\quad\Rightarrow\quad\Delta y_2=\frac{v_{f2,y}^2-v_{f1,y}^2}{2a_{2,y}}\]</div>
+          <div>\[\Delta\vec{r}_{\mathrm{tot}}=(\Delta y_1+\Delta y_2)\hat{j}\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[\vec{v}_{f1}=[g(5.0\,\mathrm{s})]\hat{j}=49\,\mathrm{m/s}\,\hat{j}\]</div>
+          <div>\[\Delta\vec{r}_1=\left[\frac12g(5.0\,\mathrm{s})^2\right]\hat{j}=122.5\,\mathrm{m}\,\hat{j}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[\Delta\vec{r}_2=\left[\frac{(0\,\mathrm{m/s})^2-(49\,\mathrm{m/s})^2}{2(-4.0\,\mathrm{m/s^2})}\right]\hat{j}=300.125\,\mathrm{m}\,\hat{j}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[\Delta\vec{r}_{\mathrm{tot}}=(122.5\,\mathrm{m}+300.125\,\mathrm{m})\hat{j}=422.625\,\mathrm{m}\,\hat{j}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>The supplied time and braking acceleration each have two significant figures. Report the total descent to two significant figures.</p>
+          <div>\[\boxed{|\Delta\vec{r}_{\mathrm{tot}}|\approx4.2\times10^2\,\mathrm{m}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Gravitational acceleration is evaluated with enough precision to retain
+  # the original three-significant-figure answer, without explicitly supplying its value.
+
+  - numerical:
+      id: q9
+      title: Scenario P2 — Package drop (moderate freefall, required parachute deceleration)
+      points: 1
+      text: |-
+        <p>A drone releases a package from rest. It falls \(245\,\mathrm{m}\) straight down under the influence of Earth&#x27;s gravity before the parachute opens. Once open, the chute slows the package uniformly over \(15.0\,\mathrm{s}\) so that it arrives at the ground with zero vertical velocity. What constant acceleration must the parachute provide to achieve this safe landing? Report its magnitude in SI units to three significant figures.</p>
+      answer:
+        value: 4.62
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From release at rest to parachute deployment after falling \(245\,\mathrm{m}\).</li>
+          <li><strong>Segment 2:</strong> From parachute deployment to rest at ground contact \(15.0\,\mathrm{s}\) later.</li>
+          </ul>
+          <p><strong>Given:</strong> The initial rest condition, the freefall displacement, the braking time, and the final rest condition.</p>
+          <p><strong>Find:</strong> The magnitude of the constant net acceleration during the parachute-braking segment.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(y\)-axis downward, in the direction of the descent, with unit vector \(\hat{j}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_y\hat{j}\), \(\vec{a}=a_y\hat{j}\), and \(\Delta\vec{r}=\Delta y\hat{j}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_y|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Release to parachute deployment</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(245\,\mathrm{m}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Released from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(g\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Gravity; g is its magnitude</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Parachute deployment to rest at ground contact</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Stops at ground contact</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Target net acceleration</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(15.0\,\mathrm{s}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <p>Find the positive downward velocity at deployment and then the acceleration needed to reduce that velocity to zero.</p>
+          <div>\[v_{f1,y}=+\sqrt{2g\Delta y_1}\]</div>
+          <div>\[\vec{a}_2=\frac{\vec{v}_{f2}-\vec{v}_{i2}}{\Delta t_2}=-\frac{\sqrt{2g\Delta y_1}}{\Delta t_2}\hat{j}\]</div>
+          <div>\[|\vec{a}_2|=\frac{\sqrt{2g\Delta y_1}}{\Delta t_2}\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[\vec{v}_{f1}=\sqrt{2g(245\,\mathrm{m})}\,\hat{j}\approx69.29646456\,\mathrm{m/s}\,\hat{j}\]</div>
+          <h4>Segment 2</h4>
+          <p>Use the unrounded square-root expression for the transition speed.</p>
+          <div>\[\vec{a}_2=-\frac{\sqrt{2g(245\,\mathrm{m})}}{15.0\,\mathrm{s}}\hat{j}\approx-4.619764304\,\mathrm{m/s^2}\,\hat{j}\]</div>
+          <h4>Combine the segments</h4>
+          <p>The negative component means the acceleration points upward, opposite the downward velocity. Its magnitude is positive. This is the net acceleration during braking, including the effects of gravity and the parachute.</p>
+          <h3>6. Report the requested result</h3>
+          <p>The supplied displacement and braking time each have three significant figures. Evaluate the gravitational acceleration with sufficient precision and report the acceleration magnitude to three significant figures.</p>
+          <div>\[\boxed{|\vec{a}_2|\approx4.62\,\mathrm{m/s^2}}\]</div>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.
+
+  # Original distance notation (490 m, 200 m) and one-decimal-place final
+  # reporting precision are retained because input precision is ambiguous.
+  # The unrounded total is 12.096900399023264 s; premature rounding is corrected.
+  # The final event is first ground contact at nonzero downward velocity.
+
+  - numerical:
+      id: q10
+      title: Scenario P3 — Package drop (long freefall, slower parachute braking)
+      points: 1
+      text: |-
+        <p>A drone releases a package from rest. It freefalls vertically for \(490\,\mathrm{m}\) under constant gravitational acceleration. Then the parachute deploys, providing a uniform deceleration of \(2.5\,\mathrm{m/s^2}\) while the package descends another \(200\,\mathrm{m}\) until reaching the ground. Determine the total time from release to landing in SI units to one decimal place.</p>
+      answer:
+        value: 12.1
+        margin_type: percent
+        tolerance: 2
+      feedback:
+        general: |-
+          <h3>1. Identify the motion segments and the target quantity</h3>
+          <p>This is motion along one dimension with a constant acceleration within each segment, so the constant-acceleration kinematic equations apply separately to the two segments. The acceleration may change at the transition.</p>
+          <ul>
+          <li><strong>Segment 1:</strong> From release at rest to parachute deployment after falling \(490\,\mathrm{m}\).</li>
+          <li><strong>Segment 2:</strong> From parachute deployment to first ground contact after descending another \(200\,\mathrm{m}\). The problem does not specify a stop at ground contact.</li>
+          </ul>
+          <p><strong>Given:</strong> The initial rest condition, both downward displacements, and the constant net upward acceleration during parachute braking.</p>
+          <p><strong>Find:</strong> The elapsed time from release to first ground contact.</p>
+          <h3>2. Choose the coordinate system</h3>
+          <p>Choose the positive \(y\)-axis downward, in the direction of the descent, with unit vector \(\hat{j}\). Use the initial position as the origin. Signed components and vectors are related by \(\vec{v}=v_y\hat{j}\), \(\vec{a}=a_y\hat{j}\), and \(\Delta\vec{r}=\Delta y\hat{j}\).</p>
+          <p>The velocity is continuous at the transition: \(\vec{v}_{i2}=\vec{v}_{f1}\). Speed is \(|\vec{v}|=|v_y|\); a requested magnitude is nonnegative.</p>
+          <h3>3. List the kinematic variables</h3>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 1: Release to parachute deployment</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(490\,\mathrm{m}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(0\,\mathrm{m/s}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Released from rest</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(g\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Gravity; g is its magnitude</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_1\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="overflow-x: auto;">
+          <table style="border-collapse: collapse; width: 100%;">
+            <caption>Segment 2: Parachute deployment to first ground contact</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+                <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(200\,\mathrm{m}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Given</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{i2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f1}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Continuity at the transition</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_{f2}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Must be calculated; not assumed zero</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(-2.5\,\mathrm{m/s^2}\,\hat{j}\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Net acceleration is upward</td>
+              </tr>
+              <tr>
+                <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t_2\)</span></td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">
+                  <strong>?</strong>
+                </td>
+                <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be determined</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Rest conditions and zero acceleration are exact idealizations. Retain guard digits in intermediate calculations; extra intermediate digits do not state the precision of a final answer.</p>
+          <h3>4. Select equations and isolate the unknowns</h3>
+          <div>\[v_{f1,y}=+\sqrt{2g\Delta y_1},\qquad\Delta t_1=\frac{v_{f1,y}}{g}=\sqrt{\frac{2\Delta y_1}{g}}\]</div>
+          <div>\[v_{f2,y}=+\sqrt{v_{f1,y}^2+2a_{2,y}\Delta y_2}\]</div>
+          <p>Use the positive square root for first ground contact because the package is still moving downward. Taking the negative root would describe a later event after a reversal in an extrapolated motion.</p>
+          <div>\[\Delta t_2=\frac{v_{f2,y}-v_{f1,y}}{a_{2,y}}=\frac{2\Delta y_2}{v_{f1,y}+v_{f2,y}}\]</div>
+          <div>\[t_{\mathrm{tot}}=\Delta t_1+\Delta t_2\]</div>
+          <h3>5. Substitute values with units</h3>
+          <h4>Segment 1</h4>
+          <div>\[\vec{v}_{f1}=\sqrt{2g(490\,\mathrm{m})}\,\hat{j}=98\,\mathrm{m/s}\,\hat{j}\]</div>
+          <div>\[\Delta t_1=\sqrt{\frac{2(490\,\mathrm{m})}{g}}=10\,\mathrm{s}\]</div>
+          <h4>Segment 2</h4>
+          <div>\[v_{f2,y}=\sqrt{(98\,\mathrm{m/s})^2+2(-2.5\,\mathrm{m/s^2})(200\,\mathrm{m})}=\sqrt{8604\,\mathrm{m^2/s^2}}\]</div>
+          <div>\[\vec{v}_{f2}\approx92.7577490024\,\mathrm{m/s}\,\hat{j}\]</div>
+          <p>Keep the square root unrounded when finding the second time interval. The average-velocity form avoids subtracting two similar speeds.</p>
+          <div>\[\Delta t_2=\frac{2(200\,\mathrm{m})}{98\,\mathrm{m/s}+\sqrt{8604\,\mathrm{m^2/s^2}}}\approx2.096900399\,\mathrm{s}\]</div>
+          <h4>Combine the segments</h4>
+          <div>\[t_{\mathrm{tot}}=10\,\mathrm{s}+2.096900399\ldots\,\mathrm{s}=12.096900399\ldots\,\mathrm{s}\]</div>
+          <h3>6. Report the requested result</h3>
+          <p>Round the total time to the requested one decimal place after completing both segments with guard digits.</p>
+          <div>\[\boxed{t_{\mathrm{tot}}\approx12.1\,\mathrm{s}}\]</div>
+          <p>The package reaches the ground with a nonzero downward velocity. The final event is first ground contact; no extra stopping segment is included.</p>
+        on_correct: Correct. Review the solution to check your segment definitions, signs, units, and final precision.
+        on_incorrect: Try again. Treat the two segments separately, carry the transition velocity into segment 2,
+          and round only the final result.

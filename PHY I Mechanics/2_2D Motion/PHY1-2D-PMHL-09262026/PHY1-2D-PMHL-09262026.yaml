@@ -1,0 +1,1469 @@
+bank_info:
+  title: Horizontal-launch projectile motion
+  bank_id: PHY1-2D-PMHL-09262026
+  description: Ten numerical problems involving horizontal launch followed by free fall on Earth or the Moon. Targets
+    include launch speed, horizontal range, flight time, final speed, and final velocity direction. Question text
+    and complete eight-step solutions use HTML with MathJax delimiters.
+  date created: 09-26-2026
+  status: ready
+  learning objectives:
+    - Resolve horizontal-launch projectile motion into horizontal and vertical components.
+    - Apply constant-acceleration kinematics to determine launch speed, range, fall time, final speed, or final
+      velocity direction.
+  generation prompts:
+    - prompt 1: Generate ten horizontal-launch scenarios with context-appropriate heights and speeds. Revise Scenario
+        4 to a stone thrown horizontally from a 45.0 m cliff, and Scenario 10 to a motorcycle leaving a 6.50 m ledge.
+    - prompt 2: 'Write one word problem per scenario using these given quantities and targets: 1: h and R -> v0x;
+        2: h and v0x -> R; 3: h and v0x -> R; 4: h and v0x -> final speed; 5: h and R -> v0x; 6: h and v0x -> time;
+        7: h and v0x -> R; 8: h and v0x -> final direction; 9: time and v0x -> direction below horizontal; 10: h
+        and R -> v0x. Explicitly state horizontal launch, provide lunar gravity, and use plain-language questions.'
+    - prompt 3: Use the solve-2d-kinematics skill to provide an eight-step solution for each scenario. Calculate
+        answers from the printed givens, preserving their stated precision.
+    - formatting prompt: Use Problem-bank-template-num.yaml for the numerical bank structure. Store question heads
+        and full solutions as accessible HTML fragments with \( ... \) and \[ ... \] MathJax delimiters; save the
+        questions and solutions in separate Markdown files.
+  updates:
+    - update 1: '09-26-2026: ChatGPT drafted the ten questions, derived the solutions from their stated givens,
+        and assembled the bank using the numerical YAML template.'
+  associated data:
+    - scenario data table: ./horizontal_projectile_scenarios.csv
+    - questions: ./horizontal_projectile_questions.md
+    - worked solutions: ./horizontal_projectile_solutions.md
+    - numerical bank template: ./Problem-bank-template-num.yaml
+  generation details:
+    model: ChatGPT
+    version: 6 Astra
+    last updated: 09-26-2026
+  authors:
+    - O. Moussa
+questions:
+  - numerical:
+      id: q1
+      title: 'PHY1-2DM-HL — Scenario 1: Marble launched from a laboratory bench'
+      points: 1
+      text: |-
+        <section>
+        <p>A spring launcher fires a marble horizontally from a laboratory bench \(1.20\ \mathrm{m}\) above the floor. The marble lands \(1.24\ \mathrm{m}\) horizontally from the point on the floor directly below its launch point. Neglect air resistance. <strong>How fast was the marble moving when it left the launcher?</strong></p>
+        <p>Report your answer in \(\mathrm{m/s}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 2.51
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 1: Marble launched from a laboratory bench — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the marble moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=1.20\ \mathrm{m}\); \(R=1.24\ \mathrm{m}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the horizontal launch speed \(v_{0x}\). The requested speed is the magnitude of the initial instantaneous velocity, \(v_i=|\vec v_i|\); because launch is horizontal along +x, \(v_i=v_{0x}&gt;0\).</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the marble leaves the launcher, to event F, when the marble is just about to strike the floor. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 1">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 1</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=(1.24\ \mathrm{m})\hat{\imath}-(1.20\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.24\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-1.20\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal range and height are explicitly given; the negative y-component follows from the axes. Magnitude and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed and initial speed are target unknowns. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final components, magnitude, and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 1">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 1</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the displacement-time vector equation. Its y-component gives the fall time from the height; its x-component then connects that same time and the given range to \(v_{0x}\). Final velocity is not needed.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <div class="equation">\[
+          v_{0x}=\frac{R}{\Delta t}=R\sqrt{\frac{g}{2h}},
+          \]</div>
+          <div class="equation">\[
+          v_i=|\vec v_i|=\sqrt{v_{0x}^{\,2}+v_{iy}^{\,2}}=\sqrt{v_{0x}^{\,2}+0^2}=v_{0x}\quad(v_{0x}&gt;0).
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(1.20\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=0.494871659\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          v_{0x}=\frac{1.24\ \mathrm{m}}{0.494871659\ldots\ \mathrm{s}}=2.505700168\ldots\ \mathrm{m/s}.
+          \]</div>
+          <div class="equation">\[
+          \vec v_i\approx(2.51\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},\qquad \boxed{v_i=v_{0x}=2.51\ \mathrm{m/s}}.
+          \]</div>
+          <p>This is the speed as the marble leaves the launch point, directed horizontally along +x. The answer is rounded to three significant figures.</p>
+          <p>Check: dividing a length by a time gives m/s. With unrounded values, \(v_{0x}\Delta t=R\) and \(-\tfrac12g(\Delta t)^2=-h\), so both coordinates describe the same landing event. The positive time implies \(v_{fy}=-g\Delta t&lt;0\), consistent with downward arrival.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q2
+      title: 'PHY1-2DM-HL — Scenario 2: Toy car leaving an elevated track'
+      points: 1
+      text: |-
+        <section>
+        <p>A toy car leaves the horizontal end of an elevated track, moving horizontally at \(1.80\ \mathrm{m/s}\). The end of the track is \(0.800\ \mathrm{m}\) above the floor. Neglect air resistance. <strong>How far horizontally does the car travel between leaving the track and hitting the floor?</strong></p>
+        <p>Report your answer in \(\mathrm{m}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 0.727
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 2: Toy car leaving an elevated track — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the toy car moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=0.800\ \mathrm{m}\); \(v_{0x}=1.80\ \mathrm{m/s}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the horizontal range \(R=\Delta x&gt;0\). This is the horizontal displacement, not the length of the curved path or the magnitude of the total displacement.</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the toy car leaves the horizontal end of the track, to event F, when the toy car is just about to strike the floor. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 2">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 2</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=R\hat{\imath}-(0.800\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-0.800\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Height is explicitly given; the negative y-component follows from the axes. Horizontal range is the target unknown. Magnitude and direction are other unknowns.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=(1.80\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.80\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.80\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed is explicitly given. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final components, magnitude, and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 2">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 2</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the displacement-time vector equation. Its y-component gives the fall time from the height; its x-component uses that same time and the known horizontal launch speed to find the range. Final velocity is not needed.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t=v_{0x}\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(0.800\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=0.404061017\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          R=(1.80\ \mathrm{m/s})(0.404061017\ldots\ \mathrm{s})=0.727309832\ldots\ \mathrm{m},
+          \]</div>
+          <div class="equation">\[
+          \boxed{R=0.727\ \mathrm{m}}.
+          \]</div>
+          <p>The toy car travels this horizontal distance before reaching the landing surface. The result is rounded to three significant figures.</p>
+          <p>Check: \((\mathrm{m/s})(\mathrm{s})=\mathrm{m}\). The range is positive along +x. The same positive time satisfies \(\Delta y=-h\) and \(R=v_{0x}\Delta t\); \(v_{fy}=-g\Delta t&lt;0\), so the object reaches the surface while descending.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q3
+      title: 'PHY1-2DM-HL — Scenario 3: Tennis ball fired from a machine'
+      points: 1
+      text: |-
+        <section>
+        <p>A tennis-ball machine on a raised platform fires a ball horizontally at \(20.0\ \mathrm{m/s}\). The ball leaves the machine \(2.50\ \mathrm{m}\) above level ground. Neglect air resistance. <strong>How far horizontally does the ball travel before it hits the ground?</strong></p>
+        <p>Report your answer in \(\mathrm{m}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 14.3
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 3: Tennis ball fired from a machine — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the tennis ball moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=2.50\ \mathrm{m}\); \(v_{0x}=20.0\ \mathrm{m/s}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the horizontal range \(R=\Delta x&gt;0\). This is the horizontal displacement, not the length of the curved path or the magnitude of the total displacement.</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the tennis ball leaves the machine, to event F, when the tennis ball is just about to strike the ground. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 3">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 3</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=R\hat{\imath}-(2.50\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-2.50\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Height is explicitly given; the negative y-component follows from the axes. Horizontal range is the target unknown. Magnitude and direction are other unknowns.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=(20.0\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(20.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(20.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed is explicitly given. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final components, magnitude, and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 3">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 3</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the displacement-time vector equation. Its y-component gives the fall time from the height; its x-component uses that same time and the known horizontal launch speed to find the range. Final velocity is not needed.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t=v_{0x}\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(2.50\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=0.714285714\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          R=(20.0\ \mathrm{m/s})(0.714285714\ldots\ \mathrm{s})=14.285714285\ldots\ \mathrm{m},
+          \]</div>
+          <div class="equation">\[
+          \boxed{R=14.3\ \mathrm{m}}.
+          \]</div>
+          <p>The tennis ball travels this horizontal distance before reaching the landing surface. The result is rounded to three significant figures.</p>
+          <p>Check: \((\mathrm{m/s})(\mathrm{s})=\mathrm{m}\). The range is positive along +x. The same positive time satisfies \(\Delta y=-h\) and \(R=v_{0x}\Delta t\); \(v_{fy}=-g\Delta t&lt;0\), so the object reaches the surface while descending.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q4
+      title: 'PHY1-2DM-HL — Scenario 4: Stone thrown from a high cliff'
+      points: 1
+      text: |-
+        <section>
+        <p>A person throws a stone horizontally at \(12.0\ \mathrm{m/s}\) from a high cliff. The stone is released \(45.0\ \mathrm{m}\) above the ground at the base of the cliff. Neglect air resistance. <strong>How fast is the stone moving just before it hits the ground?</strong></p>
+        <p>Report your answer in \(\mathrm{m/s}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 32.0
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 4: Stone thrown from a high cliff — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the stone moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=45.0\ \mathrm{m}\); \(v_{0x}=12.0\ \mathrm{m/s}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the speed \(v_f=|\vec v_f|\) just before impact. Speed is the nonnegative magnitude of the final instantaneous velocity, not its vertical component alone.</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the stone leaves the thrower's hand, to event F, when the stone is just about to strike the ground at the base of the cliff. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 4">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 4</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=R\hat{\imath}-(45.0\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-45.0\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Height is explicitly given; the negative y-component follows from the axes. Horizontal range is another unknown, not required. Magnitude and direction are other unknowns.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=(12.0\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(12.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(12.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed is explicitly given. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final speed (magnitude) is the target unknown; components are intermediate unknowns; direction is another unknown.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 4">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 4</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the horizontal component of the velocity-time equation to establish constant horizontal velocity. Use the time-independent y-component equation to find the final vertical component from the height, then combine the two components to obtain speed. This avoids calculating the flight time.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \vec v_f=\vec v_i+\vec a\Delta t\quad\Longrightarrow\quad v_{fx}=v_{0x}+a_x\Delta t=v_{0x}.
+          \]</div>
+          <div class="equation">\[
+          v_{fy}^{\,2}=v_{iy}^{\,2}+2a_y\Delta y=0^2+2(-g)(-h)=2gh,
+          \]</div>
+          <div class="equation">\[
+          v_{fy}=\pm\sqrt{2gh}.
+          \]</div>
+          <p>At event F the stone is falling: \(v_{fy}=-g\Delta t&lt;0\) for \(\Delta t&gt;0\). Select the negative root, \(v_{fy}=-\sqrt{2gh}\).</p>
+          <div class="equation">\[
+          v_f=|\vec v_f|=\sqrt{v_{fx}^{\,2}+v_{fy}^{\,2}}=\sqrt{v_{0x}^{\,2}+2gh}.
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          v_{fx}=12.0\ \mathrm{m/s},\qquad v_{fy}=-\sqrt{2(9.80\ \mathrm{m/s^2})(45.0\ \mathrm{m})}=-29.698484809\ldots\ \mathrm{m/s}.
+          \]</div>
+          <div class="equation">\[
+          \vec v_f\approx(12.0\ \mathrm{m/s})\hat{\imath}-(29.7\ \mathrm{m/s})\hat{\jmath}.
+          \]</div>
+          <div class="equation">\[
+          v_f=\sqrt{(12.0\ \mathrm{m/s})^2+(-29.698484809\ldots\ \mathrm{m/s})^2}=32.031234756\ldots\ \mathrm{m/s},
+          \]</div>
+          <div class="equation">\[
+          \boxed{v_f=32.0\ \mathrm{m/s}}.
+          \]</div>
+          <p>This is the speed immediately before the stone hits the ground, rounded to three significant figures.</p>
+          <p>Check: each term under the square root has units of \(\mathrm{m^2/s^2}\). The negative y-component selects downward arrival; its associated elapsed time \(-v_{fy}/g\) is positive and gives the same fall height. The horizontal component remains positive and constant. The final speed exceeds the launch speed because a downward component has developed.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q5
+      title: 'PHY1-2DM-HL — Scenario 5: Water leaving a horizontal nozzle'
+      points: 1
+      text: |-
+        <section>
+        <p>Water shoots horizontally from a tank nozzle \(1.50\ \mathrm{m}\) above the ground. A droplet lands \(1.66\ \mathrm{m}\) horizontally from the point on the ground directly below the nozzle. Neglect air resistance. <strong>How fast was the droplet moving as it left the nozzle?</strong></p>
+        <p>Report your answer in \(\mathrm{m/s}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 3.0
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 5: Water leaving a horizontal nozzle — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the water droplet moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=1.50\ \mathrm{m}\); \(R=1.66\ \mathrm{m}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the horizontal launch speed \(v_{0x}\). The requested speed is the magnitude of the initial instantaneous velocity, \(v_i=|\vec v_i|\); because launch is horizontal along +x, \(v_i=v_{0x}&gt;0\).</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the water droplet leaves the nozzle, to event F, when the droplet is just about to strike the ground. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 5">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 5</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=(1.66\ \mathrm{m})\hat{\imath}-(1.50\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.66\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-1.50\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal range and height are explicitly given; the negative y-component follows from the axes. Magnitude and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed and initial speed are target unknowns. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final components, magnitude, and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 5">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 5</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the displacement-time vector equation. Its y-component gives the fall time from the height; its x-component then connects that same time and the given range to \(v_{0x}\). Final velocity is not needed.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <div class="equation">\[
+          v_{0x}=\frac{R}{\Delta t}=R\sqrt{\frac{g}{2h}},
+          \]</div>
+          <div class="equation">\[
+          v_i=|\vec v_i|=\sqrt{v_{0x}^{\,2}+v_{iy}^{\,2}}=\sqrt{v_{0x}^{\,2}+0^2}=v_{0x}\quad(v_{0x}&gt;0).
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(1.50\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=0.553283335\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          v_{0x}=\frac{1.66\ \mathrm{m}}{0.553283335\ldots\ \mathrm{s}}=3.000271098\ldots\ \mathrm{m/s}.
+          \]</div>
+          <div class="equation">\[
+          \vec v_i\approx(3.00\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},\qquad \boxed{v_i=v_{0x}=3.00\ \mathrm{m/s}}.
+          \]</div>
+          <p>This is the speed as the water droplet leaves the launch point, directed horizontally along +x. The answer is rounded to three significant figures.</p>
+          <p>Check: dividing a length by a time gives m/s. With unrounded values, \(v_{0x}\Delta t=R\) and \(-\tfrac12g(\Delta t)^2=-h\), so both coordinates describe the same landing event. The positive time implies \(v_{fy}=-g\Delta t&lt;0\), consistent with downward arrival.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q6
+      title: 'PHY1-2DM-HL — Scenario 6: Package released from an aircraft'
+      points: 1
+      text: |-
+        <section>
+        <p>An aircraft releases a package \(125\ \mathrm{m}\) above level ground. At the instant of release, the package is moving entirely horizontally at \(40.0\ \mathrm{m/s}\), matching the aircraft's motion. Neglect air resistance. <strong>How long does the package take to reach the ground after it is released?</strong></p>
+        <p>Report your answer in \(\mathrm{s}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 5.05
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 6: Package released from an aircraft — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the package moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=125\ \mathrm{m}\); \(v_{0x}=40.0\ \mathrm{m/s}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the elapsed fall time \(\Delta t\). This is a scalar duration, not a vector or an independently chosen time for each axis.</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the package is released from the aircraft, to event F, when the package is just about to strike the ground. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 6">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 6</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=R\hat{\imath}-(125\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-125\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Height is explicitly given; the negative y-component follows from the axes. Horizontal range is another unknown, not required. Magnitude and direction are other unknowns.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=(40.0\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(40.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(40.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed is explicitly given. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final components, magnitude, and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 6">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 6</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Target unknown. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the y-component of the displacement-time equation. The height, zero initial vertical velocity, and downward acceleration determine the fall time directly. The horizontal speed affects the range but not the fall time.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(125\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=5.050762722\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          \boxed{\Delta t=5.05\ \mathrm{s}}.
+          \]</div>
+          <p>The package reaches the ground this long after release. The result is rounded to three significant figures.</p>
+          <p>Check: \(\sqrt{\mathrm{m}/(\mathrm{m/s^2})}=\mathrm{s}\). The positive root gives a later event and satisfies \(-\tfrac12g(\Delta t)^2=-125\ \mathrm{m}\). Horizontal motion occurs over this same interval; the given horizontal speed does not alter the vertical fall time. At the end, \(v_{fy}=-g\Delta t&lt;0\), as required.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q7
+      title: 'PHY1-2DM-HL — Scenario 7: Baseball hit horizontally'
+      points: 1
+      text: |-
+        <section>
+        <p>A batter hits a baseball so that it leaves the bat moving horizontally at \(35.0\ \mathrm{m/s}\). At that instant, the ball is \(1.20\ \mathrm{m}\) above level ground. Neglect air resistance. <strong>How far horizontally does the ball travel before it hits the ground?</strong></p>
+        <p>Report your answer in \(\mathrm{m}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 17.3
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 7: Baseball hit horizontally — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the baseball moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=1.20\ \mathrm{m}\); \(v_{0x}=35.0\ \mathrm{m/s}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the horizontal range \(R=\Delta x&gt;0\). This is the horizontal displacement, not the length of the curved path or the magnitude of the total displacement.</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the baseball loses contact with the bat, to event F, when the baseball is just about to strike the ground. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 7">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 7</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=R\hat{\imath}-(1.20\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-1.20\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Height is explicitly given; the negative y-component follows from the axes. Horizontal range is the target unknown. Magnitude and direction are other unknowns.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=(35.0\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(35.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(35.0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed is explicitly given. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final components, magnitude, and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 7">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 7</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the displacement-time vector equation. Its y-component gives the fall time from the height; its x-component uses that same time and the known horizontal launch speed to find the range. Final velocity is not needed.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t=v_{0x}\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(1.20\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=0.494871659\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          R=(35.0\ \mathrm{m/s})(0.494871659\ldots\ \mathrm{s})=17.320508075\ldots\ \mathrm{m},
+          \]</div>
+          <div class="equation">\[
+          \boxed{R=17.3\ \mathrm{m}}.
+          \]</div>
+          <p>The baseball travels this horizontal distance before reaching the landing surface. The result is rounded to three significant figures.</p>
+          <p>Check: \((\mathrm{m/s})(\mathrm{s})=\mathrm{m}\). The range is positive along +x. The same positive time satisfies \(\Delta y=-h\) and \(R=v_{0x}\Delta t\); \(v_{fy}=-g\Delta t&lt;0\), so the object reaches the surface while descending.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q8
+      title: 'PHY1-2DM-HL — Scenario 8: Box leaving a conveyor belt'
+      points: 1
+      text: |-
+        <section>
+        <p>A conveyor belt carries a small box to its horizontal end, where the box leaves moving horizontally at \(1.20\ \mathrm{m/s}\). The box begins its fall \(1.50\ \mathrm{m}\) above the floor. Neglect air resistance. <strong>At what angle below the horizontal is the box moving just before it hits the floor?</strong></p>
+        <p>Report your answer in degrees, to three significant figures.</p>
+        </section>
+      answer:
+        value: 77.5
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 8: Box leaving a conveyor belt — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the box moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=1.50\ \mathrm{m}\); \(v_{0x}=1.20\ \mathrm{m/s}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the angle \(\alpha\) of the final instantaneous velocity below the horizontal. The direction of motion is the velocity direction, not the direction of the overall displacement.</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the box leaves the horizontal end of the conveyor belt, to event F, when the box is just about to strike the floor. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\). For the requested answer, let \(\alpha&gt;0\) denote the angle below +x; in quadrant IV, \(\theta_f=360^\circ-\alpha\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 8">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 8</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=R\hat{\imath}-(1.50\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-1.50\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Height is explicitly given; the negative y-component follows from the axes. Horizontal range is another unknown, not required. Magnitude and direction are other unknowns.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=(1.20\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.20\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.20\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed is explicitly given. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final direction is the target unknown; components are intermediate unknowns; magnitude is another unknown.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 8">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 8</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the y-component of the displacement-time equation to determine the fall time. Then use both components of the velocity-time equation at that same time and determine their direction with atan2.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=\vec v_i+\vec a\Delta t,
+          \]</div>
+          <div class="equation">\[
+          v_{fx}=v_{0x}+a_x\Delta t=v_{0x},\qquad v_{fy}=v_{iy}+a_y\Delta t=-g\Delta t.
+          \]</div>
+          <p>Since \(v_{fx}&gt;0\) and \(v_{fy}&lt;0\), the velocity lies in quadrant IV. Use both signed components to retain the quadrant:</p>
+          <div class="equation">\[
+          \theta_{\mathrm{signed}}=\operatorname{atan2}(v_{fy},v_{fx}),\qquad \theta_f=\theta_{\mathrm{signed}}+360^\circ.
+          \]</div>
+          <div class="equation">\[
+          \alpha=-\theta_{\mathrm{signed}}=\operatorname{atan2}(-v_{fy},v_{fx})=\operatorname{atan2}(g\Delta t,v_{0x}).
+          \]</div>
+          <p>The atan2 results are evaluated in degrees. Here \(\alpha\) is positive below the horizontal, as requested.</p>
+          <div class="equation">\[
+          \alpha=\operatorname{atan2}\!\left(g\sqrt{\frac{2h}{g}},v_{0x}\right)=\operatorname{atan2}\!\left(\sqrt{2gh},v_{0x}\right).
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(1.50\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=0.553283335\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          v_{fx}=1.20\ \mathrm{m/s},\qquad v_{fy}=(0\ \mathrm{m/s})+(-9.80\ \mathrm{m/s^2})(0.553283335\ldots\ \mathrm{s})=-5.422176684\ldots\ \mathrm{m/s}.
+          \]</div>
+          <div class="equation">\[
+          \vec v_f\approx(1.20\ \mathrm{m/s})\hat{\imath}-(5.42\ \mathrm{m/s})\hat{\jmath}.
+          \]</div>
+          <div class="equation">\[
+          \alpha=\operatorname{atan2}(5.422176684\ldots\ \mathrm{m/s},1.20\ \mathrm{m/s})=77.520826677\ldots^\circ,
+          \]</div>
+          <div class="equation">\[
+          \boxed{\alpha=77.5^\circ\ \text{below the horizontal}}.
+          \]</div>
+          <p>The equivalent direction is approximately \(282.5^\circ\) counterclockwise from +x. The requested angle below the horizontal is reported to three significant figures.</p>
+          <p>Check: the two arguments of atan2 have the same units, so their ratio is dimensionless. The positive x-component and negative y-component confirm motion forward and downward; \(0^\circ&lt;\alpha&lt;90^\circ\). This is the direction of instantaneous velocity, not displacement.</p>
+          <p>The same positive elapsed time gives both \(\Delta y=-h\) and the final velocity; the selected root therefore describes the stated landing event.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q9
+      title: 'PHY1-2DM-HL — Scenario 9: Rock sample launched on the Moon'
+      points: 1
+      text: |-
+        <section>
+        <p>A rover on the Moon ejects a rock sample horizontally at \(2.00\ \mathrm{m/s}\). The sample lands on the lunar surface \(1.22\ \mathrm{s}\) after release. The Moon's gravitational acceleration is \(1.62\ \mathrm{m/s^2}\) downward. Assume that only gravity acts on the sample after release. <strong>At what angle below the horizontal is the sample moving just before it lands?</strong></p>
+        <p>Report your answer in degrees, to three significant figures.</p>
+        </section>
+      answer:
+        value: 44.7
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 9: Rock sample launched on the Moon — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the rock sample moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Use the stated lunar gravity and the assumption that only gravity acts after release.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(v_{0x}=2.00\ \mathrm{m/s}\); \(\Delta t=1.22\ \mathrm{s}\); \(g=1.62\ \mathrm{m/s^2}\) downward. Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the angle \(\alpha\) of the final instantaneous velocity below the horizontal at landing. This is not the direction of the displacement from the rover.</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the rock sample leaves the rover's ejector, to event F, when the rock sample is just about to strike the lunar surface. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\). For the requested answer, let \(\alpha&gt;0\) denote the angle below +x; in quadrant IV, \(\theta_f=360^\circ-\alpha\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 9">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 9</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=R\hat{\imath}+\Delta y\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Both components, magnitude, and direction are other unknowns; none is needed to find the final velocity direction.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=(2.00\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(2.00\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(2.00\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed is explicitly given. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final direction is the target unknown; components are intermediate unknowns; magnitude is another unknown.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(1.62\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.62\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-1.62\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude and downward direction are explicitly given for the Moon. The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 9">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 9</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(1.22\ \mathrm{s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the velocity-time vector equation because the initial velocity, constant acceleration, and elapsed time are given. The final direction follows from the two velocity components; neither the launch height nor the range is needed.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \vec v_f=\vec v_i+\vec a\Delta t,
+          \]</div>
+          <div class="equation">\[
+          v_{fx}=v_{0x}+a_x\Delta t=v_{0x},\qquad v_{fy}=v_{iy}+a_y\Delta t=-g\Delta t.
+          \]</div>
+          <p>Since \(v_{fx}&gt;0\) and \(v_{fy}&lt;0\), the velocity lies in quadrant IV. Use both signed components to retain the quadrant:</p>
+          <div class="equation">\[
+          \theta_{\mathrm{signed}}=\operatorname{atan2}(v_{fy},v_{fx}),\qquad \theta_f=\theta_{\mathrm{signed}}+360^\circ.
+          \]</div>
+          <div class="equation">\[
+          \alpha=-\theta_{\mathrm{signed}}=\operatorname{atan2}(-v_{fy},v_{fx})=\operatorname{atan2}(g\Delta t,v_{0x}).
+          \]</div>
+          <p>The atan2 results are evaluated in degrees. Here \(\alpha\) is positive below the horizontal, as requested.</p>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          v_{fx}=2.00\ \mathrm{m/s},\qquad v_{fy}=(0\ \mathrm{m/s})+(-1.62\ \mathrm{m/s^2})(1.22\ \mathrm{s})=-1.9764\ \mathrm{m/s}.
+          \]</div>
+          <div class="equation">\[
+          \vec v_f\approx(2.00\ \mathrm{m/s})\hat{\imath}-(1.98\ \mathrm{m/s})\hat{\jmath}.
+          \]</div>
+          <div class="equation">\[
+          \alpha=\operatorname{atan2}(1.9764\ \mathrm{m/s},2.00\ \mathrm{m/s})=44.65995259\ldots^\circ,
+          \]</div>
+          <div class="equation">\[
+          \boxed{\alpha=44.7^\circ\ \text{below the horizontal}}.
+          \]</div>
+          <p>The equivalent direction is approximately \(315.3^\circ\) counterclockwise from +x. The requested angle below the horizontal is reported to three significant figures.</p>
+          <p>Check: the two arguments of atan2 have the same units, so their ratio is dimensionless. The positive x-component and negative y-component confirm motion forward and downward; \(0^\circ&lt;\alpha&lt;90^\circ\). This is the direction of instantaneous velocity, not displacement.</p>
+          <p>Both velocity components use the stated \(1.22\ \mathrm{s}\) interval. At that time the vertical component is negative, consistent with landing while descending.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.
+  - numerical:
+      id: q10
+      title: 'PHY1-2DM-HL — Scenario 10: Motorcycle leaving a ledge'
+      points: 1
+      text: |-
+        <section>
+        <p>A stunt motorcyclist rides off a ledge, leaving it moving horizontally from a height of \(6.50\ \mathrm{m}\) above level ground. The motorcycle lands \(23.0\ \mathrm{m}\) horizontally from the point on the ground directly below the launch point. Neglect air resistance. <strong>How fast was the motorcycle moving as it left the ledge?</strong></p>
+        <p>Report your answer in \(\mathrm{m/s}\), to three significant figures.</p>
+        </section>
+      answer:
+        value: 20.0
+        margin_type: percent
+        tolerance: 5
+      feedback:
+        general: |-
+          <section>
+          <h2>Scenario 10: Motorcycle leaving a ledge — solution</h2>
+          <h3>1. Identify the physics</h3>
+          <p>After launch, the motorcycle moves in a vertical plane with a constant downward acceleration vector. The vector kinematic equations therefore apply and can be resolved along fixed horizontal and vertical axes. Neglect air resistance as stated, and assume \(g=9.80\ \mathrm{m/s^2}\) near Earth's surface.</p>
+          <h3>2. State the given information and requested quantity</h3>
+          <p>Given: \(h=6.50\ \mathrm{m}\); \(R=23.0\ \mathrm{m}\). Horizontal launch also gives \(v_{iy}=0\ \mathrm{m/s}\).</p>
+          <p>Find the horizontal launch speed \(v_{0x}\). The requested speed is the magnitude of the initial instantaneous velocity, \(v_i=|\vec v_i|\); because launch is horizontal along +x, \(v_i=v_{0x}&gt;0\).</p>
+          <h3>3. Identify the segment of motion</h3>
+          <p>Study the interval from event L, when the motorcycle leaves the ledge, to event F, when the motorcycle is just about to strike the ground. Choose \(t_L=0\) and define \(\Delta t=t_F-t_L&gt;0\). The impact itself and any subsequent motion are outside this interval.</p>
+          <h3>4. Establish coordinates and vector notation</h3>
+          <p>Choose the origin at the launch point. Let +x point horizontally in the launch direction, with unit vector \(\hat{\imath}\), and let +y point upward, with unit vector \(\hat{\jmath}\). Thus \(\Delta x=R\); when the height is given, \(\Delta y=-h\). Write \(v_{ix}=v_{0x}\). Measure vector directions counterclockwise from +x in \([0^\circ,360^\circ)\).</p>
+          <div class="equation">\[
+          \Delta\vec r=\Delta x\hat{\imath}+\Delta y\hat{\jmath},\qquad \vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},
+          \]</div>
+          <div class="equation">\[
+          \vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath},\qquad \vec a=(0\ \mathrm{m/s^2})\hat{\imath}-g\hat{\jmath}.
+          \]</div>
+          <h3>5. Make the kinematic-variable table</h3>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Kinematic vectors for Scenario 10">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic vectors for Scenario 10</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Vector representation</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Magnitude</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Direction</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">x-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">y-component</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta\vec r=(23.0\ \mathrm{m})\hat{\imath}-(6.50\ \mathrm{m})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(23.0\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-6.50\ \mathrm{m}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal range and height are explicitly given; the negative y-component follows from the axes. Magnitude and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_i=v_{0x}\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0^\circ\) along +x</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Horizontal launch speed and initial speed are target unknowns. Horizontal launch implicitly gives a zero y-component and direction along +x.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec v_f=v_{fx}\hat{\imath}+v_{fy}\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final components, magnitude, and direction are other unknowns, not required.</td>
+          </tr>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\vec a=(0\ \mathrm{m/s^2})\hat{\imath}-(9.80\ \mathrm{m/s^2})\hat{\jmath}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(270^\circ\) counterclockwise from +x (downward)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(0\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(-9.80\ \mathrm{m/s^2}\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Assumption: near-Earth gravity has magnitude 9.80 m/s². The ideal projectile model gives a zero x-component; the negative y-component follows from +y upward.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="Time interval for Scenario 10">
+          <table style="border-collapse: collapse; width: 100%;">
+          <caption>Time interval for Scenario 10</caption>
+          <thead><tr>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Kinematic variable</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Symbol</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Value</th>
+          <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Status/explanation</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">\(\Delta t\)</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">?</td>
+          <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Other unknown; an intermediate quantity if needed. The same elapsed time applies to both axes.</td>
+          </tr>
+          </tbody></table>
+          </div>
+          <p>Horizontal launch means \(v_{iy}=0\), not \(v_{0x}=0\). The origin and positive directions are coordinate choices; the gravity model is an assumption where not supplied.</p>
+          <h3>6. Select the equations</h3>
+          <p>Use the displacement-time vector equation. Its y-component gives the fall time from the height; its x-component then connects that same time and the given range to \(v_{0x}\). Final velocity is not needed.</p>
+          <h3>7. Rearrange symbolically</h3>
+          <div class="equation">\[
+          \Delta\vec r=\vec v_i\Delta t+\tfrac12\vec a(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          R=v_{0x}\Delta t+\tfrac12a_x(\Delta t)^2=v_{0x}\Delta t,
+          \]</div>
+          <div class="equation">\[
+          -h=v_{iy}\Delta t+\tfrac12a_y(\Delta t)^2=0\Delta t-\tfrac12g(\Delta t)^2.
+          \]</div>
+          <div class="equation">\[
+          (\Delta t)^2=\frac{2h}{g}\quad\Longrightarrow\quad \Delta t=\pm\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <p>The final event occurs after launch, so \(\Delta t&gt;0\). Select the positive root:</p>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2h}{g}}.
+          \]</div>
+          <div class="equation">\[
+          v_{0x}=\frac{R}{\Delta t}=R\sqrt{\frac{g}{2h}},
+          \]</div>
+          <div class="equation">\[
+          v_i=|\vec v_i|=\sqrt{v_{0x}^{\,2}+v_{iy}^{\,2}}=\sqrt{v_{0x}^{\,2}+0^2}=v_{0x}\quad(v_{0x}&gt;0).
+          \]</div>
+          <h3>8. Substitute, solve, and verify</h3>
+          <div class="equation">\[
+          \Delta t=\sqrt{\frac{2(6.50\ \mathrm{m})}{9.80\ \mathrm{m/s^2}}}=1.151751106\ldots\ \mathrm{s}.
+          \]</div>
+          <div class="equation">\[
+          v_{0x}=\frac{23.0\ \mathrm{m}}{1.151751106\ldots\ \mathrm{s}}=19.969592268\ldots\ \mathrm{m/s}.
+          \]</div>
+          <div class="equation">\[
+          \vec v_i\approx(20.0\ \mathrm{m/s})\hat{\imath}+(0\ \mathrm{m/s})\hat{\jmath},\qquad \boxed{v_i=v_{0x}=20.0\ \mathrm{m/s}}.
+          \]</div>
+          <p>This is the speed as the motorcycle leaves the launch point, directed horizontally along +x. The answer is rounded to three significant figures.</p>
+          <p>Check: dividing a length by a time gives m/s. With unrounded values, \(v_{0x}\Delta t=R\) and \(-\tfrac12g(\Delta t)^2=-h\), so both coordinates describe the same landing event. The positive time implies \(v_{fy}=-g\Delta t&lt;0\), consistent with downward arrival.</p>
+          </section>
+        on_correct: Correct. Review the solution to check your vector setup, units, and reasoning.
+        on_incorrect: Review the horizontal and vertical components in the worked solution, using the same elapsed
+          time for both axes.

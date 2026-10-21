@@ -1,0 +1,824 @@
+bank_info:
+  title: Electrostatic Forces due to Point Charges
+  bank_id: PHY2-EM-Electrostatics-NFPC-08292026
+  description: |-
+    These problems involve calculating Net Electrostatic Force (Coloumbs Law and Vector addition)
+  date_created: 08-31-2026
+  status: ready
+  LLM: ChatGPT 5.6 Sol
+  generation prompts:
+  - prompt 0: |
+      + sources : charge_diagram_generator.py found here: https://github.com/omoussa/ESTELA-physics-problem-bank/blob/afe522721b0a298f2794b0dbf77765efe3d4d5d3/PHY%20II%20EM/01_Electrostatics/PHY2-EM-Electrostatics-NFPC-08292026/supporting%20files/charge_diagram_generator.py
+  - prompt 1: |-
+     I'm writing a problem bank with 12 problems about coulomb's law. 
+     In each problem, 3 charges are located at different locations in space, 
+     and the object of the problem is to calculate the net force exerted on one of the charges due to the combined effect of the other two. 
+     The charges will be located on the nodes of a 2D grid: {nodes = (x,y), where x \in [-2d:d:2d] and y  \in [-2d:d:2d] }. 
+     First locate the charge of interest (randomly pick q1, q2, or q3), 
+     then locate one of the other charges on either the same x or the same y. 
+     the third charge has to be on a different x and y from the charge of interest, but it's ok if it's on the same x or y as the second charge. 
+     The values of the charges have to be of the same order of magnitude in each problem, but can vary from problem to problem. 
+     They can be integer multiples of e, the elementary charge (e.g. q1 = +2e, q2=-3e and q3=-5e) or can by in the hundreds of nC range or micro-C range.
+     The distance d can be in tens of nm range or micro-meters, or mm, or cm. 
+     Do not write the problems yet -- what I need now is just a table listing the values of the charges and their locations. 
+  - prompt 2: |
+      write and execute a python script that uses @charge_diagram_generator.py to generate typeset figures for each scenario, 
+      and resize the images to width of 400px, and create a zip file with all the images.
+      I want all three figures per scenario -- the geometry figure to include with the problem head and the two figures with the arrows to include with the solution. 
+      I also want to show a d x d grid on the geometry figure with at least one label on x and one label on y showing the distance d.
+  - prompt 3: |
+      Now for the problem heads, generate strings containing an html snippet similar to the following example, but with the corresponding values for each problem, and put them all in one file to be used later:         "<p>Three charged objects are fixed in the following configuration, where \( e\) is the elementary charge, and \( d= 0.20 \mu m \):</p> 
+        <ul> 
+            <li>\( q_1=+2e \) is located at \( \vec{r}_1 = (0, d) \),</li> 
+            <li>\( q_2=-3e \) is located at \( \vec{r}_2 = (2d, d) \), and</li> 
+            <li>\( q_3=-5e \) is located at \( \vec{r}_3 = (2d, 0).</li> 
+        </ul> 
+        <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p> 
+        <p>Provide your answer in SI units, in Scientific Notation with two significant digits.</p>"
+  - prompt 4: |
+      similarly, generate and store solution snippets similar to the following: 
+            '<h4><span style="text-decoration: underline;">Option 1, Use the vector equation for Electrostatic Force (recommended).</span></h4>
+            <p><strong>First, calculate the contribution from each of the charges acting on q1:</strong></p>
+            <p><strong>The force of \(q_2\) on \(q_1\):</strong></p>
+            <p style="padding-left: 40px;">\( \vec{F}_{q_2\text{ on } q_1}=k\frac{q_2\ q_1}{r_{21}^2}\ \hat{r}_{21} \), where \( \hat{r}_{21} = +\hat{j}\) is the direction from \(q_2\) towards \(q_1\).</p>
+            <p style="padding-left: 40px;">Therefore</p>
+            <p style="padding-left: 40px;">\(\begin{align}<br />\vec{F}_{q_2\text{ on } q_1}&amp;=k\frac{q_2\ q_1}{r_{21}^2}\ \hat{r}_{21} \\ &amp;= k\frac{(-3e)(2e)}{d^2}\ (+\hat{j}) \\ &amp;= k\frac{6e^2}{d^2}\ (-\hat{j}) \end{align}\)</p>
+            <p style="padding-left: 40px;">Notice that \(q_2 \times q_1\) is negative, thus the force \(\vec{F}_{21}\) is in the opposite direction of \( \hat{r}_{21}\)&nbsp;</p>
+            <p><strong>Similarly for the force of \(q_3\) on \(q_1\):</strong></p>
+            <p style="padding-left: 40px;">taking \(\hat{r}_{31} = \frac{-2d \hat{i} + d\hat{j}}{|-2d \hat{i} + d\hat{j}|}\) as the direction from \(q_3\) towards \(q_1\).&nbsp;</p>
+            <p style="padding-left: 40px;">\(\begin{align}\vec{F}_{q_3\text{ on } q_1}&amp;=k\frac{q_3\ q_1}{r_{31}^2}\ \hat{r}_{31} \\ &amp;= k\frac{(-5e)(2e)}{\left(\sqrt{d^2+(2d)^2}\right)^2}\ \left(\frac{-2d}{\sqrt{(2d)^2+d^2}}\hat{i}+\frac{d}{\sqrt{(2d)^2+d^2}}\hat{j}\right) \\ &amp;= k\frac{10e^2}{5d^2}\ \left(\frac{2}{\sqrt{5}}\hat{i}-\frac{1}{\sqrt{5}}\hat{j}\right) \end{align}\)</p>
+            <p><strong>Now, combine both contributions to find the net force acting on \(q_1\) by adding the \(\hat{i}\) and \(\hat{j}\) terms separately:</strong></p>
+            <p style="padding-left: 40px;">\(\begin{align}<br />\Sigma\vec{F}_{\text{ on } q_1}&amp;= \vec{F}_{q_2\text{ on } q_1} + \vec{F}_{q_3\text{ on } q_1} \\<br />&amp;= k\frac{6e^2}{d^2}\ (-\hat{j}) + k\frac{10e^2}{5d^2}\ \left(\frac{2}{\sqrt{5}}\hat{i}-\frac{1}{\sqrt{5}}\hat{j}\right) \\<br />&amp;= k\frac{e^2}{d^2}\ \left(\frac{4}{\sqrt{5}}\hat{i}+\left(-6-\frac{2}{\sqrt{5}}\right)\hat{j}\right)<br />\end{align}\)</p>
+            <p><strong>then find the magnitude &amp; direction of the resulting vector:</strong></p>
+            <p style="padding-left: 40px;">\(\begin{align}<br />\Sigma{F}_{\text{ on } q_1}<br />&amp;= k\frac{e^2}{d^2}\ \sqrt{\left(\frac{4}{\sqrt{5}}\right)^2+\left(-6-\frac{2}{\sqrt{5}}\right)^2}<br />\end{align}\)</p>
+            <p style="padding-left: 40px;">and the direction relative to the x-axis</p>
+            <p style="padding-left: 40px;">\(\begin{align}<br />\theta<br />&amp;= \tan^{-1} \left(\left(-6-\frac{2}{\sqrt{5}}\right)/\left(\frac{4}{\sqrt{5}}\right)\right)<br />\end{align}\)</p>
+            <hr />
+            <h4><span style="text-decoration: underline;">Option 2, Find the magnitude and the direction separately.</span></h4>
+            <p><span style="font-family: inherit; font-size: 1rem;">To figure out the net force on \(q_1\) due to \(q_2\) and \(q_3\), first we calculate the magnitudes of the individual forces, and then we add them as vectors.</span></p>
+            
+            <p>The force of \(q_2\) on \(q_1\) has a magnitude of \(F_{q_2\text{ on } q_1}=k\frac{|q_2\ q_1|}{r_{12}^2}\) in the direction of \(-\hat{j}\) (since \(q_2\) is attracting \(q_1\) )</p> 
+            <p>The force of \(q_3\) on \(q_1\) has a magnitude of \(F_{q_3\text{ on } q_1}=k\frac{|q_3\ q_1|}{r_{13}^2}\) in the direction of \(\frac{+2d}{\sqrt{(2d)^2+d^2}}\hat{i}+\frac{-d}{\sqrt{(2d)^2+d^2}}\hat{j}\)&nbsp; (since \(q_3\) is attracting \(q_1\))</p> 
+            <p>As in option-1, add the x-components together and the y-components together to find the x- and y-components of the net force, which you can then use to find the magnitude and direction of the net force.</p> 
+            <hr /> '
+  -prompt 5: |
+      Let's put it all together in a YAML file for the problem-bank. 
+  authors:
+  - O. Moussa
+questions:
+- numerical:
+    id: q1
+    title: PHY2-EM-Electrostatics-NFPC problem 1
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=20\ \mathrm{nm}\):</p>
+      <ul>
+        <li>\(q_1=+2e\) is located at \(\vec{r}_1=(-2d,d)\),</li>
+        <li>\(q_2=-3e\) is located at \(\vec{r}_2=(0,d)\), and</li>
+        <li>\(q_3=-5e\) is located at \(\vec{r}_3=(d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_01.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 2.2*10^-12
+      range_end: 2.4*10^-12
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=2.0\times10^{-8}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=2d\hat{i}\), so \(r_{12}^2=4d^2\) and \(\hat{r}_{12}=\hat{i}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+        &amp;=k\frac{(+2e)(-3e)}{4d^2}\left(\hat{i}\right)\\
+        &amp;=\left(-8.65\times10^{-13}\hat{i}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{12}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=-d\hat{i} + 2d\hat{j}\), so \(r_{32}^2=5d^2\) and \(\hat{r}_{32}=-\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+        &amp;=k\frac{(-5e)(-3e)}{5d^2}\left(-\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\right)\\
+        &amp;=\left(-7.74\times10^{-13}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{32}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+        &amp;=\left(-8.65\times10^{-13}\hat{i}\right)\ \mathrm{N}+\left(-7.74\times10^{-13}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(-1.64\times10^{-12}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(-1.64\times10^{-12}\right)^2+\left(1.55\times10^{-12}\right)^2}\\
+        &amp;=\boxed{2.3\times10^{-12}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=136.6^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{4d^2}=8.65\times10^{-13}\ \mathrm{N}\). Its direction is \(-\hat{i}\) because of attraction.</p>
+        <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{5d^2}=1.73\times10^{-12}\ \mathrm{N}\). Its direction is \(-\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\) because of repulsion.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(-1.64\times10^{-12}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.3\times10^{-12}\ \mathrm{N}}\) and direction \(136.6^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_01_force_q1_on_q2.png
+      - Figures/coulomb_problem_01_force_q3_on_q2.png
+- numerical:
+    id: q2
+    title: PHY2-EM-Electrostatics-NFPC problem 2
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=45\ \mathrm{nm}\):</p>
+      <ul>
+        <li>\(q_1=-4e\) is located at \(\vec{r}_1=(-d,0)\),</li>
+        <li>\(q_2=+7e\) is located at \(\vec{r}_2=(2d,-d)\), and</li>
+        <li>\(q_3=+3e\) is located at \(\vec{r}_3=(-d,2d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_02.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 3.8*10^-13
+      range_end: 4.0*10^-13
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=4.5\times10^{-8}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=-3d\hat{i} + d\hat{j}\), so \(r_{21}^2=10d^2\) and \(\hat{r}_{21}=-\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+        &amp;=k\frac{(+7e)(-4e)}{10d^2}\left(-\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\right)\\
+        &amp;=\left(3.03\times10^{-13}\hat{i} - 1.01\times10^{-13}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=-2d\hat{j}\), so \(r_{31}^2=4d^2\) and \(\hat{r}_{31}=-\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+        &amp;=k\frac{(+3e)(-4e)}{4d^2}\left(-\hat{j}\right)\\
+        &amp;=\left(3.42\times10^{-13}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{31}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+        &amp;=\left(3.03\times10^{-13}\hat{i} - 1.01\times10^{-13}\hat{j}\right)\ \mathrm{N}+\left(3.42\times10^{-13}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(3.03\times10^{-13}\hat{i} + 2.41\times10^{-13}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(3.03\times10^{-13}\right)^2+\left(2.41\times10^{-13}\right)^2}\\
+        &amp;=\boxed{3.9\times10^{-13}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=38.5^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{10d^2}=3.19\times10^{-13}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{10}}\hat{i} - \frac{1}{\sqrt{10}}\hat{j}\) because of attraction.</p>
+        <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{4d^2}=3.42\times10^{-13}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(3.03\times10^{-13}\hat{i} + 2.41\times10^{-13}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{3.9\times10^{-13}\ \mathrm{N}}\) and direction \(38.5^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_02_force_q2_on_q1.png
+      - Figures/coulomb_problem_02_force_q3_on_q1.png
+- numerical:
+    id: q3
+    title: PHY2-EM-Electrostatics-NFPC problem 3
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=2.0\ \mu\mathrm{m}\):</p>
+      <ul>
+        <li>\(q_1=+6e\) is located at \(\vec{r}_1=(-2d,0)\),</li>
+        <li>\(q_2=-2e\) is located at \(\vec{r}_2=(d,d)\), and</li>
+        <li>\(q_3=+5e\) is located at \(\vec{r}_3=(d,-2d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_03.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 1.0*10^-16
+      range_end: 1.2*10^-16
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=2.0\times10^{-6}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=3d\hat{i} - 2d\hat{j}\), so \(r_{13}^2=13d^2\) and \(\hat{r}_{13}=\frac{3}{\sqrt{13}}\hat{i} - \frac{2}{\sqrt{13}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+        &amp;=k\frac{(+6e)(+5e)}{13d^2}\left(\frac{3}{\sqrt{13}}\hat{i} - \frac{2}{\sqrt{13}}\hat{j}\right)\\
+        &amp;=\left(1.11\times10^{-16}\hat{i} - 7.38\times10^{-17}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{13}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=-3d\hat{j}\), so \(r_{23}^2=9d^2\) and \(\hat{r}_{23}=-\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+        &amp;=k\frac{(-2e)(+5e)}{9d^2}\left(-\hat{j}\right)\\
+        &amp;=\left(6.41\times10^{-17}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{23}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+        &amp;=\left(1.11\times10^{-16}\hat{i} - 7.38\times10^{-17}\hat{j}\right)\ \mathrm{N}+\left(6.41\times10^{-17}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(1.11\times10^{-16}\hat{i} - 9.75\times10^{-18}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(1.11\times10^{-16}\right)^2+\left(-9.75\times10^{-18}\right)^2}\\
+        &amp;=\boxed{1.1\times10^{-16}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=355.0^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{13d^2}=1.33\times10^{-16}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{13}}\hat{i} - \frac{2}{\sqrt{13}}\hat{j}\) because of repulsion.</p>
+        <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{9d^2}=6.41\times10^{-17}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(1.11\times10^{-16}\hat{i} - 9.75\times10^{-18}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{1.1\times10^{-16}\ \mathrm{N}}\) and direction \(355.0^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_03_force_q1_on_q3.png
+      - Figures/coulomb_problem_03_force_q2_on_q3.png
+- numerical:
+    id: q4
+    title: PHY2-EM-Electrostatics-NFPC problem 4
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=35\ \mu\mathrm{m}\):</p>
+      <ul>
+        <li>\(q_1=-7e\) is located at \(\vec{r}_1=(0,2d)\),</li>
+        <li>\(q_2=-4e\) is located at \(\vec{r}_2=(-2d,-d)\), and</li>
+        <li>\(q_3=+3e\) is located at \(\vec{r}_3=(2d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_04.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 3.4*10^-19
+      range_end: 3.6*10^-19
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=3.5\times10^{-5}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=-2d\hat{i} - 3d\hat{j}\), so \(r_{12}^2=13d^2\) and \(\hat{r}_{12}=-\frac{2}{\sqrt{13}}\hat{i} - \frac{3}{\sqrt{13}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+        &amp;=k\frac{(-7e)(-4e)}{13d^2}\left(-\frac{2}{\sqrt{13}}\hat{i} - \frac{3}{\sqrt{13}}\hat{j}\right)\\
+        &amp;=\left(-2.25\times10^{-19}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{12}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=-4d\hat{i}\), so \(r_{32}^2=16d^2\) and \(\hat{r}_{32}=-\hat{i}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+        &amp;=k\frac{(+3e)(-4e)}{16d^2}\left(-\hat{i}\right)\\
+        &amp;=\left(1.41\times10^{-19}\hat{i}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{32}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+        &amp;=\left(-2.25\times10^{-19}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}+\left(1.41\times10^{-19}\hat{i}\right)\ \mathrm{N}\\
+        &amp;=\left(-8.38\times10^{-20}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(-8.38\times10^{-20}\right)^2+\left(-3.38\times10^{-19}\right)^2}\\
+        &amp;=\boxed{3.5\times10^{-19}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=256.1^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{13d^2}=4.06\times10^{-19}\ \mathrm{N}\). Its direction is \(-\frac{2}{\sqrt{13}}\hat{i} - \frac{3}{\sqrt{13}}\hat{j}\) because of repulsion.</p>
+        <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{16d^2}=1.41\times10^{-19}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of attraction.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(-8.38\times10^{-20}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{3.5\times10^{-19}\ \mathrm{N}}\) and direction \(256.1^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_04_force_q1_on_q2.png
+      - Figures/coulomb_problem_04_force_q3_on_q2.png
+- numerical:
+    id: q5
+    title: PHY2-EM-Electrostatics-NFPC problem 5
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=0.60\ \mathrm{mm}\):</p>
+      <ul>
+        <li>\(q_1=+250\ \mathrm{nC}\) is located at \(\vec{r}_1=(2d,d)\),</li>
+        <li>\(q_2=-400\ \mathrm{nC}\) is located at \(\vec{r}_2=(2d,-2d)\), and</li>
+        <li>\(q_3=+650\ \mathrm{nC}\) is located at \(\vec{r}_3=(-d,0)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_05.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 4.0*10^1
+      range_end: 4.2*10^1
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=2.50\times10^{-7}\ \mathrm{C},\quad q_2=-4.00\times10^{-7}\ \mathrm{C},\quad q_3=6.50\times10^{-7}\ \mathrm{C},\quad d=6.0\times10^{-4}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=3d\hat{j}\), so \(r_{21}^2=9d^2\) and \(\hat{r}_{21}=\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+        &amp;=k\frac{(-400\ \mathrm{nC})(+250\ \mathrm{nC})}{9d^2}\left(\hat{j}\right)\\
+        &amp;=\left(-2.77\times10^{2}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=3d\hat{i} + d\hat{j}\), so \(r_{31}^2=10d^2\) and \(\hat{r}_{31}=\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+        &amp;=k\frac{(+650\ \mathrm{nC})(+250\ \mathrm{nC})}{10d^2}\left(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\right)\\
+        &amp;=\left(3.85\times10^{2}\hat{i} + 1.28\times10^{2}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_1\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{31}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+        &amp;=\left(-2.77\times10^{2}\hat{j}\right)\ \mathrm{N}+\left(3.85\times10^{2}\hat{i} + 1.28\times10^{2}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(3.85\times10^{2}\hat{i} - 1.49\times10^{2}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(3.85\times10^{2}\right)^2+\left(-1.49\times10^{2}\right)^2}\\
+        &amp;=\boxed{4.1\times10^{2}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=338.8^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{9d^2}=2.77\times10^{2}\ \mathrm{N}\). Its direction is \(-\hat{j}\) because of attraction.</p>
+        <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{10d^2}=4.06\times10^{2}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\) because of repulsion.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(3.85\times10^{2}\hat{i} - 1.49\times10^{2}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{4.1\times10^{2}\ \mathrm{N}}\) and direction \(338.8^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_05_force_q2_on_q1.png
+      - Figures/coulomb_problem_05_force_q3_on_q1.png
+- numerical:
+    id: q6
+    title: PHY2-EM-Electrostatics-NFPC problem 6
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=1.5\ \mathrm{mm}\):</p>
+      <ul>
+        <li>\(q_1=-180\ \mathrm{nC}\) is located at \(\vec{r}_1=(-2d,0)\),</li>
+        <li>\(q_2=+320\ \mathrm{nC}\) is located at \(\vec{r}_2=(d,2d)\), and</li>
+        <li>\(q_3=-540\ \mathrm{nC}\) is located at \(\vec{r}_3=(0,0)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_06.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 1.9*10^2
+      range_end: 2.1*10^2
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-1.80\times10^{-7}\ \mathrm{C},\quad q_2=3.20\times10^{-7}\ \mathrm{C},\quad q_3=-5.40\times10^{-7}\ \mathrm{C},\quad d=1.5\times10^{-3}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=2d\hat{i}\), so \(r_{13}^2=4d^2\) and \(\hat{r}_{13}=\hat{i}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+        &amp;=k\frac{(-180\ \mathrm{nC})(-540\ \mathrm{nC})}{4d^2}\left(\hat{i}\right)\\
+        &amp;=\left(9.71\times10^{1}\hat{i}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{13}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=-d\hat{i} - 2d\hat{j}\), so \(r_{23}^2=5d^2\) and \(\hat{r}_{23}=-\frac{1}{\sqrt{5}}\hat{i} - \frac{2}{\sqrt{5}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+        &amp;=k\frac{(+320\ \mathrm{nC})(-540\ \mathrm{nC})}{5d^2}\left(-\frac{1}{\sqrt{5}}\hat{i} - \frac{2}{\sqrt{5}}\hat{j}\right)\\
+        &amp;=\left(6.17\times10^{1}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{23}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+        &amp;=\left(9.71\times10^{1}\hat{i}\right)\ \mathrm{N}+\left(6.17\times10^{1}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(1.59\times10^{2}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(1.59\times10^{2}\right)^2+\left(1.23\times10^{2}\right)^2}\\
+        &amp;=\boxed{2.0\times10^{2}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=37.9^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{4d^2}=9.71\times10^{1}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of repulsion.</p>
+        <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{5d^2}=1.38\times10^{2}\ \mathrm{N}\). Its direction is \(\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\) because of attraction.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(1.59\times10^{2}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.0\times10^{2}\ \mathrm{N}}\) and direction \(37.9^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_06_force_q1_on_q3.png
+      - Figures/coulomb_problem_06_force_q2_on_q3.png
+- numerical:
+    id: q7
+    title: PHY2-EM-Electrostatics-NFPC problem 7
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=1.2\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=+750\ \mathrm{nC}\) is located at \(\vec{r}_1=(-d,2d)\),</li>
+        <li>\(q_2=+300\ \mathrm{nC}\) is located at \(\vec{r}_2=(d,2d)\), and</li>
+        <li>\(q_3=-500\ \mathrm{nC}\) is located at \(\vec{r}_3=(0,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_07.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 3.2
+      range_end: 3.4
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=7.50\times10^{-7}\ \mathrm{C},\quad q_2=3.00\times10^{-7}\ \mathrm{C},\quad q_3=-5.00\times10^{-7}\ \mathrm{C},\quad d=1.2\times10^{-2}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=2d\hat{i}\), so \(r_{12}^2=4d^2\) and \(\hat{r}_{12}=\hat{i}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+        &amp;=k\frac{(+750\ \mathrm{nC})(+300\ \mathrm{nC})}{4d^2}\left(\hat{i}\right)\\
+        &amp;=\left(3.51\times10^{0}\hat{i}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{12}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=d\hat{i} + 3d\hat{j}\), so \(r_{32}^2=10d^2\) and \(\hat{r}_{32}=\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+        &amp;=k\frac{(-500\ \mathrm{nC})(+300\ \mathrm{nC})}{10d^2}\left(\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\right)\\
+        &amp;=\left(-2.96\times10^{-1}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{32}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+        &amp;=\left(3.51\times10^{0}\hat{i}\right)\ \mathrm{N}+\left(-2.96\times10^{-1}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(3.21\times10^{0}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(3.21\times10^{0}\right)^2+\left(-8.88\times10^{-1}\right)^2}\\
+        &amp;=\boxed{3.3\times10^{0}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=344.6^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{4d^2}=3.51\times10^{0}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of repulsion.</p>
+        <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{10d^2}=9.36\times10^{-1}\ \mathrm{N}\). Its direction is \(-\frac{1}{\sqrt{10}}\hat{i} - \frac{3}{\sqrt{10}}\hat{j}\) because of attraction.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(3.21\times10^{0}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{3.3\times10^{0}\ \mathrm{N}}\) and direction \(344.6^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_07_force_q1_on_q2.png
+      - Figures/coulomb_problem_07_force_q3_on_q2.png
+- numerical:
+    id: q8
+    title: PHY2-EM-Electrostatics-NFPC problem 8
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=3.0\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=-220\ \mathrm{nC}\) is located at \(\vec{r}_1=(0,-2d)\),</li>
+        <li>\(q_2=+680\ \mathrm{nC}\) is located at \(\vec{r}_2=(-2d,0)\), and</li>
+        <li>\(q_3=+450\ \mathrm{nC}\) is located at \(\vec{r}_3=(0,d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_08.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 2.7*10^-1
+      range_end: 2.9*10^-1
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-2.20\times10^{-7}\ \mathrm{C},\quad q_2=6.80\times10^{-7}\ \mathrm{C},\quad q_3=4.50\times10^{-7}\ \mathrm{C},\quad d=3.0\times10^{-2}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=2d\hat{i} - 2d\hat{j}\), so \(r_{21}^2=8d^2\) and \(\hat{r}_{21}=\frac{2}{\sqrt{8}}\hat{i} - \frac{2}{\sqrt{8}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+        &amp;=k\frac{(+680\ \mathrm{nC})(-220\ \mathrm{nC})}{8d^2}\left(\frac{2}{\sqrt{8}}\hat{i} - \frac{2}{\sqrt{8}}\hat{j}\right)\\
+        &amp;=\left(-1.32\times10^{-1}\hat{i} + 1.32\times10^{-1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=-3d\hat{j}\), so \(r_{31}^2=9d^2\) and \(\hat{r}_{31}=-\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+        &amp;=k\frac{(+450\ \mathrm{nC})(-220\ \mathrm{nC})}{9d^2}\left(-\hat{j}\right)\\
+        &amp;=\left(1.10\times10^{-1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{31}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+        &amp;=\left(-1.32\times10^{-1}\hat{i} + 1.32\times10^{-1}\hat{j}\right)\ \mathrm{N}+\left(1.10\times10^{-1}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(-1.32\times10^{-1}\hat{i} + 2.42\times10^{-1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(-1.32\times10^{-1}\right)^2+\left(2.42\times10^{-1}\right)^2}\\
+        &amp;=\boxed{2.8\times10^{-1}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=118.6^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{8d^2}=1.87\times10^{-1}\ \mathrm{N}\). Its direction is \(-\frac{2}{\sqrt{8}}\hat{i} + \frac{2}{\sqrt{8}}\hat{j}\) because of attraction.</p>
+        <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{9d^2}=1.10\times10^{-1}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(-1.32\times10^{-1}\hat{i} + 2.42\times10^{-1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.8\times10^{-1}\ \mathrm{N}}\) and direction \(118.6^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_08_force_q2_on_q1.png
+      - Figures/coulomb_problem_08_force_q3_on_q1.png
+- numerical:
+    id: q9
+    title: PHY2-EM-Electrostatics-NFPC problem 9
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=8.0\ \mathrm{mm}\):</p>
+      <ul>
+        <li>\(q_1=+1.5\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(0,-2d)\),</li>
+        <li>\(q_2=-2.5\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(2d,d)\), and</li>
+        <li>\(q_3=+4.0\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(-d,d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_09.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 1.4*10^2
+      range_end: 1.6*10^2
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=1.50\times10^{-6}\ \mathrm{C},\quad q_2=-2.50\times10^{-6}\ \mathrm{C},\quad q_3=4.00\times10^{-6}\ \mathrm{C},\quad d=8.0\times10^{-3}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=-d\hat{i} + 3d\hat{j}\), so \(r_{13}^2=10d^2\) and \(\hat{r}_{13}=-\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+        &amp;=k\frac{(+1.5\ \mu\mathrm{C})(+4.0\ \mu\mathrm{C})}{10d^2}\left(-\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\right)\\
+        &amp;=\left(-2.66\times10^{1}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{13}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=-3d\hat{i}\), so \(r_{23}^2=9d^2\) and \(\hat{r}_{23}=-\hat{i}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+        &amp;=k\frac{(-2.5\ \mu\mathrm{C})(+4.0\ \mu\mathrm{C})}{9d^2}\left(-\hat{i}\right)\\
+        &amp;=\left(1.56\times10^{2}\hat{i}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{23}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+        &amp;=\left(-2.66\times10^{1}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}+\left(1.56\times10^{2}\hat{i}\right)\ \mathrm{N}\\
+        &amp;=\left(1.29\times10^{2}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(1.29\times10^{2}\right)^2+\left(7.99\times10^{1}\right)^2}\\
+        &amp;=\boxed{1.5\times10^{2}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=31.7^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{10d^2}=8.43\times10^{1}\ \mathrm{N}\). Its direction is \(-\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\) because of repulsion.</p>
+        <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{9d^2}=1.56\times10^{2}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of attraction.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(1.29\times10^{2}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{1.5\times10^{2}\ \mathrm{N}}\) and direction \(31.7^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_09_force_q1_on_q3.png
+      - Figures/coulomb_problem_09_force_q2_on_q3.png
+- numerical:
+    id: q10
+    title: PHY2-EM-Electrostatics-NFPC problem 10
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=1.5\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=-3.0\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(d,0)\),</li>
+        <li>\(q_2=+5.5\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(d,2d)\), and</li>
+        <li>\(q_3=-1.8\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(-2d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_10.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 1.6*10^2
+      range_end: 1.8*10^2
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-3.00\times10^{-6}\ \mathrm{C},\quad q_2=5.50\times10^{-6}\ \mathrm{C},\quad q_3=-1.80\times10^{-6}\ \mathrm{C},\quad d=1.5\times10^{-2}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=-2d\hat{j}\), so \(r_{21}^2=4d^2\) and \(\hat{r}_{21}=-\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+        &amp;=k\frac{(+5.5\ \mu\mathrm{C})(-3.0\ \mu\mathrm{C})}{4d^2}\left(-\hat{j}\right)\\
+        &amp;=\left(1.65\times10^{2}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=3d\hat{i} + d\hat{j}\), so \(r_{31}^2=10d^2\) and \(\hat{r}_{31}=\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+        &amp;=k\frac{(-1.8\ \mu\mathrm{C})(-3.0\ \mu\mathrm{C})}{10d^2}\left(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\right)\\
+        &amp;=\left(2.05\times10^{1}\hat{i} + 6.82\times10^{0}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_1\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{31}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+        &amp;=\left(1.65\times10^{2}\hat{j}\right)\ \mathrm{N}+\left(2.05\times10^{1}\hat{i} + 6.82\times10^{0}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(2.05\times10^{1}\hat{i} + 1.72\times10^{2}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(2.05\times10^{1}\right)^2+\left(1.72\times10^{2}\right)^2}\\
+        &amp;=\boxed{1.7\times10^{2}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=83.2^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{4d^2}=1.65\times10^{2}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+        <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{10d^2}=2.16\times10^{1}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\) because of repulsion.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(2.05\times10^{1}\hat{i} + 1.72\times10^{2}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{1.7\times10^{2}\ \mathrm{N}}\) and direction \(83.2^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_10_force_q2_on_q1.png
+      - Figures/coulomb_problem_10_force_q3_on_q1.png
+- numerical:
+    id: q11
+    title: PHY2-EM-Electrostatics-NFPC problem 11
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=2.5\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=+6.0\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(d,2d)\),</li>
+        <li>\(q_2=-2.0\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(0,-d)\), and</li>
+        <li>\(q_3=-4.5\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(-2d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_11.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 4.0*10^1
+      range_end: 4.2*10^1
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=6.00\times10^{-6}\ \mathrm{C},\quad q_2=-2.00\times10^{-6}\ \mathrm{C},\quad q_3=-4.50\times10^{-6}\ \mathrm{C},\quad d=2.5\times10^{-2}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=-d\hat{i} - 3d\hat{j}\), so \(r_{12}^2=10d^2\) and \(\hat{r}_{12}=-\frac{1}{\sqrt{10}}\hat{i} - \frac{3}{\sqrt{10}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+        &amp;=k\frac{(+6.0\ \mu\mathrm{C})(-2.0\ \mu\mathrm{C})}{10d^2}\left(-\frac{1}{\sqrt{10}}\hat{i} - \frac{3}{\sqrt{10}}\hat{j}\right)\\
+        &amp;=\left(5.46\times10^{0}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{12}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=2d\hat{i}\), so \(r_{32}^2=4d^2\) and \(\hat{r}_{32}=\hat{i}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+        &amp;=k\frac{(-4.5\ \mu\mathrm{C})(-2.0\ \mu\mathrm{C})}{4d^2}\left(\hat{i}\right)\\
+        &amp;=\left(3.24\times10^{1}\hat{i}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_3q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{32}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+        &amp;=\left(5.46\times10^{0}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}+\left(3.24\times10^{1}\hat{i}\right)\ \mathrm{N}\\
+        &amp;=\left(3.78\times10^{1}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(3.78\times10^{1}\right)^2+\left(1.64\times10^{1}\right)^2}\\
+        &amp;=\boxed{4.1\times10^{1}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=23.4^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{10d^2}=1.73\times10^{1}\ \mathrm{N}\). Its direction is \(\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\) because of attraction.</p>
+        <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{4d^2}=3.24\times10^{1}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of repulsion.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(3.78\times10^{1}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{4.1\times10^{1}\ \mathrm{N}}\) and direction \(23.4^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_11_force_q1_on_q2.png
+      - Figures/coulomb_problem_11_force_q3_on_q2.png
+- numerical:
+    id: q12
+    title: PHY2-EM-Electrostatics-NFPC problem 12
+    points: 1
+    text: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=4.0\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=-7.5\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(-d,2d)\),</li>
+        <li>\(q_2=+3.5\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(0,-2d)\), and</li>
+        <li>\(q_3=+5.0\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(2d,2d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+    figure: Figures/coulomb_problem_12.png
+    settings:
+      scientific: true
+    answer:
+      range_start: 2.1*10^1
+      range_end: 2.3*10^1
+    feedback:
+      general: |
+        <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+        <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+        <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-7.50\times10^{-6}\ \mathrm{C},\quad q_2=3.50\times10^{-6}\ \mathrm{C},\quad q_3=5.00\times10^{-6}\ \mathrm{C},\quad d=4.0\times10^{-2}\ \mathrm{m}\).</p>
+        <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=3d\hat{i}\), so \(r_{13}^2=9d^2\) and \(\hat{r}_{13}=\hat{i}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+        &amp;=k\frac{(-7.5\ \mu\mathrm{C})(+5.0\ \mu\mathrm{C})}{9d^2}\left(\hat{i}\right)\\
+        &amp;=\left(-2.34\times10^{1}\hat{i}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_1q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{13}\).</p>
+        <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+        <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=2d\hat{i} + 4d\hat{j}\), so \(r_{23}^2=20d^2\) and \(\hat{r}_{23}=\frac{2}{\sqrt{20}}\hat{i} + \frac{4}{\sqrt{20}}\hat{j}\).</p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+        &amp;=k\frac{(+3.5\ \mu\mathrm{C})(+5.0\ \mu\mathrm{C})}{20d^2}\left(\frac{2}{\sqrt{20}}\hat{i} + \frac{4}{\sqrt{20}}\hat{j}\right)\\
+        &amp;=\left(2.20\times10^{0}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Because \(q_2q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{23}\).</p>
+        <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+        &amp;=\left(-2.34\times10^{1}\hat{i}\right)\ \mathrm{N}+\left(2.20\times10^{0}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}\\
+        &amp;=\left(-2.12\times10^{1}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}
+        \end{aligned}\)</p>
+        <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+        <p style="padding-left: 40px;">\(\begin{aligned}
+        \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+        &amp;=\sqrt{\left(-2.12\times10^{1}\right)^2+\left(4.40\times10^{0}\right)^2}\\
+        &amp;=\boxed{2.2\times10^{1}\ \mathrm{N}}
+        \end{aligned}\)</p>
+        <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=168.3^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+        <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+        <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+        <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{9d^2}=2.34\times10^{1}\ \mathrm{N}\). Its direction is \(-\hat{i}\) because of attraction.</p>
+        <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{20d^2}=4.92\times10^{0}\ \mathrm{N}\). Its direction is \(\frac{2}{\sqrt{20}}\hat{i} + \frac{4}{\sqrt{20}}\hat{j}\) because of repulsion.</p>
+        <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(-2.12\times10^{1}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.2\times10^{1}\ \mathrm{N}}\) and direction \(168.3^\circ\) counterclockwise from the \(+x\)-axis.</p>
+        <hr />
+      figure:
+      - Figures/coulomb_problem_12_force_q1_on_q3.png
+      - Figures/coulomb_problem_12_force_q2_on_q3.png

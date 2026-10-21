@@ -1,0 +1,2018 @@
+[
+  {
+    "identifier": "mag_001",
+    "family": "parallel",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.08,
+    "coil_turns": 32,
+    "coil_current": 0.35,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 3.2,
+    "wire_point": [
+      0.14,
+      0.085,
+      0.0
+    ],
+    "observation": [
+      0.14,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_002",
+    "family": "parallel",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.08,
+    "coil_turns": 36,
+    "coil_current": 0.18,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 1.37,
+    "wire_point": [
+      0.12,
+      0.045,
+      0.0
+    ],
+    "observation": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_003",
+    "family": "parallel",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.05,
+    "coil_turns": 32,
+    "coil_current": 0.7,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 4.51,
+    "wire_point": [
+      0.09,
+      0.04,
+      0.0
+    ],
+    "observation": [
+      0.09,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_004",
+    "family": "parallel",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.055,
+    "coil_turns": 36,
+    "coil_current": 0.55,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 12.2,
+    "wire_point": [
+      0.1,
+      0.06,
+      0.0
+    ],
+    "observation": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_005",
+    "family": "parallel",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.08,
+    "coil_turns": 16,
+    "coil_current": 0.75,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 16.6,
+    "wire_point": [
+      0.0,
+      0.09,
+      0.075
+    ],
+    "observation": [
+      0.0,
+      0.09,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_006",
+    "family": "parallel",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.045,
+    "coil_turns": 30,
+    "coil_current": 0.35,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 1.81,
+    "wire_point": [
+      0.0,
+      0.08,
+      0.035
+    ],
+    "observation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_007",
+    "family": "parallel",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.085,
+    "coil_turns": 20,
+    "coil_current": 0.35,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 2.95,
+    "wire_point": [
+      0.0,
+      0.1,
+      0.07
+    ],
+    "observation": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_008",
+    "family": "parallel",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.075,
+    "coil_turns": 15,
+    "coil_current": 0.3,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 0.706,
+    "wire_point": [
+      0.0,
+      0.13,
+      0.05
+    ],
+    "observation": [
+      0.0,
+      0.13,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_009",
+    "family": "parallel",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.09,
+    "coil_turns": 18,
+    "coil_current": 0.3,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 1.75,
+    "wire_point": [
+      0.085,
+      0.0,
+      0.15
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.15
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_010",
+    "family": "parallel",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.045,
+    "coil_turns": 40,
+    "coil_current": 0.45,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 9.25,
+    "wire_point": [
+      0.05,
+      0.0,
+      0.08
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.08
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_011",
+    "family": "parallel",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.06,
+    "coil_turns": 25,
+    "coil_current": 0.6,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 13.1,
+    "wire_point": [
+      0.055,
+      0.0,
+      0.08
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.08
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_012",
+    "family": "parallel",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.05,
+    "coil_turns": 32,
+    "coil_current": 0.5,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 13.4,
+    "wire_point": [
+      0.085,
+      0.0,
+      0.07
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.07
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_013",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.08,
+    "coil_turns": 30,
+    "coil_current": 0.4,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 8.04,
+    "wire_point": [
+      0.12,
+      0.0,
+      0.08
+    ],
+    "observation": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_014",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.085,
+    "coil_turns": 25,
+    "coil_current": 0.5,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 7.97,
+    "wire_point": [
+      0.15,
+      0.0,
+      0.09
+    ],
+    "observation": [
+      0.15,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_015",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.055,
+    "coil_turns": 20,
+    "coil_current": 0.24,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 0.883,
+    "wire_point": [
+      0.11,
+      0.0,
+      0.045
+    ],
+    "observation": [
+      0.11,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_016",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.075,
+    "coil_turns": 16,
+    "coil_current": 0.18,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 2.43,
+    "wire_point": [
+      0.08,
+      0.0,
+      0.09
+    ],
+    "observation": [
+      0.08,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_017",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.09,
+    "coil_turns": 36,
+    "coil_current": 0.35,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 14.7,
+    "wire_point": [
+      0.1,
+      0.08,
+      0.0
+    ],
+    "observation": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_018",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.08,
+    "coil_turns": 12,
+    "coil_current": 0.18,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 1.08,
+    "wire_point": [
+      0.08,
+      0.06,
+      0.0
+    ],
+    "observation": [
+      0.08,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_019",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.07,
+    "coil_turns": 40,
+    "coil_current": 0.3,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 3.49,
+    "wire_point": [
+      0.09,
+      0.04,
+      0.0
+    ],
+    "observation": [
+      0.09,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_020",
+    "family": "sideways",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.065,
+    "coil_turns": 24,
+    "coil_current": 0.75,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 9.4,
+    "wire_point": [
+      0.12,
+      0.08,
+      0.0
+    ],
+    "observation": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_021",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.07,
+    "coil_turns": 36,
+    "coil_current": 0.2,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 4.39,
+    "wire_point": [
+      0.0,
+      0.1,
+      0.09
+    ],
+    "observation": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_022",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.065,
+    "coil_turns": 12,
+    "coil_current": 0.4,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 2.1,
+    "wire_point": [
+      0.0,
+      0.1,
+      0.035
+    ],
+    "observation": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_023",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.08,
+    "coil_turns": 24,
+    "coil_current": 0.55,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 14.2,
+    "wire_point": [
+      0.0,
+      0.1,
+      0.08
+    ],
+    "observation": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_024",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.045,
+    "coil_turns": 25,
+    "coil_current": 0.8,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 17.5,
+    "wire_point": [
+      0.0,
+      0.08,
+      0.085
+    ],
+    "observation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_025",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.045,
+    "coil_turns": 20,
+    "coil_current": 0.18,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 2.01,
+    "wire_point": [
+      0.085,
+      0.08,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_026",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.09,
+    "coil_turns": 20,
+    "coil_current": 0.8,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 11.3,
+    "wire_point": [
+      0.1,
+      0.11,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.11,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_027",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.07,
+    "coil_turns": 30,
+    "coil_current": 0.65,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 14.4,
+    "wire_point": [
+      0.085,
+      0.11,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.11,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_028",
+    "family": "sideways",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.085,
+    "coil_turns": 18,
+    "coil_current": 0.32,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 5.92,
+    "wire_point": [
+      0.09,
+      0.12,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.12,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_029",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.08,
+    "coil_turns": 36,
+    "coil_current": 0.2,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 3.54,
+    "wire_point": [
+      0.0,
+      0.1,
+      0.16
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.16
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_030",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.075,
+    "coil_turns": 40,
+    "coil_current": 0.75,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 7.24,
+    "wire_point": [
+      0.0,
+      0.03,
+      0.08
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.08
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_031",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.055,
+    "coil_turns": 24,
+    "coil_current": 0.8,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 4.66,
+    "wire_point": [
+      0.0,
+      0.05,
+      0.09
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.09
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_032",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.055,
+    "coil_turns": 36,
+    "coil_current": 0.25,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 5.75,
+    "wire_point": [
+      0.0,
+      0.08,
+      0.1
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.1
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_033",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.09,
+    "coil_turns": 32,
+    "coil_current": 0.75,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 7.06,
+    "wire_point": [
+      0.065,
+      0.0,
+      0.12
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.12
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_034",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.06,
+    "coil_turns": 12,
+    "coil_current": 0.7,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 4.61,
+    "wire_point": [
+      0.055,
+      0.0,
+      0.1
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.1
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_035",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.055,
+    "coil_turns": 36,
+    "coil_current": 0.3,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 9.31,
+    "wire_point": [
+      0.08,
+      0.0,
+      0.07
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.07
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_036",
+    "family": "sideways",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.06,
+    "coil_turns": 30,
+    "coil_current": 0.25,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 3.42,
+    "wire_point": [
+      0.08,
+      0.0,
+      0.1
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.1
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_037",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.055,
+    "coil_turns": 28,
+    "coil_current": 0.55,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 6.89,
+    "wire_point": [
+      0.05,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_038",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.08,
+    "coil_turns": 24,
+    "coil_current": 0.24,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 2.21,
+    "wire_point": [
+      0.075,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.15,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_039",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.065,
+    "coil_turns": 25,
+    "coil_current": 0.55,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 2.58,
+    "wire_point": [
+      0.06,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_040",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.075,
+    "coil_turns": 30,
+    "coil_current": 0.45,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 8.9,
+    "wire_point": [
+      0.055,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.11,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_041",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.07,
+    "coil_turns": 12,
+    "coil_current": 0.6,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 2.02,
+    "wire_point": [
+      0.045,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.09,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_042",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.09,
+    "coil_turns": 20,
+    "coil_current": 0.6,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 2.97,
+    "wire_point": [
+      0.084,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.14,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_043",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.085,
+    "coil_turns": 12,
+    "coil_current": 0.25,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 2.26,
+    "wire_point": [
+      0.04,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_044",
+    "family": "crossing_near",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.09,
+    "coil_turns": 24,
+    "coil_current": 0.2,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 3.26,
+    "wire_point": [
+      0.048,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_045",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.06,
+    "coil_turns": 25,
+    "coil_current": 0.35,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 2.1,
+    "wire_point": [
+      0.0,
+      0.052000000000000005,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.13,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_046",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.055,
+    "coil_turns": 15,
+    "coil_current": 0.8,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 5.37,
+    "wire_point": [
+      0.0,
+      0.05,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_047",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.09,
+    "coil_turns": 30,
+    "coil_current": 0.4,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 4.02,
+    "wire_point": [
+      0.0,
+      0.065,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.13,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_048",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.08,
+    "coil_turns": 36,
+    "coil_current": 0.2,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 5.12,
+    "wire_point": [
+      0.0,
+      0.048,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_049",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.05,
+    "coil_turns": 25,
+    "coil_current": 0.65,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 11.8,
+    "wire_point": [
+      0.0,
+      0.027999999999999997,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.07,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_050",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.07,
+    "coil_turns": 36,
+    "coil_current": 0.65,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 11.5,
+    "wire_point": [
+      0.0,
+      0.032,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_051",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.075,
+    "coil_turns": 40,
+    "coil_current": 0.45,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 6.47,
+    "wire_point": [
+      0.0,
+      0.048,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.12,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_052",
+    "family": "crossing_near",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.085,
+    "coil_turns": 12,
+    "coil_current": 0.65,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 2.67,
+    "wire_point": [
+      0.0,
+      0.04,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_053",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.04,
+    "coil_turns": 20,
+    "coil_current": 0.7,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 2.26,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.042
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.07
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_054",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.085,
+    "coil_turns": 25,
+    "coil_current": 0.75,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 12.0,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.06
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.15
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_055",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.06,
+    "coil_turns": 32,
+    "coil_current": 0.75,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 8.21,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.04
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.1
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_056",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.08,
+    "coil_turns": 30,
+    "coil_current": 0.3,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 2.02,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.08
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.16
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_057",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.07,
+    "coil_turns": 36,
+    "coil_current": 0.4,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 3.17,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.07200000000000001
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.12
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_058",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.085,
+    "coil_turns": 20,
+    "coil_current": 0.75,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 5.27,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.05
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.1
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_059",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.05,
+    "coil_turns": 30,
+    "coil_current": 0.24,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 1.63,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.045
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.09
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_060",
+    "family": "crossing_near",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.05,
+    "coil_turns": 24,
+    "coil_current": 0.4,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 6.96,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.027999999999999997
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.07
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_061",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.065,
+    "coil_turns": 30,
+    "coil_current": 0.45,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 7.05,
+    "wire_point": [
+      0.2,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_062",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.085,
+    "coil_turns": 20,
+    "coil_current": 0.25,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 2.65,
+    "wire_point": [
+      0.2,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.13,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_063",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.09,
+    "coil_turns": 20,
+    "coil_current": 0.8,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 3.86,
+    "wire_point": [
+      0.16,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.13,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_064",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.04,
+    "coil_turns": 24,
+    "coil_current": 0.24,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 2.42,
+    "wire_point": [
+      0.14,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.09,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_065",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.085,
+    "coil_turns": 24,
+    "coil_current": 0.25,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 2.1,
+    "wire_point": [
+      0.19,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_066",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "ccw",
+    "coil_radius": 0.06,
+    "coil_turns": 28,
+    "coil_current": 0.8,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 9.61,
+    "wire_point": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.09,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_067",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.055,
+    "coil_turns": 16,
+    "coil_current": 0.3,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 1.29,
+    "wire_point": [
+      0.17,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_068",
+    "family": "crossing_far",
+    "coil_axis": "x",
+    "coil_sense": "cw",
+    "coil_radius": 0.075,
+    "coil_turns": 40,
+    "coil_current": 0.5,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 6.98,
+    "wire_point": [
+      0.2,
+      0.0,
+      0.0
+    ],
+    "observation": [
+      0.12,
+      0.0,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_069",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.07,
+    "coil_turns": 18,
+    "coil_current": 0.45,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 1.32,
+    "wire_point": [
+      0.0,
+      0.23,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.15,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_070",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.07,
+    "coil_turns": 18,
+    "coil_current": 0.4,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 0.694,
+    "wire_point": [
+      0.0,
+      0.18,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.14,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_071",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.065,
+    "coil_turns": 30,
+    "coil_current": 0.32,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 7.51,
+    "wire_point": [
+      0.0,
+      0.18,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_072",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.085,
+    "coil_turns": 30,
+    "coil_current": 0.7,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 3.93,
+    "wire_point": [
+      0.0,
+      0.23,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.16,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_073",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.045,
+    "coil_turns": 20,
+    "coil_current": 0.7,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 8.65,
+    "wire_point": [
+      0.0,
+      0.18,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_074",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "ccw",
+    "coil_radius": 0.085,
+    "coil_turns": 18,
+    "coil_current": 0.25,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 1.35,
+    "wire_point": [
+      0.0,
+      0.11,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_075",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.065,
+    "coil_turns": 40,
+    "coil_current": 0.4,
+    "wire_axis": "z",
+    "wire_sign": 1,
+    "wire_current": 3.87,
+    "wire_point": [
+      0.0,
+      0.17,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.13,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_076",
+    "family": "crossing_far",
+    "coil_axis": "y",
+    "coil_sense": "cw",
+    "coil_radius": 0.065,
+    "coil_turns": 25,
+    "coil_current": 0.35,
+    "wire_axis": "z",
+    "wire_sign": -1,
+    "wire_current": 2.4,
+    "wire_point": [
+      0.0,
+      0.1,
+      0.0
+    ],
+    "observation": [
+      0.0,
+      0.07,
+      0.0
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_077",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.09,
+    "coil_turns": 18,
+    "coil_current": 0.4,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 2.28,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.15
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.12
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_078",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.04,
+    "coil_turns": 18,
+    "coil_current": 0.45,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 4.35,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.14
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.07
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_079",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.08,
+    "coil_turns": 15,
+    "coil_current": 0.7,
+    "wire_axis": "x",
+    "wire_sign": 1,
+    "wire_current": 2.62,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.11
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.08
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_080",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.09,
+    "coil_turns": 24,
+    "coil_current": 0.24,
+    "wire_axis": "x",
+    "wire_sign": -1,
+    "wire_current": 2.78,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.19
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.13
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_081",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.065,
+    "coil_turns": 30,
+    "coil_current": 0.8,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 8.77,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.1
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.07
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_082",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "ccw",
+    "coil_radius": 0.055,
+    "coil_turns": 36,
+    "coil_current": 0.25,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 9.16,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.15
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.08
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_083",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.05,
+    "coil_turns": 28,
+    "coil_current": 0.32,
+    "wire_axis": "y",
+    "wire_sign": 1,
+    "wire_current": 4.23,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.16
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.1
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  },
+  {
+    "identifier": "mag_084",
+    "family": "crossing_far",
+    "coil_axis": "z",
+    "coil_sense": "cw",
+    "coil_radius": 0.07,
+    "coil_turns": 40,
+    "coil_current": 0.24,
+    "wire_axis": "y",
+    "wire_sign": -1,
+    "wire_current": 3.55,
+    "wire_point": [
+      0.0,
+      0.0,
+      0.24
+    ],
+    "observation": [
+      0.0,
+      0.0,
+      0.16
+    ],
+    "azimuth_deg": 43.0,
+    "elevation_deg": 27.0
+  }
+]

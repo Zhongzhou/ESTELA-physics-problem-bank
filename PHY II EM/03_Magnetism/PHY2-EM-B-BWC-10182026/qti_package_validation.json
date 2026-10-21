@@ -1,0 +1,25 @@
+{
+  "bank_id": "PHY2-EM-B-BWC-10182026",
+  "converter_revision": "0b1cfc0636e3b5422119b35780916afa3220ef87",
+  "qti_file": "PHY2-EM-B-BWC-10182026_QTI.zip",
+  "question_count": 84,
+  "numerical_questions": 84,
+  "media_png_count": 168,
+  "zip_integrity": "passed",
+  "manifest_file_references": "passed",
+  "all_source_image_bytes_preserved": true,
+  "all_mathjax_equations_preserved": true,
+  "question_feedback_separation": "passed",
+  "all_numeric_bounds_match_2_percent": true,
+  "all_numerical_scores_equal_1": true,
+  "source_yaml_sha256": "327495dcfa035675018f34a8fced8cdd2f6249032801fbed1b8441a25e5d13b0",
+  "qti_zip_sha256": "14fda066bd251d43c4af2ca440e17b21119a953c64fbcc2b48512a6bad711a63",
+  "converter_warnings": {
+    "HTML general feedback marked text/plain": 84,
+    "General feedback has no displayfeedback link": 84,
+    "A displayfeedback link targets a missing node": 84,
+    "points_possible metadata omitted": 84
+  },
+  "converter_modified": false,
+  "canvas_import_tested": false
+}

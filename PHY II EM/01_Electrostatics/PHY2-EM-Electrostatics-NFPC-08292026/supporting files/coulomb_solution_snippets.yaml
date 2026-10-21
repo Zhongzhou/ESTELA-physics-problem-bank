@@ -1,0 +1,493 @@
+solution_snippets:
+- id: q1
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=2.0\times10^{-8}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=2d\hat{i}\), so \(r_{12}^2=4d^2\) and \(\hat{r}_{12}=\hat{i}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+    &amp;=k\frac{(+2e)(-3e)}{4d^2}\left(\hat{i}\right)\\
+    &amp;=\left(-8.65\times10^{-13}\hat{i}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{12}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=-d\hat{i} + 2d\hat{j}\), so \(r_{32}^2=5d^2\) and \(\hat{r}_{32}=-\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+    &amp;=k\frac{(-5e)(-3e)}{5d^2}\left(-\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\right)\\
+    &amp;=\left(-7.74\times10^{-13}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{32}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+    &amp;=\left(-8.65\times10^{-13}\hat{i}\right)\ \mathrm{N}+\left(-7.74\times10^{-13}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(-1.64\times10^{-12}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(-1.64\times10^{-12}\right)^2+\left(1.55\times10^{-12}\right)^2}\\
+    &amp;=\boxed{2.3\times10^{-12}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=136.6^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{4d^2}=8.65\times10^{-13}\ \mathrm{N}\). Its direction is \(-\hat{i}\) because of attraction.</p>
+    <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{5d^2}=1.73\times10^{-12}\ \mathrm{N}\). Its direction is \(-\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\) because of repulsion.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(-1.64\times10^{-12}\hat{i} + 1.55\times10^{-12}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.3\times10^{-12}\ \mathrm{N}}\) and direction \(136.6^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q2
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=4.5\times10^{-8}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=-3d\hat{i} + d\hat{j}\), so \(r_{21}^2=10d^2\) and \(\hat{r}_{21}=-\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+    &amp;=k\frac{(+7e)(-4e)}{10d^2}\left(-\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\right)\\
+    &amp;=\left(3.03\times10^{-13}\hat{i} - 1.01\times10^{-13}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=-2d\hat{j}\), so \(r_{31}^2=4d^2\) and \(\hat{r}_{31}=-\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+    &amp;=k\frac{(+3e)(-4e)}{4d^2}\left(-\hat{j}\right)\\
+    &amp;=\left(3.42\times10^{-13}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{31}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+    &amp;=\left(3.03\times10^{-13}\hat{i} - 1.01\times10^{-13}\hat{j}\right)\ \mathrm{N}+\left(3.42\times10^{-13}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(3.03\times10^{-13}\hat{i} + 2.41\times10^{-13}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(3.03\times10^{-13}\right)^2+\left(2.41\times10^{-13}\right)^2}\\
+    &amp;=\boxed{3.9\times10^{-13}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=38.5^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{10d^2}=3.19\times10^{-13}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{10}}\hat{i} - \frac{1}{\sqrt{10}}\hat{j}\) because of attraction.</p>
+    <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{4d^2}=3.42\times10^{-13}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(3.03\times10^{-13}\hat{i} + 2.41\times10^{-13}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{3.9\times10^{-13}\ \mathrm{N}}\) and direction \(38.5^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q3
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=2.0\times10^{-6}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=3d\hat{i} - 2d\hat{j}\), so \(r_{13}^2=13d^2\) and \(\hat{r}_{13}=\frac{3}{\sqrt{13}}\hat{i} - \frac{2}{\sqrt{13}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+    &amp;=k\frac{(+6e)(+5e)}{13d^2}\left(\frac{3}{\sqrt{13}}\hat{i} - \frac{2}{\sqrt{13}}\hat{j}\right)\\
+    &amp;=\left(1.11\times10^{-16}\hat{i} - 7.38\times10^{-17}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{13}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=-3d\hat{j}\), so \(r_{23}^2=9d^2\) and \(\hat{r}_{23}=-\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+    &amp;=k\frac{(-2e)(+5e)}{9d^2}\left(-\hat{j}\right)\\
+    &amp;=\left(6.41\times10^{-17}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{23}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+    &amp;=\left(1.11\times10^{-16}\hat{i} - 7.38\times10^{-17}\hat{j}\right)\ \mathrm{N}+\left(6.41\times10^{-17}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(1.11\times10^{-16}\hat{i} - 9.75\times10^{-18}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(1.11\times10^{-16}\right)^2+\left(-9.75\times10^{-18}\right)^2}\\
+    &amp;=\boxed{1.1\times10^{-16}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=355.0^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{13d^2}=1.33\times10^{-16}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{13}}\hat{i} - \frac{2}{\sqrt{13}}\hat{j}\) because of repulsion.</p>
+    <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{9d^2}=6.41\times10^{-17}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(1.11\times10^{-16}\hat{i} - 9.75\times10^{-18}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{1.1\times10^{-16}\ \mathrm{N}}\) and direction \(355.0^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q4
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\), \(e=1.602\times10^{-19}\ \mathrm{C}\), and \(d=3.5\times10^{-5}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=-2d\hat{i} - 3d\hat{j}\), so \(r_{12}^2=13d^2\) and \(\hat{r}_{12}=-\frac{2}{\sqrt{13}}\hat{i} - \frac{3}{\sqrt{13}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+    &amp;=k\frac{(-7e)(-4e)}{13d^2}\left(-\frac{2}{\sqrt{13}}\hat{i} - \frac{3}{\sqrt{13}}\hat{j}\right)\\
+    &amp;=\left(-2.25\times10^{-19}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{12}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=-4d\hat{i}\), so \(r_{32}^2=16d^2\) and \(\hat{r}_{32}=-\hat{i}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+    &amp;=k\frac{(+3e)(-4e)}{16d^2}\left(-\hat{i}\right)\\
+    &amp;=\left(1.41\times10^{-19}\hat{i}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{32}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+    &amp;=\left(-2.25\times10^{-19}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}+\left(1.41\times10^{-19}\hat{i}\right)\ \mathrm{N}\\
+    &amp;=\left(-8.38\times10^{-20}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(-8.38\times10^{-20}\right)^2+\left(-3.38\times10^{-19}\right)^2}\\
+    &amp;=\boxed{3.5\times10^{-19}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=256.1^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{13d^2}=4.06\times10^{-19}\ \mathrm{N}\). Its direction is \(-\frac{2}{\sqrt{13}}\hat{i} - \frac{3}{\sqrt{13}}\hat{j}\) because of repulsion.</p>
+    <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{16d^2}=1.41\times10^{-19}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of attraction.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(-8.38\times10^{-20}\hat{i} - 3.38\times10^{-19}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{3.5\times10^{-19}\ \mathrm{N}}\) and direction \(256.1^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q5
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=2.50\times10^{-7}\ \mathrm{C},\quad q_2=-4.00\times10^{-7}\ \mathrm{C},\quad q_3=6.50\times10^{-7}\ \mathrm{C},\quad d=6.0\times10^{-4}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=3d\hat{j}\), so \(r_{21}^2=9d^2\) and \(\hat{r}_{21}=\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+    &amp;=k\frac{(-400\ \mathrm{nC})(+250\ \mathrm{nC})}{9d^2}\left(\hat{j}\right)\\
+    &amp;=\left(-2.77\times10^{2}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=3d\hat{i} + d\hat{j}\), so \(r_{31}^2=10d^2\) and \(\hat{r}_{31}=\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+    &amp;=k\frac{(+650\ \mathrm{nC})(+250\ \mathrm{nC})}{10d^2}\left(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\right)\\
+    &amp;=\left(3.85\times10^{2}\hat{i} + 1.28\times10^{2}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_1\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{31}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+    &amp;=\left(-2.77\times10^{2}\hat{j}\right)\ \mathrm{N}+\left(3.85\times10^{2}\hat{i} + 1.28\times10^{2}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(3.85\times10^{2}\hat{i} - 1.49\times10^{2}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(3.85\times10^{2}\right)^2+\left(-1.49\times10^{2}\right)^2}\\
+    &amp;=\boxed{4.1\times10^{2}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=338.8^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{9d^2}=2.77\times10^{2}\ \mathrm{N}\). Its direction is \(-\hat{j}\) because of attraction.</p>
+    <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{10d^2}=4.06\times10^{2}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\) because of repulsion.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(3.85\times10^{2}\hat{i} - 1.49\times10^{2}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{4.1\times10^{2}\ \mathrm{N}}\) and direction \(338.8^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q6
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-1.80\times10^{-7}\ \mathrm{C},\quad q_2=3.20\times10^{-7}\ \mathrm{C},\quad q_3=-5.40\times10^{-7}\ \mathrm{C},\quad d=1.5\times10^{-3}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=2d\hat{i}\), so \(r_{13}^2=4d^2\) and \(\hat{r}_{13}=\hat{i}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+    &amp;=k\frac{(-180\ \mathrm{nC})(-540\ \mathrm{nC})}{4d^2}\left(\hat{i}\right)\\
+    &amp;=\left(9.71\times10^{1}\hat{i}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{13}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=-d\hat{i} - 2d\hat{j}\), so \(r_{23}^2=5d^2\) and \(\hat{r}_{23}=-\frac{1}{\sqrt{5}}\hat{i} - \frac{2}{\sqrt{5}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+    &amp;=k\frac{(+320\ \mathrm{nC})(-540\ \mathrm{nC})}{5d^2}\left(-\frac{1}{\sqrt{5}}\hat{i} - \frac{2}{\sqrt{5}}\hat{j}\right)\\
+    &amp;=\left(6.17\times10^{1}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{23}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+    &amp;=\left(9.71\times10^{1}\hat{i}\right)\ \mathrm{N}+\left(6.17\times10^{1}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(1.59\times10^{2}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(1.59\times10^{2}\right)^2+\left(1.23\times10^{2}\right)^2}\\
+    &amp;=\boxed{2.0\times10^{2}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=37.9^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{4d^2}=9.71\times10^{1}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of repulsion.</p>
+    <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{5d^2}=1.38\times10^{2}\ \mathrm{N}\). Its direction is \(\frac{1}{\sqrt{5}}\hat{i} + \frac{2}{\sqrt{5}}\hat{j}\) because of attraction.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(1.59\times10^{2}\hat{i} + 1.23\times10^{2}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.0\times10^{2}\ \mathrm{N}}\) and direction \(37.9^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q7
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=7.50\times10^{-7}\ \mathrm{C},\quad q_2=3.00\times10^{-7}\ \mathrm{C},\quad q_3=-5.00\times10^{-7}\ \mathrm{C},\quad d=1.2\times10^{-2}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=2d\hat{i}\), so \(r_{12}^2=4d^2\) and \(\hat{r}_{12}=\hat{i}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+    &amp;=k\frac{(+750\ \mathrm{nC})(+300\ \mathrm{nC})}{4d^2}\left(\hat{i}\right)\\
+    &amp;=\left(3.51\times10^{0}\hat{i}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{12}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=d\hat{i} + 3d\hat{j}\), so \(r_{32}^2=10d^2\) and \(\hat{r}_{32}=\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+    &amp;=k\frac{(-500\ \mathrm{nC})(+300\ \mathrm{nC})}{10d^2}\left(\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\right)\\
+    &amp;=\left(-2.96\times10^{-1}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{32}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+    &amp;=\left(3.51\times10^{0}\hat{i}\right)\ \mathrm{N}+\left(-2.96\times10^{-1}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(3.21\times10^{0}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(3.21\times10^{0}\right)^2+\left(-8.88\times10^{-1}\right)^2}\\
+    &amp;=\boxed{3.3\times10^{0}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=344.6^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{4d^2}=3.51\times10^{0}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of repulsion.</p>
+    <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{10d^2}=9.36\times10^{-1}\ \mathrm{N}\). Its direction is \(-\frac{1}{\sqrt{10}}\hat{i} - \frac{3}{\sqrt{10}}\hat{j}\) because of attraction.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(3.21\times10^{0}\hat{i} - 8.88\times10^{-1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{3.3\times10^{0}\ \mathrm{N}}\) and direction \(344.6^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q8
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-2.20\times10^{-7}\ \mathrm{C},\quad q_2=6.80\times10^{-7}\ \mathrm{C},\quad q_3=4.50\times10^{-7}\ \mathrm{C},\quad d=3.0\times10^{-2}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=2d\hat{i} - 2d\hat{j}\), so \(r_{21}^2=8d^2\) and \(\hat{r}_{21}=\frac{2}{\sqrt{8}}\hat{i} - \frac{2}{\sqrt{8}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+    &amp;=k\frac{(+680\ \mathrm{nC})(-220\ \mathrm{nC})}{8d^2}\left(\frac{2}{\sqrt{8}}\hat{i} - \frac{2}{\sqrt{8}}\hat{j}\right)\\
+    &amp;=\left(-1.32\times10^{-1}\hat{i} + 1.32\times10^{-1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=-3d\hat{j}\), so \(r_{31}^2=9d^2\) and \(\hat{r}_{31}=-\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+    &amp;=k\frac{(+450\ \mathrm{nC})(-220\ \mathrm{nC})}{9d^2}\left(-\hat{j}\right)\\
+    &amp;=\left(1.10\times10^{-1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{31}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+    &amp;=\left(-1.32\times10^{-1}\hat{i} + 1.32\times10^{-1}\hat{j}\right)\ \mathrm{N}+\left(1.10\times10^{-1}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(-1.32\times10^{-1}\hat{i} + 2.42\times10^{-1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(-1.32\times10^{-1}\right)^2+\left(2.42\times10^{-1}\right)^2}\\
+    &amp;=\boxed{2.8\times10^{-1}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=118.6^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{8d^2}=1.87\times10^{-1}\ \mathrm{N}\). Its direction is \(-\frac{2}{\sqrt{8}}\hat{i} + \frac{2}{\sqrt{8}}\hat{j}\) because of attraction.</p>
+    <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{9d^2}=1.10\times10^{-1}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(-1.32\times10^{-1}\hat{i} + 2.42\times10^{-1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.8\times10^{-1}\ \mathrm{N}}\) and direction \(118.6^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q9
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=1.50\times10^{-6}\ \mathrm{C},\quad q_2=-2.50\times10^{-6}\ \mathrm{C},\quad q_3=4.00\times10^{-6}\ \mathrm{C},\quad d=8.0\times10^{-3}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=-d\hat{i} + 3d\hat{j}\), so \(r_{13}^2=10d^2\) and \(\hat{r}_{13}=-\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+    &amp;=k\frac{(+1.5\ \mu\mathrm{C})(+4.0\ \mu\mathrm{C})}{10d^2}\left(-\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\right)\\
+    &amp;=\left(-2.66\times10^{1}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{13}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=-3d\hat{i}\), so \(r_{23}^2=9d^2\) and \(\hat{r}_{23}=-\hat{i}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+    &amp;=k\frac{(-2.5\ \mu\mathrm{C})(+4.0\ \mu\mathrm{C})}{9d^2}\left(-\hat{i}\right)\\
+    &amp;=\left(1.56\times10^{2}\hat{i}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{23}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+    &amp;=\left(-2.66\times10^{1}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}+\left(1.56\times10^{2}\hat{i}\right)\ \mathrm{N}\\
+    &amp;=\left(1.29\times10^{2}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(1.29\times10^{2}\right)^2+\left(7.99\times10^{1}\right)^2}\\
+    &amp;=\boxed{1.5\times10^{2}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=31.7^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{10d^2}=8.43\times10^{1}\ \mathrm{N}\). Its direction is \(-\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\) because of repulsion.</p>
+    <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{9d^2}=1.56\times10^{2}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of attraction.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(1.29\times10^{2}\hat{i} + 7.99\times10^{1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{1.5\times10^{2}\ \mathrm{N}}\) and direction \(31.7^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q10
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_1\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-3.00\times10^{-6}\ \mathrm{C},\quad q_2=5.50\times10^{-6}\ \mathrm{C},\quad q_3=-1.80\times10^{-6}\ \mathrm{C},\quad d=1.5\times10^{-2}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_2\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_1\) is \(\vec{r}_{21}=-2d\hat{j}\), so \(r_{21}^2=4d^2\) and \(\hat{r}_{21}=-\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_1}&amp;=k\frac{q_2q_1}{r_{21}^2}\hat{r}_{21}\\
+    &amp;=k\frac{(+5.5\ \mu\mathrm{C})(-3.0\ \mu\mathrm{C})}{4d^2}\left(-\hat{j}\right)\\
+    &amp;=\left(1.65\times10^{2}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_1\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{21}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_1\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_1\) is \(\vec{r}_{31}=3d\hat{i} + d\hat{j}\), so \(r_{31}^2=10d^2\) and \(\hat{r}_{31}=\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_1}&amp;=k\frac{q_3q_1}{r_{31}^2}\hat{r}_{31}\\
+    &amp;=k\frac{(-1.8\ \mu\mathrm{C})(-3.0\ \mu\mathrm{C})}{10d^2}\left(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\right)\\
+    &amp;=\left(2.05\times10^{1}\hat{i} + 6.82\times10^{0}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_1\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{31}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_1}&amp;=\vec{F}_{q_2\text{ on }q_1}+\vec{F}_{q_3\text{ on }q_1}\\
+    &amp;=\left(1.65\times10^{2}\hat{j}\right)\ \mathrm{N}+\left(2.05\times10^{1}\hat{i} + 6.82\times10^{0}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(2.05\times10^{1}\hat{i} + 1.72\times10^{2}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_1}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(2.05\times10^{1}\right)^2+\left(1.72\times10^{2}\right)^2}\\
+    &amp;=\boxed{1.7\times10^{2}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=83.2^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_2\) on \(q_1\) has magnitude \(F_{q_2\text{ on }q_1}=k\frac{\left|q_2q_1\right|}{4d^2}=1.65\times10^{2}\ \mathrm{N}\). Its direction is \(\hat{j}\) because of attraction.</p>
+    <p>The force of \(q_3\) on \(q_1\) has magnitude \(F_{q_3\text{ on }q_1}=k\frac{\left|q_3q_1\right|}{10d^2}=2.16\times10^{1}\ \mathrm{N}\). Its direction is \(\frac{3}{\sqrt{10}}\hat{i} + \frac{1}{\sqrt{10}}\hat{j}\) because of repulsion.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_1}=\left(2.05\times10^{1}\hat{i} + 1.72\times10^{2}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{1.7\times10^{2}\ \mathrm{N}}\) and direction \(83.2^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q11
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_2\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=6.00\times10^{-6}\ \mathrm{C},\quad q_2=-2.00\times10^{-6}\ \mathrm{C},\quad q_3=-4.50\times10^{-6}\ \mathrm{C},\quad d=2.5\times10^{-2}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_2\) is \(\vec{r}_{12}=-d\hat{i} - 3d\hat{j}\), so \(r_{12}^2=10d^2\) and \(\hat{r}_{12}=-\frac{1}{\sqrt{10}}\hat{i} - \frac{3}{\sqrt{10}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_2}&amp;=k\frac{q_1q_2}{r_{12}^2}\hat{r}_{12}\\
+    &amp;=k\frac{(+6.0\ \mu\mathrm{C})(-2.0\ \mu\mathrm{C})}{10d^2}\left(-\frac{1}{\sqrt{10}}\hat{i} - \frac{3}{\sqrt{10}}\hat{j}\right)\\
+    &amp;=\left(5.46\times10^{0}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_2\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{12}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_3\) on \(q_2\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_3\) to target \(q_2\) is \(\vec{r}_{32}=2d\hat{i}\), so \(r_{32}^2=4d^2\) and \(\hat{r}_{32}=\hat{i}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_3\text{ on }q_2}&amp;=k\frac{q_3q_2}{r_{32}^2}\hat{r}_{32}\\
+    &amp;=k\frac{(-4.5\ \mu\mathrm{C})(-2.0\ \mu\mathrm{C})}{4d^2}\left(\hat{i}\right)\\
+    &amp;=\left(3.24\times10^{1}\hat{i}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_3q_2\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{32}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_2}&amp;=\vec{F}_{q_1\text{ on }q_2}+\vec{F}_{q_3\text{ on }q_2}\\
+    &amp;=\left(5.46\times10^{0}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}+\left(3.24\times10^{1}\hat{i}\right)\ \mathrm{N}\\
+    &amp;=\left(3.78\times10^{1}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_2}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(3.78\times10^{1}\right)^2+\left(1.64\times10^{1}\right)^2}\\
+    &amp;=\boxed{4.1\times10^{1}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=23.4^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_2\) has magnitude \(F_{q_1\text{ on }q_2}=k\frac{\left|q_1q_2\right|}{10d^2}=1.73\times10^{1}\ \mathrm{N}\). Its direction is \(\frac{1}{\sqrt{10}}\hat{i} + \frac{3}{\sqrt{10}}\hat{j}\) because of attraction.</p>
+    <p>The force of \(q_3\) on \(q_2\) has magnitude \(F_{q_3\text{ on }q_2}=k\frac{\left|q_3q_2\right|}{4d^2}=3.24\times10^{1}\ \mathrm{N}\). Its direction is \(\hat{i}\) because of repulsion.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_2}=\left(3.78\times10^{1}\hat{i} + 1.64\times10^{1}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{4.1\times10^{1}\ \mathrm{N}}\) and direction \(23.4^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+- id: q12
+  html: |
+    <h4><span style="text-decoration: underline;">Option 1: Use the vector equation for electrostatic force (recommended).</span></h4>
+    <p><strong>First, calculate the contribution from each source charge acting on \(q_3\).</strong></p>
+    <p>For numerical evaluation, use \(k=8.99\times10^9\ \mathrm{N\,m^2/C^2}\) and convert all quantities to SI units: \(q_1=-7.50\times10^{-6}\ \mathrm{C},\quad q_2=3.50\times10^{-6}\ \mathrm{C},\quad q_3=5.00\times10^{-6}\ \mathrm{C},\quad d=4.0\times10^{-2}\ \mathrm{m}\).</p>
+    <p><strong>First, calculate the force of \(q_1\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_1\) to target \(q_3\) is \(\vec{r}_{13}=3d\hat{i}\), so \(r_{13}^2=9d^2\) and \(\hat{r}_{13}=\hat{i}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_1\text{ on }q_3}&amp;=k\frac{q_1q_3}{r_{13}^2}\hat{r}_{13}\\
+    &amp;=k\frac{(-7.5\ \mu\mathrm{C})(+5.0\ \mu\mathrm{C})}{9d^2}\left(\hat{i}\right)\\
+    &amp;=\left(-2.34\times10^{1}\hat{i}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_1q_3\) is negative, the charges attract; therefore, the force is opposite \(\hat{r}_{13}\).</p>
+    <p><strong>Similarly, calculate the force of \(q_2\) on \(q_3\):</strong></p>
+    <p style="padding-left: 40px;">The displacement from source \(q_2\) to target \(q_3\) is \(\vec{r}_{23}=2d\hat{i} + 4d\hat{j}\), so \(r_{23}^2=20d^2\) and \(\hat{r}_{23}=\frac{2}{\sqrt{20}}\hat{i} + \frac{4}{\sqrt{20}}\hat{j}\).</p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \vec{F}_{q_2\text{ on }q_3}&amp;=k\frac{q_2q_3}{r_{23}^2}\hat{r}_{23}\\
+    &amp;=k\frac{(+3.5\ \mu\mathrm{C})(+5.0\ \mu\mathrm{C})}{20d^2}\left(\frac{2}{\sqrt{20}}\hat{i} + \frac{4}{\sqrt{20}}\hat{j}\right)\\
+    &amp;=\left(2.20\times10^{0}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Because \(q_2q_3\) is positive, the charges repel; therefore, the force is along \(\hat{r}_{23}\).</p>
+    <p><strong>Now combine both contributions by adding the \(\hat{i}\) and \(\hat{j}\) components separately:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \sum\vec{F}_{\text{on }q_3}&amp;=\vec{F}_{q_1\text{ on }q_3}+\vec{F}_{q_2\text{ on }q_3}\\
+    &amp;=\left(-2.34\times10^{1}\hat{i}\right)\ \mathrm{N}+\left(2.20\times10^{0}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}\\
+    &amp;=\left(-2.12\times10^{1}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}
+    \end{aligned}\)</p>
+    <p><strong>Find the magnitude and direction of the resulting vector:</strong></p>
+    <p style="padding-left: 40px;">\(\begin{aligned}
+    \left|\sum\vec{F}_{\text{on }q_3}\right|&amp;=\sqrt{F_x^2+F_y^2}\\
+    &amp;=\sqrt{\left(-2.12\times10^{1}\right)^2+\left(4.40\times10^{0}\right)^2}\\
+    &amp;=\boxed{2.2\times10^{1}\ \mathrm{N}}
+    \end{aligned}\)</p>
+    <p style="padding-left: 40px;">Using \(\operatorname{atan2}(F_y,F_x)\) to select the correct quadrant, \(\theta=168.3^\circ\), measured counterclockwise from the \(+x\)-axis.</p>
+    <hr />
+    <h4><span style="text-decoration: underline;">Option 2: Find each magnitude and direction separately.</span></h4>
+    <p>Calculate the magnitude of each source-charge force with Coulomb's law, determine its direction from attraction or repulsion, and then add the forces as vectors.</p>
+    <p>The force of \(q_1\) on \(q_3\) has magnitude \(F_{q_1\text{ on }q_3}=k\frac{\left|q_1q_3\right|}{9d^2}=2.34\times10^{1}\ \mathrm{N}\). Its direction is \(-\hat{i}\) because of attraction.</p>
+    <p>The force of \(q_2\) on \(q_3\) has magnitude \(F_{q_2\text{ on }q_3}=k\frac{\left|q_2q_3\right|}{20d^2}=4.92\times10^{0}\ \mathrm{N}\). Its direction is \(\frac{2}{\sqrt{20}}\hat{i} + \frac{4}{\sqrt{20}}\hat{j}\) because of repulsion.</p>
+    <p>Resolve these forces into components and add the x-components and y-components separately. This gives \(\sum\vec{F}_{\text{on }q_3}=\left(-2.12\times10^{1}\hat{i} + 4.40\times10^{0}\hat{j}\right)\ \mathrm{N}\), with magnitude \(\boxed{2.2\times10^{1}\ \mathrm{N}}\) and direction \(168.3^\circ\) counterclockwise from the \(+x\)-axis.</p>
+    <hr />

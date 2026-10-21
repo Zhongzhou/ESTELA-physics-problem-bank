@@ -1,0 +1,1678 @@
+# Numerical problem bank: 17 independent questions, 1 point each.
+# HTML strings use MathJax inline \(...\) and display \[...\] delimiters.
+# Answer values are numeric and use the units and rounding requested in each problem.
+bank_info:
+  title: Motion with Constant Acceleration Along a Straight Line
+  bank_id: PHY1-1DM-UAM1-09102026
+  description: |
+    Seventeen independent numerical problems on straight-line motion with constant acceleration.
+    Each problem supplies three kinematic quantities explicitly or implicitly and asks for one other quantity.
+    Complete worked solutions identify the motion segment, use vector notation and unit vectors, organize the five kinematic variables, select and rearrange an equation, and substitute values with units.
+    Problem text and solution feedback are HTML fragments with standard MathJax delimiters.
+  date created: 09-11-2026
+  status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
+  learning objectives:
+  - 1DM-KE-1
+  generation prompts:
+  - prompt 1: |
+      Develop independent real-life examples of motion with constant acceleration along a straight segment, including five examples from scientific settings.
+      For each of the resulting 17 scenarios, identify central explicit or implicit kinematic quantities and assign realistic values.
+      Use the instructor-selected third given and requested unknown, including the agreed numerical revisions and displacement as the target for Problem 16.
+  - prompt 2: |
+      Write standalone word problems with rich context and ordinary language for the kinematic quantities.
+      State directions in words and ask for speed, distance, elapsed time, or acceleration magnitude.
+      Do not provide Earth's gravitational acceleration numerically in the problem statements. Specify answer units and significant figures or decimal places for each question.
+  - prompt 3: |
+      Write a five-part solution for every problem: identify the initial and final events of the selected segment and the physics; tabulate the five kinematic variables; select an equation; rearrange it algebraically; and substitute values with units.
+      Use vector notation and unit vectors, work with signed components where required, and report the requested scalar or magnitude with the specified rounding.
+  - formatting prompt: |
+      Follow the structure of Problem-bank-template-num.yaml.
+      Place the HTML problem statement in text and the complete HTML worked solution in feedback.general.
+      Use standard MathJax inline delimiters \(...\) and display delimiters \[...\].
+      Set each numerical question to 1 point, use margin_type: percent and tolerance: 5, and store the rounded numerical answer in answer.value using the units requested in that question.
+  updates:
+  - update 1: '09-11-2026: Created the 17-question numerical bank with the agreed values, five-part vector solutions, MathJax
+      formatting, and confirmed grading settings.'
+  associated data:
+  - problem statements: Constant_Acceleration_Word_Problems.md
+  - worked solutions: Constant_Acceleration_Worked_Solutions.md
+  - numerical template: Problem-bank-template-num.yaml
+  generation details:
+    model: OpenAI Astra
+    version: 5.6
+    last updated: 09-11-2026
+  authors:
+  - O. Moussa
+questions:
+- numerical:
+    id: q1
+    title: 'Problem 1: Pulling away from a traffic light'
+    points: 1
+    text: |
+      <p>A driver is waiting at a red light on a straight, level road beside a public library. When the light turns green, the car pulls away from rest and travels 36.0 m during the next 6.0 s. Its speed increases at a constant rate throughout this stretch. How fast is the car moving at the end of those 6.0 s? Report the speed in meters per second to <strong>two significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 12
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The car begins moving from rest after the light turns green.</li>
+          <li><strong>Final event:</strong> The car completes the next 6.0 s of motion, having traveled 36.0 m.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The car starts from rest and travels 36.0 m in 6.0 s.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the car's forward motion, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested ending speed is the magnitude of the final instantaneous velocity vector, <span class="math-inline">\(|\vec{v}_f|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 1</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((36.0\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{i}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the car starts from rest.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant; numerical value not given or needed.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(6.0\,\mathrm{s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know <span class="math-inline">\(\Delta\vec{r}\)</span>, <span class="math-inline">\(\vec{v}_i\)</span>, and <span class="math-inline">\(\Delta t\)</span>, and need <span class="math-inline">\(\vec{v}_f\)</span>. The average-velocity equation avoids the unknown acceleration:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\frac{\vec{v}_i+\vec{v}_f}{2}\,\Delta t.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Multiply by 2, divide by the scalar <span class="math-inline">\(\Delta t\)</span>, and subtract <span class="math-inline">\(\vec{v}_i\)</span>:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t\\[3pt]
+        2\Delta\vec{r}&amp;=(\vec{v}_i+\vec{v}_f)\Delta t\\[3pt]
+        \frac{2\Delta\vec{r}}{\Delta t}&amp;=\vec{v}_i+\vec{v}_f\\[3pt]
+        \vec{v}_f&amp;=\frac{2\Delta\vec{r}}{\Delta t}-\vec{v}_i.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \vec{v}_f&amp;=\frac{2(36.0\,\mathrm{m})\hat{\mathbf{i}}}{6.0\,\mathrm{s}}-(0\,\mathrm{m/s})\hat{\mathbf{i}}\\[3pt]
+        &amp;=(12\,\mathrm{m/s})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The velocity points forward. Taking its magnitude removes the direction from the requested speed.</p>
+        <div class="math-display">\[
+        |\vec{v}_f|=\boxed{12\,\mathrm{m/s}}
+        \]</div>
+        <p><strong>Rounding:</strong> Two significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q2
+    title: 'Problem 2: A smooth stop for a city bus'
+    points: 1
+    text: |
+      <p>A city bus is approaching a stop on a straight, level street, where passengers are waiting to board. The bus is traveling at 10.0 m/s when the driver begins braking. To make the stop comfortable for the standing passengers, the driver reduces the bus's speed at a constant rate until it comes to rest, traveling 35.0 m after braking begins. What is the magnitude of the bus's acceleration during braking? Report your answer in <span class="math-inline">\(\mathrm{m/s^2}\)</span> to <strong>three significant figures</strong>.</p>
+    answer:
+      value: 1.43
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The driver begins braking while the bus is moving at 10.0 m/s.</li>
+          <li><strong>Final event:</strong> The bus first comes to rest, 35.0 m farther along the street.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The bus enters the braking segment at 10.0 m/s, travels 35.0 m, and stops.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the bus's forward motion, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested quantity is the magnitude of the acceleration vector, <span class="math-inline">\(|\vec{a}|\)</span>. We will determine the vector and then take its magnitude.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 2</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((35.0\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((10.0\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{i}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the bus comes to rest.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement and both endpoint velocities, but not the time. Use the time-independent kinematic equation for the signed <span class="math-inline">\(x\)</span>-components. Here <span class="math-inline">\(\vec{v}_i=v_{ix}\hat{\mathbf{i}}\)</span>, <span class="math-inline">\(\vec{v}_f=v_{fx}\hat{\mathbf{i}}\)</span>, and <span class="math-inline">\(\Delta\vec{r}=\Delta x\hat{\mathbf{i}}\)</span>:</p>
+        <div class="math-display">\[
+        v_{fx}^{\,2}=v_{ix}^{\,2}+2a_x\Delta x.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Subtract <span class="math-inline">\(v_{ix}^{\,2}\)</span>, divide by <span class="math-inline">\(2\Delta x\)</span>, and reconstruct the acceleration vector:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        v_{fx}^{\,2}&amp;=v_{ix}^{\,2}+2a_x\Delta x\\[3pt]
+        v_{fx}^{\,2}-v_{ix}^{\,2}&amp;=2a_x\Delta x\\[3pt]
+        a_x&amp;=\frac{v_{fx}^{\,2}-v_{ix}^{\,2}}{2\Delta x}\\[3pt]
+        \vec{a}&amp;=\left(\frac{v_{fx}^{\,2}-v_{ix}^{\,2}}{2\Delta x}\right)\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        a_x&amp;=\frac{(0\,\mathrm{m/s})^2-(10.0\,\mathrm{m/s})^2}{2(35.0\,\mathrm{m})}\\[3pt]
+        &amp;=-1.42857\ldots\,\mathrm{m/s^2}\\[3pt]
+        \vec{a}&amp;=(-1.42857\ldots\,\mathrm{m/s^2})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The negative component places the acceleration opposite the bus's motion, as expected while braking.</p>
+        <div class="math-display">\[
+        |\vec{a}|=\boxed{1.43\,\mathrm{m/s^2}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q3
+    title: 'Problem 3: A commuter train leaving the station area'
+    points: 1
+    text: |
+      <p>A commuter train has already left a downtown station and is entering a straight section of track. A technician reviewing the train's motion records a speed of 8.0 m/s at the beginning of a 20.0 s interval and 16.0 m/s at its end. Throughout this interval, the train's speed increases at a constant rate. How far does the train travel during those 20.0 s? Report the distance in <strong>meters, rounded to the nearest meter</strong>.</p>
+      </div>
+    answer:
+      value: 240
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The recorded 20.0 s interval begins, with the train already moving at 8.0 m/s.</li>
+          <li><strong>Final event:</strong> That interval ends, with the train moving at 16.0 m/s.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The two endpoint speeds are 8.0 m/s and 16.0 m/s, and the interval lasts 20.0 s.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the train's forward motion, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The motion does not reverse within this segment, so the requested distance is the magnitude of the displacement vector, <span class="math-inline">\(|\Delta\vec{r}|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 3</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((8.0\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((16.0\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant; numerical value not given or needed.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(20.0\,\mathrm{s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know both endpoint velocity vectors and the elapsed time. For constant acceleration, the average velocity is the arithmetic mean of the endpoint velocities:</p>
+        <div class="math-display">\[
+        \frac{\Delta\vec{r}}{\Delta t}=\frac{\vec{v}_i+\vec{v}_f}{2}.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Multiply both sides by <span class="math-inline">\(\Delta t\)</span> to isolate the displacement vector:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \frac{\Delta\vec{r}}{\Delta t}&amp;=\frac{\vec{v}_i+\vec{v}_f}{2}\\[3pt]
+        \Delta\vec{r}&amp;=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\frac{(8.0\,\mathrm{m/s})\hat{\mathbf{i}}+(16.0\,\mathrm{m/s})\hat{\mathbf{i}}}{2}(20.0\,\mathrm{s})\\[3pt]
+        &amp;=(240\,\mathrm{m})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The train travels forward throughout the interval, so distance equals displacement magnitude.</p>
+        <div class="math-display">\[
+        |\Delta\vec{r}|=\boxed{240\,\mathrm{m}}
+        \]</div>
+        <p><strong>Rounding:</strong> The nearest meter.</p>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q4
+    title: 'Problem 4: An airplane between runway markers'
+    points: 1
+    text: |
+      <p>During a takeoff roll, an airplane passes a painted runway marker while traveling at 45.0 m/s. It continues along the straight runway and passes another marker 250 m farther ahead 5.0 s later. For this short portion of the takeoff roll, assume that its speed increases at a constant rate and that the airplane remains on the runway. How fast is the airplane moving as it passes the second marker? Report the speed in <strong>meters per second, rounded to the nearest whole number</strong>.</p>
+      </div>
+    answer:
+      value: 55
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The airplane passes the first runway marker at 45.0 m/s.</li>
+          <li><strong>Final event:</strong> It passes the second marker, 250 m farther along the runway, 5.0 s later.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The airplane enters the measured segment at 45.0 m/s and covers 250 m in 5.0 s.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis forward along the runway, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested ending speed is the magnitude of the final instantaneous velocity vector, <span class="math-inline">\(|\vec{v}_f|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 4</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((250\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((45.0\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant; numerical value not given or needed.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(5.0\,\mathrm{s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know <span class="math-inline">\(\Delta\vec{r}\)</span>, <span class="math-inline">\(\vec{v}_i\)</span>, and <span class="math-inline">\(\Delta t\)</span>, and need <span class="math-inline">\(\vec{v}_f\)</span>. The average-velocity equation avoids the unknown acceleration:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\frac{\vec{v}_i+\vec{v}_f}{2}\,\Delta t.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Multiply by 2, divide by the scalar <span class="math-inline">\(\Delta t\)</span>, and subtract <span class="math-inline">\(\vec{v}_i\)</span>:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t\\[3pt]
+        2\Delta\vec{r}&amp;=(\vec{v}_i+\vec{v}_f)\Delta t\\[3pt]
+        \frac{2\Delta\vec{r}}{\Delta t}&amp;=\vec{v}_i+\vec{v}_f\\[3pt]
+        \vec{v}_f&amp;=\frac{2\Delta\vec{r}}{\Delta t}-\vec{v}_i.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \vec{v}_f&amp;=\frac{2(250\,\mathrm{m})\hat{\mathbf{i}}}{5.0\,\mathrm{s}}-(45.0\,\mathrm{m/s})\hat{\mathbf{i}}\\[3pt]
+        &amp;=(100-45.0)\,\mathrm{m/s}\;\hat{\mathbf{i}}\\[3pt]
+        &amp;=(55\,\mathrm{m/s})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>This is the velocity at the second marker. The question requests its magnitude.</p>
+        <div class="math-display">\[
+        |\vec{v}_f|=\boxed{55\,\mathrm{m/s}}
+        \]</div>
+        <p><strong>Rounding:</strong> The nearest whole meter per second.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q5
+    title: 'Problem 5: A glass elevator rising through an atrium'
+    points: 1
+    text: |
+      <p>A maintenance technician is checking the gentle startup of a glass passenger elevator in a museum atrium. The elevator leaves a lower landing from rest and rises vertically, increasing its speed at a constant rate. After rising 6.0 m, it is moving upward at 1.50 m/s. How much time passes between leaving the landing and reaching that height? Report the time in seconds to <strong>two significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 8.0
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The elevator leaves the lower landing from rest.</li>
+          <li><strong>Final event:</strong> The elevator has risen 6.0 m and is moving upward at 1.50 m/s.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The elevator starts from rest, rises 6.0 m, and reaches an upward speed of 1.50 m/s.</p>
+        <p>Choose the positive <span class="math-inline">\(y\)</span>-axis vertically upward, with unit vector <span class="math-inline">\(\hat{\mathbf{j}}\)</span>.</p>
+        <p>The requested quantity is the elapsed time <span class="math-inline">\(\Delta t\)</span>, which is a positive scalar.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 5</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((6.0\,\mathrm{m})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{j}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the elevator leaves from rest.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((1.50\,\mathrm{m/s})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant; numerical value not given or needed.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement and both endpoint velocities. The average-velocity equation contains the unknown time and does not require acceleration:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Equate the <span class="math-inline">\(y\)</span>-components, then isolate <span class="math-inline">\(\Delta t\)</span>. This divides scalar components, not vectors:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t\\[3pt]
+        \Delta y&amp;=\frac{v_{iy}+v_{fy}}{2}\Delta t\\[3pt]
+        2\Delta y&amp;=(v_{iy}+v_{fy})\Delta t\\[3pt]
+        \Delta t&amp;=\frac{2\Delta y}{v_{iy}+v_{fy}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta t&amp;=\frac{2(6.0\,\mathrm{m})}{0\,\mathrm{m/s}+1.50\,\mathrm{m/s}}\\[3pt]
+        &amp;=8.0\,\mathrm{s}.
+        \end{aligned}
+        \]</div>
+        <p>The elapsed time is a scalar and has no unit vector.</p>
+        <div class="math-display">\[
+        \Delta t=\boxed{8.0\,\mathrm{s}}
+        \]</div>
+        <p><strong>Rounding:</strong> Two significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q6
+    title: 'Problem 6: Backing a fragile load into position'
+    points: 1
+    text: |
+      <p>A warehouse operator is backing a forklift carrying a crated laboratory instrument along a straight, level aisle. The forklift is moving backward at 1.5 m/s when the operator begins braking. To avoid jarring the load, the operator reduces its speed at a constant rate and brings it to rest after it travels another 4.0 m backward. What is the magnitude of the forklift's acceleration while it is braking? Report your answer in <span class="math-inline">\(\mathrm{m/s^2}\)</span> to <strong>two significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 0.28
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The operator begins braking while the forklift is backing at 1.5 m/s.</li>
+          <li><strong>Final event:</strong> The forklift first comes to rest after traveling another 4.0 m backward.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The forklift enters the braking segment at 1.5 m/s, moves 4.0 m backward, and stops.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the forklift's backward travel down the aisle, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested quantity is the magnitude of the acceleration vector, <span class="math-inline">\(|\vec{a}|\)</span>. We will determine the vector and then take its magnitude.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 6</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((4.0\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((1.5\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{i}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the forklift comes to rest.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement and both endpoint velocities, but not the time. Use the time-independent kinematic equation for the signed <span class="math-inline">\(x\)</span>-components. Here <span class="math-inline">\(\vec{v}_i=v_{ix}\hat{\mathbf{i}}\)</span>, <span class="math-inline">\(\vec{v}_f=v_{fx}\hat{\mathbf{i}}\)</span>, and <span class="math-inline">\(\Delta\vec{r}=\Delta x\hat{\mathbf{i}}\)</span>:</p>
+        <div class="math-display">\[
+        v_{fx}^{\,2}=v_{ix}^{\,2}+2a_x\Delta x.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Subtract <span class="math-inline">\(v_{ix}^{\,2}\)</span>, divide by <span class="math-inline">\(2\Delta x\)</span>, and reconstruct the acceleration vector:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        v_{fx}^{\,2}&amp;=v_{ix}^{\,2}+2a_x\Delta x\\[3pt]
+        v_{fx}^{\,2}-v_{ix}^{\,2}&amp;=2a_x\Delta x\\[3pt]
+        a_x&amp;=\frac{v_{fx}^{\,2}-v_{ix}^{\,2}}{2\Delta x}\\[3pt]
+        \vec{a}&amp;=\left(\frac{v_{fx}^{\,2}-v_{ix}^{\,2}}{2\Delta x}\right)\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        a_x&amp;=\frac{(0\,\mathrm{m/s})^2-(1.5\,\mathrm{m/s})^2}{2(4.0\,\mathrm{m})}\\[3pt]
+        &amp;=-0.28125\,\mathrm{m/s^2}\\[3pt]
+        \vec{a}&amp;=(-0.28125\,\mathrm{m/s^2})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>Here the positive axis points backward along the forklift's travel. The negative acceleration therefore points forward, opposite its backward motion.</p>
+        <div class="math-display">\[
+        |\vec{a}|=\boxed{0.28\,\mathrm{m/s^2}}
+        \]</div>
+        <p><strong>Rounding:</strong> Two significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q7
+    title: 'Problem 7: Coasting up a skateboard ramp'
+    points: 1
+    text: |
+      <p>A skateboarder rolls onto the bottom of a straight uphill ramp at a skatepark and continues upward without pushing. The ramp has a uniform slope, and the skateboarder's speed decreases at a constant rate. Starting from the moment the skateboarder enters the ramp, the skateboard travels 3.00 m along the incline and reaches a momentary stop 2.0 s later. What is the magnitude of the skateboarder's acceleration during this uphill climb? Report your answer in <span class="math-inline">\(\mathrm{m/s^2}\)</span> to <strong>two significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 1.5
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The moving skateboarder enters the bottom of the uphill ramp.</li>
+          <li><strong>Final event:</strong> The skateboarder reaches the first momentary stop, after traveling 3.00 m along the ramp in 2.0 s.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The uphill travel is 3.00 m, the elapsed time is 2.0 s, and the ending velocity is zero.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis uphill along the straight ramp, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested quantity is the magnitude of the acceleration vector, <span class="math-inline">\(|\vec{a}|\)</span>. We will determine the vector and then take its magnitude.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 7</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((3.00\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{i}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the skateboarder reaches a momentary stop.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(2.0\,\mathrm{s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know displacement, final velocity, and elapsed time. The final-velocity form avoids the unknown entering velocity:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\vec{v}_f\Delta t-\frac12\vec{a}(\Delta t)^2.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>This form follows from the usual displacement equation by substituting <span class="math-inline">\(\vec{v}_i=\vec{v}_f-\vec{a}\Delta t\)</span>. Then isolate <span class="math-inline">\(\vec{a}\)</span>:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2\\[3pt]
+        &amp;=(\vec{v}_f-\vec{a}\Delta t)\Delta t+\frac12\vec{a}(\Delta t)^2\\[3pt]
+        &amp;=\vec{v}_f\Delta t-\frac12\vec{a}(\Delta t)^2\\[3pt]
+        \frac12\vec{a}(\Delta t)^2&amp;=\vec{v}_f\Delta t-\Delta\vec{r}\\[3pt]
+        \vec{a}&amp;=\frac{2(\vec{v}_f\Delta t-\Delta\vec{r})}{(\Delta t)^2}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \vec{a}&amp;=\frac{2\left[(0\,\mathrm{m/s})\hat{\mathbf{i}}(2.0\,\mathrm{s})-(3.00\,\mathrm{m})\hat{\mathbf{i}}\right]}{(2.0\,\mathrm{s})^2}\\[3pt]
+        &amp;=(-1.5\,\mathrm{m/s^2})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>Because the positive axis points uphill, the negative acceleration points downhill. The segment ends at the first stop, before any downhill return.</p>
+        <div class="math-display">\[
+        |\vec{a}|=\boxed{1.5\,\mathrm{m/s^2}}
+        \]</div>
+        <p><strong>Rounding:</strong> Two significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q8
+    title: 'Problem 8: Testing a downhill ski trail'
+    points: 1
+    text: |
+      <p>A skier testing a freshly groomed trail enters a straight, evenly sloping downhill section at 4.0 m/s. During the next 5.0 s, the skier neither pushes nor brakes. The motion over this stretch has a constant acceleration of <span class="math-inline">\(1.2\,\mathrm{m/s^2}\)</span>, directed down the slope. How fast is the skier moving at the end of those 5.0 s? Report the speed in <strong>meters per second to one decimal place</strong>.</p>
+      </div>
+    answer:
+      value: 10.0
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The skier enters the selected downhill section at 4.0 m/s.</li>
+          <li><strong>Final event:</strong> The skier has traveled down that straight section for 5.0 s.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The skier enters at 4.0 m/s and has a downhill acceleration of <span class="math-inline">\(1.2\,\mathrm{m/s^2}\)</span> for 5.0 s.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis downhill along the straight ski trail, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested ending speed is the magnitude of the final instantaneous velocity vector, <span class="math-inline">\(|\vec{v}_f|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 8</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((4.0\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((1.2\,\mathrm{m/s^2})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given in magnitude and direction.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(5.0\,\mathrm{s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the entering velocity, acceleration, and elapsed time. Use the constant-acceleration relation between velocity change and time:</p>
+        <div class="math-display">\[
+        \vec{a}=\frac{\vec{v}_f-\vec{v}_i}{\Delta t}.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Multiply by <span class="math-inline">\(\Delta t\)</span>, then add <span class="math-inline">\(\vec{v}_i\)</span>:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \vec{a}&amp;=\frac{\vec{v}_f-\vec{v}_i}{\Delta t}\\[3pt]
+        \vec{a}\Delta t&amp;=\vec{v}_f-\vec{v}_i\\[3pt]
+        \vec{v}_f&amp;=\vec{v}_i+\vec{a}\Delta t.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \vec{v}_f&amp;=(4.0\,\mathrm{m/s})\hat{\mathbf{i}}+(1.2\,\mathrm{m/s^2})\hat{\mathbf{i}}(5.0\,\mathrm{s})\\[3pt]
+        &amp;=(4.0+6.0)\,\mathrm{m/s}\;\hat{\mathbf{i}}\\[3pt]
+        &amp;=(10.0\,\mathrm{m/s})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The velocity points downhill, along the chosen positive axis. Its magnitude is the requested speed.</p>
+        <div class="math-display">\[
+        |\vec{v}_f|=\boxed{10.0\,\mathrm{m/s}}
+        \]</div>
+        <p><strong>Rounding:</strong> One decimal place.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q9
+    title: 'Problem 9: A parcel on a sorting chute'
+    points: 1
+    text: |
+      <p>At a parcel-sorting station, a worker holds a small box motionless at the upper end of a straight, inclined delivery chute. The worker releases the box without pushing it, and it slides 1.80 m along the chute to the lower end in 1.20 s. Assume that its speed increases at a constant rate throughout the slide. What is the magnitude of the box's acceleration as it moves down the chute? Report your answer in <span class="math-inline">\(\mathrm{m/s^2}\)</span> to <strong>three significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 2.50
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The worker releases the stationary box without pushing it.</li>
+          <li><strong>Final event:</strong> The box reaches the lower end of the chute, having slid 1.80 m in 1.20 s.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The box starts from rest and slides 1.80 m along the chute in 1.20 s.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis downward along the inclined chute, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested quantity is the magnitude of the acceleration vector, <span class="math-inline">\(|\vec{a}|\)</span>. We will determine the vector and then take its magnitude.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 9</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((1.80\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{i}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the box is motionless and released without a push.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(1.20\,\mathrm{s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement, entering velocity, and elapsed time. Use the displacement-time equation, which does not require the ending velocity:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Subtract <span class="math-inline">\(\vec{v}_i\Delta t\)</span>, multiply by 2, and divide by <span class="math-inline">\((\Delta t)^2\)</span>:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2\\[3pt]
+        \Delta\vec{r}-\vec{v}_i\Delta t&amp;=\frac12\vec{a}(\Delta t)^2\\[3pt]
+        \vec{a}&amp;=\frac{2(\Delta\vec{r}-\vec{v}_i\Delta t)}{(\Delta t)^2}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \vec{a}&amp;=\frac{2\left[(1.80\,\mathrm{m})\hat{\mathbf{i}}-(0\,\mathrm{m/s})\hat{\mathbf{i}}(1.20\,\mathrm{s})\right]}{(1.20\,\mathrm{s})^2}\\[3pt]
+        &amp;=(2.50\,\mathrm{m/s^2})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The acceleration points down the chute, in the same direction as the motion.</p>
+        <div class="math-display">\[
+        |\vec{a}|=\boxed{2.50\,\mathrm{m/s^2}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q10
+    title: 'Problem 10: A hockey puck crossing rough ice'
+    points: 1
+    text: |
+      <p>A hockey coach reviews a practice video filmed on a rough, snow-dusted section of level ice. After leaving the stick, a puck slides in a straight line across two marks that are 3.0 m apart. The video shows that the puck is moving at 6.0 m/s as it passes the first mark and 4.0 m/s as it passes the second. Assume that its speed decreases at a constant rate between the marks. How much time does the puck take to travel from the first mark to the second? Report the time in seconds to <strong>two significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 0.60
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The puck crosses the first mark at 6.0 m/s, after contact with the stick has ended.</li>
+          <li><strong>Final event:</strong> The puck crosses the second mark, 3.0 m away, at 4.0 m/s.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The puck covers 3.0 m between marks, with endpoint speeds of 6.0 m/s and 4.0 m/s.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the puck's motion from the first mark toward the second, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested quantity is the elapsed time <span class="math-inline">\(\Delta t\)</span>, which is a positive scalar.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 10</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((3.0\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((6.0\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((4.0\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant; numerical value not given or needed.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement and both endpoint velocities. The average-velocity equation contains the unknown time and does not require acceleration:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Equate the <span class="math-inline">\(x\)</span>-components, then isolate <span class="math-inline">\(\Delta t\)</span>. This divides scalar components, not vectors:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t\\[3pt]
+        \Delta x&amp;=\frac{v_{ix}+v_{fx}}{2}\Delta t\\[3pt]
+        2\Delta x&amp;=(v_{ix}+v_{fx})\Delta t\\[3pt]
+        \Delta t&amp;=\frac{2\Delta x}{v_{ix}+v_{fx}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta t&amp;=\frac{2(3.0\,\mathrm{m})}{6.0\,\mathrm{m/s}+4.0\,\mathrm{m/s}}\\[3pt]
+        &amp;=0.60\,\mathrm{s}.
+        \end{aligned}
+        \]</div>
+        <p>This is the time between the two marks. The puck is still moving at the final event.</p>
+        <div class="math-display">\[
+        \Delta t=\boxed{0.60\,\mathrm{s}}
+        \]</div>
+        <p><strong>Rounding:</strong> Two significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q11
+    title: 'Problem 11: Keys dropped from a balcony'
+    points: 1
+    text: |
+      <p>A resident holds a set of keys motionless over an apartment balcony, directly above an empty patch of ground 12.0 m below the release point. The keys slip from the resident's fingers without being thrown and fall straight down. Neglect air resistance. How much time passes from the instant the keys are released until they reach the ground? Report the time in seconds to <strong>three significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 1.56
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The keys leave the resident's fingers from rest.</li>
+          <li><strong>Final event:</strong> The keys reach the ground 12.0 m below the release point, just before impact.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The keys are released from rest and fall 12.0 m. Neglecting air resistance, their acceleration is supplied implicitly by free fall near Earth's surface.</p>
+        <p>Choose the positive <span class="math-inline">\(y\)</span>-axis vertically upward, with unit vector <span class="math-inline">\(\hat{\mathbf{j}}\)</span>.</p>
+        <p>The requested quantity is the elapsed time <span class="math-inline">\(\Delta t\)</span>, which is a positive scalar.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 11</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((-12.0\,\mathrm{m})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{j}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the keys are released from rest without being thrown.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((-9.81\,\mathrm{m/s^2})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: Earth free fall; use <span class="math-inline">\(g=9.81\,\mathrm{m/s^2}\)</span>, directed downward.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement, the zero entering velocity, and the downward acceleration. The displacement-time equation contains the unknown time and avoids the impact velocity:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Equate the vertical components and use <span class="math-inline">\(v_{iy}=0\)</span>. The ratio <span class="math-inline">\(2\Delta y/a_y\)</span> is positive because both <span class="math-inline">\(\Delta y\)</span> and <span class="math-inline">\(a_y\)</span> are negative. Choose the positive square root because elapsed time is positive:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2\\[3pt]
+        \Delta y&amp;=v_{iy}\Delta t+\frac12a_y(\Delta t)^2\\[3pt]
+        \Delta y&amp;=\frac12a_y(\Delta t)^2\\[3pt]
+        (\Delta t)^2&amp;=\frac{2\Delta y}{a_y}\\[3pt]
+        \Delta t&amp;=\sqrt{\frac{2\Delta y}{a_y}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta t&amp;=\sqrt{\frac{2(-12.0\,\mathrm{m})}{-9.81\,\mathrm{m/s^2}}}\\[3pt]
+        &amp;=1.56412\ldots\,\mathrm{s}.
+        \end{aligned}
+        \]</div>
+        <p>Both the displacement and acceleration point downward, giving a positive quantity under the square root. The impact itself is outside this constant-acceleration segment.</p>
+        <div class="math-display">\[
+        \Delta t=\boxed{1.56\,\mathrm{s}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q12
+    title: 'Problem 12: Practicing a tennis-ball toss'
+    points: 1
+    text: |
+      <p>A tennis player is practicing a vertical ball toss before a serve. A video shows that the ball rises 2.00 m above the point where it leaves the player's hand before reaching its highest point and beginning to fall. Consider the ball's motion after it has left the hand, and neglect air resistance. How fast was the ball moving upward just as it left the player's hand? Report the speed in meters per second to <strong>three significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 6.26
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The ball leaves the player's hand while moving upward.</li>
+          <li><strong>Final event:</strong> The ball first reaches its highest point, 2.00 m above the release point.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The ball rises 2.00 m and is momentarily at rest at the top. Its downward acceleration follows from free fall near Earth's surface.</p>
+        <p>Choose the positive <span class="math-inline">\(y\)</span>-axis vertically upward, with unit vector <span class="math-inline">\(\hat{\mathbf{j}}\)</span>.</p>
+        <p>The requested starting speed is the magnitude of the initial instantaneous velocity vector, <span class="math-inline">\(|\vec{v}_i|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 12</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((2.00\,\mathrm{m})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{j}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the ball is momentarily at rest at its highest point.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((-9.81\,\mathrm{m/s^2})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: Earth free fall; use <span class="math-inline">\(g=9.81\,\mathrm{m/s^2}\)</span>, directed downward.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the vertical rise, the zero velocity at the top, and the downward acceleration. Use the time-independent equation for the signed vertical components:</p>
+        <div class="math-display">\[
+        v_{fy}^{\,2}=v_{iy}^{\,2}+2a_y\Delta y.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Isolate <span class="math-inline">\(v_{iy}^{\,2}\)</span>, take the square root, and reconstruct the vector. Choose the positive root because the ball leaves the hand moving upward:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        v_{fy}^{\,2}&amp;=v_{iy}^{\,2}+2a_y\Delta y\\[3pt]
+        v_{iy}^{\,2}&amp;=v_{fy}^{\,2}-2a_y\Delta y\\[3pt]
+        v_{iy}&amp;=\sqrt{v_{fy}^{\,2}-2a_y\Delta y}\\[3pt]
+        \vec{v}_i&amp;=\sqrt{v_{fy}^{\,2}-2a_y\Delta y}\;\hat{\mathbf{j}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        v_{iy}&amp;=\sqrt{(0\,\mathrm{m/s})^2-2(-9.81\,\mathrm{m/s^2})(2.00\,\mathrm{m})}\\[3pt]
+        &amp;=6.26418\ldots\,\mathrm{m/s}\\[3pt]
+        \vec{v}_i&amp;=(6.26418\ldots\,\mathrm{m/s})\hat{\mathbf{j}}.
+        \end{aligned}
+        \]</div>
+        <p>The initial velocity points upward. At the highest point the velocity is zero, but the acceleration remains downward.</p>
+        <div class="math-display">\[
+        |\vec{v}_i|=\boxed{6.26\,\mathrm{m/s}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q13
+    title: 'Problem 13: An ion traveling through a mass spectrometer'
+    points: 1
+    text: |
+      <p>An analytical chemist uses a mass spectrometer to examine ions from a water sample. Inside the instrument, a positively charged ion enters a straight electric-field region that is 2.00 cm long, moving toward a detector at <span class="math-inline">\(5.00\times10^3\,\mathrm{m/s}\)</span>. The region is evacuated, and a uniform electric field pointing toward the detector makes the ion's speed increase at a constant rate. Electronic measurements show that the ion spends 2.00 microseconds in this region. How fast is the ion moving as it leaves the region? Report the speed in meters per second to <strong>three significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 1.50e+04
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The ion enters the electric-field region at <span class="math-inline">\(5.00\times10^3\,\mathrm{m/s}\)</span>.</li>
+          <li><strong>Final event:</strong> The ion reaches the exit of that region, after traveling 2.00 cm in 2.00 microseconds.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The entering speed is <span class="math-inline">\(5.00\times10^3\,\mathrm{m/s}\)</span>; the region is 2.00 cm long and the transit time is 2.00 microseconds.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the electric-field region toward the detector, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested ending speed is the magnitude of the final instantaneous velocity vector, <span class="math-inline">\(|\vec{v}_f|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 13</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((2.00\,\mathrm{cm})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((5.00\times10^3\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Constant; numerical value not given or needed.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(2.00\,\mathrm{\mu s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know <span class="math-inline">\(\Delta\vec{r}\)</span>, <span class="math-inline">\(\vec{v}_i\)</span>, and <span class="math-inline">\(\Delta t\)</span>, and need <span class="math-inline">\(\vec{v}_f\)</span>. The average-velocity equation avoids the unknown acceleration:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\frac{\vec{v}_i+\vec{v}_f}{2}\,\Delta t.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Multiply by 2, divide by the scalar <span class="math-inline">\(\Delta t\)</span>, and subtract <span class="math-inline">\(\vec{v}_i\)</span>:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\frac{\vec{v}_i+\vec{v}_f}{2}\Delta t\\[3pt]
+        2\Delta\vec{r}&amp;=(\vec{v}_i+\vec{v}_f)\Delta t\\[3pt]
+        \frac{2\Delta\vec{r}}{\Delta t}&amp;=\vec{v}_i+\vec{v}_f\\[3pt]
+        \vec{v}_f&amp;=\frac{2\Delta\vec{r}}{\Delta t}-\vec{v}_i.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <p>Convert the given length and time to SI units before substituting:</p>
+        <div class="math-display">\[
+        2.00\,\mathrm{cm}=2.00\times10^{-2}\,\mathrm{m},\qquad
+        2.00\,\mu\mathrm{s}=2.00\times10^{-6}\,\mathrm{s}.
+        \]</div>
+        <div class="math-display">\[
+        \begin{aligned}
+        \vec{v}_f&amp;=\frac{2(2.00\times10^{-2}\,\mathrm{m})\hat{\mathbf{i}}}{2.00\times10^{-6}\,\mathrm{s}}-(5.00\times10^3\,\mathrm{m/s})\hat{\mathbf{i}}\\[3pt]
+        &amp;=(2.00\times10^4-5.00\times10^3)\,\mathrm{m/s}\;\hat{\mathbf{i}}\\[3pt]
+        &amp;=(1.50\times10^4\,\mathrm{m/s})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The ion exits moving toward the detector. The requested speed is the magnitude of that velocity.</p>
+        <div class="math-display">\[
+        |\vec{v}_f|=\boxed{1.50\times10^4\,\mathrm{m/s}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q14
+    title: 'Problem 14: Launching a cold atom in a gravity experiment'
+    points: 1
+    text: |
+      <p>In a laboratory on Earth, a researcher uses lasers to launch a cooled atom vertically upward inside a vacuum chamber. At the instant the laser forces are switched off, the atom is moving upward at 4.00 m/s. From that instant onward, it moves under gravity alone. How far does the atom rise from the point where the laser forces end before reaching its highest point? Report the distance in meters to <strong>two significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 0.82
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The laser forces are switched off while the atom is moving upward at 4.00 m/s.</li>
+          <li><strong>Final event:</strong> The atom first reaches its highest point in the vacuum chamber.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The atom begins this free-flight segment at 4.00 m/s upward and ends momentarily at rest; Earth's gravity supplies its constant downward acceleration.</p>
+        <p>Choose the positive <span class="math-inline">\(y\)</span>-axis vertically upward, with unit vector <span class="math-inline">\(\hat{\mathbf{j}}\)</span>.</p>
+        <p>The motion does not reverse within this segment, so the requested distance is the magnitude of the displacement vector, <span class="math-inline">\(|\Delta\vec{r}|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 14</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((4.00\,\mathrm{m/s})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{j}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the atom is momentarily at rest at its highest point.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((-9.81\,\mathrm{m/s^2})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: Earth free fall after the lasers are switched off; use <span class="math-inline">\(g=9.81\,\mathrm{m/s^2}\)</span>, downward.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know both endpoint velocities and the constant downward acceleration, but not the time. Use the time-independent equation for the signed vertical components:</p>
+        <div class="math-display">\[
+        v_{fy}^{\,2}=v_{iy}^{\,2}+2a_y\Delta y.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Subtract <span class="math-inline">\(v_{iy}^{\,2}\)</span>, divide by <span class="math-inline">\(2a_y\)</span>, and reconstruct the displacement vector:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        v_{fy}^{\,2}&amp;=v_{iy}^{\,2}+2a_y\Delta y\\[3pt]
+        v_{fy}^{\,2}-v_{iy}^{\,2}&amp;=2a_y\Delta y\\[3pt]
+        \Delta y&amp;=\frac{v_{fy}^{\,2}-v_{iy}^{\,2}}{2a_y}\\[3pt]
+        \Delta\vec{r}&amp;=\left(\frac{v_{fy}^{\,2}-v_{iy}^{\,2}}{2a_y}\right)\hat{\mathbf{j}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta y&amp;=\frac{(0\,\mathrm{m/s})^2-(4.00\,\mathrm{m/s})^2}{2(-9.81\,\mathrm{m/s^2})}\\[3pt]
+        &amp;=0.815494\ldots\,\mathrm{m}\\[3pt]
+        \Delta\vec{r}&amp;=(0.815494\ldots\,\mathrm{m})\hat{\mathbf{j}}.
+        \end{aligned}
+        \]</div>
+        <p>The displacement is upward. There is no reversal before the final event, so the rise is its magnitude. Gravity still acts downward at the highest point.</p>
+        <div class="math-display">\[
+        |\Delta\vec{r}|=\boxed{0.82\,\mathrm{m}}
+        \]</div>
+        <p><strong>Rounding:</strong> Two significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q15
+    title: 'Problem 15: Collecting a rock sample on the Moon'
+    points: 1
+    text: |
+      <p>On the Moon, a rover's robotic arm holds a rock sample motionless 0.600 m above a collection tray. The gripper opens, allowing the sample to drop straight down into the tray. During the fall, the sample has a constant downward acceleration of <span class="math-inline">\(1.62\,\mathrm{m/s^2}\)</span>. How much time passes between the gripper releasing the sample and the sample reaching the tray? Report the time in seconds to <strong>three significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 0.861
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The gripper releases the stationary rock sample.</li>
+          <li><strong>Final event:</strong> The sample reaches the tray 0.600 m below the release point, just before contact.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The sample starts from rest, falls 0.600 m, and has a stated downward acceleration of <span class="math-inline">\(1.62\,\mathrm{m/s^2}\)</span>.</p>
+        <p>Choose the positive <span class="math-inline">\(y\)</span>-axis vertically upward, with unit vector <span class="math-inline">\(\hat{\mathbf{j}}\)</span>.</p>
+        <p>The requested quantity is the elapsed time <span class="math-inline">\(\Delta t\)</span>, which is a positive scalar.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 15</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((-0.600\,\mathrm{m})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{j}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the sample is held motionless before release.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((-1.62\,\mathrm{m/s^2})\hat{\mathbf{j}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given in magnitude and downward direction; the component is negative because upward is positive.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement, the zero entering velocity, and the downward acceleration. The displacement-time equation contains the unknown time and avoids the impact velocity:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Equate the vertical components and use <span class="math-inline">\(v_{iy}=0\)</span>. The ratio <span class="math-inline">\(2\Delta y/a_y\)</span> is positive because both <span class="math-inline">\(\Delta y\)</span> and <span class="math-inline">\(a_y\)</span> are negative. Choose the positive square root because elapsed time is positive:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2\\[3pt]
+        \Delta y&amp;=v_{iy}\Delta t+\frac12a_y(\Delta t)^2\\[3pt]
+        \Delta y&amp;=\frac12a_y(\Delta t)^2\\[3pt]
+        (\Delta t)^2&amp;=\frac{2\Delta y}{a_y}\\[3pt]
+        \Delta t&amp;=\sqrt{\frac{2\Delta y}{a_y}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta t&amp;=\sqrt{\frac{2(-0.600\,\mathrm{m})}{-1.62\,\mathrm{m/s^2}}}\\[3pt]
+        &amp;=0.860663\ldots\,\mathrm{s}.
+        \end{aligned}
+        \]</div>
+        <p>The two negative vertical components give a positive elapsed time. The segment ends just before contact with the tray.</p>
+        <div class="math-display">\[
+        \Delta t=\boxed{0.861\,\mathrm{s}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q16
+    title: 'Problem 16: A space probe testing its main engine'
+    points: 1
+    text: |
+      <p>A space probe is traveling through the outer solar system, far from planets, at 12.00 km/s relative to the Sun. During a planned test, it fires its main chemical engine for 60.0 s in the direction it is already moving. Throughout the burn, the probe has a constant acceleration of <span class="math-inline">\(0.500\,\mathrm{m/s^2}\)</span> in that direction. For this short interval, treat the path as straight and neglect gravity and changes in the probe's mass. How far does the probe travel relative to the Sun during the burn? Report the distance in <strong>kilometers to three significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 721
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The engine burn begins, with the probe already traveling at 12.00 km/s relative to the Sun.</li>
+          <li><strong>Final event:</strong> The 60.0 s engine burn ends.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The probe enters the burn at 12.00 km/s and accelerates along its motion at <span class="math-inline">\(0.500\,\mathrm{m/s^2}\)</span> for 60.0 s. The straight-path model neglects gravity and mass changes over the burn.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the probe's motion in the Sun-centered reference frame, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The motion does not reverse within this segment, so the requested distance is the magnitude of the displacement vector, <span class="math-inline">\(|\Delta\vec{r}|\)</span>.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 16</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((12.00\,\mathrm{km/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0.500\,\mathrm{m/s^2})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given in magnitude and direction.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(60.0\,\mathrm{s}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Explicitly given; time is a scalar.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the entering velocity, acceleration, and elapsed time. Use the displacement-time equation; the ending velocity is not needed:</p>
+        <div class="math-display">\[
+        \Delta\vec{r}=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>The common form already isolates <span class="math-inline">\(\Delta\vec{r}\)</span>. Factoring out <span class="math-inline">\(\Delta t\)</span> gives an equivalent form; the requested distance is the magnitude of this vector:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=\vec{v}_i\Delta t+\frac12\vec{a}(\Delta t)^2\\[3pt]
+        &amp;=\left(\vec{v}_i+\frac12\vec{a}\Delta t\right)\Delta t\\[3pt]
+        \text{distance}&amp;=|\Delta\vec{r}|.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <p>Use kilometers consistently because the requested answer is in kilometers:</p>
+        <div class="math-display">\[
+        0.500\,\mathrm{m/s^2}
+        \left(\frac{1\,\mathrm{km}}{1000\,\mathrm{m}}\right)
+        =0.000500\,\mathrm{km/s^2}.
+        \]</div>
+        <div class="math-display">\[
+        \begin{aligned}
+        \Delta\vec{r}&amp;=(12.00\,\mathrm{km/s})\hat{\mathbf{i}}(60.0\,\mathrm{s})
+        +\frac12(0.000500\,\mathrm{km/s^2})\hat{\mathbf{i}}(60.0\,\mathrm{s})^2\\[3pt]
+        &amp;=(720\,\mathrm{km}+0.900\,\mathrm{km})\hat{\mathbf{i}}\\[3pt]
+        &amp;=(720.9\,\mathrm{km})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The probe continues along the same direction, so distance equals displacement magnitude. Retain the unrounded terms until after adding them.</p>
+        <div class="math-display">\[
+        |\Delta\vec{r}|=720.9\,\mathrm{km}\approx\boxed{721\,\mathrm{km}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!
+- numerical:
+    id: q17
+    title: 'Problem 17: Studying friction between rock surfaces'
+    points: 1
+    text: |
+      <p>Geophysics students are studying how rock surfaces resist sliding. They use a launcher to send a small rock block along a straight, horizontal track lined with another type of rock. Just after the launcher loses contact with the block, the block is moving at 1.50 m/s. It then slows at a constant rate and comes to rest after sliding 0.250 m along the track. What is the magnitude of the block's acceleration during this slide? Report your answer in <span class="math-inline">\(\mathrm{m/s^2}\)</span> to <strong>three significant figures</strong>.</p>
+      </div>
+    answer:
+      value: 4.50
+      margin_type: percent
+      tolerance: 5
+    feedback:
+      general: |
+        <h3>1. Identify the motion segment, physics, and requested quantity</h3>
+        <ul>
+          <li><strong>Initial event:</strong> The launcher loses contact with the rock block, which is moving at 1.50 m/s.</li>
+          <li><strong>Final event:</strong> The block first comes to rest after sliding 0.250 m along the track.</li>
+        </ul>
+        <p>This is motion with <strong>constant acceleration along a straight segment</strong>, so the kinematic equations apply. The block enters the unpowered slide at 1.50 m/s, travels 0.250 m, and stops.</p>
+        <p>Choose the positive <span class="math-inline">\(x\)</span>-axis along the block's motion after the launcher releases it, with unit vector <span class="math-inline">\(\hat{\mathbf{i}}\)</span>.</p>
+        <p>The requested quantity is the magnitude of the acceleration vector, <span class="math-inline">\(|\vec{a}|\)</span>. We will determine the vector and then take its magnitude.</p>
+        <h3>2. Organize the kinematic variables</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <caption>Kinematic variables for Problem 17</caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Kinematic variable</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Symbol</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Value</th>
+              <th scope="col" style="border: 1px solid #666; padding: 0.4em; text-align: left;">Given or unknown?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Displacement</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta\vec{r}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0.250\,\mathrm{m})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Distance explicitly given; the vector direction follows from the chosen axis and motion.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Initial instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_i\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((1.50\,\mathrm{m/s})\hat{\mathbf{i}}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Speed explicitly given; the vector direction follows from the stated motion and chosen axis.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Final instantaneous velocity</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{v}_f\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\((0\,\mathrm{m/s})\hat{\mathbf{i}}=\vec{0}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Implicit: the block comes to rest.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Acceleration</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\vec{a}\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><strong>?</strong></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">To be solved for. The question requests its magnitude.</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Time interval</th>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;"><span class="math-inline">\(\Delta t\)</span></td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not given</td>
+              <td style="border: 1px solid #666; padding: 0.4em; text-align: left; vertical-align: top;">Not required for this calculation.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>3. Select a kinematic equation</h3>
+        <p>We know the displacement and both endpoint velocities, but not the time. Use the time-independent kinematic equation for the signed <span class="math-inline">\(x\)</span>-components. Here <span class="math-inline">\(\vec{v}_i=v_{ix}\hat{\mathbf{i}}\)</span>, <span class="math-inline">\(\vec{v}_f=v_{fx}\hat{\mathbf{i}}\)</span>, and <span class="math-inline">\(\Delta\vec{r}=\Delta x\hat{\mathbf{i}}\)</span>:</p>
+        <div class="math-display">\[
+        v_{fx}^{\,2}=v_{ix}^{\,2}+2a_x\Delta x.
+        \]</div>
+        <h3>4. Solve algebraically for the unknown</h3>
+        <p>Subtract <span class="math-inline">\(v_{ix}^{\,2}\)</span>, divide by <span class="math-inline">\(2\Delta x\)</span>, and reconstruct the acceleration vector:</p>
+        <div class="math-display">\[
+        \begin{aligned}
+        v_{fx}^{\,2}&amp;=v_{ix}^{\,2}+2a_x\Delta x\\[3pt]
+        v_{fx}^{\,2}-v_{ix}^{\,2}&amp;=2a_x\Delta x\\[3pt]
+        a_x&amp;=\frac{v_{fx}^{\,2}-v_{ix}^{\,2}}{2\Delta x}\\[3pt]
+        \vec{a}&amp;=\left(\frac{v_{fx}^{\,2}-v_{ix}^{\,2}}{2\Delta x}\right)\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <h3>5. Substitute values with units and calculate</h3>
+        <div class="math-display">\[
+        \begin{aligned}
+        a_x&amp;=\frac{(0\,\mathrm{m/s})^2-(1.50\,\mathrm{m/s})^2}{2(0.250\,\mathrm{m})}\\[3pt]
+        &amp;=-4.50\,\mathrm{m/s^2}\\[3pt]
+        \vec{a}&amp;=(-4.50\,\mathrm{m/s^2})\hat{\mathbf{i}}.
+        \end{aligned}
+        \]</div>
+        <p>The acceleration points opposite the block's motion during the slide. The launcher's earlier push is outside the selected segment.</p>
+        <div class="math-display">\[
+        |\vec{a}|=\boxed{4.50\,\mathrm{m/s^2}}
+        \]</div>
+        <p><strong>Rounding:</strong> Three significant figures.</p>
+        </div>
+      on_correct: Good job!
+      on_incorrect: Try again!

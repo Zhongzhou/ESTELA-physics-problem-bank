@@ -1,0 +1,132 @@
+problem_heads:
+  - id: q1
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=20\ \mathrm{nm}\):</p>
+      <ul>
+        <li>\(q_1=+2e\) is located at \(\vec{r}_1=(-2d,d)\),</li>
+        <li>\(q_2=-3e\) is located at \(\vec{r}_2=(0,d)\), and</li>
+        <li>\(q_3=-5e\) is located at \(\vec{r}_3=(d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q2
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=45\ \mathrm{nm}\):</p>
+      <ul>
+        <li>\(q_1=-4e\) is located at \(\vec{r}_1=(-d,0)\),</li>
+        <li>\(q_2=+7e\) is located at \(\vec{r}_2=(2d,-d)\), and</li>
+        <li>\(q_3=+3e\) is located at \(\vec{r}_3=(-d,2d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q3
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=2.0\ \mu\mathrm{m}\):</p>
+      <ul>
+        <li>\(q_1=+6e\) is located at \(\vec{r}_1=(-2d,0)\),</li>
+        <li>\(q_2=-2e\) is located at \(\vec{r}_2=(d,d)\), and</li>
+        <li>\(q_3=+5e\) is located at \(\vec{r}_3=(d,-2d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q4
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(e\) is the elementary charge and \(d=35\ \mu\mathrm{m}\):</p>
+      <ul>
+        <li>\(q_1=-7e\) is located at \(\vec{r}_1=(0,2d)\),</li>
+        <li>\(q_2=-4e\) is located at \(\vec{r}_2=(-2d,-d)\), and</li>
+        <li>\(q_3=+3e\) is located at \(\vec{r}_3=(2d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q5
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=0.60\ \mathrm{mm}\):</p>
+      <ul>
+        <li>\(q_1=+250\ \mathrm{nC}\) is located at \(\vec{r}_1=(2d,d)\),</li>
+        <li>\(q_2=-400\ \mathrm{nC}\) is located at \(\vec{r}_2=(2d,-2d)\), and</li>
+        <li>\(q_3=+650\ \mathrm{nC}\) is located at \(\vec{r}_3=(-d,0)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q6
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=1.5\ \mathrm{mm}\):</p>
+      <ul>
+        <li>\(q_1=-180\ \mathrm{nC}\) is located at \(\vec{r}_1=(-2d,0)\),</li>
+        <li>\(q_2=+320\ \mathrm{nC}\) is located at \(\vec{r}_2=(d,2d)\), and</li>
+        <li>\(q_3=-540\ \mathrm{nC}\) is located at \(\vec{r}_3=(0,0)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q7
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=1.2\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=+750\ \mathrm{nC}\) is located at \(\vec{r}_1=(-d,2d)\),</li>
+        <li>\(q_2=+300\ \mathrm{nC}\) is located at \(\vec{r}_2=(d,2d)\), and</li>
+        <li>\(q_3=-500\ \mathrm{nC}\) is located at \(\vec{r}_3=(0,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q8
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=3.0\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=-220\ \mathrm{nC}\) is located at \(\vec{r}_1=(0,-2d)\),</li>
+        <li>\(q_2=+680\ \mathrm{nC}\) is located at \(\vec{r}_2=(-2d,0)\), and</li>
+        <li>\(q_3=+450\ \mathrm{nC}\) is located at \(\vec{r}_3=(0,d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q9
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=8.0\ \mathrm{mm}\):</p>
+      <ul>
+        <li>\(q_1=+1.5\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(0,-2d)\),</li>
+        <li>\(q_2=-2.5\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(2d,d)\), and</li>
+        <li>\(q_3=+4.0\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(-d,d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q10
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=1.5\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=-3.0\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(d,0)\),</li>
+        <li>\(q_2=+5.5\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(d,2d)\), and</li>
+        <li>\(q_3=-1.8\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(-2d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_1\) due to the combined effect of \(q_2\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q11
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=2.5\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=+6.0\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(d,2d)\),</li>
+        <li>\(q_2=-2.0\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(0,-d)\), and</li>
+        <li>\(q_3=-4.5\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(-2d,-d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_2\) due to the combined effect of \(q_1\) and \(q_3\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>
+
+  - id: q12
+    html: |
+      <p>Three charged objects are fixed in the following configuration, where \(d=4.0\ \mathrm{cm}\):</p>
+      <ul>
+        <li>\(q_1=-7.5\ \mu\mathrm{C}\) is located at \(\vec{r}_1=(-d,2d)\),</li>
+        <li>\(q_2=+3.5\ \mu\mathrm{C}\) is located at \(\vec{r}_2=(0,-2d)\), and</li>
+        <li>\(q_3=+5.0\ \mu\mathrm{C}\) is located at \(\vec{r}_3=(2d,2d)\).</li>
+      </ul>
+      <p>Calculate the magnitude of the net force acting on \(q_3\) due to the combined effect of \(q_1\) and \(q_2\).&nbsp;</p>
+      <p>Provide your answer in SI units, in scientific notation with two significant digits.</p>

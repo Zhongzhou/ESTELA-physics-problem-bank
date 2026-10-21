@@ -1,0 +1,6 @@
+{
+  "items_checked": 24,
+  "physical_parameter_cases": 72,
+  "method": "Evaluate the actual LaTeX vector equations under independently generated positive-tension two-body parameter sets.",
+  "result": "Every item has exactly one correct vector equation, matching its key."
+}

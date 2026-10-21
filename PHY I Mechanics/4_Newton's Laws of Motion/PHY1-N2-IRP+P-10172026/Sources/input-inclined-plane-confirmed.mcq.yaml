@@ -1,0 +1,326 @@
+# Review file for the multiple-choice question workflow.
+# scenes with status kept are the scenes the user selected.
+# scenes with status backup are not drawn and do not become items.
+# The user chooses how many scenes to keep. This file does not set that number.
+source_input: /workspace/scratch/632208a15891/input-inclined-plane-confirmed.yaml
+question:
+  situation: 'An object A of mass \(m_A\) slides on a straight, rough inclined surface
+
+    making an acute angle \(\theta\) with the horizontal. A is on the left.
+
+    A taut, massless, inextensible rope connects A to a freely hanging object
+
+    B of mass \(m_B\) on the right, passing over a fixed, ideal pulley at the
+
+    right end of the incline. The rope attached to A is parallel to the
+
+    incline. The coefficient of kinetic friction is \(\mu_k>0\).
+
+    A remains in contact with the surface. Gravity, the normal force,
+
+    tension, and kinetic friction are the only external forces on A.'
+  given: 'The coordinate origin is on A. Positive x is parallel to the incline
+
+    and nominally right: uphill on the right-rising slope and downhill on
+
+    the right-falling slope. Positive y is perpendicular to and outward
+
+    from the surface. The text states whether A moves uphill or downhill
+
+    and whether it speeds up or slows down at the instant shown.
+
+    The figure shows the geometry and coordinate axes. Infer acceleration''s
+
+    direction from the stated motion and whether A speeds up or slows down.
+
+    Define \(T\) as the tension magnitude, \(N\) as the
+
+    normal-force magnitude, \(g\) as the gravitational-acceleration magnitude,
+
+    and \(a_A>0\) as A''s acceleration magnitude. The unit vectors
+
+    \(\hat{\imath}\) and \(\hat{\jmath}\) point along the displayed positive axes.'
+  ask: 'Choose the correct vector form of Newton''s second law for object A
+
+    in the coordinate system shown.'
+common_variations: []
+scenarios:
+- id: scenario 1
+  description: 'The surface rises to the right. The fixed pulley is at the upper right
+
+    end, so tension acts uphill (+x). Gravity''s parallel component is downhill (-x).'
+  specifications: 'Every candidate scene must support all listed kinematic states with
+
+    physically appropriate masses, angle, and friction. Parameters may
+
+    differ between variants. These symbolic questions require no numerical
+
+    values. Motion, acceleration, and kinetic friction are nonzero.
+
+    Exclude rolling, static equilibrium, slack rope, extra applied forces,
+
+    and loss of contact. Do not bake one variation value into a reusable scene.'
+  variations:
+  - id: variation 1
+    text: 'kinematic_state: uphill_speeding_up, uphill_slowing_down,
+
+      downhill_speeding_up, downhill_slowing_down. State the motion direction
+
+      and speeding up or slowing down in words. Acceleration is along velocity
+
+      when speeding up and opposite it when slowing down.'
+  scenes:
+  - text: In a warehouse demonstration, a wooden crate A slides on a straight, rough loading ramp rising to the right. A taut rope runs parallel to the ramp over a fixed ideal pulley at its upper right end, then vertically down to a freely hanging sandbag B.
+    status: kept
+  - text: A brass block A slides along a straight, rough inclined board on a physics laboratory bench, with the board’s upper end on the right. Its taut rope follows the board uphill, passes over a fixed ideal pulley at that end, and descends vertically to a freely hanging steel weight B.
+    status: kept
+  - text: At a building-materials testing station, a concrete paver A slides on a straight, rough panel tilted upward to the right. A taut rope parallel to the panel connects the paver to a freely hanging bucket of gravel B through a fixed ideal pulley at the panel’s upper right end, with the bucket’s rope segment vertical.
+    status: kept
+  - text: In a theater workshop, a felt-bottomed scenery block A slides on a straight, rough sloping platform that rises to the right. A taut rope runs uphill along the platform, over a fixed ideal pulley at its upper right end, and vertically down to a freely hanging stage counterweight B.
+    status: kept
+  rejected: []
+- id: scenario 2
+  description: 'The surface falls to the right. The fixed pulley is at the lower right
+
+    end, so tension and gravity''s parallel component both act downhill (+x).
+
+    The rope leaves the pulley vertically downward to the freely hanging B,
+
+    which clears the incline and support.'
+  specifications: 'Exclude all uphill motion in this scenario, as requested by the user.
+
+    Downhill_slowing_down requires uphill friction to exceed the sum of
+
+    downhill tension and parallel gravity. Every scene must support both
+
+    listed states with suitable parameters, which may differ between
+
+    variants. These symbolic questions require no numerical values.
+
+    Motion, acceleration, and kinetic friction are nonzero.
+
+    Exclude rolling, static equilibrium, slack rope, extra applied forces,
+
+    and loss of contact. Do not bake one variation value into a reusable scene.'
+  variations:
+  - id: variation 1
+    text: 'kinematic_state: downhill_speeding_up, downhill_slowing_down.
+
+      A moves downhill in every item in this scenario. State speeding up
+
+      or slowing down in words. Acceleration is along velocity when
+
+      speeding up and opposite it when slowing down.'
+  scenes:
+  - text: A wooden demonstration block slides on a rough laboratory board sloping downward to the right. A taut rope runs parallel to the board to a fixed ideal pulley at its lower-right edge, then vertically down to a hanging mass clear of the board and stand.
+    status: kept
+  - text: A small packing crate slides on a straight, rough loading ramp descending to the right. Its taut rope runs along the ramp to a fixed ideal pulley at the lower-right end, then vertically down to a sandbag hanging clear of the loading platform.
+    status: kept
+  - text: A rubber specimen block slides on a straight, rough test panel tilted downward to the right in a materials laboratory. A taut rope follows the panel to a fixed ideal pulley at its lower-right edge, then drops vertically to a weight pouch clear of the panel and support.
+    status: kept
+  - text: A wooden stage prop slides on a straight, rough scenic ramp descending to the right above an open backstage pit. Its taut rope runs parallel to the ramp to a fixed ideal pulley at the lower-right end, then vertically down to a counterweight hanging clear of the scenery and supports.
+    status: kept
+  rejected: []
+need_diagram: true
+diagram_specification: 'Use Python to draw A on the left on the appropriate incline, the fixed
+
+  pulley at the right end, and B freely hanging on the right. The rope
+
+  attached to A is parallel to the incline, and the segment to B is vertical.
+
+  Label A and B; mark acute theta relative to a horizontal reference.
+
+  Draw axes originating at A: +x along the incline pointing right, and
+
+  +y perpendicular to and outward from the surface.
+
+  Show geometry and coordinate axes only. Do not draw acceleration,
+
+  velocity, or force arrows. Students infer acceleration''s direction
+
+  from the motion description and identify the forces themselves.
+
+  Use legible labels without overlaps and provide descriptive alt text.
+
+  Draw one figure per selected scene and reuse it across that scene''s
+
+  kinematic states. A kinematic-state variation does not change the drawing.'
+choices:
+- id: possible answer 1
+  role: possible
+  text: '\[
+
+    \left(T-m_A g\sin\theta-\mu_k N\right)\hat{\imath}
+
+    +\left(N-m_A g\cos\theta\right)\hat{\jmath}
+
+    =m_A a_A\hat{\imath}
+
+    \]'
+- id: possible answer 2
+  role: possible
+  text: '\[
+
+    \left(T-m_A g\sin\theta-\mu_k N\right)\hat{\imath}
+
+    +\left(N-m_A g\cos\theta\right)\hat{\jmath}
+
+    =-m_A a_A\hat{\imath}
+
+    \]'
+- id: distractor 1
+  role: distractor
+  text: '\[
+
+    \left(T-\mu_k N\right)\hat{\imath}
+
+    +\left(N-m_A g\cos\theta\right)\hat{\jmath}
+
+    =m_A a_A\hat{\imath}
+
+    \]'
+- id: distractor 2
+  role: distractor
+  text: '\[
+
+    \left(T-m_A g\sin\theta-\mu_k N\right)\hat{\imath}
+
+    +\left(N-m_A g\cos\theta\right)\hat{\jmath}
+
+    =m_A a_A\left(\cos\theta\,\hat{\imath}+\sin\theta\,\hat{\jmath}\right)
+
+    \]'
+- id: distractor 3
+  role: distractor
+  text: '\[
+
+    \left(T+m_A g\sin\theta-\mu_k N\right)\hat{\imath}
+
+    +\left(N-m_A g\cos\theta\right)\hat{\jmath}
+
+    =m_A a_A\hat{\imath}
+
+    \]'
+- id: distractor 4
+  role: distractor
+  text: '\[
+
+    \left(T-m_A g\sin\theta+\mu_k N\right)\hat{\imath}
+
+    +\left(N-m_A g\cos\theta\right)\hat{\jmath}
+
+    =m_A a_A\hat{\imath}
+
+    \]'
+choice_variations: 'Keep the six choices in the input order. Tension is +T along x in both
+
+  scenarios. In possible answers 1 and 2 and distractors 2 and 4, use the
+
+  correct parallel weight term: -m_A g sin(theta) in scenario 1 and
+
+  +m_A g sin(theta) in scenario 2. Distractor 1 omits that term;
+
+  distractor 3 uses its opposite sign.
+
+  In both possible answers and distractors 1, 2, and 3, friction is
+
+  -mu_k N for rightward (+x) velocity and +mu_k N for leftward (-x) velocity.
+
+  Distractor 4 reverses only that friction sign.
+
+  Every choice has the y-force component N-m_A g cos(theta).
+
+  Possible answer 1 always has +m_A a_A i-hat on the right.
+
+  Possible answer 2 always has -m_A a_A i-hat on the right.
+
+  For distractors 1, 3, and 4, use the actual signed x acceleration on
+
+  the right. Distractor 2 incorrectly projects that acceleration onto
+
+  both inclined axes using cos(theta) and sin(theta), with the actual
+
+  acceleration''s overall sign.
+
+  Define every symbol in every question. Keep construction rules and
+
+  internal kinematic-state identifiers out of student-facing content.
+
+  Distractors: 1 omits parallel gravity; 2 introduces spurious normal
+
+  acceleration; 3 reverses parallel gravity; 4 reverses kinetic friction.'
+correct_answer: 'Apply Newton''s second law to A. Tension points toward the right-end
+
+  pulley, gravity''s parallel component points downhill, the normal force
+
+  points outward, kinetic friction opposes instantaneous velocity, and
+
+  acceleration is inferred from the stated velocity and whether A is
+
+  speeding up or slowing down, then signed according to the displayed +x direction.
+
+  Normal acceleration is zero.
+
+  Choose possible answer 1 for rightward (+x) acceleration and possible
+
+  answer 2 for leftward (-x) acceleration.
+
+  Scenario 1: uphill_speeding_up -> 1; uphill_slowing_down -> 2;
+
+  downhill_speeding_up -> 2; downhill_slowing_down -> 1.
+
+  Scenario 2: downhill_speeding_up -> 1;
+
+  downhill_slowing_down -> 2.
+
+  Exactly one choice is correct for every allowed item.'
+candidates_per_scenario: 4
+samples_per_scenario: 1
+automatic_minor_fixes: true
+export_yaml: true
+yaml_template: /workspace/scratch/632208a15891/project_sources/02-Problem-bank-template.yaml
+variation_axes:
+  common: []
+  by_scenario:
+    scenario 1:
+    - id: kinematic_state
+      values:
+      - uphill_speeding_up
+      - uphill_slowing_down
+      - downhill_speeding_up
+      - downhill_slowing_down
+      changes_drawing: false
+    scenario 2:
+    - id: kinematic_state
+      values:
+      - downhill_speeding_up
+      - downhill_slowing_down
+      changes_drawing: false
+update_count: 1
+feedback_specification: 'Include a free-body diagram of isolated object A with tension, weight,
+
+  the normal force, and kinetic friction. Above A, draw a solid velocity
+
+  arrow and a dashed acceleration arrow, both labeled as vectors and
+
+  parallel to the incline. Set the arrows from the stated motion and
+
+  speeding up or slowing down. Keep these diagrams in general feedback.
+
+  Draw the coordinate axes with their origin on object A. Mark theta
+
+  between the negative y direction and the vertically downward weight.
+
+  Question figures retain geometry and coordinate axes only.
+
+  Include force components, the vector equation, and choice-specific feedback.
+
+  '
+bank_settings:
+  title: Newton’s Second Law on Rough Inclines
+  bank_id: PHY1-F-N2LI-10172026
+  authors:
+  - O. Moussa
+  learning objectives:
+  - N2D
+  points: 1
