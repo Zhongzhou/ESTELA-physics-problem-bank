@@ -1,0 +1,34 @@
+# Review file for the problem-creation workflow.
+# scenarios with status accepted are the kept list.
+# target is copied from context.n_scenarios in the input file.
+source_input: problem-creation agents\input-scheme.yaml
+target: 10
+update_count: 2
+scenarios:
+- text: A puck slides at constant speed in a horizontal circle on a frictionless air table, tied by a horizontal cord to a fixed peg at the center.
+  status: accepted
+- text: A steel ball hanging from a string moves at constant speed in a horizontal circle, with the string keeping a constant angle to the vertical.
+  status: accepted
+- text: A satellite travels at constant speed in a circular orbit far above Earth's atmosphere.
+  status: accepted
+- text: A coin rests without slipping on a level turntable that spins at a constant rate, so the coin moves with the turntable in a circle.
+  status: accepted
+- text: A dense block slides at constant speed in a horizontal circle on a smooth, frictionless banked track.
+  status: accepted
+- text: A metal bead threaded on a smooth horizontal circular wire slides around the wire at constant speed.
+  status: accepted
+- text: A crate rests without sliding on the floor of a van that travels at constant speed along a flat, unbanked circular road.
+  status: accepted
+- text: A person stays on the inner rim of a cylindrical space station that rotates at a constant rate in deep space, far from any planet, and moves with the station in a circle about its axis.
+  status: accepted
+- text: Two stars of equal mass move at constant speed in circular paths about their common center of mass, in empty space far from every other body.
+  status: accepted
+- text: A dense disk slides at constant speed in a horizontal circle on a frictionless table, tied to a cord that passes through a central hole and supports a block hanging at rest below the table.
+  status: accepted
+rejected:
+- text: In the Bohr model, an electron moves at constant speed in a circular orbit about a fixed proton.
+  reason: A Bohr-model electron is a quantum mechanical particle, which the specifications exclude.
+- text: After the floor drops, a rider stays against the wall of a cylindrical rotor spinning at a constant rate and moves with the co-rotating air in a horizontal circle.
+  reason: Gravity is balanced by static friction on the rotor wall, which the specifications exclude.
+- text: In a vacuum chamber, a proton moves at constant speed in a circle perpendicular to a uniform magnetic field, and its weight is negligible.
+  reason: A proton is a quantum mechanical particle, which the specifications exclude.
