@@ -1,0 +1,56 @@
+# Input scheme for the circuit-bank workflow.  Same required fields as the
+# isomorphic-bank-creation "problem-creation" input, plus a `bank:` block.
+# The scenario count lives HERE (context.n_scenarios), never in a chat message.
+
+name: "Series-parallel resistor networks: total current (3 reduction steps)"
+
+context:
+  scenario: A single battery drives a network of resistors connected in series and parallel. The student reduces the network to one equivalent resistance and applies Ohm's law.
+  scenario_specifications:
+    - Every scenario is a different series/parallel topology (a different reduction sequence), not only different numbers.
+    - Between 5 and 6 resistors, and every circuit reduces in exactly 3 series/parallel steps (one difficulty for the whole bank).
+    - Resistors only - no capacitors, switches, ammeters or voltmeters.
+    - No bridge circuits; every network must reduce by series/parallel steps alone.
+    - Values between 1 and 24 ohms, chosen so that parallel combinations come out to simple numbers.
+    - Battery voltage between 6 V and 36 V.
+    - Ask for the total current from the battery.
+  n_scenarios: 30
+
+structure:
+  formulas:
+    - 'R_{\mathrm{series}} = R_1 + R_2'
+    - '\frac{1}{R_{\mathrm{parallel}}} = \frac{1}{R_1} + \frac{1}{R_2}'
+    - 'I = \frac{V}{R_{\mathrm{eq}}}'
+  variable_specifications:
+    - V is the battery voltage, R_eq the resistance seen by the battery, I the total current.
+  question_unknowns: I   # not used yet (as in the original repo); later unknown-rotation pass
+
+bank:
+  bank_id: PHY2-DC-SPRTC3-10292026   # 3 steps, 5-6 resistors
+  description: |-
+    Isomorphic numerical problems. Each item is a different series-parallel topology of a single
+    battery and resistors; the student reduces the network to an equivalent resistance and applies
+    Ohm's law to find the total current. The topology (and hence the reduction sequence) changes
+    between items, not only the numbers.
+  learning_objectives:
+    - DC-SP-1    # reduce series/parallel resistor networks
+    - DC-OHM-1   # apply Ohm's law to a whole circuit
+  authors:
+    - Myrla Phillippe
+  points: 3
+  question_type: multiple_choice   # multiple_choice (3 computed distractors, no LLM) or numerical (free response)
+  layout: ladder                   # one drawing style for the whole bank: ladder (textbook) or stacked (worksheet)
+
+other (optional):
+  tolerance: 0.03         # 3 % answer tolerance
+  rounding_decimal: 2
+  # Value ranges enforced by scripts/critic.py (a candidate outside them is rejected with a reason).
+  # Edit the numbers here; delete a line to stop checking it.  Keep them consistent with the prose
+  # in scenario_specifications, which is what Agent 2 reads.
+  resistor_range: [1, 24]   # ohms
+  voltage_range: [6, 36]    # volts
+  max_resistors: 6
+  min_resistors: 5
+  reduction_steps: 3       # exact (or [3, 4] for a band); one step = one group reduced. Same difficulty for every item.
+  generator: enumerate     # enumerate = every shape in the band, values by seed (no LLM, default); llm = Agent 2 proposes
+  seed: 0                  # enumerate only: change to get different values for the same shapes
