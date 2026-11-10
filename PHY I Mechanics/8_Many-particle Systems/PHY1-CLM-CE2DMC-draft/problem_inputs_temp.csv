@@ -1,0 +1,25 @@
+id,title,script,parallel_axis,M_total,V_total_x,V_total_y,m_known,v_known_x,v_known_y,m_other,v_other_x,v_other_y,notes
+q1,Conservation of Momentum Exploding Shell,calc_split.py,x,10.0,300.0,0.0,4.0,320.0,50.0,6.0,,,known=piece1; unknown=piece2
+q2,Conservation of Momentum Rocket Separation,calc_split.py,x,200.00,5000.00,0.0,150.00,4996.67,-50.00,50.00,,,known=piece2; unknown=piece1; updated v2y=-50.00
+q3,Conservation of Momentum Space Debris Fracture,calc_split.py,x,50.00,8000.00,0.0,20.00,7900.00,100.00,30.00,,,known=piece1; unknown=piece2
+q4,Conservation of Momentum Exploding Ice Block,calc_split.py,x,80.00,4.00,0.0,50.00,3.40,-1.20,30.00,,,known=piece2; unknown=piece1
+q5,Conservation of Momentum Exploding Firework,calc_split.py,y,0.50,0.0,50.00,0.20,55.00,15.00,0.30,,,known=piece1; unknown=piece2; j-hat is upward
+q6,Conservation of Momentum Alpha Decay,calc_split.py,x,240.00,200.00,0.0,236.00,199.92,-84.75,4.00,,,known=piece2; unknown=piece1; abs inside sqrt for energy
+q7,Conservation of Momentum Skater Throws Bag,calc_split.py,x,70.00,5.00,0.0,10.00,8.00,3.00,60.00,,,known=piece1; unknown=piece2
+q8,Conservation of Momentum Submarine Launches Drone,calc_split.py,x,10000.00,10.00,0.0,9800.00,9.90,-0.10,200.00,,,known=piece2; unknown=piece1
+q9,Conservation of Momentum Space-ship Launches Pod,calc_split.py,x,5000.00,2000.00,0.0,500.00,2500.00,1000.00,4500.00,,,known=piece1; unknown=piece2
+q10,Conservation of Momentum Passenger Jumps from Bumper Car,calc_split.py,x,180.00,3.00,0.0,110.00,1.73,-1.59,70.00,,,known=piece2; unknown=piece1
+q11,Conservation of Momentum Hovercraft Pushes Crate,calc_split.py,x,1000.00,15.00,0.0,100.00,20.00,10.00,900.00,,,known=piece1; unknown=piece2
+q12,Conservation of Momentum Sled Launches Package,calc_split.py,x,250.00,8.00,0.0,220.00,7.45,-0.82,30.00,,,known=piece2; unknown=piece1
+q13,Conservation of Momentum Colliding Asteroids,calc_collision_forward.py,x,1500.00,,,1000.00,20.00,0.0,500.00,-10.00,30.00,both incoming known; combined velocity unknown
+q14,Conservation of Momentum Colliding Mud Balls,calc_collision_inverse.py,x,0.80,7.00,1.50,0.50,10.00,0.0,0.30,,,combined and object1 known; object2 unknown; abs inside sqrt for energy
+q15,Conservation of Momentum Football Tackle,calc_collision_forward.py,x,210.00,,,110.00,8.00,0.0,100.00,-7.00,2.00,both incoming known; combined velocity unknown
+q16,Conservation of Momentum Shopping Carts,calc_collision_inverse.py,x,45.00,4.00,1.00,20.00,3.00,0.0,25.00,,,combined and object1 known; object2 unknown
+q17,Conservation of Momentum Space Probe Docking,calc_collision_forward.py,x,5000.00,,,4000.00,1000.00,0.0,1000.00,500.00,800.00,both incoming known; combined velocity unknown
+q18,Conservation of Momentum Clay Projectiles,calc_collision_inverse.py,x,3.00,30.00,-10.00,2.00,50.00,0.0,1.00,,,combined and object1 known; object2 unknown; abs inside sqrt for energy
+q19,Conservation of Momentum Train Car Coupling,calc_collision_forward.py,x,35000.00,,,20000.00,5.00,0.0,15000.00,2.00,1.00,both incoming known; combined velocity unknown
+q20,Conservation of Momentum Rafts Linking,calc_collision_inverse.py,x,500.00,0.60,-0.60,300.00,1.00,0.0,200.00,,,combined and object1 known; object2 unknown
+q21,Conservation of Momentum Ice Skaters,calc_collision_forward.py,x,120.00,,,70.00,6.00,0.0,50.00,2.00,4.00,both incoming known; combined velocity unknown
+q22,Conservation of Momentum Bumper Cars,calc_collision_inverse.py,x,260.00,3.00,-1.00,150.00,4.00,0.0,110.00,,,combined and object1 known; object2 unknown
+q23,Conservation of Momentum Cargo Drone Catch,calc_collision_forward.py,x,100.00,,,80.00,30.00,0.0,20.00,10.00,50.00,both incoming known; combined velocity unknown
+q24,Conservation of Momentum Colliding Sleds,calc_collision_inverse.py,x,180.00,7.00,2.00,100.00,10.00,0.0,80.00,,,combined and object1 known; object2 unknown; abs inside sqrt for energy

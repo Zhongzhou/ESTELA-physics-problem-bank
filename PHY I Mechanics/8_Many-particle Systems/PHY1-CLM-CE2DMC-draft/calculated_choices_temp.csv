@@ -1,0 +1,25 @@
+id,title,script,correct,drop_perp,conserve_ke,vec_sub_no_mass,one_d_momentum,speed_diff,all_six_distinct
+q1,Conservation of Momentum Exploding Shell,calc_split.py,288.60,286.67,282.96,53.85,284.08,-23.88,True
+q2,Conservation of Momentum Rocket Separation,calc_split.py,5012.24,5009.99,5009.23,50.11,5009.24,3.08,True
+q3,Conservation of Momentum Space Debris Fracture,calc_split.py,8066.94,8066.67,8065.56,141.42,8066.24,99.37,True
+q4,Conservation of Momentum Exploding Ice Block,calc_split.py,5.39,5.00,4.58,1.34,4.66,0.39,True
+q5,Conservation of Momentum Exploding Firework,calc_split.py,81.99,73.33,44.72,65.19,45.33,-7.01,True
+q6,Conservation of Momentum Alpha Decay,calc_split.py,5004.44,204.72,617.97,84.75,-811.37,-17.14,True
+q7,Conservation of Momentum Skater Throws Bag,calc_split.py,4.53,4.50,4.12,4.24,4.41,-3.54,True
+q8,Conservation of Momentum Submarine Launches Drone,calc_split.py,15.69,14.90,14.04,0.14,14.88,0.10,True
+q9,Conservation of Momentum Space-ship Launches Pod,calc_split.py,1947.62,1944.44,1907.59,1118.03,1923.05,-692.58,True
+q10,Conservation of Momentum Passenger Jumps from Bumper Car,calc_split.py,5.59,5.00,3.80,2.03,4.02,0.65,True
+q11,Conservation of Momentum Hovercraft Pushes Crate,calc_split.py,14.49,14.44,13.94,11.18,14.18,-7.36,True
+q12,Conservation of Momentum Sled Launches Package,calc_split.py,13.45,12.03,11.02,0.99,11.70,0.51,True
+q13,Conservation of Momentum Colliding Asteroids,calc_collision_forward.py,14.14,10.00,24.49,42.43,23.87,-11.62,True
+q14,Conservation of Momentum Colliding Mud Balls,calc_collision_inverse.py,4.47,2.00,5.48,3.35,2.42,-2.84,True
+q15,Conservation of Momentum Football Tackle,calc_collision_forward.py,1.28,0.86,7.67,15.13,7.66,0.72,True
+q16,Conservation of Momentum Shopping Carts,calc_collision_inverse.py,5.13,4.80,4.84,1.41,5.02,1.12,True
+q17,Conservation of Momentum Space Probe Docking,calc_collision_forward.py,914.11,900.00,988.94,943.40,988.68,56.60,True
+q18,Conservation of Momentum Clay Projectiles,calc_collision_inverse.py,31.62,-10.00,44.72,22.36,-5.13,-18.38,True
+q19,Conservation of Momentum Train Car Coupling,calc_collision_forward.py,3.74,3.71,4.05,3.16,3.82,2.76,True
+q20,Conservation of Momentum Rafts Linking,calc_collision_inverse.py,1.50,0.00,0.55,0.72,0.62,-0.15,True
+q21,Conservation of Momentum Ice Skaters,calc_collision_forward.py,4.64,4.33,5.42,5.66,5.36,1.53,True
+q22,Conservation of Momentum Bumper Cars,calc_collision_inverse.py,2.87,1.64,1.35,1.41,2.02,-0.84,True
+q23,Conservation of Momentum Cargo Drone Catch,calc_collision_forward.py,27.86,26.00,35.21,53.85,34.20,-20.99,True
+q24,Conservation of Momentum Colliding Sleds,calc_collision_inverse.py,5.55,3.25,2.40,3.61,3.88,-2.72,True
