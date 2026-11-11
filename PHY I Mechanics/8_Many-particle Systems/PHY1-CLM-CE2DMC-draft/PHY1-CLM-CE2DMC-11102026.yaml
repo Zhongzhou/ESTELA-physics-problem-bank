@@ -1,71 +1,32 @@
 bank_info:
     title: Collision and Explosion in 2D
-    bank_id: PHY1-CLM-CE2DMC-11102026-draft #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    bank_id: PHY1-CLM-CE2DMC-11102026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
-    date created: 10-23-2025 # Today's date 
-    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
+      Multiple-choice conversion of the numerical bank PHY1-CLM-CE2D-10232025. Each problem asks for a speed after a split, a launch, or a sticking collision in two dimensions.
+    date created: 11-10-2026 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |
-            I would like to create physics problems involving conservation of linear momentum. I would like to find 15 situations in which one object, traveling in a straight line, either split/explodes into two pieces, or launches an object in a direction. For example: 
-            a piece of firework traveling directly upwards explodes into two pieces, 
-            A roller skater skating in a straight line throws a heavy backpack at an angle.
-            A space-ship cruising in space launches an exploration pod
-            Avoid objects that are subjected to significant air or water resistance, such as feather or parashoot, but small resistance such as a submarine is fine. The masses of the objects shouldn't be too different, for example, a skater and a backpack is fine but a skater and a ping-pong ball is too different. The launched object must be launched at an angle from the initial path of travel.
-        - prompt 2: | 
-            Update the above list following those requirements:
-                1. The object shouldn't be restricted by a track or travel on a rail
-                2. A buoy is subjected to too much external force, consider changing it into a probe or a drone.
-                3. Avoid "dropping" objects that are only subjected to gravity.
-        - prompt 3: |
-            Remove the last three scenarios in the launching category, and add one scenario to the splitting category involving a traveling particle decaying into two sub-particles. Organize all the scenarios into a table.
-        - prompt 4: |
-            Remove the key physics details column and the Category column. Add the following columns:
-                Object_Mass: Mass of the original object
-                Object_velocity: Initial velocity of the original object
-                Piece1_Mass: the mass of the first piece that is split or launched
-                Piece1_x_velocity: Component of the velocity of the first piece in the same direction as the original object.
-                Piece1_y_velocity: Component of the velocity of the first piece perpendicular to the original object.
-                Estimate the values of all those variables for each of the given scenario. 
-        - prompt 5: | # this is several prompts combined together. 
-            I want scenario 6 to be in the classic realm, so the particle velocity should be in m/s, whereas the mass should be in a much smaller unit to avoid very small numbers. This is for introductory level physics students. Also, change the masses to be 10 times smaller for rows 8 and 9, and update the scenario to small submarine and small space-ship.
-            Ok, let's change scenario 6 into a heavy particle undergoing alpha decay. Use a mass unit that is suitable for those particles, and make sure that the velocities are non-relativistic
-            Make the y-component velocity in row 6 1000 times smaller so that it doesn't dominate the resulting particle's motion.
-        - prompt 6: | # the created table is downloaded.
-            I have this table that contains 12 problems involving conservation of linear momentum of an object being exploded or splitted into two pieces. the existing columns contain the initial mass and velocity of the object, the x and y component velocity of the first piece, and the mass of the first piece. Can you please write a python program that calculates the values of the following:
-              mass of the second piece, x and y component velocities of the second piece, and the magnitude of the velocity of the second piece. 
-            Add all those values to the table by adding four columns please
-            Can you update the code so that it calculates the magnitude of the velocity of both the first piece and the second piece?
-        - prompt 7: |
-            Here is the resulting csv file containing all the information. Now try to write a physics problem based on the information in row 1, given the information about the original object and piece 1, asking for the magnitude of the velocity of piece 2. State in the problem that the linear momentum of the system can be seen as conserved immediately before and after the [event in the problem context]. Use \hat{i} to indicate the direction of the original velocity, and i and j to indicate the direction of the first piece.
-        - prompt 8: |
-            I've slightly modified problem 1 to make it read better. Now follow the same style and write a problem for row 2, this time, give the information for piece 2 and ask for the magnitude of velocity of piece 1, round all numbers to 2 decimal places after zero.
-            Please append problem 2 after problem 1 in a single markdown file, and remove Piece 1 and Piece 2 from the problem text.
-        - prompt 9: | # Note: may need to remove problem 2 since it contains a 0 j component velocity.
-            Now write the problem bodies for rows 3-10, alternating between asking for the velocity of piece 1 and the velocity of piece 2.
-        - prompt 10: |
-            Now write the remaining 2 problems please
-        - prompt 11: | # the markdown file is downloaded, and re-uploaded with the csv to generate solutions. This is also a combination of multiple prompts.
-            I have an md file containing the problem body of 12 linear momentum conservation problems, and a csv file containing the numbers used for each problem. Please write a concise solution for problem 1, don't explicitly list the numerical calculation details. Momentum conservation needs to be applied in each direction separately.
-            Make it shorter by using math expressions for the x-direction and y-direction conservation of linear momentum equations to replace the text description.
-            Great, now follow the same format, and construct solutions for problems 2 and 3
-            Now write problem solutions for problems 4-8, following the same template
-            Now write solutions for the remaining 4 problems please.
-        - prompt 12: |
-            Combine all the 12 solutions into a markdown file please
-        - prompt 13: | # yaml formatting prompt
-            I have three files, containing problem bodies, correct numbers, and solutions of 12 physics problem. I would like you to combine the problems, the correct answers, and the solutions into a single yaml file, following yaml format following this example:
-            (yaml example from template file goes here)
-            The yaml file should contain all 12 problems
-        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+            This multiple-choice bank was converted from the numerical bank PHY1-CLM-CE2D-10232025. Each problem keeps its scenario and the speed it asks for. The numerical answer is replaced by one correct choice and five distractors.
+
+            The choice pattern is the q1 set in q1-mc-draft.md. choice-set-adaptation.md assigns the twenty-four problems to three calculations: calc_split.py for the twelve split and launch problems, calc_collision_forward.py for the sticking collisions that ask for the combined speed, and calc_collision_inverse.py for the sticking collisions that ask for one incoming speed. problem_inputs_temp.csv stores the known values, and run_all_calculations.py writes calculated_choices_temp.csv. build_mc_bank.py reads that table and PHY1-CLM-CE2D-10232025.yaml. Two statements were adjusted so the choices stay distinct: q2 gives the main body a vertical velocity component, and q5 takes the initial velocity as vertically upward.
     updates: 
-        - update 1: 
+        - update 1: (11/10/2026) Converted PHY1-CLM-CE2D-10232025 into this multiple-choice draft.
     associated data:
-        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+        - source bank: "../PHY1-CLM-CE2D-10232025/PHY1-CLM-CE2D-10232025.yaml"
+        - choice pattern: "./q1-mc-draft.md"
+        - adaptation plan: "./choice-set-adaptation.md"
+        - split calculation: "./calc_split.py"
+        - forward collision calculation: "./calc_collision_forward.py"
+        - inverse collision calculation: "./calc_collision_inverse.py"
+        - inputs: "./problem_inputs_temp.csv"
+        - calculated choices: "./calculated_choices_temp.csv"
+        - build script: "./build_mc_bank.py"
     generation details: # Details of the creation process
-            model: Gemini # The model used to generate the questions
-            version: 2.5 Fast and 2.5 Pro # The version of the model used
-            last updated: 10-23-2025 # The date of the last update of the generation prompts.
+            model: Cursor Grok # The model used to generate the questions
+            version: 4.7 # The version of the model used
+            last updated: 11-10-2026 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen
 

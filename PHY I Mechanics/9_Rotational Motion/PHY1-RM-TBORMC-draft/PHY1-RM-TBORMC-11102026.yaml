@@ -1,60 +1,27 @@
 bank_info:
     title: Torque Balance On a Rod
-    bank_id: PHY1-RM-TBORMC-11102026-draft #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    bank_id: PHY1-RM-TBORMC-11102026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
-      Torque balance on a uniform thin massiv rod, with one force at an angle, and one hanging block. The location of the force the block and the pivot changes between problems.
-    date created: 11-11-2025 # Today's date 
-    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
+      Multiple-choice conversion of the numerical bank PHY1-RM-TBOR-11112025. Torque balance on a uniform thin rod, with one force at an angle and one hanging block. The locations of the force, the block, and the pivot change between problems.
+    date created: 11-10-2026 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |
-            I want to create physics problems on the balance of torques of a uniform thin rod of mass m and length L, rotating around a fixed pivot, involving a hanging block of mass M, and an external force applied on the rod pointing up at an angle of 30 degrees with respect to the vertical direction. 
-            I would first like to create a table containing the possible variations of the problems. The table should contain the position of the pivot, the hanging block, and the location of the applied force. All the positions are measured by fraction of rod length to the right end of the rod, and for now it can take 4 values: 0, 1/4, 3/4, 1. 
-            First, the pivot can be at any of the four positions. Second, the hanging block can be at any of the remaining 3 positions. Finally, the Force can be at the remaining 2 positions. 
-            However, we need to remove the case in which both masses are on the opposite end of the pivot as the force. Those cases are: all cases in which pivot is at 1/4 and force at 0, and all cases in which pivot is at 3/4 and force at 1. Create this table first.
-        - prompt 2: | 
-            Ok, for all cases where block is at 1/4, add a variation where the block is at 1/8. For all cases where block is at 3/4, add a variation where the block is at 3/4, add a variation where the block is at 7/8.
-        - prompt 3: |
-            Next, add three new columns to the above table: Torque by block, torque by rod, torque by Force. The weight of the block can chosen from either 4N, 8N, 16N, or 32 N, and the weight of the rod should be also chosen from those values, but different from the block. The weight of the rod is always at the position of 1/2. Torque is positive if the position of block or rod is greater than position of the pivot, and vice versa. The torque by the force should balance the total torque.
-        - prompt 4: |
-            Now check if the numbers generated are consistent with the fact that the force is pointing upwards, according to the following rules: if the position of force is greater than the position of the pivot, the torque should be negative. If the force position is less than the position of the pivot, the torque should be positive. Identify all the rows that violates this requirement.
-        - prompt 4.1: |
-            In both cases, try reduce the block weight and increase the rod weight, so that the sign of the torque is flipped.
-            replace those two sets of numbers in the original table please.
-        - prompt 5: |
-            Now add two last columns: a Force column, which is the value of the force, assuming that the force is applied at 60 degree with respect to the vertical and 30 degree with respect to the horizontal, so the perpendicular component is half of the original component. Next add a column named "unknown", which is the unknown variable, which rotates between F, W_rod, W_block.
-        - prompt 6: |
-            Now try and write a problem body for the row 1 in the data table attached. The problem body should state that the rotating rod is in static equilibrium, the length of the rod is L = 1m, the rod is in a horizontal position. The force is applied at an angle of 60 degree with respect to the vertical direction, as shown in the image. All distances are with respect to the right end of the rod. Express distance as the fraction of the rod length L. In case of 0, state "at the right end", in case of "1" state "at the left end". Ask students to round their answer to the nearest integer. Don't include a separate "Question" heading. Also generate a concise solution to the problem, using data in row 1 of the attached table.
-        - prompt 7: |
-            Now write the problem body and solution for the first 3 rows of the table, using the exact same format as above, just replacing the values of different variables, and replacing the question part according to the unknown column in the table.
-        - prompt 8: |
-            In this python notebook there is a function to create the image for the problems. Using that function (do not change anything about it), create diagrams for the first three problems, using the parameters in the first three rows of the table above, and setting the angle to 60. The filenames of the output file should contain the question number, and the position of the pivot, block and force, for example "q1_p0_b_18_f34.png" (for the first row).
-            Looks great, now please create figures in the same fashion for rows 4 to 31 of the table.
-            Please create a zip file with all 30 images bundled.
-            Can you re-generate q17 with on modification to the original script: instead of ax.set_xlim(-0.1*L, 1.1*L), do ax.set_xlim(-0.1*L, 1.5*L)
-            Great, now please apply this change to the script and re-generate all the figures, and create a downloadable zip file.
-        - prompt 9: |
-            Let's update the csv table by adding a column named "Figure", which contains the corresponding image file name for each row.
-        - prompt 10: |
-            Now help me turn the first three questions and solution from the attached md file into the following yaml format:
-            The figure should be the figure names in the "Figures" column in the attached table (which you just generated).
-        - prompt 11: |
-            Now let's work on problem bodies and solutions of problems 4-9. The data table is attached here. Your problem bodies should be based almost exactly on problem bodies 1-3 (see the markdown file). For problems with F as unknown, base it off of problem 1, for problems with  W_rod as unkown, base it off of problem 2. For problems with W_block as unkown, base it off of problem 3. Update the values in the problem body according to the table, and retain the problem text. In the solution, make sure the sign of the torques correspond to the data and the final answer aligns with the table. Output in markdown format first.
-            Regenerate the above, remove the "acting at its center..." part from the problem bodies.
-        - prompt 12: |
-            Now turn all of them into the yaml format according to the example above, and using the figure name information in the uploaded table.
-            The figure file names are all incorrect, correct them according to the "Figure" column in this table. (use rolls 4 - 9)
-        - prompt 13: | # Open a new chat to do problem 10 - 13. Creating yaml directly is still too complicated for the AI.
-            The attached yml file contains three physics problems, the corresponding problem figure, the correct answer, and the corresponding solution for each problem. The attached csv file contains the corresponding data for the problems in the first 3 rows, and corresponding file name for each problem. The markdown file contains the problem bodies and the solutions in markdown format. I would like to first create the markdown for problems 10 - 12, according to the information in rows 10 - 12 of the csv file. For problems with F as unknown, base it off of problem 1, for problems with  W_rod as unkown, base it off of problem 2. For problems with W_block as unkown, base it off of problem 3. Update the values in the problem body according to the table, and retain the problem text. In the solution, make sure the sign of the torques correspond to the data and the final answer aligns with the info in the table. Create the markdown first.
-        - prompt 14: |
-            Now turn the above markdown into yaml file according to the yaml example from problems 1-3
+            This multiple-choice bank was converted from the numerical bank PHY1-RM-TBOR-11112025. Each problem keeps its scenario, figure, and the quantity it asks for. The numerical answer is replaced by one correct choice and six distractors.
+
+            The choice pattern is the q1 set in q1-mc-draft.md. A distractor ignores the 60 degree angle, swaps sine and cosine, gives the two weights the wrong relative torque direction, leaves one weight out, uses the full rod length as the rod's lever arm, or adds the two weights. choice-set-adaptation.md rewrites the roles that name the unknown, and it substitutes a role when two choices would round to the same integer. A few given weights were changed so that no distractor is only 1 N from the correct answer. build_mc_bank.py applies that plan to PHY1-RM-TBOR-11112025.yaml.
     updates: 
+        - update 1: (11/10/2026) Converted PHY1-RM-TBOR-11112025 into this multiple-choice draft.
     associated data:
-        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+        - source bank: "../PHY1-RM-TBOR-11112025/PHY1-RM-TBOR-11112025.yaml"
+        - choice pattern: "./q1-mc-draft.md"
+        - adaptation plan: "./choice-set-adaptation.md"
+        - build script: "./build_mc_bank.py"
     generation details: # Details of the creation process
-            model: GPT-4o # The model used to generate the questions
-            version: 0.0.1 # The version of the model used
-            last updated: 03-06-2025 # The date of the last update of the generation prompts.
+            model: Cursor Grok # The model used to generate the questions
+            version: 4.7 # The version of the model used
+            last updated: 11-10-2026 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen 
         - Spencer Moore

@@ -8,8 +8,8 @@ from fractions import Fraction
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SOURCE = ROOT / "PHY1-RM-TBOR-11112025.yaml"
-OUT = ROOT / "PHY1-RM-TBORMC-11102026-draft.yaml"
+SOURCE = ROOT.parent / "PHY1-RM-TBOR-11112025" / "PHY1-RM-TBOR-11112025.yaml"
+OUT = ROOT / "PHY1-RM-TBORMC-11102026.yaml"
 
 SIN = math.sqrt(3) / 2
 COS = 0.5
@@ -199,12 +199,7 @@ def choices_for(q: int) -> list[tuple[int, bool]]:
 
 def load_questions() -> list[dict[str, str]]:
     raw = SOURCE.read_text(encoding="utf-8")
-    meta, body = raw.split("questions:", 1)
-    meta = meta.replace(
-        "bank_id: PHY1-RM-TBOR-11112025",
-        "bank_id: PHY1-RM-TBORMC-11102026-draft",
-        1,
-    )
+    _, body = raw.split("questions:", 1)
     chunks = re.split(r"\n- numerical:\n", body)[1:]
     questions = []
     for chunk in chunks:
@@ -215,7 +210,7 @@ def load_questions() -> list[dict[str, str]]:
         lines = [line[4:] if line.startswith("    ") else line for line in text.splitlines()]
         problem = "\n".join(lines).strip("\n")
         questions.append({"id": qid, "title": title, "figure": figure, "text": problem})
-    return meta, questions
+    return questions
 
 
 def solution(q: int) -> str:
@@ -272,9 +267,10 @@ def emit(meta: str, questions: list[dict[str, str]]) -> str:
 
 
 def main() -> None:
-    meta, questions = load_questions()
+    questions = load_questions()
     if len(questions) != 30:
         raise SystemExit(f"expected 30 questions, found {len(questions)}")
+    meta = OUT.read_text(encoding="utf-8").split("questions:", 1)[0]
     OUT.write_text(emit(meta, questions), encoding="utf-8")
     print(f"wrote {OUT.name}")
     for q in range(1, 31):
