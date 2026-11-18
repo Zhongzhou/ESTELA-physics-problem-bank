@@ -7,9 +7,9 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SOURCE = ROOT / "PHY1-CLM-CE2D-10232025.yaml"
+SOURCE = ROOT.parent / "PHY1-CLM-CE2D-10232025" / "PHY1-CLM-CE2D-10232025.yaml"
 CHOICES = ROOT / "calculated_choices_temp.csv"
-OUT = ROOT / "PHY1-CLM-CE2DMC-11102026-draft.yaml"
+OUT = ROOT / "PHY1-CLM-CE2DMC-11102026.yaml"
 
 CHOICE_KEYS = [
     "correct",
@@ -34,13 +34,8 @@ Q5_NEW = (
 )
 
 
-def load_questions(meta_and_body: str) -> tuple[str, list[dict[str, str]]]:
-    meta, body = meta_and_body.split("questions:", 1)
-    meta = meta.replace(
-        "bank_id: PHY1-CLM-CE2D-10232025",
-        "bank_id: PHY1-CLM-CE2DMC-11102026-draft",
-        1,
-    )
+def load_questions(meta_and_body: str) -> list[dict[str, str]]:
+    _, body = meta_and_body.split("questions:", 1)
     chunks = re.split(r"\n- numerical:\n", body)[1:]
     questions = []
     for chunk in chunks:
@@ -61,7 +56,7 @@ def load_questions(meta_and_body: str) -> tuple[str, list[dict[str, str]]]:
                 raise SystemExit("q5 initial-velocity text was not found")
             problem = problem.replace(Q5_OLD, Q5_NEW, 1)
         questions.append({"id": qid, "title": title, "text": problem})
-    return meta, questions
+    return questions
 
 
 def load_choices() -> dict[str, list[str]]:
@@ -101,10 +96,11 @@ def emit(meta: str, questions: list[dict[str, str]], choices: dict[str, list[str
 
 
 def main() -> None:
-    meta, questions = load_questions(SOURCE.read_text(encoding="utf-8"))
+    questions = load_questions(SOURCE.read_text(encoding="utf-8"))
     choices = load_choices()
     if [item["id"] for item in questions] != [f"q{n}" for n in range(1, 25)]:
         raise SystemExit("expected q1 through q24")
+    meta = OUT.read_text(encoding="utf-8").split("questions:", 1)[0]
     OUT.write_text(emit(meta, questions, choices), encoding="utf-8")
     print(f"wrote {OUT.name} ({len(questions)} questions)")
 
