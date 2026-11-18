@@ -13,10 +13,13 @@ bank_info:
             The choice pattern is the q1 set in q1-mc-draft.md. choice-set-adaptation.md assigns the twenty-four problems to three calculations: calc_split.py for the twelve split and launch problems, calc_collision_forward.py for the sticking collisions that ask for the combined speed, and calc_collision_inverse.py for the sticking collisions that ask for one incoming speed. problem_inputs_temp.csv stores the known values, and run_all_calculations.py writes calculated_choices_temp.csv. build_mc_bank.py reads that table and PHY1-CLM-CE2D-10232025.yaml. Two statements were adjusted so the choices stay distinct: q2 gives the main body a vertical velocity component, and q5 takes the initial velocity as vertically upward.
     updates: 
         - update 1: (11/10/2026) Converted PHY1-CLM-CE2D-10232025 into this multiple-choice draft.
+        - update 2: |
+            (11/17/2026) Zhongzhou Chen revised the choices following update-plan.md. Printed speeds are absolute values, and every item has six distinct choices at least 0.10 m/s apart, with no wrong choice within 5% of the key. Sideways velocities were increased where distractors landed on the key (q1–q4, q7, q8, q15–q17, q20–q22); q9 and q11 also change a piece mass. q6 is an alpha decay of a few MeV. q19 is two hockey players on ice instead of train cars on merging rails. q7–q12 name both objects and their combined mass. q1 now says "two decimal places." Choice order is unchanged.
     associated data:
         - source bank: "../PHY1-CLM-CE2D-10232025/PHY1-CLM-CE2D-10232025.yaml"
         - choice pattern: "./q1-mc-draft.md"
         - adaptation plan: "./choice-set-adaptation.md"
+        - update plan: "./update-plan.md"
         - split calculation: "./calc_split.py"
         - forward collision calculation: "./calc_collision_forward.py"
         - inverse collision calculation: "./calc_collision_inverse.py"
@@ -26,7 +29,7 @@ bank_info:
     generation details: # Details of the creation process
             model: Cursor Grok # The model used to generate the questions
             version: 4.7 # The version of the model used
-            last updated: 11-10-2026 # The date of the last update of the generation prompts.
+            last updated: 11-17-2026 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen
 

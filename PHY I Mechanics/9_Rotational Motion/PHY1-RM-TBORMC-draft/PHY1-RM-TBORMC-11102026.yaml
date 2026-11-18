@@ -13,15 +13,18 @@ bank_info:
             The choice pattern is the q1 set in q1-mc-draft.md. A distractor ignores the 60 degree angle, swaps sine and cosine, gives the two weights the wrong relative torque direction, leaves one weight out, uses the full rod length as the rod's lever arm, or adds the two weights. choice-set-adaptation.md rewrites the roles that name the unknown, and it substitutes a role when two choices would round to the same integer. A few given weights were changed so that no distractor is only 1 N from the correct answer. build_mc_bank.py applies that plan to PHY1-RM-TBOR-11112025.yaml.
     updates: 
         - update 1: (11/10/2026) Converted PHY1-RM-TBOR-11112025 into this multiple-choice draft.
+        - update 2: |
+            (11/17/2026) Zhongzhou Chen replaced the 4, 8, 16, and 32 N weights and keys with the givens in update-plan.md, then rebuilt the six distractors from the same roles. The balance used is (x_F - x_p) F/2 = (0.5 - x_p) W_r + (x_b - x_p) W_b, and each unknown is rounded to the nearest integer. Positions, L = 1.0 m, the 60 degree angle, the figures, and the choice order stay. Pairs of wrong answers 1 N apart were left in place. q8 uses F = 120 N so the rod weight is 26 N rather than 8 N.
     associated data:
         - source bank: "../PHY1-RM-TBOR-11112025/PHY1-RM-TBOR-11112025.yaml"
         - choice pattern: "./q1-mc-draft.md"
         - adaptation plan: "./choice-set-adaptation.md"
+        - update plan: "./update-plan.md"
         - build script: "./build_mc_bank.py"
     generation details: # Details of the creation process
             model: Cursor Grok # The model used to generate the questions
             version: 4.7 # The version of the model used
-            last updated: 11-10-2026 # The date of the last update of the generation prompts.
+            last updated: 11-17-2026 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen 
         - Spencer Moore
