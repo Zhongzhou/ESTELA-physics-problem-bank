@@ -12,7 +12,7 @@ An external force **F** is applied on the rod **at $\tfrac{3}{4}L$ from the righ
 
 Determine the **magnitude of the force $F$** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
 
-![Rod in equilibrium: pivot at the right end, block at L/8, force at 3L/4, 60 degrees from the vertical](q1_p0_b_18_f34.png)
+![Rod in equilibrium: pivot at the right end, block at L/8, force at 3L/4, 60 degrees from the vertical](Figures/q1_p0_b_18_f34.png)
 
 The original bank names this figure `q1_p0_b_18_f34.png` but does not store the image file. The copy here was regenerated with that bank’s `draw_beam_diagram` function: pivot at the right end, block at $L/8$, force at $3L/4$, and $\theta = 60^\circ$ from the vertical.
 

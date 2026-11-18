@@ -1,71 +1,32 @@
 bank_info:
     title: Collision and Explosion in 2D
-    bank_id: PHY1-CLM-CE2DMC-11102026-draft #Subject-Unit-Abbreviation_of_title_or_any_string-date
+    bank_id: PHY1-CLM-CE2DMC-11102026 #Subject-Unit-Abbreviation_of_title_or_any_string-date
     description: |-
-    date created: 10-23-2025 # Today's date 
-    status: ready # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
+      Multiple-choice conversion of the numerical bank PHY1-CLM-CE2D-10232025. Each problem asks for a speed after a split, a launch, or a sticking collision in two dimensions.
+    date created: 11-10-2026 # Today's date 
+    status: draft # Only use 'draft', 'ready', 'deployed', and 'deprecated' for this field.
     learning objectives:
     generation prompts: # The following are the prompts that generated the questions in the problem bank.
         - prompt 1: |
-            I would like to create physics problems involving conservation of linear momentum. I would like to find 15 situations in which one object, traveling in a straight line, either split/explodes into two pieces, or launches an object in a direction. For example: 
-            a piece of firework traveling directly upwards explodes into two pieces, 
-            A roller skater skating in a straight line throws a heavy backpack at an angle.
-            A space-ship cruising in space launches an exploration pod
-            Avoid objects that are subjected to significant air or water resistance, such as feather or parashoot, but small resistance such as a submarine is fine. The masses of the objects shouldn't be too different, for example, a skater and a backpack is fine but a skater and a ping-pong ball is too different. The launched object must be launched at an angle from the initial path of travel.
-        - prompt 2: | 
-            Update the above list following those requirements:
-                1. The object shouldn't be restricted by a track or travel on a rail
-                2. A buoy is subjected to too much external force, consider changing it into a probe or a drone.
-                3. Avoid "dropping" objects that are only subjected to gravity.
-        - prompt 3: |
-            Remove the last three scenarios in the launching category, and add one scenario to the splitting category involving a traveling particle decaying into two sub-particles. Organize all the scenarios into a table.
-        - prompt 4: |
-            Remove the key physics details column and the Category column. Add the following columns:
-                Object_Mass: Mass of the original object
-                Object_velocity: Initial velocity of the original object
-                Piece1_Mass: the mass of the first piece that is split or launched
-                Piece1_x_velocity: Component of the velocity of the first piece in the same direction as the original object.
-                Piece1_y_velocity: Component of the velocity of the first piece perpendicular to the original object.
-                Estimate the values of all those variables for each of the given scenario. 
-        - prompt 5: | # this is several prompts combined together. 
-            I want scenario 6 to be in the classic realm, so the particle velocity should be in m/s, whereas the mass should be in a much smaller unit to avoid very small numbers. This is for introductory level physics students. Also, change the masses to be 10 times smaller for rows 8 and 9, and update the scenario to small submarine and small space-ship.
-            Ok, let's change scenario 6 into a heavy particle undergoing alpha decay. Use a mass unit that is suitable for those particles, and make sure that the velocities are non-relativistic
-            Make the y-component velocity in row 6 1000 times smaller so that it doesn't dominate the resulting particle's motion.
-        - prompt 6: | # the created table is downloaded.
-            I have this table that contains 12 problems involving conservation of linear momentum of an object being exploded or splitted into two pieces. the existing columns contain the initial mass and velocity of the object, the x and y component velocity of the first piece, and the mass of the first piece. Can you please write a python program that calculates the values of the following:
-              mass of the second piece, x and y component velocities of the second piece, and the magnitude of the velocity of the second piece. 
-            Add all those values to the table by adding four columns please
-            Can you update the code so that it calculates the magnitude of the velocity of both the first piece and the second piece?
-        - prompt 7: |
-            Here is the resulting csv file containing all the information. Now try to write a physics problem based on the information in row 1, given the information about the original object and piece 1, asking for the magnitude of the velocity of piece 2. State in the problem that the linear momentum of the system can be seen as conserved immediately before and after the [event in the problem context]. Use \hat{i} to indicate the direction of the original velocity, and i and j to indicate the direction of the first piece.
-        - prompt 8: |
-            I've slightly modified problem 1 to make it read better. Now follow the same style and write a problem for row 2, this time, give the information for piece 2 and ask for the magnitude of velocity of piece 1, round all numbers to 2 decimal places after zero.
-            Please append problem 2 after problem 1 in a single markdown file, and remove Piece 1 and Piece 2 from the problem text.
-        - prompt 9: | # Note: may need to remove problem 2 since it contains a 0 j component velocity.
-            Now write the problem bodies for rows 3-10, alternating between asking for the velocity of piece 1 and the velocity of piece 2.
-        - prompt 10: |
-            Now write the remaining 2 problems please
-        - prompt 11: | # the markdown file is downloaded, and re-uploaded with the csv to generate solutions. This is also a combination of multiple prompts.
-            I have an md file containing the problem body of 12 linear momentum conservation problems, and a csv file containing the numbers used for each problem. Please write a concise solution for problem 1, don't explicitly list the numerical calculation details. Momentum conservation needs to be applied in each direction separately.
-            Make it shorter by using math expressions for the x-direction and y-direction conservation of linear momentum equations to replace the text description.
-            Great, now follow the same format, and construct solutions for problems 2 and 3
-            Now write problem solutions for problems 4-8, following the same template
-            Now write solutions for the remaining 4 problems please.
-        - prompt 12: |
-            Combine all the 12 solutions into a markdown file please
-        - prompt 13: | # yaml formatting prompt
-            I have three files, containing problem bodies, correct numbers, and solutions of 12 physics problem. I would like you to combine the problems, the correct answers, and the solutions into a single yaml file, following yaml format following this example:
-            (yaml example from template file goes here)
-            The yaml file should contain all 12 problems
-        - formatting prompt: "./YAML_formatting_prompt.md" #modify as needed.
+            This multiple-choice bank was converted from the numerical bank PHY1-CLM-CE2D-10232025. Each problem keeps its scenario and the speed it asks for. The numerical answer is replaced by one correct choice and five distractors.
+
+            The choice pattern is the q1 set in q1-mc-draft.md. choice-set-adaptation.md assigns the twenty-four problems to three calculations: calc_split.py for the twelve split and launch problems, calc_collision_forward.py for the sticking collisions that ask for the combined speed, and calc_collision_inverse.py for the sticking collisions that ask for one incoming speed. problem_inputs_temp.csv stores the known values, and run_all_calculations.py writes calculated_choices_temp.csv. build_mc_bank.py reads that table and PHY1-CLM-CE2D-10232025.yaml. Two statements were adjusted so the choices stay distinct: q2 gives the main body a vertical velocity component, and q5 takes the initial velocity as vertically upward.
     updates: 
-        - update 1: 
+        - update 1: (11/10/2026) Converted PHY1-CLM-CE2D-10232025 into this multiple-choice draft.
     associated data:
-        - random number generation script: "./PHY1-F-OFKF-030625-script.py" # This can be any tables or files created as part of the process.
+        - source bank: "../PHY1-CLM-CE2D-10232025/PHY1-CLM-CE2D-10232025.yaml"
+        - choice pattern: "./q1-mc-draft.md"
+        - adaptation plan: "./choice-set-adaptation.md"
+        - split calculation: "./calc_split.py"
+        - forward collision calculation: "./calc_collision_forward.py"
+        - inverse collision calculation: "./calc_collision_inverse.py"
+        - inputs: "./problem_inputs_temp.csv"
+        - calculated choices: "./calculated_choices_temp.csv"
+        - build script: "./build_mc_bank.py"
     generation details: # Details of the creation process
-            model: Gemini # The model used to generate the questions
-            version: 2.5 Fast and 2.5 Pro # The version of the model used
-            last updated: 10-23-2025 # The date of the last update of the generation prompts.
+            model: Cursor Grok # The model used to generate the questions
+            version: 4.7 # The version of the model used
+            last updated: 11-10-2026 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen
 
@@ -77,31 +38,31 @@ questions:
     text: |
         A <latex>10.0 \text{ kg}</latex> cannon shell is traveling with an initial velocity of <latex>\vec{V} = (300 \hat{i}) \text{ m/s}</latex> when it suddenly explodes into two fragments.
         
-        Immediately after the explosion, one fragment has a mass of <latex>4.0 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (320 \hat{i} + 50 \hat{j}) \text{ m/s}</latex>.
+        Immediately after the explosion, one fragment has a mass of <latex>4.0 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (320 \hat{i} + 150 \hat{j}) \text{ m/s}</latex>.
         
-        Assuming the linear momentum of the shell system is conserved immediately before and after the explosion, what is the magnitude of the velocity of the second fragment? Round your answer to two decimal places after zero.
+        Assuming the linear momentum of the shell system is conserved immediately before and after the explosion, what is the magnitude of the velocity of the second fragment? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 288.60 m/s
+            text: 303.61 m/s
             correct: true
         - answer:
             text: 286.67 m/s
             correct: false
         - answer:
-            text: 282.96 m/s
+            text: 258.33 m/s
             correct: false
         - answer:
-            text: 53.85 m/s
+            text: 151.33 m/s
             correct: false
         - answer:
-            text: 284.08 m/s
+            text: 264.39 m/s
             correct: false
         - answer:
-            text: -23.88 m/s
+            text: 53.41 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>288.60\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>303.61\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -112,31 +73,31 @@ questions:
     text: |
         A <latex>200.00 \text{ kg}</latex> small sounding rocket is traveling in deep space with an initial velocity of <latex>\vec{V} = (5000.00 \hat{i}) \text{ m/s}</latex> when it separates its payload section from the main body.
         
-        Immediately after the separation, the main body, which has a mass of <latex>150.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (4996.67 \hat{i} - 50.00 \hat{j}) \text{ m/s}</latex>. The separated payload section has the remaining mass of <latex>50.00 \text{ kg}</latex>.
+        Immediately after the separation, the main body, which has a mass of <latex>150.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (4996.67 \hat{i} - 600.00 \hat{j}) \text{ m/s}</latex>. The separated payload section has the remaining mass of <latex>50.00 \text{ kg}</latex>.
         
         Assuming the linear momentum of the rocket system is conserved immediately before and after the separation, what is the magnitude of the velocity of the payload section? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 5012.24 m/s
+            text: 5323.53 m/s
             correct: true
         - answer:
             text: 5009.99 m/s
             correct: false
         - answer:
-            text: 5009.23 m/s
+            text: 4901.01 m/s
             correct: false
         - answer:
-            text: 50.11 m/s
+            text: 600.01 m/s
             correct: false
         - answer:
-            text: 5009.24 m/s
+            text: 4902.30 m/s
             correct: false
         - answer:
-            text: 3.08 m/s
+            text: 32.57 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>5012.24\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>5323.53\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -147,31 +108,31 @@ questions:
     text: |
         A <latex>50.00 \text{ kg}</latex> fragment of space debris traveling in a straight line with an initial velocity of <latex>\vec{V} = (8000.00 \hat{i}) \text{ m/s}</latex> fractures internally into two pieces.
         
-        Immediately after fracturing, one piece has a mass of <latex>20.00 \text{ kg}</latex> and is observed to be moving with a velocity of <latex>\vec{v}_1 = (7900.00 \hat{i} + 100.00 \hat{j}) \text{ m/s}</latex>. The second piece has the remaining mass of <latex>30.00 \text{ kg}</latex>.
+        Immediately after fracturing, one piece has a mass of <latex>20.00 \text{ kg}</latex> and is observed to be moving with a velocity of <latex>\vec{v}_1 = (7900.00 \hat{i} + 4500.00 \hat{j}) \text{ m/s}</latex>. The second piece has the remaining mass of <latex>30.00 \text{ kg}</latex>.
         
         Assuming the linear momentum of the system is conserved immediately before and after the fracture, what is the magnitude of the velocity of the second piece? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 8066.94 m/s
+            text: 8606.46 m/s
             correct: true
         - answer:
             text: 8066.67 m/s
             correct: false
         - answer:
-            text: 8065.56 m/s
+            text: 7180.53 m/s
             correct: false
         - answer:
-            text: 141.42 m/s
+            text: 4501.11 m/s
             correct: false
         - answer:
-            text: 8066.24 m/s
+            text: 7272.16 m/s
             correct: false
         - answer:
-            text: 99.37 m/s
+            text: 1091.75 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>8066.94\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>8606.46\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -182,31 +143,31 @@ questions:
     text: |
         A <latex>80.00 \text{ kg}</latex> large block of ice sliding frictionlessly across a frozen lake with an initial velocity of <latex>\vec{V} = (4.00 \hat{i}) \text{ m/s}</latex> explodes into two pieces.
         
-        Immediately after the explosion, one piece, which has a mass of <latex>50.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (3.40 \hat{i} - 1.20 \hat{j}) \text{ m/s}</latex>. The other piece has the remaining mass of <latex>30.00 \text{ kg}</latex>.
+        Immediately after the explosion, one piece, which has a mass of <latex>50.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (3.40 \hat{i} - 3.50 \hat{j}) \text{ m/s}</latex>. The other piece has the remaining mass of <latex>30.00 \text{ kg}</latex>.
         
         Assuming the linear momentum of the system is conserved immediately before and after the explosion, what is the magnitude of the velocity of the other piece? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 5.39 m/s
+            text: 7.68 m/s
             correct: true
         - answer:
             text: 5.00 m/s
             correct: false
         - answer:
-            text: 4.58 m/s
+            text: 1.73 m/s
             correct: false
         - answer:
-            text: 1.34 m/s
+            text: 3.55 m/s
             correct: false
         - answer:
-            text: 4.66 m/s
+            text: 2.53 m/s
             correct: false
         - answer:
-            text: 0.39 m/s
+            text: 0.88 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>5.39\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>7.68\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -237,7 +198,7 @@ questions:
             text: 45.33 m/s
             correct: false
         - answer:
-            text: -7.01 m/s
+            text: 7.01 m/s
             correct: false
     feedback:
         general: |
@@ -250,33 +211,33 @@ questions:
     title: Conservation of Momentum Alpha Decay
     points: 3
     text: |
-        A <latex>240.00 \text{ u}</latex> heavy nucleus (parent) moving in a straight line with an initial velocity of <latex>\vec{V} = (200.00 \hat{i}) \text{ m/s}</latex> undergoes alpha decay.
+        A <latex>240.00 \text{ u}</latex> heavy nucleus (parent) moving in a straight line with an initial velocity of <latex>\vec{V} = (6.00 \times 10^{5} \hat{i}) \text{ m/s}</latex> undergoes alpha decay.
         
-        Immediately after the decay, the resulting daughter nucleus, which has a mass of <latex>236.00 \text{ u}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (199.92 \hat{i} - 84.75 \hat{j}) \text{ m/s}</latex>. The emitted alpha particle has the remaining mass of <latex>4.00 \text{ u}</latex>.
+        Immediately after the decay, the resulting daughter nucleus, which has a mass of <latex>236.00 \text{ u}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (6.00 \times 10^{5} \hat{i} - 2.50 \times 10^{5} \hat{j}) \text{ m/s}</latex>. The emitted alpha particle has the remaining mass of <latex>4.00 \text{ u}</latex>.
         
         Assuming the linear momentum of the system is conserved immediately before and after the decay, what is the magnitude of the velocity of the alpha particle? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 5004.44 m/s
+            text: 14762198.35 m/s
             correct: true
         - answer:
-            text: 204.72 m/s
+            text: 600000.00 m/s
             correct: false
         - answer:
-            text: 617.97 m/s
+            text: 1824143.63 m/s
             correct: false
         - answer:
-            text: 84.75 m/s
+            text: 250000.00 m/s
             correct: false
         - answer:
-            text: -811.37 m/s
+            text: 2350000.00 m/s
             correct: false
         - answer:
-            text: -17.14 m/s
+            text: 50000.00 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>5004.44\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>14762198.35\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -285,33 +246,33 @@ questions:
     title: Conservation of Momentum Skater Throws Bag
     points: 3
     text: |
-        A <latex>70.00 \text{ kg}</latex> roller skater is skating on a smooth surface with an initial velocity of <latex>\vec{V} = (5.00 \hat{i}) \text{ m/s}</latex> when they throw a heavy gym bag.
+        A roller skater carrying a gym bag, with a total mass of <latex>70.00 \text{ kg}</latex>, is skating on a smooth surface with an initial velocity of <latex>\vec{V} = (5.00 \hat{i}) \text{ m/s}</latex> when they throw a heavy gym bag.
         
-        Immediately after throwing the bag, the gym bag, which has a mass of <latex>10.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (8.00 \hat{i} + 3.00 \hat{j}) \text{ m/s}</latex>. The skater has the remaining mass of <latex>60.00 \text{ kg}</latex>.
+        Immediately after throwing the bag, the gym bag, which has a mass of <latex>10.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (8.00 \hat{i} + 10.00 \hat{j}) \text{ m/s}</latex>. The skater has the remaining mass of <latex>60.00 \text{ kg}</latex>.
         
         Assuming the linear momentum of the skater-bag system is conserved immediately before and after the throw, what is the magnitude of the velocity of the skater? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 4.53 m/s
+            text: 4.80 m/s
             correct: true
         - answer:
             text: 4.50 m/s
             correct: false
         - answer:
-            text: 4.12 m/s
+            text: 1.35 m/s
             correct: false
         - answer:
-            text: 4.24 m/s
+            text: 10.44 m/s
             correct: false
         - answer:
-            text: 4.41 m/s
+            text: 3.70 m/s
             correct: false
         - answer:
-            text: -3.54 m/s
+            text: 7.81 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>4.53\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>4.80\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -320,33 +281,33 @@ questions:
     title: Conservation of Momentum Submarine Launches Drone
     points: 3
     text: |
-        A <latex>10000.00 \text{ kg}</latex> small submarine is cruising horizontally with an initial velocity of <latex>\vec{V} = (10.00 \hat{i}) \text{ m/s}</latex> when it launches an underwater exploration drone.
+        A small submarine carrying an exploration drone, with a total mass of <latex>10000.00 \text{ kg}</latex>, is cruising horizontally with an initial velocity of <latex>\vec{V} = (10.00 \hat{i}) \text{ m/s}</latex> when it launches an underwater exploration drone.
         
-        Immediately after the launch, the submarine, which has a new mass of <latex>9800.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (9.90 \hat{i} - 0.10 \hat{j}) \text{ m/s}</latex>. The exploration drone has a mass of <latex>200.00 \text{ kg}</latex>.
+        Immediately after the launch, the submarine, which has a new mass of <latex>9800.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (9.90 \hat{i} - 0.50 \hat{j}) \text{ m/s}</latex>. The exploration drone has a mass of <latex>200.00 \text{ kg}</latex>.
         
         Assuming the linear momentum of the submarine-drone system is conserved immediately before and after the launch, what is the magnitude of the velocity of the exploration drone? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 15.69 m/s
+            text: 28.68 m/s
             correct: true
         - answer:
             text: 14.90 m/s
             correct: false
         - answer:
-            text: 14.04 m/s
+            text: 13.61 m/s
             correct: false
         - answer:
-            text: 0.14 m/s
+            text: 0.51 m/s
             correct: false
         - answer:
-            text: 14.88 m/s
+            text: 14.28 m/s
             correct: false
         - answer:
-            text: 0.10 m/s
+            text: 0.09 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>15.69\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>28.68\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -355,33 +316,33 @@ questions:
     title: Conservation of Momentum Space-ship Launches Pod
     points: 3
     text: |
-        A <latex>5000.00 \text{ kg}</latex> small space-ship is cruising in deep space with an initial velocity of <latex>\vec{V} = (2000.00 \hat{i}) \text{ m/s}</latex> when it launches an exploration pod.
+        A small space-ship carrying an exploration pod, with a total mass of <latex>5000.00 \text{ kg}</latex>, is cruising in deep space with an initial velocity of <latex>\vec{V} = (2000.00 \hat{i}) \text{ m/s}</latex> when it launches an exploration pod.
         
-        Immediately after the launch, the exploration pod, which has a mass of <latex>500.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (2500.00 \hat{i} + 1000.00 \hat{j}) \text{ m/s}</latex>. The space-ship has the remaining mass of <latex>4500.00 \text{ kg}</latex>.
+        Immediately after the launch, the exploration pod, which has a mass of <latex>1200.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (4000.00 \hat{i} + 2500.00 \hat{j}) \text{ m/s}</latex>. The space-ship has the remaining mass of <latex>3800.00 \text{ kg}</latex>.
         
         Assuming the linear momentum of the system is conserved immediately before and after the launch, what is the magnitude of the velocity of the space-ship? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 1947.62 m/s
+            text: 1579.82 m/s
             correct: true
         - answer:
-            text: 1944.44 m/s
+            text: 1368.42 m/s
             correct: false
         - answer:
-            text: 1907.59 m/s
+            text: 1327.84 m/s
             correct: false
         - answer:
-            text: 1118.03 m/s
+            text: 3201.56 m/s
             correct: false
         - answer:
-            text: 1923.05 m/s
+            text: 1142.00 m/s
             correct: false
         - answer:
-            text: -692.58 m/s
+            text: 2716.99 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>1947.62\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>1579.82\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -390,7 +351,7 @@ questions:
     title: Conservation of Momentum Passenger Jumps from Bumper Car
     points: 3
     text: |
-        A <latex>180.00 \text{ kg}</latex> bumper car is coasting on a slick surface with an initial velocity of <latex>\vec{V} = (3.00 \hat{i}) \text{ m/s}</latex> when its passenger jumps out.
+        A bumper car carrying its passenger, with a total mass of <latex>180.00 \text{ kg}</latex>, is coasting on a slick surface with an initial velocity of <latex>\vec{V} = (3.00 \hat{i}) \text{ m/s}</latex> when its passenger jumps out.
         
         Immediately after the jump, the bumper car, which has a new mass of <latex>110.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (1.73 \hat{i} - 1.59 \hat{j}) \text{ m/s}</latex>. The passenger has a mass of <latex>70.00 \text{ kg}</latex>.
         
@@ -425,33 +386,33 @@ questions:
     title: Conservation of Momentum Hovercraft Pushes Crate
     points: 3
     text: |
-        A <latex>1000.00 \text{ kg}</latex> hovercraft is moving over a smooth surface with an initial velocity of <latex>\vec{V} = (15.00 \hat{i}) \text{ m/s}</latex> when it pushes a heavy supply crate.
+        A hovercraft carrying a heavy supply crate, with a total mass of <latex>1000.00 \text{ kg}</latex>, is moving over a smooth surface with an initial velocity of <latex>\vec{V} = (15.00 \hat{i}) \text{ m/s}</latex> when it pushes a heavy supply crate.
         
-        Immediately after being pushed, the supply crate, which has a mass of <latex>100.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (20.00 \hat{i} + 10.00 \hat{j}) \text{ m/s}</latex>. The hovercraft has the remaining mass of <latex>900.00 \text{ kg}</latex>.
+        Immediately after being pushed, the supply crate, which has a mass of <latex>250.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_1 = (22.00 \hat{i} + 14.00 \hat{j}) \text{ m/s}</latex>. The hovercraft has the remaining mass of <latex>750.00 \text{ kg}</latex>.
         
         Assuming the linear momentum of the system is conserved immediately before and after the push, what is the magnitude of the velocity of the hovercraft? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 14.49 m/s
+            text: 13.50 m/s
             correct: true
         - answer:
-            text: 14.44 m/s
+            text: 12.67 m/s
             correct: false
         - answer:
-            text: 13.94 m/s
+            text: 8.56 m/s
             correct: false
         - answer:
-            text: 11.18 m/s
+            text: 15.65 m/s
             correct: false
         - answer:
-            text: 14.18 m/s
+            text: 11.31 m/s
             correct: false
         - answer:
-            text: -7.36 m/s
+            text: 11.08 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>14.49\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>13.50\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -460,7 +421,7 @@ questions:
     title: Conservation of Momentum Sled Launches Package
     points: 3
     text: |
-        A <latex>250.00 \text{ kg}</latex> heavy sled is sliding down a gentle, icy slope with an initial velocity of <latex>\vec{V} = (8.00 \hat{i}) \text{ m/s}</latex> when it launches a dense satellite package.
+        A heavy sled carrying a dense satellite package, with a total mass of <latex>250.00 \text{ kg}</latex>, is sliding down a gentle, icy slope with an initial velocity of <latex>\vec{V} = (8.00 \hat{i}) \text{ m/s}</latex> when it launches a dense satellite package.
         
         Immediately after the launch, the sled, which has a new mass of <latex>220.00 \text{ kg}</latex>, is observed to be moving with a velocity of <latex>\vec{v}_2 = (7.45 \hat{i} - 0.82 \hat{j}) \text{ m/s}</latex>. The satellite package has a mass of <latex>30.00 \text{ kg}</latex>.
         
@@ -515,7 +476,7 @@ questions:
             text: 23.87 m/s
             correct: false
         - answer:
-            text: -11.62 m/s
+            text: 11.62 m/s
             correct: false
     feedback:
         general: |
@@ -548,7 +509,7 @@ questions:
             text: 2.42 m/s
             correct: false
         - answer:
-            text: -2.84 m/s
+            text: 2.84 m/s
             correct: false
     feedback:
         general: |
@@ -561,31 +522,31 @@ questions:
     title: Conservation of Momentum Football Tackle
     points: 3
     text: |
-        A <latex>110.00 \text{ kg}</latex> linebacker running at <latex>\vec{v}_1 = (8.00 \hat{i}) \text{ m/s}</latex> tackles a <latex>100.00 \text{ kg}</latex> running back who is moving at <latex>\vec{v}_2 = (-7.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex>. The linebacker holds on, and the two players move together.
+        A <latex>110.00 \text{ kg}</latex> linebacker running at <latex>\vec{v}_1 = (8.00 \hat{i}) \text{ m/s}</latex> tackles a <latex>100.00 \text{ kg}</latex> running back who is moving at <latex>\vec{v}_2 = (-7.00 \hat{i} + 8.50 \hat{j}) \text{ m/s}</latex>. The linebacker holds on, and the two players move together.
         
         Assuming the linear momentum of the two-player system is conserved, what is the magnitude of their combined velocity immediately after the tackle? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 1.28 m/s
+            text: 4.14 m/s
             correct: true
         - answer:
             text: 0.86 m/s
             correct: false
         - answer:
-            text: 7.67 m/s
+            text: 9.55 m/s
             correct: false
         - answer:
-            text: 15.13 m/s
+            text: 17.24 m/s
             correct: false
         - answer:
-            text: 7.66 m/s
+            text: 9.43 m/s
             correct: false
         - answer:
-            text: 0.72 m/s
+            text: 3.01 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>1.28\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>4.14\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -594,31 +555,31 @@ questions:
     title: Conservation of Momentum Shopping Carts
     points: 3
     text: |
-        A <latex>20.00 \text{ kg}</latex> shopping cart moving at <latex>\vec{v}_1 = (3.00 \hat{i}) \text{ m/s}</latex> collides with another shopping cart. The carts lock together and move off with a combined mass of <latex>45.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (4.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex>.
+        A <latex>20.00 \text{ kg}</latex> shopping cart moving at <latex>\vec{v}_1 = (3.00 \hat{i}) \text{ m/s}</latex> collides with another shopping cart. The carts lock together and move off with a combined mass of <latex>45.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (4.00 \hat{i} + 2.00 \hat{j}) \text{ m/s}</latex>.
         
         Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of the second shopping cart (which had a mass of <latex>25.00 \text{ kg}</latex>)? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 5.13 m/s
+            text: 6.00 m/s
             correct: true
         - answer:
             text: 4.80 m/s
             correct: false
         - answer:
-            text: 4.84 m/s
+            text: 5.37 m/s
             correct: false
         - answer:
-            text: 1.41 m/s
+            text: 2.24 m/s
             correct: false
         - answer:
-            text: 5.02 m/s
+            text: 5.65 m/s
             correct: false
         - answer:
-            text: 1.12 m/s
+            text: 1.47 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>5.13\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>6.00\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -627,31 +588,31 @@ questions:
     title: Conservation of Momentum Space Probe Docking
     points: 3
     text: |
-        A <latex>4000.00 \text{ kg}</latex> space probe traveling at <latex>\vec{v}_1 = (1000.00 \hat{i}) \text{ m/s}</latex> docks with a <latex>1000.00 \text{ kg}</latex> supply module moving at <latex>\vec{v}_2 = (500.00 \hat{i} + 800.00 \hat{j}) \text{ m/s}</latex>. The two craft lock together.
+        A <latex>4000.00 \text{ kg}</latex> space probe traveling at <latex>\vec{v}_1 = (1000.00 \hat{i}) \text{ m/s}</latex> docks with a <latex>1000.00 \text{ kg}</latex> supply module moving at <latex>\vec{v}_2 = (500.00 \hat{i} + 1500.00 \hat{j}) \text{ m/s}</latex>. The two craft lock together.
         
         Assuming the linear momentum of the system is conserved, what is the magnitude of the velocity of the combined craft immediately after docking? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 914.11 m/s
+            text: 948.68 m/s
             correct: true
         - answer:
             text: 900.00 m/s
             correct: false
         - answer:
-            text: 988.94 m/s
+            text: 1140.18 m/s
             correct: false
         - answer:
-            text: 943.40 m/s
+            text: 1581.14 m/s
             correct: false
         - answer:
-            text: 988.68 m/s
+            text: 1116.23 m/s
             correct: false
         - answer:
-            text: 56.60 m/s
+            text: 581.14 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>914.11\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>948.68\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -668,7 +629,7 @@ questions:
             text: 31.62 m/s
             correct: true
         - answer:
-            text: -10.00 m/s
+            text: 10.00 m/s
             correct: false
         - answer:
             text: 44.72 m/s
@@ -677,10 +638,10 @@ questions:
             text: 22.36 m/s
             correct: false
         - answer:
-            text: -5.13 m/s
+            text: 5.13 m/s
             correct: false
         - answer:
-            text: -18.38 m/s
+            text: 18.38 m/s
             correct: false
     feedback:
         general: |
@@ -690,34 +651,34 @@ questions:
 
 - multiple_choice:
     id: q19
-    title: Conservation of Momentum Train Car Coupling
+    title: Conservation of Momentum Hockey Players
     points: 3
     text: |
-        A <latex>20000.00 \text{ kg}</latex> train car moving at <latex>\vec{v}_1 = (5.00 \hat{i}) \text{ m/s}</latex> on a straight track couples with a <latex>15000.00 \text{ kg}</latex> car that is moving at <latex>\vec{v}_2 = (2.00 \hat{i} + 1.00 \hat{j}) \text{ m/s}</latex> on an adjacent track (the tracks merge).
+        Two hockey players collide on smooth ice and hold on. The ice supports their weight and supplies no horizontal impulse. Player A has a mass of <latex>90.00 \text{ kg}</latex> and a velocity of <latex>\vec{v}_1 = (5.00 \hat{i}) \text{ m/s}</latex>. Player B has a mass of <latex>70.00 \text{ kg}</latex> and a velocity of <latex>\vec{v}_2 = (2.00 \hat{i} + 8.00 \hat{j}) \text{ m/s}</latex>.
         
-        Assuming the linear momentum of the system is conserved, what is the magnitude of the velocity of the two coupled cars immediately after they link? Round your answer to two decimal places.
+        Assuming the linear momentum of the two-player system is conserved, what is the magnitude of their velocity immediately after they hold on? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 3.74 m/s
+            text: 5.08 m/s
             correct: true
         - answer:
-            text: 3.71 m/s
+            text: 3.69 m/s
             correct: false
         - answer:
-            text: 4.05 m/s
+            text: 6.62 m/s
             correct: false
         - answer:
-            text: 3.16 m/s
+            text: 8.54 m/s
             correct: false
         - answer:
-            text: 3.82 m/s
+            text: 6.42 m/s
             correct: false
         - answer:
-            text: 2.76 m/s
+            text: 3.25 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>3.74\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>5.08\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -726,31 +687,31 @@ questions:
     title: Conservation of Momentum Rafts Linking
     points: 3
     text: |
-        A <latex>300.00 \text{ kg}</latex> raft moving at <latex>\vec{v}_1 = (1.00 \hat{i}) \text{ m/s}</latex> collides and links with a second raft. The combined mass of <latex>500.00 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (0.60 \hat{i} - 0.60 \hat{j}) \text{ m/s}</latex>.
+        A <latex>300.00 \text{ kg}</latex> raft moving at <latex>\vec{v}_1 = (1.00 \hat{i}) \text{ m/s}</latex> collides and links with a second raft. The combined mass of <latex>500.00 \text{ kg}</latex> is observed moving with a final velocity of <latex>\vec{V}_{f} = (0.90 \hat{i} - 1.20 \hat{j}) \text{ m/s}</latex>.
         
         Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of the second raft (which had a mass of <latex>200.00 \text{ kg}</latex>)? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 1.50 m/s
+            text: 3.09 m/s
             correct: true
         - answer:
-            text: 0.00 m/s
+            text: 0.75 m/s
             correct: false
         - answer:
-            text: 0.55 m/s
+            text: 2.03 m/s
             correct: false
         - answer:
-            text: 0.72 m/s
+            text: 1.20 m/s
             correct: false
         - answer:
-            text: 0.62 m/s
+            text: 2.25 m/s
             correct: false
         - answer:
-            text: -0.15 m/s
+            text: 0.50 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>1.50\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>3.09\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -759,31 +720,31 @@ questions:
     title: Conservation of Momentum Ice Skaters
     points: 3
     text: |
-        A <latex>70.00 \text{ kg}</latex> ice skater moving at <latex>\vec{v}_1 = (6.00 \hat{i}) \text{ m/s}</latex> grabs onto a <latex>50.00 \text{ kg}</latex> skater who is moving at <latex>\vec{v}_2 = (2.00 \hat{i} + 4.00 \hat{j}) \text{ m/s}</latex>. The two skaters then glide off together.
+        A <latex>70.00 \text{ kg}</latex> ice skater moving at <latex>\vec{v}_1 = (6.00 \hat{i}) \text{ m/s}</latex> grabs onto a <latex>50.00 \text{ kg}</latex> skater who is moving at <latex>\vec{v}_2 = (2.00 \hat{i} + 8.50 \hat{j}) \text{ m/s}</latex>. The two skaters then glide off together.
         
         Assuming the linear momentum of the system is conserved, what is the magnitude of their combined velocity immediately after they join? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 4.64 m/s
+            text: 5.60 m/s
             correct: true
         - answer:
             text: 4.33 m/s
             correct: false
         - answer:
-            text: 5.42 m/s
+            text: 7.26 m/s
             correct: false
         - answer:
-            text: 5.66 m/s
+            text: 9.39 m/s
             correct: false
         - answer:
-            text: 5.36 m/s
+            text: 7.14 m/s
             correct: false
         - answer:
-            text: 1.53 m/s
+            text: 2.73 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>4.64\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>5.60\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -792,31 +753,31 @@ questions:
     title: Conservation of Momentum Bumper Cars
     points: 3
     text: |
-        A <latex>150.00 \text{ kg}</latex> bumper car (car 1) moving at <latex>\vec{v}_1 = (4.00 \hat{i}) \text{ m/s}</latex> crashes into a second bumper car (car 2). The cars stick together and move off with a combined mass of <latex>260.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (3.00 \hat{i} - 1.00 \hat{j}) \text{ m/s}</latex>.
+        A <latex>150.00 \text{ kg}</latex> bumper car (car 1) moving at <latex>\vec{v}_1 = (4.00 \hat{i}) \text{ m/s}</latex> crashes into a second bumper car (car 2). The cars stick together and move off with a combined mass of <latex>260.00 \text{ kg}</latex> and a final velocity of <latex>\vec{V}_{f} = (3.00 \hat{i} - 4.00 \hat{j}) \text{ m/s}</latex>.
         
         Assuming the linear momentum of the system is conserved, what was the magnitude of the initial velocity of car 2 (which had a mass of <latex>110.00 \text{ kg}</latex>)? Round your answer to two decimal places.
     answers:
         - answer:
-            text: 2.87 m/s
+            text: 9.60 m/s
             correct: true
         - answer:
             text: 1.64 m/s
             correct: false
         - answer:
-            text: 1.35 m/s
+            text: 6.11 m/s
             correct: false
         - answer:
-            text: 1.41 m/s
+            text: 4.12 m/s
             correct: false
         - answer:
-            text: 2.02 m/s
+            text: 6.36 m/s
             correct: false
         - answer:
-            text: -0.84 m/s
+            text: 1.00 m/s
             correct: false
     feedback:
         general: |
-          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>2.87\text{ m/s}</latex></b>.
+          Conserve linear momentum separately on each axis, then combine the components. The magnitude is <b><latex>9.60\text{ m/s}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -845,7 +806,7 @@ questions:
             text: 34.20 m/s
             correct: false
         - answer:
-            text: -20.99 m/s
+            text: 20.99 m/s
             correct: false
     feedback:
         general: |
@@ -878,7 +839,7 @@ questions:
             text: 3.88 m/s
             correct: false
         - answer:
-            text: -2.72 m/s
+            text: 2.72 m/s
             correct: false
     feedback:
         general: |
