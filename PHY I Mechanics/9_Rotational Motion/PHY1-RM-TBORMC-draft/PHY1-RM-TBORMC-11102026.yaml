@@ -13,15 +13,18 @@ bank_info:
             The choice pattern is the q1 set in q1-mc-draft.md. A distractor ignores the 60 degree angle, swaps sine and cosine, gives the two weights the wrong relative torque direction, leaves one weight out, uses the full rod length as the rod's lever arm, or adds the two weights. choice-set-adaptation.md rewrites the roles that name the unknown, and it substitutes a role when two choices would round to the same integer. A few given weights were changed so that no distractor is only 1 N from the correct answer. build_mc_bank.py applies that plan to PHY1-RM-TBOR-11112025.yaml.
     updates: 
         - update 1: (11/10/2026) Converted PHY1-RM-TBOR-11112025 into this multiple-choice draft.
+        - update 2: |
+            (11/17/2026) Zhongzhou Chen replaced the 4, 8, 16, and 32 N weights and keys with the givens in update-plan.md, then rebuilt the six distractors from the same roles. The balance used is (x_F - x_p) F/2 = (0.5 - x_p) W_r + (x_b - x_p) W_b, and each unknown is rounded to the nearest integer. Positions, L = 1.0 m, the 60 degree angle, the figures, and the choice order stay. Pairs of wrong answers 1 N apart were left in place. q8 uses F = 120 N so the rod weight is 26 N rather than 8 N.
     associated data:
         - source bank: "../PHY1-RM-TBOR-11112025/PHY1-RM-TBOR-11112025.yaml"
         - choice pattern: "./q1-mc-draft.md"
         - adaptation plan: "./choice-set-adaptation.md"
+        - update plan: "./update-plan.md"
         - build script: "./build_mc_bank.py"
     generation details: # Details of the creation process
             model: Cursor Grok # The model used to generate the questions
             version: 4.7 # The version of the model used
-            last updated: 11-10-2026 # The date of the last update of the generation prompts.
+            last updated: 11-17-2026 # The date of the last update of the generation prompts.
     authors:
         - Zhongzhou Chen 
         - Spencer Moore
@@ -32,7 +35,7 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Force Determination
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of weight **4 N** is suspended from the rod **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **42 N**. A block of weight **5 N** is suspended from the rod **at <latex>\tfrac{1}{8}L</latex> from the right end**.
 
         An external force **F** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
 
@@ -40,29 +43,29 @@ questions:
     figure: q1_p0_b_18_f34.png
     answers:
         - answer:
-            text: 44 N
+            text: 58 N
             correct: true
         - answer:
-            text: 22 N
+            text: 29 N
             correct: false
         - answer:
-            text: 25 N
+            text: 33 N
             correct: false
         - answer:
-            text: 41 N
+            text: 54 N
             correct: false
         - answer:
-            text: 1 N
+            text: 2 N
             correct: false
         - answer:
-            text: 87 N
+            text: 114 N
             correct: false
         - answer:
-            text: 36 N
+            text: 47 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>44\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>58\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -71,37 +74,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **8 N** is suspended from the rod **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **14 N** is suspended from the rod **at <latex>\tfrac{1}{8}L</latex> from the right end**.
 
-        An external force of magnitude **18 N** is applied on the rod **at the left end** (i.e., **at <latex>1\cdot L</latex> from the right end**). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **31 N** is applied on the rod **at the left end** (i.e., **at <latex>1\cdot L</latex> from the right end**). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q2_p0_b_18_f1.png
     answers:
         - answer:
-            text: 16 N
+            text: 28 N
             correct: true
+        - answer:
+            text: 58 N
+            correct: false
+        - answer:
+            text: 50 N
+            correct: false
         - answer:
             text: 34 N
             correct: false
         - answer:
-            text: 29 N
+            text: 31 N
             correct: false
         - answer:
-            text: 20 N
+            text: 14 N
             correct: false
         - answer:
-            text: 18 N
-            correct: false
-        - answer:
-            text: 8 N
-            correct: false
-        - answer:
-            text: 10 N
+            text: 17 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>16\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>28\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -110,37 +113,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **70 N**.
 
-        An external force of magnitude **53.33 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **117 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q3_p0_b_14_f34.png
     answers:
         - answer:
-            text: 16 N
+            text: 36 N
             correct: true
         - answer:
-            text: 96 N
+            text: 211 N
             correct: false
         - answer:
-            text: 75 N
+            text: 164 N
             correct: false
         - answer:
-            text: 144 N
+            text: 316 N
             correct: false
         - answer:
-            text: 80 N
+            text: 176 N
             correct: false
         - answer:
-            text: 48 N
+            text: 104 N
             correct: false
         - answer:
-            text: 21 N
+            text: 47 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>16\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>36\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -149,7 +152,7 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Force Determination
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of weight **32 N** is suspended from the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **6 N**. A block of weight **48 N** is suspended from the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**.
 
         An external force **F** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
 
@@ -157,19 +160,16 @@ questions:
     figure: q4_p0_b_14_f1.png
     answers:
         - answer:
-            text: 20 N
+            text: 30 N
             correct: true
         - answer:
-            text: 10 N
+            text: 15 N
             correct: false
         - answer:
-            text: 12 N
+            text: 17 N
             correct: false
         - answer:
-            text: 4 N
-            correct: false
-        - answer:
-            text: 16 N
+            text: 18 N
             correct: false
         - answer:
             text: 24 N
@@ -177,9 +177,12 @@ questions:
         - answer:
             text: 36 N
             correct: false
+        - answer:
+            text: 54 N
+            correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>20\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>30\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -188,37 +191,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **4 N** is suspended from the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **10 N** is suspended from the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**.
 
-        An external force of magnitude **56 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **146 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q5_p0_b_34_f14.png
     answers:
         - answer:
-            text: 8 N
+            text: 22 N
             correct: true
         - answer:
-            text: 22 N
+            text: 58 N
             correct: false
         - answer:
-            text: 18 N
-            correct: false
-        - answer:
-            text: 20 N
-            correct: false
-        - answer:
-            text: 14 N
-            correct: false
-        - answer:
-            text: 4 N
+            text: 48 N
             correct: false
         - answer:
             text: 52 N
             correct: false
+        - answer:
+            text: 36 N
+            correct: false
+        - answer:
+            text: 11 N
+            correct: false
+        - answer:
+            text: 136 N
+            correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>8\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>22\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -227,37 +230,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **18 N**.
 
-        An external force of magnitude **28 N** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **35 N** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q6_p0_b_34_f1.png
     answers:
         - answer:
-            text: 8 N
+            text: 11 N
             correct: true
         - answer:
-            text: 27 N
+            text: 35 N
             correct: false
         - answer:
-            text: 22 N
+            text: 28 N
             correct: false
         - answer:
-            text: 29 N
+            text: 36 N
             correct: false
         - answer:
-            text: 19 N
+            text: 23 N
             correct: false
         - answer:
-            text: 3 N
+            text: 1 N
             correct: false
         - answer:
-            text: 12 N
+            text: 17 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>8\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>11\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -266,7 +269,7 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Force Determination
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of weight **16 N** is suspended from the rod **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **42 N**. A block of weight **21 N** is suspended from the rod **at <latex>\tfrac{7}{8}L</latex> from the right end**.
 
         An external force **F** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
 
@@ -274,29 +277,29 @@ questions:
     figure: q7_p0_b_78_f14.png
     answers:
         - answer:
-            text: 240 N
+            text: 315 N
             correct: true
         - answer:
-            text: 120 N
+            text: 158 N
             correct: false
         - answer:
-            text: 139 N
+            text: 182 N
             correct: false
         - answer:
-            text: 16 N
+            text: 21 N
             correct: false
         - answer:
-            text: 112 N
+            text: 147 N
             correct: false
         - answer:
-            text: 368 N
+            text: 483 N
             correct: false
         - answer:
-            text: 48 N
+            text: 63 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>240\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>315\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -305,37 +308,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **32 N** is suspended from the rod **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. A block of weight **54 N** is suspended from the rod **at <latex>\tfrac{7}{8}L</latex> from the right end**.
 
-        An external force of magnitude **60 N** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **120 N** is applied on the rod **at the left end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q8_p0_b_78_f1.png
     answers:
         - answer:
-            text: 4 N
+            text: 26 N
             correct: true
         - answer:
-            text: 64 N
+            text: 146 N
             correct: false
         - answer:
-            text: 48 N
+            text: 113 N
             correct: false
         - answer:
-            text: 116 N
+            text: 214 N
             correct: false
         - answer:
-            text: 60 N
+            text: 120 N
             correct: false
         - answer:
-            text: 2 N
+            text: 13 N
             correct: false
         - answer:
-            text: 28 N
+            text: 66 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>4\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>26\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -344,37 +347,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **18 N**.
 
-        An external force of magnitude **64 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at the left end**. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **141 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the image. A block is attached **at the left end**. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q9_p0_b_1_f14.png
     answers:
         - answer:
-            text: 4 N
+            text: 9 N
             correct: true
         - answer:
-            text: 12 N
+            text: 26 N
             correct: false
         - answer:
-            text: 10 N
+            text: 22 N
             correct: false
         - answer:
-            text: 24 N
+            text: 27 N
             correct: false
         - answer:
-            text: 8 N
+            text: 18 N
             correct: false
         - answer:
-            text: 6 N
+            text: 13 N
             correct: false
         - answer:
-            text: 56 N
+            text: 123 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>4\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>9\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -383,7 +386,7 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Force
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of weight **8 N** is suspended from the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **24 N**. A block of weight **12 N** is suspended from the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
 
         An external force **F** is applied on the rod **at <latex>\tfrac{3}{4}L</latex>** from the right end. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
 
@@ -391,29 +394,29 @@ questions:
     figure: q10_p0_b_1_f34.png
     answers:
         - answer:
-            text: 43 N
+            text: 64 N
             correct: true
         - answer:
-            text: 21 N
+            text: 32 N
             correct: false
         - answer:
-            text: 25 N
+            text: 37 N
+            correct: false
+        - answer:
+            text: 72 N
             correct: false
         - answer:
             text: 48 N
             correct: false
         - answer:
-            text: 32 N
+            text: 96 N
             correct: false
         - answer:
-            text: 64 N
-            correct: false
-        - answer:
-            text: 24 N
+            text: 36 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>43\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>64\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -422,37 +425,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **16 N** is attached at the **right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **42 N** is attached at the **right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
 
-        An external force of magnitude **16 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex>** from the right end. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **42 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex>** from the right end. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q11_p14_b_0_f34.png
     answers:
         - answer:
-            text: 32 N
+            text: 84 N
             correct: true
         - answer:
-            text: 48 N
+            text: 126 N
             correct: false
         - answer:
-            text: 44 N
+            text: 115 N
             correct: false
         - answer:
-            text: 12 N
+            text: 32 N
             correct: false
         - answer:
-            text: 16 N
+            text: 42 N
             correct: false
         - answer:
-            text: 8 N
+            text: 21 N
             correct: false
         - answer:
-            text: 24 N
+            text: 63 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>32\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>84\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -461,37 +464,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of unknown weight is attached at the **right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **37 N**. A block of unknown weight is attached at the **right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
 
-        An external force of magnitude **18.67 N** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **21 N** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q12_p14_b_0_f1.png
     answers:
         - answer:
-            text: 4 N
+            text: 6 N
             correct: true
         - answer:
-            text: 24 N
+            text: 26 N
             correct: false
         - answer:
-            text: 17 N
+            text: 18 N
             correct: false
         - answer:
-            text: 36 N
+            text: 42 N
             correct: false
         - answer:
-            text: 28 N
+            text: 32 N
             correct: false
         - answer:
-            text: 100 N
+            text: 116 N
             correct: false
         - answer:
-            text: 13 N
+            text: 16 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>4\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>6\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -500,7 +503,7 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Force
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**. A block of weight **16 N** is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **10 N**. A block of weight **21 N** is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
 
         An external force **F** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
 
@@ -508,29 +511,29 @@ questions:
     figure: q13_p14_b_34_f1.png
     answers:
         - answer:
-            text: 27 N
+            text: 35 N
             correct: true
         - answer:
-            text: 13 N
+            text: 17 N
             correct: false
         - answer:
-            text: 15 N
-            correct: false
-        - answer:
-            text: 16 N
+            text: 20 N
             correct: false
         - answer:
             text: 21 N
             correct: false
         - answer:
-            text: 43 N
+            text: 28 N
             correct: false
         - answer:
-            text: 24 N
+            text: 55 N
+            correct: false
+        - answer:
+            text: 31 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>27\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>35\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -539,37 +542,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **8 N** is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **14 N** is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
 
-        An external force of magnitude **24 N** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **41 N** is applied on the rod **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q14_p14_b_78_f1.png
     answers:
         - answer:
-            text: 16 N
+            text: 26 N
             correct: true
         - answer:
-            text: 52 N
+            text: 88 N
             correct: false
         - answer:
-            text: 42 N
+            text: 72 N
             correct: false
         - answer:
-            text: 56 N
+            text: 96 N
             correct: false
         - answer:
-            text: 36 N
+            text: 62 N
             correct: false
         - answer:
-            text: 4 N
+            text: 7 N
             correct: false
         - answer:
-            text: 20 N
+            text: 34 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>16\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>26\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -578,37 +581,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of unknown weight is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{1}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **70 N**. A block of unknown weight is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
 
-        An external force of magnitude **80 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **176 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q15_p14_b_1_f34.png
     answers:
         - answer:
-            text: 16 N
+            text: 35 N
             correct: true
         - answer:
-            text: 43 N
+            text: 94 N
             correct: false
         - answer:
-            text: 36 N
+            text: 78 N
             correct: false
         - answer:
-            text: 37 N
+            text: 82 N
             correct: false
         - answer:
-            text: 27 N
+            text: 59 N
             correct: false
         - answer:
-            text: 5 N
+            text: 12 N
             correct: false
         - answer:
-            text: 48 N
+            text: 106 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>16\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>35\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -617,7 +620,7 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Force
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of weight **32 N** is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **6 N**. A block of weight **48 N** is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
 
         An external force **F** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
 
@@ -625,29 +628,29 @@ questions:
     figure: q16_p34_b_0_f14.png
     answers:
         - answer:
-            text: 100 N
+            text: 150 N
             correct: true
         - answer:
-            text: 50 N
+            text: 75 N
             correct: false
         - answer:
-            text: 58 N
+            text: 87 N
             correct: false
         - answer:
-            text: 92 N
+            text: 138 N
             correct: false
         - answer:
-            text: 96 N
+            text: 144 N
             correct: false
         - answer:
-            text: 112 N
+            text: 168 N
             correct: false
         - answer:
-            text: 36 N
+            text: 54 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>100\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>150\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -656,37 +659,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **4 N** is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **10 N** is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
 
-        An external force of magnitude **12.00 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **31 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q17_p34_b_18_f0.png
     answers:
         - answer:
-            text: 8 N
+            text: 22 N
             correct: true
+        - answer:
+            text: 68 N
+            correct: false
+        - answer:
+            text: 56 N
+            correct: false
+        - answer:
+            text: 72 N
+            correct: false
+        - answer:
+            text: 46 N
+            correct: false
+        - answer:
+            text: 5 N
+            correct: false
         - answer:
             text: 26 N
             correct: false
-        - answer:
-            text: 21 N
-            correct: false
-        - answer:
-            text: 28 N
-            correct: false
-        - answer:
-            text: 18 N
-            correct: false
-        - answer:
-            text: 2 N
-            correct: false
-        - answer:
-            text: 10 N
-            correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>8\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>22\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -695,37 +698,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of unknown weight is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **18 N**. A block of unknown weight is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
 
-        An external force of magnitude **21.33 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **25 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q18_p34_b_14_f0.png
     answers:
         - answer:
-            text: 8 N
+            text: 10 N
             correct: true
         - answer:
-            text: 24 N
+            text: 28 N
             correct: false
         - answer:
-            text: 20 N
+            text: 23 N
             correct: false
         - answer:
-            text: 32 N
+            text: 36 N
             correct: false
         - answer:
-            text: 16 N
+            text: 19 N
             correct: false
         - answer:
-            text: 27 N
+            text: 17 N
             correct: false
         - answer:
-            text: 5 N
+            text: 7 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>8\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>10\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -734,246 +737,12 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Force
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of weight **16 N** is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. The rod’s weight is **42 N**. A block of weight **21 N** is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
 
         An external force **F** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
 
         Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q19_p34_b_1_f0.png
-    answers:
-        - answer:
-            text: 11 N
-            correct: true
-        - answer:
-            text: 5 N
-            correct: false
-        - answer:
-            text: 6 N
-            correct: false
-        - answer:
-            text: 32 N
-            correct: false
-        - answer:
-            text: 21 N
-            correct: false
-        - answer:
-            text: 75 N
-            correct: false
-        - answer:
-            text: 48 N
-            correct: false
-    feedback:
-        general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>11\text{ N}</latex></b>.
-        on_correct: Good job!
-        on_incorrect: Try again!
-
-- multiple_choice:
-    id: q20
-    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
-    points: 1
-    text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **4 N** is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
-
-        An external force of magnitude **28.00 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
-
-        Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
-    figure: q20_p34_b_1_f14.png
-    answers:
-        - answer:
-            text: 32 N
-            correct: true
-        - answer:
-            text: 60 N
-            correct: false
-        - answer:
-            text: 52 N
-            correct: false
-        - answer:
-            text: 24 N
-            correct: false
-        - answer:
-            text: 28 N
-            correct: false
-        - answer:
-            text: 8 N
-            correct: false
-        - answer:
-            text: 10 N
-            correct: false
-    feedback:
-        general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>32\text{ N}</latex></b>.
-        on_correct: Good job!
-        on_incorrect: Try again!
-
-- multiple_choice:
-    id: q21
-    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
-    points: 1
-    text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of unknown weight is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
-
-        An external force of magnitude **53.33 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
-
-        Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
-    figure: q21_p1_b_0_f14.png
-    answers:
-        - answer:
-            text: 4 N
-            correct: true
-        - answer:
-            text: 24 N
-            correct: false
-        - answer:
-            text: 19 N
-            correct: false
-        - answer:
-            text: 36 N
-            correct: false
-        - answer:
-            text: 20 N
-            correct: false
-        - answer:
-            text: 12 N
-            correct: false
-        - answer:
-            text: 21 N
-            correct: false
-    feedback:
-        general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>4\text{ N}</latex></b>.
-        on_correct: Good job!
-        on_incorrect: Try again!
-
-- multiple_choice:
-    id: q22
-    title: Static Equilibrium of a Horizontal Rod – Determining Force
-    points: 1
-    text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of weight **8 N** is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
-
-        An external force **F** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
-
-        Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
-    figure: q22_p1_b_0_f34.png
-    answers:
-        - answer:
-            text: 128 N
-            correct: true
-        - answer:
-            text: 64 N
-            correct: false
-        - answer:
-            text: 74 N
-            correct: false
-        - answer:
-            text: 48 N
-            correct: false
-        - answer:
-            text: 96 N
-            correct: false
-        - answer:
-            text: 192 N
-            correct: false
-        - answer:
-            text: 24 N
-            correct: false
-    feedback:
-        general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>128\text{ N}</latex></b>.
-        on_correct: Good job!
-        on_incorrect: Try again!
-
-- multiple_choice:
-    id: q23
-    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
-    points: 1
-    text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **16 N** is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
-
-        An external force of magnitude **60.00 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
-
-        Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
-    figure: q23_p1_b_18_f0.png
-    answers:
-        - answer:
-            text: 32 N
-            correct: true
-        - answer:
-            text: 92 N
-            correct: false
-        - answer:
-            text: 76 N
-            correct: false
-        - answer:
-            text: 88 N
-            correct: false
-        - answer:
-            text: 60 N
-            correct: false
-        - answer:
-            text: 16 N
-            correct: false
-        - answer:
-            text: 44 N
-            correct: false
-    feedback:
-        general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>32\text{ N}</latex></b>.
-        on_correct: Good job!
-        on_incorrect: Try again!
-
-- multiple_choice:
-    id: q24
-    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
-    points: 1
-    text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of unknown weight is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
-
-        An external force of magnitude **240.00 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
-
-        Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
-    figure: q24_p1_b_18_f34.png
-    answers:
-        - answer:
-            text: 32 N
-            correct: true
-        - answer:
-            text: 66 N
-            correct: false
-        - answer:
-            text: 57 N
-            correct: false
-        - answer:
-            text: 37 N
-            correct: false
-        - answer:
-            text: 34 N
-            correct: false
-        - answer:
-            text: 30 N
-            correct: false
-        - answer:
-            text: 236 N
-            correct: false
-    feedback:
-        general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>32\text{ N}</latex></b>.
-        on_correct: Good job!
-        on_incorrect: Try again!
-
-- multiple_choice:
-    id: q25
-    title: Static Equilibrium of a Horizontal Rod – Determining Force
-    points: 1
-    text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **8 N**. A block of weight **4 N** is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
-
-        An external force **F** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
-
-        Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
-    figure: q25_p1_b_14_f0.png
     answers:
         - answer:
             text: 14 N
@@ -985,16 +754,16 @@ questions:
             text: 8 N
             correct: false
         - answer:
-            text: 2 N
+            text: 42 N
             correct: false
         - answer:
-            text: 6 N
+            text: 28 N
             correct: false
         - answer:
-            text: 22 N
+            text: 98 N
             correct: false
         - answer:
-            text: 12 N
+            text: 63 N
             correct: false
     feedback:
         general: |
@@ -1003,41 +772,275 @@ questions:
         on_incorrect: Try again!
 
 - multiple_choice:
-    id: q26
+    id: q20
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **8 N** is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at <latex>\tfrac{3}{4}L</latex> from the right end** of the rod. The rod is in **static equilibrium**. A block of weight **7 N** is attached **at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end).
 
-        An external force of magnitude **112.00 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **48 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
-    figure: q26_p1_b_14_f34.png
+    figure: q20_p34_b_1_f14.png
     answers:
         - answer:
-            text: 16 N
+            text: 55 N
             correct: true
+        - answer:
+            text: 103 N
+            correct: false
+        - answer:
+            text: 90 N
+            correct: false
+        - answer:
+            text: 41 N
+            correct: false
+        - answer:
+            text: 48 N
+            correct: false
+        - answer:
+            text: 14 N
+            correct: false
+        - answer:
+            text: 17 N
+            correct: false
+    feedback:
+        general: |
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>55\text{ N}</latex></b>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q21
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **70 N**. A block of unknown weight is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+
+        An external force of magnitude **117 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+        Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q21_p1_b_0_f14.png
+    answers:
+        - answer:
+            text: 9 N
+            correct: true
+        - answer:
+            text: 53 N
+            correct: false
+        - answer:
+            text: 41 N
+            correct: false
+        - answer:
+            text: 79 N
+            correct: false
         - answer:
             text: 44 N
             correct: false
         - answer:
+            text: 26 N
+            correct: false
+        - answer:
+            text: 47 N
+            correct: false
+    feedback:
+        general: |
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>9\text{ N}</latex></b>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q22
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **24 N**. A block of weight **12 N** is attached **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end).
+
+        An external force **F** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+        Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q22_p1_b_0_f34.png
+    answers:
+        - answer:
+            text: 192 N
+            correct: true
+        - answer:
+            text: 96 N
+            correct: false
+        - answer:
+            text: 111 N
+            correct: false
+        - answer:
+            text: 72 N
+            correct: false
+        - answer:
+            text: 144 N
+            correct: false
+        - answer:
+            text: 288 N
+            correct: false
+        - answer:
             text: 36 N
             correct: false
+    feedback:
+        general: |
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>192\text{ N}</latex></b>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q23
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **42 N** is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+
+        An external force of magnitude **156 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+        Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q23_p1_b_18_f0.png
+    answers:
         - answer:
-            text: 40 N
+            text: 82 N
+            correct: true
+        - answer:
+            text: 238 N
             correct: false
         - answer:
-            text: 28 N
+            text: 197 N
+            correct: false
+        - answer:
+            text: 230 N
+            correct: false
+        - answer:
+            text: 156 N
+            correct: false
+        - answer:
+            text: 41 N
+            correct: false
+        - answer:
+            text: 114 N
+            correct: false
+    feedback:
+        general: |
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>82\text{ N}</latex></b>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q24
+    title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
+    points: 1
+    text: |
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **5 N**. A block of unknown weight is attached **at <latex>\tfrac{1}{8}L</latex> from the right end**.
+
+        An external force of magnitude **276 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+        Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q24_p1_b_18_f34.png
+    answers:
+        - answer:
+            text: 37 N
+            correct: true
+        - answer:
+            text: 76 N
+            correct: false
+        - answer:
+            text: 65 N
+            correct: false
+        - answer:
+            text: 42 N
+            correct: false
+        - answer:
+            text: 39 N
+            correct: false
+        - answer:
+            text: 34 N
+            correct: false
+        - answer:
+            text: 271 N
+            correct: false
+    feedback:
+        general: |
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>37\text{ N}</latex></b>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q25
+    title: Static Equilibrium of a Horizontal Rod – Determining Force
+    points: 1
+    text: |
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **10 N**. A block of weight **5 N** is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+
+        An external force **F** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
+
+        Determine the **magnitude of the force <latex>F</latex>** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q25_p1_b_14_f0.png
+    answers:
+        - answer:
+            text: 18 N
+            correct: true
+        - answer:
+            text: 9 N
+            correct: false
+        - answer:
+            text: 10 N
+            correct: false
+        - answer:
+            text: 2 N
             correct: false
         - answer:
             text: 8 N
             correct: false
         - answer:
-            text: 104 N
+            text: 28 N
+            correct: false
+        - answer:
+            text: 15 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>16\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>18\text{ N}</latex></b>.
+        on_correct: Good job!
+        on_incorrect: Try again!
+
+- multiple_choice:
+    id: q26
+    title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
+    points: 1
+    text: |
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **14 N** is attached **at <latex>\tfrac{1}{4}L</latex> from the right end**.
+
+        An external force of magnitude **190 N** is applied on the rod **at <latex>\tfrac{3}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+
+        Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
+    figure: q26_p1_b_14_f34.png
+    answers:
+        - answer:
+            text: 26 N
+            correct: true
+        - answer:
+            text: 74 N
+            correct: false
+        - answer:
+            text: 61 N
+            correct: false
+        - answer:
+            text: 68 N
+            correct: false
+        - answer:
+            text: 48 N
+            correct: false
+        - answer:
+            text: 13 N
+            correct: false
+        - answer:
+            text: 176 N
+            correct: false
+    feedback:
+        general: |
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>26\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -1046,37 +1049,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **32 N**. A block of unknown weight is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **70 N**. A block of unknown weight is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
 
-        An external force of magnitude **40.00 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **88 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q27_p1_b_34_f0.png
     answers:
         - answer:
-            text: 16 N
+            text: 36 N
             correct: true
         - answer:
-            text: 96 N
+            text: 212 N
             correct: false
         - answer:
-            text: 75 N
+            text: 165 N
             correct: false
         - answer:
-            text: 144 N
+            text: 316 N
             correct: false
         - answer:
-            text: 80 N
+            text: 176 N
             correct: false
         - answer:
-            text: 48 N
+            text: 104 N
             correct: false
         - answer:
-            text: 8 N
+            text: 18 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>16\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>36\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -1085,7 +1088,7 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Force
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **4 N**. A block of weight **32 N** is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **6 N**. A block of weight **48 N** is attached **at <latex>\tfrac{3}{4}L</latex> from the right end**.
 
         An external force **F** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical, as shown in the figure. All distances are measured from the **right end** of the rod.
 
@@ -1093,29 +1096,29 @@ questions:
     figure: q28_p1_b_34_f14.png
     answers:
         - answer:
-            text: 27 N
+            text: 40 N
             correct: true
         - answer:
-            text: 13 N
+            text: 20 N
             correct: false
         - answer:
-            text: 15 N
+            text: 23 N
             correct: false
         - answer:
-            text: 16 N
-            correct: false
-        - answer:
-            text: 21 N
+            text: 24 N
             correct: false
         - answer:
             text: 32 N
             correct: false
         - answer:
-            text: 36 N
+            text: 48 N
+            correct: false
+        - answer:
+            text: 54 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>27\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the force <b><latex>40\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -1124,37 +1127,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Rod Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **8 N** is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. A block of weight **21 N** is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
 
-        An external force of magnitude **18 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **47 N** is applied on the rod **at the right end** (i.e., at <latex>0\!\cdot\!L</latex> from the right end). The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the rod** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q29_p1_b_78_f0.png
     answers:
         - answer:
-            text: 16 N
+            text: 42 N
             correct: true
         - answer:
-            text: 34 N
+            text: 89 N
             correct: false
         - answer:
-            text: 29 N
+            text: 76 N
             correct: false
         - answer:
-            text: 20 N
+            text: 52 N
             correct: false
         - answer:
-            text: 18 N
+            text: 47 N
             correct: false
         - answer:
-            text: 8 N
+            text: 21 N
             correct: false
         - answer:
-            text: 10 N
+            text: 26 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>16\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the rod weight <b><latex>42\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
@@ -1163,37 +1166,37 @@ questions:
     title: Static Equilibrium of a Horizontal Rod – Determining Block Weight
     points: 1
     text: |
-        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **16 N**. A block of unknown weight is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
+        A uniform thin rod of length **L = 1.0 m** is held in a **horizontal** position and can rotate freely about a **pivot located at the left end** (i.e., at <latex>1\!\cdot\!L</latex> from the right end) of the rod. The rod is in **static equilibrium**. The rod’s weight is **18 N**. A block of unknown weight is attached **at <latex>\tfrac{7}{8}L</latex> from the right end**.
 
-        An external force of magnitude **24.00 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
+        An external force of magnitude **28 N** is applied on the rod **at <latex>\tfrac{1}{4}L</latex> from the right end**. The force points **upward at an angle of <latex>60^\circ</latex>** with respect to the vertical. All distances are measured from the **right end** of the rod.
 
         Determine the **weight of the block** (in newtons) required to maintain equilibrium. **Round your answer to the nearest integer.**
     figure: q30_p1_b_78_f14.png
     answers:
         - answer:
-            text: 8 N
+            text: 12 N
             correct: true
         - answer:
-            text: 80 N
+            text: 96 N
             correct: false
         - answer:
-            text: 61 N
+            text: 73 N
             correct: false
         - answer:
-            text: 136 N
+            text: 156 N
             correct: false
         - answer:
-            text: 72 N
+            text: 84 N
             correct: false
         - answer:
-            text: 56 N
+            text: 60 N
             correct: false
         - answer:
-            text: 4 N
+            text: 10 N
             correct: false
     feedback:
         general: |
-          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>8\text{ N}</latex></b>.
+          About the pivot, with the perpendicular component <latex>F\cos 60^\circ = F/2</latex> and the rod's weight at its center, torque balance gives the block weight <b><latex>12\text{ N}</latex></b>.
         on_correct: Good job!
         on_incorrect: Try again!
 
