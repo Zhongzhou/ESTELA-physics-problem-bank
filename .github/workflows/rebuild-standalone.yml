@@ -18,11 +18,11 @@ name: Rebuild standalone Exam Builder
 on:
   push:
     branches: [main]
-    paths:
-      - 'PHY I Mechanics/**'
-      - 'frontend/**'
-      - 'scripts/build_standalone_html.py'
-      - '.github/workflows/rebuild-standalone.yml'
+    # Any change except the published pages themselves and prose. A course folder listed
+    # here by name (it was 'PHY I Mechanics/**') leaves every newer course without rebuilds.
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
   schedule:
     - cron: '17 7 * * 1'      # 07:17 UTC Mondays; off the hour, which GitHub asks for
   workflow_dispatch:
@@ -53,15 +53,16 @@ jobs:
 
       - name: Rebuild both published builds
         run: |
+          # Every top-level folder holding a bank is bundled (find_courses in the script).
           python scripts/build_standalone_html.py \
             --template frontend/index.html \
             --output   docs/standalone.html \
-            --label    "PHY I Mechanics"
+            --label    "ESTELA problem banks"
 
           python scripts/build_standalone_html.py \
             --template frontend/enhanced.html \
             --output   docs/standalone-enhanced.html \
-            --label    "PHY I Mechanics (enhanced)"
+            --label    "ESTELA problem banks (enhanced)"
 
       - name: Report what is bundled
         run: |
