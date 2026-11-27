@@ -55,6 +55,19 @@ def should_include_file(path: Path) -> bool:
     return False
 
 
+def find_courses(repo_root: Path) -> list[str]:
+    """Every top-level folder that holds at least one bank YAML: a new course folder
+    (PHY II EM, 2026-11) is bundled without anyone editing this script or the workflow."""
+    found = []
+    for path in sorted(repo_root.iterdir()):
+        if not path.is_dir() or path.name in SKIP_COURSES or path.name.startswith("."):
+            continue
+        if any(f.suffix.lower() in BANK_EXT and not should_skip_path(f.relative_to(path).parts)
+               for f in path.rglob("*") if f.is_file()):
+            found.append(path.name)
+    return found
+
+
 def build_zip_bytes(repo_root: Path, courses: list[str]) -> bytes:
     buf = io.BytesIO()
     qti_count = 0
@@ -153,8 +166,8 @@ def main() -> int:
     parser.add_argument(
         "--courses",
         nargs="+",
-        default=["PHY I Mechanics"],
-        help="Course folder names to embed (default: PHY I Mechanics)",
+        default=None,
+        help="Course folder names to embed (default: every top-level folder with a bank)",
     )
     parser.add_argument(
         "--label",
@@ -179,13 +192,15 @@ def main() -> int:
     frontend_dir = repo_root / "frontend"
     template_path = (args.template or frontend_dir / "index.html").resolve()
     output_path = (args.output or repo_root / "docs" / "standalone.html").resolve()
-    label = args.label or ", ".join(args.courses)
+    courses = args.courses or find_courses(repo_root)
+    print(f"Courses: {', '.join(courses)}", file=sys.stderr)
+    label = args.label or ", ".join(courses)
 
     if not template_path.is_file():
         print(f"error: template not found: {template_path}", file=sys.stderr)
         return 1
 
-    html = build_standalone_html(template_path, frontend_dir, repo_root, args.courses, label)
+    html = build_standalone_html(template_path, frontend_dir, repo_root, courses, label)
     output_path.write_text(html, encoding="utf-8")
     out_mb = output_path.stat().st_size / (1024 * 1024)
     print(f"Wrote {output_path} ({out_mb:.1f} MB)", file=sys.stderr)
